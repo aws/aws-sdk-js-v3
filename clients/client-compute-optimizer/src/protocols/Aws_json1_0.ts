@@ -160,6 +160,7 @@ import {
   GetRecommendationPreferencesRequest,
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
+  InferredWorkloadSaving,
   InstanceRecommendation,
   InstanceRecommendationOption,
   InternalServerException,
@@ -2338,6 +2339,7 @@ const de_ECSServiceRecommendation = (output: any, context: __SerdeContext): ECSS
     lookbackPeriodInDays: __limitedParseDouble,
     serviceArn: __expectString,
     serviceRecommendationOptions: (_: any) => de_ECSServiceRecommendationOptions(_, context),
+    tags: _json,
     utilizationMetrics: (_: any) => de_ECSServiceUtilizationMetrics(_, context),
   }) as any;
 };
@@ -2599,6 +2601,28 @@ const de_GetRecommendationSummariesResponse = (
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0InferredWorkloadSaving
+ */
+const de_InferredWorkloadSaving = (output: any, context: __SerdeContext): InferredWorkloadSaving => {
+  return take(output, {
+    estimatedMonthlySavings: (_: any) => de_EstimatedMonthlySavings(_, context),
+    inferredWorkloadTypes: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0InferredWorkloadSavings
+ */
+const de_InferredWorkloadSavings = (output: any, context: __SerdeContext): InferredWorkloadSaving[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InferredWorkloadSaving(entry, context);
+    });
+  return retVal;
+};
+
 // de_InferredWorkloadTypes omitted.
 
 /**
@@ -2620,6 +2644,7 @@ const de_InstanceRecommendation = (output: any, context: __SerdeContext): Instan
     lookBackPeriodInDays: __limitedParseDouble,
     recommendationOptions: (_: any) => de_RecommendationOptions(_, context),
     recommendationSources: _json,
+    tags: _json,
     utilizationMetrics: (_: any) => de_UtilizationMetrics(_, context),
   }) as any;
 };
@@ -2732,6 +2757,7 @@ const de_LambdaFunctionRecommendation = (output: any, context: __SerdeContext): 
     lookbackPeriodInDays: __limitedParseDouble,
     memorySizeRecommendationOptions: (_: any) => de_LambdaFunctionMemoryRecommendationOptions(_, context),
     numberOfInvocations: __expectLong,
+    tags: _json,
     utilizationMetrics: (_: any) => de_LambdaFunctionUtilizationMetrics(_, context),
   }) as any;
 };
@@ -2923,6 +2949,7 @@ const de_RecommendationSummary = (output: any, context: __SerdeContext): Recomme
   return take(output, {
     accountId: __expectString,
     currentPerformanceRiskRatings: _json,
+    inferredWorkloadSavings: (_: any) => de_InferredWorkloadSavings(_, context),
     recommendationResourceType: __expectString,
     savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
     summaries: (_: any) => de_Summaries(_, context),
@@ -3001,6 +3028,10 @@ const de_Summary = (output: any, context: __SerdeContext): Summary => {
   }) as any;
 };
 
+// de_Tag omitted.
+
+// de_Tags omitted.
+
 // de_ThrottlingException omitted.
 
 /**
@@ -3053,6 +3084,7 @@ const de_VolumeRecommendation = (output: any, context: __SerdeContext): VolumeRe
     finding: __expectString,
     lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lookBackPeriodInDays: __limitedParseDouble,
+    tags: _json,
     utilizationMetrics: (_: any) => de_EBSUtilizationMetrics(_, context),
     volumeArn: __expectString,
     volumeRecommendationOptions: (_: any) => de_VolumeRecommendationOptions(_, context),

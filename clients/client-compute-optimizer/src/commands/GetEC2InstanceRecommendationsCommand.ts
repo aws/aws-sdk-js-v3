@@ -56,7 +56,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  *   maxResults: Number("int"),
  *   filters: [ // Filters
  *     { // Filter
- *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType",
+ *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType" || "InferredWorkloadTypes",
  *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],

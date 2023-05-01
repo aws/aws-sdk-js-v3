@@ -282,6 +282,7 @@ export const InferredWorkloadType = {
   NGINX: "Nginx",
   POSTGRE_SQL: "PostgreSql",
   REDIS: "Redis",
+  SQLSERVER: "SQLServer",
 } as const;
 
 /**
@@ -550,9 +551,8 @@ export interface SavingsOpportunity {
   savingsOpportunityPercentage?: number;
 
   /**
-   * <p>An object that describes the estimated monthly savings amount possible, based on
-   *             On-Demand instance pricing, by adopting Compute Optimizer recommendations for a given
-   *             resource.</p>
+   * <p>An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given
+   *             resource. This is based on the On-Demand instance pricing..</p>
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings;
 }
@@ -750,6 +750,16 @@ export interface AutoScalingGroupRecommendation {
    *                <p>
    *                   <code>Redis</code> - Infers that Redis might be running on the
    *                     instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Kafka</code> - Infers that Kafka might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SQLServer</code> - Infers that SQLServer might be running on the
+   *                     instance.</p>
    *             </li>
    *          </ul>
    */
@@ -1346,6 +1356,7 @@ export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
 export const FilterName = {
   FINDING: "Finding",
   FINDING_REASON_CODES: "FindingReasonCodes",
+  INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
   RECOMMENDATION_SOURCE_TYPE: "RecommendationSourceType",
 } as const;
 
@@ -1366,11 +1377,24 @@ export interface Filter {
   /**
    * <p>The name of the filter.</p>
    *          <p>Specify <code>Finding</code> to return recommendations with a specific finding
-   *             classification (for example, <code>Underprovisioned</code>).</p>
+   *             classification. For example, <code>Underprovisioned</code>.</p>
    *          <p>Specify <code>RecommendationSourceType</code> to return recommendations of a specific
-   *             resource type (for example, <code>Ec2Instance</code>).</p>
+   *             resource type. For example, <code>Ec2Instance</code>.</p>
    *          <p>Specify <code>FindingReasonCodes</code> to return recommendations with a specific
-   *             finding reason code (for example, <code>CPUUnderprovisioned</code>).</p>
+   *             finding reason code. For example, <code>CPUUnderprovisioned</code>.</p>
+   *          <p>Specify <code>InferredWorkloadTypes</code> to return recommendations of a specific
+   *             inferred workload. For example, <code>Redis</code>.</p>
+   *          <p>You can filter your EC2 instance recommendations by <code>tag:key</code> and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your recommendations. Use
+   *             this filter to find all of your recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
    */
   name?: FilterName | string;
 
@@ -1736,6 +1760,7 @@ export const ExportableVolumeField = {
   RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   ROOT_VOLUME: "RootVolume",
+  TAGS: "Tags",
   UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
   UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
   UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
@@ -1774,6 +1799,18 @@ export interface EBSFilter {
    * <p>The name of the filter.</p>
    *          <p>Specify <code>Finding</code> to return recommendations with a specific finding
    *             classification (for example, <code>NotOptimized</code>).</p>
+   *          <p>You can filter your Amazon EBS volume recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             Amazon EBS volume recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all Amazon EBS volume recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your Amazon EBS volume recommendations. Use
+   *             this filter to find all of your Amazon EBS volume recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your Amazon EBS volume recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
    */
   name?: EBSFilterName | string;
 
@@ -1920,6 +1957,7 @@ export const ExportableInstanceField = {
     "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
   RECOMMENDATION_OPTIONS_STORAGE: "RecommendationOptionsStorage",
   RECOMMENDATION_OPTIONS_VCPUS: "RecommendationOptionsVcpus",
+  TAGS: "Tags",
   UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
   UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadBytesPerSecondMaximum",
   UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadOpsPerSecondMaximum",
@@ -2058,6 +2096,7 @@ export const ExportableECSServiceField = {
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   SERVICE_ARN: "ServiceArn",
+  TAGS: "Tags",
   UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
 } as const;
@@ -2100,6 +2139,18 @@ export interface ECSServiceRecommendationFilter {
    *          <p>
    *             Specify <code>FindingReasonCode</code> to return recommendations with a specific finding reason code.
    *         </p>
+   *          <p>You can filter your Amazon ECS service recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             Amazon ECS service recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all Amazon ECS service recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your Amazon ECS service recommendations. Use
+   *             this filter to find all of your Amazon ECS service recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your Amazon ECS service recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
    */
   name?: ECSServiceRecommendationFilterName | string;
 
@@ -2245,6 +2296,7 @@ export const ExportableLambdaFunctionField = {
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND:
     "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  TAGS: "Tags",
   UTILIZATION_METRICS_DURATION_AVERAGE: "UtilizationMetricsDurationAverage",
   UTILIZATION_METRICS_DURATION_MAXIMUM: "UtilizationMetricsDurationMaximum",
   UTILIZATION_METRICS_MEMORY_AVERAGE: "UtilizationMetricsMemoryAverage",
@@ -2287,6 +2339,18 @@ export interface LambdaFunctionRecommendationFilter {
    *             classification (for example, <code>NotOptimized</code>).</p>
    *          <p>Specify <code>FindingReasonCode</code> to return recommendations with a specific
    *             finding reason code (for example, <code>MemoryUnderprovisioned</code>).</p>
+   *          <p>You can filter your Lambda function recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             Lambda function recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all Lambda function recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your Lambda function recommendations. Use
+   *             this filter to find all of your Lambda function recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your Lambda function recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
    */
   name?: LambdaFunctionRecommendationFilterName | string;
 
@@ -2591,6 +2655,30 @@ export type EBSFinding = (typeof EBSFinding)[keyof typeof EBSFinding];
 
 /**
  * @public
+ * <p>
+ *             A list of tag key and value pairs that you define.
+ *         </p>
+ */
+export interface Tag {
+  /**
+   * <p>
+   *             One part of a key-value pair that makes up a tag. A key is a general
+   *             label that acts like a category for more specific tag values.
+   *         </p>
+   */
+  key?: string;
+
+  /**
+   * <p>
+   *             One part of a key-value pair that make up a tag. A value acts as a descriptor
+   *             within a tag category (key). The value can be empty or null.
+   *         </p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const EBSMetricName = {
@@ -2777,6 +2865,13 @@ export interface VolumeRecommendation {
    *             capacity.</p>
    */
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Amazon EBS volume recommendations.
+   *         </p>
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -3253,7 +3348,7 @@ export interface InstanceRecommendation {
    *                     The instance’s EBS throughput configuration doesn't meet the performance
    *                     requirements of your workload and there is an alternative instance type that
    *                     provides better EBS throughput performance. This is identified by analyzing the
-   *                     <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code>> metrics of EBS
+   *                     <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code> metrics of EBS
    *                     volumes attached to the current instance during the look-back period.</p>
    *             </li>
    *             <li>
@@ -3460,6 +3555,11 @@ export interface InstanceRecommendation {
    *                   <code>Kafka</code> - Infers that Kafka might be running on the
    *                     instance.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SQLServer</code> - Infers that SQLServer might be running on the
+   *                     instance.</p>
+   *             </li>
    *          </ul>
    */
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
@@ -3470,6 +3570,13 @@ export interface InstanceRecommendation {
    *         </p>
    */
   instanceState?: InstanceState | string;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Amazon EC2 instance recommendations.
+   *         </p>
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -4374,6 +4481,13 @@ export interface ECSServiceRecommendation {
    *         </p>
    */
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Amazon ECS service recommendations.
+   *         </p>
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -4959,6 +5073,13 @@ export interface LambdaFunctionRecommendation {
    *             function requires more memory.</p>
    */
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Lambda function recommendations.
+   *         </p>
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -5147,6 +5268,77 @@ export interface CurrentPerformanceRiskRatings {
 
 /**
  * @public
+ * <p>
+ *             The estimated monthly savings after you adjust the configurations of your instances running on the
+ *             inferred workload types to the recommended configurations. If the <code>inferredWorkloadTypes</code>
+ *             list contains multiple entries, then the savings are the sum of the monthly savings from instances
+ *             that run the exact combination of the inferred workload types.
+ *         </p>
+ */
+export interface InferredWorkloadSaving {
+  /**
+   * <p>The applications that might be running on the instance as inferred by Compute Optimizer.</p>
+   *          <p>Compute Optimizer can infer if one of the following applications might be running on
+   *             the instance:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AmazonEmr</code> - Infers that Amazon EMR might be running on
+   *                     the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ApacheCassandra</code> - Infers that Apache Cassandra might be running
+   *                     on the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ApacheHadoop</code> - Infers that Apache Hadoop might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Memcached</code> - Infers that Memcached might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NGINX</code> - Infers that NGINX might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PostgreSql</code> - Infers that PostgreSQL might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Redis</code> - Infers that Redis might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Kafka</code> - Infers that Kafka might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SQLServer</code> - Infers that SQLServer might be running on the
+   *                     instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+
+  /**
+   * <p>An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given
+   *             resource. This is based on the On-Demand instance pricing.</p>
+   */
+  estimatedMonthlySavings?: EstimatedMonthlySavings;
+}
+
+/**
+ * @public
  * @enum
  */
 export const FindingReasonCode = {
@@ -5227,6 +5419,15 @@ export interface RecommendationSummary {
    *             type.</p>
    */
   currentPerformanceRiskRatings?: CurrentPerformanceRiskRatings;
+
+  /**
+   * <p>
+   *             An array of objects that describes the estimated monthly saving amounts for the instances running on the specified
+   *             <code>inferredWorkloadTypes</code>. The array contains the top three savings opportunites for the instances running
+   *             inferred workload types.
+   *         </p>
+   */
+  inferredWorkloadSavings?: InferredWorkloadSaving[];
 }
 
 /**
