@@ -1,5 +1,23 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.15.0 (2023-05-02)
+
+### Features
+
+* Add factory for aggregated clients ([#4639](https://github.com/aws/aws-sdk-js-v3/pull/4639))
+* Shorten serde code in protocols files ([#4625](https://github.com/aws/aws-sdk-js-v3/pull/4625))
+* Reduce generated HTTP request header code ([#4594](https://github.com/aws/aws-sdk-js-v3/pull/4594))
+* Add client api-extraction ([#4567](https://github.com/aws/aws-sdk-js-v3/pull/4567))
+* Reduce XML deserialization code size ([#4565](https://github.com/aws/aws-sdk-js-v3/pull/4565))
+* Add operations list to client README files ([#4478](https://github.com/aws/aws-sdk-js-v3/pull/4478))
+* Use generic client runtime config ([#4427](https://github.com/aws/aws-sdk-js-v3/pull/4427))
+
+### Bug Fixes
+
+* Fix jsonName deserialization on complex shapes ([#4670](https://github.com/aws/aws-sdk-js-v3/pull/4670))
+* Fix allowing idempotency token ([#4642](https://github.com/aws/aws-sdk-js-v3/pull/4642))
+* Fix missing dashes in client README files ([#4480](https://github.com/aws/aws-sdk-js-v3/pull/4480))
+
 ## 0.14.0 (2023-02-09)
 
 ## 0.13.0 (2023-01-31)
