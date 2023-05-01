@@ -94,6 +94,38 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWebACLResponse
+ *   WebACL: { // WebACL
+ *     WebACLId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     MetricName: "STRING_VALUE",
+ *     DefaultAction: { // WafAction
+ *       Type: "STRING_VALUE", // required
+ *     },
+ *     Rules: [ // ActivatedRules // required
+ *       { // ActivatedRule
+ *         Priority: Number("int"), // required
+ *         RuleId: "STRING_VALUE", // required
+ *         Action: {
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *         OverrideAction: { // WafOverrideAction
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *         Type: "STRING_VALUE",
+ *         ExcludedRules: [ // ExcludedRules
+ *           { // ExcludedRule
+ *             RuleId: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     WebACLArn: "STRING_VALUE",
+ *   },
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateWebACLCommandInput - {@link CreateWebACLCommandInput}
@@ -168,6 +200,8 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To create a web ACL
  * ```javascript

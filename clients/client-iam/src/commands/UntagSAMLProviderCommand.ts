@@ -50,6 +50,9 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagSAMLProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagSAMLProviderCommandInput - {@link UntagSAMLProviderCommandInput}
@@ -74,6 +77,8 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UntagSAMLProviderCommand extends $Command<

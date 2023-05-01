@@ -108,6 +108,9 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  * };
  * const command = new RevokePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokePermissionsCommandInput - {@link RevokePermissionsCommandInput}
@@ -125,6 +128,8 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class RevokePermissionsCommand extends $Command<

@@ -45,6 +45,9 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * };
  * const command = new DeleteDetectorModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDetectorModelCommandInput - {@link DeleteDetectorModelCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DeleteDetectorModelCommand extends $Command<

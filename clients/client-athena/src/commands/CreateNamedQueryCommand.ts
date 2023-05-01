@@ -53,6 +53,11 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  * };
  * const command = new CreateNamedQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNamedQueryOutput
+ *   NamedQueryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateNamedQueryCommandInput - {@link CreateNamedQueryCommandInput}
@@ -69,6 +74,8 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreateNamedQueryCommand extends $Command<

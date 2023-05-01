@@ -57,6 +57,22 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * };
  * const command = new ModifyTransitGatewayPrefixListReferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTransitGatewayPrefixListReferenceResult
+ *   TransitGatewayPrefixListReference: { // TransitGatewayPrefixListReference
+ *     TransitGatewayRouteTableId: "STRING_VALUE",
+ *     PrefixListId: "STRING_VALUE",
+ *     PrefixListOwnerId: "STRING_VALUE",
+ *     State: "pending" || "available" || "modifying" || "deleting",
+ *     Blackhole: true || false,
+ *     TransitGatewayAttachment: { // TransitGatewayPrefixListAttachment
+ *       TransitGatewayAttachmentId: "STRING_VALUE",
+ *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ *       ResourceId: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyTransitGatewayPrefixListReferenceCommandInput - {@link ModifyTransitGatewayPrefixListReferenceCommandInput}
@@ -65,6 +81,8 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<

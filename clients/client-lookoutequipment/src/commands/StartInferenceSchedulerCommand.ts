@@ -44,6 +44,15 @@ export interface StartInferenceSchedulerCommandOutput extends StartInferenceSche
  * };
  * const command = new StartInferenceSchedulerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartInferenceSchedulerResponse
+ *   ModelArn: "STRING_VALUE",
+ *   ModelName: "STRING_VALUE",
+ *   InferenceSchedulerName: "STRING_VALUE",
+ *   InferenceSchedulerArn: "STRING_VALUE",
+ *   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * };
+ *
  * ```
  *
  * @param StartInferenceSchedulerCommandInput - {@link StartInferenceSchedulerCommandInput}
@@ -75,6 +84,8 @@ export interface StartInferenceSchedulerCommandOutput extends StartInferenceSche
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class StartInferenceSchedulerCommand extends $Command<

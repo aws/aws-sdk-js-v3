@@ -61,6 +61,33 @@ export interface CreateRobotApplicationCommandOutput extends CreateRobotApplicat
  * };
  * const command = new CreateRobotApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRobotApplicationResponse
+ *   arn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   version: "STRING_VALUE",
+ *   sources: [ // Sources
+ *     { // Source
+ *       s3Bucket: "STRING_VALUE",
+ *       s3Key: "STRING_VALUE",
+ *       etag: "STRING_VALUE",
+ *       architecture: "STRING_VALUE",
+ *     },
+ *   ],
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   lastUpdatedAt: new Date("TIMESTAMP"),
+ *   revisionId: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   environment: { // Environment
+ *     uri: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRobotApplicationCommandInput - {@link CreateRobotApplicationCommandInput}
@@ -90,6 +117,8 @@ export interface CreateRobotApplicationCommandOutput extends CreateRobotApplicat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateRobotApplicationCommand extends $Command<

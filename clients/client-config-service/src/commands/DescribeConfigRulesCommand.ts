@@ -50,6 +50,52 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * };
  * const command = new DescribeConfigRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigRulesResponse
+ *   ConfigRules: [ // ConfigRules
+ *     { // ConfigRule
+ *       ConfigRuleName: "STRING_VALUE",
+ *       ConfigRuleArn: "STRING_VALUE",
+ *       ConfigRuleId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Scope: { // Scope
+ *         ComplianceResourceTypes: [ // ComplianceResourceTypes
+ *           "STRING_VALUE",
+ *         ],
+ *         TagKey: "STRING_VALUE",
+ *         TagValue: "STRING_VALUE",
+ *         ComplianceResourceId: "STRING_VALUE",
+ *       },
+ *       Source: { // Source
+ *         Owner: "CUSTOM_LAMBDA" || "AWS" || "CUSTOM_POLICY", // required
+ *         SourceIdentifier: "STRING_VALUE",
+ *         SourceDetails: [ // SourceDetails
+ *           { // SourceDetail
+ *             EventSource: "aws.config",
+ *             MessageType: "ConfigurationItemChangeNotification" || "ConfigurationSnapshotDeliveryCompleted" || "ScheduledNotification" || "OversizedConfigurationItemChangeNotification",
+ *             MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *           },
+ *         ],
+ *         CustomPolicyDetails: { // CustomPolicyDetails
+ *           PolicyRuntime: "STRING_VALUE", // required
+ *           PolicyText: "STRING_VALUE", // required
+ *           EnableDebugLogDelivery: true || false,
+ *         },
+ *       },
+ *       InputParameters: "STRING_VALUE",
+ *       MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *       ConfigRuleState: "ACTIVE" || "DELETING" || "DELETING_RESULTS" || "EVALUATING",
+ *       CreatedBy: "STRING_VALUE",
+ *       EvaluationModes: [ // EvaluationModes
+ *         { // EvaluationModeConfiguration
+ *           Mode: "DETECTIVE" || "PROACTIVE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeConfigRulesCommandInput - {@link DescribeConfigRulesCommandInput}
@@ -70,6 +116,8 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConfigRulesCommand extends $Command<

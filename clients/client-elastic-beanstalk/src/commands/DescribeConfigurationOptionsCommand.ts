@@ -58,6 +58,32 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * };
  * const command = new DescribeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationOptionsDescription
+ *   SolutionStackName: "STRING_VALUE",
+ *   PlatformArn: "STRING_VALUE",
+ *   Options: [ // ConfigurationOptionDescriptionsList
+ *     { // ConfigurationOptionDescription
+ *       Namespace: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       DefaultValue: "STRING_VALUE",
+ *       ChangeSeverity: "STRING_VALUE",
+ *       UserDefined: true || false,
+ *       ValueType: "Scalar" || "List",
+ *       ValueOptions: [ // ConfigurationOptionPossibleValues
+ *         "STRING_VALUE",
+ *       ],
+ *       MinValue: Number("int"),
+ *       MaxValue: Number("int"),
+ *       MaxLength: Number("int"),
+ *       Regex: { // OptionRestrictionRegex
+ *         Pattern: "STRING_VALUE",
+ *         Label: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationOptionsCommandInput - {@link DescribeConfigurationOptionsCommandInput}
@@ -69,6 +95,8 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view configuration options for an environment
  * ```javascript

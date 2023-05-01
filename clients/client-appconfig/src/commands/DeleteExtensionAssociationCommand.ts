@@ -45,6 +45,9 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteExtensionAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteExtensionAssociationCommandInput - {@link DeleteExtensionAssociationCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class DeleteExtensionAssociationCommand extends $Command<

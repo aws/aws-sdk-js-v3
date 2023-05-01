@@ -59,6 +59,22 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * };
  * const command = new GetIpamPoolAllocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIpamPoolAllocationsResult
+ *   IpamPoolAllocations: [ // IpamPoolAllocationSet
+ *     { // IpamPoolAllocation
+ *       Cidr: "STRING_VALUE",
+ *       IpamPoolAllocationId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *       ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom",
+ *       ResourceRegion: "STRING_VALUE",
+ *       ResourceOwner: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetIpamPoolAllocationsCommandInput - {@link GetIpamPoolAllocationsCommandInput}
@@ -67,6 +83,8 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * @see {@link GetIpamPoolAllocationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetIpamPoolAllocationsCommand extends $Command<

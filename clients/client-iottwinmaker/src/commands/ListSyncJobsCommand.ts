@@ -46,6 +46,27 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  * };
  * const command = new ListSyncJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSyncJobsResponse
+ *   syncJobSummaries: [ // SyncJobSummaries
+ *     { // SyncJobSummary
+ *       arn: "STRING_VALUE",
+ *       workspaceId: "STRING_VALUE",
+ *       syncSource: "STRING_VALUE",
+ *       status: { // SyncJobStatus
+ *         state: "STRING_VALUE",
+ *         error: { // ErrorDetails
+ *           code: "STRING_VALUE",
+ *           message: "STRING_VALUE",
+ *         },
+ *       },
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       updateDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSyncJobsCommandInput - {@link ListSyncJobsCommandInput}
@@ -69,6 +90,8 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListSyncJobsCommand extends $Command<

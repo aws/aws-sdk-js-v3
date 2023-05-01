@@ -49,6 +49,21 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * };
  * const command = new BatchDeleteClusterSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteClusterSnapshotsResult
+ *   Resources: [ // SnapshotIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ *   Errors: [ // BatchSnapshotOperationErrorList
+ *     { // SnapshotErrorMessage
+ *       SnapshotIdentifier: "STRING_VALUE",
+ *       SnapshotClusterIdentifier: "STRING_VALUE",
+ *       FailureCode: "STRING_VALUE",
+ *       FailureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteClusterSnapshotsCommandInput - {@link BatchDeleteClusterSnapshotsCommandInput}
@@ -61,6 +76,8 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  *  <p>The maximum number for a batch delete of snapshots has been reached. The limit is
  *             100. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class BatchDeleteClusterSnapshotsCommand extends $Command<

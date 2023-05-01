@@ -51,6 +51,9 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * };
  * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddClientIDToOpenIDConnectProviderCommandInput - {@link AddClientIDToOpenIDConnectProviderCommandInput}
@@ -75,6 +78,8 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To add a client ID (audience) to an Open-ID Connect (OIDC) provider
  * ```javascript

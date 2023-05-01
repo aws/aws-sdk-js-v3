@@ -46,6 +46,17 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * };
  * const command = new ListTaskExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTaskExecutionsResponse
+ *   TaskExecutions: [ // TaskExecutionList
+ *     { // TaskExecutionListEntry
+ *       TaskExecutionArn: "STRING_VALUE",
+ *       Status: "QUEUED" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTaskExecutionsCommandInput - {@link ListTaskExecutionsCommandInput}
@@ -61,6 +72,8 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListTaskExecutionsCommand extends $Command<

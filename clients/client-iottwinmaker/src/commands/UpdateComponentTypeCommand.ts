@@ -139,6 +139,14 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  * };
  * const command = new UpdateComponentTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateComponentTypeResponse
+ *   workspaceId: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   componentTypeId: "STRING_VALUE", // required
+ *   state: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateComponentTypeCommandInput - {@link UpdateComponentTypeCommandInput}
@@ -165,6 +173,8 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdateComponentTypeCommand extends $Command<

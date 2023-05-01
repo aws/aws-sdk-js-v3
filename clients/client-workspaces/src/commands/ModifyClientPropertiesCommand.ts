@@ -48,6 +48,9 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * };
  * const command = new ModifyClientPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyClientPropertiesCommandInput - {@link ModifyClientPropertiesCommandInput}
@@ -65,6 +68,8 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyClientPropertiesCommand extends $Command<

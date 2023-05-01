@@ -53,6 +53,34 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * };
  * const command = new SearchProductsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchProductsOutput
+ *   ProductViewSummaries: [ // ProductViewSummaries
+ *     { // ProductViewSummary
+ *       Id: "STRING_VALUE",
+ *       ProductId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Owner: "STRING_VALUE",
+ *       ShortDescription: "STRING_VALUE",
+ *       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
+ *       Distributor: "STRING_VALUE",
+ *       HasDefaultPath: true || false,
+ *       SupportEmail: "STRING_VALUE",
+ *       SupportDescription: "STRING_VALUE",
+ *       SupportUrl: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ProductViewAggregations: { // ProductViewAggregations
+ *     "<keys>": [ // ProductViewAggregationValues
+ *       { // ProductViewAggregationValue
+ *         Value: "STRING_VALUE",
+ *         ApproximateCount: Number("int"),
+ *       },
+ *     ],
+ *   },
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchProductsCommandInput - {@link SearchProductsCommandInput}
@@ -64,6 +92,8 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class SearchProductsCommand extends $Command<

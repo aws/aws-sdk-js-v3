@@ -58,6 +58,9 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * };
  * const command = new UpdateRumMetricDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRumMetricDefinitionCommandInput - {@link UpdateRumMetricDefinitionCommandInput}
@@ -87,6 +90,8 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class UpdateRumMetricDefinitionCommand extends $Command<

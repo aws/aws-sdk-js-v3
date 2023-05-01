@@ -47,6 +47,29 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * const input = {};
  * const command = new ListCuratedEnvironmentImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCuratedEnvironmentImagesOutput
+ *   platforms: [ // EnvironmentPlatforms
+ *     { // EnvironmentPlatform
+ *       platform: "STRING_VALUE",
+ *       languages: [ // EnvironmentLanguages
+ *         { // EnvironmentLanguage
+ *           language: "STRING_VALUE",
+ *           images: [ // EnvironmentImages
+ *             { // EnvironmentImage
+ *               name: "STRING_VALUE",
+ *               description: "STRING_VALUE",
+ *               versions: [ // ImageVersions
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCuratedEnvironmentImagesCommandInput - {@link ListCuratedEnvironmentImagesCommandInput}
@@ -55,6 +78,8 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * @see {@link ListCuratedEnvironmentImagesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListCuratedEnvironmentImagesCommand extends $Command<

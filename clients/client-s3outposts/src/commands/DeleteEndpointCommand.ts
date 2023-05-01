@@ -62,6 +62,9 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
@@ -88,6 +91,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this data.</p>
  *
+ * @throws {@link S3OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
  */
 export class DeleteEndpointCommand extends $Command<

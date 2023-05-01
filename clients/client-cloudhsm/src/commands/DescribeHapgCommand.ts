@@ -54,6 +54,27 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * };
  * const command = new DescribeHapgCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHapgResponse
+ *   HapgArn: "STRING_VALUE",
+ *   HapgSerial: "STRING_VALUE",
+ *   HsmsLastActionFailed: [ // HsmList
+ *     "STRING_VALUE",
+ *   ],
+ *   HsmsPendingDeletion: [
+ *     "STRING_VALUE",
+ *   ],
+ *   HsmsPendingRegistration: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Label: "STRING_VALUE",
+ *   LastModifiedTimestamp: "STRING_VALUE",
+ *   PartitionSerialList: [ // PartitionSerialList
+ *     "STRING_VALUE",
+ *   ],
+ *   State: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeHapgCommandInput - {@link DescribeHapgCommandInput}
@@ -71,6 +92,8 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DescribeHapgCommand extends $Command<

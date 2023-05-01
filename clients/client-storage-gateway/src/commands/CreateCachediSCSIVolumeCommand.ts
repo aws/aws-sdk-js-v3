@@ -75,6 +75,12 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * };
  * const command = new CreateCachediSCSIVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCachediSCSIVolumeOutput
+ *   VolumeARN: "STRING_VALUE",
+ *   TargetARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCachediSCSIVolumeCommandInput - {@link CreateCachediSCSIVolumeCommandInput}
@@ -91,6 +97,8 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To create a cached iSCSI volume
  * ```javascript

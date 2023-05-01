@@ -55,6 +55,19 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * };
  * const command = new ListAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttributesResponse
+ *   attributes: [ // Attributes
+ *     { // Attribute
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *       targetType: "container-instance",
+ *       targetId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAttributesCommandInput - {@link ListAttributesCommandInput}
@@ -70,6 +83,8 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class ListAttributesCommand extends $Command<

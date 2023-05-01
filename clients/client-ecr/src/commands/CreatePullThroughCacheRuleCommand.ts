@@ -47,6 +47,14 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * };
  * const command = new CreatePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePullThroughCacheRuleResponse
+ *   ecrRepositoryPrefix: "STRING_VALUE",
+ *   upstreamRegistryUrl: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   registryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreatePullThroughCacheRuleCommandInput - {@link CreatePullThroughCacheRuleCommandInput}
@@ -77,6 +85,8 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class CreatePullThroughCacheRuleCommand extends $Command<

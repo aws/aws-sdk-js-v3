@@ -44,6 +44,19 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * };
  * const command = new ListResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcePoliciesResult
+ *   ResourcePolicies: [ // ResourcePolicyList
+ *     { // ResourcePolicy
+ *       PolicyName: "STRING_VALUE",
+ *       PolicyDocument: "STRING_VALUE",
+ *       PolicyRevisionId: "STRING_VALUE",
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListResourcePoliciesCommandInput - {@link ListResourcePoliciesCommandInput}
@@ -58,6 +71,8 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class ListResourcePoliciesCommand extends $Command<

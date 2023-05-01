@@ -44,6 +44,15 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * const input = {};
  * const command = new GetNamespaceDeletionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNamespaceDeletionStatusResponse
+ *   namespaceArn: "STRING_VALUE",
+ *   namespaceName: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   errorCode: "STRING_VALUE",
+ *   errorMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetNamespaceDeletionStatusCommandInput - {@link GetNamespaceDeletionStatusCommandInput}
@@ -61,6 +70,8 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetNamespaceDeletionStatusCommand extends $Command<

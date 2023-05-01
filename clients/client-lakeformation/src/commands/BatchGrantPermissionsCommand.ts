@@ -113,6 +113,85 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * };
  * const command = new BatchGrantPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGrantPermissionsResponse
+ *   Failures: [ // BatchPermissionsFailureList
+ *     { // BatchPermissionsFailureEntry
+ *       RequestEntry: { // BatchPermissionsRequestEntry
+ *         Id: "STRING_VALUE", // required
+ *         Principal: { // DataLakePrincipal
+ *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         },
+ *         Resource: { // Resource
+ *           Catalog: {},
+ *           Database: { // DatabaseResource
+ *             CatalogId: "STRING_VALUE",
+ *             Name: "STRING_VALUE", // required
+ *           },
+ *           Table: { // TableResource
+ *             CatalogId: "STRING_VALUE",
+ *             DatabaseName: "STRING_VALUE", // required
+ *             Name: "STRING_VALUE",
+ *             TableWildcard: {},
+ *           },
+ *           TableWithColumns: { // TableWithColumnsResource
+ *             CatalogId: "STRING_VALUE",
+ *             DatabaseName: "STRING_VALUE", // required
+ *             Name: "STRING_VALUE", // required
+ *             ColumnNames: [ // ColumnNames
+ *               "STRING_VALUE",
+ *             ],
+ *             ColumnWildcard: { // ColumnWildcard
+ *               ExcludedColumnNames: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           },
+ *           DataLocation: { // DataLocationResource
+ *             CatalogId: "STRING_VALUE",
+ *             ResourceArn: "STRING_VALUE", // required
+ *           },
+ *           DataCellsFilter: { // DataCellsFilterResource
+ *             TableCatalogId: "STRING_VALUE",
+ *             DatabaseName: "STRING_VALUE",
+ *             TableName: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *           },
+ *           LFTag: { // LFTagKeyResource
+ *             CatalogId: "STRING_VALUE",
+ *             TagKey: "STRING_VALUE", // required
+ *             TagValues: [ // TagValueList // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           LFTagPolicy: { // LFTagPolicyResource
+ *             CatalogId: "STRING_VALUE",
+ *             ResourceType: "DATABASE" || "TABLE", // required
+ *             Expression: [ // Expression // required
+ *               { // LFTag
+ *                 TagKey: "STRING_VALUE", // required
+ *                 TagValues: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         Permissions: [ // PermissionList
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *         ],
+ *         PermissionsWithGrantOption: [
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *         ],
+ *       },
+ *       Error: { // ErrorDetail
+ *         ErrorCode: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGrantPermissionsCommandInput - {@link BatchGrantPermissionsCommandInput}
@@ -127,6 +206,8 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class BatchGrantPermissionsCommand extends $Command<

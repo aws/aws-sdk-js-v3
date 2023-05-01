@@ -45,6 +45,9 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * };
  * const command = new DisassociateSkillFromUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateSkillFromUsersCommandInput - {@link DisassociateSkillFromUsersCommandInput}
@@ -59,6 +62,8 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateSkillFromUsersCommand extends $Command<

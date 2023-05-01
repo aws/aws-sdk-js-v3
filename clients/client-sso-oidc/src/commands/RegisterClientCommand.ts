@@ -49,6 +49,16 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * };
  * const command = new RegisterClientCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterClientResponse
+ *   clientId: "STRING_VALUE",
+ *   clientSecret: "STRING_VALUE",
+ *   clientIdIssuedAt: Number("long"),
+ *   clientSecretExpiresAt: Number("long"),
+ *   authorizationEndpoint: "STRING_VALUE",
+ *   tokenEndpoint: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterClientCommandInput - {@link RegisterClientCommandInput}
@@ -72,6 +82,8 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @throws {@link InvalidScopeException} (client fault)
  *  <p>Indicates that the scope provided in the request is invalid.</p>
  *
+ * @throws {@link SSOOIDCServiceException}
+ * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
  */
 export class RegisterClientCommand extends $Command<

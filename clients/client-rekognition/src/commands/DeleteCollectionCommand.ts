@@ -48,6 +48,11 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCollectionResponse
+ *   StatusCode: Number("int"),
+ * };
+ *
  * ```
  *
  * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
@@ -76,6 +81,8 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To delete a collection
  * ```javascript

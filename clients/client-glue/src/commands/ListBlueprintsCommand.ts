@@ -48,6 +48,14 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * };
  * const command = new ListBlueprintsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBlueprintsResponse
+ *   Blueprints: [ // BlueprintNames
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBlueprintsCommandInput - {@link ListBlueprintsCommandInput}
@@ -65,6 +73,8 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListBlueprintsCommand extends $Command<

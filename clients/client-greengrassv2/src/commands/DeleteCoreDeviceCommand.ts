@@ -47,6 +47,9 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCoreDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCoreDeviceCommandInput - {@link DeleteCoreDeviceCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class DeleteCoreDeviceCommand extends $Command<

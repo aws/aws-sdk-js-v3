@@ -46,6 +46,19 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * };
  * const command = new DescribeConnectClientAddInsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConnectClientAddInsResult
+ *   AddIns: [ // ConnectClientAddInList
+ *     { // ConnectClientAddIn
+ *       AddInId: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       URL: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeConnectClientAddInsCommandInput - {@link DescribeConnectClientAddInsCommandInput}
@@ -63,6 +76,8 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeConnectClientAddInsCommand extends $Command<

@@ -44,6 +44,16 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * };
  * const command = new GetFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFleetResponse
+ *   id: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   signalCatalogArn: "STRING_VALUE", // required
+ *   creationTime: new Date("TIMESTAMP"), // required
+ *   lastModificationTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param GetFleetCommandInput - {@link GetFleetCommandInput}
@@ -67,6 +77,8 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetFleetCommand extends $Command<

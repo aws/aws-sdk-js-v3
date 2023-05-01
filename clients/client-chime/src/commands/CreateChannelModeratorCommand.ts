@@ -72,6 +72,15 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * };
  * const command = new CreateChannelModeratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelModeratorResponse
+ *   ChannelArn: "STRING_VALUE",
+ *   ChannelModerator: { // Identity
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateChannelModeratorCommandInput - {@link CreateChannelModeratorCommandInput}
@@ -105,6 +114,8 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateChannelModeratorCommand extends $Command<

@@ -50,6 +50,17 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  * };
  * const command = new RemoveAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveAttributesResponse
+ *   AttributesResource: { // AttributesResource
+ *     ApplicationId: "STRING_VALUE", // required
+ *     AttributeType: "STRING_VALUE", // required
+ *     Attributes: [ // ListOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param RemoveAttributesCommandInput - {@link RemoveAttributesCommandInput}
@@ -79,6 +90,8 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class RemoveAttributesCommand extends $Command<

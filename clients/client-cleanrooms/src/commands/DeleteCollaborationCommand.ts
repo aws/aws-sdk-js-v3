@@ -44,6 +44,9 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * };
  * const command = new DeleteCollaborationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCollaborationCommandInput - {@link DeleteCollaborationCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteCollaborationCommand extends $Command<

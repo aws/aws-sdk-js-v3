@@ -124,6 +124,11 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * };
  * const command = new CreateLayerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLayerResult
+ *   LayerId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLayerCommandInput - {@link CreateLayerCommandInput}
@@ -138,6 +143,8 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateLayerCommand extends $Command<

@@ -47,6 +47,11 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAppResponse
+ *   appArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
@@ -74,6 +79,8 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppCommand extends $Command<

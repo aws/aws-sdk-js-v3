@@ -46,6 +46,11 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * };
  * const command = new CreateExclusionsPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExclusionsPreviewResponse
+ *   previewToken: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateExclusionsPreviewCommandInput - {@link CreateExclusionsPreviewCommandInput}
@@ -75,6 +80,8 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class CreateExclusionsPreviewCommand extends $Command<

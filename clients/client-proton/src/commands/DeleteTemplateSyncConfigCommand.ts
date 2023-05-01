@@ -45,6 +45,18 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * };
  * const command = new DeleteTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTemplateSyncConfigOutput
+ *   templateSyncConfig: { // TemplateSyncConfig
+ *     templateName: "STRING_VALUE", // required
+ *     templateType: "STRING_VALUE", // required
+ *     repositoryProvider: "STRING_VALUE", // required
+ *     repositoryName: "STRING_VALUE", // required
+ *     branch: "STRING_VALUE", // required
+ *     subdirectory: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteTemplateSyncConfigCommandInput - {@link DeleteTemplateSyncConfigCommandInput}
@@ -71,6 +83,8 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteTemplateSyncConfigCommand extends $Command<

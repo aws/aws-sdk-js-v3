@@ -56,6 +56,12 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * };
  * const command = new UpdateGatewayInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGatewayInformationOutput
+ *   GatewayARN: "STRING_VALUE",
+ *   GatewayName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateGatewayInformationCommandInput - {@link UpdateGatewayInformationCommandInput}
@@ -72,6 +78,8 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update a gateway's metadata
  * ```javascript

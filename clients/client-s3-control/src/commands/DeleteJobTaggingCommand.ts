@@ -70,6 +70,9 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * };
  * const command = new DeleteJobTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteJobTaggingCommandInput - {@link DeleteJobTaggingCommandInput}
@@ -87,6 +90,8 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class DeleteJobTaggingCommand extends $Command<

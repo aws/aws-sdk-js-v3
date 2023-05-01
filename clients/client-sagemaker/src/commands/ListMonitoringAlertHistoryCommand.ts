@@ -52,6 +52,19 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * };
  * const command = new ListMonitoringAlertHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitoringAlertHistoryResponse
+ *   MonitoringAlertHistory: [ // MonitoringAlertHistoryList
+ *     { // MonitoringAlertHistorySummary
+ *       MonitoringScheduleName: "STRING_VALUE", // required
+ *       MonitoringAlertName: "STRING_VALUE", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *       AlertStatus: "InAlert" || "OK", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMonitoringAlertHistoryCommandInput - {@link ListMonitoringAlertHistoryCommandInput}
@@ -63,6 +76,8 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListMonitoringAlertHistoryCommand extends $Command<

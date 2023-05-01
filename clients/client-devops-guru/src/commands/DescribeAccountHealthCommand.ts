@@ -44,6 +44,15 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  * const input = {};
  * const command = new DescribeAccountHealthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountHealthResponse
+ *   OpenReactiveInsights: Number("int"), // required
+ *   OpenProactiveInsights: Number("int"), // required
+ *   MetricsAnalyzed: Number("int"), // required
+ *   ResourceHours: Number("long"), // required
+ *   AnalyzedResourceCount: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DescribeAccountHealthCommandInput - {@link DescribeAccountHealthCommandInput}
@@ -68,6 +77,8 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeAccountHealthCommand extends $Command<

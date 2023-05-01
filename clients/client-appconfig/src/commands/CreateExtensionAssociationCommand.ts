@@ -64,6 +64,18 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * };
  * const command = new CreateExtensionAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExtensionAssociation
+ *   Id: "STRING_VALUE",
+ *   ExtensionArn: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   Parameters: { // ParameterValueMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ExtensionVersionNumber: Number("int"),
+ * };
+ *
  * ```
  *
  * @param CreateExtensionAssociationCommandInput - {@link CreateExtensionAssociationCommandInput}
@@ -84,6 +96,8 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class CreateExtensionAssociationCommand extends $Command<

@@ -59,6 +59,17 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * };
  * const command = new CreateHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HostedConfigurationVersion
+ *   ApplicationId: "STRING_VALUE",
+ *   ConfigurationProfileId: "STRING_VALUE",
+ *   VersionNumber: Number("int"),
+ *   Description: "STRING_VALUE",
+ *   Content: "BLOB_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   VersionLabel: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateHostedConfigurationVersionCommandInput - {@link CreateHostedConfigurationVersionCommandInput}
@@ -86,6 +97,8 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To create a hosted configuration version
  * ```javascript

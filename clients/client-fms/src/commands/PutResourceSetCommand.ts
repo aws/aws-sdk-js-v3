@@ -61,6 +61,22 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * };
  * const command = new PutResourceSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourceSetResponse
+ *   ResourceSet: { // ResourceSet
+ *     Id: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     UpdateToken: "STRING_VALUE",
+ *     ResourceTypeList: [ // ResourceTypeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *   },
+ *   ResourceSetArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param PutResourceSetCommandInput - {@link PutResourceSetCommandInput}
@@ -89,6 +105,8 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutResourceSetCommand extends $Command<

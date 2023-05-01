@@ -54,6 +54,13 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * };
  * const command = new ListVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVoiceConnectorTerminationCredentialsResponse
+ *   Usernames: [ // SensitiveStringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVoiceConnectorTerminationCredentialsCommandInput - {@link ListVoiceConnectorTerminationCredentialsCommandInput}
@@ -83,6 +90,8 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<

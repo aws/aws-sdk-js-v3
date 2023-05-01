@@ -53,6 +53,15 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  * };
  * const command = new CreateSmsTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSmsTemplateResponse
+ *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ *     Arn: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSmsTemplateCommandInput - {@link CreateSmsTemplateCommandInput}
@@ -76,6 +85,8 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateSmsTemplateCommand extends $Command<

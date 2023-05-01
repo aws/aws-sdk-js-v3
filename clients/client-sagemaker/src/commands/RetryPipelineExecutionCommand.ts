@@ -48,6 +48,11 @@ export interface RetryPipelineExecutionCommandOutput extends RetryPipelineExecut
  * };
  * const command = new RetryPipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RetryPipelineExecutionResponse
+ *   PipelineExecutionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RetryPipelineExecutionCommandInput - {@link RetryPipelineExecutionCommandInput}
@@ -67,6 +72,8 @@ export interface RetryPipelineExecutionCommandOutput extends RetryPipelineExecut
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class RetryPipelineExecutionCommand extends $Command<

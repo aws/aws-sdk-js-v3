@@ -47,6 +47,9 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
@@ -67,6 +70,8 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class CreateTagsCommand extends $Command<

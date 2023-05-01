@@ -54,6 +54,29 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  * };
  * const command = new ListWirelessGatewayTaskDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWirelessGatewayTaskDefinitionsResponse
+ *   NextToken: "STRING_VALUE",
+ *   TaskDefinitions: [ // WirelessGatewayTaskDefinitionList
+ *     { // UpdateWirelessGatewayTaskEntry
+ *       Id: "STRING_VALUE",
+ *       LoRaWAN: { // LoRaWANUpdateGatewayTaskEntry
+ *         CurrentVersion: { // LoRaWANGatewayVersion
+ *           PackageVersion: "STRING_VALUE",
+ *           Model: "STRING_VALUE",
+ *           Station: "STRING_VALUE",
+ *         },
+ *         UpdateVersion: {
+ *           PackageVersion: "STRING_VALUE",
+ *           Model: "STRING_VALUE",
+ *           Station: "STRING_VALUE",
+ *         },
+ *       },
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWirelessGatewayTaskDefinitionsCommandInput - {@link ListWirelessGatewayTaskDefinitionsCommandInput}
@@ -74,6 +97,8 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<

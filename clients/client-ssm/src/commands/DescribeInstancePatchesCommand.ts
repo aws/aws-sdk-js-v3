@@ -55,6 +55,22 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * };
  * const command = new DescribeInstancePatchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstancePatchesResult
+ *   Patches: [ // PatchComplianceDataList
+ *     { // PatchComplianceData
+ *       Title: "STRING_VALUE", // required
+ *       KBId: "STRING_VALUE", // required
+ *       Classification: "STRING_VALUE", // required
+ *       Severity: "STRING_VALUE", // required
+ *       State: "INSTALLED" || "INSTALLED_OTHER" || "INSTALLED_PENDING_REBOOT" || "INSTALLED_REJECTED" || "MISSING" || "NOT_APPLICABLE" || "FAILED", // required
+ *       InstalledTime: new Date("TIMESTAMP"), // required
+ *       CVEIds: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeInstancePatchesCommandInput - {@link DescribeInstancePatchesCommandInput}
@@ -92,6 +108,8 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeInstancePatchesCommand extends $Command<

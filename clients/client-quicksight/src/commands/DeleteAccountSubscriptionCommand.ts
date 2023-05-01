@@ -44,6 +44,12 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * };
  * const command = new DeleteAccountSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAccountSubscriptionResponse
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param DeleteAccountSubscriptionCommandInput - {@link DeleteAccountSubscriptionCommandInput}
@@ -76,6 +82,8 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteAccountSubscriptionCommand extends $Command<

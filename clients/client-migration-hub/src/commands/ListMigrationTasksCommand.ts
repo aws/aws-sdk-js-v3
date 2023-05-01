@@ -59,6 +59,21 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * };
  * const command = new ListMigrationTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMigrationTasksResult
+ *   NextToken: "STRING_VALUE",
+ *   MigrationTaskSummaryList: [ // MigrationTaskSummaryList
+ *     { // MigrationTaskSummary
+ *       ProgressUpdateStream: "STRING_VALUE",
+ *       MigrationTaskName: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       ProgressPercent: Number("int"),
+ *       StatusDetail: "STRING_VALUE",
+ *       UpdateDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMigrationTasksCommandInput - {@link ListMigrationTasksCommandInput}
@@ -98,6 +113,8 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListMigrationTasksCommand extends $Command<

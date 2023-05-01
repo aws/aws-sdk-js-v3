@@ -44,6 +44,9 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * };
  * const command = new DeleteWaveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWaveCommandInput - {@link DeleteWaveCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteWaveCommand extends $Command<

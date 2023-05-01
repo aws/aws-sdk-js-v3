@@ -47,6 +47,19 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInvitationsResponse
+ *   Invitations: [ // InvitationList
+ *     { // Invitation
+ *       AccountId: "STRING_VALUE",
+ *       InvitationId: "STRING_VALUE",
+ *       InvitedAt: new Date("TIMESTAMP"),
+ *       MemberStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
@@ -69,6 +82,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To list membership invitations to calling account
  * ```javascript

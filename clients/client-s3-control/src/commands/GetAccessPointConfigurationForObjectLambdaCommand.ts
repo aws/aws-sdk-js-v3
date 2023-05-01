@@ -64,6 +64,30 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
  * };
  * const command = new GetAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessPointConfigurationForObjectLambdaResult
+ *   Configuration: { // ObjectLambdaConfiguration
+ *     SupportingAccessPoint: "STRING_VALUE", // required
+ *     CloudWatchMetricsEnabled: true || false,
+ *     AllowedFeatures: [ // ObjectLambdaAllowedFeaturesList
+ *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
+ *     ],
+ *     TransformationConfigurations: [ // ObjectLambdaTransformationConfigurationsList // required
+ *       { // ObjectLambdaTransformationConfiguration
+ *         Actions: [ // ObjectLambdaTransformationConfigurationActionsList // required
+ *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
+ *         ],
+ *         ContentTransformation: { // ObjectLambdaContentTransformation Union: only one key present
+ *           AwsLambda: { // AwsLambdaTransformation
+ *             FunctionArn: "STRING_VALUE", // required
+ *             FunctionPayload: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccessPointConfigurationForObjectLambdaCommandInput - {@link GetAccessPointConfigurationForObjectLambdaCommandInput}
@@ -72,6 +96,8 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
  * @see {@link GetAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<

@@ -51,6 +51,19 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * };
  * const command = new ListApiKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApiKeysResponse
+ *   apiKeys: [ // ApiKeys
+ *     { // ApiKey
+ *       id: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       expires: Number("long"),
+ *       deletes: Number("long"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApiKeysCommandInput - {@link ListApiKeysCommandInput}
@@ -72,6 +85,8 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class ListApiKeysCommand extends $Command<

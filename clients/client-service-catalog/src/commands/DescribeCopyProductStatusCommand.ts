@@ -45,6 +45,13 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * };
  * const command = new DescribeCopyProductStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCopyProductStatusOutput
+ *   CopyProductStatus: "SUCCEEDED" || "IN_PROGRESS" || "FAILED",
+ *   TargetProductId: "STRING_VALUE",
+ *   StatusDetail: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeCopyProductStatusCommandInput - {@link DescribeCopyProductStatusCommandInput}
@@ -56,6 +63,8 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeCopyProductStatusCommand extends $Command<

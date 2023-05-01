@@ -66,6 +66,42 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  * };
  * const command = new DescribeElasticsearchInstanceTypeLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeElasticsearchInstanceTypeLimitsResponse
+ *   LimitsByRole: { // LimitsByRole
+ *     "<keys>": { // Limits
+ *       StorageTypes: [ // StorageTypeList
+ *         { // StorageType
+ *           StorageTypeName: "STRING_VALUE",
+ *           StorageSubTypeName: "STRING_VALUE",
+ *           StorageTypeLimits: [ // StorageTypeLimitList
+ *             { // StorageTypeLimit
+ *               LimitName: "STRING_VALUE",
+ *               LimitValues: [ // LimitValueList
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       InstanceLimits: { // InstanceLimits
+ *         InstanceCountLimits: { // InstanceCountLimits
+ *           MinimumInstanceCount: Number("int"),
+ *           MaximumInstanceCount: Number("int"),
+ *         },
+ *       },
+ *       AdditionalLimits: [ // AdditionalLimitList
+ *         { // AdditionalLimit
+ *           LimitName: "STRING_VALUE",
+ *           LimitValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeElasticsearchInstanceTypeLimitsCommandInput - {@link DescribeElasticsearchInstanceTypeLimitsCommandInput}
@@ -92,6 +128,8 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<

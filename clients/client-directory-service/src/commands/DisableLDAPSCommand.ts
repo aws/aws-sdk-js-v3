@@ -45,6 +45,9 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * };
  * const command = new DisableLDAPSCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableLDAPSCommandInput - {@link DisableLDAPSCommandInput}
@@ -75,6 +78,8 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DisableLDAPSCommand extends $Command<

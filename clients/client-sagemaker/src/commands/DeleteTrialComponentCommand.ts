@@ -46,6 +46,11 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * };
  * const command = new DeleteTrialComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTrialComponentResponse
+ *   TrialComponentArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteTrialComponentCommandInput - {@link DeleteTrialComponentCommandInput}
@@ -57,6 +62,8 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteTrialComponentCommand extends $Command<

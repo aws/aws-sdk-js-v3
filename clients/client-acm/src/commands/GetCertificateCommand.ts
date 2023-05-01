@@ -47,6 +47,12 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * };
  * const command = new GetCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCertificateResponse
+ *   Certificate: "STRING_VALUE",
+ *   CertificateChain: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCertificateCommandInput - {@link GetCertificateCommandInput}
@@ -66,6 +72,8 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class GetCertificateCommand extends $Command<

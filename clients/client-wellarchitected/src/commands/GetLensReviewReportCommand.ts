@@ -46,6 +46,17 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * };
  * const command = new GetLensReviewReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLensReviewReportOutput
+ *   WorkloadId: "STRING_VALUE",
+ *   MilestoneNumber: Number("int"),
+ *   LensReviewReport: { // LensReviewReport
+ *     LensAlias: "STRING_VALUE",
+ *     LensArn: "STRING_VALUE",
+ *     Base64String: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLensReviewReportCommandInput - {@link GetLensReviewReportCommandInput}
@@ -69,6 +80,8 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetLensReviewReportCommand extends $Command<

@@ -45,6 +45,9 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  * };
  * const command = new DeleteApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApiKeyCommandInput - {@link DeleteApiKeyCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteApiKeyCommand extends $Command<

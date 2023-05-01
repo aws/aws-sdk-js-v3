@@ -52,6 +52,11 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * };
  * const command = new GetKeyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetKeyPolicyResponse
+ *   Policy: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetKeyPolicyCommandInput - {@link GetKeyPolicyCommandInput}
@@ -94,6 +99,8 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To retrieve a key policy
  * ```javascript

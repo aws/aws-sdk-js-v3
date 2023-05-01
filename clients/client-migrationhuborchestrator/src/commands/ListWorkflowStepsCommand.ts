@@ -51,6 +51,32 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * };
  * const command = new ListWorkflowStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkflowStepsResponse
+ *   nextToken: "STRING_VALUE",
+ *   workflowStepsSummary: [ // WorkflowStepsSummaryList // required
+ *     { // WorkflowStepSummary
+ *       stepId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       stepActionType: "STRING_VALUE",
+ *       owner: "STRING_VALUE",
+ *       previous: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       next: [
+ *         "STRING_VALUE",
+ *       ],
+ *       status: "STRING_VALUE",
+ *       statusMessage: "STRING_VALUE",
+ *       noOfSrvCompleted: Number("int"),
+ *       noOfSrvFailed: Number("int"),
+ *       totalNoOfSrv: Number("int"),
+ *       description: "STRING_VALUE",
+ *       scriptLocation: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWorkflowStepsCommandInput - {@link ListWorkflowStepsCommandInput}
@@ -71,6 +97,8 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListWorkflowStepsCommand extends $Command<

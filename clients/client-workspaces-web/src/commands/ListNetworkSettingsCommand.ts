@@ -45,6 +45,17 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  * };
  * const command = new ListNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNetworkSettingsResponse
+ *   networkSettings: [ // NetworkSettingsList
+ *     { // NetworkSettingsSummary
+ *       networkSettingsArn: "STRING_VALUE",
+ *       vpcId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListNetworkSettingsCommandInput - {@link ListNetworkSettingsCommandInput}
@@ -65,6 +76,8 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListNetworkSettingsCommand extends $Command<

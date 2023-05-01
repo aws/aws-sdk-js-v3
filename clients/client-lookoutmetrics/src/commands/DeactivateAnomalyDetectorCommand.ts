@@ -44,6 +44,9 @@ export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomal
  * };
  * const command = new DeactivateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeactivateAnomalyDetectorCommandInput - {@link DeactivateAnomalyDetectorCommandInput}
@@ -71,6 +74,8 @@ export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomal
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DeactivateAnomalyDetectorCommand extends $Command<

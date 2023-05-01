@@ -49,6 +49,11 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * };
  * const command = new StartMLEvaluationTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMLEvaluationTaskRunResponse
+ *   TaskRunId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartMLEvaluationTaskRunCommandInput - {@link StartMLEvaluationTaskRunCommandInput}
@@ -75,6 +80,8 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartMLEvaluationTaskRunCommand extends $Command<

@@ -57,6 +57,27 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * };
  * const command = new GetDevicePositionHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDevicePositionHistoryResponse
+ *   DevicePositions: [ // DevicePositionList // required
+ *     { // DevicePosition
+ *       DeviceId: "STRING_VALUE",
+ *       SampleTime: new Date("TIMESTAMP"), // required
+ *       ReceivedTime: new Date("TIMESTAMP"), // required
+ *       Position: [ // Position // required
+ *         Number("double"),
+ *       ],
+ *       Accuracy: { // PositionalAccuracy
+ *         Horizontal: Number("double"), // required
+ *       },
+ *       PositionProperties: { // PropertyMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDevicePositionHistoryCommandInput - {@link GetDevicePositionHistoryCommandInput}
@@ -81,6 +102,8 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetDevicePositionHistoryCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * };
  * const command = new DeleteApiCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApiCacheCommandInput - {@link DeleteApiCacheCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteApiCacheCommand extends $Command<

@@ -53,6 +53,25 @@ export interface DescribeImageGenerationConfigurationCommandOutput
  * };
  * const command = new DescribeImageGenerationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImageGenerationConfigurationOutput
+ *   ImageGenerationConfiguration: { // ImageGenerationConfiguration
+ *     Status: "ENABLED" || "DISABLED", // required
+ *     ImageSelectorType: "SERVER_TIMESTAMP" || "PRODUCER_TIMESTAMP", // required
+ *     DestinationConfig: { // ImageGenerationDestinationConfig
+ *       Uri: "STRING_VALUE", // required
+ *       DestinationRegion: "STRING_VALUE", // required
+ *     },
+ *     SamplingInterval: Number("int"), // required
+ *     Format: "JPEG" || "PNG", // required
+ *     FormatConfig: { // FormatConfig
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     WidthPixels: Number("int"),
+ *     HeightPixels: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeImageGenerationConfigurationCommandInput - {@link DescribeImageGenerationConfigurationCommandInput}
@@ -74,6 +93,8 @@ export interface DescribeImageGenerationConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeImageGenerationConfigurationCommand extends $Command<

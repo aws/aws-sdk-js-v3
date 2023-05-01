@@ -189,6 +189,11 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * };
  * const command = new CreatePredictorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePredictorResponse
+ *   PredictorArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreatePredictorCommandInput - {@link CreatePredictorCommandInput}
@@ -214,6 +219,8 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreatePredictorCommand extends $Command<

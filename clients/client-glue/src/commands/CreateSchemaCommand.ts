@@ -57,6 +57,26 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSchemaResponse
+ *   RegistryName: "STRING_VALUE",
+ *   RegistryArn: "STRING_VALUE",
+ *   SchemaName: "STRING_VALUE",
+ *   SchemaArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
+ *   Compatibility: "NONE" || "DISABLED" || "BACKWARD" || "BACKWARD_ALL" || "FORWARD" || "FORWARD_ALL" || "FULL" || "FULL_ALL",
+ *   SchemaCheckpoint: Number("long"),
+ *   LatestSchemaVersion: Number("long"),
+ *   NextSchemaVersion: Number("long"),
+ *   SchemaStatus: "AVAILABLE" || "PENDING" || "DELETING",
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SchemaVersionId: "STRING_VALUE",
+ *   SchemaVersionStatus: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ * };
+ *
  * ```
  *
  * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
@@ -86,6 +106,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<

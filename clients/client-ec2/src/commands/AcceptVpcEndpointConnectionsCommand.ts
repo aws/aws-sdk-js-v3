@@ -50,6 +50,19 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
  * };
  * const command = new AcceptVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptVpcEndpointConnectionsResult
+ *   Unsuccessful: [ // UnsuccessfulItemSet
+ *     { // UnsuccessfulItem
+ *       Error: { // UnsuccessfulItemError
+ *         Code: "STRING_VALUE",
+ *         Message: "STRING_VALUE",
+ *       },
+ *       ResourceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AcceptVpcEndpointConnectionsCommandInput - {@link AcceptVpcEndpointConnectionsCommandInput}
@@ -58,6 +71,8 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
  * @see {@link AcceptVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AcceptVpcEndpointConnectionsCommand extends $Command<

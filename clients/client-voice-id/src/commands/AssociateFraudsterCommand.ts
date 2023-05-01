@@ -50,6 +50,18 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  * };
  * const command = new AssociateFraudsterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateFraudsterResponse
+ *   Fraudster: { // Fraudster
+ *     DomainId: "STRING_VALUE",
+ *     GeneratedFraudsterId: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     WatchlistIds: [ // ResponseWatchlistIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateFraudsterCommandInput - {@link AssociateFraudsterCommandInput}
@@ -86,6 +98,8 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class AssociateFraudsterCommand extends $Command<

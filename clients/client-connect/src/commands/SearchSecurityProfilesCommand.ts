@@ -92,6 +92,24 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * };
  * const command = new SearchSecurityProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchSecurityProfilesResponse
+ *   SecurityProfiles: [ // SecurityProfilesSearchSummaryList
+ *     { // SecurityProfileSearchSummary
+ *       Id: "STRING_VALUE",
+ *       OrganizationResourceId: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       SecurityProfileName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   ApproximateTotalCount: Number("long"),
+ * };
+ *
  * ```
  *
  * @param SearchSecurityProfilesCommandInput - {@link SearchSecurityProfilesCommandInput}
@@ -115,6 +133,8 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchSecurityProfilesCommand extends $Command<

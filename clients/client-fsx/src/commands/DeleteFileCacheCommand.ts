@@ -56,6 +56,12 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * };
  * const command = new DeleteFileCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFileCacheResponse
+ *   FileCacheId: "STRING_VALUE",
+ *   Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED",
+ * };
+ *
  * ```
  *
  * @param DeleteFileCacheCommandInput - {@link DeleteFileCacheCommandInput}
@@ -82,6 +88,8 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteFileCacheCommand extends $Command<

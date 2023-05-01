@@ -50,6 +50,16 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * };
  * const command = new GetAttributeValuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAttributeValuesResponse
+ *   AttributeValues: [ // AttributeValueList
+ *     { // AttributeValue
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetAttributeValuesCommandInput - {@link GetAttributeValuesCommandInput}
@@ -73,6 +83,8 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  * @example To retrieve a list of attribute values
  * ```javascript

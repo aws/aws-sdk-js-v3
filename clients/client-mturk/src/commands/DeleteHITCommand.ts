@@ -79,6 +79,9 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  * };
  * const command = new DeleteHITCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHITCommandInput - {@link DeleteHITCommandInput}
@@ -93,6 +96,8 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class DeleteHITCommand extends $Command<

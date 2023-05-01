@@ -44,6 +44,11 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSnapshotResult
+ *   SnapshotId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
@@ -64,6 +69,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteSnapshotCommand extends $Command<

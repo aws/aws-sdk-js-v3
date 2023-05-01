@@ -52,6 +52,21 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * };
  * const command = new ListHostedConfigurationVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HostedConfigurationVersions
+ *   Items: [ // HostedConfigurationVersionSummaryList
+ *     { // HostedConfigurationVersionSummary
+ *       ApplicationId: "STRING_VALUE",
+ *       ConfigurationProfileId: "STRING_VALUE",
+ *       VersionNumber: Number("int"),
+ *       Description: "STRING_VALUE",
+ *       ContentType: "STRING_VALUE",
+ *       VersionLabel: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListHostedConfigurationVersionsCommandInput - {@link ListHostedConfigurationVersionsCommandInput}
@@ -69,6 +84,8 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available hosted configuration versions
  * ```javascript

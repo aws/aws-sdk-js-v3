@@ -66,6 +66,16 @@ export interface PutPackageOriginConfigurationCommandOutput
  * };
  * const command = new PutPackageOriginConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutPackageOriginConfigurationResult
+ *   originConfiguration: { // PackageOriginConfiguration
+ *     restrictions: { // PackageOriginRestrictions
+ *       publish: "ALLOW" || "BLOCK", // required
+ *       upstream: "ALLOW" || "BLOCK", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutPackageOriginConfigurationCommandInput - {@link PutPackageOriginConfigurationCommandInput}
@@ -97,6 +107,8 @@ export interface PutPackageOriginConfigurationCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class PutPackageOriginConfigurationCommand extends $Command<

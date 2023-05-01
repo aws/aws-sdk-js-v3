@@ -45,6 +45,9 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * };
  * const command = new DeleteReportGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReportGroupCommandInput - {@link DeleteReportGroupCommandInput}
@@ -56,6 +59,8 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteReportGroupCommand extends $Command<

@@ -45,6 +45,9 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteDocumentationPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDocumentationPartCommandInput - {@link DeleteDocumentationPartCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteDocumentationPartCommand extends $Command<

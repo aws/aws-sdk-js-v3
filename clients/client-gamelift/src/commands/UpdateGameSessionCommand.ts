@@ -54,6 +54,36 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  * };
  * const command = new UpdateGameSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGameSessionOutput
+ *   GameSession: { // GameSession
+ *     GameSessionId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     FleetId: "STRING_VALUE",
+ *     FleetArn: "STRING_VALUE",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     TerminationTime: new Date("TIMESTAMP"),
+ *     CurrentPlayerSessionCount: Number("int"),
+ *     MaximumPlayerSessionCount: Number("int"),
+ *     Status: "ACTIVE" || "ACTIVATING" || "TERMINATED" || "TERMINATING" || "ERROR",
+ *     StatusReason: "INTERRUPTED",
+ *     GameProperties: [ // GamePropertyList
+ *       { // GameProperty
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     IpAddress: "STRING_VALUE",
+ *     DnsName: "STRING_VALUE",
+ *     Port: Number("int"),
+ *     PlayerSessionCreationPolicy: "ACCEPT_ALL" || "DENY_ALL",
+ *     CreatorId: "STRING_VALUE",
+ *     GameSessionData: "STRING_VALUE",
+ *     MatchmakerData: "STRING_VALUE",
+ *     Location: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGameSessionCommandInput - {@link UpdateGameSessionCommandInput}
@@ -87,6 +117,8 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateGameSessionCommand extends $Command<

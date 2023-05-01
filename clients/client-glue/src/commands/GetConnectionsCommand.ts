@@ -53,6 +53,34 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * };
  * const command = new GetConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectionsResponse
+ *   ConnectionList: [ // ConnectionList
+ *     { // Connection
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM",
+ *       MatchCriteria: [ // MatchCriteria
+ *         "STRING_VALUE",
+ *       ],
+ *       ConnectionProperties: { // ConnectionProperties
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
+ *         SubnetId: "STRING_VALUE",
+ *         SecurityGroupIdList: [ // SecurityGroupIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         AvailabilityZone: "STRING_VALUE",
+ *       },
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *       LastUpdatedBy: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
@@ -73,6 +101,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetConnectionsCommand extends $Command<

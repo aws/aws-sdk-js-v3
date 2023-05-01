@@ -57,6 +57,26 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * };
  * const command = new EnterStandbyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnterStandbyAnswer
+ *   Activities: [ // Activities
+ *     { // Activity
+ *       ActivityId: "STRING_VALUE", // required
+ *       AutoScalingGroupName: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       Cause: "STRING_VALUE", // required
+ *       StartTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"),
+ *       StatusCode: "PendingSpotBidPlacement" || "WaitingForSpotInstanceRequestId" || "WaitingForSpotInstanceId" || "WaitingForInstanceId" || "PreInService" || "InProgress" || "WaitingForELBConnectionDraining" || "MidLifecycleAction" || "WaitingForInstanceWarmup" || "Successful" || "Failed" || "Cancelled" || "WaitingForConnectionDraining", // required
+ *       StatusMessage: "STRING_VALUE",
+ *       Progress: Number("int"),
+ *       Details: "STRING_VALUE",
+ *       AutoScalingGroupState: "STRING_VALUE",
+ *       AutoScalingGroupARN: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param EnterStandbyCommandInput - {@link EnterStandbyCommandInput}
@@ -69,6 +89,8 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To move instances into standby mode
  * ```javascript

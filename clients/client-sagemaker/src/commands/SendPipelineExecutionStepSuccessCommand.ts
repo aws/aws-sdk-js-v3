@@ -58,6 +58,11 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * };
  * const command = new SendPipelineExecutionStepSuccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendPipelineExecutionStepSuccessResponse
+ *   PipelineExecutionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendPipelineExecutionStepSuccessCommandInput - {@link SendPipelineExecutionStepSuccessCommandInput}
@@ -73,6 +78,8 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class SendPipelineExecutionStepSuccessCommand extends $Command<

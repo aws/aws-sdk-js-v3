@@ -133,6 +133,11 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  * };
  * const command = new CreateTransformJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTransformJobResponse
+ *   TransformJobArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateTransformJobCommandInput - {@link CreateTransformJobCommandInput}
@@ -151,6 +156,8 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateTransformJobCommand extends $Command<

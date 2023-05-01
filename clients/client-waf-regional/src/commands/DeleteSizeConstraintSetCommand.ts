@@ -68,6 +68,11 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * };
  * const command = new DeleteSizeConstraintSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSizeConstraintSetResponse
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteSizeConstraintSetCommandInput - {@link DeleteSizeConstraintSetCommandInput}
@@ -117,6 +122,8 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To delete a size constraint set
  * ```javascript

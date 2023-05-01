@@ -45,6 +45,9 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * };
  * const command = new DeletePrefetchScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePrefetchScheduleCommandInput - {@link DeletePrefetchScheduleCommandInput}
@@ -53,6 +56,8 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * @see {@link DeletePrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeletePrefetchScheduleCommand extends $Command<

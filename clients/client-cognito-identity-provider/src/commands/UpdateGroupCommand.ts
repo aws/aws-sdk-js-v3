@@ -54,6 +54,19 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupResponse
+ *   Group: { // GroupType
+ *     GroupName: "STRING_VALUE",
+ *     UserPoolId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     Precedence: Number("int"),
+ *     LastModifiedDate: new Date("TIMESTAMP"),
+ *     CreationDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -80,6 +93,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

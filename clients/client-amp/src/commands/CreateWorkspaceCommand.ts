@@ -48,6 +48,18 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkspaceResponse
+ *   workspaceId: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   status: { // WorkspaceStatus
+ *     statusCode: "STRING_VALUE", // required
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
@@ -74,6 +86,8 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class CreateWorkspaceCommand extends $Command<

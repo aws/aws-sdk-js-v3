@@ -48,6 +48,20 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * };
  * const command = new ListSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscriptionsResponse
+ *   Subscriptions: [ // SubscriptionsList
+ *     { // Subscription
+ *       SubscriptionArn: "STRING_VALUE",
+ *       Owner: "STRING_VALUE",
+ *       Protocol: "STRING_VALUE",
+ *       Endpoint: "STRING_VALUE",
+ *       TopicArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSubscriptionsCommandInput - {@link ListSubscriptionsCommandInput}
@@ -66,6 +80,8 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListSubscriptionsCommand extends $Command<

@@ -46,6 +46,20 @@ export interface ListClientVpcConnectionsCommandOutput extends ListClientVpcConn
  * };
  * const command = new ListClientVpcConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClientVpcConnectionsResponse
+ *   ClientVpcConnections: [ // __listOfClientVpcConnection
+ *     { // ClientVpcConnection
+ *       Authentication: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
+ *       VpcConnectionArn: "STRING_VALUE", // required
+ *       Owner: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListClientVpcConnectionsCommandInput - {@link ListClientVpcConnectionsCommandInput}
@@ -69,6 +83,8 @@ export interface ListClientVpcConnectionsCommandOutput extends ListClientVpcConn
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListClientVpcConnectionsCommand extends $Command<

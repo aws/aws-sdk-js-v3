@@ -120,6 +120,25 @@ export interface DescribeEventsForOrganizationCommandOutput
  * };
  * const command = new DescribeEventsForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsForOrganizationResponse
+ *   events: [ // OrganizationEventList
+ *     { // OrganizationEvent
+ *       arn: "STRING_VALUE",
+ *       service: "STRING_VALUE",
+ *       eventTypeCode: "STRING_VALUE",
+ *       eventTypeCategory: "STRING_VALUE",
+ *       eventScopeCode: "STRING_VALUE",
+ *       region: "STRING_VALUE",
+ *       startTime: new Date("TIMESTAMP"),
+ *       endTime: new Date("TIMESTAMP"),
+ *       lastUpdatedTime: new Date("TIMESTAMP"),
+ *       statusCode: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeEventsForOrganizationCommandInput - {@link DescribeEventsForOrganizationCommandInput}
@@ -134,6 +153,8 @@ export interface DescribeEventsForOrganizationCommandOutput
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventsForOrganizationCommand extends $Command<

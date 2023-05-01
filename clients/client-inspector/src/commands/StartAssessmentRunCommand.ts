@@ -47,6 +47,11 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * };
  * const command = new StartAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAssessmentRunResponse
+ *   assessmentRunArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StartAssessmentRunCommandInput - {@link StartAssessmentRunCommandInput}
@@ -84,6 +89,8 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Start assessment run
  * ```javascript

@@ -49,6 +49,11 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * };
  * const command = new AssociateServiceRoleToAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateServiceRoleToAccountResponse
+ *   AssociatedAt: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateServiceRoleToAccountCommandInput - {@link AssociateServiceRoleToAccountCommandInput}
@@ -63,6 +68,8 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class AssociateServiceRoleToAccountCommand extends $Command<

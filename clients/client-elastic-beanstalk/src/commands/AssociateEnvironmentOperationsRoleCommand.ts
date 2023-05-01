@@ -51,6 +51,9 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * };
  * const command = new AssociateEnvironmentOperationsRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateEnvironmentOperationsRoleCommandInput - {@link AssociateEnvironmentOperationsRoleCommandInput}
@@ -63,6 +66,8 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class AssociateEnvironmentOperationsRoleCommand extends $Command<

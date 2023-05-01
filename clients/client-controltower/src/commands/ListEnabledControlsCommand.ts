@@ -47,6 +47,16 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * };
  * const command = new ListEnabledControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnabledControlsOutput
+ *   enabledControls: [ // EnabledControls // required
+ *     { // EnabledControlSummary
+ *       controlIdentifier: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEnabledControlsCommandInput - {@link ListEnabledControlsCommandInput}
@@ -71,6 +81,8 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ControlTowerServiceException}
+ * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
 export class ListEnabledControlsCommand extends $Command<

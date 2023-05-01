@@ -49,6 +49,31 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfilesResponse
+ *   nextToken: "STRING_VALUE",
+ *   profiles: [ // ProfileDetails
+ *     { // ProfileDetail
+ *       profileId: "STRING_VALUE",
+ *       profileArn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       requireInstanceProperties: true || false,
+ *       enabled: true || false,
+ *       createdBy: "STRING_VALUE",
+ *       sessionPolicy: "STRING_VALUE",
+ *       roleArns: [ // RoleArnList
+ *         "STRING_VALUE",
+ *       ],
+ *       managedPolicyArns: [ // ManagedPolicyList
+ *         "STRING_VALUE",
+ *       ],
+ *       createdAt: new Date("TIMESTAMP"),
+ *       updatedAt: new Date("TIMESTAMP"),
+ *       durationSeconds: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProfilesCommandInput - {@link ListProfilesCommandInput}
@@ -63,6 +88,8 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class ListProfilesCommand extends $Command<

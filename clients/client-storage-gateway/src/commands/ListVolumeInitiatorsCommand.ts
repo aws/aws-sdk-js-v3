@@ -46,6 +46,13 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * };
  * const command = new ListVolumeInitiatorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVolumeInitiatorsOutput
+ *   Initiators: [ // Initiators
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVolumeInitiatorsCommandInput - {@link ListVolumeInitiatorsCommandInput}
@@ -62,6 +69,8 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListVolumeInitiatorsCommand extends $Command<

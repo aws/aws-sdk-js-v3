@@ -49,6 +49,12 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTagsOutput
+ *   ResourceId: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<

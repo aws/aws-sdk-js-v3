@@ -53,6 +53,9 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * };
  * const command = new UpdateSignalingChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSignalingChannelCommandInput - {@link UpdateSignalingChannelCommandInput}
@@ -99,6 +102,8 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateSignalingChannelCommand extends $Command<

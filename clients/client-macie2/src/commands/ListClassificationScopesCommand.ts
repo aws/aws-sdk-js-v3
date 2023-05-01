@@ -45,6 +45,17 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * };
  * const command = new ListClassificationScopesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClassificationScopesResponse
+ *   classificationScopes: [ // __listOfClassificationScopeSummary
+ *     { // ClassificationScopeSummary
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListClassificationScopesCommandInput - {@link ListClassificationScopesCommandInput}
@@ -65,6 +76,8 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListClassificationScopesCommand extends $Command<

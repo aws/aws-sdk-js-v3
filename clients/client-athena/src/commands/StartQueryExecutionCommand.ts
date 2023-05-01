@@ -75,6 +75,11 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * };
  * const command = new StartQueryExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartQueryExecutionOutput
+ *   QueryExecutionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartQueryExecutionCommandInput - {@link StartQueryExecutionCommandInput}
@@ -94,6 +99,8 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StartQueryExecutionCommand extends $Command<

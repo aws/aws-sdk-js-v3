@@ -46,6 +46,37 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRuleGroupResponse
+ *   RuleGroupResponse: { // RuleGroupResponse
+ *     RuleGroupArn: "STRING_VALUE", // required
+ *     RuleGroupName: "STRING_VALUE", // required
+ *     RuleGroupId: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Type: "STATELESS" || "STATEFUL",
+ *     Capacity: Number("int"),
+ *     RuleGroupStatus: "ACTIVE" || "DELETING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ConsumedCapacity: Number("int"),
+ *     NumberOfAssociations: Number("int"),
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       KeyId: "STRING_VALUE",
+ *       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *     },
+ *     SourceMetadata: { // SourceMetadata
+ *       SourceArn: "STRING_VALUE",
+ *       SourceUpdateToken: "STRING_VALUE",
+ *     },
+ *     SnsTopic: "STRING_VALUE",
+ *     LastModifiedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
@@ -87,6 +118,8 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation you requested isn't supported by Network Firewall. </p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DeleteRuleGroupCommand extends $Command<

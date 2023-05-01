@@ -58,6 +58,18 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * };
  * const command = new DescribeDBLogFilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBLogFilesResponse
+ *   DescribeDBLogFiles: [ // DescribeDBLogFilesList
+ *     { // DescribeDBLogFilesDetails
+ *       LogFileName: "STRING_VALUE",
+ *       LastWritten: Number("long"),
+ *       Size: Number("long"),
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDBLogFilesCommandInput - {@link DescribeDBLogFilesCommandInput}
@@ -70,6 +82,8 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the log files for a DB instance
  * ```javascript

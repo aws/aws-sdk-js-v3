@@ -50,6 +50,21 @@ export interface ListVoiceProfileDomainsCommandOutput extends ListVoiceProfileDo
  * };
  * const command = new ListVoiceProfileDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVoiceProfileDomainsResponse
+ *   VoiceProfileDomains: [ // VoiceProfileDomainSummaryList
+ *     { // VoiceProfileDomainSummary
+ *       VoiceProfileDomainId: "STRING_VALUE",
+ *       VoiceProfileDomainArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       CreatedTimestamp: new Date("TIMESTAMP"),
+ *       UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListVoiceProfileDomainsCommandInput - {@link ListVoiceProfileDomainsCommandInput}
@@ -79,6 +94,8 @@ export interface ListVoiceProfileDomainsCommandOutput extends ListVoiceProfileDo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListVoiceProfileDomainsCommand extends $Command<

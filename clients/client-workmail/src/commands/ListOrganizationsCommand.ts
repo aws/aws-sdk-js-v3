@@ -45,6 +45,20 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * };
  * const command = new ListOrganizationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationsResponse
+ *   OrganizationSummaries: [ // OrganizationSummaries
+ *     { // OrganizationSummary
+ *       OrganizationId: "STRING_VALUE",
+ *       Alias: "STRING_VALUE",
+ *       DefaultMailDomain: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *       State: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOrganizationsCommandInput - {@link ListOrganizationsCommandInput}
@@ -56,6 +70,8 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the input parameters don't match the service's restrictions.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListOrganizationsCommand extends $Command<

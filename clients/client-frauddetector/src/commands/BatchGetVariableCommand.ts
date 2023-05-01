@@ -46,6 +46,30 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  * };
  * const command = new BatchGetVariableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetVariableResult
+ *   variables: [ // VariableList
+ *     { // Variable
+ *       name: "STRING_VALUE",
+ *       dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN",
+ *       dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE",
+ *       defaultValue: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       variableType: "STRING_VALUE",
+ *       lastUpdatedTime: "STRING_VALUE",
+ *       createdTime: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   errors: [ // BatchGetVariableErrorList
+ *     { // BatchGetVariableError
+ *       name: "STRING_VALUE",
+ *       code: Number("int"),
+ *       message: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetVariableCommandInput - {@link BatchGetVariableCommandInput}
@@ -66,6 +90,8 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class BatchGetVariableCommand extends $Command<

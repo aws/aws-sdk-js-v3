@@ -52,6 +52,16 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResult
+ *   ResourcePolicy: { // ResourcePolicy
+ *     PolicyName: "STRING_VALUE",
+ *     PolicyDocument: "STRING_VALUE",
+ *     PolicyRevisionId: "STRING_VALUE",
+ *     LastUpdatedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -79,6 +89,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

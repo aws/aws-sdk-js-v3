@@ -45,6 +45,20 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * };
  * const command = new GetDeploymentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentStatusResponse
+ *   DeploymentStatus: "STRING_VALUE",
+ *   DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment",
+ *   ErrorDetails: [ // ErrorDetails
+ *     { // ErrorDetail
+ *       DetailedErrorCode: "STRING_VALUE",
+ *       DetailedErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ErrorMessage: "STRING_VALUE",
+ *   UpdatedAt: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDeploymentStatusCommandInput - {@link GetDeploymentStatusCommandInput}
@@ -56,6 +70,8 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetDeploymentStatusCommand extends $Command<

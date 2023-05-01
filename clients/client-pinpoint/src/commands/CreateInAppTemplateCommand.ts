@@ -111,6 +111,15 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  * };
  * const command = new CreateInAppTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInAppTemplateResponse
+ *   TemplateCreateMessageBody: { // TemplateCreateMessageBody
+ *     Arn: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateInAppTemplateCommandInput - {@link CreateInAppTemplateCommandInput}
@@ -134,6 +143,8 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateInAppTemplateCommand extends $Command<

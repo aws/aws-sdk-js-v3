@@ -46,6 +46,26 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * };
  * const command = new DeleteVerifiedAccessGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVerifiedAccessGroupResult
+ *   VerifiedAccessGroup: { // VerifiedAccessGroup
+ *     VerifiedAccessGroupId: "STRING_VALUE",
+ *     VerifiedAccessInstanceId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Owner: "STRING_VALUE",
+ *     VerifiedAccessGroupArn: "STRING_VALUE",
+ *     CreationTime: "STRING_VALUE",
+ *     LastUpdatedTime: "STRING_VALUE",
+ *     DeletionTime: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVerifiedAccessGroupCommandInput - {@link DeleteVerifiedAccessGroupCommandInput}
@@ -54,6 +74,8 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * @see {@link DeleteVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteVerifiedAccessGroupCommand extends $Command<

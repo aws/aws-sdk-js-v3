@@ -59,6 +59,24 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  * };
  * const command = new UpdateSecurityConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecurityConfigResponse
+ *   securityConfigDetail: { // SecurityConfigDetail
+ *     id: "STRING_VALUE",
+ *     type: "STRING_VALUE",
+ *     configVersion: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     samlOptions: { // SamlConfigOptions
+ *       metadata: "STRING_VALUE", // required
+ *       userAttribute: "STRING_VALUE",
+ *       groupAttribute: "STRING_VALUE",
+ *       sessionTimeout: Number("int"),
+ *     },
+ *     createdDate: Number("long"),
+ *     lastModifiedDate: Number("long"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSecurityConfigCommandInput - {@link UpdateSecurityConfigCommandInput}
@@ -82,6 +100,8 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateSecurityConfigCommand extends $Command<

@@ -51,6 +51,21 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectionsOutput
+ *   Connections: [ // ConnectionList
+ *     { // Connection
+ *       ConnectionName: "STRING_VALUE",
+ *       ConnectionArn: "STRING_VALUE",
+ *       ProviderType: "STRING_VALUE",
+ *       OwnerAccountId: "STRING_VALUE",
+ *       ConnectionStatus: "STRING_VALUE",
+ *       HostArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
@@ -59,6 +74,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class ListConnectionsCommand extends $Command<

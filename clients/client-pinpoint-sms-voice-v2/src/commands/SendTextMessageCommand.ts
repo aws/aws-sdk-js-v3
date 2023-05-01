@@ -67,6 +67,11 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * };
  * const command = new SendTextMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendTextMessageResult
+ *   MessageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendTextMessageCommandInput - {@link SendTextMessageCommandInput}
@@ -102,6 +107,8 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SendTextMessageCommand extends $Command<

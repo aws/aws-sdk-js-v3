@@ -50,6 +50,9 @@ export interface DisableImportFindingsForProductCommandOutput
  * };
  * const command = new DisableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableImportFindingsForProductCommandInput - {@link DisableImportFindingsForProductCommandInput}
@@ -75,6 +78,8 @@ export interface DisableImportFindingsForProductCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To end a Security Hub integration
  * ```javascript

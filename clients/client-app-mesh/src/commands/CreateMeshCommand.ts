@@ -64,6 +64,33 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  * };
  * const command = new CreateMeshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMeshOutput
+ *   mesh: { // MeshData
+ *     meshName: "STRING_VALUE", // required
+ *     spec: { // MeshSpec
+ *       egressFilter: { // EgressFilter
+ *         type: "STRING_VALUE", // required
+ *       },
+ *       serviceDiscovery: { // MeshServiceDiscovery
+ *         ipPreference: "STRING_VALUE",
+ *       },
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: "STRING_VALUE", // required
+ *       version: Number("long"), // required
+ *       uid: "STRING_VALUE", // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ *       meshOwner: "STRING_VALUE", // required
+ *       resourceOwner: "STRING_VALUE", // required
+ *     },
+ *     status: { // MeshStatus
+ *       status: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMeshCommandInput - {@link CreateMeshCommandInput}
@@ -101,6 +128,8 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class CreateMeshCommand extends $Command<

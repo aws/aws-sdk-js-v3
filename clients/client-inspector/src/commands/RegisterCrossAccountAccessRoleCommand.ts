@@ -48,6 +48,9 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * };
  * const command = new RegisterCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterCrossAccountAccessRoleCommandInput - {@link RegisterCrossAccountAccessRoleCommandInput}
@@ -73,6 +76,8 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Register cross account access role
  * ```javascript

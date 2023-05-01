@@ -47,6 +47,25 @@ export interface GetRegistryScanningConfigurationCommandOutput
  * const input = {};
  * const command = new GetRegistryScanningConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRegistryScanningConfigurationResponse
+ *   registryId: "STRING_VALUE",
+ *   scanningConfiguration: { // RegistryScanningConfiguration
+ *     scanType: "STRING_VALUE",
+ *     rules: [ // RegistryScanningRuleList
+ *       { // RegistryScanningRule
+ *         scanFrequency: "STRING_VALUE", // required
+ *         repositoryFilters: [ // ScanningRepositoryFilterList // required
+ *           { // ScanningRepositoryFilter
+ *             filter: "STRING_VALUE", // required
+ *             filterType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRegistryScanningConfigurationCommandInput - {@link GetRegistryScanningConfigurationCommandInput}
@@ -65,6 +84,8 @@ export interface GetRegistryScanningConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class GetRegistryScanningConfigurationCommand extends $Command<

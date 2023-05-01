@@ -56,6 +56,24 @@ export interface CreateCoipPoolCommandOutput extends CreateCoipPoolResult, __Met
  * };
  * const command = new CreateCoipPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCoipPoolResult
+ *   CoipPool: { // CoipPool
+ *     PoolId: "STRING_VALUE",
+ *     PoolCidrs: [ // ValueStringList
+ *       "STRING_VALUE",
+ *     ],
+ *     LocalGatewayRouteTableId: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     PoolArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCoipPoolCommandInput - {@link CreateCoipPoolCommandInput}
@@ -64,6 +82,8 @@ export interface CreateCoipPoolCommandOutput extends CreateCoipPoolResult, __Met
  * @see {@link CreateCoipPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateCoipPoolCommand extends $Command<

@@ -56,6 +56,23 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
  * };
  * const command = new UpdatePullRequestApprovalRuleContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePullRequestApprovalRuleContentOutput
+ *   approvalRule: { // ApprovalRule
+ *     approvalRuleId: "STRING_VALUE",
+ *     approvalRuleName: "STRING_VALUE",
+ *     approvalRuleContent: "STRING_VALUE",
+ *     ruleContentSha256: "STRING_VALUE",
+ *     lastModifiedDate: new Date("TIMESTAMP"),
+ *     creationDate: new Date("TIMESTAMP"),
+ *     lastModifiedUser: "STRING_VALUE",
+ *     originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
+ *       approvalRuleTemplateId: "STRING_VALUE",
+ *       approvalRuleTemplateName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePullRequestApprovalRuleContentCommandInput - {@link UpdatePullRequestApprovalRuleContentCommandInput}
@@ -113,6 +130,8 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
  * @throws {@link PullRequestIdRequiredException} (client fault)
  *  <p>A pull request ID is required, but none was provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdatePullRequestApprovalRuleContentCommand extends $Command<

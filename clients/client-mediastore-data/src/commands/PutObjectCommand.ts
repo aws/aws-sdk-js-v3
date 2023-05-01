@@ -58,6 +58,13 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutObjectResponse
+ *   ContentSHA256: "STRING_VALUE",
+ *   ETag: "STRING_VALUE",
+ *   StorageClass: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutObjectCommandInput - {@link PutObjectCommandInput}
@@ -72,6 +79,8 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class PutObjectCommand extends $Command<

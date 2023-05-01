@@ -55,6 +55,9 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * };
  * const command = new DisassociateDeviceFromPlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDeviceFromPlacementCommandInput - {@link DisassociateDeviceFromPlacementCommandInput}
@@ -75,6 +78,8 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DisassociateDeviceFromPlacementCommand extends $Command<

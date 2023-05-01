@@ -49,6 +49,12 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * };
  * const command = new CreateStreamingURLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamingURLResult
+ *   StreamingURL: "STRING_VALUE",
+ *   Expires: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateStreamingURLCommandInput - {@link CreateStreamingURLCommandInput}
@@ -69,6 +75,8 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateStreamingURLCommand extends $Command<

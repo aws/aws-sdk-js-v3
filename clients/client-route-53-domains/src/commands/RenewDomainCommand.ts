@@ -52,6 +52,11 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * };
  * const command = new RenewDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RenewDomainResponse
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RenewDomainCommandInput - {@link RenewDomainCommandInput}
@@ -79,6 +84,8 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class RenewDomainCommand extends $Command<

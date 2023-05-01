@@ -61,6 +61,11 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * };
  * const command = new CreateMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMetricAttributionResponse
+ *   metricAttributionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMetricAttributionCommandInput - {@link CreateMetricAttributionCommandInput}
@@ -84,6 +89,8 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateMetricAttributionCommand extends $Command<

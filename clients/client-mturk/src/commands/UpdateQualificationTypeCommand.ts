@@ -84,6 +84,25 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * };
  * const command = new UpdateQualificationTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateQualificationTypeResponse
+ *   QualificationType: { // QualificationType
+ *     QualificationTypeId: "STRING_VALUE",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Keywords: "STRING_VALUE",
+ *     QualificationTypeStatus: "STRING_VALUE",
+ *     Test: "STRING_VALUE",
+ *     TestDurationInSeconds: Number("long"),
+ *     AnswerKey: "STRING_VALUE",
+ *     RetryDelayInSeconds: Number("long"),
+ *     IsRequestable: true || false,
+ *     AutoGranted: true || false,
+ *     AutoGrantedValue: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateQualificationTypeCommandInput - {@link UpdateQualificationTypeCommandInput}
@@ -98,6 +117,8 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class UpdateQualificationTypeCommand extends $Command<

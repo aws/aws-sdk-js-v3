@@ -45,6 +45,20 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewaysOutput
+ *   Gateways: [ // Gateways
+ *     { // Gateway
+ *       GatewayArn: "STRING_VALUE",
+ *       GatewayDisplayName: "STRING_VALUE",
+ *       GatewayType: "STRING_VALUE",
+ *       HypervisorId: "STRING_VALUE",
+ *       LastSeenTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -63,6 +77,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class ListGatewaysCommand extends $Command<

@@ -80,6 +80,9 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetStatusCommandInput - {@link SetStatusCommandInput}
@@ -100,6 +103,8 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class SetStatusCommand extends $Command<

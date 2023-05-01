@@ -53,6 +53,19 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * };
  * const command = new UpdateAccountCustomizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAccountCustomizationResponse
+ *   Arn: "STRING_VALUE",
+ *   AwsAccountId: "STRING_VALUE",
+ *   Namespace: "STRING_VALUE",
+ *   AccountCustomization: { // AccountCustomization
+ *     DefaultTheme: "STRING_VALUE",
+ *     DefaultEmailCustomizationTemplate: "STRING_VALUE",
+ *   },
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param UpdateAccountCustomizationCommandInput - {@link UpdateAccountCustomizationCommandInput}
@@ -85,6 +98,8 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateAccountCustomizationCommand extends $Command<

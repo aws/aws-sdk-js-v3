@@ -49,6 +49,16 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * };
  * const command = new DisconnectPlayerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisconnectPlayerResult
+ *   DisconnectSuccesses: [ // ConnectionIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DisconnectFailures: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisconnectPlayerCommandInput - {@link DisconnectPlayerCommandInput}
@@ -72,6 +82,8 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class DisconnectPlayerCommand extends $Command<

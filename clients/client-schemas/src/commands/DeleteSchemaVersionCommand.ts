@@ -46,6 +46,9 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSchemaVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSchemaVersionCommandInput - {@link DeleteSchemaVersionCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DeleteSchemaVersionCommand extends $Command<

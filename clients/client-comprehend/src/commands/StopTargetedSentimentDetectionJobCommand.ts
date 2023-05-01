@@ -61,6 +61,12 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
  * };
  * const command = new StopTargetedSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopTargetedSentimentDetectionJobResponse
+ *   JobId: "STRING_VALUE",
+ *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * };
+ *
  * ```
  *
  * @param StopTargetedSentimentDetectionJobCommandInput - {@link StopTargetedSentimentDetectionJobCommandInput}
@@ -78,6 +84,8 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
  * @throws {@link JobNotFoundException} (client fault)
  *  <p>The specified job was not found. Check the job ID and try again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopTargetedSentimentDetectionJobCommand extends $Command<

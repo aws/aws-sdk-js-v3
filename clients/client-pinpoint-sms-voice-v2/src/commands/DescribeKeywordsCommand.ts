@@ -68,6 +68,20 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * };
  * const command = new DescribeKeywordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeKeywordsResult
+ *   OriginationIdentityArn: "STRING_VALUE",
+ *   OriginationIdentity: "STRING_VALUE",
+ *   Keywords: [ // KeywordInformationList
+ *     { // KeywordInformation
+ *       Keyword: "STRING_VALUE", // required
+ *       KeywordMessage: "STRING_VALUE", // required
+ *       KeywordAction: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeKeywordsCommandInput - {@link DescribeKeywordsCommandInput}
@@ -94,6 +108,8 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeKeywordsCommand extends $Command<

@@ -45,6 +45,12 @@ export interface AssociateUserSettingsCommandOutput extends AssociateUserSetting
  * };
  * const command = new AssociateUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateUserSettingsResponse
+ *   portalArn: "STRING_VALUE", // required
+ *   userSettingsArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param AssociateUserSettingsCommandInput - {@link AssociateUserSettingsCommandInput}
@@ -71,6 +77,8 @@ export interface AssociateUserSettingsCommandOutput extends AssociateUserSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateUserSettingsCommand extends $Command<

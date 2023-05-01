@@ -46,6 +46,13 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * };
  * const command = new UpdateRouteCalculatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRouteCalculatorResponse
+ *   CalculatorName: "STRING_VALUE", // required
+ *   CalculatorArn: "STRING_VALUE", // required
+ *   UpdateTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param UpdateRouteCalculatorCommandInput - {@link UpdateRouteCalculatorCommandInput}
@@ -70,6 +77,8 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class UpdateRouteCalculatorCommand extends $Command<

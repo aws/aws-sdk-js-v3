@@ -61,6 +61,20 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagsType
+ *   Tags: [ // TagDescriptionList
+ *     { // TagDescription
+ *       ResourceId: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       PropagateAtLaunch: true || false,
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -76,6 +90,8 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe tags
  * ```javascript

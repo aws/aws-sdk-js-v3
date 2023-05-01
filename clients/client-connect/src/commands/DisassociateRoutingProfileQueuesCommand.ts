@@ -54,6 +54,9 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * };
  * const command = new DisassociateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateRoutingProfileQueuesCommandInput - {@link DisassociateRoutingProfileQueuesCommandInput}
@@ -77,6 +80,8 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateRoutingProfileQueuesCommand extends $Command<

@@ -159,6 +159,119 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * };
  * const command = new ListFindingAggregationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingAggregationsResponse
+ *   aggregationType: "STRING_VALUE", // required
+ *   responses: [ // AggregationResponseList
+ *     { // AggregationResponse Union: only one key present
+ *       accountAggregation: { // AccountAggregationResponse
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: { // SeverityCounts
+ *           all: Number("long"),
+ *           medium: Number("long"),
+ *           high: Number("long"),
+ *           critical: Number("long"),
+ *         },
+ *       },
+ *       amiAggregation: { // AmiAggregationResponse
+ *         ami: "STRING_VALUE", // required
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: {
+ *           all: Number("long"),
+ *           medium: Number("long"),
+ *           high: Number("long"),
+ *           critical: Number("long"),
+ *         },
+ *         affectedInstances: Number("long"),
+ *       },
+ *       awsEcrContainerAggregation: { // AwsEcrContainerAggregationResponse
+ *         resourceId: "STRING_VALUE", // required
+ *         imageSha: "STRING_VALUE",
+ *         repository: "STRING_VALUE",
+ *         architecture: "STRING_VALUE",
+ *         imageTags: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: {
+ *           all: Number("long"),
+ *           medium: Number("long"),
+ *           high: Number("long"),
+ *           critical: Number("long"),
+ *         },
+ *       },
+ *       ec2InstanceAggregation: { // Ec2InstanceAggregationResponse
+ *         instanceId: "STRING_VALUE", // required
+ *         ami: "STRING_VALUE",
+ *         operatingSystem: "STRING_VALUE",
+ *         instanceTags: { // TagMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: {
+ *           all: Number("long"),
+ *           medium: Number("long"),
+ *           high: Number("long"),
+ *           critical: Number("long"),
+ *         },
+ *         networkFindings: Number("long"),
+ *       },
+ *       findingTypeAggregation: { // FindingTypeAggregationResponse
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: {
+ *           all: Number("long"),
+ *           medium: Number("long"),
+ *           high: Number("long"),
+ *           critical: Number("long"),
+ *         },
+ *       },
+ *       imageLayerAggregation: { // ImageLayerAggregationResponse
+ *         repository: "STRING_VALUE", // required
+ *         resourceId: "STRING_VALUE", // required
+ *         layerHash: "STRING_VALUE", // required
+ *         accountId: "STRING_VALUE", // required
+ *         severityCounts: "<SeverityCounts>",
+ *       },
+ *       packageAggregation: { // PackageAggregationResponse
+ *         packageName: "STRING_VALUE", // required
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: "<SeverityCounts>",
+ *       },
+ *       repositoryAggregation: { // RepositoryAggregationResponse
+ *         repository: "STRING_VALUE", // required
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: "<SeverityCounts>",
+ *         affectedImages: Number("long"),
+ *       },
+ *       titleAggregation: { // TitleAggregationResponse
+ *         title: "STRING_VALUE", // required
+ *         vulnerabilityId: "STRING_VALUE",
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: "<SeverityCounts>",
+ *       },
+ *       lambdaLayerAggregation: { // LambdaLayerAggregationResponse
+ *         functionName: "STRING_VALUE", // required
+ *         resourceId: "STRING_VALUE", // required
+ *         layerArn: "STRING_VALUE", // required
+ *         accountId: "STRING_VALUE", // required
+ *         severityCounts: "<SeverityCounts>",
+ *       },
+ *       lambdaFunctionAggregation: { // LambdaFunctionAggregationResponse
+ *         resourceId: "STRING_VALUE", // required
+ *         functionName: "STRING_VALUE",
+ *         runtime: "STRING_VALUE",
+ *         lambdaTags: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         accountId: "STRING_VALUE",
+ *         severityCounts: "<SeverityCounts>",
+ *         lastModifiedAt: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFindingAggregationsCommandInput - {@link ListFindingAggregationsCommandInput}
@@ -177,6 +290,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListFindingAggregationsCommand extends $Command<

@@ -91,6 +91,9 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * };
  * const command = new UnsubscribeFromDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnsubscribeFromDatasetCommandInput - {@link UnsubscribeFromDatasetCommandInput}
@@ -121,6 +124,8 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class UnsubscribeFromDatasetCommand extends $Command<

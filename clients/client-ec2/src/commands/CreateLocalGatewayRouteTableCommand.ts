@@ -61,6 +61,29 @@ export interface CreateLocalGatewayRouteTableCommandOutput
  * };
  * const command = new CreateLocalGatewayRouteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocalGatewayRouteTableResult
+ *   LocalGatewayRouteTable: { // LocalGatewayRouteTable
+ *     LocalGatewayRouteTableId: "STRING_VALUE",
+ *     LocalGatewayRouteTableArn: "STRING_VALUE",
+ *     LocalGatewayId: "STRING_VALUE",
+ *     OutpostArn: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Mode: "direct-vpc-routing" || "coip",
+ *     StateReason: { // StateReason
+ *       Code: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLocalGatewayRouteTableCommandInput - {@link CreateLocalGatewayRouteTableCommandInput}
@@ -69,6 +92,8 @@ export interface CreateLocalGatewayRouteTableCommandOutput
  * @see {@link CreateLocalGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateLocalGatewayRouteTableCommand extends $Command<

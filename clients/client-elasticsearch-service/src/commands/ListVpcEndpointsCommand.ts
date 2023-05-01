@@ -48,6 +48,19 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcEndpointsResponse
+ *   VpcEndpointSummaryList: [ // VpcEndpointSummaryList // required
+ *     { // VpcEndpointSummary
+ *       VpcEndpointId: "STRING_VALUE",
+ *       VpcEndpointOwner: "STRING_VALUE",
+ *       DomainArn: "STRING_VALUE",
+ *       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
@@ -65,6 +78,8 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @throws {@link InternalException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListVpcEndpointsCommand extends $Command<

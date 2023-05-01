@@ -46,6 +46,22 @@ export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __Met
  * };
  * const command = new ListRunGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRunGroupsResponse
+ *   items: [ // RunGroupList
+ *     { // RunGroupListItem
+ *       arn: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       maxCpus: Number("int"),
+ *       maxRuns: Number("int"),
+ *       maxDuration: Number("int"),
+ *       creationTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRunGroupsCommandInput - {@link ListRunGroupsCommandInput}
@@ -78,6 +94,8 @@ export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListRunGroupsCommand extends $Command<

@@ -62,6 +62,36 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGlobalClusterResult
+ *   GlobalCluster: { // GlobalCluster
+ *     GlobalClusterIdentifier: "STRING_VALUE",
+ *     GlobalClusterResourceId: "STRING_VALUE",
+ *     GlobalClusterArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     Engine: "STRING_VALUE",
+ *     EngineVersion: "STRING_VALUE",
+ *     DatabaseName: "STRING_VALUE",
+ *     StorageEncrypted: true || false,
+ *     DeletionProtection: true || false,
+ *     GlobalClusterMembers: [ // GlobalClusterMemberList
+ *       { // GlobalClusterMember
+ *         DBClusterArn: "STRING_VALUE",
+ *         Readers: [ // ReadersArnList
+ *           "STRING_VALUE",
+ *         ],
+ *         IsWriter: true || false,
+ *         GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
+ *       },
+ *     ],
+ *     FailoverState: { // FailoverState
+ *       Status: "pending" || "failing-over" || "cancelling",
+ *       FromDbClusterArn: "STRING_VALUE",
+ *       ToDbClusterArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGlobalClusterCommandInput - {@link CreateGlobalClusterCommandInput}
@@ -83,6 +113,8 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To create a global DB cluster
  * ```javascript

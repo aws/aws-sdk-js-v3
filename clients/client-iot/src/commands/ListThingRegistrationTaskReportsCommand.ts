@@ -52,6 +52,15 @@ export interface ListThingRegistrationTaskReportsCommandOutput
  * };
  * const command = new ListThingRegistrationTaskReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingRegistrationTaskReportsResponse
+ *   resourceLinks: [ // S3FileUrlList
+ *     "STRING_VALUE",
+ *   ],
+ *   reportType: "ERRORS" || "RESULTS",
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListThingRegistrationTaskReportsCommandInput - {@link ListThingRegistrationTaskReportsCommandInput}
@@ -72,6 +81,8 @@ export interface ListThingRegistrationTaskReportsCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingRegistrationTaskReportsCommand extends $Command<

@@ -71,6 +71,11 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * };
  * const command = new UpdateUserPoolDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserPoolDomainResponse
+ *   CloudFrontDomain: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateUserPoolDomainCommandInput - {@link UpdateUserPoolDomainCommandInput}
@@ -97,6 +102,8 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateUserPoolDomainCommand extends $Command<

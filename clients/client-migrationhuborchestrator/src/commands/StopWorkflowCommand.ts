@@ -48,6 +48,15 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * };
  * const command = new StopWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopMigrationWorkflowResponse
+ *   id: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   statusMessage: "STRING_VALUE",
+ *   lastStopTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StopWorkflowCommandInput - {@link StopWorkflowCommandInput}
@@ -71,6 +80,8 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class StopWorkflowCommand extends $Command<

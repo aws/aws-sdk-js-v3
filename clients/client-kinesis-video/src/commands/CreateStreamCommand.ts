@@ -58,6 +58,11 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamOutput
+ *   StreamARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
@@ -107,6 +112,8 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  *  <p>You have exceeded the limit of tags that you can associate with the resource.
  *             A Kinesis video stream can support up to 50 tags. </p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class CreateStreamCommand extends $Command<

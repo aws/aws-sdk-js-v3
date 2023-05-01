@@ -51,6 +51,21 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  * };
  * const command = new ListNetworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNetworksResponse
+ *   networks: [ // NetworkList
+ *     { // Network
+ *       networkArn: "STRING_VALUE", // required
+ *       networkName: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       status: "STRING_VALUE", // required
+ *       statusReason: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListNetworksCommandInput - {@link ListNetworksCommandInput}
@@ -68,6 +83,8 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class ListNetworksCommand extends $Command<

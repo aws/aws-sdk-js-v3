@@ -49,6 +49,22 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * };
  * const command = new ListTableStorageOptimizersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTableStorageOptimizersResponse
+ *   StorageOptimizerList: [ // StorageOptimizerList
+ *     { // StorageOptimizer
+ *       StorageOptimizerType: "COMPACTION" || "GARBAGE_COLLECTION" || "ALL",
+ *       Config: { // StorageOptimizerConfig
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ErrorMessage: "STRING_VALUE",
+ *       Warnings: "STRING_VALUE",
+ *       LastRunDetails: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTableStorageOptimizersCommandInput - {@link ListTableStorageOptimizersCommandInput}
@@ -69,6 +85,8 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListTableStorageOptimizersCommand extends $Command<

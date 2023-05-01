@@ -58,6 +58,11 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * };
  * const command = new StartImportFileTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartImportFileTaskResponse
+ *   id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartImportFileTaskCommandInput - {@link StartImportFileTaskCommandInput}
@@ -83,6 +88,8 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StartImportFileTaskCommand extends $Command<

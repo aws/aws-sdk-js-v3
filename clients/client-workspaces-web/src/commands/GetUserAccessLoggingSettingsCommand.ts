@@ -49,6 +49,17 @@ export interface GetUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new GetUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserAccessLoggingSettingsResponse
+ *   userAccessLoggingSettings: { // UserAccessLoggingSettings
+ *     userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ *     associatedPortalArns: [ // ArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     kinesisStreamArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetUserAccessLoggingSettingsCommandInput - {@link GetUserAccessLoggingSettingsCommandInput}
@@ -72,6 +83,8 @@ export interface GetUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetUserAccessLoggingSettingsCommand extends $Command<

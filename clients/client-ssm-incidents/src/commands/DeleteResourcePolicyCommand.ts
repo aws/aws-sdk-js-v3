@@ -46,6 +46,9 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

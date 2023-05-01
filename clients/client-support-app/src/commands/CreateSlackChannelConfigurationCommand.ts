@@ -76,6 +76,9 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * };
  * const command = new CreateSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateSlackChannelConfigurationCommandInput - {@link CreateSlackChannelConfigurationCommandInput}
@@ -127,6 +130,8 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class CreateSlackChannelConfigurationCommand extends $Command<

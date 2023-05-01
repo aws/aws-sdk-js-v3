@@ -55,6 +55,13 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * };
  * const command = new GetCalendarStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCalendarStateResponse
+ *   State: "OPEN" || "CLOSED",
+ *   AtTime: "STRING_VALUE",
+ *   NextTransitionTime: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCalendarStateCommandInput - {@link GetCalendarStateCommandInput}
@@ -76,6 +83,8 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * @throws {@link UnsupportedCalendarException} (client fault)
  *  <p>The calendar entry contained in the specified SSM document isn't supported.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetCalendarStateCommand extends $Command<

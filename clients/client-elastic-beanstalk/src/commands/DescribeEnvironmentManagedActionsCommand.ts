@@ -51,6 +51,19 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * };
  * const command = new DescribeEnvironmentManagedActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentManagedActionsResult
+ *   ManagedActions: [ // ManagedActions
+ *     { // ManagedAction
+ *       ActionId: "STRING_VALUE",
+ *       ActionDescription: "STRING_VALUE",
+ *       ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
+ *       Status: "Scheduled" || "Pending" || "Running" || "Unknown",
+ *       WindowStartTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentManagedActionsCommandInput - {@link DescribeEnvironmentManagedActionsCommandInput}
@@ -62,6 +75,8 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
  *  <p>A generic service exception has occurred.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DescribeEnvironmentManagedActionsCommand extends $Command<

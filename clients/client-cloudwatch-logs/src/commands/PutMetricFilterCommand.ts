@@ -80,6 +80,9 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetricFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetricFilterCommandInput - {@link PutMetricFilterCommandInput}
@@ -103,6 +106,8 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutMetricFilterCommand extends $Command<

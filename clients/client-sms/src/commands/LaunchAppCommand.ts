@@ -44,6 +44,9 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  * };
  * const command = new LaunchAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param LaunchAppCommandInput - {@link LaunchAppCommandInput}
@@ -68,6 +71,8 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppCommandOutput, SMSClientResolvedConfig> {

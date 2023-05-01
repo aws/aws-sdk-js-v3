@@ -48,6 +48,23 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * };
  * const command = new GetCrawlerMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCrawlerMetricsResponse
+ *   CrawlerMetricsList: [ // CrawlerMetricsList
+ *     { // CrawlerMetrics
+ *       CrawlerName: "STRING_VALUE",
+ *       TimeLeftSeconds: Number("double"),
+ *       StillEstimating: true || false,
+ *       LastRuntimeSeconds: Number("double"),
+ *       MedianRuntimeSeconds: Number("double"),
+ *       TablesCreated: Number("int"),
+ *       TablesUpdated: Number("int"),
+ *       TablesDeleted: Number("int"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCrawlerMetricsCommandInput - {@link GetCrawlerMetricsCommandInput}
@@ -59,6 +76,8 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetCrawlerMetricsCommand extends $Command<

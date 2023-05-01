@@ -54,6 +54,29 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  * };
  * const command = new BatchDetectSentimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDetectSentimentResponse
+ *   ResultList: [ // ListOfDetectSentimentResult // required
+ *     { // BatchDetectSentimentItemResult
+ *       Index: Number("int"),
+ *       Sentiment: "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ *       SentimentScore: { // SentimentScore
+ *         Positive: Number("float"),
+ *         Negative: Number("float"),
+ *         Neutral: Number("float"),
+ *         Mixed: Number("float"),
+ *       },
+ *     },
+ *   ],
+ *   ErrorList: [ // BatchItemErrorList // required
+ *     { // BatchItemError
+ *       Index: Number("int"),
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDetectSentimentCommandInput - {@link BatchDetectSentimentCommandInput}
@@ -82,6 +105,8 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class BatchDetectSentimentCommand extends $Command<

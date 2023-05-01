@@ -54,6 +54,20 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * };
  * const command = new CreateIntegrationResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIntegrationResponseResponse
+ *   ContentHandlingStrategy: "STRING_VALUE",
+ *   IntegrationResponseId: "STRING_VALUE",
+ *   IntegrationResponseKey: "STRING_VALUE",
+ *   ResponseParameters: { // IntegrationParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseTemplates: { // TemplateMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TemplateSelectionExpression: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateIntegrationResponseCommandInput - {@link CreateIntegrationResponseCommandInput}
@@ -74,6 +88,8 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateIntegrationResponseCommand extends $Command<

@@ -50,6 +50,17 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  * };
  * const command = new GetFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFeedbackResponse
+ *   AnomalyGroupTimeSeriesFeedback: [ // TimeSeriesFeedbackList
+ *     { // TimeSeriesFeedback
+ *       TimeSeriesId: "STRING_VALUE",
+ *       IsAnomaly: true || false,
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetFeedbackCommandInput - {@link GetFeedbackCommandInput}
@@ -74,6 +85,8 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class GetFeedbackCommand extends $Command<

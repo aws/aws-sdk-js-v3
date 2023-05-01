@@ -45,6 +45,21 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * };
  * const command = new GetLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLinkOutput
+ *   Arn: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Label: "STRING_VALUE",
+ *   LabelTemplate: "STRING_VALUE",
+ *   ResourceTypes: [ // ResourceTypesOutput
+ *     "STRING_VALUE",
+ *   ],
+ *   SinkArn: "STRING_VALUE",
+ *   Tags: { // TagMapOutput
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLinkCommandInput - {@link GetLinkCommandInput}
@@ -65,6 +80,8 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommandOutput, OAMClientResolvedConfig> {

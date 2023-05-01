@@ -45,6 +45,14 @@ export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __Met
  * };
  * const command = new DeleteDataSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDataSetResponse
+ *   Arn: "STRING_VALUE",
+ *   DataSetId: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param DeleteDataSetCommandInput - {@link DeleteDataSetCommandInput}
@@ -71,6 +79,8 @@ export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteDataSetCommand extends $Command<

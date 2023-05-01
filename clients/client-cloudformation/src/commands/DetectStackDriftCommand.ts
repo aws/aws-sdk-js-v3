@@ -67,6 +67,11 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * };
  * const command = new DetectStackDriftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectStackDriftOutput
+ *   StackDriftDetectionId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DetectStackDriftCommandInput - {@link DetectStackDriftCommandInput}
@@ -75,6 +80,8 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * @see {@link DetectStackDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DetectStackDriftCommand extends $Command<

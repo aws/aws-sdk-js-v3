@@ -59,6 +59,9 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * };
  * const command = new TagDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagDeliveryStreamCommandInput - {@link TagDeliveryStreamCommandInput}
@@ -79,6 +82,8 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class TagDeliveryStreamCommand extends $Command<

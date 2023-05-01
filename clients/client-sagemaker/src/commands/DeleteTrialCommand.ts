@@ -46,6 +46,11 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * };
  * const command = new DeleteTrialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTrialResponse
+ *   TrialArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteTrialCommandInput - {@link DeleteTrialCommandInput}
@@ -57,6 +62,8 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteTrialCommand extends $Command<

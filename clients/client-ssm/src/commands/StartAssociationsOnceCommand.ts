@@ -47,6 +47,9 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * };
  * const command = new StartAssociationsOnceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartAssociationsOnceCommandInput - {@link StartAssociationsOnceCommandInput}
@@ -61,6 +64,8 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * @throws {@link InvalidAssociation} (client fault)
  *  <p>The association isn't valid or doesn't exist. </p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StartAssociationsOnceCommand extends $Command<

@@ -49,6 +49,11 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * };
  * const command = new CopyFpgaImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyFpgaImageResult
+ *   FpgaImageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CopyFpgaImageCommandInput - {@link CopyFpgaImageCommandInput}
@@ -57,6 +62,8 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * @see {@link CopyFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CopyFpgaImageCommand extends $Command<

@@ -62,6 +62,14 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * };
  * const command = new DescribeAttachmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAttachmentResponse
+ *   attachment: { // Attachment
+ *     fileName: "STRING_VALUE",
+ *     data: "BLOB_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAttachmentCommandInput - {@link DescribeAttachmentCommandInput}
@@ -80,6 +88,8 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeAttachmentCommand extends $Command<

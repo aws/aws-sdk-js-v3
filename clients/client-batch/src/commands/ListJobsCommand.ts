@@ -71,6 +71,37 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsResponse
+ *   jobSummaryList: [ // JobSummaryList // required
+ *     { // JobSummary
+ *       jobArn: "STRING_VALUE",
+ *       jobId: "STRING_VALUE", // required
+ *       jobName: "STRING_VALUE", // required
+ *       createdAt: Number("long"),
+ *       status: "SUBMITTED" || "PENDING" || "RUNNABLE" || "STARTING" || "RUNNING" || "SUCCEEDED" || "FAILED",
+ *       statusReason: "STRING_VALUE",
+ *       startedAt: Number("long"),
+ *       stoppedAt: Number("long"),
+ *       container: { // ContainerSummary
+ *         exitCode: Number("int"),
+ *         reason: "STRING_VALUE",
+ *       },
+ *       arrayProperties: { // ArrayPropertiesSummary
+ *         size: Number("int"),
+ *         index: Number("int"),
+ *       },
+ *       nodeProperties: { // NodePropertiesSummary
+ *         isMainNode: true || false,
+ *         numNodes: Number("int"),
+ *         nodeIndex: Number("int"),
+ *       },
+ *       jobDefinition: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -87,6 +118,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To list running jobs
  * ```javascript

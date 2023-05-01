@@ -72,6 +72,18 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * };
  * const command = new CreateFleetLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFleetLocationsOutput
+ *   FleetId: "STRING_VALUE",
+ *   FleetArn: "STRING_VALUE",
+ *   LocationStates: [ // LocationStateList
+ *     { // LocationState
+ *       Location: "STRING_VALUE",
+ *       Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateFleetLocationsCommandInput - {@link CreateFleetLocationsCommandInput}
@@ -112,6 +124,8 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateFleetLocationsCommand extends $Command<

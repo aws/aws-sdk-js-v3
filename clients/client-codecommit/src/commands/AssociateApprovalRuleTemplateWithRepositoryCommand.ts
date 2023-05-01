@@ -55,6 +55,9 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * };
  * const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateApprovalRuleTemplateWithRepositoryCommandInput - {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput}
@@ -110,6 +113,8 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command<

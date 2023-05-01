@@ -56,6 +56,11 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * };
  * const command = new CreateEventIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventIntegrationResponse
+ *   EventIntegrationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateEventIntegrationCommandInput - {@link CreateEventIntegrationCommandInput}
@@ -82,6 +87,8 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class CreateEventIntegrationCommand extends $Command<

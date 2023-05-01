@@ -54,6 +54,13 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  * };
  * const command = new SetDefaultMessageTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetDefaultMessageTypeResult
+ *   ConfigurationSetArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   MessageType: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SetDefaultMessageTypeCommandInput - {@link SetDefaultMessageTypeCommandInput}
@@ -80,6 +87,8 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SetDefaultMessageTypeCommand extends $Command<

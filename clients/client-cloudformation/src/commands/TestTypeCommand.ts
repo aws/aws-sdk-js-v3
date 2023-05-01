@@ -70,6 +70,11 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * };
  * const command = new TestTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestTypeOutput
+ *   TypeVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param TestTypeCommandInput - {@link TestTypeCommandInput}
@@ -84,6 +89,8 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class TestTypeCommand extends $Command<

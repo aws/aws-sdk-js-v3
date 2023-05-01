@@ -66,6 +66,20 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * };
  * const command = new UpdateRecoveryPointLifecycleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRecoveryPointLifecycleOutput
+ *   BackupVaultArn: "STRING_VALUE",
+ *   RecoveryPointArn: "STRING_VALUE",
+ *   Lifecycle: { // Lifecycle
+ *     MoveToColdStorageAfterDays: Number("long"),
+ *     DeleteAfterDays: Number("long"),
+ *   },
+ *   CalculatedLifecycle: { // CalculatedLifecycle
+ *     MoveToColdStorageAt: new Date("TIMESTAMP"),
+ *     DeleteAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRecoveryPointLifecycleCommandInput - {@link UpdateRecoveryPointLifecycleCommandInput}
@@ -91,6 +105,8 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command<

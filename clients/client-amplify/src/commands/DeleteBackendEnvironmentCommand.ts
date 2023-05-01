@@ -45,6 +45,18 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  * };
  * const command = new DeleteBackendEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBackendEnvironmentResult
+ *   backendEnvironment: { // BackendEnvironment
+ *     backendEnvironmentArn: "STRING_VALUE", // required
+ *     environmentName: "STRING_VALUE", // required
+ *     stackName: "STRING_VALUE",
+ *     deploymentArtifacts: "STRING_VALUE",
+ *     createTime: new Date("TIMESTAMP"), // required
+ *     updateTime: new Date("TIMESTAMP"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteBackendEnvironmentCommandInput - {@link DeleteBackendEnvironmentCommandInput}
@@ -68,6 +80,8 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class DeleteBackendEnvironmentCommand extends $Command<

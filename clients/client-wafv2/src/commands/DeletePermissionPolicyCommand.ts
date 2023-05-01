@@ -45,6 +45,9 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * };
  * const command = new DeletePermissionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePermissionPolicyCommandInput - {@link DeletePermissionPolicyCommandInput}
@@ -84,6 +87,8 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DeletePermissionPolicyCommand extends $Command<

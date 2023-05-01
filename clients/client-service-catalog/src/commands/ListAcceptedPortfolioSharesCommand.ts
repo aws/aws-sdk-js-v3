@@ -49,6 +49,21 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * };
  * const command = new ListAcceptedPortfolioSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAcceptedPortfolioSharesOutput
+ *   PortfolioDetails: [ // PortfolioDetails
+ *     { // PortfolioDetail
+ *       Id: "STRING_VALUE",
+ *       ARN: "STRING_VALUE",
+ *       DisplayName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       ProviderName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAcceptedPortfolioSharesCommandInput - {@link ListAcceptedPortfolioSharesCommandInput}
@@ -63,6 +78,8 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListAcceptedPortfolioSharesCommand extends $Command<

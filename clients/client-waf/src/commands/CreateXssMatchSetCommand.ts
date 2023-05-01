@@ -74,6 +74,24 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * };
  * const command = new CreateXssMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateXssMatchSetResponse
+ *   XssMatchSet: { // XssMatchSet
+ *     XssMatchSetId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     XssMatchTuples: [ // XssMatchTuples // required
+ *       { // XssMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TextTransformation: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateXssMatchSetCommandInput - {@link CreateXssMatchSetCommandInput}
@@ -139,6 +157,8 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To create an XSS match set
  * ```javascript

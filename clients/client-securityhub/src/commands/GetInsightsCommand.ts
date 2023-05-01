@@ -48,6 +48,269 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * };
  * const command = new GetInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightsResponse
+ *   Insights: [ // InsightList // required
+ *     { // Insight
+ *       InsightArn: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       Filters: { // AwsSecurityFindingFilters
+ *         ProductArn: [ // StringFilterList
+ *           { // StringFilter
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *           },
+ *         ],
+ *         AwsAccountId: [
+ *           {
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *           },
+ *         ],
+ *         Id: [
+ *           {
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *           },
+ *         ],
+ *         GeneratorId: [
+ *           {
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *           },
+ *         ],
+ *         Region: [
+ *           {
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *           },
+ *         ],
+ *         Type: "<StringFilterList>",
+ *         FirstObservedAt: [ // DateFilterList
+ *           { // DateFilter
+ *             Start: "STRING_VALUE",
+ *             End: "STRING_VALUE",
+ *             DateRange: { // DateRange
+ *               Value: Number("int"),
+ *               Unit: "DAYS",
+ *             },
+ *           },
+ *         ],
+ *         LastObservedAt: [
+ *           {
+ *             Start: "STRING_VALUE",
+ *             End: "STRING_VALUE",
+ *             DateRange: {
+ *               Value: Number("int"),
+ *               Unit: "DAYS",
+ *             },
+ *           },
+ *         ],
+ *         CreatedAt: [
+ *           {
+ *             Start: "STRING_VALUE",
+ *             End: "STRING_VALUE",
+ *             DateRange: {
+ *               Value: Number("int"),
+ *               Unit: "DAYS",
+ *             },
+ *           },
+ *         ],
+ *         UpdatedAt: [
+ *           {
+ *             Start: "STRING_VALUE",
+ *             End: "STRING_VALUE",
+ *             DateRange: {
+ *               Value: Number("int"),
+ *               Unit: "DAYS",
+ *             },
+ *           },
+ *         ],
+ *         SeverityProduct: [ // NumberFilterList
+ *           { // NumberFilter
+ *             Gte: Number("double"),
+ *             Lte: Number("double"),
+ *             Eq: Number("double"),
+ *           },
+ *         ],
+ *         SeverityNormalized: [
+ *           {
+ *             Gte: Number("double"),
+ *             Lte: Number("double"),
+ *             Eq: Number("double"),
+ *           },
+ *         ],
+ *         SeverityLabel: "<StringFilterList>",
+ *         Confidence: [
+ *           {
+ *             Gte: Number("double"),
+ *             Lte: Number("double"),
+ *             Eq: Number("double"),
+ *           },
+ *         ],
+ *         Criticality: [
+ *           {
+ *             Gte: Number("double"),
+ *             Lte: Number("double"),
+ *             Eq: Number("double"),
+ *           },
+ *         ],
+ *         Title: "<StringFilterList>",
+ *         Description: "<StringFilterList>",
+ *         RecommendationText: "<StringFilterList>",
+ *         SourceUrl: "<StringFilterList>",
+ *         ProductFields: [ // MapFilterList
+ *           { // MapFilter
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "NOT_EQUALS",
+ *           },
+ *         ],
+ *         ProductName: "<StringFilterList>",
+ *         CompanyName: "<StringFilterList>",
+ *         UserDefinedFields: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "NOT_EQUALS",
+ *           },
+ *         ],
+ *         MalwareName: "<StringFilterList>",
+ *         MalwareType: "<StringFilterList>",
+ *         MalwarePath: "<StringFilterList>",
+ *         MalwareState: "<StringFilterList>",
+ *         NetworkDirection: "<StringFilterList>",
+ *         NetworkProtocol: "<StringFilterList>",
+ *         NetworkSourceIpV4: [ // IpFilterList
+ *           { // IpFilter
+ *             Cidr: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NetworkSourceIpV6: [
+ *           {
+ *             Cidr: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NetworkSourcePort: [
+ *           {
+ *             Gte: Number("double"),
+ *             Lte: Number("double"),
+ *             Eq: Number("double"),
+ *           },
+ *         ],
+ *         NetworkSourceDomain: "<StringFilterList>",
+ *         NetworkSourceMac: "<StringFilterList>",
+ *         NetworkDestinationIpV4: [
+ *           {
+ *             Cidr: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NetworkDestinationIpV6: [
+ *           {
+ *             Cidr: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NetworkDestinationPort: "<NumberFilterList>",
+ *         NetworkDestinationDomain: "<StringFilterList>",
+ *         ProcessName: "<StringFilterList>",
+ *         ProcessPath: "<StringFilterList>",
+ *         ProcessPid: "<NumberFilterList>",
+ *         ProcessParentPid: "<NumberFilterList>",
+ *         ProcessLaunchedAt: [
+ *           {
+ *             Start: "STRING_VALUE",
+ *             End: "STRING_VALUE",
+ *             DateRange: {
+ *               Value: Number("int"),
+ *               Unit: "DAYS",
+ *             },
+ *           },
+ *         ],
+ *         ProcessTerminatedAt: "<DateFilterList>",
+ *         ThreatIntelIndicatorType: "<StringFilterList>",
+ *         ThreatIntelIndicatorValue: "<StringFilterList>",
+ *         ThreatIntelIndicatorCategory: "<StringFilterList>",
+ *         ThreatIntelIndicatorLastObservedAt: "<DateFilterList>",
+ *         ThreatIntelIndicatorSource: "<StringFilterList>",
+ *         ThreatIntelIndicatorSourceUrl: "<StringFilterList>",
+ *         ResourceType: "<StringFilterList>",
+ *         ResourceId: "<StringFilterList>",
+ *         ResourcePartition: "<StringFilterList>",
+ *         ResourceRegion: "<StringFilterList>",
+ *         ResourceTags: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "NOT_EQUALS",
+ *           },
+ *         ],
+ *         ResourceAwsEc2InstanceType: "<StringFilterList>",
+ *         ResourceAwsEc2InstanceImageId: "<StringFilterList>",
+ *         ResourceAwsEc2InstanceIpV4Addresses: [
+ *           {
+ *             Cidr: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ResourceAwsEc2InstanceIpV6Addresses: "<IpFilterList>",
+ *         ResourceAwsEc2InstanceKeyName: "<StringFilterList>",
+ *         ResourceAwsEc2InstanceIamInstanceProfileArn: "<StringFilterList>",
+ *         ResourceAwsEc2InstanceVpcId: "<StringFilterList>",
+ *         ResourceAwsEc2InstanceSubnetId: "<StringFilterList>",
+ *         ResourceAwsEc2InstanceLaunchedAt: "<DateFilterList>",
+ *         ResourceAwsS3BucketOwnerId: "<StringFilterList>",
+ *         ResourceAwsS3BucketOwnerName: "<StringFilterList>",
+ *         ResourceAwsIamAccessKeyUserName: "<StringFilterList>",
+ *         ResourceAwsIamAccessKeyPrincipalName: "<StringFilterList>",
+ *         ResourceAwsIamAccessKeyStatus: "<StringFilterList>",
+ *         ResourceAwsIamAccessKeyCreatedAt: "<DateFilterList>",
+ *         ResourceAwsIamUserUserName: "<StringFilterList>",
+ *         ResourceContainerName: "<StringFilterList>",
+ *         ResourceContainerImageId: "<StringFilterList>",
+ *         ResourceContainerImageName: "<StringFilterList>",
+ *         ResourceContainerLaunchedAt: "<DateFilterList>",
+ *         ResourceDetailsOther: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             Comparison: "EQUALS" || "NOT_EQUALS",
+ *           },
+ *         ],
+ *         ComplianceStatus: "<StringFilterList>",
+ *         VerificationState: "<StringFilterList>",
+ *         WorkflowState: "<StringFilterList>",
+ *         WorkflowStatus: "<StringFilterList>",
+ *         RecordState: "<StringFilterList>",
+ *         RelatedFindingsProductArn: "<StringFilterList>",
+ *         RelatedFindingsId: "<StringFilterList>",
+ *         NoteText: "<StringFilterList>",
+ *         NoteUpdatedAt: "<DateFilterList>",
+ *         NoteUpdatedBy: "<StringFilterList>",
+ *         Keyword: [ // KeywordFilterList
+ *           { // KeywordFilter
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         FindingProviderFieldsConfidence: "<NumberFilterList>",
+ *         FindingProviderFieldsCriticality: "<NumberFilterList>",
+ *         FindingProviderFieldsRelatedFindingsId: "<StringFilterList>",
+ *         FindingProviderFieldsRelatedFindingsProductArn: "<StringFilterList>",
+ *         FindingProviderFieldsSeverityLabel: "<StringFilterList>",
+ *         FindingProviderFieldsSeverityOriginal: "<StringFilterList>",
+ *         FindingProviderFieldsTypes: "<StringFilterList>",
+ *         Sample: [ // BooleanFilterList
+ *           { // BooleanFilter
+ *             Value: true || false,
+ *           },
+ *         ],
+ *         ComplianceSecurityControlId: "<StringFilterList>",
+ *         ComplianceAssociatedStandardsId: "<StringFilterList>",
+ *       },
+ *       GroupByAttribute: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetInsightsCommandInput - {@link GetInsightsCommandInput}
@@ -73,6 +336,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get details of a Security Hub insight
  * ```javascript

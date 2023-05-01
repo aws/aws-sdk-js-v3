@@ -52,6 +52,23 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * };
  * const command = new DescribeTestCasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTestCasesOutput
+ *   nextToken: "STRING_VALUE",
+ *   testCases: [ // TestCases
+ *     { // TestCase
+ *       reportArn: "STRING_VALUE",
+ *       testRawDataPath: "STRING_VALUE",
+ *       prefix: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       durationInNanoSeconds: Number("long"),
+ *       message: "STRING_VALUE",
+ *       expired: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTestCasesCommandInput - {@link DescribeTestCasesCommandInput}
@@ -66,6 +83,8 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DescribeTestCasesCommand extends $Command<

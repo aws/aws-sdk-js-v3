@@ -55,6 +55,76 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * };
  * const command = new BatchDescribeMergeConflictsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDescribeMergeConflictsOutput
+ *   conflicts: [ // Conflicts // required
+ *     { // Conflict
+ *       conflictMetadata: { // ConflictMetadata
+ *         filePath: "STRING_VALUE",
+ *         fileSizes: { // FileSizes
+ *           source: Number("long"),
+ *           destination: Number("long"),
+ *           base: Number("long"),
+ *         },
+ *         fileModes: { // FileModes
+ *           source: "STRING_VALUE",
+ *           destination: "STRING_VALUE",
+ *           base: "STRING_VALUE",
+ *         },
+ *         objectTypes: { // ObjectTypes
+ *           source: "STRING_VALUE",
+ *           destination: "STRING_VALUE",
+ *           base: "STRING_VALUE",
+ *         },
+ *         numberOfConflicts: Number("int"),
+ *         isBinaryFile: { // IsBinaryFile
+ *           source: true || false,
+ *           destination: true || false,
+ *           base: true || false,
+ *         },
+ *         contentConflict: true || false,
+ *         fileModeConflict: true || false,
+ *         objectTypeConflict: true || false,
+ *         mergeOperations: { // MergeOperations
+ *           source: "STRING_VALUE",
+ *           destination: "STRING_VALUE",
+ *         },
+ *       },
+ *       mergeHunks: [ // MergeHunks
+ *         { // MergeHunk
+ *           isConflict: true || false,
+ *           source: { // MergeHunkDetail
+ *             startLine: Number("int"),
+ *             endLine: Number("int"),
+ *             hunkContent: "STRING_VALUE",
+ *           },
+ *           destination: {
+ *             startLine: Number("int"),
+ *             endLine: Number("int"),
+ *             hunkContent: "STRING_VALUE",
+ *           },
+ *           base: {
+ *             startLine: Number("int"),
+ *             endLine: Number("int"),
+ *             hunkContent: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   errors: [ // BatchDescribeMergeConflictsErrors
+ *     { // BatchDescribeMergeConflictsError
+ *       filePath: "STRING_VALUE", // required
+ *       exceptionName: "STRING_VALUE", // required
+ *       message: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   destinationCommitId: "STRING_VALUE", // required
+ *   sourceCommitId: "STRING_VALUE", // required
+ *   baseCommitId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param BatchDescribeMergeConflictsCommandInput - {@link BatchDescribeMergeConflictsCommandInput}
@@ -133,6 +203,8 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class BatchDescribeMergeConflictsCommand extends $Command<

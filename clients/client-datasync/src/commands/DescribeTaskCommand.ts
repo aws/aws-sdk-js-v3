@@ -44,6 +44,58 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * };
  * const command = new DescribeTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTaskResponse
+ *   TaskArn: "STRING_VALUE",
+ *   Status: "AVAILABLE" || "CREATING" || "QUEUED" || "RUNNING" || "UNAVAILABLE",
+ *   Name: "STRING_VALUE",
+ *   CurrentTaskExecutionArn: "STRING_VALUE",
+ *   SourceLocationArn: "STRING_VALUE",
+ *   DestinationLocationArn: "STRING_VALUE",
+ *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   SourceNetworkInterfaceArns: [ // SourceNetworkInterfaceArns
+ *     "STRING_VALUE",
+ *   ],
+ *   DestinationNetworkInterfaceArns: [ // DestinationNetworkInterfaceArns
+ *     "STRING_VALUE",
+ *   ],
+ *   Options: { // Options
+ *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
+ *     OverwriteMode: "ALWAYS" || "NEVER",
+ *     Atime: "NONE" || "BEST_EFFORT",
+ *     Mtime: "NONE" || "PRESERVE",
+ *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
+ *     PreserveDevices: "NONE" || "PRESERVE",
+ *     PosixPermissions: "NONE" || "PRESERVE",
+ *     BytesPerSecond: Number("long"),
+ *     TaskQueueing: "ENABLED" || "DISABLED",
+ *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
+ *     TransferMode: "CHANGED" || "ALL",
+ *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
+ *     ObjectTags: "PRESERVE" || "NONE",
+ *   },
+ *   Excludes: [ // FilterList
+ *     { // FilterRule
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Schedule: { // TaskSchedule
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   ErrorCode: "STRING_VALUE",
+ *   ErrorDetail: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   Includes: [
+ *     {
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTaskCommandInput - {@link DescribeTaskCommandInput}
@@ -59,6 +111,8 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeTaskCommand extends $Command<

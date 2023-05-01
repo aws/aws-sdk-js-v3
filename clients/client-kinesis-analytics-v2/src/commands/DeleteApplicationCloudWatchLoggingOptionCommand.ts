@@ -60,6 +60,19 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * };
  * const command = new DeleteApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteApplicationCloudWatchLoggingOptionResponse
+ *   ApplicationARN: "STRING_VALUE",
+ *   ApplicationVersionId: Number("long"),
+ *   CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions
+ *     { // CloudWatchLoggingOptionDescription
+ *       CloudWatchLoggingOptionId: "STRING_VALUE",
+ *       LogStreamARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteApplicationCloudWatchLoggingOptionCommandInput - {@link DeleteApplicationCloudWatchLoggingOptionCommandInput}
@@ -88,6 +101,8 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<

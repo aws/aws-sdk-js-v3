@@ -45,6 +45,18 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  * };
  * const command = new GetNamedQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNamedQueryOutput
+ *   NamedQuery: { // NamedQuery
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Database: "STRING_VALUE", // required
+ *     QueryString: "STRING_VALUE", // required
+ *     NamedQueryId: "STRING_VALUE",
+ *     WorkGroup: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNamedQueryCommandInput - {@link GetNamedQueryCommandInput}
@@ -61,6 +73,8 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetNamedQueryCommand extends $Command<

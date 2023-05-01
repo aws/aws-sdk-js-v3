@@ -44,6 +44,16 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * };
  * const command = new DescribeLocationFsxLustreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationFsxLustreResponse
+ *   LocationArn: "STRING_VALUE",
+ *   LocationUri: "STRING_VALUE",
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeLocationFsxLustreCommandInput - {@link DescribeLocationFsxLustreCommandInput}
@@ -59,6 +69,8 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationFsxLustreCommand extends $Command<

@@ -48,6 +48,23 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
  * };
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaResponse
+ *   RegistryName: "STRING_VALUE",
+ *   RegistryArn: "STRING_VALUE",
+ *   SchemaName: "STRING_VALUE",
+ *   SchemaArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
+ *   Compatibility: "NONE" || "DISABLED" || "BACKWARD" || "BACKWARD_ALL" || "FORWARD" || "FORWARD_ALL" || "FULL" || "FULL_ALL",
+ *   SchemaCheckpoint: Number("long"),
+ *   LatestSchemaVersion: Number("long"),
+ *   NextSchemaVersion: Number("long"),
+ *   SchemaStatus: "AVAILABLE" || "PENDING" || "DELETING",
+ *   CreatedTime: "STRING_VALUE",
+ *   UpdatedTime: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSchemaCommandInput - {@link GetSchemaCommandInput}
@@ -68,6 +85,8 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaCommand extends $Command<

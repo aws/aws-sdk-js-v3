@@ -89,6 +89,31 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcesOutput
+ *   PaginationToken: "STRING_VALUE",
+ *   ResourceTagMappingList: [ // ResourceTagMappingList
+ *     { // ResourceTagMapping
+ *       ResourceARN: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       ComplianceDetails: { // ComplianceDetails
+ *         NoncompliantKeys: [ // TagKeyList
+ *           "STRING_VALUE",
+ *         ],
+ *         KeysWithNoncompliantValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ComplianceStatus: true || false,
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
@@ -131,6 +156,8 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class GetResourcesCommand extends $Command<

@@ -69,6 +69,11 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * };
  * const command = new CreatePackageImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePackageImportJobResponse
+ *   JobId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreatePackageImportJobCommandInput - {@link CreatePackageImportJobCommandInput}
@@ -89,6 +94,8 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreatePackageImportJobCommand extends $Command<

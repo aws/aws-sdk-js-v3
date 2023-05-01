@@ -44,6 +44,11 @@ export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __Metad
  * };
  * const command = new DeleteBridgeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBridgeResponse
+ *   BridgeArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteBridgeCommandInput - {@link DeleteBridgeCommandInput}
@@ -73,6 +78,8 @@ export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DeleteBridgeCommand extends $Command<

@@ -49,6 +49,20 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * };
  * const command = new BatchDeleteTableVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteTableVersionResponse
+ *   Errors: [ // TableVersionErrors
+ *     { // TableVersionError
+ *       TableName: "STRING_VALUE",
+ *       VersionId: "STRING_VALUE",
+ *       ErrorDetail: { // ErrorDetail
+ *         ErrorCode: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteTableVersionCommandInput - {@link BatchDeleteTableVersionCommandInput}
@@ -69,6 +83,8 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeleteTableVersionCommand extends $Command<

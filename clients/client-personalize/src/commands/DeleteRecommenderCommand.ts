@@ -45,6 +45,9 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecommenderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRecommenderCommandInput - {@link DeleteRecommenderCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DeleteRecommenderCommand extends $Command<

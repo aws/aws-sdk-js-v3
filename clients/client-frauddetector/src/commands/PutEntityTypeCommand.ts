@@ -51,6 +51,9 @@ export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __Metad
  * };
  * const command = new PutEntityTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEntityTypeCommandInput - {@link PutEntityTypeCommandInput}
@@ -74,6 +77,8 @@ export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutEntityTypeCommand extends $Command<

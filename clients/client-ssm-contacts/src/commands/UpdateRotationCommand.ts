@@ -85,6 +85,9 @@ export interface UpdateRotationCommandOutput extends UpdateRotationResult, __Met
  * };
  * const command = new UpdateRotationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRotationCommandInput - {@link UpdateRotationCommandInput}
@@ -112,6 +115,8 @@ export interface UpdateRotationCommandOutput extends UpdateRotationResult, __Met
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class UpdateRotationCommand extends $Command<

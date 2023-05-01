@@ -54,6 +54,9 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * };
  * const command = new UpdateServerConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateServerConfigCommandInput - {@link UpdateServerConfigCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class UpdateServerConfigCommand extends $Command<

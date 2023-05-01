@@ -78,6 +78,9 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * };
  * const command = new UpdateAppMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAppMonitorCommandInput - {@link UpdateAppMonitorCommandInput}
@@ -104,6 +107,8 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class UpdateAppMonitorCommand extends $Command<

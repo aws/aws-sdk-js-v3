@@ -44,6 +44,28 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  * };
  * const command = new GetTrailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrailResponse
+ *   Trail: { // Trail
+ *     Name: "STRING_VALUE",
+ *     S3BucketName: "STRING_VALUE",
+ *     S3KeyPrefix: "STRING_VALUE",
+ *     SnsTopicName: "STRING_VALUE",
+ *     SnsTopicARN: "STRING_VALUE",
+ *     IncludeGlobalServiceEvents: true || false,
+ *     IsMultiRegionTrail: true || false,
+ *     HomeRegion: "STRING_VALUE",
+ *     TrailARN: "STRING_VALUE",
+ *     LogFileValidationEnabled: true || false,
+ *     CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *     CloudWatchLogsRoleArn: "STRING_VALUE",
+ *     KmsKeyId: "STRING_VALUE",
+ *     HasCustomEventSelectors: true || false,
+ *     HasInsightSelectors: true || false,
+ *     IsOrganizationTrail: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTrailCommandInput - {@link GetTrailCommandInput}
@@ -98,6 +120,8 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class GetTrailCommand extends $Command<

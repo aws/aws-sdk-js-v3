@@ -51,6 +51,25 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * };
  * const command = new ListContextsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContextsResponse
+ *   ContextSummaries: [ // ContextSummaries
+ *     { // ContextSummary
+ *       ContextArn: "STRING_VALUE",
+ *       ContextName: "STRING_VALUE",
+ *       Source: { // ContextSource
+ *         SourceUri: "STRING_VALUE", // required
+ *         SourceType: "STRING_VALUE",
+ *         SourceId: "STRING_VALUE",
+ *       },
+ *       ContextType: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListContextsCommandInput - {@link ListContextsCommandInput}
@@ -62,6 +81,8 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListContextsCommand extends $Command<

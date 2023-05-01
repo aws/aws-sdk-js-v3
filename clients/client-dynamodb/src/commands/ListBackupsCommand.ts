@@ -55,6 +55,25 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * };
  * const command = new ListBackupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupsOutput
+ *   BackupSummaries: [ // BackupSummaries
+ *     { // BackupSummary
+ *       TableName: "STRING_VALUE",
+ *       TableId: "STRING_VALUE",
+ *       TableArn: "STRING_VALUE",
+ *       BackupArn: "STRING_VALUE",
+ *       BackupName: "STRING_VALUE",
+ *       BackupCreationDateTime: new Date("TIMESTAMP"),
+ *       BackupExpiryDateTime: new Date("TIMESTAMP"),
+ *       BackupStatus: "CREATING" || "DELETED" || "AVAILABLE",
+ *       BackupType: "USER" || "SYSTEM" || "AWS_BACKUP",
+ *       BackupSizeBytes: Number("long"),
+ *     },
+ *   ],
+ *   LastEvaluatedBackupArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBackupsCommandInput - {@link ListBackupsCommandInput}
@@ -68,6 +87,8 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListBackupsCommand extends $Command<

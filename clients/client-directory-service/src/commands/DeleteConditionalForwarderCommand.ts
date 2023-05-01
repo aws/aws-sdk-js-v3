@@ -46,6 +46,9 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * };
  * const command = new DeleteConditionalForwarderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConditionalForwarderCommandInput - {@link DeleteConditionalForwarderCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteConditionalForwarderCommand extends $Command<

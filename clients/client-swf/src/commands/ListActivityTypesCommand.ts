@@ -76,6 +76,23 @@ export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __Met
  * };
  * const command = new ListActivityTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivityTypeInfos
+ *   typeInfos: [ // ActivityTypeInfoList // required
+ *     { // ActivityTypeInfo
+ *       activityType: { // ActivityType
+ *         name: "STRING_VALUE", // required
+ *         version: "STRING_VALUE", // required
+ *       },
+ *       status: "REGISTERED" || "DEPRECATED", // required
+ *       description: "STRING_VALUE",
+ *       creationDate: new Date("TIMESTAMP"), // required
+ *       deprecationDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListActivityTypesCommandInput - {@link ListActivityTypesCommandInput}
@@ -90,6 +107,8 @@ export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __Met
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class ListActivityTypesCommand extends $Command<

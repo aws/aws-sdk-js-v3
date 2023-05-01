@@ -49,6 +49,26 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBSubnetGroupResult
+ *   DBSubnetGroup: { // DBSubnetGroup
+ *     DBSubnetGroupName: "STRING_VALUE",
+ *     DBSubnetGroupDescription: "STRING_VALUE",
+ *     VpcId: "STRING_VALUE",
+ *     SubnetGroupStatus: "STRING_VALUE",
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: "STRING_VALUE",
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: "STRING_VALUE",
+ *         },
+ *         SubnetStatus: "STRING_VALUE",
+ *       },
+ *     ],
+ *     DBSubnetGroupArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBSubnetGroupCommandInput - {@link ModifyDBSubnetGroupCommandInput}
@@ -76,6 +96,8 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @throws {@link SubnetAlreadyInUse} (client fault)
  *  <p>The DB subnet is already in use in the Availability Zone.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class ModifyDBSubnetGroupCommand extends $Command<

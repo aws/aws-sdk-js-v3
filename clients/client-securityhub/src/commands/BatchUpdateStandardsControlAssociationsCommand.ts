@@ -62,6 +62,22 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * };
  * const command = new BatchUpdateStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchUpdateStandardsControlAssociationsResponse
+ *   UnprocessedAssociationUpdates: [ // UnprocessedStandardsControlAssociationUpdates
+ *     { // UnprocessedStandardsControlAssociationUpdate
+ *       StandardsControlAssociationUpdate: { // StandardsControlAssociationUpdate
+ *         StandardsArn: "STRING_VALUE", // required
+ *         SecurityControlId: "STRING_VALUE", // required
+ *         AssociationStatus: "ENABLED" || "DISABLED", // required
+ *         UpdatedReason: "STRING_VALUE",
+ *       },
+ *       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ *       ErrorReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchUpdateStandardsControlAssociationsCommandInput - {@link BatchUpdateStandardsControlAssociationsCommandInput}
@@ -84,6 +100,8 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  */
 export class BatchUpdateStandardsControlAssociationsCommand extends $Command<

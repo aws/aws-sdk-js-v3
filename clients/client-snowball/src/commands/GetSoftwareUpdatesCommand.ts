@@ -45,6 +45,11 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * };
  * const command = new GetSoftwareUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSoftwareUpdatesResult
+ *   UpdatesURI: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSoftwareUpdatesCommandInput - {@link GetSoftwareUpdatesCommandInput}
@@ -61,6 +66,8 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class GetSoftwareUpdatesCommand extends $Command<

@@ -50,6 +50,19 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * };
  * const command = new ListRoutingControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutingControlsResponse
+ *   NextToken: "STRING_VALUE",
+ *   RoutingControls: [ // __listOfRoutingControl
+ *     { // RoutingControl
+ *       ControlPanelArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       RoutingControlArn: "STRING_VALUE",
+ *       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRoutingControlsCommandInput - {@link ListRoutingControlsCommandInput}
@@ -73,6 +86,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class ListRoutingControlsCommand extends $Command<

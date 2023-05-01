@@ -50,6 +50,9 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopTrainingJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopTrainingJobCommandInput - {@link StopTrainingJobCommandInput}
@@ -61,6 +64,8 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopTrainingJobCommand extends $Command<

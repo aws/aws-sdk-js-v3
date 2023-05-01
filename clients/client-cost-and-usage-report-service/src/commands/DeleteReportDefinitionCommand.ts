@@ -48,6 +48,11 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * };
  * const command = new DeleteReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteReportDefinitionResponse
+ *   ResponseMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
@@ -62,6 +67,8 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link CostAndUsageReportServiceServiceException}
+ * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript

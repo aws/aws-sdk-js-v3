@@ -59,6 +59,14 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  * };
  * const command = new CreateLoggerDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoggerDefinitionVersionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLoggerDefinitionVersionCommandInput - {@link CreateLoggerDefinitionVersionCommandInput}
@@ -70,6 +78,8 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateLoggerDefinitionVersionCommand extends $Command<

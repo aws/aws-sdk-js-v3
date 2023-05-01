@@ -52,6 +52,19 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Events: [ // EventList
+ *     { // Event
+ *       SourceName: "STRING_VALUE",
+ *       SourceType: "node" || "parameter-group" || "subnet-group" || "cluster" || "user" || "acl",
+ *       Message: "STRING_VALUE",
+ *       Date: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -69,6 +82,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

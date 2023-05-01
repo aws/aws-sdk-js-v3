@@ -48,6 +48,36 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
  * };
  * const command = new ModifyEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EndpointAccess
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   ResourceOwner: "STRING_VALUE",
+ *   SubnetGroupName: "STRING_VALUE",
+ *   EndpointStatus: "STRING_VALUE",
+ *   EndpointName: "STRING_VALUE",
+ *   EndpointCreateTime: new Date("TIMESTAMP"),
+ *   Port: Number("int"),
+ *   Address: "STRING_VALUE",
+ *   VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *     { // VpcSecurityGroupMembership
+ *       VpcSecurityGroupId: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   VpcEndpoint: { // VpcEndpoint
+ *     VpcEndpointId: "STRING_VALUE",
+ *     VpcId: "STRING_VALUE",
+ *     NetworkInterfaces: [ // NetworkInterfaceList
+ *       { // NetworkInterface
+ *         NetworkInterfaceId: "STRING_VALUE",
+ *         SubnetId: "STRING_VALUE",
+ *         PrivateIpAddress: "STRING_VALUE",
+ *         AvailabilityZone: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyEndpointAccessCommandInput - {@link ModifyEndpointAccessCommandInput}
@@ -75,6 +105,8 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyEndpointAccessCommand extends $Command<

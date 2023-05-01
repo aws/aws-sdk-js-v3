@@ -77,6 +77,9 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  * };
  * const command = new UpdateRelatedItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRelatedItemsCommandInput - {@link UpdateRelatedItemsCommandInput}
@@ -105,6 +108,8 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateRelatedItemsCommand extends $Command<

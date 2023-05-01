@@ -54,6 +54,11 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  * };
  * const command = new DescribeDevicePolicyConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDevicePolicyConfigurationResponse
+ *   DeviceCaCertificate: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDevicePolicyConfigurationCommandInput - {@link DescribeDevicePolicyConfigurationCommandInput}
@@ -77,6 +82,8 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeDevicePolicyConfigurationCommand extends $Command<

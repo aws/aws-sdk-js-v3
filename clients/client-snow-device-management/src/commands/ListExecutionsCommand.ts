@@ -51,6 +51,19 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExecutionsOutput
+ *   executions: [ // ExecutionSummaryList
+ *     { // ExecutionSummary
+ *       taskId: "STRING_VALUE",
+ *       executionId: "STRING_VALUE",
+ *       managedDeviceId: "STRING_VALUE",
+ *       state: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
@@ -74,6 +87,8 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class ListExecutionsCommand extends $Command<

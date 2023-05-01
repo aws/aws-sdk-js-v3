@@ -63,6 +63,28 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventSubscriptionsResponse
+ *   Marker: "STRING_VALUE",
+ *   EventSubscriptionsList: [ // EventSubscriptionsList
+ *     { // EventSubscription
+ *       CustomerAwsId: "STRING_VALUE",
+ *       CustSubscriptionId: "STRING_VALUE",
+ *       SnsTopicArn: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       SubscriptionCreationTime: "STRING_VALUE",
+ *       SourceType: "STRING_VALUE",
+ *       SourceIdsList: [ // SourceIdsList
+ *         "STRING_VALUE",
+ *       ],
+ *       EventCategoriesList: [ // EventCategoriesList
+ *         "STRING_VALUE",
+ *       ],
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
@@ -74,6 +96,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<

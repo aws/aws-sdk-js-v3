@@ -94,6 +94,11 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEnvironmentOutput
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
@@ -111,6 +116,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class UpdateEnvironmentCommand extends $Command<

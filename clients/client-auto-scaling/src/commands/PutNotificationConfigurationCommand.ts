@@ -56,6 +56,9 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * };
  * const command = new PutNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutNotificationConfigurationCommandInput - {@link PutNotificationConfigurationCommandInput}
@@ -77,6 +80,8 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To add an Auto Scaling notification
  * ```javascript

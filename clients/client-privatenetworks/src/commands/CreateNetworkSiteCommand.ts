@@ -77,6 +77,64 @@ export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteRespons
  * };
  * const command = new CreateNetworkSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkSiteResponse
+ *   networkSite: { // NetworkSite
+ *     networkSiteArn: "STRING_VALUE", // required
+ *     networkSiteName: "STRING_VALUE", // required
+ *     description: "STRING_VALUE",
+ *     status: "STRING_VALUE", // required
+ *     statusReason: "STRING_VALUE",
+ *     networkArn: "STRING_VALUE", // required
+ *     pendingPlan: { // SitePlan
+ *       resourceDefinitions: [ // NetworkResourceDefinitions
+ *         { // NetworkResourceDefinition
+ *           type: "STRING_VALUE", // required
+ *           options: [ // Options
+ *             { // NameValuePair
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           count: Number("int"), // required
+ *         },
+ *       ],
+ *       options: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     currentPlan: {
+ *       resourceDefinitions: [
+ *         {
+ *           type: "STRING_VALUE", // required
+ *           options: [
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           count: Number("int"), // required
+ *         },
+ *       ],
+ *       options: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     createdAt: new Date("TIMESTAMP"),
+ *     availabilityZone: "STRING_VALUE",
+ *     availabilityZoneId: "STRING_VALUE",
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateNetworkSiteCommandInput - {@link CreateNetworkSiteCommandInput}
@@ -94,6 +152,8 @@ export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class CreateNetworkSiteCommand extends $Command<

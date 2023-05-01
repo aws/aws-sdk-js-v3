@@ -46,6 +46,9 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateWorkspaceAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWorkspaceAliasCommandInput - {@link UpdateWorkspaceAliasCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class UpdateWorkspaceAliasCommand extends $Command<

@@ -56,6 +56,12 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  * };
  * const command = new CreateMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMulticastGroupResponse
+ *   Arn: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMulticastGroupCommandInput - {@link CreateMulticastGroupCommandInput}
@@ -82,6 +88,8 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateMulticastGroupCommand extends $Command<

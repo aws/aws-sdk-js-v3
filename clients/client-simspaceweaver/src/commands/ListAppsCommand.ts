@@ -47,6 +47,20 @@ export interface ListAppsCommandOutput extends ListAppsOutput, __MetadataBearer 
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppsOutput
+ *   Apps: [ // SimulationAppList
+ *     { // SimulationAppMetadata
+ *       Name: "STRING_VALUE",
+ *       Simulation: "STRING_VALUE",
+ *       Domain: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       TargetStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAppsCommandInput - {@link ListAppsCommandInput}
@@ -67,6 +81,8 @@ export interface ListAppsCommandOutput extends ListAppsOutput, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class ListAppsCommand extends $Command<

@@ -77,6 +77,11 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * };
  * const command = new ModifyDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBParameterGroupNameMessage
+ *   DBParameterGroupName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ModifyDBParameterGroupCommandInput - {@link ModifyDBParameterGroupCommandInput}
@@ -94,6 +99,8 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class ModifyDBParameterGroupCommand extends $Command<

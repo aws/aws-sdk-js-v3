@@ -50,6 +50,32 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * };
  * const command = new CreateExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExportJobResponse
+ *   ExportJobResponse: { // ExportJobResponse
+ *     ApplicationId: "STRING_VALUE", // required
+ *     CompletedPieces: Number("int"),
+ *     CompletionDate: "STRING_VALUE",
+ *     CreationDate: "STRING_VALUE", // required
+ *     Definition: { // ExportJobResource
+ *       RoleArn: "STRING_VALUE", // required
+ *       S3UrlPrefix: "STRING_VALUE", // required
+ *       SegmentId: "STRING_VALUE",
+ *       SegmentVersion: Number("int"),
+ *     },
+ *     FailedPieces: Number("int"),
+ *     Failures: [ // ListOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *     Id: "STRING_VALUE", // required
+ *     JobStatus: "CREATED" || "PREPARING_FOR_INITIALIZATION" || "INITIALIZING" || "PROCESSING" || "PENDING_JOB" || "COMPLETING" || "COMPLETED" || "FAILING" || "FAILED", // required
+ *     TotalFailures: Number("int"),
+ *     TotalPieces: Number("int"),
+ *     TotalProcessed: Number("int"),
+ *     Type: "STRING_VALUE", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateExportJobCommandInput - {@link CreateExportJobCommandInput}
@@ -79,6 +105,8 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateExportJobCommand extends $Command<

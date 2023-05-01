@@ -58,6 +58,17 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectionOutput
+ *   ConnectionArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
@@ -75,6 +86,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class CreateConnectionCommand extends $Command<

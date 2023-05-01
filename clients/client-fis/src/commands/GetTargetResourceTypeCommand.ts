@@ -44,6 +44,20 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  * };
  * const command = new GetTargetResourceTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTargetResourceTypeResponse
+ *   targetResourceType: { // TargetResourceType
+ *     resourceType: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     parameters: { // TargetResourceTypeParameterMap
+ *       "<keys>": { // TargetResourceTypeParameter
+ *         description: "STRING_VALUE",
+ *         required: true || false,
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTargetResourceTypeCommandInput - {@link GetTargetResourceTypeCommandInput}
@@ -58,6 +72,8 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class GetTargetResourceTypeCommand extends $Command<

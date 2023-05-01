@@ -77,6 +77,12 @@ export interface CreateMitigationActionCommandOutput extends CreateMitigationAct
  * };
  * const command = new CreateMitigationActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMitigationActionResponse
+ *   actionArn: "STRING_VALUE",
+ *   actionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMitigationActionCommandInput - {@link CreateMitigationActionCommandInput}
@@ -100,6 +106,8 @@ export interface CreateMitigationActionCommandOutput extends CreateMitigationAct
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateMitigationActionCommand extends $Command<

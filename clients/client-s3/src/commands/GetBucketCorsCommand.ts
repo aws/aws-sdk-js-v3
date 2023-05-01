@@ -64,6 +64,28 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * };
  * const command = new GetBucketCorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketCorsOutput
+ *   CORSRules: [ // CORSRules
+ *     { // CORSRule
+ *       ID: "STRING_VALUE",
+ *       AllowedHeaders: [ // AllowedHeaders
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedMethods: [ // AllowedMethods // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedOrigins: [ // AllowedOrigins // required
+ *         "STRING_VALUE",
+ *       ],
+ *       ExposeHeaders: [ // ExposeHeaders
+ *         "STRING_VALUE",
+ *       ],
+ *       MaxAgeSeconds: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketCorsCommandInput - {@link GetBucketCorsCommandInput}
@@ -72,6 +94,8 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * @see {@link GetBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get cors configuration set on a bucket
  * ```javascript

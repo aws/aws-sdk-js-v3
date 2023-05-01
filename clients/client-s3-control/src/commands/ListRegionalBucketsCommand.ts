@@ -52,6 +52,20 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  * };
  * const command = new ListRegionalBucketsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegionalBucketsResult
+ *   RegionalBucketList: [ // RegionalBucketList
+ *     { // RegionalBucket
+ *       Bucket: "STRING_VALUE", // required
+ *       BucketArn: "STRING_VALUE",
+ *       PublicAccessBlockEnabled: true || false, // required
+ *       CreationDate: new Date("TIMESTAMP"), // required
+ *       OutpostId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRegionalBucketsCommandInput - {@link ListRegionalBucketsCommandInput}
@@ -60,6 +74,8 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  * @see {@link ListRegionalBucketsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListRegionalBucketsCommand extends $Command<

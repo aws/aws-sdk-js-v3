@@ -44,6 +44,11 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  * };
  * const command = new DeleteBlueprintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBlueprintResponse
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteBlueprintCommandInput - {@link DeleteBlueprintCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteBlueprintCommand extends $Command<

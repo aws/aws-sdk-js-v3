@@ -57,6 +57,9 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
@@ -78,6 +81,8 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class AddPermissionCommand extends $Command<

@@ -44,6 +44,13 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  * };
  * const command = new PutRegistryCatalogDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRegistryCatalogDataResponse
+ *   registryCatalogData: { // RegistryCatalogData
+ *     displayName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRegistryCatalogDataCommandInput - {@link PutRegistryCatalogDataCommandInput}
@@ -62,6 +69,8 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class PutRegistryCatalogDataCommand extends $Command<

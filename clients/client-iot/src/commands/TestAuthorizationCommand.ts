@@ -63,6 +63,50 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  * };
  * const command = new TestAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestAuthorizationResponse
+ *   authResults: [ // AuthResults
+ *     { // AuthResult
+ *       authInfo: { // AuthInfo
+ *         actionType: "PUBLISH" || "SUBSCRIBE" || "RECEIVE" || "CONNECT",
+ *         resources: [ // Resources // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       allowed: { // Allowed
+ *         policies: [ // Policies
+ *           { // Policy
+ *             policyName: "STRING_VALUE",
+ *             policyArn: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       denied: { // Denied
+ *         implicitDeny: { // ImplicitDeny
+ *           policies: [
+ *             {
+ *               policyName: "STRING_VALUE",
+ *               policyArn: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         explicitDeny: { // ExplicitDeny
+ *           policies: [
+ *             {
+ *               policyName: "STRING_VALUE",
+ *               policyArn: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       authDecision: "ALLOWED" || "EXPLICIT_DENY" || "IMPLICIT_DENY",
+ *       missingContextValues: [ // MissingContextValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param TestAuthorizationCommandInput - {@link TestAuthorizationCommandInput}
@@ -92,6 +136,8 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class TestAuthorizationCommand extends $Command<

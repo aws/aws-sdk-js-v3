@@ -45,6 +45,11 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteJobResponse
+ *   JobName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
@@ -62,6 +67,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<

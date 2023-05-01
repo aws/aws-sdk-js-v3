@@ -44,6 +44,9 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * };
  * const command = new StopChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopChannelCommandInput - {@link StopChannelCommandInput}
@@ -52,6 +55,8 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * @see {@link StopChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class StopChannelCommand extends $Command<

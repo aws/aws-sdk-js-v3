@@ -45,6 +45,17 @@ export interface DescribeAppVersionCommandOutput extends DescribeAppVersionRespo
  * };
  * const command = new DescribeAppVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppVersionResponse
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAppVersionCommandInput - {@link DescribeAppVersionCommandInput}
@@ -71,6 +82,8 @@ export interface DescribeAppVersionCommandOutput extends DescribeAppVersionRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeAppVersionCommand extends $Command<

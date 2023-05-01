@@ -57,6 +57,26 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * };
  * const command = new UpdatePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePermissionsResponse
+ *   errors: [ // UpdateErrorList // required
+ *     { // UpdateError
+ *       code: Number("int"), // required
+ *       message: "STRING_VALUE", // required
+ *       causedBy: { // UpdateInstruction
+ *         action: "STRING_VALUE", // required
+ *         role: "STRING_VALUE", // required
+ *         users: [ // UserList // required
+ *           { // User
+ *             id: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdatePermissionsCommandInput - {@link UpdatePermissionsCommandInput}
@@ -80,6 +100,8 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class UpdatePermissionsCommand extends $Command<

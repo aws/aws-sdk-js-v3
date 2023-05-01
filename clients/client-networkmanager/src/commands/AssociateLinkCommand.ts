@@ -46,6 +46,16 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * };
  * const command = new AssociateLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateLinkResponse
+ *   LinkAssociation: { // LinkAssociation
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     DeviceId: "STRING_VALUE",
+ *     LinkId: "STRING_VALUE",
+ *     LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateLinkCommandInput - {@link AssociateLinkCommandInput}
@@ -76,6 +86,8 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class AssociateLinkCommand extends $Command<

@@ -56,6 +56,26 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  * };
  * const command = new DescribeFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFastSnapshotRestoresResult
+ *   FastSnapshotRestores: [ // DescribeFastSnapshotRestoreSuccessSet
+ *     { // DescribeFastSnapshotRestoreSuccessItem
+ *       SnapshotId: "STRING_VALUE",
+ *       AvailabilityZone: "STRING_VALUE",
+ *       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
+ *       StateTransitionReason: "STRING_VALUE",
+ *       OwnerId: "STRING_VALUE",
+ *       OwnerAlias: "STRING_VALUE",
+ *       EnablingTime: new Date("TIMESTAMP"),
+ *       OptimizingTime: new Date("TIMESTAMP"),
+ *       EnabledTime: new Date("TIMESTAMP"),
+ *       DisablingTime: new Date("TIMESTAMP"),
+ *       DisabledTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeFastSnapshotRestoresCommandInput - {@link DescribeFastSnapshotRestoresCommandInput}
@@ -64,6 +84,8 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  * @see {@link DescribeFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFastSnapshotRestoresCommand extends $Command<

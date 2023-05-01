@@ -74,6 +74,9 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new ModifySnapshotAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifySnapshotAttributeCommandInput - {@link ModifySnapshotAttributeCommandInput}
@@ -82,6 +85,8 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * @see {@link ModifySnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To modify a snapshot attribute
  * ```javascript

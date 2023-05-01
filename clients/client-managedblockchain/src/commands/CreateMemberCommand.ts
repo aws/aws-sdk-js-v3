@@ -74,6 +74,11 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMemberOutput
+ *   MemberId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
@@ -113,6 +118,8 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateMemberCommand extends $Command<

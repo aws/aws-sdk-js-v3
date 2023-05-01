@@ -50,6 +50,14 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
  * const input = {};
  * const command = new GetDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDatalakeExceptionsSubscriptionResponse
+ *   protocolAndNotificationEndpoint: { // ProtocolAndNotificationEndpoint
+ *     protocol: "STRING_VALUE",
+ *     endpoint: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDatalakeExceptionsSubscriptionCommandInput - {@link GetDatalakeExceptionsSubscriptionCommandInput}
@@ -76,6 +84,8 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class GetDatalakeExceptionsSubscriptionCommand extends $Command<

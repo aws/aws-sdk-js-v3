@@ -51,6 +51,51 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * };
  * const command = new DescribeStacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStacksResult
+ *   Stacks: [ // Stacks
+ *     { // Stack
+ *       StackId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       Attributes: { // StackAttributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ServiceRoleArn: "STRING_VALUE",
+ *       DefaultInstanceProfileArn: "STRING_VALUE",
+ *       DefaultOs: "STRING_VALUE",
+ *       HostnameTheme: "STRING_VALUE",
+ *       DefaultAvailabilityZone: "STRING_VALUE",
+ *       DefaultSubnetId: "STRING_VALUE",
+ *       CustomJson: "STRING_VALUE",
+ *       ConfigurationManager: { // StackConfigurationManager
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *       ChefConfiguration: { // ChefConfiguration
+ *         ManageBerkshelf: true || false,
+ *         BerkshelfVersion: "STRING_VALUE",
+ *       },
+ *       UseCustomCookbooks: true || false,
+ *       UseOpsworksSecurityGroups: true || false,
+ *       CustomCookbooksSource: { // Source
+ *         Type: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *         Username: "STRING_VALUE",
+ *         Password: "STRING_VALUE",
+ *         SshKey: "STRING_VALUE",
+ *         Revision: "STRING_VALUE",
+ *       },
+ *       DefaultSshKeyName: "STRING_VALUE",
+ *       CreatedAt: "STRING_VALUE",
+ *       DefaultRootDeviceType: "STRING_VALUE",
+ *       AgentVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
@@ -65,6 +110,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeStacksCommand extends $Command<

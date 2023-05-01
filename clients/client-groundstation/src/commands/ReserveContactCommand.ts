@@ -51,6 +51,11 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * };
  * const command = new ReserveContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ContactIdResponse
+ *   contactId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ReserveContactCommandInput - {@link ReserveContactCommandInput}
@@ -68,6 +73,8 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ReserveContactCommand extends $Command<

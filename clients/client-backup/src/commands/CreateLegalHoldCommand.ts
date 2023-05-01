@@ -68,6 +68,28 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * };
  * const command = new CreateLegalHoldCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLegalHoldOutput
+ *   Title: "STRING_VALUE",
+ *   Status: "CREATING" || "ACTIVE" || "CANCELING" || "CANCELED",
+ *   Description: "STRING_VALUE",
+ *   LegalHoldId: "STRING_VALUE",
+ *   LegalHoldArn: "STRING_VALUE",
+ *   CreationDate: new Date("TIMESTAMP"),
+ *   RecoveryPointSelection: { // RecoveryPointSelection
+ *     VaultNames: [ // VaultNames
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceIdentifiers: [ // ResourceIdentifiers
+ *       "STRING_VALUE",
+ *     ],
+ *     DateRange: { // DateRange
+ *       FromDate: new Date("TIMESTAMP"), // required
+ *       ToDate: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLegalHoldCommandInput - {@link CreateLegalHoldCommandInput}
@@ -90,6 +112,8 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateLegalHoldCommand extends $Command<

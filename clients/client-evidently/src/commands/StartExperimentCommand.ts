@@ -47,6 +47,11 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * };
  * const command = new StartExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartExperimentResponse
+ *   startedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StartExperimentCommandInput - {@link StartExperimentCommandInput}
@@ -73,6 +78,8 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class StartExperimentCommand extends $Command<

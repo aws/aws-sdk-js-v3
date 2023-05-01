@@ -79,6 +79,12 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * };
  * const command = new StartTextTranslationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTextTranslationJobResponse
+ *   JobId: "STRING_VALUE",
+ *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * };
+ *
  * ```
  *
  * @param StartTextTranslationJobCommandInput - {@link StartTextTranslationJobCommandInput}
@@ -111,6 +117,8 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  *  <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class StartTextTranslationJobCommand extends $Command<

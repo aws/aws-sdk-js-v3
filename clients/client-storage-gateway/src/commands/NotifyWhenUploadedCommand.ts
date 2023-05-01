@@ -56,6 +56,12 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * };
  * const command = new NotifyWhenUploadedCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // NotifyWhenUploadedOutput
+ *   FileShareARN: "STRING_VALUE",
+ *   NotificationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param NotifyWhenUploadedCommandInput - {@link NotifyWhenUploadedCommandInput}
@@ -72,6 +78,8 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class NotifyWhenUploadedCommand extends $Command<

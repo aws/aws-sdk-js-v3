@@ -49,6 +49,31 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * };
  * const command = new ModifySnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SnapshotSchedule
+ *   ScheduleDefinitions: [ // ScheduleDefinitionList
+ *     "STRING_VALUE",
+ *   ],
+ *   ScheduleIdentifier: "STRING_VALUE",
+ *   ScheduleDescription: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextInvocations: [ // ScheduledSnapshotTimeList
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   AssociatedClusterCount: Number("int"),
+ *   AssociatedClusters: [ // AssociatedClusterList
+ *     { // ClusterAssociatedToSchedule
+ *       ClusterIdentifier: "STRING_VALUE",
+ *       ScheduleAssociationState: "MODIFYING" || "ACTIVE" || "FAILED",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifySnapshotScheduleCommandInput - {@link ModifySnapshotScheduleCommandInput}
@@ -66,6 +91,8 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * @throws {@link SnapshotScheduleUpdateInProgressFault} (client fault)
  *  <p>The specified snapshot schedule is already being updated.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifySnapshotScheduleCommand extends $Command<

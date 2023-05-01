@@ -44,6 +44,9 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * };
  * const command = new DeleteOriginEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOriginEndpointCommandInput - {@link DeleteOriginEndpointCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class DeleteOriginEndpointCommand extends $Command<

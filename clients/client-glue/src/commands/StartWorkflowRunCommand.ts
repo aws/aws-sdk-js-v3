@@ -47,6 +47,11 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * };
  * const command = new StartWorkflowRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartWorkflowRunResponse
+ *   RunId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartWorkflowRunCommandInput - {@link StartWorkflowRunCommandInput}
@@ -73,6 +78,8 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartWorkflowRunCommand extends $Command<

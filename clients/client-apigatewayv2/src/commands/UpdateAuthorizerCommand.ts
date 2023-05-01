@@ -62,6 +62,28 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAuthorizerResponse
+ *   AuthorizerCredentialsArn: "STRING_VALUE",
+ *   AuthorizerId: "STRING_VALUE",
+ *   AuthorizerPayloadFormatVersion: "STRING_VALUE",
+ *   AuthorizerResultTtlInSeconds: Number("int"),
+ *   AuthorizerType: "STRING_VALUE",
+ *   AuthorizerUri: "STRING_VALUE",
+ *   EnableSimpleResponses: true || false,
+ *   IdentitySource: [ // IdentitySourceList
+ *     "STRING_VALUE",
+ *   ],
+ *   IdentityValidationExpression: "STRING_VALUE",
+ *   JwtConfiguration: { // JWTConfiguration
+ *     Audience: [ // __listOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *     Issuer: "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
@@ -82,6 +104,8 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateAuthorizerCommand extends $Command<

@@ -76,6 +76,13 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * };
  * const command = new GetSessionEmbedUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSessionEmbedUrlResponse
+ *   EmbedUrl: "STRING_VALUE",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSessionEmbedUrlCommandInput - {@link GetSessionEmbedUrlCommandInput}
@@ -120,6 +127,8 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GetSessionEmbedUrlCommand extends $Command<

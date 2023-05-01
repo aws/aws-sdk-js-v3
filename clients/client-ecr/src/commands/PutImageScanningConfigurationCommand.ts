@@ -58,6 +58,15 @@ export interface PutImageScanningConfigurationCommandOutput
  * };
  * const command = new PutImageScanningConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutImageScanningConfigurationResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   imageScanningConfiguration: { // ImageScanningConfiguration
+ *     scanOnPush: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutImageScanningConfigurationCommandInput - {@link PutImageScanningConfigurationCommandInput}
@@ -80,6 +89,8 @@ export interface PutImageScanningConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutImageScanningConfigurationCommand extends $Command<

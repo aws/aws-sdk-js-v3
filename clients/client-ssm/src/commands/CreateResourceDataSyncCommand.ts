@@ -91,6 +91,9 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * };
  * const command = new CreateResourceDataSyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateResourceDataSyncCommandInput - {@link CreateResourceDataSyncCommandInput}
@@ -111,6 +114,8 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
  *  <p>The specified sync configuration is invalid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateResourceDataSyncCommand extends $Command<

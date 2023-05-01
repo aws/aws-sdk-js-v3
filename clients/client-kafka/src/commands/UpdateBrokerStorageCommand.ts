@@ -55,6 +55,12 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * };
  * const command = new UpdateBrokerStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBrokerStorageResponse
+ *   ClusterArn: "STRING_VALUE",
+ *   ClusterOperationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateBrokerStorageCommandInput - {@link UpdateBrokerStorageCommandInput}
@@ -78,6 +84,8 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateBrokerStorageCommand extends $Command<

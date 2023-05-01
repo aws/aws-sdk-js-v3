@@ -47,6 +47,11 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * };
  * const command = new ResetFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetFpgaImageAttributeResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ResetFpgaImageAttributeCommandInput - {@link ResetFpgaImageAttributeCommandInput}
@@ -55,6 +60,8 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * @see {@link ResetFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ResetFpgaImageAttributeCommand extends $Command<

@@ -49,6 +49,22 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * };
  * const command = new UpdateAdmChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAdmChannelResponse
+ *   ADMChannelResponse: { // ADMChannelResponse
+ *     ApplicationId: "STRING_VALUE",
+ *     CreationDate: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     HasCredential: true || false,
+ *     Id: "STRING_VALUE",
+ *     IsArchived: true || false,
+ *     LastModifiedBy: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE",
+ *     Platform: "STRING_VALUE", // required
+ *     Version: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAdmChannelCommandInput - {@link UpdateAdmChannelCommandInput}
@@ -78,6 +94,8 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateAdmChannelCommand extends $Command<

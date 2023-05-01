@@ -47,6 +47,18 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * };
  * const command = new GetVehicleStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVehicleStatusResponse
+ *   campaigns: [ // VehicleStatusList
+ *     { // VehicleStatus
+ *       campaignName: "STRING_VALUE",
+ *       vehicleName: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetVehicleStatusCommandInput - {@link GetVehicleStatusCommandInput}
@@ -70,6 +82,8 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetVehicleStatusCommand extends $Command<

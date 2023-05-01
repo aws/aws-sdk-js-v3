@@ -58,6 +58,9 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
@@ -80,6 +83,8 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<

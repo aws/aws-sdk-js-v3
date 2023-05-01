@@ -49,6 +49,23 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * };
  * const command = new ListSlackChannelConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSlackChannelConfigurationsResult
+ *   nextToken: "STRING_VALUE",
+ *   slackChannelConfigurations: [ // slackChannelConfigurationList // required
+ *     { // SlackChannelConfiguration
+ *       teamId: "STRING_VALUE", // required
+ *       channelId: "STRING_VALUE", // required
+ *       channelName: "STRING_VALUE",
+ *       notifyOnCreateOrReopenCase: true || false,
+ *       notifyOnAddCorrespondenceToCase: true || false,
+ *       notifyOnResolveCase: true || false,
+ *       notifyOnCaseSeverity: "STRING_VALUE",
+ *       channelRoleArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSlackChannelConfigurationsCommandInput - {@link ListSlackChannelConfigurationsCommandInput}
@@ -63,6 +80,8 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class ListSlackChannelConfigurationsCommand extends $Command<

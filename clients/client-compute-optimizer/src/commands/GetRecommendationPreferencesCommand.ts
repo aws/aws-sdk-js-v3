@@ -62,6 +62,25 @@ export interface GetRecommendationPreferencesCommandOutput
  * };
  * const command = new GetRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationPreferencesResponse
+ *   nextToken: "STRING_VALUE",
+ *   recommendationPreferencesDetails: [ // RecommendationPreferencesDetails
+ *     { // RecommendationPreferencesDetail
+ *       scope: { // Scope
+ *         name: "Organization" || "AccountId" || "ResourceArn",
+ *         value: "STRING_VALUE",
+ *       },
+ *       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService",
+ *       enhancedInfrastructureMetrics: "Active" || "Inactive",
+ *       inferredWorkloadTypes: "Active" || "Inactive",
+ *       externalMetricsPreference: { // ExternalMetricsPreference
+ *         source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecommendationPreferencesCommandInput - {@link GetRecommendationPreferencesCommandInput}
@@ -95,6 +114,8 @@ export interface GetRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetRecommendationPreferencesCommand extends $Command<

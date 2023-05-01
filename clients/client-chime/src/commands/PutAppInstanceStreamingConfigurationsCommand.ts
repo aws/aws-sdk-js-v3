@@ -61,6 +61,16 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  * };
  * const command = new PutAppInstanceStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAppInstanceStreamingConfigurationsResponse
+ *   AppInstanceStreamingConfigurations: [ // AppInstanceStreamingConfigurationList
+ *     { // AppInstanceStreamingConfiguration
+ *       AppInstanceDataType: "Channel" || "ChannelMessage", // required
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutAppInstanceStreamingConfigurationsCommandInput - {@link PutAppInstanceStreamingConfigurationsCommandInput}
@@ -90,6 +100,8 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutAppInstanceStreamingConfigurationsCommand extends $Command<

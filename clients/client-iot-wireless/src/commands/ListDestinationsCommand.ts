@@ -45,6 +45,21 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * };
  * const command = new ListDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDestinationsResponse
+ *   NextToken: "STRING_VALUE",
+ *   DestinationList: [ // DestinationList
+ *     { // Destinations
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       ExpressionType: "RuleName" || "MqttTopic",
+ *       Expression: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDestinationsCommandInput - {@link ListDestinationsCommandInput}
@@ -65,6 +80,8 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListDestinationsCommand extends $Command<

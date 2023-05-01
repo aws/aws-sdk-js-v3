@@ -65,6 +65,9 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * };
  * const command = new AdminSetUserPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminSetUserPasswordCommandInput - {@link AdminSetUserPasswordCommandInput}
@@ -97,6 +100,8 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminSetUserPasswordCommand extends $Command<

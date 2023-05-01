@@ -46,6 +46,12 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
  * };
  * const command = new ResetDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetDeploymentsResponse
+ *   DeploymentArn: "STRING_VALUE",
+ *   DeploymentId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ResetDeploymentsCommandInput - {@link ResetDeploymentsCommandInput}
@@ -57,6 +63,8 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ResetDeploymentsCommand extends $Command<

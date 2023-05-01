@@ -63,6 +63,9 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * };
  * const command = new UpdateQuerySuggestionsConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateQuerySuggestionsConfigCommandInput - {@link UpdateQuerySuggestionsConfigCommandInput}
@@ -95,6 +98,8 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateQuerySuggestionsConfigCommand extends $Command<

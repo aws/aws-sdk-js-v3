@@ -57,6 +57,9 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * };
  * const command = new TagStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagStreamCommandInput - {@link TagStreamCommandInput}
@@ -85,6 +88,8 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  *  <p>You have exceeded the limit of tags that you can associate with the resource.
  *             A Kinesis video stream can support up to 50 tags. </p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class TagStreamCommand extends $Command<

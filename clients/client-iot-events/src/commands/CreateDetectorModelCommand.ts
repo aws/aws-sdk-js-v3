@@ -428,6 +428,22 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  * };
  * const command = new CreateDetectorModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDetectorModelResponse
+ *   detectorModelConfiguration: { // DetectorModelConfiguration
+ *     detectorModelName: "STRING_VALUE",
+ *     detectorModelVersion: "STRING_VALUE",
+ *     detectorModelDescription: "STRING_VALUE",
+ *     detectorModelArn: "STRING_VALUE",
+ *     roleArn: "STRING_VALUE",
+ *     creationTime: new Date("TIMESTAMP"),
+ *     lastUpdateTime: new Date("TIMESTAMP"),
+ *     status: "STRING_VALUE",
+ *     key: "STRING_VALUE",
+ *     evaluationMethod: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDetectorModelCommandInput - {@link CreateDetectorModelCommandInput}
@@ -457,6 +473,8 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class CreateDetectorModelCommand extends $Command<

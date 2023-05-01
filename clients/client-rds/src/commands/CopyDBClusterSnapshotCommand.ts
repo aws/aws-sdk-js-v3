@@ -91,6 +91,42 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyDBClusterSnapshotResult
+ *   DBClusterSnapshot: { // DBClusterSnapshot
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       "STRING_VALUE",
+ *     ],
+ *     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ *     DBClusterIdentifier: "STRING_VALUE",
+ *     SnapshotCreateTime: new Date("TIMESTAMP"),
+ *     Engine: "STRING_VALUE",
+ *     EngineMode: "STRING_VALUE",
+ *     AllocatedStorage: Number("int"),
+ *     Status: "STRING_VALUE",
+ *     Port: Number("int"),
+ *     VpcId: "STRING_VALUE",
+ *     ClusterCreateTime: new Date("TIMESTAMP"),
+ *     MasterUsername: "STRING_VALUE",
+ *     EngineVersion: "STRING_VALUE",
+ *     LicenseModel: "STRING_VALUE",
+ *     SnapshotType: "STRING_VALUE",
+ *     PercentProgress: Number("int"),
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: "STRING_VALUE",
+ *     DBClusterSnapshotArn: "STRING_VALUE",
+ *     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     DBSystemId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyDBClusterSnapshotCommandInput - {@link CopyDBClusterSnapshotCommandInput}
@@ -119,6 +155,8 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *  <p>The request would result in the user exceeding the allowed number of DB
  *             snapshots.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To copy a DB cluster snapshot
  * ```javascript

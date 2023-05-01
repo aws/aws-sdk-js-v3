@@ -46,6 +46,24 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDashboardsResponse
+ *   DashboardSummaryList: [ // DashboardSummaryList
+ *     { // DashboardSummary
+ *       Arn: "STRING_VALUE",
+ *       DashboardId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *       PublishedVersionNumber: Number("long"),
+ *       LastPublishedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
@@ -69,6 +87,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListDashboardsCommand extends $Command<

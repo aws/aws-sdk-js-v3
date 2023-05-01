@@ -52,6 +52,9 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  * };
  * const command = new CreateReceiptFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateReceiptFilterCommandInput - {@link CreateReceiptFilterCommandInput}
@@ -68,6 +71,8 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example CreateReceiptFilter
  * ```javascript

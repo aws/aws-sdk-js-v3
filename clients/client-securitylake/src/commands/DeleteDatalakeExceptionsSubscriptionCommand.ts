@@ -51,6 +51,11 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * const input = {};
  * const command = new DeleteDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDatalakeExceptionsSubscriptionResponse
+ *   status: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteDatalakeExceptionsSubscriptionCommandInput - {@link DeleteDatalakeExceptionsSubscriptionCommandInput}
@@ -77,6 +82,8 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<

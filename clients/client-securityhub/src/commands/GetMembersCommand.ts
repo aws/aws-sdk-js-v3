@@ -50,6 +50,27 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * };
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMembersResponse
+ *   Members: [ // MemberList
+ *     { // Member
+ *       AccountId: "STRING_VALUE",
+ *       Email: "STRING_VALUE",
+ *       MasterId: "STRING_VALUE",
+ *       AdministratorId: "STRING_VALUE",
+ *       MemberStatus: "STRING_VALUE",
+ *       InvitedAt: new Date("TIMESTAMP"),
+ *       UpdatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   UnprocessedAccounts: [ // ResultList
+ *     { // Result
+ *       AccountId: "STRING_VALUE",
+ *       ProcessingResult: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMembersCommandInput - {@link GetMembersCommandInput}
@@ -75,6 +96,8 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get member account details
  * ```javascript

@@ -3871,6 +3871,19 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  * };
  * const command = new BatchImportFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchImportFindingsResponse
+ *   FailedCount: Number("int"), // required
+ *   SuccessCount: Number("int"), // required
+ *   FailedFindings: [ // ImportFindingsErrorList
+ *     { // ImportFindingsError
+ *       Id: "STRING_VALUE", // required
+ *       ErrorCode: "STRING_VALUE", // required
+ *       ErrorMessage: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchImportFindingsCommandInput - {@link BatchImportFindingsCommandInput}
@@ -3893,6 +3906,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To import security findings from a third party provider to Security Hub
  * ```javascript

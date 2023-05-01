@@ -43,6 +43,16 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * const input = {};
  * const command = new DescribeVirtualGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VirtualGateways
+ *   virtualGateways: [ // VirtualGatewayList
+ *     { // VirtualGateway
+ *       virtualGatewayId: "STRING_VALUE",
+ *       virtualGatewayState: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVirtualGatewaysCommandInput - {@link DescribeVirtualGatewaysCommandInput}
@@ -57,6 +67,8 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeVirtualGatewaysCommand extends $Command<

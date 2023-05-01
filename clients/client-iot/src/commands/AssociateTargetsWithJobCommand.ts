@@ -62,6 +62,13 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * };
  * const command = new AssociateTargetsWithJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTargetsWithJobResponse
+ *   jobArn: "STRING_VALUE",
+ *   jobId: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateTargetsWithJobCommandInput - {@link AssociateTargetsWithJobCommandInput}
@@ -85,6 +92,8 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class AssociateTargetsWithJobCommand extends $Command<

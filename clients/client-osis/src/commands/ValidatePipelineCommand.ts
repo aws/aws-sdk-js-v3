@@ -46,6 +46,16 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
  * };
  * const command = new ValidatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidatePipelineResponse
+ *   isValid: true || false,
+ *   Errors: [ // ValidationMessageList
+ *     { // ValidationMessage
+ *       Message: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ValidatePipelineCommandInput - {@link ValidatePipelineCommandInput}
@@ -64,6 +74,8 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class ValidatePipelineCommand extends $Command<

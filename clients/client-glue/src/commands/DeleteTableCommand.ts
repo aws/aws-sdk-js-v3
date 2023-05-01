@@ -57,6 +57,9 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
@@ -83,6 +86,8 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @throws {@link ResourceNotReadyException} (client fault)
  *  <p>A resource was not ready for a transaction.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteTableCommand extends $Command<

@@ -56,6 +56,9 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * };
  * const command = new PutManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutManagedScalingPolicyCommandInput - {@link PutManagedScalingPolicyCommandInput}
@@ -64,6 +67,8 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * @see {@link PutManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class PutManagedScalingPolicyCommand extends $Command<

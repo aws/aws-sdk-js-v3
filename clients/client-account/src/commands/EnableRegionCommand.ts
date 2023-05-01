@@ -45,6 +45,9 @@ export interface EnableRegionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableRegionCommandInput - {@link EnableRegionCommandInput}
@@ -73,6 +76,8 @@ export interface EnableRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class EnableRegionCommand extends $Command<

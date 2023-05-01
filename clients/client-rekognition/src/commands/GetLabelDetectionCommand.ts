@@ -113,6 +113,85 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  * };
  * const command = new GetLabelDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLabelDetectionResponse
+ *   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ *   StatusMessage: "STRING_VALUE",
+ *   VideoMetadata: { // VideoMetadata
+ *     Codec: "STRING_VALUE",
+ *     DurationMillis: Number("long"),
+ *     Format: "STRING_VALUE",
+ *     FrameRate: Number("float"),
+ *     FrameHeight: Number("long"),
+ *     FrameWidth: Number("long"),
+ *     ColorRange: "FULL" || "LIMITED",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   Labels: [ // LabelDetections
+ *     { // LabelDetection
+ *       Timestamp: Number("long"),
+ *       Label: { // Label
+ *         Name: "STRING_VALUE",
+ *         Confidence: Number("float"),
+ *         Instances: [ // Instances
+ *           { // Instance
+ *             BoundingBox: { // BoundingBox
+ *               Width: Number("float"),
+ *               Height: Number("float"),
+ *               Left: Number("float"),
+ *               Top: Number("float"),
+ *             },
+ *             Confidence: Number("float"),
+ *             DominantColors: [ // DominantColors
+ *               { // DominantColor
+ *                 Red: Number("int"),
+ *                 Blue: Number("int"),
+ *                 Green: Number("int"),
+ *                 HexCode: "STRING_VALUE",
+ *                 CSSColor: "STRING_VALUE",
+ *                 SimplifiedColor: "STRING_VALUE",
+ *                 PixelPercent: Number("float"),
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         Parents: [ // Parents
+ *           { // Parent
+ *             Name: "STRING_VALUE",
+ *           },
+ *         ],
+ *         Aliases: [ // LabelAliases
+ *           { // LabelAlias
+ *             Name: "STRING_VALUE",
+ *           },
+ *         ],
+ *         Categories: [ // LabelCategories
+ *           { // LabelCategory
+ *             Name: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       StartTimestampMillis: Number("long"),
+ *       EndTimestampMillis: Number("long"),
+ *       DurationMillis: Number("long"),
+ *     },
+ *   ],
+ *   LabelModelVersion: "STRING_VALUE",
+ *   JobId: "STRING_VALUE",
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   GetRequestMetadata: { // GetLabelDetectionRequestMetadata
+ *     SortBy: "NAME" || "TIMESTAMP",
+ *     AggregateBy: "TIMESTAMPS" || "SEGMENTS",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLabelDetectionCommandInput - {@link GetLabelDetectionCommandInput}
@@ -144,6 +223,8 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class GetLabelDetectionCommand extends $Command<

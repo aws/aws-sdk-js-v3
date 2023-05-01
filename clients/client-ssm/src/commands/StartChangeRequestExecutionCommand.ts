@@ -114,6 +114,11 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * };
  * const command = new StartChangeRequestExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartChangeRequestExecutionResult
+ *   AutomationExecutionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartChangeRequestExecutionCommandInput - {@link StartChangeRequestExecutionCommandInput}
@@ -148,6 +153,8 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *    example, they may not match the set of parameters permitted for the specified Automation
  *    document.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StartChangeRequestExecutionCommand extends $Command<

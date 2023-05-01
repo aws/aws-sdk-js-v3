@@ -75,6 +75,9 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
@@ -92,6 +95,8 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class DeletePipelineCommand extends $Command<

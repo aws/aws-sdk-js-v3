@@ -50,6 +50,9 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  * };
  * const command = new StopHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopHyperParameterTuningJobCommandInput - {@link StopHyperParameterTuningJobCommandInput}
@@ -61,6 +64,8 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopHyperParameterTuningJobCommand extends $Command<

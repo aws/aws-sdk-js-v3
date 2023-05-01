@@ -59,6 +59,23 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * };
  * const command = new SearchEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchEntitiesResponse
+ *   descriptions: [ // EntityDescriptions
+ *     { // EntityDescription
+ *       id: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       definition: { // DefinitionDocument
+ *         language: "STRING_VALUE", // required
+ *         text: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchEntitiesCommandInput - {@link SearchEntitiesCommandInput}
@@ -76,6 +93,8 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchEntitiesCommand extends $Command<

@@ -56,6 +56,11 @@ export interface GetWorkUnitResultsCommandOutput
  * };
  * const command = new GetWorkUnitResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkUnitResultsResponse
+ *   ResultStream: "STREAMING_BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetWorkUnitResultsCommandInput - {@link GetWorkUnitResultsCommandInput}
@@ -79,6 +84,8 @@ export interface GetWorkUnitResultsCommandOutput
  * @throws {@link ThrottledException} (client fault)
  *  <p>Contains details about an error where the query request was throttled.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetWorkUnitResultsCommand extends $Command<

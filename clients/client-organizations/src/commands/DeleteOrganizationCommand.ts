@@ -42,6 +42,9 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * const input = {};
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
@@ -184,6 +187,8 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class DeleteOrganizationCommand extends $Command<

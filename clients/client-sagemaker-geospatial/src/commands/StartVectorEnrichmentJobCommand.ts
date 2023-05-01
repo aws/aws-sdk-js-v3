@@ -75,6 +75,42 @@ export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrich
  * };
  * const command = new StartVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartVectorEnrichmentJobOutput
+ *   Name: "STRING_VALUE", // required
+ *   Arn: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ *   CreationTime: new Date("TIMESTAMP"), // required
+ *   DurationInSeconds: Number("int"), // required
+ *   Status: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   InputConfig: { // VectorEnrichmentJobInputConfig
+ *     DocumentType: "STRING_VALUE", // required
+ *     DataSourceConfig: { // VectorEnrichmentJobDataSourceConfigInput Union: only one key present
+ *       S3Data: { // VectorEnrichmentJobS3Data
+ *         S3Uri: "STRING_VALUE", // required
+ *         KmsKeyId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   JobConfig: { // VectorEnrichmentJobConfig Union: only one key present
+ *     ReverseGeocodingConfig: { // ReverseGeocodingConfig
+ *       YAttributeName: "STRING_VALUE", // required
+ *       XAttributeName: "STRING_VALUE", // required
+ *     },
+ *     MapMatchingConfig: { // MapMatchingConfig
+ *       IdAttributeName: "STRING_VALUE", // required
+ *       YAttributeName: "STRING_VALUE", // required
+ *       XAttributeName: "STRING_VALUE", // required
+ *       TimestampAttributeName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartVectorEnrichmentJobCommandInput - {@link StartVectorEnrichmentJobCommandInput}
@@ -104,6 +140,8 @@ export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrich
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class StartVectorEnrichmentJobCommand extends $Command<

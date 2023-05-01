@@ -84,6 +84,94 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsOutput
+ *   JobList: [ // JobList
+ *     { // GlacierJobDescription
+ *       JobId: "STRING_VALUE",
+ *       JobDescription: "STRING_VALUE",
+ *       Action: "ArchiveRetrieval" || "InventoryRetrieval" || "Select",
+ *       ArchiveId: "STRING_VALUE",
+ *       VaultARN: "STRING_VALUE",
+ *       CreationDate: "STRING_VALUE",
+ *       Completed: true || false,
+ *       StatusCode: "InProgress" || "Succeeded" || "Failed",
+ *       StatusMessage: "STRING_VALUE",
+ *       ArchiveSizeInBytes: Number("long"),
+ *       InventorySizeInBytes: Number("long"),
+ *       SNSTopic: "STRING_VALUE",
+ *       CompletionDate: "STRING_VALUE",
+ *       SHA256TreeHash: "STRING_VALUE",
+ *       ArchiveSHA256TreeHash: "STRING_VALUE",
+ *       RetrievalByteRange: "STRING_VALUE",
+ *       Tier: "STRING_VALUE",
+ *       InventoryRetrievalParameters: { // InventoryRetrievalJobDescription
+ *         Format: "STRING_VALUE",
+ *         StartDate: "STRING_VALUE",
+ *         EndDate: "STRING_VALUE",
+ *         Limit: "STRING_VALUE",
+ *         Marker: "STRING_VALUE",
+ *       },
+ *       JobOutputPath: "STRING_VALUE",
+ *       SelectParameters: { // SelectParameters
+ *         InputSerialization: { // InputSerialization
+ *           csv: { // CSVInput
+ *             FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *             Comments: "STRING_VALUE",
+ *             QuoteEscapeCharacter: "STRING_VALUE",
+ *             RecordDelimiter: "STRING_VALUE",
+ *             FieldDelimiter: "STRING_VALUE",
+ *             QuoteCharacter: "STRING_VALUE",
+ *           },
+ *         },
+ *         ExpressionType: "SQL",
+ *         Expression: "STRING_VALUE",
+ *         OutputSerialization: { // OutputSerialization
+ *           csv: { // CSVOutput
+ *             QuoteFields: "ALWAYS" || "ASNEEDED",
+ *             QuoteEscapeCharacter: "STRING_VALUE",
+ *             RecordDelimiter: "STRING_VALUE",
+ *             FieldDelimiter: "STRING_VALUE",
+ *             QuoteCharacter: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       OutputLocation: { // OutputLocation
+ *         S3: { // S3Location
+ *           BucketName: "STRING_VALUE",
+ *           Prefix: "STRING_VALUE",
+ *           Encryption: { // Encryption
+ *             EncryptionType: "aws:kms" || "AES256",
+ *             KMSKeyId: "STRING_VALUE",
+ *             KMSContext: "STRING_VALUE",
+ *           },
+ *           CannedACL: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *           AccessControlList: [ // AccessControlPolicyList
+ *             { // Grant
+ *               Grantee: { // Grantee
+ *                 Type: "AmazonCustomerByEmail" || "CanonicalUser" || "Group", // required
+ *                 DisplayName: "STRING_VALUE",
+ *                 URI: "STRING_VALUE",
+ *                 ID: "STRING_VALUE",
+ *                 EmailAddress: "STRING_VALUE",
+ *               },
+ *               Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *             },
+ *           ],
+ *           Tagging: { // hashmap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           UserMetadata: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -105,6 +193,8 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list jobs for a vault
  * ```javascript

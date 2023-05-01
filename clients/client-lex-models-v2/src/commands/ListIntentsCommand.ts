@@ -61,6 +61,35 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  * };
  * const command = new ListIntentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIntentsResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   intentSummaries: [ // IntentSummaryList
+ *     { // IntentSummary
+ *       intentId: "STRING_VALUE",
+ *       intentName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       parentIntentSignature: "STRING_VALUE",
+ *       inputContexts: [ // InputContextsList
+ *         { // InputContext
+ *           name: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       outputContexts: [ // OutputContextsList
+ *         { // OutputContext
+ *           name: "STRING_VALUE", // required
+ *           timeToLiveInSeconds: Number("int"), // required
+ *           turnsToLive: Number("int"), // required
+ *         },
+ *       ],
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListIntentsCommandInput - {@link ListIntentsCommandInput}
@@ -84,6 +113,8 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListIntentsCommand extends $Command<

@@ -45,6 +45,13 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * const input = {};
  * const command = new GetAccountSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSummaryResponse
+ *   SummaryMap: { // summaryMapType
+ *     "<keys>": Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSummaryCommandInput - {@link GetAccountSummaryCommandInput}
@@ -57,6 +64,8 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To get information about IAM entity quotas and usage in the current account
  * ```javascript

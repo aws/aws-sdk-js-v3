@@ -55,6 +55,60 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  * };
  * const command = new GetCallAnalyticsJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCallAnalyticsJobResponse
+ *   CallAnalyticsJob: { // CallAnalyticsJob
+ *     CallAnalyticsJobName: "STRING_VALUE",
+ *     CallAnalyticsJobStatus: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ *     LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ *     MediaSampleRateHertz: Number("int"),
+ *     MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
+ *     Media: { // Media
+ *       MediaFileUri: "STRING_VALUE",
+ *       RedactedMediaFileUri: "STRING_VALUE",
+ *     },
+ *     Transcript: { // Transcript
+ *       TranscriptFileUri: "STRING_VALUE",
+ *       RedactedTranscriptFileUri: "STRING_VALUE",
+ *     },
+ *     StartTime: new Date("TIMESTAMP"),
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     CompletionTime: new Date("TIMESTAMP"),
+ *     FailureReason: "STRING_VALUE",
+ *     DataAccessRoleArn: "STRING_VALUE",
+ *     IdentifiedLanguageScore: Number("float"),
+ *     Settings: { // CallAnalyticsJobSettings
+ *       VocabularyName: "STRING_VALUE",
+ *       VocabularyFilterName: "STRING_VALUE",
+ *       VocabularyFilterMethod: "remove" || "mask" || "tag",
+ *       LanguageModelName: "STRING_VALUE",
+ *       ContentRedaction: { // ContentRedaction
+ *         RedactionType: "PII", // required
+ *         RedactionOutput: "redacted" || "redacted_and_unredacted", // required
+ *         PiiEntityTypes: [ // PiiEntityTypes
+ *           "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "ALL",
+ *         ],
+ *       },
+ *       LanguageOptions: [ // LanguageOptions
+ *         "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ *       ],
+ *       LanguageIdSettings: { // LanguageIdSettingsMap
+ *         "<keys>": { // LanguageIdSettings
+ *           VocabularyName: "STRING_VALUE",
+ *           VocabularyFilterName: "STRING_VALUE",
+ *           LanguageModelName: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     ChannelDefinitions: [ // ChannelDefinitions
+ *       { // ChannelDefinition
+ *         ChannelId: Number("int"),
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCallAnalyticsJobCommandInput - {@link GetCallAnalyticsJobCommandInput}
@@ -81,6 +135,8 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class GetCallAnalyticsJobCommand extends $Command<

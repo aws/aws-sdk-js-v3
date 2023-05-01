@@ -49,6 +49,22 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * };
  * const command = new ListIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentitiesResponse
+ *   IdentityPoolId: "STRING_VALUE",
+ *   Identities: [ // IdentitiesList
+ *     { // IdentityDescription
+ *       IdentityId: "STRING_VALUE",
+ *       Logins: [ // LoginsList
+ *         "STRING_VALUE",
+ *       ],
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       LastModifiedDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListIdentitiesCommandInput - {@link ListIdentitiesCommandInput}
@@ -73,6 +89,8 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class ListIdentitiesCommand extends $Command<

@@ -51,6 +51,11 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * };
  * const command = new UnsubscribeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UnsubscribeResult
+ *   Arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UnsubscribeCommandInput - {@link UnsubscribeCommandInput}
@@ -62,6 +67,8 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class UnsubscribeCommand extends $Command<

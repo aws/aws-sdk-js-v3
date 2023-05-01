@@ -66,6 +66,13 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * };
  * const command = new InvokeEndpointAsyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeEndpointAsyncOutput
+ *   InferenceId: "STRING_VALUE",
+ *   OutputLocation: "STRING_VALUE",
+ *   FailureLocation: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param InvokeEndpointAsyncCommandInput - {@link InvokeEndpointAsyncCommandInput}
@@ -83,6 +90,8 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * @throws {@link ValidationError} (client fault)
  *  <p> Inspect your request and try again. </p>
  *
+ * @throws {@link SageMakerRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
  */
 export class InvokeEndpointAsyncCommand extends $Command<

@@ -44,6 +44,20 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * };
  * const command = new GetEventIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEventIntegrationResponse
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   EventIntegrationArn: "STRING_VALUE",
+ *   EventBridgeBus: "STRING_VALUE",
+ *   EventFilter: { // EventFilter
+ *     Source: "STRING_VALUE", // required
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEventIntegrationCommandInput - {@link GetEventIntegrationCommandInput}
@@ -67,6 +81,8 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class GetEventIntegrationCommand extends $Command<

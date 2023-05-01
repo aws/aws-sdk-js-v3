@@ -62,6 +62,39 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * };
  * const command = new UpdateWorkteamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkteamResponse
+ *   Workteam: { // Workteam
+ *     WorkteamName: "STRING_VALUE", // required
+ *     MemberDefinitions: [ // MemberDefinitions // required
+ *       { // MemberDefinition
+ *         CognitoMemberDefinition: { // CognitoMemberDefinition
+ *           UserPool: "STRING_VALUE", // required
+ *           UserGroup: "STRING_VALUE", // required
+ *           ClientId: "STRING_VALUE", // required
+ *         },
+ *         OidcMemberDefinition: { // OidcMemberDefinition
+ *           Groups: [ // Groups // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     WorkteamArn: "STRING_VALUE", // required
+ *     WorkforceArn: "STRING_VALUE",
+ *     ProductListingIds: [ // ProductListings
+ *       "STRING_VALUE",
+ *     ],
+ *     Description: "STRING_VALUE", // required
+ *     SubDomain: "STRING_VALUE",
+ *     CreateDate: new Date("TIMESTAMP"),
+ *     LastUpdatedDate: new Date("TIMESTAMP"),
+ *     NotificationConfiguration: { // NotificationConfiguration
+ *       NotificationTopicArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateWorkteamCommandInput - {@link UpdateWorkteamCommandInput}
@@ -74,6 +107,8 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateWorkteamCommand extends $Command<

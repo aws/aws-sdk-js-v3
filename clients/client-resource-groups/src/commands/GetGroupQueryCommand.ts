@@ -58,6 +58,17 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  * };
  * const command = new GetGroupQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupQueryOutput
+ *   GroupQuery: { // GroupQuery
+ *     GroupName: "STRING_VALUE", // required
+ *     ResourceQuery: { // ResourceQuery
+ *       Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ *       Query: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGroupQueryCommandInput - {@link GetGroupQueryCommandInput}
@@ -85,6 +96,8 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GetGroupQueryCommand extends $Command<

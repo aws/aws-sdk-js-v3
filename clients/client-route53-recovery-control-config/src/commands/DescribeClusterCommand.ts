@@ -48,6 +48,21 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClusterResponse
+ *   Cluster: { // Cluster
+ *     ClusterArn: "STRING_VALUE",
+ *     ClusterEndpoints: [ // __listOfClusterEndpoint
+ *       { // ClusterEndpoint
+ *         Endpoint: "STRING_VALUE",
+ *         Region: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Name: "STRING_VALUE",
+ *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
@@ -74,6 +89,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DescribeClusterCommand extends $Command<

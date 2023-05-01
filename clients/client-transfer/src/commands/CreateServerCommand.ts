@@ -105,6 +105,11 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServerResponse
+ *   ServerId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateServerCommandInput - {@link CreateServerCommandInput}
@@ -135,6 +140,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateServerCommand extends $Command<

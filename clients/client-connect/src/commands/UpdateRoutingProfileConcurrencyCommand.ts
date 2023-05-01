@@ -58,6 +58,9 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * };
  * const command = new UpdateRoutingProfileConcurrencyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoutingProfileConcurrencyCommandInput - {@link UpdateRoutingProfileConcurrencyCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateRoutingProfileConcurrencyCommand extends $Command<

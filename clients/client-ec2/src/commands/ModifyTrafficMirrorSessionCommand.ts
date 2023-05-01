@@ -54,6 +54,27 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * };
  * const command = new ModifyTrafficMirrorSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTrafficMirrorSessionResult
+ *   TrafficMirrorSession: { // TrafficMirrorSession
+ *     TrafficMirrorSessionId: "STRING_VALUE",
+ *     TrafficMirrorTargetId: "STRING_VALUE",
+ *     TrafficMirrorFilterId: "STRING_VALUE",
+ *     NetworkInterfaceId: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     PacketLength: Number("int"),
+ *     SessionNumber: Number("int"),
+ *     VirtualNetworkId: Number("int"),
+ *     Description: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyTrafficMirrorSessionCommandInput - {@link ModifyTrafficMirrorSessionCommandInput}
@@ -62,6 +83,8 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * @see {@link ModifyTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTrafficMirrorSessionCommand extends $Command<

@@ -154,6 +154,11 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  * };
  * const command = new UpdateMetricSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMetricSetResponse
+ *   MetricSetArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateMetricSetCommandInput - {@link UpdateMetricSetCommandInput}
@@ -181,6 +186,8 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class UpdateMetricSetCommand extends $Command<

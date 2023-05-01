@@ -52,6 +52,17 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * };
  * const command = new ListTagsForStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForStreamOutput
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   HasMoreTags: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ListTagsForStreamCommandInput - {@link ListTagsForStreamCommandInput}
@@ -76,6 +87,8 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class ListTagsForStreamCommand extends $Command<

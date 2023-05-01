@@ -88,6 +88,12 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleResponse
+ *   RuleArn: "STRING_VALUE", // required
+ *   RuleId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -117,6 +123,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateRuleCommand extends $Command<

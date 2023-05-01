@@ -47,6 +47,9 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * };
  * const command = new EnableVgwRoutePropagationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableVgwRoutePropagationCommandInput - {@link EnableVgwRoutePropagationCommandInput}
@@ -55,6 +58,8 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * @see {@link EnableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To enable route propagation
  * ```javascript

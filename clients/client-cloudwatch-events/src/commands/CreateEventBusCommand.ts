@@ -53,6 +53,11 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * };
  * const command = new CreateEventBusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventBusResponse
+ *   EventBusArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateEventBusCommandInput - {@link CreateEventBusCommandInput}
@@ -83,6 +88,8 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class CreateEventBusCommand extends $Command<

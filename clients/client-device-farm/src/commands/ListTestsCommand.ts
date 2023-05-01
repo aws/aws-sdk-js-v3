@@ -45,6 +45,38 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  * };
  * const command = new ListTestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTestsResult
+ *   tests: [ // Tests
+ *     { // Test
+ *       arn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY",
+ *       created: new Date("TIMESTAMP"),
+ *       status: "PENDING" || "PENDING_CONCURRENCY" || "PENDING_DEVICE" || "PROCESSING" || "SCHEDULING" || "PREPARING" || "RUNNING" || "COMPLETED" || "STOPPING",
+ *       result: "PENDING" || "PASSED" || "WARNED" || "FAILED" || "SKIPPED" || "ERRORED" || "STOPPED",
+ *       started: new Date("TIMESTAMP"),
+ *       stopped: new Date("TIMESTAMP"),
+ *       counters: { // Counters
+ *         total: Number("int"),
+ *         passed: Number("int"),
+ *         failed: Number("int"),
+ *         warned: Number("int"),
+ *         errored: Number("int"),
+ *         stopped: Number("int"),
+ *         skipped: Number("int"),
+ *       },
+ *       message: "STRING_VALUE",
+ *       deviceMinutes: { // DeviceMinutes
+ *         total: Number("double"),
+ *         metered: Number("double"),
+ *         unmetered: Number("double"),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTestsCommandInput - {@link ListTestsCommandInput}
@@ -65,6 +97,8 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about tests
  * ```javascript

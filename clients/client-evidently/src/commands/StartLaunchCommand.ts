@@ -46,6 +46,68 @@ export interface StartLaunchCommandOutput extends StartLaunchResponse, __Metadat
  * };
  * const command = new StartLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartLaunchResponse
+ *   launch: { // Launch
+ *     arn: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     project: "STRING_VALUE",
+ *     status: "STRING_VALUE", // required
+ *     statusReason: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     createdTime: new Date("TIMESTAMP"), // required
+ *     lastUpdatedTime: new Date("TIMESTAMP"), // required
+ *     execution: { // LaunchExecution
+ *       startedTime: new Date("TIMESTAMP"),
+ *       endedTime: new Date("TIMESTAMP"),
+ *     },
+ *     groups: [ // LaunchGroupList
+ *       { // LaunchGroup
+ *         name: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         featureVariations: { // FeatureToVariationMap // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     metricMonitors: [ // MetricMonitorList
+ *       { // MetricMonitor
+ *         metricDefinition: { // MetricDefinition
+ *           name: "STRING_VALUE",
+ *           entityIdKey: "STRING_VALUE",
+ *           valueKey: "STRING_VALUE",
+ *           eventPattern: "STRING_VALUE",
+ *           unitLabel: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     randomizationSalt: "STRING_VALUE",
+ *     type: "STRING_VALUE", // required
+ *     scheduledSplitsDefinition: { // ScheduledSplitsLaunchDefinition
+ *       steps: [ // ScheduledStepList
+ *         { // ScheduledSplit
+ *           startTime: new Date("TIMESTAMP"), // required
+ *           groupWeights: { // GroupToWeightMap
+ *             "<keys>": Number("long"),
+ *           },
+ *           segmentOverrides: [ // SegmentOverridesList
+ *             { // SegmentOverride
+ *               segment: "STRING_VALUE", // required
+ *               evaluationOrder: Number("long"), // required
+ *               weights: { // required
+ *                 "<keys>": Number("long"),
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartLaunchCommandInput - {@link StartLaunchCommandInput}
@@ -72,6 +134,8 @@ export interface StartLaunchCommandOutput extends StartLaunchResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class StartLaunchCommand extends $Command<

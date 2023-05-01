@@ -60,6 +60,29 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * };
  * const command = new DescribeElasticLoadBalancersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeElasticLoadBalancersResult
+ *   ElasticLoadBalancers: [ // ElasticLoadBalancers
+ *     { // ElasticLoadBalancer
+ *       ElasticLoadBalancerName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       DnsName: "STRING_VALUE",
+ *       StackId: "STRING_VALUE",
+ *       LayerId: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       AvailabilityZones: [ // Strings
+ *         "STRING_VALUE",
+ *       ],
+ *       SubnetIds: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Ec2InstanceIds: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeElasticLoadBalancersCommandInput - {@link DescribeElasticLoadBalancersCommandInput}
@@ -74,6 +97,8 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeElasticLoadBalancersCommand extends $Command<

@@ -81,6 +81,11 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * };
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RequestCertificateResponse
+ *   CertificateArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RequestCertificateCommandInput - {@link RequestCertificateCommandInput}
@@ -112,6 +117,8 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class RequestCertificateCommand extends $Command<

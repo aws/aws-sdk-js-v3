@@ -56,6 +56,12 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * };
  * const command = new DisassociateResourceSharePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateResourceSharePermissionResponse
+ *   returnValue: true || false,
+ *   clientToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateResourceSharePermissionCommandInput - {@link DisassociateResourceSharePermissionCommandInput}
@@ -91,6 +97,8 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class DisassociateResourceSharePermissionCommand extends $Command<

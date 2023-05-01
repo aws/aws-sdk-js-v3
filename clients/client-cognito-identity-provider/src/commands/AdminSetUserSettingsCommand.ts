@@ -63,6 +63,9 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * };
  * const command = new AdminSetUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminSetUserSettingsCommandInput - {@link AdminSetUserSettingsCommandInput}
@@ -88,6 +91,8 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminSetUserSettingsCommand extends $Command<

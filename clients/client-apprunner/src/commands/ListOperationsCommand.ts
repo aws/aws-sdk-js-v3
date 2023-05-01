@@ -48,6 +48,22 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOperationsResponse
+ *   OperationSummaryList: [ // OperationSummaryList
+ *     { // OperationSummary
+ *       Id: "STRING_VALUE",
+ *       Type: "START_DEPLOYMENT" || "CREATE_SERVICE" || "PAUSE_SERVICE" || "RESUME_SERVICE" || "DELETE_SERVICE" || "UPDATE_SERVICE",
+ *       Status: "PENDING" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_FAILED" || "ROLLBACK_SUCCEEDED",
+ *       TargetArn: "STRING_VALUE",
+ *       StartedAt: new Date("TIMESTAMP"),
+ *       EndedAt: new Date("TIMESTAMP"),
+ *       UpdatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
@@ -65,6 +81,8 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class ListOperationsCommand extends $Command<

@@ -47,6 +47,16 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * };
  * const command = new ListTagsForDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForDomainResponse
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForDomainCommandInput - {@link ListTagsForDomainCommandInput}
@@ -68,6 +78,8 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ListTagsForDomainCommand extends $Command<

@@ -48,6 +48,15 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectResponse
+ *   ProjectMetadata: { // ProjectMetadata
+ *     ProjectArn: "STRING_VALUE",
+ *     ProjectName: "STRING_VALUE",
+ *     CreationTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -79,6 +88,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

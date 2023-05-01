@@ -84,6 +84,11 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * };
  * const command = new StartSegmentDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSegmentDetectionResponse
+ *   JobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartSegmentDetectionCommandInput - {@link StartSegmentDetectionCommandInput}
@@ -125,6 +130,8 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartSegmentDetectionCommand extends $Command<

@@ -85,6 +85,18 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * };
  * const command = new BatchDeleteRecipeVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteRecipeVersionResponse
+ *   Name: "STRING_VALUE", // required
+ *   Errors: [ // RecipeErrorList
+ *     { // RecipeVersionErrorDetail
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *       RecipeVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteRecipeVersionCommandInput - {@link BatchDeleteRecipeVersionCommandInput}
@@ -102,6 +114,8 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class BatchDeleteRecipeVersionCommand extends $Command<

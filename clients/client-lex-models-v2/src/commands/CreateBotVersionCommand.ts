@@ -55,6 +55,20 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * };
  * const command = new CreateBotVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBotVersionResponse
+ *   botId: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   botVersionLocaleSpecification: { // BotVersionLocaleSpecification
+ *     "<keys>": { // BotVersionLocaleDetails
+ *       sourceBotVersion: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ *   creationDateTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateBotVersionCommandInput - {@link CreateBotVersionCommandInput}
@@ -88,6 +102,8 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateBotVersionCommand extends $Command<

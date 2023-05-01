@@ -45,6 +45,46 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * };
  * const command = new DescribeUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserHierarchyGroupResponse
+ *   HierarchyGroup: { // HierarchyGroup
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     LevelId: "STRING_VALUE",
+ *     HierarchyPath: { // HierarchyPath
+ *       LevelOne: { // HierarchyGroupSummary
+ *         Id: "STRING_VALUE",
+ *         Arn: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *       LevelTwo: {
+ *         Id: "STRING_VALUE",
+ *         Arn: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *       LevelThree: {
+ *         Id: "STRING_VALUE",
+ *         Arn: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *       LevelFour: {
+ *         Id: "STRING_VALUE",
+ *         Arn: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *       LevelFive: {
+ *         Id: "STRING_VALUE",
+ *         Arn: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *     },
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeUserHierarchyGroupCommandInput - {@link DescribeUserHierarchyGroupCommandInput}
@@ -68,6 +108,8 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeUserHierarchyGroupCommand extends $Command<

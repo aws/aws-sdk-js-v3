@@ -114,6 +114,14 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeployablePatchSnapshotForInstanceResult
+ *   InstanceId: "STRING_VALUE",
+ *   SnapshotId: "STRING_VALUE",
+ *   SnapshotDownloadUrl: "STRING_VALUE",
+ *   Product: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDeployablePatchSnapshotForInstanceCommandInput - {@link GetDeployablePatchSnapshotForInstanceCommandInput}
@@ -135,6 +143,8 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *  <p>The operating systems you specified isn't supported, or the operation isn't supported for
  *    the operating system.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<

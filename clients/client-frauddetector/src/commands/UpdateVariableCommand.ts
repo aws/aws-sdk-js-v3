@@ -47,6 +47,9 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  * };
  * const command = new UpdateVariableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateVariableCommandInput - {@link UpdateVariableCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateVariableCommand extends $Command<

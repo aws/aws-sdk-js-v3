@@ -45,6 +45,9 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * };
  * const command = new CancelPipelineReprocessingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelPipelineReprocessingCommandInput - {@link CancelPipelineReprocessingCommandInput}
@@ -68,6 +71,8 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CancelPipelineReprocessingCommand extends $Command<

@@ -45,6 +45,19 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInvitationsResponse
+ *   invitations: [ // __listOfInvitation
+ *     { // Invitation
+ *       accountId: "STRING_VALUE",
+ *       invitationId: "STRING_VALUE",
+ *       invitedAt: new Date("TIMESTAMP"),
+ *       relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
@@ -74,6 +87,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListInvitationsCommand extends $Command<

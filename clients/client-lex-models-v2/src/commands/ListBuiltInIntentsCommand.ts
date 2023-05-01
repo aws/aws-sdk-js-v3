@@ -55,6 +55,18 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * };
  * const command = new ListBuiltInIntentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuiltInIntentsResponse
+ *   builtInIntentSummaries: [ // BuiltInIntentSummaryList
+ *     { // BuiltInIntentSummary
+ *       intentSignature: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBuiltInIntentsCommandInput - {@link ListBuiltInIntentsCommandInput}
@@ -78,6 +90,8 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBuiltInIntentsCommand extends $Command<

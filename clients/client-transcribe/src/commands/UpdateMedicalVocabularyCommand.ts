@@ -48,6 +48,14 @@ export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocab
  * };
  * const command = new UpdateMedicalVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMedicalVocabularyResponse
+ *   VocabularyName: "STRING_VALUE",
+ *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   VocabularyState: "PENDING" || "READY" || "FAILED",
+ * };
+ *
  * ```
  *
  * @param UpdateMedicalVocabularyCommandInput - {@link UpdateMedicalVocabularyCommandInput}
@@ -78,6 +86,8 @@ export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocab
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class UpdateMedicalVocabularyCommand extends $Command<

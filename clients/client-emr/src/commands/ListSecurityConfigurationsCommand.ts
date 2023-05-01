@@ -47,6 +47,17 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * };
  * const command = new ListSecurityConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityConfigurationsOutput
+ *   SecurityConfigurations: [ // SecurityConfigurationList
+ *     { // SecurityConfigurationSummary
+ *       Name: "STRING_VALUE",
+ *       CreationDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSecurityConfigurationsCommandInput - {@link ListSecurityConfigurationsCommandInput}
@@ -62,6 +73,8 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListSecurityConfigurationsCommand extends $Command<

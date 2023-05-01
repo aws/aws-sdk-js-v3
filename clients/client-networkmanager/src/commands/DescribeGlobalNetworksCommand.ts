@@ -51,6 +51,26 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * };
  * const command = new DescribeGlobalNetworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGlobalNetworksResponse
+ *   GlobalNetworks: [ // GlobalNetworkList
+ *     { // GlobalNetwork
+ *       GlobalNetworkId: "STRING_VALUE",
+ *       GlobalNetworkArn: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeGlobalNetworksCommandInput - {@link DescribeGlobalNetworksCommandInput}
@@ -74,6 +94,8 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DescribeGlobalNetworksCommand extends $Command<

@@ -49,6 +49,9 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * const input = {};
  * const command = new DisassociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateServiceQuotaTemplateCommandInput - {@link DisassociateServiceQuotaTemplateCommandInput}
@@ -83,6 +86,8 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class DisassociateServiceQuotaTemplateCommand extends $Command<

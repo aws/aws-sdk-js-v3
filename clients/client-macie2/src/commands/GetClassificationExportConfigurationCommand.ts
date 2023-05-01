@@ -50,6 +50,17 @@ export interface GetClassificationExportConfigurationCommandOutput
  * const input = {};
  * const command = new GetClassificationExportConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetClassificationExportConfigurationResponse
+ *   configuration: { // ClassificationExportConfiguration
+ *     s3Destination: { // S3Destination
+ *       bucketName: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       kmsKeyArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetClassificationExportConfigurationCommandInput - {@link GetClassificationExportConfigurationCommandInput}
@@ -79,6 +90,8 @@ export interface GetClassificationExportConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetClassificationExportConfigurationCommand extends $Command<

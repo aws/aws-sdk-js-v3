@@ -66,6 +66,9 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * };
  * const command = new AdminSetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminSetUserMFAPreferenceCommandInput - {@link AdminSetUserMFAPreferenceCommandInput}
@@ -97,6 +100,8 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminSetUserMFAPreferenceCommand extends $Command<

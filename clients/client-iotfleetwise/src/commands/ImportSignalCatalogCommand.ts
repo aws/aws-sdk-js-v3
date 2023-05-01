@@ -55,6 +55,12 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * };
  * const command = new ImportSignalCatalogCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportSignalCatalogResponse
+ *   name: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param ImportSignalCatalogCommandInput - {@link ImportSignalCatalogCommandInput}
@@ -88,6 +94,8 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ImportSignalCatalogCommand extends $Command<

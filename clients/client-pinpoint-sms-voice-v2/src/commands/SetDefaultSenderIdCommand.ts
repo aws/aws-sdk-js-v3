@@ -52,6 +52,13 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * };
  * const command = new SetDefaultSenderIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetDefaultSenderIdResult
+ *   ConfigurationSetArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   SenderId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SetDefaultSenderIdCommandInput - {@link SetDefaultSenderIdCommandInput}
@@ -78,6 +85,8 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SetDefaultSenderIdCommand extends $Command<

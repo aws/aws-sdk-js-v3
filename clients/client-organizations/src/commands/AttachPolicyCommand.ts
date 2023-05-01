@@ -70,6 +70,9 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
@@ -429,6 +432,8 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To attach a policy to an OU
  * ```javascript

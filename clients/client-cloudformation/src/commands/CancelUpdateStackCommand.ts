@@ -50,6 +50,9 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelUpdateStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelUpdateStackCommandInput - {@link CancelUpdateStackCommandInput}
@@ -61,6 +64,8 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CancelUpdateStackCommand extends $Command<

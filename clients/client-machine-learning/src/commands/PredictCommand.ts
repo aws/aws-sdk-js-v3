@@ -52,6 +52,20 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * };
  * const command = new PredictCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PredictOutput
+ *   Prediction: { // Prediction
+ *     predictedLabel: "STRING_VALUE",
+ *     predictedValue: Number("float"),
+ *     predictedScores: { // ScoreValuePerLabelMap
+ *       "<keys>": Number("float"),
+ *     },
+ *     details: { // DetailsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PredictCommandInput - {@link PredictCommandInput}
@@ -75,6 +89,8 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class PredictCommand extends $Command<

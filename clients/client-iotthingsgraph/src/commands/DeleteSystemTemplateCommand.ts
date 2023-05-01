@@ -47,6 +47,9 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * };
  * const command = new DeleteSystemTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSystemTemplateCommandInput - {@link DeleteSystemTemplateCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeleteSystemTemplateCommand extends $Command<

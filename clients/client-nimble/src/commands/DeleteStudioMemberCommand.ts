@@ -46,6 +46,9 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  * };
  * const command = new DeleteStudioMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStudioMemberCommandInput - {@link DeleteStudioMemberCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class DeleteStudioMemberCommand extends $Command<

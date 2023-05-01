@@ -66,6 +66,31 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * };
  * const command = new DescribeOutboundCrossClusterSearchConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOutboundCrossClusterSearchConnectionsResponse
+ *   CrossClusterSearchConnections: [ // OutboundCrossClusterSearchConnections
+ *     { // OutboundCrossClusterSearchConnection
+ *       SourceDomainInfo: { // DomainInformation
+ *         OwnerId: "STRING_VALUE",
+ *         DomainName: "STRING_VALUE", // required
+ *         Region: "STRING_VALUE",
+ *       },
+ *       DestinationDomainInfo: {
+ *         OwnerId: "STRING_VALUE",
+ *         DomainName: "STRING_VALUE", // required
+ *         Region: "STRING_VALUE",
+ *       },
+ *       CrossClusterSearchConnectionId: "STRING_VALUE",
+ *       ConnectionAlias: "STRING_VALUE",
+ *       ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
+ *         StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
+ *         Message: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeOutboundCrossClusterSearchConnectionsCommandInput - {@link DescribeOutboundCrossClusterSearchConnectionsCommandInput}
@@ -80,6 +105,8 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * @throws {@link InvalidPaginationTokenException} (client fault)
  *  <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Command<

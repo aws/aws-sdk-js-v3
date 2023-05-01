@@ -50,6 +50,13 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * };
  * const command = new ListQueueTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueueTagsResult
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListQueueTagsCommandInput - {@link ListQueueTagsCommandInput}
@@ -58,6 +65,8 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * @see {@link ListQueueTagsCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ListQueueTagsCommand extends $Command<

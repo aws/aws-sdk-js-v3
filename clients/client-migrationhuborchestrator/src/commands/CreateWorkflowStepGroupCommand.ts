@@ -56,6 +56,27 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  * };
  * const command = new CreateWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkflowStepGroupResponse
+ *   workflowId: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   id: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   tools: [ // ToolsList
+ *     { // Tool
+ *       name: "STRING_VALUE",
+ *       url: "STRING_VALUE",
+ *     },
+ *   ],
+ *   next: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   previous: [
+ *     "STRING_VALUE",
+ *   ],
+ *   creationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateWorkflowStepGroupCommandInput - {@link CreateWorkflowStepGroupCommandInput}
@@ -76,6 +97,8 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class CreateWorkflowStepGroupCommand extends $Command<

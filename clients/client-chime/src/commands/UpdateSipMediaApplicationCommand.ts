@@ -55,6 +55,22 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * };
  * const command = new UpdateSipMediaApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSipMediaApplicationResponse
+ *   SipMediaApplication: { // SipMediaApplication
+ *     SipMediaApplicationId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Endpoints: [ // SipMediaApplicationEndpointList
+ *       { // SipMediaApplicationEndpoint
+ *         LambdaArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSipMediaApplicationCommandInput - {@link UpdateSipMediaApplicationCommandInput}
@@ -88,6 +104,8 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateSipMediaApplicationCommand extends $Command<

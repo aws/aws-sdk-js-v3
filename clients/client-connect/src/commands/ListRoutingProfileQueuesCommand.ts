@@ -47,6 +47,21 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * };
  * const command = new ListRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutingProfileQueuesResponse
+ *   NextToken: "STRING_VALUE",
+ *   RoutingProfileQueueConfigSummaryList: [ // RoutingProfileQueueConfigSummaryList
+ *     { // RoutingProfileQueueConfigSummary
+ *       QueueId: "STRING_VALUE", // required
+ *       QueueArn: "STRING_VALUE", // required
+ *       QueueName: "STRING_VALUE", // required
+ *       Priority: Number("int"), // required
+ *       Delay: Number("int"), // required
+ *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRoutingProfileQueuesCommandInput - {@link ListRoutingProfileQueuesCommandInput}
@@ -70,6 +85,8 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListRoutingProfileQueuesCommand extends $Command<

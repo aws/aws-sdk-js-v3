@@ -54,6 +54,23 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * };
  * const command = new GetRelationalDatabaseParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseParametersResult
+ *   parameters: [ // RelationalDatabaseParameterList
+ *     { // RelationalDatabaseParameter
+ *       allowedValues: "STRING_VALUE",
+ *       applyMethod: "STRING_VALUE",
+ *       applyType: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       isModifiable: true || false,
+ *       parameterName: "STRING_VALUE",
+ *       parameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseParametersCommandInput - {@link GetRelationalDatabaseParametersCommandInput}
@@ -92,6 +109,8 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseParametersCommand extends $Command<

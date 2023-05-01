@@ -47,6 +47,18 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  * };
  * const command = new ListPublishingDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPublishingDestinationsResponse
+ *   Destinations: [ // Destinations // required
+ *     { // Destination
+ *       DestinationId: "STRING_VALUE", // required
+ *       DestinationType: "S3", // required
+ *       Status: "PENDING_VERIFICATION" || "PUBLISHING" || "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY" || "STOPPED", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPublishingDestinationsCommandInput - {@link ListPublishingDestinationsCommandInput}
@@ -61,6 +73,8 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListPublishingDestinationsCommand extends $Command<

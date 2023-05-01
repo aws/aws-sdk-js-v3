@@ -68,6 +68,9 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEventsCommandInput - {@link PutEventsCommandInput}
@@ -79,6 +82,8 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidInputException} (client fault)
  *  <p>Provide a valid value for the field or parameter.</p>
  *
+ * @throws {@link PersonalizeEventsServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
  */
 export class PutEventsCommand extends $Command<

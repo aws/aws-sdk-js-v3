@@ -102,6 +102,12 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * };
  * const command = new CreateBrokerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBrokerResponse
+ *   BrokerArn: "STRING_VALUE",
+ *   BrokerId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateBrokerCommandInput - {@link CreateBrokerCommandInput}
@@ -125,6 +131,8 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class CreateBrokerCommand extends $Command<

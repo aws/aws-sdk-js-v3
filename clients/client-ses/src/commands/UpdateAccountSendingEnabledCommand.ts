@@ -49,6 +49,9 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccountSendingEnabledCommandInput - {@link UpdateAccountSendingEnabledCommandInput}
@@ -57,6 +60,8 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example UpdateAccountSendingEnabled
  * ```javascript

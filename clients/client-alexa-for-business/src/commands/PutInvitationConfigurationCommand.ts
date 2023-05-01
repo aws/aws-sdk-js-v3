@@ -49,6 +49,9 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * };
  * const command = new PutInvitationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutInvitationConfigurationCommandInput - {@link PutInvitationConfigurationCommandInput}
@@ -63,6 +66,8 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class PutInvitationConfigurationCommand extends $Command<

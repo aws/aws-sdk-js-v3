@@ -49,6 +49,14 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * };
  * const command = new ListPullRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPullRequestsOutput
+ *   pullRequestIds: [ // PullRequestIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPullRequestsCommandInput - {@link ListPullRequestsCommandInput}
@@ -102,6 +110,8 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListPullRequestsCommand extends $Command<

@@ -56,6 +56,9 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  * };
  * const command = new CreateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateCustomVerificationEmailTemplateCommandInput - {@link CreateCustomVerificationEmailTemplateCommandInput}
@@ -80,6 +83,8 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateCustomVerificationEmailTemplateCommand extends $Command<

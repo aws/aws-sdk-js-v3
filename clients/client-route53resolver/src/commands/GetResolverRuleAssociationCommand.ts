@@ -45,6 +45,18 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * };
  * const command = new GetResolverRuleAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResolverRuleAssociationResponse
+ *   ResolverRuleAssociation: { // ResolverRuleAssociation
+ *     Id: "STRING_VALUE",
+ *     ResolverRuleId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     VPCId: "STRING_VALUE",
+ *     Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
+ *     StatusMessage: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResolverRuleAssociationCommandInput - {@link GetResolverRuleAssociationCommandInput}
@@ -65,6 +77,8 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetResolverRuleAssociationCommand extends $Command<

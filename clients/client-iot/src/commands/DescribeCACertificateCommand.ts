@@ -45,6 +45,32 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  * };
  * const command = new DescribeCACertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCACertificateResponse
+ *   certificateDescription: { // CACertificateDescription
+ *     certificateArn: "STRING_VALUE",
+ *     certificateId: "STRING_VALUE",
+ *     status: "ACTIVE" || "INACTIVE",
+ *     certificatePem: "STRING_VALUE",
+ *     ownedBy: "STRING_VALUE",
+ *     creationDate: new Date("TIMESTAMP"),
+ *     autoRegistrationStatus: "ENABLE" || "DISABLE",
+ *     lastModifiedDate: new Date("TIMESTAMP"),
+ *     customerVersion: Number("int"),
+ *     generationId: "STRING_VALUE",
+ *     validity: { // CertificateValidity
+ *       notBefore: new Date("TIMESTAMP"),
+ *       notAfter: new Date("TIMESTAMP"),
+ *     },
+ *     certificateMode: "DEFAULT" || "SNI_ONLY",
+ *   },
+ *   registrationConfig: { // RegistrationConfig
+ *     templateBody: "STRING_VALUE",
+ *     roleArn: "STRING_VALUE",
+ *     templateName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCACertificateCommandInput - {@link DescribeCACertificateCommandInput}
@@ -71,6 +97,8 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeCACertificateCommand extends $Command<

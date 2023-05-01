@@ -57,6 +57,17 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * };
  * const command = new GetIdentityMailFromDomainAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityMailFromDomainAttributesResponse
+ *   MailFromDomainAttributes: { // MailFromDomainAttributes // required
+ *     "<keys>": { // IdentityMailFromDomainAttributes
+ *       MailFromDomain: "STRING_VALUE", // required
+ *       MailFromDomainStatus: "STRING_VALUE", // required
+ *       BehaviorOnMXFailure: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityMailFromDomainAttributesCommandInput - {@link GetIdentityMailFromDomainAttributesCommandInput}
@@ -65,6 +76,8 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityMailFromDomainAttributes
  * ```javascript

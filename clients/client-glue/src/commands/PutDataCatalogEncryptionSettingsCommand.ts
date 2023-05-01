@@ -60,6 +60,9 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * };
  * const command = new PutDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDataCatalogEncryptionSettingsCommandInput - {@link PutDataCatalogEncryptionSettingsCommandInput}
@@ -77,6 +80,8 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class PutDataCatalogEncryptionSettingsCommand extends $Command<

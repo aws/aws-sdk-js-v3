@@ -47,6 +47,11 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDataSourceOutput
+ *   DataSourceId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
@@ -64,6 +69,8 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteDataSourceCommand extends $Command<

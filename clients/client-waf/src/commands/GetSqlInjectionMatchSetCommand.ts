@@ -52,6 +52,23 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * };
  * const command = new GetSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSqlInjectionMatchSetResponse
+ *   SqlInjectionMatchSet: { // SqlInjectionMatchSet
+ *     SqlInjectionMatchSetId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     SqlInjectionMatchTuples: [ // SqlInjectionMatchTuples // required
+ *       { // SqlInjectionMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TextTransformation: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSqlInjectionMatchSetCommandInput - {@link GetSqlInjectionMatchSetCommandInput}
@@ -69,6 +86,8 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get a SQL injection match set
  * ```javascript

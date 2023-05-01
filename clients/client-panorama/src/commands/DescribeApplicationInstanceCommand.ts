@@ -49,6 +49,34 @@ export interface DescribeApplicationInstanceCommandOutput
  * };
  * const command = new DescribeApplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeApplicationInstanceResponse
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DefaultRuntimeContextDevice: "STRING_VALUE",
+ *   DefaultRuntimeContextDeviceName: "STRING_VALUE",
+ *   ApplicationInstanceIdToReplace: "STRING_VALUE",
+ *   RuntimeRoleArn: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   HealthStatus: "STRING_VALUE",
+ *   StatusDescription: "STRING_VALUE",
+ *   CreatedTime: new Date("TIMESTAMP"),
+ *   LastUpdatedTime: new Date("TIMESTAMP"),
+ *   ApplicationInstanceId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RuntimeContextStates: [ // ReportedRuntimeContextStates
+ *     { // ReportedRuntimeContextState
+ *       DesiredState: "STRING_VALUE", // required
+ *       RuntimeContextName: "STRING_VALUE", // required
+ *       DeviceReportedStatus: "STRING_VALUE", // required
+ *       DeviceReportedTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeApplicationInstanceCommandInput - {@link DescribeApplicationInstanceCommandInput}
@@ -72,6 +100,8 @@ export interface DescribeApplicationInstanceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeApplicationInstanceCommand extends $Command<

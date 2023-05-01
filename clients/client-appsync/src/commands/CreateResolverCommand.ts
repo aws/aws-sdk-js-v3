@@ -76,6 +76,43 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * };
  * const command = new CreateResolverCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResolverResponse
+ *   resolver: { // Resolver
+ *     typeName: "STRING_VALUE",
+ *     fieldName: "STRING_VALUE",
+ *     dataSourceName: "STRING_VALUE",
+ *     resolverArn: "STRING_VALUE",
+ *     requestMappingTemplate: "STRING_VALUE",
+ *     responseMappingTemplate: "STRING_VALUE",
+ *     kind: "UNIT" || "PIPELINE",
+ *     pipelineConfig: { // PipelineConfig
+ *       functions: [ // FunctionsIds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     syncConfig: { // SyncConfig
+ *       conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ *       conflictDetection: "VERSION" || "NONE",
+ *       lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ *         lambdaConflictHandlerArn: "STRING_VALUE",
+ *       },
+ *     },
+ *     cachingConfig: { // CachingConfig
+ *       ttl: Number("long"), // required
+ *       cachingKeys: [ // CachingKeys
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     maxBatchSize: Number("int"),
+ *     runtime: { // AppSyncRuntime
+ *       name: "APPSYNC_JS", // required
+ *       runtimeVersion: "STRING_VALUE", // required
+ *     },
+ *     code: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResolverCommandInput - {@link CreateResolverCommandInput}
@@ -101,6 +138,8 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateResolverCommand extends $Command<

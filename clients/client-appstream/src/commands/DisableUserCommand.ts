@@ -45,6 +45,9 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * };
  * const command = new DisableUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableUserCommandInput - {@link DisableUserCommandInput}
@@ -56,6 +59,8 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DisableUserCommand extends $Command<

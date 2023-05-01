@@ -73,6 +73,41 @@ export interface CreateReservedInstancesListingCommandOutput
  * };
  * const command = new CreateReservedInstancesListingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReservedInstancesListingResult
+ *   ReservedInstancesListings: [ // ReservedInstancesListingList
+ *     { // ReservedInstancesListing
+ *       ClientToken: "STRING_VALUE",
+ *       CreateDate: new Date("TIMESTAMP"),
+ *       InstanceCounts: [ // InstanceCountList
+ *         { // InstanceCount
+ *           InstanceCount: Number("int"),
+ *           State: "available" || "sold" || "cancelled" || "pending",
+ *         },
+ *       ],
+ *       PriceSchedules: [ // PriceScheduleList
+ *         { // PriceSchedule
+ *           Active: true || false,
+ *           CurrencyCode: "USD",
+ *           Price: Number("double"),
+ *           Term: Number("long"),
+ *         },
+ *       ],
+ *       ReservedInstancesId: "STRING_VALUE",
+ *       ReservedInstancesListingId: "STRING_VALUE",
+ *       Status: "active" || "pending" || "cancelled" || "closed",
+ *       StatusMessage: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       UpdateDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateReservedInstancesListingCommandInput - {@link CreateReservedInstancesListingCommandInput}
@@ -81,6 +116,8 @@ export interface CreateReservedInstancesListingCommandOutput
  * @see {@link CreateReservedInstancesListingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateReservedInstancesListingCommand extends $Command<

@@ -56,6 +56,18 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountLimitsResult
+ *   AccountLimits: [ // AccountLimitList
+ *     { // AccountLimit
+ *       Name: "STRING_VALUE", // required
+ *       Used: Number("long"), // required
+ *       Max: Number("long"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
@@ -79,6 +91,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeAccountLimitsCommand extends $Command<

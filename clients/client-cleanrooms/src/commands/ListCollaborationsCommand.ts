@@ -46,6 +46,25 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * };
  * const command = new ListCollaborationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCollaborationsOutput
+ *   nextToken: "STRING_VALUE",
+ *   collaborationList: [ // CollaborationSummaryList // required
+ *     { // CollaborationSummary
+ *       id: "STRING_VALUE", // required
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       creatorAccountId: "STRING_VALUE", // required
+ *       creatorDisplayName: "STRING_VALUE", // required
+ *       createTime: new Date("TIMESTAMP"), // required
+ *       updateTime: new Date("TIMESTAMP"), // required
+ *       memberStatus: "STRING_VALUE", // required
+ *       membershipId: "STRING_VALUE",
+ *       membershipArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCollaborationsCommandInput - {@link ListCollaborationsCommandInput}
@@ -66,6 +85,8 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListCollaborationsCommand extends $Command<

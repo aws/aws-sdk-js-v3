@@ -46,6 +46,9 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableVolumeIOCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableVolumeIOCommandInput - {@link EnableVolumeIOCommandInput}
@@ -54,6 +57,8 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * @see {@link EnableVolumeIOCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To enable I/O for a volume
  * ```javascript

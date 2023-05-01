@@ -44,6 +44,24 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // User
+ *   UserId: "STRING_VALUE",
+ *   UserName: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   MinimumEngineVersion: "STRING_VALUE",
+ *   AccessString: "STRING_VALUE",
+ *   UserGroupIds: [ // UserGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Authentication: { // Authentication
+ *     Type: "password" || "no-password" || "iam",
+ *     PasswordCount: Number("int"),
+ *   },
+ *   ARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -67,6 +85,8 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p>The user does not exist or could not be found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

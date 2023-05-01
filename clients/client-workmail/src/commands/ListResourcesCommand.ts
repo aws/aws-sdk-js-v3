@@ -46,6 +46,22 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesResponse
+ *   Resources: [ // Resources
+ *     { // Resource
+ *       Id: "STRING_VALUE",
+ *       Email: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Type: "ROOM" || "EQUIPMENT",
+ *       State: "ENABLED" || "DISABLED" || "DELETED",
+ *       EnabledDate: new Date("TIMESTAMP"),
+ *       DisabledDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
@@ -65,6 +81,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListResourcesCommand extends $Command<

@@ -48,6 +48,11 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * };
  * const command = new AssociatePricingRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociatePricingRulesOutput
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociatePricingRulesCommandInput - {@link AssociatePricingRulesCommandInput}
@@ -83,6 +88,8 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class AssociatePricingRulesCommand extends $Command<

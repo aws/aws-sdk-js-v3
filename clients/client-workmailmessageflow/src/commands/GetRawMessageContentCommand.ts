@@ -57,6 +57,11 @@ export interface GetRawMessageContentCommandOutput
  * };
  * const command = new GetRawMessageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRawMessageContentResponse
+ *   messageContent: "STREAMING_BLOB_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetRawMessageContentCommandInput - {@link GetRawMessageContentCommandInput}
@@ -68,6 +73,8 @@ export interface GetRawMessageContentCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested email message is not found.</p>
  *
+ * @throws {@link WorkMailMessageFlowServiceException}
+ * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
  */
 export class GetRawMessageContentCommand extends $Command<

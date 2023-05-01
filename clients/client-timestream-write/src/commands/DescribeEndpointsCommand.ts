@@ -62,6 +62,16 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * const input = {};
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointsResponse
+ *   Endpoints: [ // Endpoints // required
+ *     { // Endpoint
+ *       Address: "STRING_VALUE", // required
+ *       CachePeriodInMinutes: Number("long"), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
@@ -82,6 +92,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class DescribeEndpointsCommand extends $Command<

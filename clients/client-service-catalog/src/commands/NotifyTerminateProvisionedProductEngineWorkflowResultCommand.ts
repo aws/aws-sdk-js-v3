@@ -60,6 +60,9 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
  * };
  * const command = new NotifyTerminateProvisionedProductEngineWorkflowResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput - {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput}
@@ -74,6 +77,8 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extends $Command<

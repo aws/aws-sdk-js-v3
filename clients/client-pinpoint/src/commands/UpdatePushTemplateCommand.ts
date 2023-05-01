@@ -103,6 +103,14 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
  * };
  * const command = new UpdatePushTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePushTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePushTemplateCommandInput - {@link UpdatePushTemplateCommandInput}
@@ -132,6 +140,8 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdatePushTemplateCommand extends $Command<

@@ -47,6 +47,9 @@ export interface DisassociateFromMasterAccountCommandOutput
  * const input = {};
  * const command = new DisassociateFromMasterAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateFromMasterAccountCommandInput - {@link DisassociateFromMasterAccountCommandInput}
@@ -76,6 +79,8 @@ export interface DisassociateFromMasterAccountCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DisassociateFromMasterAccountCommand extends $Command<

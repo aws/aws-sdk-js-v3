@@ -46,6 +46,12 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * };
  * const command = new UpdateTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrustResult
+ *   RequestId: "STRING_VALUE",
+ *   TrustId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateTrustCommandInput - {@link UpdateTrustCommandInput}
@@ -66,6 +72,8 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateTrustCommand extends $Command<

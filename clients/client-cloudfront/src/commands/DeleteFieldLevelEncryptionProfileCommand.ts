@@ -48,6 +48,9 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  * };
  * const command = new DeleteFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFieldLevelEncryptionProfileCommandInput - {@link DeleteFieldLevelEncryptionProfileCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteFieldLevelEncryptionProfileCommand extends $Command<

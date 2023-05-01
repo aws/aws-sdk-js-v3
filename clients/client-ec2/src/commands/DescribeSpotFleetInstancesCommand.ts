@@ -47,6 +47,20 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSpotFleetInstancesResponse
+ *   ActiveInstances: [ // ActiveInstanceSet
+ *     { // ActiveInstance
+ *       InstanceId: "STRING_VALUE",
+ *       InstanceType: "STRING_VALUE",
+ *       SpotInstanceRequestId: "STRING_VALUE",
+ *       InstanceHealth: "healthy" || "unhealthy",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   SpotFleetRequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeSpotFleetInstancesCommandInput - {@link DescribeSpotFleetInstancesCommandInput}
@@ -55,6 +69,8 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the Spot Instances associated with a Spot fleet
  * ```javascript

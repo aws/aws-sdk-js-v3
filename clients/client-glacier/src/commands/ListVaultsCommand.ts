@@ -64,6 +64,21 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * };
  * const command = new ListVaultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVaultsOutput
+ *   VaultList: [ // VaultList
+ *     { // DescribeVaultOutput
+ *       VaultARN: "STRING_VALUE",
+ *       VaultName: "STRING_VALUE",
+ *       CreationDate: "STRING_VALUE",
+ *       LastInventoryDate: "STRING_VALUE",
+ *       NumberOfArchives: Number("long"),
+ *       SizeInBytes: Number("long"),
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListVaultsCommandInput - {@link ListVaultsCommandInput}
@@ -85,6 +100,8 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list all vaults owned by the calling user's account
  * ```javascript

@@ -45,6 +45,14 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * };
  * const command = new ListBuildsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuildsOutput
+ *   ids: [ // BuildIds
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
@@ -56,6 +64,8 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListBuildsCommand extends $Command<

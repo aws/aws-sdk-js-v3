@@ -72,6 +72,14 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * };
  * const command = new GetVaultLockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVaultLockOutput
+ *   Policy: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   ExpirationDate: "STRING_VALUE",
+ *   CreationDate: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetVaultLockCommandInput - {@link GetVaultLockCommandInput}
@@ -93,6 +101,8 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To retrieve vault lock-policy related attributes that are set on a vault
  * ```javascript

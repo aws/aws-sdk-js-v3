@@ -45,6 +45,28 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportTask
+ *   ExportTaskIdentifier: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   ExportOnly: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotTime: new Date("TIMESTAMP"),
+ *   TaskStartTime: new Date("TIMESTAMP"),
+ *   TaskEndTime: new Date("TIMESTAMP"),
+ *   S3Bucket: "STRING_VALUE",
+ *   S3Prefix: "STRING_VALUE",
+ *   IamRoleArn: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   PercentProgress: Number("int"),
+ *   TotalExtractedDataInGB: Number("int"),
+ *   FailureCause: "STRING_VALUE",
+ *   WarningMessage: "STRING_VALUE",
+ *   SourceType: "SNAPSHOT" || "CLUSTER",
+ * };
+ *
  * ```
  *
  * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
@@ -59,6 +81,8 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @throws {@link InvalidExportTaskStateFault} (client fault)
  *  <p>You can't cancel an export task that has completed.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To cancel a snapshot export to Amazon S3
  * ```javascript

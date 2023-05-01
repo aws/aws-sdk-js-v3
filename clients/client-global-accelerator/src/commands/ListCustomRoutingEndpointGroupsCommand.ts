@@ -55,6 +55,31 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
  * };
  * const command = new ListCustomRoutingEndpointGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomRoutingEndpointGroupsResponse
+ *   EndpointGroups: [ // CustomRoutingEndpointGroups
+ *     { // CustomRoutingEndpointGroup
+ *       EndpointGroupArn: "STRING_VALUE",
+ *       EndpointGroupRegion: "STRING_VALUE",
+ *       DestinationDescriptions: [ // CustomRoutingDestinationDescriptions
+ *         { // CustomRoutingDestinationDescription
+ *           FromPort: Number("int"),
+ *           ToPort: Number("int"),
+ *           Protocols: [ // Protocols
+ *             "TCP" || "UDP",
+ *           ],
+ *         },
+ *       ],
+ *       EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ *         { // CustomRoutingEndpointDescription
+ *           EndpointId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCustomRoutingEndpointGroupsCommandInput - {@link ListCustomRoutingEndpointGroupsCommandInput}
@@ -75,6 +100,8 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingEndpointGroupsCommand extends $Command<

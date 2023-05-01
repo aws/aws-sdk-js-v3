@@ -49,6 +49,11 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  * const input = {};
  * const command = new GetDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDatalakeExceptionsExpiryResponse
+ *   exceptionMessageExpiry: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param GetDatalakeExceptionsExpiryCommandInput - {@link GetDatalakeExceptionsExpiryCommandInput}
@@ -75,6 +80,8 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class GetDatalakeExceptionsExpiryCommand extends $Command<

@@ -45,6 +45,11 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * };
  * const command = new DeleteFpgaImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFpgaImageResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteFpgaImageCommandInput - {@link DeleteFpgaImageCommandInput}
@@ -53,6 +58,8 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * @see {@link DeleteFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteFpgaImageCommand extends $Command<

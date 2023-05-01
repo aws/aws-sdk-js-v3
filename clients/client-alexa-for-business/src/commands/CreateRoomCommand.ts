@@ -54,6 +54,11 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoomResponse
+ *   RoomArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
@@ -68,6 +73,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateRoomCommand extends $Command<

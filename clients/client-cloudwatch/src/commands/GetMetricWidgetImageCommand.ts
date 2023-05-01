@@ -60,6 +60,11 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * };
  * const command = new GetMetricWidgetImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricWidgetImageOutput
+ *   MetricWidgetImage: "BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetMetricWidgetImageCommandInput - {@link GetMetricWidgetImageCommandInput}
@@ -68,6 +73,8 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * @see {@link GetMetricWidgetImageCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetMetricWidgetImageCommand extends $Command<

@@ -45,6 +45,61 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * };
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRuleResponse
+ *   Rule: { // Rule
+ *     Name: "STRING_VALUE", // required
+ *     RuleId: "STRING_VALUE", // required
+ *     RuleArn: "STRING_VALUE", // required
+ *     TriggerEventSource: { // RuleTriggerEventSource
+ *       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
+ *       IntegrationAssociationId: "STRING_VALUE",
+ *     },
+ *     Function: "STRING_VALUE", // required
+ *     Actions: [ // RuleActions // required
+ *       { // RuleAction
+ *         ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ *         TaskAction: { // TaskActionDefinition
+ *           Name: "STRING_VALUE", // required
+ *           Description: "STRING_VALUE",
+ *           ContactFlowId: "STRING_VALUE", // required
+ *           References: { // ContactReferences
+ *             "<keys>": { // Reference
+ *               Value: "STRING_VALUE", // required
+ *               Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *             },
+ *           },
+ *         },
+ *         EventBridgeAction: { // EventBridgeActionDefinition
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *         AssignContactCategoryAction: {},
+ *         SendNotificationAction: { // SendNotificationActionDefinition
+ *           DeliveryMethod: "EMAIL", // required
+ *           Subject: "STRING_VALUE",
+ *           Content: "STRING_VALUE", // required
+ *           ContentType: "PLAIN_TEXT", // required
+ *           Recipient: { // NotificationRecipientType
+ *             UserTags: { // UserTagMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             UserIds: [ // UserIdList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     PublishStatus: "DRAFT" || "PUBLISHED", // required
+ *     CreatedTime: new Date("TIMESTAMP"), // required
+ *     LastUpdatedTime: new Date("TIMESTAMP"), // required
+ *     LastUpdatedBy: "STRING_VALUE", // required
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRuleCommandInput - {@link DescribeRuleCommandInput}
@@ -68,6 +123,8 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeRuleCommand extends $Command<

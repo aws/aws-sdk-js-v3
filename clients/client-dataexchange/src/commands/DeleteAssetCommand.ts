@@ -46,6 +46,9 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssetCommandInput - {@link DeleteAssetCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class DeleteAssetCommand extends $Command<

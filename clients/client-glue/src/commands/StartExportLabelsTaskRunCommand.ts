@@ -53,6 +53,11 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * };
  * const command = new StartExportLabelsTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartExportLabelsTaskRunResponse
+ *   TaskRunId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartExportLabelsTaskRunCommandInput - {@link StartExportLabelsTaskRunCommandInput}
@@ -73,6 +78,8 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartExportLabelsTaskRunCommand extends $Command<

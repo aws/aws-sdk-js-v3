@@ -51,6 +51,11 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * };
  * const command = new CreateSavingsPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSavingsPlanResponse
+ *   savingsPlanId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSavingsPlanCommandInput - {@link CreateSavingsPlanCommandInput}
@@ -71,6 +76,8 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class CreateSavingsPlanCommand extends $Command<

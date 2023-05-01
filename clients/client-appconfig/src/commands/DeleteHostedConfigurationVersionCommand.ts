@@ -50,6 +50,9 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * };
  * const command = new DeleteHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHostedConfigurationVersionCommandInput - {@link DeleteHostedConfigurationVersionCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To delete a hosted configuration version
  * ```javascript

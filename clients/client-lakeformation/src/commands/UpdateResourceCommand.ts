@@ -46,6 +46,9 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateResourceCommand extends $Command<

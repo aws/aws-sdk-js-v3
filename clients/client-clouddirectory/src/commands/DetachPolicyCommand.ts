@@ -50,6 +50,9 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachPolicyCommandInput - {@link DetachPolicyCommandInput}
@@ -86,6 +89,8 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DetachPolicyCommand extends $Command<

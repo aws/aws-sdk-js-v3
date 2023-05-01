@@ -69,6 +69,15 @@ export interface ExportServerEngineAttributeCommandOutput
  * };
  * const command = new ExportServerEngineAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportServerEngineAttributeResponse
+ *   EngineAttribute: { // EngineAttribute
+ *     Name: "STRING_VALUE",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   ServerName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExportServerEngineAttributeCommandInput - {@link ExportServerEngineAttributeCommandInput}
@@ -89,6 +98,8 @@ export interface ExportServerEngineAttributeCommandOutput
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class ExportServerEngineAttributeCommand extends $Command<

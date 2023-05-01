@@ -51,6 +51,19 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCampaignsResponse
+ *   nextToken: "STRING_VALUE",
+ *   campaignSummaryList: [ // CampaignSummaryList
+ *     { // CampaignSummary
+ *       id: "STRING_VALUE", // required
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       connectInstanceId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
@@ -68,6 +81,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class ListCampaignsCommand extends $Command<

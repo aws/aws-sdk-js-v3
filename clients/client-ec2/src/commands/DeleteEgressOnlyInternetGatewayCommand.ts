@@ -50,6 +50,11 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  * };
  * const command = new DeleteEgressOnlyInternetGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEgressOnlyInternetGatewayResult
+ *   ReturnCode: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteEgressOnlyInternetGatewayCommandInput - {@link DeleteEgressOnlyInternetGatewayCommandInput}
@@ -58,6 +63,8 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  * @see {@link DeleteEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteEgressOnlyInternetGatewayCommand extends $Command<

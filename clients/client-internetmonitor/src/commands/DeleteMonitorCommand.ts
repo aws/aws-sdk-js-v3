@@ -44,6 +44,9 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * };
  * const command = new DeleteMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMonitorCommandInput - {@link DeleteMonitorCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class DeleteMonitorCommand extends $Command<

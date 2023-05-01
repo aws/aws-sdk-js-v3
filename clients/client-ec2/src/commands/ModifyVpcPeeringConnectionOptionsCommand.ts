@@ -85,6 +85,20 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
  * };
  * const command = new ModifyVpcPeeringConnectionOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVpcPeeringConnectionOptionsResult
+ *   AccepterPeeringConnectionOptions: { // PeeringConnectionOptions
+ *     AllowDnsResolutionFromRemoteVpc: true || false,
+ *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *   },
+ *   RequesterPeeringConnectionOptions: {
+ *     AllowDnsResolutionFromRemoteVpc: true || false,
+ *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyVpcPeeringConnectionOptionsCommandInput - {@link ModifyVpcPeeringConnectionOptionsCommandInput}
@@ -93,6 +107,8 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
  * @see {@link ModifyVpcPeeringConnectionOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<

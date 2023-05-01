@@ -70,6 +70,25 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * };
  * const command = new BatchGetDocumentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetDocumentStatusResponse
+ *   Errors: [ // BatchGetDocumentStatusResponseErrors
+ *     { // BatchGetDocumentStatusResponseError
+ *       DocumentId: "STRING_VALUE",
+ *       ErrorCode: "InternalError" || "InvalidRequest",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DocumentStatusList: [ // DocumentStatusList
+ *     { // Status
+ *       DocumentId: "STRING_VALUE",
+ *       DocumentStatus: "NOT_FOUND" || "PROCESSING" || "INDEXED" || "UPDATED" || "FAILED" || "UPDATE_FAILED",
+ *       FailureCode: "STRING_VALUE",
+ *       FailureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetDocumentStatusCommandInput - {@link BatchGetDocumentStatusCommandInput}
@@ -102,6 +121,8 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class BatchGetDocumentStatusCommand extends $Command<

@@ -45,6 +45,9 @@ export interface DeleteStageCommandOutput extends DeleteStageResult, __MetadataB
  * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteStageCommandOutput extends DeleteStageResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class DeleteStageCommand extends $Command<

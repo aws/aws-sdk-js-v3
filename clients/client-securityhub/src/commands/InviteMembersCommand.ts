@@ -52,6 +52,16 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * };
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InviteMembersResponse
+ *   UnprocessedAccounts: [ // ResultList
+ *     { // Result
+ *       AccountId: "STRING_VALUE",
+ *       ProcessingResult: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param InviteMembersCommandInput - {@link InviteMembersCommandInput}
@@ -77,6 +87,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To invite accounts to become members
  * ```javascript

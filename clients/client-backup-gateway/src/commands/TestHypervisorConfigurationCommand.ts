@@ -52,6 +52,9 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * };
  * const command = new TestHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TestHypervisorConfigurationCommandInput - {@link TestHypervisorConfigurationCommandInput}
@@ -76,6 +79,8 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class TestHypervisorConfigurationCommand extends $Command<

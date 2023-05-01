@@ -146,6 +146,100 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * };
  * const command = new GetReservationPurchaseRecommendationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReservationPurchaseRecommendationResponse
+ *   Metadata: { // ReservationPurchaseRecommendationMetadata
+ *     RecommendationId: "STRING_VALUE",
+ *     GenerationTimestamp: "STRING_VALUE",
+ *   },
+ *   Recommendations: [ // ReservationPurchaseRecommendations
+ *     { // ReservationPurchaseRecommendation
+ *       AccountScope: "PAYER" || "LINKED",
+ *       LookbackPeriodInDays: "SEVEN_DAYS" || "THIRTY_DAYS" || "SIXTY_DAYS",
+ *       TermInYears: "ONE_YEAR" || "THREE_YEARS",
+ *       PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
+ *       ServiceSpecification: { // ServiceSpecification
+ *         EC2Specification: { // EC2Specification
+ *           OfferingClass: "STANDARD" || "CONVERTIBLE",
+ *         },
+ *       },
+ *       RecommendationDetails: [ // ReservationPurchaseRecommendationDetails
+ *         { // ReservationPurchaseRecommendationDetail
+ *           AccountId: "STRING_VALUE",
+ *           InstanceDetails: { // InstanceDetails
+ *             EC2InstanceDetails: { // EC2InstanceDetails
+ *               Family: "STRING_VALUE",
+ *               InstanceType: "STRING_VALUE",
+ *               Region: "STRING_VALUE",
+ *               AvailabilityZone: "STRING_VALUE",
+ *               Platform: "STRING_VALUE",
+ *               Tenancy: "STRING_VALUE",
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             RDSInstanceDetails: { // RDSInstanceDetails
+ *               Family: "STRING_VALUE",
+ *               InstanceType: "STRING_VALUE",
+ *               Region: "STRING_VALUE",
+ *               DatabaseEngine: "STRING_VALUE",
+ *               DatabaseEdition: "STRING_VALUE",
+ *               DeploymentOption: "STRING_VALUE",
+ *               LicenseModel: "STRING_VALUE",
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             RedshiftInstanceDetails: { // RedshiftInstanceDetails
+ *               Family: "STRING_VALUE",
+ *               NodeType: "STRING_VALUE",
+ *               Region: "STRING_VALUE",
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             ElastiCacheInstanceDetails: { // ElastiCacheInstanceDetails
+ *               Family: "STRING_VALUE",
+ *               NodeType: "STRING_VALUE",
+ *               Region: "STRING_VALUE",
+ *               ProductDescription: "STRING_VALUE",
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             ESInstanceDetails: { // ESInstanceDetails
+ *               InstanceClass: "STRING_VALUE",
+ *               InstanceSize: "STRING_VALUE",
+ *               Region: "STRING_VALUE",
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *           },
+ *           RecommendedNumberOfInstancesToPurchase: "STRING_VALUE",
+ *           RecommendedNormalizedUnitsToPurchase: "STRING_VALUE",
+ *           MinimumNumberOfInstancesUsedPerHour: "STRING_VALUE",
+ *           MinimumNormalizedUnitsUsedPerHour: "STRING_VALUE",
+ *           MaximumNumberOfInstancesUsedPerHour: "STRING_VALUE",
+ *           MaximumNormalizedUnitsUsedPerHour: "STRING_VALUE",
+ *           AverageNumberOfInstancesUsedPerHour: "STRING_VALUE",
+ *           AverageNormalizedUnitsUsedPerHour: "STRING_VALUE",
+ *           AverageUtilization: "STRING_VALUE",
+ *           EstimatedBreakEvenInMonths: "STRING_VALUE",
+ *           CurrencyCode: "STRING_VALUE",
+ *           EstimatedMonthlySavingsAmount: "STRING_VALUE",
+ *           EstimatedMonthlySavingsPercentage: "STRING_VALUE",
+ *           EstimatedMonthlyOnDemandCost: "STRING_VALUE",
+ *           EstimatedReservationCostForLookbackPeriod: "STRING_VALUE",
+ *           UpfrontCost: "STRING_VALUE",
+ *           RecurringStandardMonthlyCost: "STRING_VALUE",
+ *         },
+ *       ],
+ *       RecommendationSummary: { // ReservationPurchaseRecommendationSummary
+ *         TotalEstimatedMonthlySavingsAmount: "STRING_VALUE",
+ *         TotalEstimatedMonthlySavingsPercentage: "STRING_VALUE",
+ *         CurrencyCode: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetReservationPurchaseRecommendationCommandInput - {@link GetReservationPurchaseRecommendationCommandInput}
@@ -163,6 +257,8 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetReservationPurchaseRecommendationCommand extends $Command<

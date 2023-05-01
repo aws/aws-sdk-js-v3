@@ -46,6 +46,14 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * };
  * const command = new DeleteDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDashboardResponse
+ *   Status: Number("int"),
+ *   Arn: "STRING_VALUE",
+ *   DashboardId: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteDashboardCommandInput - {@link DeleteDashboardCommandInput}
@@ -75,6 +83,8 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteDashboardCommand extends $Command<

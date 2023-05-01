@@ -58,6 +58,24 @@ export interface GetResourceShareAssociationsCommandOutput
  * };
  * const command = new GetResourceShareAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceShareAssociationsResponse
+ *   resourceShareAssociations: [ // ResourceShareAssociationList
+ *     { // ResourceShareAssociation
+ *       resourceShareArn: "STRING_VALUE",
+ *       resourceShareName: "STRING_VALUE",
+ *       associatedEntity: "STRING_VALUE",
+ *       associationType: "PRINCIPAL" || "RESOURCE",
+ *       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ *       statusMessage: "STRING_VALUE",
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdatedTime: new Date("TIMESTAMP"),
+ *       external: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetResourceShareAssociationsCommandInput - {@link GetResourceShareAssociationsCommandInput}
@@ -91,6 +109,8 @@ export interface GetResourceShareAssociationsCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class GetResourceShareAssociationsCommand extends $Command<

@@ -83,6 +83,13 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * };
  * const command = new CreateLicenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLicenseResponse
+ *   LicenseArn: "STRING_VALUE",
+ *   Status: "AVAILABLE" || "PENDING_AVAILABLE" || "DEACTIVATED" || "SUSPENDED" || "EXPIRED" || "PENDING_DELETE" || "DELETED",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLicenseCommandInput - {@link CreateLicenseCommandInput}
@@ -113,6 +120,8 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateLicenseCommand extends $Command<

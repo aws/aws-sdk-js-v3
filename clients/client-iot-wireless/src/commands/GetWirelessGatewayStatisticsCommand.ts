@@ -49,6 +49,13 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * };
  * const command = new GetWirelessGatewayStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessGatewayStatisticsResponse
+ *   WirelessGatewayId: "STRING_VALUE",
+ *   LastUplinkReceivedAt: "STRING_VALUE",
+ *   ConnectionStatus: "Connected" || "Disconnected",
+ * };
+ *
  * ```
  *
  * @param GetWirelessGatewayStatisticsCommandInput - {@link GetWirelessGatewayStatisticsCommandInput}
@@ -72,6 +79,8 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayStatisticsCommand extends $Command<

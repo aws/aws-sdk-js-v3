@@ -62,6 +62,11 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  * };
  * const command = new DisassociateNodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateNodeResponse
+ *   NodeAssociationStatusToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateNodeCommandInput - {@link DisassociateNodeCommandInput}
@@ -82,6 +87,8 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DisassociateNodeCommand extends $Command<

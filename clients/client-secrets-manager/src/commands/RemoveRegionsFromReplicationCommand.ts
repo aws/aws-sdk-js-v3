@@ -59,6 +59,20 @@ export interface RemoveRegionsFromReplicationCommandOutput
  * };
  * const command = new RemoveRegionsFromReplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveRegionsFromReplicationResponse
+ *   ARN: "STRING_VALUE",
+ *   ReplicationStatus: [ // ReplicationStatusListType
+ *     { // ReplicationStatusType
+ *       Region: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *       Status: "InSync" || "Failed" || "InProgress",
+ *       StatusMessage: "STRING_VALUE",
+ *       LastAccessedDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RemoveRegionsFromReplicationCommandInput - {@link RemoveRegionsFromReplicationCommandInput}
@@ -94,6 +108,8 @@ export interface RemoveRegionsFromReplicationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  */
 export class RemoveRegionsFromReplicationCommand extends $Command<

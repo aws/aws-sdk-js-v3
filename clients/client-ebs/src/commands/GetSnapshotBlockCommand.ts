@@ -55,6 +55,14 @@ export interface GetSnapshotBlockCommandOutput
  * };
  * const command = new GetSnapshotBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotBlockResponse
+ *   DataLength: Number("int"),
+ *   BlockData: "STREAMING_BLOB_VALUE",
+ *   Checksum: "STRING_VALUE",
+ *   ChecksumAlgorithm: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSnapshotBlockCommandInput - {@link GetSnapshotBlockCommandInput}
@@ -82,6 +90,8 @@ export interface GetSnapshotBlockCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class GetSnapshotBlockCommand extends $Command<

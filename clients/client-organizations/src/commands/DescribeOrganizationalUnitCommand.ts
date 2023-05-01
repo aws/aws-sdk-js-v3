@@ -46,6 +46,15 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * };
  * const command = new DescribeOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationalUnitResponse
+ *   OrganizationalUnit: { // OrganizationalUnit
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationalUnitCommandInput - {@link DescribeOrganizationalUnitCommandInput}
@@ -184,6 +193,8 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To get information about an organizational unit
  * ```javascript

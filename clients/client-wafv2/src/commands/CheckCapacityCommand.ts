@@ -792,6 +792,11 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  * };
  * const command = new CheckCapacityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckCapacityResponse
+ *   Capacity: Number("long"),
+ * };
+ *
  * ```
  *
  * @param CheckCapacityCommandInput - {@link CheckCapacityCommandInput}
@@ -860,6 +865,8 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *        for changes to propagate. Verify the resources that you are specifying in your request
  *        parameters and then retry the operation.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CheckCapacityCommand extends $Command<

@@ -55,6 +55,25 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * };
  * const command = new ListGeoLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGeoLocationsResponse
+ *   GeoLocationDetailsList: [ // GeoLocationDetailsList // required
+ *     { // GeoLocationDetails
+ *       ContinentCode: "STRING_VALUE",
+ *       ContinentName: "STRING_VALUE",
+ *       CountryCode: "STRING_VALUE",
+ *       CountryName: "STRING_VALUE",
+ *       SubdivisionCode: "STRING_VALUE",
+ *       SubdivisionName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   IsTruncated: true || false, // required
+ *   NextContinentCode: "STRING_VALUE",
+ *   NextCountryCode: "STRING_VALUE",
+ *   NextSubdivisionCode: "STRING_VALUE",
+ *   MaxItems: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param ListGeoLocationsCommandInput - {@link ListGeoLocationsCommandInput}
@@ -66,6 +85,8 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListGeoLocationsCommand extends $Command<

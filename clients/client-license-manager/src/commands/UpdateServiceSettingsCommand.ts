@@ -49,6 +49,9 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * };
  * const command = new UpdateServiceSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateServiceSettingsCommandInput - {@link UpdateServiceSettingsCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class UpdateServiceSettingsCommand extends $Command<

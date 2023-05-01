@@ -49,6 +49,17 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * };
  * const command = new ListDataCatalogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataCatalogsOutput
+ *   DataCatalogsSummary: [ // DataCatalogSummaryList
+ *     { // DataCatalogSummary
+ *       CatalogName: "STRING_VALUE",
+ *       Type: "LAMBDA" || "GLUE" || "HIVE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDataCatalogsCommandInput - {@link ListDataCatalogsCommandInput}
@@ -65,6 +76,8 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListDataCatalogsCommand extends $Command<

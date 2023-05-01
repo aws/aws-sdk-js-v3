@@ -46,6 +46,20 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * };
  * const command = new ListMapRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMapRunsOutput
+ *   mapRuns: [ // MapRunList // required
+ *     { // MapRunListItem
+ *       executionArn: "STRING_VALUE", // required
+ *       mapRunArn: "STRING_VALUE", // required
+ *       stateMachineArn: "STRING_VALUE", // required
+ *       startDate: new Date("TIMESTAMP"), // required
+ *       stopDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMapRunsCommandInput - {@link ListMapRunsCommandInput}
@@ -63,6 +77,8 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * @throws {@link InvalidToken} (client fault)
  *  <p>The provided token is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class ListMapRunsCommand extends $Command<

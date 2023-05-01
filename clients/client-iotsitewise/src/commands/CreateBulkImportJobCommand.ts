@@ -70,6 +70,13 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * };
  * const command = new CreateBulkImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBulkImportJobResponse
+ *   jobId: "STRING_VALUE", // required
+ *   jobName: "STRING_VALUE", // required
+ *   jobStatus: "PENDING" || "CANCELLED" || "RUNNING" || "COMPLETED" || "FAILED" || "COMPLETED_WITH_FAILURES", // required
+ * };
+ *
  * ```
  *
  * @param CreateBulkImportJobCommandInput - {@link CreateBulkImportJobCommandInput}
@@ -107,6 +114,8 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateBulkImportJobCommand extends $Command<

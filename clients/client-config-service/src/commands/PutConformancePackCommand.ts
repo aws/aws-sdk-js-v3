@@ -67,6 +67,11 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * };
  * const command = new PutConformancePackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutConformancePackResponse
+ *   ConformancePackArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutConformancePackCommandInput - {@link PutConformancePackCommandInput}
@@ -138,6 +143,8 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutConformancePackCommand extends $Command<

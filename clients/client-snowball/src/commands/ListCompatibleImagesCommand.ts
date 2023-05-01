@@ -48,6 +48,17 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * };
  * const command = new ListCompatibleImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCompatibleImagesResult
+ *   CompatibleImages: [ // CompatibleImageList
+ *     { // CompatibleImage
+ *       AmiId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCompatibleImagesCommandInput - {@link ListCompatibleImagesCommandInput}
@@ -65,6 +76,8 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
  *       again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class ListCompatibleImagesCommand extends $Command<

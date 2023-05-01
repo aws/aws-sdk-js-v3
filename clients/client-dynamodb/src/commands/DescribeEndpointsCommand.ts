@@ -44,6 +44,16 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * const input = {};
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointsResponse
+ *   Endpoints: [ // Endpoints // required
+ *     { // Endpoint
+ *       Address: "STRING_VALUE", // required
+ *       CachePeriodInMinutes: Number("long"), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
@@ -52,6 +62,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeEndpointsCommand extends $Command<

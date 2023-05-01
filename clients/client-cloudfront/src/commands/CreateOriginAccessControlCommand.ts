@@ -56,6 +56,22 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  * };
  * const command = new CreateOriginAccessControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateOriginAccessControlResult
+ *   OriginAccessControl: { // OriginAccessControl
+ *     Id: "STRING_VALUE", // required
+ *     OriginAccessControlConfig: { // OriginAccessControlConfig
+ *       Name: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       SigningProtocol: "sigv4", // required
+ *       SigningBehavior: "never" || "always" || "no-override", // required
+ *       OriginAccessControlOriginType: "s3" || "mediastore", // required
+ *     },
+ *   },
+ *   Location: "STRING_VALUE",
+ *   ETag: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateOriginAccessControlCommandInput - {@link CreateOriginAccessControlCommandInput}
@@ -76,6 +92,8 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateOriginAccessControlCommand extends $Command<

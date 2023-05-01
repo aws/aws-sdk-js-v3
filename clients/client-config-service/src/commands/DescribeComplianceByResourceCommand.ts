@@ -87,6 +87,24 @@ export interface DescribeComplianceByResourceCommandOutput
  * };
  * const command = new DescribeComplianceByResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeComplianceByResourceResponse
+ *   ComplianceByResources: [ // ComplianceByResources
+ *     { // ComplianceByResource
+ *       ResourceType: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *       Compliance: { // Compliance
+ *         ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *         ComplianceContributorCount: { // ComplianceContributorCount
+ *           CappedCount: Number("int"),
+ *           CapExceeded: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeComplianceByResourceCommandInput - {@link DescribeComplianceByResourceCommandInput}
@@ -104,6 +122,8 @@ export interface DescribeComplianceByResourceCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeComplianceByResourceCommand extends $Command<

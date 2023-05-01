@@ -57,6 +57,9 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * };
  * const command = new DeleteMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMatchmakingRuleSetCommandInput - {@link DeleteMatchmakingRuleSetCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteMatchmakingRuleSetCommand extends $Command<

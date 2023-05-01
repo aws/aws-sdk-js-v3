@@ -47,6 +47,17 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDiscoveredResourcesResult
+ *   NextToken: "STRING_VALUE",
+ *   DiscoveredResourceList: [ // DiscoveredResourceList
+ *     { // DiscoveredResource
+ *       ConfigurationId: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
@@ -81,6 +92,8 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListDiscoveredResourcesCommand extends $Command<

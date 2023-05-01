@@ -49,6 +49,22 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * };
  * const command = new ListBatchLoadTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBatchLoadTasksResponse
+ *   NextToken: "STRING_VALUE",
+ *   BatchLoadTasks: [ // BatchLoadTaskList
+ *     { // BatchLoadTask
+ *       TaskId: "STRING_VALUE",
+ *       TaskStatus: "CREATED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "PROGRESS_STOPPED" || "PENDING_RESUME",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *       ResumableUntil: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBatchLoadTasksCommandInput - {@link ListBatchLoadTasksCommandInput}
@@ -75,6 +91,8 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class ListBatchLoadTasksCommand extends $Command<

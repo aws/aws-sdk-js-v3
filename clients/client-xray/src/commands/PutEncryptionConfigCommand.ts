@@ -45,6 +45,15 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * };
  * const command = new PutEncryptionConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEncryptionConfigResult
+ *   EncryptionConfig: { // EncryptionConfig
+ *     KeyId: "STRING_VALUE",
+ *     Status: "UPDATING" || "ACTIVE",
+ *     Type: "NONE" || "KMS",
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutEncryptionConfigCommandInput - {@link PutEncryptionConfigCommandInput}
@@ -59,6 +68,8 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutEncryptionConfigCommand extends $Command<

@@ -48,6 +48,9 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * };
  * const command = new PutWorkflowRunPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutWorkflowRunPropertiesCommandInput - {@link PutWorkflowRunPropertiesCommandInput}
@@ -77,6 +80,8 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class PutWorkflowRunPropertiesCommand extends $Command<

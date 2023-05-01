@@ -81,6 +81,24 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * };
  * const command = new UploadServerCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadServerCertificateResponse
+ *   ServerCertificateMetadata: { // ServerCertificateMetadata
+ *     Path: "STRING_VALUE", // required
+ *     ServerCertificateName: "STRING_VALUE", // required
+ *     ServerCertificateId: "STRING_VALUE", // required
+ *     Arn: "STRING_VALUE", // required
+ *     UploadDate: new Date("TIMESTAMP"),
+ *     Expiration: new Date("TIMESTAMP"),
+ *   },
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UploadServerCertificateCommandInput - {@link UploadServerCertificateCommandInput}
@@ -117,6 +135,8 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To upload a server certificate to your AWS account
  * ```javascript

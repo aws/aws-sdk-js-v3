@@ -60,6 +60,12 @@ export interface StartWirelessDeviceImportTaskCommandOutput
  * };
  * const command = new StartWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartWirelessDeviceImportTaskResponse
+ *   Id: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartWirelessDeviceImportTaskCommandInput - {@link StartWirelessDeviceImportTaskCommandInput}
@@ -86,6 +92,8 @@ export interface StartWirelessDeviceImportTaskCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class StartWirelessDeviceImportTaskCommand extends $Command<

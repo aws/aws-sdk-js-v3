@@ -55,6 +55,12 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * };
  * const command = new DeleteResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteResourcePolicyStatementResponse
+ *   resourceArn: "STRING_VALUE",
+ *   revisionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteResourcePolicyStatementCommandInput - {@link DeleteResourcePolicyStatementCommandInput}
@@ -80,6 +86,8 @@ export interface DeleteResourcePolicyStatementCommandOutput
  *  <p>Your request rate is too high. Reduce the frequency of
  *          requests.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteResourcePolicyStatementCommand extends $Command<

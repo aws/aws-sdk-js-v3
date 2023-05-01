@@ -65,6 +65,9 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * };
  * const command = new UpdateNodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNodeCommandInput - {@link UpdateNodeCommandInput}
@@ -91,6 +94,8 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class UpdateNodeCommand extends $Command<

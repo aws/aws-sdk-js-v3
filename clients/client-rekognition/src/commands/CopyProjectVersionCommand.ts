@@ -74,6 +74,11 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * };
  * const command = new CopyProjectVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyProjectVersionResponse
+ *   ProjectVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CopyProjectVersionCommandInput - {@link CopyProjectVersionCommandInput}
@@ -115,6 +120,8 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example CopyProjectVersion
  * ```javascript

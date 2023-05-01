@@ -55,6 +55,19 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventsMessage
+ *   Marker: "STRING_VALUE",
+ *   Events: [ // EventList
+ *     { // Event
+ *       SourceIdentifier: "STRING_VALUE",
+ *       SourceType: "cache-cluster" || "cache-parameter-group" || "cache-security-group" || "cache-subnet-group" || "replication-group" || "user" || "user-group",
+ *       Message: "STRING_VALUE",
+ *       Date: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -69,6 +82,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeEvents
  * ```javascript

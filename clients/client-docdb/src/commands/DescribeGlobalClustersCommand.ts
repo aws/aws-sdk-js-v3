@@ -57,6 +57,33 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * };
  * const command = new DescribeGlobalClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GlobalClustersMessage
+ *   Marker: "STRING_VALUE",
+ *   GlobalClusters: [ // GlobalClusterList
+ *     { // GlobalCluster
+ *       GlobalClusterIdentifier: "STRING_VALUE",
+ *       GlobalClusterResourceId: "STRING_VALUE",
+ *       GlobalClusterArn: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       Engine: "STRING_VALUE",
+ *       EngineVersion: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       StorageEncrypted: true || false,
+ *       DeletionProtection: true || false,
+ *       GlobalClusterMembers: [ // GlobalClusterMemberList
+ *         { // GlobalClusterMember
+ *           DBClusterArn: "STRING_VALUE",
+ *           Readers: [ // ReadersArnList
+ *             "STRING_VALUE",
+ *           ],
+ *           IsWriter: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
@@ -68,6 +95,8 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeGlobalClustersCommand extends $Command<

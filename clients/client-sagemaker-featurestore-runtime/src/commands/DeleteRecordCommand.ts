@@ -79,6 +79,9 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRecordCommandInput - {@link DeleteRecordCommandInput}
@@ -100,6 +103,8 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationError} (client fault)
  *  <p>There was an error validating your request.</p>
  *
+ * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
  */
 export class DeleteRecordCommand extends $Command<

@@ -45,6 +45,23 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * };
  * const command = new ListDeploymentStrategiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeploymentStrategies
+ *   Items: [ // DeploymentStrategyList
+ *     { // DeploymentStrategy
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       DeploymentDurationInMinutes: Number("int"),
+ *       GrowthType: "LINEAR" || "EXPONENTIAL",
+ *       GrowthFactor: Number("float"),
+ *       FinalBakeTimeInMinutes: Number("int"),
+ *       ReplicateTo: "NONE" || "SSM_DOCUMENT",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDeploymentStrategiesCommandInput - {@link ListDeploymentStrategiesCommandInput}
@@ -59,6 +76,8 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available deployment strategies
  * ```javascript

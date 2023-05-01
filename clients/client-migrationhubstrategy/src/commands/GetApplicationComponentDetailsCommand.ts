@@ -53,6 +53,96 @@ export interface GetApplicationComponentDetailsCommandOutput
  * };
  * const command = new GetApplicationComponentDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationComponentDetailsResponse
+ *   applicationComponentDetail: { // ApplicationComponentDetail
+ *     id: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     recommendationSet: { // RecommendationSet
+ *       transformationTool: { // TransformationTool
+ *         name: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *         tranformationToolInstallationLink: "STRING_VALUE",
+ *       },
+ *       targetDestination: "STRING_VALUE",
+ *       strategy: "STRING_VALUE",
+ *     },
+ *     analysisStatus: "STRING_VALUE",
+ *     statusMessage: "STRING_VALUE",
+ *     listAntipatternSeveritySummary: [ // ListAntipatternSeveritySummary
+ *       { // AntipatternSeveritySummary
+ *         severity: "STRING_VALUE",
+ *         count: Number("int"),
+ *       },
+ *     ],
+ *     databaseConfigDetail: { // DatabaseConfigDetail
+ *       secretName: "STRING_VALUE",
+ *     },
+ *     sourceCodeRepositories: [ // SourceCodeRepositories
+ *       { // SourceCodeRepository
+ *         repository: "STRING_VALUE",
+ *         branch: "STRING_VALUE",
+ *         versionControlType: "STRING_VALUE",
+ *         projectName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     appType: "STRING_VALUE",
+ *     resourceSubType: "STRING_VALUE",
+ *     inclusionStatus: "STRING_VALUE",
+ *     antipatternReportS3Object: { // S3Object
+ *       s3Bucket: "STRING_VALUE",
+ *       s3key: "STRING_VALUE",
+ *     },
+ *     antipatternReportStatus: "STRING_VALUE",
+ *     antipatternReportStatusMessage: "STRING_VALUE",
+ *     osVersion: "STRING_VALUE",
+ *     osDriver: "STRING_VALUE",
+ *     lastAnalyzedTimestamp: new Date("TIMESTAMP"),
+ *     associatedServerId: "STRING_VALUE",
+ *     moreServerAssociationExists: true || false,
+ *     runtimeStatus: "STRING_VALUE",
+ *     runtimeStatusMessage: "STRING_VALUE",
+ *     appUnitError: { // AppUnitError
+ *       appUnitErrorCategory: "STRING_VALUE",
+ *     },
+ *     resultList: [ // ResultList
+ *       { // Result
+ *         analysisType: "STRING_VALUE",
+ *         analysisStatus: { // AnalysisStatusUnion Union: only one key present
+ *           runtimeAnalysisStatus: "STRING_VALUE",
+ *           srcCodeOrDbAnalysisStatus: "STRING_VALUE",
+ *         },
+ *         statusMessage: "STRING_VALUE",
+ *         antipatternReportResultList: [ // AntipatternReportResultList
+ *           { // AntipatternReportResult
+ *             analyzerName: { // AnalyzerNameUnion Union: only one key present
+ *               binaryAnalyzerName: "STRING_VALUE",
+ *               runTimeAnalyzerName: "STRING_VALUE",
+ *               sourceCodeAnalyzerName: "STRING_VALUE",
+ *             },
+ *             antiPatternReportS3Object: {
+ *               s3Bucket: "STRING_VALUE",
+ *               s3key: "STRING_VALUE",
+ *             },
+ *             antipatternReportStatus: "STRING_VALUE",
+ *             antipatternReportStatusMessage: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   associatedApplications: [ // AssociatedApplications
+ *     { // AssociatedApplication
+ *       name: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *     },
+ *   ],
+ *   moreApplicationResource: true || false,
+ *   associatedServerIds: [ // AssociatedServerIDs
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetApplicationComponentDetailsCommandInput - {@link GetApplicationComponentDetailsCommandInput}
@@ -70,6 +160,8 @@ export interface GetApplicationComponentDetailsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p> The request was denied due to request throttling. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetApplicationComponentDetailsCommand extends $Command<

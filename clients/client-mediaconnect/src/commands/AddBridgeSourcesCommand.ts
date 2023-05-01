@@ -62,6 +62,30 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  * };
  * const command = new AddBridgeSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddBridgeSourcesResponse
+ *   BridgeArn: "STRING_VALUE",
+ *   Sources: [ // __listOfBridgeSource
+ *     { // BridgeSource
+ *       FlowSource: { // BridgeFlowSource
+ *         FlowArn: "STRING_VALUE", // required
+ *         FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
+ *           VpcInterfaceName: "STRING_VALUE",
+ *         },
+ *         Name: "STRING_VALUE", // required
+ *         OutputArn: "STRING_VALUE",
+ *       },
+ *       NetworkSource: { // BridgeNetworkSource
+ *         MulticastIp: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         NetworkName: "STRING_VALUE", // required
+ *         Port: Number("int"), // required
+ *         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddBridgeSourcesCommandInput - {@link AddBridgeSourcesCommandInput}
@@ -91,6 +115,8 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class AddBridgeSourcesCommand extends $Command<

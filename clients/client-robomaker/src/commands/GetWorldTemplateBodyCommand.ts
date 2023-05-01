@@ -45,6 +45,11 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * };
  * const command = new GetWorldTemplateBodyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorldTemplateBodyResponse
+ *   templateBody: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetWorldTemplateBodyCommandInput - {@link GetWorldTemplateBodyCommandInput}
@@ -66,6 +71,8 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class GetWorldTemplateBodyCommand extends $Command<

@@ -59,6 +59,9 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  * const input = {};
  * const command = new DisableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableAWSOrganizationsAccessCommandInput - {@link DisableAWSOrganizationsAccessCommandInput}
@@ -77,6 +80,8 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisableAWSOrganizationsAccessCommand extends $Command<

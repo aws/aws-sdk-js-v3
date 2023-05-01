@@ -48,6 +48,9 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * };
  * const command = new UpdateResourcePositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourcePositionCommandInput - {@link UpdateResourcePositionCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateResourcePositionCommand extends $Command<

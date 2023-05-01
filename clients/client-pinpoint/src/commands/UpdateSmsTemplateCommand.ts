@@ -55,6 +55,14 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * };
  * const command = new UpdateSmsTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSmsTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSmsTemplateCommandInput - {@link UpdateSmsTemplateCommandInput}
@@ -84,6 +92,8 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateSmsTemplateCommand extends $Command<

@@ -61,6 +61,21 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBClusterSnapshotAttributesResult
+ *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ *     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ *       { // DBClusterSnapshotAttribute
+ *         AttributeName: "STRING_VALUE",
+ *         AttributeValues: [ // AttributeValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
@@ -74,6 +89,8 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
  *       DB cluster snapshot.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<

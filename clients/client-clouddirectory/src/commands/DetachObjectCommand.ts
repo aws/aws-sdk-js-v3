@@ -49,6 +49,11 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  * };
  * const command = new DetachObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachObjectResponse
+ *   DetachedObjectIdentifier: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DetachObjectCommandInput - {@link DetachObjectCommandInput}
@@ -86,6 +91,8 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DetachObjectCommand extends $Command<

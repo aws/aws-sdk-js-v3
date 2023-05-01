@@ -46,6 +46,9 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * };
  * const command = new DeleteWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkspaceImageCommandInput - {@link DeleteWorkspaceImageCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * @throws {@link ResourceAssociatedException} (client fault)
  *  <p>The resource is associated with a directory.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteWorkspaceImageCommand extends $Command<

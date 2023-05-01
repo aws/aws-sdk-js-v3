@@ -127,6 +127,11 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserProfileResponse
+ *   UserProfileArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
@@ -145,6 +150,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateUserProfileCommand extends $Command<

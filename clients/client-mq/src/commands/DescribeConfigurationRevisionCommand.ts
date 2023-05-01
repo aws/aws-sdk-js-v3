@@ -50,6 +50,14 @@ export interface DescribeConfigurationRevisionCommandOutput
  * };
  * const command = new DescribeConfigurationRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationRevisionResponse
+ *   ConfigurationId: "STRING_VALUE",
+ *   Created: new Date("TIMESTAMP"),
+ *   Data: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationRevisionCommandInput - {@link DescribeConfigurationRevisionCommandInput}
@@ -70,6 +78,8 @@ export interface DescribeConfigurationRevisionCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DescribeConfigurationRevisionCommand extends $Command<

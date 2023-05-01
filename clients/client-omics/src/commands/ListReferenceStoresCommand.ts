@@ -50,6 +50,24 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  * };
  * const command = new ListReferenceStoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReferenceStoresResponse
+ *   nextToken: "STRING_VALUE",
+ *   referenceStores: [ // ReferenceStoreDetailList // required
+ *     { // ReferenceStoreDetail
+ *       arn: "STRING_VALUE", // required
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       sseConfig: { // SseConfig
+ *         type: "STRING_VALUE", // required
+ *         keyArn: "STRING_VALUE",
+ *       },
+ *       creationTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReferenceStoresCommandInput - {@link ListReferenceStoresCommandInput}
@@ -73,6 +91,8 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListReferenceStoresCommand extends $Command<

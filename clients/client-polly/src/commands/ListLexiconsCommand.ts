@@ -44,6 +44,24 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * };
  * const command = new ListLexiconsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLexiconsOutput
+ *   Lexicons: [ // LexiconDescriptionList
+ *     { // LexiconDescription
+ *       Name: "STRING_VALUE",
+ *       Attributes: { // LexiconAttributes
+ *         Alphabet: "STRING_VALUE",
+ *         LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI",
+ *         LastModified: new Date("TIMESTAMP"),
+ *         LexiconArn: "STRING_VALUE",
+ *         LexemesCount: Number("int"),
+ *         Size: Number("int"),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLexiconsCommandInput - {@link ListLexiconsCommandInput}
@@ -59,6 +77,8 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>An unknown condition has caused a service failure.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @example To list all lexicons in a region
  * ```javascript

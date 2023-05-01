@@ -56,6 +56,38 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * };
  * const command = new ListComplianceSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComplianceSummariesResult
+ *   ComplianceSummaryItems: [ // ComplianceSummaryItemList
+ *     { // ComplianceSummaryItem
+ *       ComplianceType: "STRING_VALUE",
+ *       CompliantSummary: { // CompliantSummary
+ *         CompliantCount: Number("int"),
+ *         SeveritySummary: { // SeveritySummary
+ *           CriticalCount: Number("int"),
+ *           HighCount: Number("int"),
+ *           MediumCount: Number("int"),
+ *           LowCount: Number("int"),
+ *           InformationalCount: Number("int"),
+ *           UnspecifiedCount: Number("int"),
+ *         },
+ *       },
+ *       NonCompliantSummary: { // NonCompliantSummary
+ *         NonCompliantCount: Number("int"),
+ *         SeveritySummary: {
+ *           CriticalCount: Number("int"),
+ *           HighCount: Number("int"),
+ *           MediumCount: Number("int"),
+ *           LowCount: Number("int"),
+ *           InformationalCount: Number("int"),
+ *           UnspecifiedCount: Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListComplianceSummariesCommandInput - {@link ListComplianceSummariesCommandInput}
@@ -73,6 +105,8 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListComplianceSummariesCommand extends $Command<

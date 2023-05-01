@@ -62,6 +62,9 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * };
  * const command = new SetLoadBalancerListenerSSLCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetLoadBalancerListenerSSLCertificateCommandInput - {@link SetLoadBalancerListenerSSLCertificateCommandInput}
@@ -87,6 +90,8 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol or signature version is not supported.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To update the SSL certificate for an HTTPS listener
  * ```javascript

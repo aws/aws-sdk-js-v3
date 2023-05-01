@@ -134,6 +134,12 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * };
  * const command = new UpdateSignalCatalogCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSignalCatalogResponse
+ *   name: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateSignalCatalogCommandInput - {@link UpdateSignalCatalogCommandInput}
@@ -171,6 +177,8 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateSignalCatalogCommand extends $Command<

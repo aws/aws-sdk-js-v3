@@ -54,6 +54,9 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * };
  * const command = new ModifySamlPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifySamlPropertiesCommandInput - {@link ModifySamlPropertiesCommandInput}
@@ -74,6 +77,8 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifySamlPropertiesCommand extends $Command<

@@ -49,6 +49,23 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * };
  * const command = new GetConfigurationProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationProfile
+ *   ApplicationId: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LocationUri: "STRING_VALUE",
+ *   RetrievalRoleArn: "STRING_VALUE",
+ *   Validators: [ // ValidatorList
+ *     { // Validator
+ *       Type: "JSON_SCHEMA" || "LAMBDA", // required
+ *       Content: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Type: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetConfigurationProfileCommandInput - {@link GetConfigurationProfileCommandInput}
@@ -66,6 +83,8 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To retrieve configuration profile details
  * ```javascript

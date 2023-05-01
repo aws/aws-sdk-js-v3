@@ -67,6 +67,43 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * };
  * const command = new DiscoverInputSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DiscoverInputSchemaResponse
+ *   InputSchema: { // SourceSchema
+ *     RecordFormat: { // RecordFormat
+ *       RecordFormatType: "JSON" || "CSV", // required
+ *       MappingParameters: { // MappingParameters
+ *         JSONMappingParameters: { // JSONMappingParameters
+ *           RecordRowPath: "STRING_VALUE", // required
+ *         },
+ *         CSVMappingParameters: { // CSVMappingParameters
+ *           RecordRowDelimiter: "STRING_VALUE", // required
+ *           RecordColumnDelimiter: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *     RecordEncoding: "STRING_VALUE",
+ *     RecordColumns: [ // RecordColumns // required
+ *       { // RecordColumn
+ *         Name: "STRING_VALUE", // required
+ *         Mapping: "STRING_VALUE",
+ *         SqlType: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ParsedInputRecords: [ // ParsedInputRecords
+ *     [ // ParsedInputRecord
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ *   ProcessedInputRecords: [ // ProcessedInputRecords
+ *     "STRING_VALUE",
+ *   ],
+ *   RawInputRecords: [ // RawInputRecords
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
@@ -96,6 +133,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DiscoverInputSchemaCommand extends $Command<

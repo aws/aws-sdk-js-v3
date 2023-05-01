@@ -44,6 +44,9 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * };
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContactCommandInput - {@link DeleteContactCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteContactCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DeleteRegistryCommand extends $Command<

@@ -45,6 +45,9 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * };
  * const command = new DeleteSceneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSceneCommandInput - {@link DeleteSceneCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteSceneCommand extends $Command<

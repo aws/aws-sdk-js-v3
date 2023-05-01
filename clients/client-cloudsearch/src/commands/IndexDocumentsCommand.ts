@@ -44,6 +44,13 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * };
  * const command = new IndexDocumentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IndexDocumentsResponse
+ *   FieldNames: [ // FieldNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param IndexDocumentsCommandInput - {@link IndexDocumentsCommandInput}
@@ -65,6 +72,8 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class IndexDocumentsCommand extends $Command<

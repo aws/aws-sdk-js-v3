@@ -50,6 +50,22 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * };
  * const command = new DeleteAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAutoScalingConfigurationResponse
+ *   AutoScalingConfiguration: { // AutoScalingConfiguration
+ *     AutoScalingConfigurationArn: "STRING_VALUE",
+ *     AutoScalingConfigurationName: "STRING_VALUE",
+ *     AutoScalingConfigurationRevision: Number("int"),
+ *     Latest: true || false,
+ *     Status: "ACTIVE" || "INACTIVE",
+ *     MaxConcurrency: Number("int"),
+ *     MinSize: Number("int"),
+ *     MaxSize: Number("int"),
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     DeletedAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
@@ -67,6 +83,8 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DeleteAutoScalingConfigurationCommand extends $Command<

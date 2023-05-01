@@ -58,6 +58,14 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  * };
  * const command = new ListViewsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListViewsOutput
+ *   Views: [ // ViewArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListViewsCommandInput - {@link ListViewsCommandInput}
@@ -83,6 +91,8 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class ListViewsCommand extends $Command<

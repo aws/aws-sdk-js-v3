@@ -53,6 +53,9 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * };
  * const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConfigurationSetReputationMetricsEnabledCommandInput - {@link UpdateConfigurationSetReputationMetricsEnabledCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
  *  <p>Indicates that the configuration set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript

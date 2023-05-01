@@ -65,6 +65,9 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * };
  * const command = new SetSecurityTokenServicePreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetSecurityTokenServicePreferencesCommandInput - {@link SetSecurityTokenServicePreferencesCommandInput}
@@ -77,6 +80,8 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete an access key for an IAM user
  * ```javascript

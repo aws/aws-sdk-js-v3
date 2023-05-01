@@ -68,6 +68,13 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * };
  * const command = new CreateStorediSCSIVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStorediSCSIVolumeOutput
+ *   VolumeARN: "STRING_VALUE",
+ *   VolumeSizeInBytes: Number("long"),
+ *   TargetARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateStorediSCSIVolumeCommandInput - {@link CreateStorediSCSIVolumeCommandInput}
@@ -84,6 +91,8 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To create a stored iSCSI volume
  * ```javascript

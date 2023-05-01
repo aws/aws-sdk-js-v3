@@ -57,6 +57,9 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  * };
  * const command = new CreateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateUserDefinedFunctionCommandInput - {@link CreateUserDefinedFunctionCommandInput}
@@ -86,6 +89,8 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateUserDefinedFunctionCommand extends $Command<

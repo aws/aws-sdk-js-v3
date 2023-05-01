@@ -86,6 +86,12 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCampaignResponse
+ *   name: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
@@ -116,6 +122,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class CreateCampaignCommand extends $Command<

@@ -58,6 +58,23 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * };
  * const command = new ListRepositoryAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRepositoryAssociationsResponse
+ *   RepositoryAssociationSummaries: [ // RepositoryAssociationSummaries
+ *     { // RepositoryAssociationSummary
+ *       AssociationArn: "STRING_VALUE",
+ *       ConnectionArn: "STRING_VALUE",
+ *       LastUpdatedTimeStamp: new Date("TIMESTAMP"),
+ *       AssociationId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Owner: "STRING_VALUE",
+ *       ProviderType: "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ *       State: "Associated" || "Associating" || "Failed" || "Disassociating" || "Disassociated",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRepositoryAssociationsCommandInput - {@link ListRepositoryAssociationsCommandInput}
@@ -75,6 +92,8 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class ListRepositoryAssociationsCommand extends $Command<

@@ -71,6 +71,19 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * };
  * const command = new GetCoreDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoreDeviceResponse
+ *   coreDeviceThingName: "STRING_VALUE",
+ *   coreVersion: "STRING_VALUE",
+ *   platform: "STRING_VALUE",
+ *   architecture: "STRING_VALUE",
+ *   status: "HEALTHY" || "UNHEALTHY",
+ *   lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCoreDeviceCommandInput - {@link GetCoreDeviceCommandInput}
@@ -96,6 +109,8 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetCoreDeviceCommand extends $Command<

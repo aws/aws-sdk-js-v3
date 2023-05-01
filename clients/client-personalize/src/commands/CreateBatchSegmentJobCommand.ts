@@ -68,6 +68,11 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * };
  * const command = new CreateBatchSegmentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBatchSegmentJobResponse
+ *   batchSegmentJobArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateBatchSegmentJobCommandInput - {@link CreateBatchSegmentJobCommandInput}
@@ -94,6 +99,8 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateBatchSegmentJobCommand extends $Command<

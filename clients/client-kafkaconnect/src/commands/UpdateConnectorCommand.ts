@@ -62,6 +62,12 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectorResponse
+ *   connectorArn: "STRING_VALUE",
+ *   connectorState: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
@@ -97,6 +103,8 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class UpdateConnectorCommand extends $Command<

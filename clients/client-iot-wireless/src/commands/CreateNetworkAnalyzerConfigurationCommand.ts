@@ -70,6 +70,12 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  * };
  * const command = new CreateNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkAnalyzerConfigurationResponse
+ *   Arn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateNetworkAnalyzerConfigurationCommandInput - {@link CreateNetworkAnalyzerConfigurationCommandInput}
@@ -96,6 +102,8 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateNetworkAnalyzerConfigurationCommand extends $Command<

@@ -82,6 +82,14 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * };
  * const command = new PutEmailIdentityDkimSigningAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEmailIdentityDkimSigningAttributesResponse
+ *   DkimStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
+ *   DkimTokens: [ // DnsTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutEmailIdentityDkimSigningAttributesCommandInput - {@link PutEmailIdentityDkimSigningAttributesCommandInput}
@@ -99,6 +107,8 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<

@@ -45,6 +45,21 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * };
  * const command = new ListIndicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIndicesResponse
+ *   IndexConfigurationSummaryItems: [ // IndexConfigurationSummaryList
+ *     { // IndexConfigurationSummary
+ *       Name: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ *       CreatedAt: new Date("TIMESTAMP"), // required
+ *       UpdatedAt: new Date("TIMESTAMP"), // required
+ *       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "SYSTEM_UPDATING", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListIndicesCommandInput - {@link ListIndicesCommandInput}
@@ -69,6 +84,8 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListIndicesCommand extends $Command<

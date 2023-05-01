@@ -73,6 +73,15 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * };
  * const command = new DescribeConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationsResponse
+ *   configurations: [ // DescribeConfigurationsAttributes
+ *     { // DescribeConfigurationsAttribute
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationsCommandInput - {@link DescribeConfigurationsCommandInput}
@@ -98,6 +107,8 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DescribeConfigurationsCommand extends $Command<

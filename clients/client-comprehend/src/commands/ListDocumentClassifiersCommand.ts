@@ -55,6 +55,88 @@ export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassi
  * };
  * const command = new ListDocumentClassifiersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDocumentClassifiersResponse
+ *   DocumentClassifierPropertiesList: [ // DocumentClassifierPropertiesList
+ *     { // DocumentClassifierProperties
+ *       DocumentClassifierArn: "STRING_VALUE",
+ *       LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW",
+ *       Status: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
+ *       Message: "STRING_VALUE",
+ *       SubmitTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *       TrainingStartTime: new Date("TIMESTAMP"),
+ *       TrainingEndTime: new Date("TIMESTAMP"),
+ *       InputDataConfig: { // DocumentClassifierInputDataConfig
+ *         DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *         S3Uri: "STRING_VALUE",
+ *         TestS3Uri: "STRING_VALUE",
+ *         LabelDelimiter: "STRING_VALUE",
+ *         AugmentedManifests: [ // DocumentClassifierAugmentedManifestsList
+ *           { // AugmentedManifestsListItem
+ *             S3Uri: "STRING_VALUE", // required
+ *             Split: "TRAIN" || "TEST",
+ *             AttributeNames: [ // AttributeNamesList // required
+ *               "STRING_VALUE",
+ *             ],
+ *             AnnotationDataS3Uri: "STRING_VALUE",
+ *             SourceDocumentsS3Uri: "STRING_VALUE",
+ *             DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *           },
+ *         ],
+ *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *         Documents: { // DocumentClassifierDocuments
+ *           S3Uri: "STRING_VALUE", // required
+ *           TestS3Uri: "STRING_VALUE",
+ *         },
+ *         DocumentReaderConfig: { // DocumentReaderConfig
+ *           DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ *           DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *           FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *             "TABLES" || "FORMS",
+ *           ],
+ *         },
+ *       },
+ *       OutputDataConfig: { // DocumentClassifierOutputDataConfig
+ *         S3Uri: "STRING_VALUE",
+ *         KmsKeyId: "STRING_VALUE",
+ *         FlywheelStatsS3Prefix: "STRING_VALUE",
+ *       },
+ *       ClassifierMetadata: { // ClassifierMetadata
+ *         NumberOfLabels: Number("int"),
+ *         NumberOfTrainedDocuments: Number("int"),
+ *         NumberOfTestDocuments: Number("int"),
+ *         EvaluationMetrics: { // ClassifierEvaluationMetrics
+ *           Accuracy: Number("double"),
+ *           Precision: Number("double"),
+ *           Recall: Number("double"),
+ *           F1Score: Number("double"),
+ *           MicroPrecision: Number("double"),
+ *           MicroRecall: Number("double"),
+ *           MicroF1Score: Number("double"),
+ *           HammingLoss: Number("double"),
+ *         },
+ *       },
+ *       DataAccessRoleArn: "STRING_VALUE",
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       VpcConfig: { // VpcConfig
+ *         SecurityGroupIds: [ // SecurityGroupIds // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // Subnets // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Mode: "MULTI_CLASS" || "MULTI_LABEL",
+ *       ModelKmsKeyId: "STRING_VALUE",
+ *       VersionName: "STRING_VALUE",
+ *       SourceModelArn: "STRING_VALUE",
+ *       FlywheelArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDocumentClassifiersCommandInput - {@link ListDocumentClassifiersCommandInput}
@@ -76,6 +158,8 @@ export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassi
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListDocumentClassifiersCommand extends $Command<

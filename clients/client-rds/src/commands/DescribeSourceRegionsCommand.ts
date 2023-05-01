@@ -61,6 +61,19 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * };
  * const command = new DescribeSourceRegionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SourceRegionMessage
+ *   Marker: "STRING_VALUE",
+ *   SourceRegions: [ // SourceRegionList
+ *     { // SourceRegion
+ *       RegionName: "STRING_VALUE",
+ *       Endpoint: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       SupportsDBInstanceAutomatedBackupsReplication: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSourceRegionsCommandInput - {@link DescribeSourceRegionsCommandInput}
@@ -69,6 +82,8 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * @see {@link DescribeSourceRegionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe source Regions
  * ```javascript

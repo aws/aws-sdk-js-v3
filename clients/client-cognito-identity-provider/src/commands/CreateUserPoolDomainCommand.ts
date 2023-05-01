@@ -53,6 +53,11 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * };
  * const command = new CreateUserPoolDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserPoolDomainResponse
+ *   CloudFrontDomain: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateUserPoolDomainCommandInput - {@link CreateUserPoolDomainCommandInput}
@@ -79,6 +84,8 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class CreateUserPoolDomainCommand extends $Command<

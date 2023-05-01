@@ -62,6 +62,11 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * };
  * const command = new CreatePlatformEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointResponse
+ *   EndpointArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreatePlatformEndpointCommandInput - {@link CreatePlatformEndpointCommandInput}
@@ -83,6 +88,8 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreatePlatformEndpointCommand extends $Command<

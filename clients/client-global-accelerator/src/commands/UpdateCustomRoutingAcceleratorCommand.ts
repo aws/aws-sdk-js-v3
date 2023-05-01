@@ -56,6 +56,29 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * };
  * const command = new UpdateCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCustomRoutingAcceleratorResponse
+ *   Accelerator: { // CustomRoutingAccelerator
+ *     AcceleratorArn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     IpAddressType: "IPV4" || "DUAL_STACK",
+ *     Enabled: true || false,
+ *     IpSets: [ // IpSets
+ *       { // IpSet
+ *         IpFamily: "STRING_VALUE",
+ *         IpAddresses: [ // IpAddresses
+ *           "STRING_VALUE",
+ *         ],
+ *         IpAddressFamily: "IPv4" || "IPv6",
+ *       },
+ *     ],
+ *     DnsName: "STRING_VALUE",
+ *     Status: "DEPLOYED" || "IN_PROGRESS",
+ *     CreatedTime: new Date("TIMESTAMP"),
+ *     LastModifiedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCustomRoutingAcceleratorCommandInput - {@link UpdateCustomRoutingAcceleratorCommandInput}
@@ -73,6 +96,8 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateCustomRoutingAcceleratorCommand extends $Command<

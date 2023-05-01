@@ -58,6 +58,23 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * };
  * const command = new CreateParticipantTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParticipantTokenResponse
+ *   participantToken: { // ParticipantToken
+ *     participantId: "STRING_VALUE",
+ *     token: "STRING_VALUE",
+ *     userId: "STRING_VALUE",
+ *     attributes: { // ParticipantTokenAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     duration: Number("int"),
+ *     capabilities: [ // ParticipantTokenCapabilities
+ *       "STRING_VALUE",
+ *     ],
+ *     expirationTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateParticipantTokenCommandInput - {@link CreateParticipantTokenCommandInput}
@@ -81,6 +98,8 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class CreateParticipantTokenCommand extends $Command<

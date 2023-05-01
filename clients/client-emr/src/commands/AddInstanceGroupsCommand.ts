@@ -124,6 +124,15 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
  * };
  * const command = new AddInstanceGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddInstanceGroupsOutput
+ *   JobFlowId: "STRING_VALUE",
+ *   InstanceGroupIds: [ // InstanceGroupIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   ClusterArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AddInstanceGroupsCommandInput - {@link AddInstanceGroupsCommandInput}
@@ -136,6 +145,8 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class AddInstanceGroupsCommand extends $Command<

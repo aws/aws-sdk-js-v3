@@ -44,6 +44,17 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * };
  * const command = new GetGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGatewayResponse
+ *   Gateway: { // Gateway
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     GatewayGroupArn: "STRING_VALUE",
+ *     SoftwareVersion: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
@@ -55,6 +66,8 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetGatewayCommand extends $Command<

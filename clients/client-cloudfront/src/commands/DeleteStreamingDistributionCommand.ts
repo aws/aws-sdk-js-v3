@@ -93,6 +93,9 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteStreamingDistributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamingDistributionCommandInput - {@link DeleteStreamingDistributionCommandInput}
@@ -118,6 +121,8 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution
  * 			before you can delete it.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteStreamingDistributionCommand extends $Command<

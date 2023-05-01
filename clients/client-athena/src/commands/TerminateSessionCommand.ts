@@ -48,6 +48,11 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * };
  * const command = new TerminateSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TerminateSessionResponse
+ *   State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ * };
+ *
  * ```
  *
  * @param TerminateSessionCommandInput - {@link TerminateSessionCommandInput}
@@ -67,6 +72,8 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class TerminateSessionCommand extends $Command<

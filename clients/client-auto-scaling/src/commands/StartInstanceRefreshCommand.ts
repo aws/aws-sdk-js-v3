@@ -179,6 +179,11 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * };
  * const command = new StartInstanceRefreshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartInstanceRefreshAnswer
+ *   InstanceRefreshId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartInstanceRefreshCommandInput - {@link StartInstanceRefreshCommandInput}
@@ -201,6 +206,8 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To start an instance refresh
  * ```javascript

@@ -58,6 +58,9 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
@@ -84,6 +87,8 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedOperationException} (server fault)
  *  <p>The requested operation is not supported.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class PutLoggingOptionsCommand extends $Command<

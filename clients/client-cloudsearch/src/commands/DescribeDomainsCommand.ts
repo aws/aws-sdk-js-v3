@@ -48,6 +48,34 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * };
  * const command = new DescribeDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainsResponse
+ *   DomainStatusList: [ // DomainStatusList // required
+ *     { // DomainStatus
+ *       DomainId: "STRING_VALUE", // required
+ *       DomainName: "STRING_VALUE", // required
+ *       ARN: "STRING_VALUE",
+ *       Created: true || false,
+ *       Deleted: true || false,
+ *       DocService: { // ServiceEndpoint
+ *         Endpoint: "STRING_VALUE",
+ *       },
+ *       SearchService: {
+ *         Endpoint: "STRING_VALUE",
+ *       },
+ *       RequiresIndexDocuments: true || false, // required
+ *       Processing: true || false,
+ *       SearchInstanceType: "STRING_VALUE",
+ *       SearchPartitionCount: Number("int"),
+ *       SearchInstanceCount: Number("int"),
+ *       Limits: { // Limits
+ *         MaximumReplicationCount: Number("int"), // required
+ *         MaximumPartitionCount: Number("int"), // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDomainsCommandInput - {@link DescribeDomainsCommandInput}
@@ -63,6 +91,8 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  *  <p>An internal error occurred while processing the request. If this problem persists,
  *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeDomainsCommand extends $Command<

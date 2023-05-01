@@ -44,6 +44,27 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
  * };
  * const command = new DescribeDatasetExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetExportJobResponse
+ *   datasetExportJob: { // DatasetExportJob
+ *     jobName: "STRING_VALUE",
+ *     datasetExportJobArn: "STRING_VALUE",
+ *     datasetArn: "STRING_VALUE",
+ *     ingestionMode: "BULK" || "PUT" || "ALL",
+ *     roleArn: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     jobOutput: { // DatasetExportJobOutput
+ *       s3DataDestination: { // S3DataConfig
+ *         path: "STRING_VALUE", // required
+ *         kmsKeyArn: "STRING_VALUE",
+ *       },
+ *     },
+ *     creationDateTime: new Date("TIMESTAMP"),
+ *     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *     failureReason: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetExportJobCommandInput - {@link DescribeDatasetExportJobCommandInput}
@@ -58,6 +79,8 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeDatasetExportJobCommand extends $Command<

@@ -45,6 +45,9 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  * };
  * const command = new DeleteGameSessionQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGameSessionQueueCommandInput - {@link DeleteGameSessionQueueCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteGameSessionQueueCommand extends $Command<

@@ -48,6 +48,9 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAssumeRolePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAssumeRolePolicyCommandInput - {@link UpdateAssumeRolePolicyCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To update the trust policy for an IAM role
  * ```javascript

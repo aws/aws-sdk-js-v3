@@ -49,6 +49,22 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  * };
  * const command = new ListCustomVocabularyItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomVocabularyItemsResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   customVocabularyItems: [ // CustomVocabularyItems
+ *     { // CustomVocabularyItem
+ *       itemId: "STRING_VALUE", // required
+ *       phrase: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       displayAs: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCustomVocabularyItemsCommandInput - {@link ListCustomVocabularyItemsCommandInput}
@@ -76,6 +92,8 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListCustomVocabularyItemsCommand extends $Command<

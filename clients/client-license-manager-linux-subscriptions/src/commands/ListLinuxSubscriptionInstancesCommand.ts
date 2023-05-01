@@ -64,6 +64,27 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * };
  * const command = new ListLinuxSubscriptionInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLinuxSubscriptionInstancesResponse
+ *   Instances: [ // InstanceList
+ *     { // Instance
+ *       AmiId: "STRING_VALUE",
+ *       InstanceID: "STRING_VALUE",
+ *       InstanceType: "STRING_VALUE",
+ *       AccountID: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       UsageOperation: "STRING_VALUE",
+ *       ProductCode: [ // ProductCodeList
+ *         "STRING_VALUE",
+ *       ],
+ *       LastUpdatedTime: "STRING_VALUE",
+ *       SubscriptionName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLinuxSubscriptionInstancesCommandInput - {@link ListLinuxSubscriptionInstancesCommandInput}
@@ -81,6 +102,8 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
  */
 export class ListLinuxSubscriptionInstancesCommand extends $Command<

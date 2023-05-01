@@ -57,6 +57,11 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  * };
  * const command = new ModifyLunaClientCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyLunaClientResponse
+ *   ClientArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ModifyLunaClientCommandInput - {@link ModifyLunaClientCommandInput}
@@ -68,6 +73,8 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ModifyLunaClientCommand extends $Command<

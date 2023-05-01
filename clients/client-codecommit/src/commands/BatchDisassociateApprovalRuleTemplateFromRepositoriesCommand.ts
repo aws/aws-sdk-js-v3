@@ -56,6 +56,20 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * };
  * const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
+ *   disassociatedRepositoryNames: [ // RepositoryNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   errors: [ // BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList // required
+ *     { // BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+ *       repositoryName: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput - {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput}
@@ -98,6 +112,8 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * @throws {@link RepositoryNamesRequiredException} (client fault)
  *  <p>At least one repository name object is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extends $Command<

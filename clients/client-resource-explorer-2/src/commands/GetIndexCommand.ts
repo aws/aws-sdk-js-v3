@@ -47,6 +47,24 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * const input = {};
  * const command = new GetIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIndexOutput
+ *   Arn: "STRING_VALUE",
+ *   Type: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   ReplicatingFrom: [ // RegionList
+ *     "STRING_VALUE",
+ *   ],
+ *   ReplicatingTo: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CreatedAt: new Date("TIMESTAMP"),
+ *   LastUpdatedAt: new Date("TIMESTAMP"),
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIndexCommandInput - {@link GetIndexCommandInput}
@@ -76,6 +94,8 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class GetIndexCommand extends $Command<

@@ -45,6 +45,27 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
  * };
  * const command = new ListSatellitesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSatellitesResponse
+ *   nextToken: "STRING_VALUE",
+ *   satellites: [ // SatelliteList
+ *     { // SatelliteListItem
+ *       satelliteId: "STRING_VALUE",
+ *       satelliteArn: "STRING_VALUE",
+ *       noradSatelliteID: Number("int"),
+ *       groundStations: [ // GroundStationIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       currentEphemeris: { // EphemerisMetaData
+ *         source: "STRING_VALUE", // required
+ *         ephemerisId: "STRING_VALUE",
+ *         epoch: new Date("TIMESTAMP"),
+ *         name: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSatellitesCommandInput - {@link ListSatellitesCommandInput}
@@ -62,6 +83,8 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListSatellitesCommand extends $Command<

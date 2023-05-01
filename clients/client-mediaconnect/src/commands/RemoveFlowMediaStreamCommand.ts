@@ -45,6 +45,12 @@ export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStrea
  * };
  * const command = new RemoveFlowMediaStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveFlowMediaStreamResponse
+ *   FlowArn: "STRING_VALUE",
+ *   MediaStreamName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RemoveFlowMediaStreamCommandInput - {@link RemoveFlowMediaStreamCommandInput}
@@ -71,6 +77,8 @@ export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStrea
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class RemoveFlowMediaStreamCommand extends $Command<

@@ -60,6 +60,24 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * };
  * const command = new AssociateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateUserResponse
+ *   InstanceUserSummary: { // InstanceUserSummary
+ *     Username: "STRING_VALUE", // required
+ *     InstanceId: "STRING_VALUE", // required
+ *     IdentityProvider: { // IdentityProvider Union: only one key present
+ *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *         DirectoryId: "STRING_VALUE",
+ *       },
+ *     },
+ *     Status: "STRING_VALUE", // required
+ *     StatusMessage: "STRING_VALUE",
+ *     Domain: "STRING_VALUE",
+ *     AssociationDate: "STRING_VALUE",
+ *     DisassociationDate: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateUserCommandInput - {@link AssociateUserCommandInput}
@@ -90,6 +108,8 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class AssociateUserCommand extends $Command<

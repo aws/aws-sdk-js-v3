@@ -44,6 +44,38 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * };
  * const command = new GetDataQualityResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataQualityResultResponse
+ *   ResultId: "STRING_VALUE",
+ *   Score: Number("double"),
+ *   DataSource: { // DataSource
+ *     GlueTable: { // GlueTable
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       CatalogId: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *       AdditionalOptions: { // GlueTableAdditionalOptions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   RulesetName: "STRING_VALUE",
+ *   EvaluationContext: "STRING_VALUE",
+ *   StartedOn: new Date("TIMESTAMP"),
+ *   CompletedOn: new Date("TIMESTAMP"),
+ *   JobName: "STRING_VALUE",
+ *   JobRunId: "STRING_VALUE",
+ *   RulesetEvaluationRunId: "STRING_VALUE",
+ *   RuleResults: [ // DataQualityRuleResults
+ *     { // DataQualityRuleResult
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       EvaluationMessage: "STRING_VALUE",
+ *       Result: "PASS" || "FAIL" || "ERROR",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDataQualityResultCommandInput - {@link GetDataQualityResultCommandInput}
@@ -64,6 +96,8 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataQualityResultCommand extends $Command<

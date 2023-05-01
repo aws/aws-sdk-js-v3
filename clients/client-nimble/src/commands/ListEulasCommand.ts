@@ -47,6 +47,20 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * };
  * const command = new ListEulasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEulasResponse
+ *   eulas: [ // EulaList
+ *     { // Eula
+ *       content: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       eulaId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       updatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEulasCommandInput - {@link ListEulasCommandInput}
@@ -79,6 +93,8 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class ListEulasCommand extends $Command<

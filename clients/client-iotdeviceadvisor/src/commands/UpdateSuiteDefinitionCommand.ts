@@ -60,6 +60,16 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
  * };
  * const command = new UpdateSuiteDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSuiteDefinitionResponse
+ *   suiteDefinitionId: "STRING_VALUE",
+ *   suiteDefinitionArn: "STRING_VALUE",
+ *   suiteDefinitionName: "STRING_VALUE",
+ *   suiteDefinitionVersion: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   lastUpdatedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateSuiteDefinitionCommandInput - {@link UpdateSuiteDefinitionCommandInput}
@@ -74,6 +84,8 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class UpdateSuiteDefinitionCommand extends $Command<

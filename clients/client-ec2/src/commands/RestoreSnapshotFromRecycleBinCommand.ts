@@ -48,6 +48,20 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * };
  * const command = new RestoreSnapshotFromRecycleBinCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreSnapshotFromRecycleBinResult
+ *   SnapshotId: "STRING_VALUE",
+ *   OutpostArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   OwnerId: "STRING_VALUE",
+ *   Progress: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   State: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ *   VolumeId: "STRING_VALUE",
+ *   VolumeSize: Number("int"),
+ * };
+ *
  * ```
  *
  * @param RestoreSnapshotFromRecycleBinCommandInput - {@link RestoreSnapshotFromRecycleBinCommandInput}
@@ -56,6 +70,8 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * @see {@link RestoreSnapshotFromRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RestoreSnapshotFromRecycleBinCommand extends $Command<

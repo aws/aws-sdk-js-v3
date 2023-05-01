@@ -51,6 +51,9 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * };
  * const command = new UpdateDirectorySetupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDirectorySetupCommandInput - {@link UpdateDirectorySetupCommandInput}
@@ -90,6 +93,8 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateDirectorySetupCommand extends $Command<

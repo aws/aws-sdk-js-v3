@@ -50,6 +50,15 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCollectionResponse
+ *   deleteCollectionDetail: { // DeleteCollectionDetail
+ *     id: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
@@ -73,6 +82,8 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class DeleteCollectionCommand extends $Command<

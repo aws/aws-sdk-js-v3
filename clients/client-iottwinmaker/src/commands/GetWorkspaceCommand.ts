@@ -44,6 +44,17 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * };
  * const command = new GetWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkspaceResponse
+ *   workspaceId: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   s3Location: "STRING_VALUE", // required
+ *   role: "STRING_VALUE", // required
+ *   creationDateTime: new Date("TIMESTAMP"), // required
+ *   updateDateTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param GetWorkspaceCommandInput - {@link GetWorkspaceCommandInput}
@@ -67,6 +78,8 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class GetWorkspaceCommand extends $Command<

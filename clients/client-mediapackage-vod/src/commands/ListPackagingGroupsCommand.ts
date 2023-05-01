@@ -45,6 +45,30 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
  * };
  * const command = new ListPackagingGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackagingGroupsResponse
+ *   NextToken: "STRING_VALUE",
+ *   PackagingGroups: [ // __listOfPackagingGroup
+ *     { // PackagingGroup
+ *       ApproximateAssetCount: Number("int"),
+ *       Arn: "STRING_VALUE",
+ *       Authorization: { // Authorization
+ *         CdnIdentifierSecret: "STRING_VALUE", // required
+ *         SecretsRoleArn: "STRING_VALUE", // required
+ *       },
+ *       CreatedAt: "STRING_VALUE",
+ *       DomainName: "STRING_VALUE",
+ *       EgressAccessLogs: { // EgressAccessLogs
+ *         LogGroupName: "STRING_VALUE",
+ *       },
+ *       Id: "STRING_VALUE",
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPackagingGroupsCommandInput - {@link ListPackagingGroupsCommandInput}
@@ -71,6 +95,8 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class ListPackagingGroupsCommand extends $Command<

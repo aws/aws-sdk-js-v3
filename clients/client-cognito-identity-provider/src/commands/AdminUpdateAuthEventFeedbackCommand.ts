@@ -63,6 +63,9 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * };
  * const command = new AdminUpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminUpdateAuthEventFeedbackCommandInput - {@link AdminUpdateAuthEventFeedbackCommandInput}
@@ -95,6 +98,8 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * @throws {@link UserPoolAddOnNotEnabledException} (client fault)
  *  <p>This exception is thrown when user pool add-ons aren't enabled.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminUpdateAuthEventFeedbackCommand extends $Command<

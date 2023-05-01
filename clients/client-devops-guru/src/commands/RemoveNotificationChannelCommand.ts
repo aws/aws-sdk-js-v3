@@ -46,6 +46,9 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * };
  * const command = new RemoveNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveNotificationChannelCommandInput - {@link RemoveNotificationChannelCommandInput}
@@ -76,6 +79,8 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class RemoveNotificationChannelCommand extends $Command<

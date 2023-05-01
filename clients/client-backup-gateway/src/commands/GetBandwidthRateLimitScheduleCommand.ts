@@ -52,6 +52,23 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  * };
  * const command = new GetBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBandwidthRateLimitScheduleOutput
+ *   GatewayArn: "STRING_VALUE",
+ *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals
+ *     { // BandwidthRateLimitInterval
+ *       AverageUploadRateLimitInBitsPerSec: Number("long"),
+ *       StartHourOfDay: Number("int"), // required
+ *       EndHourOfDay: Number("int"), // required
+ *       StartMinuteOfHour: Number("int"), // required
+ *       EndMinuteOfHour: Number("int"), // required
+ *       DaysOfWeek: [ // DaysOfWeek // required
+ *         Number("int"),
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBandwidthRateLimitScheduleCommandInput - {@link GetBandwidthRateLimitScheduleCommandInput}
@@ -73,6 +90,8 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class GetBandwidthRateLimitScheduleCommand extends $Command<

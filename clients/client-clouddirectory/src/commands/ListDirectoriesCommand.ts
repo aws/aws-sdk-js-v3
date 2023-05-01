@@ -46,6 +46,19 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * };
  * const command = new ListDirectoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDirectoriesResponse
+ *   Directories: [ // DirectoryList // required
+ *     { // Directory
+ *       Name: "STRING_VALUE",
+ *       DirectoryArn: "STRING_VALUE",
+ *       State: "ENABLED" || "DISABLED" || "DELETED",
+ *       CreationDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDirectoriesCommandInput - {@link ListDirectoriesCommandInput}
@@ -76,6 +89,8 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListDirectoriesCommand extends $Command<

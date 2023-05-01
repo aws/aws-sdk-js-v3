@@ -56,6 +56,11 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * };
  * const command = new UpdateTableStorageOptimizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTableStorageOptimizerResponse
+ *   Result: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateTableStorageOptimizerCommandInput - {@link UpdateTableStorageOptimizerCommandInput}
@@ -76,6 +81,8 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateTableStorageOptimizerCommand extends $Command<

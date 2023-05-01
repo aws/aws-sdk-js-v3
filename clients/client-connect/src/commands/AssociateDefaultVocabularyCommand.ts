@@ -47,6 +47,9 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * };
  * const command = new AssociateDefaultVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDefaultVocabularyCommandInput - {@link AssociateDefaultVocabularyCommandInput}
@@ -70,6 +73,8 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateDefaultVocabularyCommand extends $Command<

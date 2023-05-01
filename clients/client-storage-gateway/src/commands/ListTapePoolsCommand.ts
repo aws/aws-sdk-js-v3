@@ -56,6 +56,21 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * };
  * const command = new ListTapePoolsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTapePoolsOutput
+ *   PoolInfos: [ // PoolInfos
+ *     { // PoolInfo
+ *       PoolARN: "STRING_VALUE",
+ *       PoolName: "STRING_VALUE",
+ *       StorageClass: "STRING_VALUE",
+ *       RetentionLockType: "STRING_VALUE",
+ *       RetentionLockTimeInDays: Number("int"),
+ *       PoolStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTapePoolsCommandInput - {@link ListTapePoolsCommandInput}
@@ -72,6 +87,8 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListTapePoolsCommand extends $Command<

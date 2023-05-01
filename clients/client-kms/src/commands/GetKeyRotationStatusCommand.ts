@@ -96,6 +96,11 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * };
  * const command = new GetKeyRotationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetKeyRotationStatusResponse
+ *   KeyRotationEnabled: true || false,
+ * };
+ *
  * ```
  *
  * @param GetKeyRotationStatusCommandInput - {@link GetKeyRotationStatusCommandInput}
@@ -142,6 +147,8 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To retrieve the rotation status for a KMS key
  * ```javascript

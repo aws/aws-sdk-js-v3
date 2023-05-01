@@ -47,6 +47,9 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  * };
  * const command = new DisassociateDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDomainCommandInput - {@link DisassociateDomainCommandInput}
@@ -70,6 +73,8 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DisassociateDomainCommand extends $Command<

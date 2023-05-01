@@ -45,6 +45,9 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * };
  * const command = new UpdateCrawlerScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCrawlerScheduleCommandInput - {@link UpdateCrawlerScheduleCommandInput}
@@ -68,6 +71,8 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * @throws {@link VersionMismatchException} (client fault)
  *  <p>There was a version conflict.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateCrawlerScheduleCommand extends $Command<

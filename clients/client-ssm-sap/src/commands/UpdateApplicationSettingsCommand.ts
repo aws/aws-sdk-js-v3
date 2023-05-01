@@ -63,6 +63,14 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApplicationSettingsOutput
+ *   Message: "STRING_VALUE",
+ *   OperationIds: [ // OperationIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
@@ -80,6 +88,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class UpdateApplicationSettingsCommand extends $Command<

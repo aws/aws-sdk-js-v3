@@ -45,6 +45,21 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainsResponse
+ *   Items: [ // DomainList
+ *     { // ListDomainItem
+ *       DomainName: "STRING_VALUE", // required
+ *       CreatedAt: new Date("TIMESTAMP"), // required
+ *       LastUpdatedAt: new Date("TIMESTAMP"), // required
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -68,6 +83,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

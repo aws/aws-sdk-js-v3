@@ -51,6 +51,11 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * };
  * const command = new CancelMaintenanceWindowExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelMaintenanceWindowExecutionResult
+ *   WindowExecutionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CancelMaintenanceWindowExecutionCommandInput - {@link CancelMaintenanceWindowExecutionCommandInput}
@@ -68,6 +73,8 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CancelMaintenanceWindowExecutionCommand extends $Command<

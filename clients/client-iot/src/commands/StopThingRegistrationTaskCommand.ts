@@ -45,6 +45,9 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
  * };
  * const command = new StopThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopThingRegistrationTaskCommandInput - {@link StopThingRegistrationTaskCommandInput}
@@ -68,6 +71,8 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class StopThingRegistrationTaskCommand extends $Command<

@@ -57,6 +57,25 @@ export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGat
  * };
  * const command = new DescribeCarrierGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCarrierGatewaysResult
+ *   CarrierGateways: [ // CarrierGatewaySet
+ *     { // CarrierGateway
+ *       CarrierGatewayId: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       State: "pending" || "available" || "deleting" || "deleted",
+ *       OwnerId: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeCarrierGatewaysCommandInput - {@link DescribeCarrierGatewaysCommandInput}
@@ -65,6 +84,8 @@ export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGat
  * @see {@link DescribeCarrierGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeCarrierGatewaysCommand extends $Command<

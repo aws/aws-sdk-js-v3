@@ -52,6 +52,23 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * };
  * const command = new ListAnnotationImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnnotationImportJobsResponse
+ *   annotationImportJobs: [ // AnnotationImportJobItems
+ *     { // AnnotationImportJobItem
+ *       id: "STRING_VALUE", // required
+ *       destinationName: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       creationTime: new Date("TIMESTAMP"), // required
+ *       updateTime: new Date("TIMESTAMP"), // required
+ *       completionTime: new Date("TIMESTAMP"),
+ *       runLeftNormalization: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAnnotationImportJobsCommandInput - {@link ListAnnotationImportJobsCommandInput}
@@ -75,6 +92,8 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListAnnotationImportJobsCommand extends $Command<

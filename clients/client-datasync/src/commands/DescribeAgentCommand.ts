@@ -45,6 +45,26 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * };
  * const command = new DescribeAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAgentResponse
+ *   AgentArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Status: "ONLINE" || "OFFLINE",
+ *   LastConnectionTime: new Date("TIMESTAMP"),
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   EndpointType: "PUBLIC" || "PRIVATE_LINK" || "FIPS",
+ *   PrivateLinkConfig: { // PrivateLinkConfig
+ *     VpcEndpointId: "STRING_VALUE",
+ *     PrivateLinkEndpoint: "STRING_VALUE",
+ *     SubnetArns: [ // PLSubnetArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupArns: [ // PLSecurityGroupArnList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAgentCommandInput - {@link DescribeAgentCommandInput}
@@ -60,6 +80,8 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeAgentCommand extends $Command<

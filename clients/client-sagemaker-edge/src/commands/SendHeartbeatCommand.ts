@@ -89,6 +89,9 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SendHeartbeatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendHeartbeatCommandInput - {@link SendHeartbeatCommandInput}
@@ -101,6 +104,8 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  *  <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact Amazon Web Services customer support.</p>
  *
+ * @throws {@link SagemakerEdgeServiceException}
+ * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
  */
 export class SendHeartbeatCommand extends $Command<

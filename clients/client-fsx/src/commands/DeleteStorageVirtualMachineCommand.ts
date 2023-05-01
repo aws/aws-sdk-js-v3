@@ -48,6 +48,12 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * };
  * const command = new DeleteStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteStorageVirtualMachineResponse
+ *   StorageVirtualMachineId: "STRING_VALUE",
+ *   Lifecycle: "CREATED" || "CREATING" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING",
+ * };
+ *
  * ```
  *
  * @param DeleteStorageVirtualMachineCommandInput - {@link DeleteStorageVirtualMachineCommandInput}
@@ -70,6 +76,8 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * @throws {@link StorageVirtualMachineNotFound} (client fault)
  *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteStorageVirtualMachineCommand extends $Command<

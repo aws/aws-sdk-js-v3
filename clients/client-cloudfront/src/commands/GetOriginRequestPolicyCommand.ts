@@ -58,6 +58,46 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * };
  * const command = new GetOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOriginRequestPolicyResult
+ *   OriginRequestPolicy: { // OriginRequestPolicy
+ *     Id: "STRING_VALUE", // required
+ *     LastModifiedTime: new Date("TIMESTAMP"), // required
+ *     OriginRequestPolicyConfig: { // OriginRequestPolicyConfig
+ *       Comment: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *       HeadersConfig: { // OriginRequestPolicyHeadersConfig
+ *         HeaderBehavior: "none" || "whitelist" || "allViewer" || "allViewerAndWhitelistCloudFront" || "allExcept", // required
+ *         Headers: { // Headers
+ *           Quantity: Number("int"), // required
+ *           Items: [ // HeaderList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       CookiesConfig: { // OriginRequestPolicyCookiesConfig
+ *         CookieBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *         Cookies: { // CookieNames
+ *           Quantity: Number("int"), // required
+ *           Items: [ // CookieNameList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       QueryStringsConfig: { // OriginRequestPolicyQueryStringsConfig
+ *         QueryStringBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *         QueryStrings: { // QueryStringNames
+ *           Quantity: Number("int"), // required
+ *           Items: [ // QueryStringNamesList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ETag: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetOriginRequestPolicyCommandInput - {@link GetOriginRequestPolicyCommandInput}
@@ -72,6 +112,8 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * @throws {@link NoSuchOriginRequestPolicy} (client fault)
  *  <p>The origin request policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetOriginRequestPolicyCommand extends $Command<

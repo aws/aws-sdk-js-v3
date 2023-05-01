@@ -46,6 +46,18 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * };
  * const command = new ListGatewayGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewayGroupsResponse
+ *   GatewayGroups: [ // GatewayGroupSummaries
+ *     { // GatewayGroupSummary
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListGatewayGroupsCommandInput - {@link ListGatewayGroupsCommandInput}
@@ -54,6 +66,8 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * @see {@link ListGatewayGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListGatewayGroupsCommand extends $Command<

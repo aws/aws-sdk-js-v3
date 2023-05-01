@@ -74,6 +74,11 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * };
  * const command = new CreateBatchInferenceJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBatchInferenceJobResponse
+ *   batchInferenceJobArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateBatchInferenceJobCommandInput - {@link CreateBatchInferenceJobCommandInput}
@@ -100,6 +105,8 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateBatchInferenceJobCommand extends $Command<

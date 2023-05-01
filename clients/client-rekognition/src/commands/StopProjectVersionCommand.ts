@@ -46,6 +46,11 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  * };
  * const command = new StopProjectVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopProjectVersionResponse
+ *   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * };
+ *
  * ```
  *
  * @param StopProjectVersionCommandInput - {@link StopProjectVersionCommandInput}
@@ -77,6 +82,8 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StopProjectVersionCommand extends $Command<

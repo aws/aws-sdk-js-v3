@@ -48,6 +48,12 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * };
  * const command = new DeleteVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVehicleResponse
+ *   vehicleName: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteVehicleCommandInput - {@link DeleteVehicleCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteVehicleCommand extends $Command<

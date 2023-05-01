@@ -44,6 +44,21 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * };
  * const command = new GetMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMemberResponse
+ *   accountId: "STRING_VALUE",
+ *   administratorAccountId: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   invitedAt: new Date("TIMESTAMP"),
+ *   masterAccountId: "STRING_VALUE",
+ *   relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   updatedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetMemberCommandInput - {@link GetMemberCommandInput}
@@ -73,6 +88,8 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetMemberCommand extends $Command<

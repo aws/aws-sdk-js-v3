@@ -49,6 +49,9 @@ export interface PutAccountSendingAttributesCommandOutput
  * };
  * const command = new PutAccountSendingAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccountSendingAttributesCommandInput - {@link PutAccountSendingAttributesCommandInput}
@@ -63,6 +66,8 @@ export interface PutAccountSendingAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutAccountSendingAttributesCommand extends $Command<

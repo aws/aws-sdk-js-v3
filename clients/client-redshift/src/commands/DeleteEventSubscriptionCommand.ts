@@ -44,6 +44,9 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  *  <p>An Amazon Redshift event notification subscription with the specified name does not
  *             exist.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteEventSubscriptionCommand extends $Command<

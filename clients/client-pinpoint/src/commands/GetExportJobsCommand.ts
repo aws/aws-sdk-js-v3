@@ -46,6 +46,37 @@ export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __Met
  * };
  * const command = new GetExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExportJobsResponse
+ *   ExportJobsResponse: { // ExportJobsResponse
+ *     Item: [ // ListOfExportJobResponse // required
+ *       { // ExportJobResponse
+ *         ApplicationId: "STRING_VALUE", // required
+ *         CompletedPieces: Number("int"),
+ *         CompletionDate: "STRING_VALUE",
+ *         CreationDate: "STRING_VALUE", // required
+ *         Definition: { // ExportJobResource
+ *           RoleArn: "STRING_VALUE", // required
+ *           S3UrlPrefix: "STRING_VALUE", // required
+ *           SegmentId: "STRING_VALUE",
+ *           SegmentVersion: Number("int"),
+ *         },
+ *         FailedPieces: Number("int"),
+ *         Failures: [ // ListOf__string
+ *           "STRING_VALUE",
+ *         ],
+ *         Id: "STRING_VALUE", // required
+ *         JobStatus: "CREATED" || "PREPARING_FOR_INITIALIZATION" || "INITIALIZING" || "PROCESSING" || "PENDING_JOB" || "COMPLETING" || "COMPLETED" || "FAILING" || "FAILED", // required
+ *         TotalFailures: Number("int"),
+ *         TotalPieces: Number("int"),
+ *         TotalProcessed: Number("int"),
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     NextToken: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetExportJobsCommandInput - {@link GetExportJobsCommandInput}
@@ -75,6 +106,8 @@ export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetExportJobsCommand extends $Command<

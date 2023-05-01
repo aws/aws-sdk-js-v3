@@ -51,6 +51,9 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteKeyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteKeyGroupCommandInput - {@link DeleteKeyGroupCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Cannot delete this resource because it is in use.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteKeyGroupCommand extends $Command<

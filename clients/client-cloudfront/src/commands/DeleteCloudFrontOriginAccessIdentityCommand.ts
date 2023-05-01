@@ -48,6 +48,9 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  * };
  * const command = new DeleteCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCloudFrontOriginAccessIdentityCommandInput - {@link DeleteCloudFrontOriginAccessIdentityCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<

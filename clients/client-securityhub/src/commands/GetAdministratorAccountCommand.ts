@@ -44,6 +44,16 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAdministratorAccountResponse
+ *   Administrator: { // Invitation
+ *     AccountId: "STRING_VALUE",
+ *     InvitationId: "STRING_VALUE",
+ *     InvitedAt: new Date("TIMESTAMP"),
+ *     MemberStatus: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
@@ -69,6 +79,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get details about the Security Hub administrator account
  * ```javascript

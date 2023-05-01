@@ -45,6 +45,14 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClustersResponse
+ *   clusterArns: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListClustersCommandInput - {@link ListClustersCommandInput}
@@ -65,6 +73,8 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list your available clusters
  * ```javascript

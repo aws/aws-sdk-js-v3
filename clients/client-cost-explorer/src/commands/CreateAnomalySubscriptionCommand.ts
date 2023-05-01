@@ -135,6 +135,11 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * };
  * const command = new CreateAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAnomalySubscriptionResponse
+ *   SubscriptionArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateAnomalySubscriptionCommandInput - {@link CreateAnomalySubscriptionCommandInput}
@@ -149,6 +154,8 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * @throws {@link UnknownMonitorException} (client fault)
  *  <p>The cost anomaly monitor does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class CreateAnomalySubscriptionCommand extends $Command<

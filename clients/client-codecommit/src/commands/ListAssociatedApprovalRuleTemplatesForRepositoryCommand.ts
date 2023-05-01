@@ -55,6 +55,14 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * };
  * const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedApprovalRuleTemplatesForRepositoryOutput
+ *   approvalRuleTemplateNames: [ // ApprovalRuleTemplateNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput - {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput}
@@ -99,6 +107,8 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Command<

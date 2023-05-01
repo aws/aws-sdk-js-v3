@@ -53,6 +53,13 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * };
  * const command = new StartFHIRExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFHIRExportJobResponse
+ *   JobId: "STRING_VALUE", // required
+ *   JobStatus: "STRING_VALUE", // required
+ *   DatastoreId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartFHIRExportJobCommandInput - {@link StartFHIRExportJobCommandInput}
@@ -76,6 +83,8 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class StartFHIRExportJobCommand extends $Command<

@@ -44,6 +44,19 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * };
  * const command = new GetConnectInstanceConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectInstanceConfigResponse
+ *   connectInstanceConfig: { // InstanceConfig
+ *     connectInstanceId: "STRING_VALUE", // required
+ *     serviceLinkedRoleArn: "STRING_VALUE", // required
+ *     encryptionConfig: { // EncryptionConfig
+ *       enabled: true || false, // required
+ *       encryptionType: "STRING_VALUE",
+ *       keyArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConnectInstanceConfigCommandInput - {@link GetConnectInstanceConfigCommandInput}
@@ -64,6 +77,8 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class GetConnectInstanceConfigCommand extends $Command<

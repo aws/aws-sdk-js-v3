@@ -63,6 +63,16 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
  * };
  * const command = new PutMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutMessagingStreamingConfigurationsResponse
+ *   StreamingConfigurations: [ // StreamingConfigurationList
+ *     { // StreamingConfiguration
+ *       DataType: "Channel" || "ChannelMessage", // required
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutMessagingStreamingConfigurationsCommandInput - {@link PutMessagingStreamingConfigurationsCommandInput}
@@ -96,6 +106,8 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class PutMessagingStreamingConfigurationsCommand extends $Command<

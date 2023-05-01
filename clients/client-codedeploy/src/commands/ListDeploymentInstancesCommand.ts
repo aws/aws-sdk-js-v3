@@ -60,6 +60,14 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * };
  * const command = new ListDeploymentInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentInstancesOutput
+ *   instancesList: [ // InstancesList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDeploymentInstancesCommandInput - {@link ListDeploymentInstancesCommandInput}
@@ -102,6 +110,8 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * @throws {@link InvalidTargetFilterNameException} (client fault)
  *  <p> The target filter name is invalid. </p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentInstancesCommand extends $Command<

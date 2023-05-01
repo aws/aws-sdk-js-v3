@@ -53,6 +53,19 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * };
  * const command = new ListPartnerEventSourceAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartnerEventSourceAccountsResponse
+ *   PartnerEventSourceAccounts: [ // PartnerEventSourceAccountList
+ *     { // PartnerEventSourceAccount
+ *       Account: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       ExpirationTime: new Date("TIMESTAMP"),
+ *       State: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPartnerEventSourceAccountsCommandInput - {@link ListPartnerEventSourceAccountsCommandInput}
@@ -70,6 +83,8 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command<

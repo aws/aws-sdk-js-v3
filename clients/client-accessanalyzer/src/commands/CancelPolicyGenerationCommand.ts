@@ -44,6 +44,9 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  * };
  * const command = new CancelPolicyGenerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelPolicyGenerationCommandInput - {@link CancelPolicyGenerationCommandInput}
@@ -64,6 +67,8 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class CancelPolicyGenerationCommand extends $Command<

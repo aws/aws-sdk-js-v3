@@ -46,6 +46,9 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * };
  * const command = new DeleteContainerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContainerCommandInput - {@link DeleteContainerCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class DeleteContainerCommand extends $Command<

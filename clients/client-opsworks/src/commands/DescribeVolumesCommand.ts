@@ -57,6 +57,28 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVolumesResult
+ *   Volumes: [ // Volumes
+ *     { // Volume
+ *       VolumeId: "STRING_VALUE",
+ *       Ec2VolumeId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       RaidArrayId: "STRING_VALUE",
+ *       InstanceId: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       Size: Number("int"),
+ *       Device: "STRING_VALUE",
+ *       MountPoint: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       AvailabilityZone: "STRING_VALUE",
+ *       VolumeType: "STRING_VALUE",
+ *       Iops: Number("int"),
+ *       Encrypted: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
@@ -71,6 +93,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeVolumesCommand extends $Command<

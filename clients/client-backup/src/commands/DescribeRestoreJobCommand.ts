@@ -44,6 +44,23 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * };
  * const command = new DescribeRestoreJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRestoreJobOutput
+ *   AccountId: "STRING_VALUE",
+ *   RestoreJobId: "STRING_VALUE",
+ *   RecoveryPointArn: "STRING_VALUE",
+ *   CreationDate: new Date("TIMESTAMP"),
+ *   CompletionDate: new Date("TIMESTAMP"),
+ *   Status: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
+ *   StatusMessage: "STRING_VALUE",
+ *   PercentDone: "STRING_VALUE",
+ *   BackupSizeInBytes: Number("long"),
+ *   IamRoleArn: "STRING_VALUE",
+ *   ExpectedCompletionTimeMinutes: Number("long"),
+ *   CreatedResourceArn: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeRestoreJobCommandInput - {@link DescribeRestoreJobCommandInput}
@@ -68,6 +85,8 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeRestoreJobCommand extends $Command<

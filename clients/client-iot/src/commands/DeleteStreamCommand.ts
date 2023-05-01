@@ -45,6 +45,9 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteStreamCommand extends $Command<

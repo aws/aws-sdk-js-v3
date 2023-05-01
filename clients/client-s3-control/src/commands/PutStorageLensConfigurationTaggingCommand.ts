@@ -68,6 +68,9 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
  * };
  * const command = new PutStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutStorageLensConfigurationTaggingCommandInput - {@link PutStorageLensConfigurationTaggingCommandInput}
@@ -76,6 +79,8 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
  * @see {@link PutStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutStorageLensConfigurationTaggingCommand extends $Command<

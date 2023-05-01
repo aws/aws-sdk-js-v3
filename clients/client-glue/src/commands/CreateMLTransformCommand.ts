@@ -92,6 +92,11 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * };
  * const command = new CreateMLTransformCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMLTransformResponse
+ *   TransformId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMLTransformCommandInput - {@link CreateMLTransformCommandInput}
@@ -121,6 +126,8 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateMLTransformCommand extends $Command<

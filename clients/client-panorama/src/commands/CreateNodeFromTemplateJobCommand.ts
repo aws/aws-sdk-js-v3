@@ -63,6 +63,11 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * };
  * const command = new CreateNodeFromTemplateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNodeFromTemplateJobResponse
+ *   JobId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateNodeFromTemplateJobCommandInput - {@link CreateNodeFromTemplateJobCommandInput}
@@ -83,6 +88,8 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreateNodeFromTemplateJobCommand extends $Command<

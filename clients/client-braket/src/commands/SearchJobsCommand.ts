@@ -54,6 +54,25 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * };
  * const command = new SearchJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchJobsResponse
+ *   jobs: [ // JobSummaryList // required
+ *     { // JobSummary
+ *       status: "STRING_VALUE", // required
+ *       jobArn: "STRING_VALUE", // required
+ *       jobName: "STRING_VALUE", // required
+ *       device: "STRING_VALUE", // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       startedAt: new Date("TIMESTAMP"),
+ *       endedAt: new Date("TIMESTAMP"),
+ *       tags: { // TagsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchJobsCommandInput - {@link SearchJobsCommandInput}
@@ -75,6 +94,8 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class SearchJobsCommand extends $Command<

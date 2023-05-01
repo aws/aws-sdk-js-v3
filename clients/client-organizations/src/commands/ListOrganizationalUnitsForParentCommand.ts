@@ -61,6 +61,18 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * };
  * const command = new ListOrganizationalUnitsForParentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationalUnitsForParentResponse
+ *   OrganizationalUnits: [ // OrganizationalUnits
+ *     { // OrganizationalUnit
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOrganizationalUnitsForParentCommandInput - {@link ListOrganizationalUnitsForParentCommandInput}
@@ -198,6 +210,8 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the child OUs in a parent root or OU
  * ```javascript

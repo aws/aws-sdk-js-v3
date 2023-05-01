@@ -54,6 +54,22 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  * };
  * const command = new ListRepositoriesInDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRepositoriesInDomainResult
+ *   repositories: [ // RepositorySummaryList
+ *     { // RepositorySummary
+ *       name: "STRING_VALUE",
+ *       administratorAccount: "STRING_VALUE",
+ *       domainName: "STRING_VALUE",
+ *       domainOwner: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       createdTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRepositoriesInDomainCommandInput - {@link ListRepositoriesInDomainCommandInput}
@@ -85,6 +101,8 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class ListRepositoriesInDomainCommand extends $Command<

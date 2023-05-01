@@ -45,6 +45,32 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  * };
  * const command = new DescribeLocationHdfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationHdfsResponse
+ *   LocationArn: "STRING_VALUE",
+ *   LocationUri: "STRING_VALUE",
+ *   NameNodes: [ // HdfsNameNodeList
+ *     { // HdfsNameNode
+ *       Hostname: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *     },
+ *   ],
+ *   BlockSize: Number("int"),
+ *   ReplicationFactor: Number("int"),
+ *   KmsKeyProviderUri: "STRING_VALUE",
+ *   QopConfiguration: { // QopConfiguration
+ *     RpcProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *     DataTransferProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *   },
+ *   AuthenticationType: "SIMPLE" || "KERBEROS",
+ *   SimpleUser: "STRING_VALUE",
+ *   KerberosPrincipal: "STRING_VALUE",
+ *   AgentArns: [ // AgentArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeLocationHdfsCommandInput - {@link DescribeLocationHdfsCommandInput}
@@ -60,6 +86,8 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationHdfsCommand extends $Command<

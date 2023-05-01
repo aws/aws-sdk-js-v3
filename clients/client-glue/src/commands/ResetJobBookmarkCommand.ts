@@ -63,6 +63,19 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  * };
  * const command = new ResetJobBookmarkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetJobBookmarkResponse
+ *   JobBookmarkEntry: { // JobBookmarkEntry
+ *     JobName: "STRING_VALUE",
+ *     Version: Number("int"),
+ *     Run: Number("int"),
+ *     Attempt: Number("int"),
+ *     PreviousRunId: "STRING_VALUE",
+ *     RunId: "STRING_VALUE",
+ *     JobBookmark: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResetJobBookmarkCommandInput - {@link ResetJobBookmarkCommandInput}
@@ -83,6 +96,8 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ResetJobBookmarkCommand extends $Command<

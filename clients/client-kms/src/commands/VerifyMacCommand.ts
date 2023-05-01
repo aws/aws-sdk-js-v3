@@ -70,6 +70,13 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * };
  * const command = new VerifyMacCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VerifyMacResponse
+ *   KeyId: "STRING_VALUE",
+ *   MacValid: true || false,
+ *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512",
+ * };
+ *
  * ```
  *
  * @param VerifyMacCommandInput - {@link VerifyMacCommandInput}
@@ -140,6 +147,8 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To verify an HMAC
  * ```javascript

@@ -107,6 +107,11 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  * };
  * const command = new CreateInferenceExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInferenceExperimentResponse
+ *   InferenceExperimentArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateInferenceExperimentCommandInput - {@link CreateInferenceExperimentCommandInput}
@@ -122,6 +127,8 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateInferenceExperimentCommand extends $Command<

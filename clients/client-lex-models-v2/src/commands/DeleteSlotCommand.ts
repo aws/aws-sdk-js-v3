@@ -48,6 +48,9 @@ export interface DeleteSlotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSlotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSlotCommandInput - {@link DeleteSlotCommandInput}
@@ -81,6 +84,8 @@ export interface DeleteSlotCommandOutput extends __MetadataBearer {}
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteSlotCommand extends $Command<

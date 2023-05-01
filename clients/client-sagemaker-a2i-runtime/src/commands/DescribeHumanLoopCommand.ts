@@ -49,6 +49,20 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
  * };
  * const command = new DescribeHumanLoopCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHumanLoopResponse
+ *   CreationTime: new Date("TIMESTAMP"), // required
+ *   FailureReason: "STRING_VALUE",
+ *   FailureCode: "STRING_VALUE",
+ *   HumanLoopStatus: "STRING_VALUE", // required
+ *   HumanLoopName: "STRING_VALUE", // required
+ *   HumanLoopArn: "STRING_VALUE", // required
+ *   FlowDefinitionArn: "STRING_VALUE", // required
+ *   HumanLoopOutput: { // HumanLoopOutput
+ *     OutputS3Uri: "STRING_VALUE", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeHumanLoopCommandInput - {@link DescribeHumanLoopCommandInput}
@@ -74,6 +88,8 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
  *  <p>The
  *       request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link SageMakerA2IRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
  */
 export class DescribeHumanLoopCommand extends $Command<

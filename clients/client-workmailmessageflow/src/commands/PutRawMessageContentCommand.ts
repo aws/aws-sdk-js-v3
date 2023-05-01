@@ -68,6 +68,9 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * };
  * const command = new PutRawMessageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRawMessageContentCommandInput - {@link PutRawMessageContentCommandInput}
@@ -105,6 +108,8 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested email message is not found.</p>
  *
+ * @throws {@link WorkMailMessageFlowServiceException}
+ * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
  */
 export class PutRawMessageContentCommand extends $Command<

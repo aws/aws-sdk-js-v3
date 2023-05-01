@@ -73,6 +73,21 @@ export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetRespons
  * };
  * const command = new CreateGeoMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGeoMatchSetResponse
+ *   GeoMatchSet: { // GeoMatchSet
+ *     GeoMatchSetId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     GeoMatchConstraints: [ // GeoMatchConstraints // required
+ *       { // GeoMatchConstraint
+ *         Type: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateGeoMatchSetCommandInput - {@link CreateGeoMatchSetCommandInput}
@@ -138,6 +153,8 @@ export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class CreateGeoMatchSetCommand extends $Command<

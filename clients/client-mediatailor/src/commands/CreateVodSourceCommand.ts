@@ -55,6 +55,25 @@ export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, _
  * };
  * const command = new CreateVodSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVodSourceResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   HttpPackageConfigurations: [ // HttpPackageConfigurations
+ *     { // HttpPackageConfiguration
+ *       Path: "STRING_VALUE", // required
+ *       SourceGroup: "STRING_VALUE", // required
+ *       Type: "DASH" || "HLS", // required
+ *     },
+ *   ],
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   SourceLocationName: "STRING_VALUE",
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   VodSourceName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateVodSourceCommandInput - {@link CreateVodSourceCommandInput}
@@ -63,6 +82,8 @@ export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, _
  * @see {@link CreateVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class CreateVodSourceCommand extends $Command<

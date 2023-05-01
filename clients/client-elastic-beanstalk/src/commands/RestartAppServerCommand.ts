@@ -46,6 +46,9 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RestartAppServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RestartAppServerCommandInput - {@link RestartAppServerCommandInput}
@@ -54,6 +57,8 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * @see {@link RestartAppServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To restart application servers
  * ```javascript

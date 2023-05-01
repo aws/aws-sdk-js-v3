@@ -47,6 +47,9 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * };
  * const command = new UpdateDetectorVersionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDetectorVersionStatusCommandInput - {@link UpdateDetectorVersionStatusCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateDetectorVersionStatusCommand extends $Command<

@@ -130,6 +130,15 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * };
  * const command = new WriteRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WriteRecordsResponse
+ *   RecordsIngested: { // RecordsIngested
+ *     Total: Number("int"),
+ *     MemoryStore: Number("int"),
+ *     MagneticStore: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param WriteRecordsCommandInput - {@link WriteRecordsCommandInput}
@@ -192,6 +201,8 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class WriteRecordsCommand extends $Command<

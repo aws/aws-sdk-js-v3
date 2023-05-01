@@ -45,6 +45,32 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationsResponse
+ *   Configurations: [ // __listOfConfiguration
+ *     { // Configuration
+ *       Arn: "STRING_VALUE", // required
+ *       AuthenticationStrategy: "STRING_VALUE", // required
+ *       Created: new Date("TIMESTAMP"), // required
+ *       Description: "STRING_VALUE", // required
+ *       EngineType: "STRING_VALUE", // required
+ *       EngineVersion: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *       LatestRevision: { // ConfigurationRevision
+ *         Created: new Date("TIMESTAMP"), // required
+ *         Description: "STRING_VALUE",
+ *         Revision: Number("int"), // required
+ *       },
+ *       Name: "STRING_VALUE", // required
+ *       Tags: { // __mapOf__string
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
@@ -62,6 +88,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class ListConfigurationsCommand extends $Command<

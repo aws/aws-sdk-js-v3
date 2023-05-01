@@ -50,6 +50,9 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
  * };
  * const command = new AssociateWirelessDeviceWithThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateWirelessDeviceWithThingCommandInput - {@link AssociateWirelessDeviceWithThingCommandInput}
@@ -76,6 +79,8 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class AssociateWirelessDeviceWithThingCommand extends $Command<

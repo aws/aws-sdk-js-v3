@@ -56,6 +56,11 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * };
  * const command = new StartGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartGatewayOutput
+ *   GatewayARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartGatewayCommandInput - {@link StartGatewayCommandInput}
@@ -72,6 +77,8 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To start a gateway service
  * ```javascript

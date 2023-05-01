@@ -57,6 +57,11 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * };
  * const command = new CreatePricingPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePricingPlanOutput
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreatePricingPlanCommandInput - {@link CreatePricingPlanCommandInput}
@@ -92,6 +97,8 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class CreatePricingPlanCommand extends $Command<

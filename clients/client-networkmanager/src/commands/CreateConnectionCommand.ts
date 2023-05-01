@@ -55,6 +55,28 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectionResponse
+ *   Connection: { // Connection
+ *     ConnectionId: "STRING_VALUE",
+ *     ConnectionArn: "STRING_VALUE",
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     DeviceId: "STRING_VALUE",
+ *     ConnectedDeviceId: "STRING_VALUE",
+ *     LinkId: "STRING_VALUE",
+ *     ConnectedLinkId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
@@ -82,6 +104,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateConnectionCommand extends $Command<

@@ -75,6 +75,9 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * };
  * const command = new UpdateClassifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateClassifierCommandInput - {@link UpdateClassifierCommandInput}
@@ -95,6 +98,8 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * @throws {@link VersionMismatchException} (client fault)
  *  <p>There was a version conflict.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateClassifierCommand extends $Command<

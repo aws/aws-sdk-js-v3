@@ -47,6 +47,13 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  * };
  * const command = new DeleteRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRegistryResponse
+ *   RegistryName: "STRING_VALUE",
+ *   RegistryArn: "STRING_VALUE",
+ *   Status: "AVAILABLE" || "DELETING",
+ * };
+ *
  * ```
  *
  * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
@@ -67,6 +74,8 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteRegistryCommand extends $Command<

@@ -162,6 +162,9 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * };
  * const command = new UpdateUserPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserPoolCommandInput - {@link UpdateUserPoolCommandInput}
@@ -213,6 +216,8 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * @throws {@link UserPoolTaggingException} (client fault)
  *  <p>This exception is thrown when a user pool tag can't be set or updated.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateUserPoolCommand extends $Command<

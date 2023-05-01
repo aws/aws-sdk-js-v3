@@ -45,6 +45,11 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * };
  * const command = new GetStackPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStackPolicyOutput
+ *   StackPolicyBody: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetStackPolicyCommandInput - {@link GetStackPolicyCommandInput}
@@ -53,6 +58,8 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * @see {@link GetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class GetStackPolicyCommand extends $Command<

@@ -52,6 +52,21 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * };
  * const command = new ListTunnelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTunnelsResponse
+ *   tunnelSummaries: [ // TunnelSummaryList
+ *     { // TunnelSummary
+ *       tunnelId: "STRING_VALUE",
+ *       tunnelArn: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTunnelsCommandInput - {@link ListTunnelsCommandInput}
@@ -60,6 +75,8 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * @see {@link ListTunnelsCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class ListTunnelsCommand extends $Command<

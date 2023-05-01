@@ -44,6 +44,15 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * };
  * const command = new GetBulkPublishDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBulkPublishDetailsResponse
+ *   IdentityPoolId: "STRING_VALUE",
+ *   BulkPublishStartTime: new Date("TIMESTAMP"),
+ *   BulkPublishCompleteTime: new Date("TIMESTAMP"),
+ *   BulkPublishStatus: "STRING_VALUE",
+ *   FailureMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetBulkPublishDetailsCommandInput - {@link GetBulkPublishDetailsCommandInput}
@@ -68,6 +77,8 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  *  Thrown if the resource doesn't
  *       exist.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class GetBulkPublishDetailsCommand extends $Command<

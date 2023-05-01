@@ -63,6 +63,13 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * };
  * const command = new CreatePlaceIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePlaceIndexResponse
+ *   IndexName: "STRING_VALUE", // required
+ *   IndexArn: "STRING_VALUE", // required
+ *   CreateTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param CreatePlaceIndexCommandInput - {@link CreatePlaceIndexCommandInput}
@@ -91,6 +98,8 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CreatePlaceIndexCommand extends $Command<

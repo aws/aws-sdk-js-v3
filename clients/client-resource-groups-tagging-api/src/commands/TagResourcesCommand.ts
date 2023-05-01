@@ -102,6 +102,17 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * };
  * const command = new TagResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagResourcesOutput
+ *   FailedResourcesMap: { // FailedResourcesMap
+ *     "<keys>": { // FailureInfo
+ *       StatusCode: Number("int"),
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param TagResourcesCommandInput - {@link TagResourcesCommandInput}
@@ -140,6 +151,8 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class TagResourcesCommand extends $Command<

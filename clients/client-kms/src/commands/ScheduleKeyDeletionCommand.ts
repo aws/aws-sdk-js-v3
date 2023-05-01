@@ -100,6 +100,14 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * };
  * const command = new ScheduleKeyDeletionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ScheduleKeyDeletionResponse
+ *   KeyId: "STRING_VALUE",
+ *   DeletionDate: new Date("TIMESTAMP"),
+ *   KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
+ *   PendingWindowInDays: Number("int"),
+ * };
+ *
  * ```
  *
  * @param ScheduleKeyDeletionCommandInput - {@link ScheduleKeyDeletionCommandInput}
@@ -142,6 +150,8 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To schedule a KMS key for deletion
  * ```javascript

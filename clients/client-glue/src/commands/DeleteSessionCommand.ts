@@ -45,6 +45,11 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSessionResponse
+ *   Id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteSessionCommand extends $Command<

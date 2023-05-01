@@ -46,6 +46,11 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * };
  * const command = new GetIntrospectionSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntrospectionSchemaResponse
+ *   schema: "BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetIntrospectionSchemaCommandInput - {@link GetIntrospectionSchemaCommandInput}
@@ -66,6 +71,8 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetIntrospectionSchemaCommand extends $Command<

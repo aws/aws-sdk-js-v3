@@ -161,6 +161,13 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * };
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EncryptResponse
+ *   CiphertextBlob: "BLOB_VALUE",
+ *   KeyId: "STRING_VALUE",
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * };
+ *
  * ```
  *
  * @param EncryptCommandInput - {@link EncryptCommandInput}
@@ -230,6 +237,8 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To encrypt data
  * ```javascript

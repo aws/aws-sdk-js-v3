@@ -47,6 +47,11 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * };
  * const command = new DeleteJobTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteJobTemplateResponse
+ *   id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteJobTemplateCommandInput - {@link DeleteJobTemplateCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class DeleteJobTemplateCommand extends $Command<

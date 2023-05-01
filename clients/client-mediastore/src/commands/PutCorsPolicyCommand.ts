@@ -71,6 +71,9 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * };
  * const command = new PutCorsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutCorsPolicyCommandInput - {@link PutCorsPolicyCommandInput}
@@ -89,6 +92,8 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutCorsPolicyCommand extends $Command<

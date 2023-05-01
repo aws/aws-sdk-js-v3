@@ -45,6 +45,9 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * };
  * const command = new DeleteContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContentCommandInput - {@link DeleteContentCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class DeleteContentCommand extends $Command<

@@ -49,6 +49,115 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * };
  * const command = new DescribeScheduledQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScheduledQueryResponse
+ *   ScheduledQuery: { // ScheduledQueryDescription
+ *     Arn: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     QueryString: "STRING_VALUE", // required
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     State: "STRING_VALUE", // required
+ *     PreviousInvocationTime: new Date("TIMESTAMP"),
+ *     NextInvocationTime: new Date("TIMESTAMP"),
+ *     ScheduleConfiguration: { // ScheduleConfiguration
+ *       ScheduleExpression: "STRING_VALUE", // required
+ *     },
+ *     NotificationConfiguration: { // NotificationConfiguration
+ *       SnsConfiguration: { // SnsConfiguration
+ *         TopicArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     TargetConfiguration: { // TargetConfiguration
+ *       TimestreamConfiguration: { // TimestreamConfiguration
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         TimeColumn: "STRING_VALUE", // required
+ *         DimensionMappings: [ // DimensionMappingList // required
+ *           { // DimensionMapping
+ *             Name: "STRING_VALUE", // required
+ *             DimensionValueType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         MultiMeasureMappings: { // MultiMeasureMappings
+ *           TargetMultiMeasureName: "STRING_VALUE",
+ *           MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
+ *             { // MultiMeasureAttributeMapping
+ *               SourceColumn: "STRING_VALUE", // required
+ *               TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *               MeasureValueType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         MixedMeasureMappings: [ // MixedMeasureMappingList
+ *           { // MixedMeasureMapping
+ *             MeasureName: "STRING_VALUE",
+ *             SourceColumn: "STRING_VALUE",
+ *             TargetMeasureName: "STRING_VALUE",
+ *             MeasureValueType: "STRING_VALUE", // required
+ *             MultiMeasureAttributeMappings: [
+ *               {
+ *                 SourceColumn: "STRING_VALUE", // required
+ *                 TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *                 MeasureValueType: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         MeasureNameColumn: "STRING_VALUE",
+ *       },
+ *     },
+ *     ScheduledQueryExecutionRoleArn: "STRING_VALUE",
+ *     KmsKeyId: "STRING_VALUE",
+ *     ErrorReportConfiguration: { // ErrorReportConfiguration
+ *       S3Configuration: { // S3Configuration
+ *         BucketName: "STRING_VALUE", // required
+ *         ObjectKeyPrefix: "STRING_VALUE",
+ *         EncryptionOption: "STRING_VALUE",
+ *       },
+ *     },
+ *     LastRunSummary: { // ScheduledQueryRunSummary
+ *       InvocationTime: new Date("TIMESTAMP"),
+ *       TriggerTime: new Date("TIMESTAMP"),
+ *       RunStatus: "STRING_VALUE",
+ *       ExecutionStats: { // ExecutionStats
+ *         ExecutionTimeInMillis: Number("long"),
+ *         DataWrites: Number("long"),
+ *         BytesMetered: Number("long"),
+ *         RecordsIngested: Number("long"),
+ *         QueryResultRows: Number("long"),
+ *       },
+ *       ErrorReportLocation: { // ErrorReportLocation
+ *         S3ReportLocation: { // S3ReportLocation
+ *           BucketName: "STRING_VALUE",
+ *           ObjectKey: "STRING_VALUE",
+ *         },
+ *       },
+ *       FailureReason: "STRING_VALUE",
+ *     },
+ *     RecentlyFailedRuns: [ // ScheduledQueryRunSummaryList
+ *       {
+ *         InvocationTime: new Date("TIMESTAMP"),
+ *         TriggerTime: new Date("TIMESTAMP"),
+ *         RunStatus: "STRING_VALUE",
+ *         ExecutionStats: {
+ *           ExecutionTimeInMillis: Number("long"),
+ *           DataWrites: Number("long"),
+ *           BytesMetered: Number("long"),
+ *           RecordsIngested: Number("long"),
+ *           QueryResultRows: Number("long"),
+ *         },
+ *         ErrorReportLocation: {
+ *           S3ReportLocation: {
+ *             BucketName: "STRING_VALUE",
+ *             ObjectKey: "STRING_VALUE",
+ *           },
+ *         },
+ *         FailureReason: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeScheduledQueryCommandInput - {@link DescribeScheduledQueryCommandInput}
@@ -77,6 +186,8 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class DescribeScheduledQueryCommand extends $Command<

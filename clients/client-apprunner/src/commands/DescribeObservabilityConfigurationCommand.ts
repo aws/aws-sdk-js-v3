@@ -52,6 +52,22 @@ export interface DescribeObservabilityConfigurationCommandOutput
  * };
  * const command = new DescribeObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeObservabilityConfigurationResponse
+ *   ObservabilityConfiguration: { // ObservabilityConfiguration
+ *     ObservabilityConfigurationArn: "STRING_VALUE",
+ *     ObservabilityConfigurationName: "STRING_VALUE",
+ *     TraceConfiguration: { // TraceConfiguration
+ *       Vendor: "AWSXRAY", // required
+ *     },
+ *     ObservabilityConfigurationRevision: Number("int"),
+ *     Latest: true || false,
+ *     Status: "ACTIVE" || "INACTIVE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     DeletedAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeObservabilityConfigurationCommandInput - {@link DescribeObservabilityConfigurationCommandInput}
@@ -69,6 +85,8 @@ export interface DescribeObservabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeObservabilityConfigurationCommand extends $Command<

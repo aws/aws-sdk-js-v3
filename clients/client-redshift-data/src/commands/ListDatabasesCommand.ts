@@ -86,6 +86,14 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatabasesResponse
+ *   Databases: [ // DatabaseList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
@@ -103,6 +111,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class ListDatabasesCommand extends $Command<

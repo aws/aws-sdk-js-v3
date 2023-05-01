@@ -69,6 +69,11 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * };
  * const command = new CreateAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAgentResponse
+ *   AgentArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateAgentCommandInput - {@link CreateAgentCommandInput}
@@ -84,6 +89,8 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateAgentCommand extends $Command<

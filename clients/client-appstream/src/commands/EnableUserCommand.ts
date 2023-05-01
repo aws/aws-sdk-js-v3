@@ -45,6 +45,9 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * };
  * const command = new EnableUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableUserCommandInput - {@link EnableUserCommandInput}
@@ -59,6 +62,8 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class EnableUserCommand extends $Command<

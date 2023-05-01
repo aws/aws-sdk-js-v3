@@ -50,6 +50,9 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * };
  * const command = new DeleteAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssessmentFrameworkShareCommandInput - {@link DeleteAssessmentFrameworkShareCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeleteAssessmentFrameworkShareCommand extends $Command<

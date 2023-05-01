@@ -56,6 +56,40 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * };
  * const command = new GetGroupConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupConfigurationOutput
+ *   GroupConfiguration: { // GroupConfiguration
+ *     Configuration: [ // GroupConfigurationList
+ *       { // GroupConfigurationItem
+ *         Type: "STRING_VALUE", // required
+ *         Parameters: [ // GroupParameterList
+ *           { // GroupConfigurationParameter
+ *             Name: "STRING_VALUE", // required
+ *             Values: [ // GroupConfigurationParameterValueList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     ProposedConfiguration: [
+ *       {
+ *         Type: "STRING_VALUE", // required
+ *         Parameters: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Status: "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ *     FailureReason: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGroupConfigurationCommandInput - {@link GetGroupConfigurationCommandInput}
@@ -83,6 +117,8 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GetGroupConfigurationCommand extends $Command<

@@ -62,6 +62,19 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * };
  * const command = new GetLogEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLogEventsResponse
+ *   events: [ // OutputLogEvents
+ *     { // OutputLogEvent
+ *       timestamp: Number("long"),
+ *       message: "STRING_VALUE",
+ *       ingestionTime: Number("long"),
+ *     },
+ *   ],
+ *   nextForwardToken: "STRING_VALUE",
+ *   nextBackwardToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetLogEventsCommandInput - {@link GetLogEventsCommandInput}
@@ -79,6 +92,8 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetLogEventsCommand extends $Command<

@@ -44,6 +44,9 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelRunCommandInput - {@link CancelRunCommandInput}
@@ -76,6 +79,8 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CancelRunCommand extends $Command<

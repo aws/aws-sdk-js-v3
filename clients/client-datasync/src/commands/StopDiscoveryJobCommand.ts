@@ -47,6 +47,9 @@ export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse,
  * };
  * const command = new StopDiscoveryJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopDiscoveryJobCommandInput - {@link StopDiscoveryJobCommandInput}
@@ -62,6 +65,8 @@ export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class StopDiscoveryJobCommand extends $Command<

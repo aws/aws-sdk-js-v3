@@ -59,6 +59,12 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * };
  * const command = new GetRelationalDatabaseMasterUserPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseMasterUserPasswordResult
+ *   masterUserPassword: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseMasterUserPasswordCommandInput - {@link GetRelationalDatabaseMasterUserPasswordCommandInput}
@@ -97,6 +103,8 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<

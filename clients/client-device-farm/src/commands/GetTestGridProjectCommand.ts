@@ -44,6 +44,25 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * };
  * const command = new GetTestGridProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTestGridProjectResult
+ *   testGridProject: { // TestGridProject
+ *     arn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     vpcConfig: { // TestGridVpcConfig
+ *       securityGroupIds: [ // SecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnetIds: [ // SubnetIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       vpcId: "STRING_VALUE", // required
+ *     },
+ *     created: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTestGridProjectCommandInput - {@link GetTestGridProjectCommandInput}
@@ -62,6 +81,8 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetTestGridProjectCommand extends $Command<

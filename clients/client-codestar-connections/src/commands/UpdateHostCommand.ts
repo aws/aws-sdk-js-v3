@@ -59,6 +59,9 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * };
  * const command = new UpdateHostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateHostCommandInput - {@link UpdateHostCommandInput}
@@ -79,6 +82,8 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported. Check the connection status and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class UpdateHostCommand extends $Command<

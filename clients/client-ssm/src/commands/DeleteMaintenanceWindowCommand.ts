@@ -44,6 +44,11 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * };
  * const command = new DeleteMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMaintenanceWindowResult
+ *   WindowId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteMaintenanceWindowCommandInput - {@link DeleteMaintenanceWindowCommandInput}
@@ -55,6 +60,8 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteMaintenanceWindowCommand extends $Command<

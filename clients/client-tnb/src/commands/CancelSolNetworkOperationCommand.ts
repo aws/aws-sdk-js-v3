@@ -45,6 +45,9 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * };
  * const command = new CancelSolNetworkOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelSolNetworkOperationCommandInput - {@link CancelSolNetworkOperationCommandInput}
@@ -68,6 +71,8 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class CancelSolNetworkOperationCommand extends $Command<

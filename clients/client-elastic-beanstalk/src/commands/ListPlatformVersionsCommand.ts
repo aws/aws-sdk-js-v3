@@ -58,6 +58,31 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * };
  * const command = new ListPlatformVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPlatformVersionsResult
+ *   PlatformSummaryList: [ // PlatformSummaryList
+ *     { // PlatformSummary
+ *       PlatformArn: "STRING_VALUE",
+ *       PlatformOwner: "STRING_VALUE",
+ *       PlatformStatus: "Creating" || "Failed" || "Ready" || "Deleting" || "Deleted",
+ *       PlatformCategory: "STRING_VALUE",
+ *       OperatingSystemName: "STRING_VALUE",
+ *       OperatingSystemVersion: "STRING_VALUE",
+ *       SupportedTierList: [ // SupportedTierList
+ *         "STRING_VALUE",
+ *       ],
+ *       SupportedAddonList: [ // SupportedAddonList
+ *         "STRING_VALUE",
+ *       ],
+ *       PlatformLifecycleState: "STRING_VALUE",
+ *       PlatformVersion: "STRING_VALUE",
+ *       PlatformBranchName: "STRING_VALUE",
+ *       PlatformBranchLifecycleState: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPlatformVersionsCommandInput - {@link ListPlatformVersionsCommandInput}
@@ -73,6 +98,8 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ListPlatformVersionsCommand extends $Command<

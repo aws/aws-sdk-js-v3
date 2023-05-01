@@ -57,6 +57,9 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutAlternateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAlternateContactCommandInput - {@link PutAlternateContactCommandInput}
@@ -80,6 +83,8 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class PutAlternateContactCommand extends $Command<

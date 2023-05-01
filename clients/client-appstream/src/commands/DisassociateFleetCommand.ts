@@ -45,6 +45,9 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * };
  * const command = new DisassociateFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateFleetCommandInput - {@link DisassociateFleetCommandInput}
@@ -65,6 +68,8 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DisassociateFleetCommand extends $Command<

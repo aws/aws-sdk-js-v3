@@ -46,6 +46,50 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * };
  * const command = new ListEventConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventConfigurationsResponse
+ *   NextToken: "STRING_VALUE",
+ *   EventConfigurationsList: [ // EventConfigurationsList
+ *     { // EventConfigurationItem
+ *       Identifier: "STRING_VALUE",
+ *       IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId",
+ *       PartnerType: "Sidewalk",
+ *       Events: { // EventNotificationItemConfigurations
+ *         DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
+ *           Sidewalk: { // SidewalkEventNotificationConfigurations
+ *             AmazonIdEventTopic: "Enabled" || "Disabled",
+ *           },
+ *           WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *         },
+ *         Proximity: { // ProximityEventConfiguration
+ *           Sidewalk: {
+ *             AmazonIdEventTopic: "Enabled" || "Disabled",
+ *           },
+ *           WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *         },
+ *         Join: { // JoinEventConfiguration
+ *           LoRaWAN: { // LoRaWANJoinEventNotificationConfigurations
+ *             DevEuiEventTopic: "Enabled" || "Disabled",
+ *           },
+ *           WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *         },
+ *         ConnectionStatus: { // ConnectionStatusEventConfiguration
+ *           LoRaWAN: { // LoRaWANConnectionStatusEventNotificationConfigurations
+ *             GatewayEuiEventTopic: "Enabled" || "Disabled",
+ *           },
+ *           WirelessGatewayIdEventTopic: "Enabled" || "Disabled",
+ *         },
+ *         MessageDeliveryStatus: { // MessageDeliveryStatusEventConfiguration
+ *           Sidewalk: {
+ *             AmazonIdEventTopic: "Enabled" || "Disabled",
+ *           },
+ *           WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListEventConfigurationsCommandInput - {@link ListEventConfigurationsCommandInput}
@@ -66,6 +110,8 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListEventConfigurationsCommand extends $Command<

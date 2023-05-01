@@ -66,6 +66,34 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * };
  * const command = new AttachTypedLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachTypedLinkResponse
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ *       SchemaArn: "STRING_VALUE", // required
+ *       TypedLinkName: "STRING_VALUE", // required
+ *     },
+ *     SourceObjectReference: { // ObjectReference
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
+ *         AttributeName: "STRING_VALUE", // required
+ *         Value: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AttachTypedLinkCommandInput - {@link AttachTypedLinkCommandInput}
@@ -107,6 +135,8 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AttachTypedLinkCommand extends $Command<

@@ -77,6 +77,26 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  * };
  * const command = new ListInstalledComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstalledComponentsResponse
+ *   installedComponents: [ // InstalledComponentList
+ *     { // InstalledComponent
+ *       componentName: "STRING_VALUE",
+ *       componentVersion: "STRING_VALUE",
+ *       lifecycleState: "NEW" || "INSTALLED" || "STARTING" || "RUNNING" || "STOPPING" || "ERRORED" || "BROKEN" || "FINISHED",
+ *       lifecycleStateDetails: "STRING_VALUE",
+ *       isRoot: true || false,
+ *       lastStatusChangeTimestamp: new Date("TIMESTAMP"),
+ *       lastReportedTimestamp: new Date("TIMESTAMP"),
+ *       lastInstallationSource: "STRING_VALUE",
+ *       lifecycleStatusCodes: [ // InstalledComponentLifecycleStatusCodeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInstalledComponentsCommandInput - {@link ListInstalledComponentsCommandInput}
@@ -102,6 +122,8 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListInstalledComponentsCommand extends $Command<

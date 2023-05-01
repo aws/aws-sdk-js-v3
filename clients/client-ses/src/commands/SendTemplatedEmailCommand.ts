@@ -120,6 +120,11 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * };
  * const command = new SendTemplatedEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendTemplatedEmailResponse
+ *   MessageId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param SendTemplatedEmailCommandInput - {@link SendTemplatedEmailCommandInput}
@@ -153,6 +158,8 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendTemplatedEmailCommand extends $Command<

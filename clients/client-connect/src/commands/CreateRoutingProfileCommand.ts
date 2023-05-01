@@ -69,6 +69,12 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * };
  * const command = new CreateRoutingProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoutingProfileResponse
+ *   RoutingProfileArn: "STRING_VALUE",
+ *   RoutingProfileId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateRoutingProfileCommandInput - {@link CreateRoutingProfileCommandInput}
@@ -98,6 +104,8 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateRoutingProfileCommand extends $Command<

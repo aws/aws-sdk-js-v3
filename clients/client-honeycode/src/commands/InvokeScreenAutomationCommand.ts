@@ -62,6 +62,11 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  * };
  * const command = new InvokeScreenAutomationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeScreenAutomationResult
+ *   workbookCursor: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param InvokeScreenAutomationCommandInput - {@link InvokeScreenAutomationCommandInput}
@@ -107,6 +112,8 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class InvokeScreenAutomationCommand extends $Command<

@@ -65,6 +65,11 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * };
  * const command = new UpdateAgentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAgentStatusResponse
+ *   agentId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateAgentStatusCommandInput - {@link UpdateAgentStatusCommandInput}
@@ -82,6 +87,8 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class UpdateAgentStatusCommand extends $Command<

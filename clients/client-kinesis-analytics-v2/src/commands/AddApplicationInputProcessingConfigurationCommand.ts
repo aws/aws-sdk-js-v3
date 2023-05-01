@@ -66,6 +66,19 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * };
  * const command = new AddApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationInputProcessingConfigurationResponse
+ *   ApplicationARN: "STRING_VALUE",
+ *   ApplicationVersionId: Number("long"),
+ *   InputId: "STRING_VALUE",
+ *   InputProcessingConfigurationDescription: { // InputProcessingConfigurationDescription
+ *     InputLambdaProcessorDescription: { // InputLambdaProcessorDescription
+ *       ResourceARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddApplicationInputProcessingConfigurationCommandInput - {@link AddApplicationInputProcessingConfigurationCommandInput}
@@ -91,6 +104,8 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationInputProcessingConfigurationCommand extends $Command<

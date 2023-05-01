@@ -57,6 +57,36 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
  * };
  * const command = new DescribeHostReservationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHostReservationsResult
+ *   HostReservationSet: [ // HostReservationSet
+ *     { // HostReservation
+ *       Count: Number("int"),
+ *       CurrencyCode: "USD",
+ *       Duration: Number("int"),
+ *       End: new Date("TIMESTAMP"),
+ *       HostIdSet: [ // ResponseHostIdSet
+ *         "STRING_VALUE",
+ *       ],
+ *       HostReservationId: "STRING_VALUE",
+ *       HourlyPrice: "STRING_VALUE",
+ *       InstanceFamily: "STRING_VALUE",
+ *       OfferingId: "STRING_VALUE",
+ *       PaymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
+ *       Start: new Date("TIMESTAMP"),
+ *       State: "payment-pending" || "payment-failed" || "active" || "retired",
+ *       UpfrontPrice: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeHostReservationsCommandInput - {@link DescribeHostReservationsCommandInput}
@@ -65,6 +95,8 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
  * @see {@link DescribeHostReservationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeHostReservationsCommand extends $Command<

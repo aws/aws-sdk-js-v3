@@ -46,6 +46,24 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * const input = {};
  * const command = new GetServiceSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceSettingsResponse
+ *   LinuxSubscriptionsDiscovery: "STRING_VALUE",
+ *   LinuxSubscriptionsDiscoverySettings: { // LinuxSubscriptionsDiscoverySettings
+ *     SourceRegions: [ // StringList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     OrganizationIntegration: "STRING_VALUE", // required
+ *   },
+ *   Status: "STRING_VALUE",
+ *   StatusMessage: { // StringMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   HomeRegions: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetServiceSettingsCommandInput - {@link GetServiceSettingsCommandInput}
@@ -63,6 +81,8 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
  */
 export class GetServiceSettingsCommand extends $Command<

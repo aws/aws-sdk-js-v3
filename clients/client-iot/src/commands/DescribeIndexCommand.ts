@@ -45,6 +45,13 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * };
  * const command = new DescribeIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIndexResponse
+ *   indexName: "STRING_VALUE",
+ *   indexStatus: "ACTIVE" || "BUILDING" || "REBUILDING",
+ *   schema: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeIndexCommandInput - {@link DescribeIndexCommandInput}
@@ -71,6 +78,8 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeIndexCommand extends $Command<

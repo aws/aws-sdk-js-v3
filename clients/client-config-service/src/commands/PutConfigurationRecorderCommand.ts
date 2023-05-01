@@ -67,6 +67,9 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * };
  * const command = new PutConfigurationRecorderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationRecorderCommandInput - {@link PutConfigurationRecorderCommandInput}
@@ -89,6 +92,8 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  *  <p>You have reached the limit of the number of recorders you can
  * 			create.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutConfigurationRecorderCommand extends $Command<

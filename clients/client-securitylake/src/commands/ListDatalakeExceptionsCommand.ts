@@ -49,6 +49,23 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  * };
  * const command = new ListDatalakeExceptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatalakeExceptionsResponse
+ *   nonRetryableFailures: [ // FailuresResponseList // required
+ *     { // FailuresResponse
+ *       region: "STRING_VALUE",
+ *       failures: [ // Failureslist
+ *         { // Failures
+ *           exceptionMessage: "STRING_VALUE", // required
+ *           remediation: "STRING_VALUE", // required
+ *           timestamp: new Date("TIMESTAMP"), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatalakeExceptionsCommandInput - {@link ListDatalakeExceptionsCommandInput}
@@ -75,6 +92,8 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class ListDatalakeExceptionsCommand extends $Command<

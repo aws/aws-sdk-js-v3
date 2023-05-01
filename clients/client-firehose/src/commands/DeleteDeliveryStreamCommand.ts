@@ -54,6 +54,9 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * };
  * const command = new DeleteDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeliveryStreamCommandInput - {@link DeleteDeliveryStreamCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class DeleteDeliveryStreamCommand extends $Command<

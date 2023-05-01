@@ -58,6 +58,11 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
  * };
  * const command = new EnableVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableVpcClassicLinkDnsSupportResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param EnableVpcClassicLinkDnsSupportCommandInput - {@link EnableVpcClassicLinkDnsSupportCommandInput}
@@ -66,6 +71,8 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
  * @see {@link EnableVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableVpcClassicLinkDnsSupportCommand extends $Command<

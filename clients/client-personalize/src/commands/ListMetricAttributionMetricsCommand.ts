@@ -51,6 +51,18 @@ export interface ListMetricAttributionMetricsCommandOutput
  * };
  * const command = new ListMetricAttributionMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMetricAttributionMetricsResponse
+ *   metrics: [ // MetricAttributes
+ *     { // MetricAttribute
+ *       eventType: "STRING_VALUE", // required
+ *       metricName: "STRING_VALUE", // required
+ *       expression: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMetricAttributionMetricsCommandInput - {@link ListMetricAttributionMetricsCommandInput}
@@ -65,6 +77,8 @@ export interface ListMetricAttributionMetricsCommandOutput
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListMetricAttributionMetricsCommand extends $Command<

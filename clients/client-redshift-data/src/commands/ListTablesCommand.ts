@@ -90,6 +90,18 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTablesResponse
+ *   Tables: [ // TableList
+ *     { // TableMember
+ *       name: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *       schema: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTablesCommandInput - {@link ListTablesCommandInput}
@@ -107,6 +119,8 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class ListTablesCommand extends $Command<

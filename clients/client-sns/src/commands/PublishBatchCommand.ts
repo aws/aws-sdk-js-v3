@@ -81,6 +81,25 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * };
  * const command = new PublishBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishBatchResponse
+ *   Successful: [ // PublishBatchResultEntryList
+ *     { // PublishBatchResultEntry
+ *       Id: "STRING_VALUE",
+ *       MessageId: "STRING_VALUE",
+ *       SequenceNumber: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Failed: [ // BatchResultErrorEntryList
+ *     { // BatchResultErrorEntry
+ *       Id: "STRING_VALUE", // required
+ *       Code: "STRING_VALUE", // required
+ *       Message: "STRING_VALUE",
+ *       SenderFault: true || false, // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PublishBatchCommandInput - {@link PublishBatchCommandInput}
@@ -160,6 +179,8 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a parameter in the request is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class PublishBatchCommand extends $Command<

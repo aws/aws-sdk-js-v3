@@ -42,6 +42,11 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * const input = {};
  * const command = new GetHealthCheckCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHealthCheckCountResponse
+ *   HealthCheckCount: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param GetHealthCheckCountCommandInput - {@link GetHealthCheckCountCommandInput}
@@ -50,6 +55,8 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * @see {@link GetHealthCheckCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHealthCheckCountCommand extends $Command<

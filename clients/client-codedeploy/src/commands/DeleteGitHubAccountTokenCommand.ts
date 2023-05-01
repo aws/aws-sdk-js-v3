@@ -44,6 +44,11 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * };
  * const command = new DeleteGitHubAccountTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGitHubAccountTokenOutput
+ *   tokenName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteGitHubAccountTokenCommandInput - {@link DeleteGitHubAccountTokenCommandInput}
@@ -67,6 +72,8 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * @throws {@link ResourceValidationException} (client fault)
  *  <p>The specified resource could not be validated.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteGitHubAccountTokenCommand extends $Command<

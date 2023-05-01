@@ -52,6 +52,14 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  * };
  * const command = new UpdateSubnetChangeProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSubnetChangeProtectionResponse
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   SubnetChangeProtection: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateSubnetChangeProtectionCommandInput - {@link UpdateSubnetChangeProtectionCommandInput}
@@ -92,6 +100,8 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class UpdateSubnetChangeProtectionCommand extends $Command<

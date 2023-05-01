@@ -48,6 +48,18 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectResponse
+ *   Body: "STREAMING_BLOB_VALUE",
+ *   CacheControl: "STRING_VALUE",
+ *   ContentRange: "STRING_VALUE",
+ *   ContentLength: Number("long"),
+ *   ContentType: "STRING_VALUE",
+ *   ETag: "STRING_VALUE",
+ *   LastModified: new Date("TIMESTAMP"),
+ *   StatusCode: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param GetObjectCommandInput - {@link GetObjectCommandInput}
@@ -68,6 +80,8 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * @throws {@link RequestedRangeNotSatisfiableException} (client fault)
  *  <p>The requested content range is not valid.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class GetObjectCommand extends $Command<

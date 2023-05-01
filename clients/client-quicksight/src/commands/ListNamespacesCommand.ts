@@ -46,6 +46,26 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNamespacesResponse
+ *   Namespaces: [ // Namespaces
+ *     { // NamespaceInfoV2
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       CapacityRegion: "STRING_VALUE",
+ *       CreationStatus: "CREATED" || "CREATING" || "DELETING" || "RETRYABLE_FAILURE" || "NON_RETRYABLE_FAILURE",
+ *       IdentityStore: "QUICKSIGHT",
+ *       NamespaceError: { // NamespaceError
+ *         Type: "PERMISSION_DENIED" || "INTERNAL_SERVICE_ERROR",
+ *         Message: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
@@ -81,6 +101,8 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListNamespacesCommand extends $Command<

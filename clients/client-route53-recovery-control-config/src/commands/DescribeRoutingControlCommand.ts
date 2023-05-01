@@ -48,6 +48,16 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  * };
  * const command = new DescribeRoutingControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRoutingControlResponse
+ *   RoutingControl: { // RoutingControl
+ *     ControlPanelArn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     RoutingControlArn: "STRING_VALUE",
+ *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRoutingControlCommandInput - {@link DescribeRoutingControlCommandInput}
@@ -74,6 +84,8 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DescribeRoutingControlCommand extends $Command<

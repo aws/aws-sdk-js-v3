@@ -50,6 +50,9 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * const input = {};
  * const command = new DisableSecurityHubCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableSecurityHubCommandInput - {@link DisableSecurityHubCommandInput}
@@ -71,6 +74,8 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To deactivate Security Hub
  * ```javascript

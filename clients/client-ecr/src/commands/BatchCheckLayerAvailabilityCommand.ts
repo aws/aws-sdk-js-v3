@@ -57,6 +57,25 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * };
  * const command = new BatchCheckLayerAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCheckLayerAvailabilityResponse
+ *   layers: [ // LayerList
+ *     { // Layer
+ *       layerDigest: "STRING_VALUE",
+ *       layerAvailability: "STRING_VALUE",
+ *       layerSize: Number("long"),
+ *       mediaType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   failures: [ // LayerFailureList
+ *     { // LayerFailure
+ *       layerDigest: "STRING_VALUE",
+ *       failureCode: "STRING_VALUE",
+ *       failureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCheckLayerAvailabilityCommandInput - {@link BatchCheckLayerAvailabilityCommandInput}
@@ -76,6 +95,8 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command<

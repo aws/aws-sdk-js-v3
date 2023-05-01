@@ -53,6 +53,14 @@ export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsR
  * };
  * const command = new ListPolicyPrincipalsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPolicyPrincipalsResponse
+ *   principals: [ // Principals
+ *     "STRING_VALUE",
+ *   ],
+ *   nextMarker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPolicyPrincipalsCommandInput - {@link ListPolicyPrincipalsCommandInput}
@@ -79,6 +87,8 @@ export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListPolicyPrincipalsCommand extends $Command<

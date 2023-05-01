@@ -52,6 +52,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -68,6 +71,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>A service resource associated with the request could not be found. Clients should not
  *             retry such requests.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

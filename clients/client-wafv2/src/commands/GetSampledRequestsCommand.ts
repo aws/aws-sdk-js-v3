@@ -60,6 +60,59 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * };
  * const command = new GetSampledRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSampledRequestsResponse
+ *   SampledRequests: [ // SampledHTTPRequests
+ *     { // SampledHTTPRequest
+ *       Request: { // HTTPRequest
+ *         ClientIP: "STRING_VALUE",
+ *         Country: "STRING_VALUE",
+ *         URI: "STRING_VALUE",
+ *         Method: "STRING_VALUE",
+ *         HTTPVersion: "STRING_VALUE",
+ *         Headers: [ // HTTPHeaders
+ *           { // HTTPHeader
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       Weight: Number("long"), // required
+ *       Timestamp: new Date("TIMESTAMP"),
+ *       Action: "STRING_VALUE",
+ *       RuleNameWithinRuleGroup: "STRING_VALUE",
+ *       RequestHeadersInserted: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ResponseCodeSent: Number("int"),
+ *       Labels: [ // Labels
+ *         { // Label
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       CaptchaResponse: { // CaptchaResponse
+ *         ResponseCode: Number("int"),
+ *         SolveTimestamp: Number("long"),
+ *         FailureReason: "TOKEN_MISSING" || "TOKEN_EXPIRED" || "TOKEN_INVALID" || "TOKEN_DOMAIN_MISMATCH",
+ *       },
+ *       ChallengeResponse: { // ChallengeResponse
+ *         ResponseCode: Number("int"),
+ *         SolveTimestamp: Number("long"),
+ *         FailureReason: "TOKEN_MISSING" || "TOKEN_EXPIRED" || "TOKEN_INVALID" || "TOKEN_DOMAIN_MISMATCH",
+ *       },
+ *       OverriddenAction: "STRING_VALUE",
+ *     },
+ *   ],
+ *   PopulationSize: Number("long"),
+ *   TimeWindow: { // TimeWindow
+ *     StartTime: new Date("TIMESTAMP"), // required
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
@@ -99,6 +152,8 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetSampledRequestsCommand extends $Command<

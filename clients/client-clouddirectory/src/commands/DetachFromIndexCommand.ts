@@ -50,6 +50,11 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * };
  * const command = new DetachFromIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachFromIndexResponse
+ *   DetachedObjectIdentifier: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DetachFromIndexCommandInput - {@link DetachFromIndexCommandInput}
@@ -89,6 +94,8 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DetachFromIndexCommand extends $Command<

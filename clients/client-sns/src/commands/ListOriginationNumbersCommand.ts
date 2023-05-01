@@ -47,6 +47,23 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * };
  * const command = new ListOriginationNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOriginationNumbersResult
+ *   NextToken: "STRING_VALUE",
+ *   PhoneNumbers: [ // PhoneNumberInformationList
+ *     { // PhoneNumberInformation
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       PhoneNumber: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       Iso2CountryCode: "STRING_VALUE",
+ *       RouteType: "Transactional" || "Promotional" || "Premium",
+ *       NumberCapabilities: [ // NumberCapabilityList
+ *         "SMS" || "MMS" || "VOICE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOriginationNumbersCommandInput - {@link ListOriginationNumbersCommandInput}
@@ -71,6 +88,8 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a parameter in the request is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListOriginationNumbersCommand extends $Command<

@@ -92,6 +92,9 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyImageAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyImageAttributeCommandInput - {@link ModifyImageAttributeCommandInput}
@@ -100,6 +103,8 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifyImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To make an AMI public
  * ```javascript

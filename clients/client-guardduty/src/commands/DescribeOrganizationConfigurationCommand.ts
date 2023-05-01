@@ -58,6 +58,43 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationConfigurationResponse
+ *   AutoEnable: true || false,
+ *   MemberAccountLimitReached: true || false, // required
+ *   DataSources: { // OrganizationDataSourceConfigurationsResult
+ *     S3Logs: { // OrganizationS3LogsConfigurationResult
+ *       AutoEnable: true || false, // required
+ *     },
+ *     Kubernetes: { // OrganizationKubernetesConfigurationResult
+ *       AuditLogs: { // OrganizationKubernetesAuditLogsConfigurationResult
+ *         AutoEnable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: { // OrganizationMalwareProtectionConfigurationResult
+ *       ScanEc2InstanceWithFindings: { // OrganizationScanEc2InstanceWithFindingsResult
+ *         EbsVolumes: { // OrganizationEbsVolumesResult
+ *           AutoEnable: true || false,
+ *         },
+ *       },
+ *     },
+ *   },
+ *   Features: [ // OrganizationFeaturesConfigurationsResults
+ *     { // OrganizationFeatureConfigurationResult
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ *       AutoEnable: "NEW" || "NONE",
+ *       AdditionalConfiguration: [ // OrganizationAdditionalConfigurationResults
+ *         { // OrganizationAdditionalConfigurationResult
+ *           Name: "EKS_ADDON_MANAGEMENT",
+ *           AutoEnable: "NEW" || "NONE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   AutoEnableOrganizationMembers: "NEW" || "ALL" || "NONE",
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
@@ -72,6 +109,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<

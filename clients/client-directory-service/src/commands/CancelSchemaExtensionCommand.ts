@@ -49,6 +49,9 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * };
  * const command = new CancelSchemaExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelSchemaExtensionCommandInput - {@link CancelSchemaExtensionCommandInput}
@@ -66,6 +69,8 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CancelSchemaExtensionCommand extends $Command<

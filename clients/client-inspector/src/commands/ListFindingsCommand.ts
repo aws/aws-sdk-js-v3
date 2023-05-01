@@ -82,6 +82,14 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsResponse
+ *   findingArns: [ // ListReturnedArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
@@ -104,6 +112,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List findings
  * ```javascript

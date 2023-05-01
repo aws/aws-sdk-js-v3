@@ -48,6 +48,21 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * const input = {};
  * const command = new GetComplianceSummaryByConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComplianceSummaryByConfigRuleResponse
+ *   ComplianceSummary: { // ComplianceSummary
+ *     CompliantResourceCount: { // ComplianceContributorCount
+ *       CappedCount: Number("int"),
+ *       CapExceeded: true || false,
+ *     },
+ *     NonCompliantResourceCount: {
+ *       CappedCount: Number("int"),
+ *       CapExceeded: true || false,
+ *     },
+ *     ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetComplianceSummaryByConfigRuleCommandInput - {@link GetComplianceSummaryByConfigRuleCommandInput}
@@ -56,6 +71,8 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * @see {@link GetComplianceSummaryByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetComplianceSummaryByConfigRuleCommand extends $Command<

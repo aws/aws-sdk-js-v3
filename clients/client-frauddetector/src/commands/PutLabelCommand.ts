@@ -51,6 +51,9 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * };
  * const command = new PutLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLabelCommandInput - {@link PutLabelCommandInput}
@@ -74,6 +77,8 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutLabelCommand extends $Command<

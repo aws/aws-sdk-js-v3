@@ -64,6 +64,25 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * };
  * const command = new StartSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSnapshotResponse
+ *   Description: "STRING_VALUE",
+ *   SnapshotId: "STRING_VALUE",
+ *   OwnerId: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   VolumeSize: Number("long"),
+ *   BlockSize: Number("int"),
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ParentSnapshotId: "STRING_VALUE",
+ *   KmsKeyArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartSnapshotCommandInput - {@link StartSnapshotCommandInput}
@@ -100,6 +119,8 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class StartSnapshotCommand extends $Command<

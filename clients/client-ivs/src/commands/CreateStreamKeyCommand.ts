@@ -54,6 +54,18 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  * };
  * const command = new CreateStreamKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamKeyResponse
+ *   streamKey: { // StreamKey
+ *     arn: "STRING_VALUE",
+ *     value: "STRING_VALUE",
+ *     channelArn: "STRING_VALUE",
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateStreamKeyCommandInput - {@link CreateStreamKeyCommandInput}
@@ -77,6 +89,8 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class CreateStreamKeyCommand extends $Command<

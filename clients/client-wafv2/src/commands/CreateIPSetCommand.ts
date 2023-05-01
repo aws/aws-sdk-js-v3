@@ -59,6 +59,17 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIPSetResponse
+ *   Summary: { // IPSetSummary
+ *     Name: "STRING_VALUE",
+ *     Id: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     LockToken: "STRING_VALUE",
+ *     ARN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
@@ -117,6 +128,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateIPSetCommand extends $Command<

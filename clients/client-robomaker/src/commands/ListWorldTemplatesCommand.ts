@@ -45,6 +45,20 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * };
  * const command = new ListWorldTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorldTemplatesResponse
+ *   templateSummaries: [ // TemplateSummaries
+ *     { // TemplateSummary
+ *       arn: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *       name: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListWorldTemplatesCommandInput - {@link ListWorldTemplatesCommandInput}
@@ -63,6 +77,8 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListWorldTemplatesCommand extends $Command<

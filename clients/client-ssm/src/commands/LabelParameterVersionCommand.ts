@@ -84,6 +84,14 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * };
  * const command = new LabelParameterVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LabelParameterVersionResult
+ *   InvalidLabels: [ // ParameterLabelList
+ *     "STRING_VALUE",
+ *   ],
+ *   ParameterVersion: Number("long"),
+ * };
+ *
  * ```
  *
  * @param LabelParameterVersionCommandInput - {@link LabelParameterVersionCommandInput}
@@ -108,6 +116,8 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class LabelParameterVersionCommand extends $Command<

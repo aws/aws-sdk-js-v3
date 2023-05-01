@@ -54,6 +54,12 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemovePermissionResponse
+ *   policy: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
@@ -80,6 +86,8 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class RemovePermissionCommand extends $Command<

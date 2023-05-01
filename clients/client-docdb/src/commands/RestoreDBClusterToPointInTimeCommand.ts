@@ -73,6 +73,67 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreDBClusterToPointInTimeResult
+ *   DBCluster: { // DBCluster
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       "STRING_VALUE",
+ *     ],
+ *     BackupRetentionPeriod: Number("int"),
+ *     DBClusterIdentifier: "STRING_VALUE",
+ *     DBClusterParameterGroup: "STRING_VALUE",
+ *     DBSubnetGroup: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     PercentProgress: "STRING_VALUE",
+ *     EarliestRestorableTime: new Date("TIMESTAMP"),
+ *     Endpoint: "STRING_VALUE",
+ *     ReaderEndpoint: "STRING_VALUE",
+ *     MultiAZ: true || false,
+ *     Engine: "STRING_VALUE",
+ *     EngineVersion: "STRING_VALUE",
+ *     LatestRestorableTime: new Date("TIMESTAMP"),
+ *     Port: Number("int"),
+ *     MasterUsername: "STRING_VALUE",
+ *     PreferredBackupWindow: "STRING_VALUE",
+ *     PreferredMaintenanceWindow: "STRING_VALUE",
+ *     ReplicationSourceIdentifier: "STRING_VALUE",
+ *     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ *       "STRING_VALUE",
+ *     ],
+ *     DBClusterMembers: [ // DBClusterMemberList
+ *       { // DBClusterMember
+ *         DBInstanceIdentifier: "STRING_VALUE",
+ *         IsClusterWriter: true || false,
+ *         DBClusterParameterGroupStatus: "STRING_VALUE",
+ *         PromotionTier: Number("int"),
+ *       },
+ *     ],
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: "STRING_VALUE",
+ *         Status: "STRING_VALUE",
+ *       },
+ *     ],
+ *     HostedZoneId: "STRING_VALUE",
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: "STRING_VALUE",
+ *     DbClusterResourceId: "STRING_VALUE",
+ *     DBClusterArn: "STRING_VALUE",
+ *     AssociatedRoles: [ // DBClusterRoles
+ *       { // DBClusterRole
+ *         RoleArn: "STRING_VALUE",
+ *         Status: "STRING_VALUE",
+ *       },
+ *     ],
+ *     CloneGroupId: "STRING_VALUE",
+ *     ClusterCreateTime: new Date("TIMESTAMP"),
+ *     EnabledCloudwatchLogsExports: [ // LogTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     DeletionProtection: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestoreDBClusterToPointInTimeCommandInput - {@link RestoreDBClusterToPointInTimeCommandInput}
@@ -133,6 +194,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *  <p>The request would cause you to exceed the allowed amount of storage available across
  *             all instances.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<

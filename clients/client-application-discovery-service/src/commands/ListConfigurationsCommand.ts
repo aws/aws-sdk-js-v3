@@ -67,6 +67,16 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationsResponse
+ *   configurations: [ // Configurations
+ *     { // Configuration
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
@@ -96,6 +106,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class ListConfigurationsCommand extends $Command<

@@ -50,6 +50,17 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationAdminAccountsResponse
+ *   adminAccounts: [ // __listOfAdminAccount
+ *     { // AdminAccount
+ *       accountId: "STRING_VALUE",
+ *       status: "ENABLED" || "DISABLING_IN_PROGRESS",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
@@ -79,6 +90,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<

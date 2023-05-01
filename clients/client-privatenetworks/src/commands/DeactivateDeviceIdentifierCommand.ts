@@ -49,6 +49,21 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  * };
  * const command = new DeactivateDeviceIdentifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeactivateDeviceIdentifierResponse
+ *   deviceIdentifier: { // DeviceIdentifier
+ *     deviceIdentifierArn: "STRING_VALUE",
+ *     trafficGroupArn: "STRING_VALUE",
+ *     networkArn: "STRING_VALUE",
+ *     imsi: "STRING_VALUE",
+ *     iccid: "STRING_VALUE",
+ *     vendor: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     orderArn: "STRING_VALUE",
+ *     createdAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeactivateDeviceIdentifierCommandInput - {@link DeactivateDeviceIdentifierCommandInput}
@@ -66,6 +81,8 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class DeactivateDeviceIdentifierCommand extends $Command<

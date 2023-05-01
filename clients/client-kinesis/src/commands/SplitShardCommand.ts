@@ -91,6 +91,9 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SplitShardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SplitShardCommandInput - {@link SplitShardCommandInput}
@@ -124,6 +127,8 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  *             capacity mode. This API is only supported for data streams with the provisioned capacity
  *             mode. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class SplitShardCommand extends $Command<

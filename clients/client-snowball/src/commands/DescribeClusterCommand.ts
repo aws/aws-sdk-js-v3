@@ -45,6 +45,88 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClusterResult
+ *   ClusterMetadata: { // ClusterMetadata
+ *     ClusterId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     KmsKeyARN: "STRING_VALUE",
+ *     RoleARN: "STRING_VALUE",
+ *     ClusterState: "AwaitingQuorum" || "Pending" || "InUse" || "Complete" || "Cancelled",
+ *     JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *     SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ *     CreationDate: new Date("TIMESTAMP"),
+ *     Resources: { // JobResource
+ *       S3Resources: [ // S3ResourceList
+ *         { // S3Resource
+ *           BucketArn: "STRING_VALUE",
+ *           KeyRange: { // KeyRange
+ *             BeginMarker: "STRING_VALUE",
+ *             EndMarker: "STRING_VALUE",
+ *           },
+ *           TargetOnDeviceServices: [ // TargetOnDeviceServiceList
+ *             { // TargetOnDeviceService
+ *               ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
+ *               TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       LambdaResources: [ // LambdaResourceList
+ *         { // LambdaResource
+ *           LambdaArn: "STRING_VALUE",
+ *           EventTriggers: [ // EventTriggerDefinitionList
+ *             { // EventTriggerDefinition
+ *               EventResourceARN: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Ec2AmiResources: [ // Ec2AmiResourceList
+ *         { // Ec2AmiResource
+ *           AmiId: "STRING_VALUE", // required
+ *           SnowballAmiId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     AddressId: "STRING_VALUE",
+ *     ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
+ *     Notification: { // Notification
+ *       SnsTopicARN: "STRING_VALUE",
+ *       JobStatesToNotify: [ // JobStateList
+ *         "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *       ],
+ *       NotifyAll: true || false,
+ *     },
+ *     ForwardingAddressId: "STRING_VALUE",
+ *     TaxDocuments: { // TaxDocuments
+ *       IND: { // INDTaxDocuments
+ *         GSTIN: "STRING_VALUE",
+ *       },
+ *     },
+ *     OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
+ *       NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
+ *         StorageLimit: Number("int"),
+ *         StorageUnit: "TB",
+ *       },
+ *       TGWOnDeviceService: { // TGWOnDeviceServiceConfiguration
+ *         StorageLimit: Number("int"),
+ *         StorageUnit: "TB",
+ *       },
+ *       EKSOnDeviceService: { // EKSOnDeviceServiceConfiguration
+ *         KubernetesVersion: "STRING_VALUE",
+ *         EKSAnywhereVersion: "STRING_VALUE",
+ *       },
+ *       S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *         StorageLimit: Number("double"),
+ *         StorageUnit: "TB",
+ *         ServiceSize: Number("int"),
+ *         FaultTolerance: Number("int"),
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
@@ -57,6 +139,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To describe a cluster
  * ```javascript

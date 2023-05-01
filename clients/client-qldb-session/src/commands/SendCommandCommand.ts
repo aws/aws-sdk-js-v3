@@ -88,6 +88,75 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * };
  * const command = new SendCommandCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendCommandResult
+ *   StartSession: { // StartSessionResult
+ *     SessionToken: "STRING_VALUE",
+ *     TimingInformation: { // TimingInformation
+ *       ProcessingTimeMilliseconds: Number("long"),
+ *     },
+ *   },
+ *   StartTransaction: { // StartTransactionResult
+ *     TransactionId: "STRING_VALUE",
+ *     TimingInformation: {
+ *       ProcessingTimeMilliseconds: Number("long"),
+ *     },
+ *   },
+ *   EndSession: { // EndSessionResult
+ *     TimingInformation: {
+ *       ProcessingTimeMilliseconds: Number("long"),
+ *     },
+ *   },
+ *   CommitTransaction: { // CommitTransactionResult
+ *     TransactionId: "STRING_VALUE",
+ *     CommitDigest: "BLOB_VALUE",
+ *     TimingInformation: {
+ *       ProcessingTimeMilliseconds: Number("long"),
+ *     },
+ *     ConsumedIOs: { // IOUsage
+ *       ReadIOs: Number("long"),
+ *       WriteIOs: Number("long"),
+ *     },
+ *   },
+ *   AbortTransaction: { // AbortTransactionResult
+ *     TimingInformation: {
+ *       ProcessingTimeMilliseconds: Number("long"),
+ *     },
+ *   },
+ *   ExecuteStatement: { // ExecuteStatementResult
+ *     FirstPage: { // Page
+ *       Values: [ // ValueHolders
+ *         { // ValueHolder
+ *           IonBinary: "BLOB_VALUE",
+ *           IonText: "STRING_VALUE",
+ *         },
+ *       ],
+ *       NextPageToken: "STRING_VALUE",
+ *     },
+ *     TimingInformation: "<TimingInformation>",
+ *     ConsumedIOs: {
+ *       ReadIOs: Number("long"),
+ *       WriteIOs: Number("long"),
+ *     },
+ *   },
+ *   FetchPage: { // FetchPageResult
+ *     Page: {
+ *       Values: [
+ *         {
+ *           IonBinary: "BLOB_VALUE",
+ *           IonText: "STRING_VALUE",
+ *         },
+ *       ],
+ *       NextPageToken: "STRING_VALUE",
+ *     },
+ *     TimingInformation: "<TimingInformation>",
+ *     ConsumedIOs: {
+ *       ReadIOs: Number("long"),
+ *       WriteIOs: Number("long"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param SendCommandCommandInput - {@link SendCommandCommandInput}
@@ -116,6 +185,8 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * @throws {@link RateExceededException} (client fault)
  *  <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  *
+ * @throws {@link QLDBSessionServiceException}
+ * <p>Base exception class for all service exceptions from QLDBSession service.</p>
  *
  */
 export class SendCommandCommand extends $Command<

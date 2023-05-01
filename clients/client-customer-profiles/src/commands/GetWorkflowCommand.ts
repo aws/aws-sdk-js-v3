@@ -45,6 +45,30 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkflowResponse
+ *   WorkflowId: "STRING_VALUE",
+ *   WorkflowType: "APPFLOW_INTEGRATION",
+ *   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED",
+ *   ErrorDescription: "STRING_VALUE",
+ *   StartDate: new Date("TIMESTAMP"),
+ *   LastUpdatedAt: new Date("TIMESTAMP"),
+ *   Attributes: { // WorkflowAttributes
+ *     AppflowIntegration: { // AppflowIntegrationWorkflowAttributes
+ *       SourceConnectorType: "Salesforce" || "Marketo" || "Zendesk" || "Servicenow" || "S3", // required
+ *       ConnectorProfileName: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Metrics: { // WorkflowMetrics
+ *     AppflowIntegration: { // AppflowIntegrationWorkflowMetrics
+ *       RecordsProcessed: Number("long"), // required
+ *       StepsCompleted: Number("long"), // required
+ *       TotalSteps: Number("long"), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
@@ -68,6 +92,8 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetWorkflowCommand extends $Command<

@@ -58,6 +58,16 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * };
  * const command = new PutDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDashboardOutput
+ *   DashboardValidationMessages: [ // DashboardValidationMessages
+ *     { // DashboardValidationMessage
+ *       DataPath: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutDashboardCommandInput - {@link PutDashboardCommandInput}
@@ -72,6 +82,8 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * @throws {@link InternalServiceFault} (server fault)
  *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutDashboardCommand extends $Command<

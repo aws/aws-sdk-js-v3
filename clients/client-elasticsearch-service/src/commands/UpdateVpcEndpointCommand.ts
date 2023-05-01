@@ -56,6 +56,29 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVpcEndpointResponse
+ *   VpcEndpoint: { // VpcEndpoint
+ *     VpcEndpointId: "STRING_VALUE",
+ *     VpcEndpointOwner: "STRING_VALUE",
+ *     DomainArn: "STRING_VALUE",
+ *     VpcOptions: { // VPCDerivedInfo
+ *       VPCId: "STRING_VALUE",
+ *       SubnetIds: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       AvailabilityZones: [
+ *         "STRING_VALUE",
+ *       ],
+ *       SecurityGroupIds: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ *     Endpoint: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
@@ -82,6 +105,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class UpdateVpcEndpointCommand extends $Command<

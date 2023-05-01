@@ -82,6 +82,51 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * };
  * const command = new CreateVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVerifiedAccessEndpointResult
+ *   VerifiedAccessEndpoint: { // VerifiedAccessEndpoint
+ *     VerifiedAccessInstanceId: "STRING_VALUE",
+ *     VerifiedAccessGroupId: "STRING_VALUE",
+ *     VerifiedAccessEndpointId: "STRING_VALUE",
+ *     ApplicationDomain: "STRING_VALUE",
+ *     EndpointType: "load-balancer" || "network-interface",
+ *     AttachmentType: "vpc",
+ *     DomainCertificateArn: "STRING_VALUE",
+ *     EndpointDomain: "STRING_VALUE",
+ *     DeviceValidationDomain: "STRING_VALUE",
+ *     SecurityGroupIds: [ // SecurityGroupIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     LoadBalancerOptions: { // VerifiedAccessEndpointLoadBalancerOptions
+ *       Protocol: "http" || "https",
+ *       Port: Number("int"),
+ *       LoadBalancerArn: "STRING_VALUE",
+ *       SubnetIds: [ // VerifiedAccessEndpointSubnetIdList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     NetworkInterfaceOptions: { // VerifiedAccessEndpointEniOptions
+ *       NetworkInterfaceId: "STRING_VALUE",
+ *       Protocol: "http" || "https",
+ *       Port: Number("int"),
+ *     },
+ *     Status: { // VerifiedAccessEndpointStatus
+ *       Code: "pending" || "active" || "updating" || "deleting" || "deleted",
+ *       Message: "STRING_VALUE",
+ *     },
+ *     Description: "STRING_VALUE",
+ *     CreationTime: "STRING_VALUE",
+ *     LastUpdatedTime: "STRING_VALUE",
+ *     DeletionTime: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVerifiedAccessEndpointCommandInput - {@link CreateVerifiedAccessEndpointCommandInput}
@@ -90,6 +135,8 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * @see {@link CreateVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateVerifiedAccessEndpointCommand extends $Command<

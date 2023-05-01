@@ -317,6 +317,12 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * };
  * const command = new CreateFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFlowResponse
+ *   flowArn: "STRING_VALUE",
+ *   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ * };
+ *
  * ```
  *
  * @param CreateFlowCommandInput - {@link CreateFlowCommandInput}
@@ -350,6 +356,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class CreateFlowCommand extends $Command<

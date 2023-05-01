@@ -51,6 +51,21 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * };
  * const command = new SearchFlowExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchFlowExecutionsResponse
+ *   summaries: [ // FlowExecutionSummaries
+ *     { // FlowExecutionSummary
+ *       flowExecutionId: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       systemInstanceId: "STRING_VALUE",
+ *       flowTemplateId: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       updatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchFlowExecutionsCommandInput - {@link SearchFlowExecutionsCommandInput}
@@ -71,6 +86,8 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchFlowExecutionsCommand extends $Command<

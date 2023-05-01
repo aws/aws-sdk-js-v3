@@ -49,6 +49,18 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * };
  * const command = new ListUserHierarchyGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserHierarchyGroupsResponse
+ *   UserHierarchyGroupSummaryList: [ // HierarchyGroupSummaryList
+ *     { // HierarchyGroupSummary
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListUserHierarchyGroupsCommandInput - {@link ListUserHierarchyGroupsCommandInput}
@@ -72,6 +84,8 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListUserHierarchyGroupsCommand extends $Command<

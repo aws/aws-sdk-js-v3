@@ -77,6 +77,9 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * };
  * const command = new UpdateEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateEventConfigurationByResourceTypesCommandInput - {@link UpdateEventConfigurationByResourceTypesCommandInput}
@@ -97,6 +100,8 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateEventConfigurationByResourceTypesCommand extends $Command<

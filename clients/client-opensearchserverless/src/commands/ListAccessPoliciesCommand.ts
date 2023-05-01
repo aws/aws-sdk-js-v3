@@ -53,6 +53,21 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * };
  * const command = new ListAccessPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessPoliciesResponse
+ *   accessPolicySummaries: [ // AccessPolicySummaries
+ *     { // AccessPolicySummary
+ *       type: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       policyVersion: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       createdDate: Number("long"),
+ *       lastModifiedDate: Number("long"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
@@ -68,6 +83,8 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListAccessPoliciesCommand extends $Command<

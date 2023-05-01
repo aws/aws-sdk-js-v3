@@ -65,6 +65,11 @@ export interface UpdateConnectorRegistrationCommandOutput
  * };
  * const command = new UpdateConnectorRegistrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectorRegistrationResponse
+ *   connectorArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateConnectorRegistrationCommandInput - {@link UpdateConnectorRegistrationCommandInput}
@@ -105,6 +110,8 @@ export interface UpdateConnectorRegistrationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class UpdateConnectorRegistrationCommand extends $Command<

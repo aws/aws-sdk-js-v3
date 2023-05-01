@@ -61,6 +61,14 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * };
  * const command = new CreateSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSubscriptionDefinitionVersionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSubscriptionDefinitionVersionCommandInput - {@link CreateSubscriptionDefinitionVersionCommandInput}
@@ -72,6 +80,8 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateSubscriptionDefinitionVersionCommand extends $Command<

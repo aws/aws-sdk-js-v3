@@ -60,6 +60,9 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterGameServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterGameServerCommandInput - {@link DeregisterGameServerCommandInput}
@@ -82,6 +85,8 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeregisterGameServerCommand extends $Command<

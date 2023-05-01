@@ -159,6 +159,11 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * };
  * const command = new CreateMetricSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMetricSetResponse
+ *   MetricSetArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMetricSetCommandInput - {@link CreateMetricSetCommandInput}
@@ -189,6 +194,8 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class CreateMetricSetCommand extends $Command<

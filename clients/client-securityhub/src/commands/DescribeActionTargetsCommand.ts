@@ -48,6 +48,18 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * };
  * const command = new DescribeActionTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeActionTargetsResponse
+ *   ActionTargets: [ // ActionTargetList // required
+ *     { // ActionTarget
+ *       ActionTargetArn: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeActionTargetsCommandInput - {@link DescribeActionTargetsCommandInput}
@@ -69,6 +81,8 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To return custom action targets
  * ```javascript

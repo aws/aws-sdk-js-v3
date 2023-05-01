@@ -44,6 +44,24 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  * };
  * const command = new DeleteDBClusterEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDBClusterEndpointOutput
+ *   DBClusterEndpointIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ *   Endpoint: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   EndpointType: "STRING_VALUE",
+ *   CustomEndpointType: "STRING_VALUE",
+ *   StaticMembers: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   ExcludedMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterEndpointArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteDBClusterEndpointCommandInput - {@link DeleteDBClusterEndpointCommandInput}
@@ -61,6 +79,8 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The DB cluster is not in a valid state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteDBClusterEndpointCommand extends $Command<

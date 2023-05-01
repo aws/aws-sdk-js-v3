@@ -55,6 +55,18 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * };
  * const command = new InviteUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InviteUsersResponse
+ *   Invites: [ // InviteList
+ *     { // Invite
+ *       InviteId: "STRING_VALUE",
+ *       Status: "Pending" || "Accepted" || "Failed",
+ *       EmailAddress: "STRING_VALUE",
+ *       EmailStatus: "NotSent" || "Sent" || "Failed",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param InviteUsersCommandInput - {@link InviteUsersCommandInput}
@@ -84,6 +96,8 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class InviteUsersCommand extends $Command<

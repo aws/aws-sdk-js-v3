@@ -56,6 +56,18 @@ export interface AcceptAddressTransferCommandOutput extends AcceptAddressTransfe
  * };
  * const command = new AcceptAddressTransferCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptAddressTransferResult
+ *   AddressTransfer: { // AddressTransfer
+ *     PublicIp: "STRING_VALUE",
+ *     AllocationId: "STRING_VALUE",
+ *     TransferAccountId: "STRING_VALUE",
+ *     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
+ *     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
+ *     AddressTransferStatus: "pending" || "disabled" || "accepted",
+ *   },
+ * };
+ *
  * ```
  *
  * @param AcceptAddressTransferCommandInput - {@link AcceptAddressTransferCommandInput}
@@ -64,6 +76,8 @@ export interface AcceptAddressTransferCommandOutput extends AcceptAddressTransfe
  * @see {@link AcceptAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AcceptAddressTransferCommand extends $Command<

@@ -64,6 +64,9 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * };
  * const command = new TagCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagCertificateAuthorityCommandInput - {@link TagCertificateAuthorityCommandInput}
@@ -91,6 +94,8 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  *  <p>You can associate up to 50 tags with a private CA. Exception information is contained
  * 			in the exception message field.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class TagCertificateAuthorityCommand extends $Command<

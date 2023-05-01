@@ -54,6 +54,26 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * };
  * const command = new CreateAssistantAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssistantAssociationResponse
+ *   assistantAssociation: { // AssistantAssociationData
+ *     assistantAssociationId: "STRING_VALUE", // required
+ *     assistantAssociationArn: "STRING_VALUE", // required
+ *     assistantId: "STRING_VALUE", // required
+ *     assistantArn: "STRING_VALUE", // required
+ *     associationType: "STRING_VALUE", // required
+ *     associationData: { // AssistantAssociationOutputData Union: only one key present
+ *       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
+ *         knowledgeBaseId: "STRING_VALUE",
+ *         knowledgeBaseArn: "STRING_VALUE",
+ *       },
+ *     },
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAssistantAssociationCommandInput - {@link CreateAssistantAssociationCommandInput}
@@ -81,6 +101,8 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class CreateAssistantAssociationCommand extends $Command<

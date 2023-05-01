@@ -83,6 +83,15 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * };
  * const command = new ResendConfirmationCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResendConfirmationCodeResponse
+ *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ *     Destination: "STRING_VALUE",
+ *     DeliveryMedium: "SMS" || "EMAIL",
+ *     AttributeName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResendConfirmationCodeCommandInput - {@link ResendConfirmationCodeCommandInput}
@@ -148,6 +157,8 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ResendConfirmationCodeCommand extends $Command<

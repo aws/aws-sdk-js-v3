@@ -58,6 +58,9 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  * };
  * const command = new PutRetentionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRetentionPolicyCommandInput - {@link PutRetentionPolicyCommandInput}
@@ -80,6 +83,8 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutRetentionPolicyCommand extends $Command<

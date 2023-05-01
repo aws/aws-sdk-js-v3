@@ -57,6 +57,20 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * };
  * const command = new ListDistributionsByCachePolicyIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionsByCachePolicyIdResult
+ *   DistributionIdList: { // DistributionIdList
+ *     Marker: "STRING_VALUE", // required
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // DistributionIdListSummary
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDistributionsByCachePolicyIdCommandInput - {@link ListDistributionsByCachePolicyIdCommandInput}
@@ -74,6 +88,8 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * @throws {@link NoSuchCachePolicy} (client fault)
  *  <p>The cache policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByCachePolicyIdCommand extends $Command<

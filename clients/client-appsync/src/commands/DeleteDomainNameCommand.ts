@@ -44,6 +44,9 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  * };
  * const command = new DeleteDomainNameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDomainNameCommandInput - {@link DeleteDomainNameCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteDomainNameCommand extends $Command<

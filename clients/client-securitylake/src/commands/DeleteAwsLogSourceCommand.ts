@@ -75,6 +75,16 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * };
  * const command = new DeleteAwsLogSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAwsLogSourceResponse
+ *   processing: [ // AccountList
+ *     "STRING_VALUE",
+ *   ],
+ *   failed: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteAwsLogSourceCommandInput - {@link DeleteAwsLogSourceCommandInput}
@@ -101,6 +111,8 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteAwsLogSourceCommand extends $Command<

@@ -46,6 +46,29 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * };
  * const command = new ListAssistantAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssistantAssociationsResponse
+ *   assistantAssociationSummaries: [ // AssistantAssociationSummaryList // required
+ *     { // AssistantAssociationSummary
+ *       assistantAssociationId: "STRING_VALUE", // required
+ *       assistantAssociationArn: "STRING_VALUE", // required
+ *       assistantId: "STRING_VALUE", // required
+ *       assistantArn: "STRING_VALUE", // required
+ *       associationType: "STRING_VALUE", // required
+ *       associationData: { // AssistantAssociationOutputData Union: only one key present
+ *         knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
+ *           knowledgeBaseId: "STRING_VALUE",
+ *           knowledgeBaseArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssistantAssociationsCommandInput - {@link ListAssistantAssociationsCommandInput}
@@ -63,6 +86,8 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class ListAssistantAssociationsCommand extends $Command<

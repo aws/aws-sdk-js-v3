@@ -66,6 +66,9 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * };
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ConfirmSignUpCommandInput - {@link ConfirmSignUpCommandInput}
@@ -131,6 +134,8 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ConfirmSignUpCommand extends $Command<

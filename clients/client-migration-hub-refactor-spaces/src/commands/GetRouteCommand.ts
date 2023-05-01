@@ -50,6 +50,42 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  * };
  * const command = new GetRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRouteResponse
+ *   RouteId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   OwnerAccountId: "STRING_VALUE",
+ *   CreatedByAccountId: "STRING_VALUE",
+ *   RouteType: "STRING_VALUE",
+ *   ServiceId: "STRING_VALUE",
+ *   ApplicationId: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   SourcePath: "STRING_VALUE",
+ *   Methods: [ // HttpMethods
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludeChildPaths: true || false,
+ *   PathResourceToId: { // PathResourceToId
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   State: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Error: { // ErrorResponse
+ *     Code: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *     AccountId: "STRING_VALUE",
+ *     ResourceIdentifier: "STRING_VALUE",
+ *     ResourceType: "STRING_VALUE",
+ *     AdditionalDetails: { // AdditionalDetails
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   LastUpdatedTime: new Date("TIMESTAMP"),
+ *   CreatedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetRouteCommandInput - {@link GetRouteCommandInput}
@@ -74,6 +110,8 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class GetRouteCommand extends $Command<

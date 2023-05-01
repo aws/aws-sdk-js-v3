@@ -51,6 +51,9 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * };
  * const command = new SendTaskSuccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendTaskSuccessCommandInput - {@link SendTaskSuccessCommandInput}
@@ -69,6 +72,8 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  *
  * @throws {@link TaskTimedOut} (client fault)
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class SendTaskSuccessCommand extends $Command<

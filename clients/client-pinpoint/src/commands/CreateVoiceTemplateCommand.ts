@@ -54,6 +54,15 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * };
  * const command = new CreateVoiceTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVoiceTemplateResponse
+ *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ *     Arn: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVoiceTemplateCommandInput - {@link CreateVoiceTemplateCommandInput}
@@ -77,6 +86,8 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateVoiceTemplateCommand extends $Command<

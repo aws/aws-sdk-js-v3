@@ -45,6 +45,36 @@ export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __Met
  * };
  * const command = new GetSubscriberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSubscriberResponse
+ *   subscriber: { // SubscriberResource
+ *     subscriptionId: "STRING_VALUE", // required
+ *     sourceTypes: [ // SourceTypeList // required
+ *       { // SourceType Union: only one key present
+ *         awsSourceType: "STRING_VALUE",
+ *         customSourceType: "STRING_VALUE",
+ *       },
+ *     ],
+ *     accountId: "STRING_VALUE", // required
+ *     subscriberName: "STRING_VALUE",
+ *     subscriberDescription: "STRING_VALUE",
+ *     subscriptionStatus: "STRING_VALUE",
+ *     roleArn: "STRING_VALUE",
+ *     snsArn: "STRING_VALUE",
+ *     s3BucketArn: "STRING_VALUE",
+ *     accessTypes: [ // AccessTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     subscriptionEndpoint: "STRING_VALUE",
+ *     subscriptionProtocol: "STRING_VALUE",
+ *     externalId: "STRING_VALUE",
+ *     createdAt: new Date("TIMESTAMP"),
+ *     updatedAt: new Date("TIMESTAMP"),
+ *     resourceShareArn: "STRING_VALUE",
+ *     resourceShareName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSubscriberCommandInput - {@link GetSubscriberCommandInput}
@@ -75,6 +105,8 @@ export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class GetSubscriberCommand extends $Command<

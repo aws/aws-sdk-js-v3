@@ -103,6 +103,9 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * };
  * const command = new AddApplicationInputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddApplicationInputCommandInput - {@link AddApplicationInputCommandInput}
@@ -129,6 +132,8 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class AddApplicationInputCommand extends $Command<

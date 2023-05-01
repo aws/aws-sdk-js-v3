@@ -47,6 +47,9 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
@@ -74,6 +77,8 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class PutLoggingOptionsCommand extends $Command<

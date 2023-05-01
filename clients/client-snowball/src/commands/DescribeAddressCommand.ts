@@ -45,6 +45,26 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * };
  * const command = new DescribeAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAddressResult
+ *   Address: { // Address
+ *     AddressId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Company: "STRING_VALUE",
+ *     Street1: "STRING_VALUE",
+ *     Street2: "STRING_VALUE",
+ *     Street3: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     StateOrProvince: "STRING_VALUE",
+ *     PrefectureOrDistrict: "STRING_VALUE",
+ *     Landmark: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *     PhoneNumber: "STRING_VALUE",
+ *     IsRestricted: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAddressCommandInput - {@link DescribeAddressCommandInput}
@@ -57,6 +77,8 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To describe an address for a job
  * ```javascript

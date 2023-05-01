@@ -45,6 +45,9 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * };
  * const command = new RemoveTemplateActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTemplateActionCommandInput - {@link RemoveTemplateActionCommandInput}
@@ -62,6 +65,8 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class RemoveTemplateActionCommand extends $Command<

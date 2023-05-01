@@ -44,6 +44,9 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * };
  * const command = new DeleteInsightCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInsightCommandInput - {@link DeleteInsightCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DeleteInsightCommand extends $Command<

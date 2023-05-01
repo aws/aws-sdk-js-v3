@@ -55,6 +55,19 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  * };
  * const command = new UpdateSecurityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecurityPolicyResponse
+ *   securityPolicyDetail: { // SecurityPolicyDetail
+ *     type: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     policyVersion: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     policy: "DOCUMENT_VALUE",
+ *     createdDate: Number("long"),
+ *     lastModifiedDate: Number("long"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSecurityPolicyCommandInput - {@link UpdateSecurityPolicyCommandInput}
@@ -81,6 +94,8 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateSecurityPolicyCommand extends $Command<

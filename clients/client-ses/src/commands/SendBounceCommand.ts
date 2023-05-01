@@ -86,6 +86,11 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * };
  * const command = new SendBounceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendBounceResponse
+ *   MessageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendBounceCommandInput - {@link SendBounceCommandInput}
@@ -98,6 +103,8 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  *  <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendBounceCommand extends $Command<

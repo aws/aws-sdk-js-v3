@@ -45,6 +45,20 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  * };
  * const command = new GetRunTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRunTaskResponse
+ *   taskId: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   cpus: Number("int"),
+ *   memory: Number("int"),
+ *   creationTime: new Date("TIMESTAMP"),
+ *   startTime: new Date("TIMESTAMP"),
+ *   stopTime: new Date("TIMESTAMP"),
+ *   statusMessage: "STRING_VALUE",
+ *   logStream: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetRunTaskCommandInput - {@link GetRunTaskCommandInput}
@@ -77,6 +91,8 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetRunTaskCommand extends $Command<

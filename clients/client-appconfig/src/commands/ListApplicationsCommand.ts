@@ -45,6 +45,18 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Applications
+ *   Items: [ // ApplicationList
+ *     { // Application
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -59,6 +71,8 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available applications
  * ```javascript

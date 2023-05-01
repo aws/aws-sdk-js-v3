@@ -49,6 +49,11 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointResponse
+ *   DesiredModelArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
@@ -81,6 +86,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class UpdateEndpointCommand extends $Command<

@@ -45,6 +45,19 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * const input = {};
  * const command = new GetDistributionBundlesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDistributionBundlesResult
+ *   bundles: [ // DistributionBundleList
+ *     { // DistributionBundle
+ *       bundleId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       price: Number("float"),
+ *       transferPerMonthInGb: Number("int"),
+ *       isActive: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDistributionBundlesCommandInput - {@link GetDistributionBundlesCommandInput}
@@ -79,6 +92,8 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetDistributionBundlesCommand extends $Command<

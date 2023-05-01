@@ -45,6 +45,9 @@ export interface DeleteListenerCommandOutput extends DeleteListenerResponse, __M
  * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteListenerCommandOutput extends DeleteListenerResponse, __M
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteListenerCommand extends $Command<

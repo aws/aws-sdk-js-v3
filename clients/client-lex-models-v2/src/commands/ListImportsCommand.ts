@@ -62,6 +62,26 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   importSummaries: [ // ImportSummaryList
+ *     { // ImportSummary
+ *       importId: "STRING_VALUE",
+ *       importedResourceId: "STRING_VALUE",
+ *       importedResourceName: "STRING_VALUE",
+ *       importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
+ *       mergeStrategy: "Overwrite" || "FailOnConflict" || "Append",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       importedResourceType: "Bot" || "BotLocale" || "CustomVocabulary",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -82,6 +102,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

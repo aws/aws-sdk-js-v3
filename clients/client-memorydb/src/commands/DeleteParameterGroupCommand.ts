@@ -45,6 +45,16 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * };
  * const command = new DeleteParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteParameterGroupResponse
+ *   ParameterGroup: { // ParameterGroup
+ *     Name: "STRING_VALUE",
+ *     Family: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     ARN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteParameterGroupCommandInput - {@link DeleteParameterGroupCommandInput}
@@ -68,6 +78,8 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DeleteParameterGroupCommand extends $Command<

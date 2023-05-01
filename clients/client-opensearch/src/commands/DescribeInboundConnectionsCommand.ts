@@ -55,6 +55,35 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * };
  * const command = new DescribeInboundConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInboundConnectionsResponse
+ *   Connections: [ // InboundConnections
+ *     { // InboundConnection
+ *       LocalDomainInfo: { // DomainInformationContainer
+ *         AWSDomainInformation: { // AWSDomainInformation
+ *           OwnerId: "STRING_VALUE",
+ *           DomainName: "STRING_VALUE", // required
+ *           Region: "STRING_VALUE",
+ *         },
+ *       },
+ *       RemoteDomainInfo: {
+ *         AWSDomainInformation: {
+ *           OwnerId: "STRING_VALUE",
+ *           DomainName: "STRING_VALUE", // required
+ *           Region: "STRING_VALUE",
+ *         },
+ *       },
+ *       ConnectionId: "STRING_VALUE",
+ *       ConnectionStatus: { // InboundConnectionStatus
+ *         StatusCode: "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ *         Message: "STRING_VALUE",
+ *       },
+ *       ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeInboundConnectionsCommandInput - {@link DescribeInboundConnectionsCommandInput}
@@ -69,6 +98,8 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * @throws {@link InvalidPaginationTokenException} (client fault)
  *  <p>The request processing has failed because you provided an invalid pagination token.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeInboundConnectionsCommand extends $Command<

@@ -63,6 +63,9 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * };
  * const command = new SetIdentityFeedbackForwardingEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetIdentityFeedbackForwardingEnabledCommandInput - {@link SetIdentityFeedbackForwardingEnabledCommandInput}
@@ -71,6 +74,8 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetIdentityFeedbackForwardingEnabled
  * ```javascript

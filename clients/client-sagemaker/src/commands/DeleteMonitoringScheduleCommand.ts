@@ -45,6 +45,9 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteMonitoringScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMonitoringScheduleCommandInput - {@link DeleteMonitoringScheduleCommandInput}
@@ -56,6 +59,8 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteMonitoringScheduleCommand extends $Command<

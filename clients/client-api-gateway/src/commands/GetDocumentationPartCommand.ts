@@ -45,6 +45,19 @@ export interface GetDocumentationPartCommandOutput extends DocumentationPart, __
  * };
  * const command = new GetDocumentationPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DocumentationPart
+ *   id: "STRING_VALUE",
+ *   location: { // DocumentationPartLocation
+ *     type: "API" || "AUTHORIZER" || "MODEL" || "RESOURCE" || "METHOD" || "PATH_PARAMETER" || "QUERY_PARAMETER" || "REQUEST_HEADER" || "REQUEST_BODY" || "RESPONSE" || "RESPONSE_HEADER" || "RESPONSE_BODY", // required
+ *     path: "STRING_VALUE",
+ *     method: "STRING_VALUE",
+ *     statusCode: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *   },
+ *   properties: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDocumentationPartCommandInput - {@link GetDocumentationPartCommandInput}
@@ -65,6 +78,8 @@ export interface GetDocumentationPartCommandOutput extends DocumentationPart, __
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetDocumentationPartCommand extends $Command<

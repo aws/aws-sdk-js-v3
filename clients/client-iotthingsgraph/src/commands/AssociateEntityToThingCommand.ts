@@ -49,6 +49,9 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * };
  * const command = new AssociateEntityToThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateEntityToThingCommandInput - {@link AssociateEntityToThingCommandInput}
@@ -69,6 +72,8 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class AssociateEntityToThingCommand extends $Command<

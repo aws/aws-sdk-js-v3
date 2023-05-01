@@ -44,6 +44,23 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * };
  * const command = new DescribeScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScheduleResponse
+ *   CreateDate: new Date("TIMESTAMP"),
+ *   CreatedBy: "STRING_VALUE",
+ *   JobNames: [ // JobNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   LastModifiedBy: "STRING_VALUE",
+ *   LastModifiedDate: new Date("TIMESTAMP"),
+ *   ResourceArn: "STRING_VALUE",
+ *   CronExpression: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DescribeScheduleCommandInput - {@link DescribeScheduleCommandInput}
@@ -58,6 +75,8 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DescribeScheduleCommand extends $Command<

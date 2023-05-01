@@ -60,6 +60,9 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
@@ -68,6 +71,8 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class RemovePermissionCommand extends $Command<

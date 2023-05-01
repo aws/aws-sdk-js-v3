@@ -59,6 +59,25 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * };
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFunctionResult
+ *   FunctionSummary: { // FunctionSummary
+ *     Name: "STRING_VALUE", // required
+ *     Status: "STRING_VALUE",
+ *     FunctionConfig: { // FunctionConfig
+ *       Comment: "STRING_VALUE", // required
+ *       Runtime: "cloudfront-js-1.0", // required
+ *     },
+ *     FunctionMetadata: { // FunctionMetadata
+ *       FunctionARN: "STRING_VALUE", // required
+ *       Stage: "DEVELOPMENT" || "LIVE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ *   ETag: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateFunctionCommandInput - {@link UpdateFunctionCommandInput}
@@ -87,6 +106,8 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateFunctionCommand extends $Command<

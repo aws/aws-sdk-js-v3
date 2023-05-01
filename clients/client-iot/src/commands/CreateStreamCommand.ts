@@ -65,6 +65,14 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamResponse
+ *   streamId: "STRING_VALUE",
+ *   streamArn: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   streamVersion: Number("int"),
+ * };
+ *
  * ```
  *
  * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
@@ -97,6 +105,8 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateStreamCommand extends $Command<

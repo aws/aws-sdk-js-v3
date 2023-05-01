@@ -45,6 +45,14 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * };
  * const command = new ListAdminsManagingAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAdminsManagingAccountResponse
+ *   AdminAccounts: [ // AccountIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAdminsManagingAccountCommandInput - {@link ListAdminsManagingAccountCommandInput}
@@ -63,6 +71,8 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListAdminsManagingAccountCommand extends $Command<

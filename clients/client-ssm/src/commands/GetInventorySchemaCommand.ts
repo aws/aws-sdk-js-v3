@@ -49,6 +49,24 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * };
  * const command = new GetInventorySchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInventorySchemaResult
+ *   Schemas: [ // InventoryItemSchemaResultList
+ *     { // InventoryItemSchema
+ *       TypeName: "STRING_VALUE", // required
+ *       Version: "STRING_VALUE",
+ *       Attributes: [ // InventoryItemAttributeList // required
+ *         { // InventoryItemAttribute
+ *           Name: "STRING_VALUE", // required
+ *           DataType: "string" || "number", // required
+ *         },
+ *       ],
+ *       DisplayName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetInventorySchemaCommandInput - {@link GetInventorySchemaCommandInput}
@@ -66,6 +84,8 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * @throws {@link InvalidTypeNameException} (client fault)
  *  <p>The parameter type name isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetInventorySchemaCommand extends $Command<

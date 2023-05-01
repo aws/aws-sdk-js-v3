@@ -55,6 +55,25 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * };
  * const command = new AssociateTrunkInterfaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTrunkInterfaceResult
+ *   InterfaceAssociation: { // TrunkInterfaceAssociation
+ *     AssociationId: "STRING_VALUE",
+ *     BranchInterfaceId: "STRING_VALUE",
+ *     TrunkInterfaceId: "STRING_VALUE",
+ *     InterfaceProtocol: "VLAN" || "GRE",
+ *     VlanId: Number("int"),
+ *     GreKey: Number("int"),
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateTrunkInterfaceCommandInput - {@link AssociateTrunkInterfaceCommandInput}
@@ -63,6 +82,8 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * @see {@link AssociateTrunkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateTrunkInterfaceCommand extends $Command<

@@ -47,6 +47,12 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * };
  * const command = new MergeBranchesByFastForwardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MergeBranchesByFastForwardOutput
+ *   commitId: "STRING_VALUE",
+ *   treeId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param MergeBranchesByFastForwardCommandInput - {@link MergeBranchesByFastForwardCommandInput}
@@ -120,6 +126,8 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class MergeBranchesByFastForwardCommand extends $Command<

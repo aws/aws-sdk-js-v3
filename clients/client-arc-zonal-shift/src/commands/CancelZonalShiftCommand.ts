@@ -44,6 +44,17 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * };
  * const command = new CancelZonalShiftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ZonalShift
+ *   zonalShiftId: "STRING_VALUE", // required
+ *   resourceIdentifier: "STRING_VALUE", // required
+ *   awayFrom: "STRING_VALUE", // required
+ *   expiryTime: new Date("TIMESTAMP"), // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
+ *   comment: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
@@ -70,6 +81,8 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class CancelZonalShiftCommand extends $Command<

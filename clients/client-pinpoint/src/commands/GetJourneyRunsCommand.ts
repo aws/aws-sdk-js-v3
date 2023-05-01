@@ -47,6 +47,21 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  * };
  * const command = new GetJourneyRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJourneyRunsResponse
+ *   JourneyRunsResponse: { // JourneyRunsResponse
+ *     Item: [ // ListOfJourneyRunResponse // required
+ *       { // JourneyRunResponse
+ *         CreationTime: "STRING_VALUE", // required
+ *         LastUpdateTime: "STRING_VALUE", // required
+ *         RunId: "STRING_VALUE", // required
+ *         Status: "SCHEDULED" || "RUNNING" || "COMPLETED" || "CANCELLED", // required
+ *       },
+ *     ],
+ *     NextToken: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetJourneyRunsCommandInput - {@link GetJourneyRunsCommandInput}
@@ -76,6 +91,8 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  * @example To get the runs of a journey
  * ```javascript

@@ -54,6 +54,56 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * };
  * const command = new ListImageBuildVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImageBuildVersionsResponse
+ *   requestId: "STRING_VALUE",
+ *   imageSummaryList: [ // ImageSummaryList
+ *     { // ImageSummary
+ *       arn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       type: "AMI" || "DOCKER",
+ *       version: "STRING_VALUE",
+ *       platform: "Windows" || "Linux",
+ *       osVersion: "STRING_VALUE",
+ *       state: { // ImageState
+ *         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ *         reason: "STRING_VALUE",
+ *       },
+ *       owner: "STRING_VALUE",
+ *       dateCreated: "STRING_VALUE",
+ *       outputResources: { // OutputResources
+ *         amis: [ // AmiList
+ *           { // Ami
+ *             region: "STRING_VALUE",
+ *             image: "STRING_VALUE",
+ *             name: "STRING_VALUE",
+ *             description: "STRING_VALUE",
+ *             state: {
+ *               status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ *               reason: "STRING_VALUE",
+ *             },
+ *             accountId: "STRING_VALUE",
+ *           },
+ *         ],
+ *         containers: [ // ContainerList
+ *           { // Container
+ *             region: "STRING_VALUE",
+ *             imageUris: [ // StringList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ *       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImageBuildVersionsCommandInput - {@link ListImageBuildVersionsCommandInput}
@@ -86,6 +136,8 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImageBuildVersionsCommand extends $Command<

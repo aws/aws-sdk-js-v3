@@ -58,6 +58,21 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * };
  * const command = new ListGlobalTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGlobalTablesOutput
+ *   GlobalTables: [ // GlobalTableList
+ *     { // GlobalTable
+ *       GlobalTableName: "STRING_VALUE",
+ *       ReplicationGroup: [ // ReplicaList
+ *         { // Replica
+ *           RegionName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   LastEvaluatedGlobalTableName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListGlobalTablesCommandInput - {@link ListGlobalTablesCommandInput}
@@ -71,6 +86,8 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListGlobalTablesCommand extends $Command<

@@ -56,6 +56,29 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventSubscriptionsMessage
+ *   Marker: "STRING_VALUE",
+ *   EventSubscriptionsList: [ // EventSubscriptionsList
+ *     { // EventSubscription
+ *       CustomerAwsId: "STRING_VALUE",
+ *       CustSubscriptionId: "STRING_VALUE",
+ *       SnsTopicArn: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       SubscriptionCreationTime: "STRING_VALUE",
+ *       SourceType: "STRING_VALUE",
+ *       SourceIdsList: [ // SourceIdsList
+ *         "STRING_VALUE",
+ *       ],
+ *       EventCategoriesList: [ // EventCategoriesList
+ *         "STRING_VALUE",
+ *       ],
+ *       Enabled: true || false,
+ *       EventSubscriptionArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
@@ -67,6 +90,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The subscription name does not exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe event subscriptions
  * ```javascript

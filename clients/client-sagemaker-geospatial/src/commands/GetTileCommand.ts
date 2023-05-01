@@ -64,6 +64,11 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * };
  * const command = new GetTileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTileOutput
+ *   BinaryFile: "STREAMING_BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetTileCommandInput - {@link GetTileCommandInput}
@@ -87,6 +92,8 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class GetTileCommand extends $Command<

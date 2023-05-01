@@ -80,6 +80,15 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * };
  * const command = new ProvisionDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionDeviceResponse
+ *   DeviceId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ *   Certificates: "BLOB_VALUE",
+ *   IotThingName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ProvisionDeviceCommandInput - {@link ProvisionDeviceCommandInput}
@@ -103,6 +112,8 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ProvisionDeviceCommand extends $Command<

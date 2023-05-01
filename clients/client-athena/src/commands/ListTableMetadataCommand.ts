@@ -48,6 +48,36 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  * };
  * const command = new ListTableMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTableMetadataOutput
+ *   TableMetadataList: [ // TableMetadataList
+ *     { // TableMetadata
+ *       Name: "STRING_VALUE", // required
+ *       CreateTime: new Date("TIMESTAMP"),
+ *       LastAccessTime: new Date("TIMESTAMP"),
+ *       TableType: "STRING_VALUE",
+ *       Columns: [ // ColumnList
+ *         { // Column
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE",
+ *           Comment: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PartitionKeys: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE",
+ *           Comment: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Parameters: { // ParametersMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTableMetadataCommandInput - {@link ListTableMetadataCommandInput}
@@ -72,6 +102,8 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  *                 Lambda
  *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListTableMetadataCommand extends $Command<

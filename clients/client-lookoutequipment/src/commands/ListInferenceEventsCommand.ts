@@ -49,6 +49,21 @@ export interface ListInferenceEventsCommandOutput extends ListInferenceEventsRes
  * };
  * const command = new ListInferenceEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInferenceEventsResponse
+ *   NextToken: "STRING_VALUE",
+ *   InferenceEventSummaries: [ // InferenceEventSummaries
+ *     { // InferenceEventSummary
+ *       InferenceSchedulerArn: "STRING_VALUE",
+ *       InferenceSchedulerName: "STRING_VALUE",
+ *       EventStartTime: new Date("TIMESTAMP"),
+ *       EventEndTime: new Date("TIMESTAMP"),
+ *       Diagnostics: "STRING_VALUE",
+ *       EventDurationInSeconds: Number("long"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListInferenceEventsCommandInput - {@link ListInferenceEventsCommandInput}
@@ -76,6 +91,8 @@ export interface ListInferenceEventsCommandOutput extends ListInferenceEventsRes
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListInferenceEventsCommand extends $Command<

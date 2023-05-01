@@ -49,6 +49,21 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSetsResponse
+ *   dataSets: [ // DataSetsSummaryList // required
+ *     { // DataSetSummary
+ *       dataSetName: "STRING_VALUE", // required
+ *       dataSetOrg: "STRING_VALUE",
+ *       format: "STRING_VALUE",
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdatedTime: new Date("TIMESTAMP"),
+ *       lastReferencedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
@@ -72,6 +87,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListDataSetsCommand extends $Command<

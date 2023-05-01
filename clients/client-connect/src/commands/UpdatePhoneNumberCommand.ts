@@ -52,6 +52,12 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePhoneNumberResponse
+ *   PhoneNumberId: "STRING_VALUE",
+ *   PhoneNumberArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
@@ -81,6 +87,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdatePhoneNumberCommand extends $Command<

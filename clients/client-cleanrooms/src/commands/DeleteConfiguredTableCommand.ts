@@ -44,6 +44,9 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * };
  * const command = new DeleteConfiguredTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfiguredTableCommandInput - {@link DeleteConfiguredTableCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteConfiguredTableCommand extends $Command<

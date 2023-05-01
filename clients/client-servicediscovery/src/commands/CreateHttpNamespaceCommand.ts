@@ -56,6 +56,11 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * };
  * const command = new CreateHttpNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHttpNamespaceResponse
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateHttpNamespaceCommandInput - {@link CreateHttpNamespaceCommandInput}
@@ -83,6 +88,8 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
  *    applied to a resource is 50.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example CreateHttpNamespace example
  * ```javascript

@@ -57,6 +57,12 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * };
  * const command = new CreateCustomMetricCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomMetricResponse
+ *   metricName: "STRING_VALUE",
+ *   metricArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCustomMetricCommandInput - {@link CreateCustomMetricCommandInput}
@@ -80,6 +86,8 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateCustomMetricCommand extends $Command<

@@ -49,6 +49,9 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * };
  * const command = new DeleteSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSubscriptionDefinitionCommandInput - {@link DeleteSubscriptionDefinitionCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteSubscriptionDefinitionCommand extends $Command<

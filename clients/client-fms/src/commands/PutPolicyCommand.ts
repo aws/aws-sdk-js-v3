@@ -126,6 +126,56 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * };
  * const command = new PutPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutPolicyResponse
+ *   Policy: { // Policy
+ *     PolicyId: "STRING_VALUE",
+ *     PolicyName: "STRING_VALUE", // required
+ *     PolicyUpdateToken: "STRING_VALUE",
+ *     SecurityServicePolicyData: { // SecurityServicePolicyData
+ *       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL", // required
+ *       ManagedServiceData: "STRING_VALUE",
+ *       PolicyOption: { // PolicyOption
+ *         NetworkFirewallPolicy: { // NetworkFirewallPolicy
+ *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ *         },
+ *         ThirdPartyFirewallPolicy: { // ThirdPartyFirewallPolicy
+ *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ *         },
+ *       },
+ *     },
+ *     ResourceType: "STRING_VALUE", // required
+ *     ResourceTypeList: [ // ResourceTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceTags: [ // ResourceTags
+ *       { // ResourceTag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ExcludeResourceTags: true || false, // required
+ *     RemediationEnabled: true || false, // required
+ *     DeleteUnusedFMManagedResources: true || false,
+ *     IncludeMap: { // CustomerPolicyScopeMap
+ *       "<keys>": [ // CustomerPolicyScopeIdList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ExcludeMap: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ResourceSetIds: [ // ResourceSetIds
+ *       "STRING_VALUE",
+ *     ],
+ *     PolicyDescription: "STRING_VALUE",
+ *     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *   },
+ *   PolicyArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
@@ -160,6 +210,8 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyCommandOutput, FMSClientResolvedConfig> {

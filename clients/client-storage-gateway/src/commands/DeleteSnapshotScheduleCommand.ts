@@ -58,6 +58,11 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSnapshotScheduleOutput
+ *   VolumeARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteSnapshotScheduleCommandInput - {@link DeleteSnapshotScheduleCommandInput}
@@ -74,6 +79,8 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete a snapshot of a volume
  * ```javascript

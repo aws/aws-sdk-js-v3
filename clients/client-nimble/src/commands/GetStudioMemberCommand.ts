@@ -45,6 +45,16 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
  * };
  * const command = new GetStudioMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStudioMemberResponse
+ *   member: { // StudioMembership
+ *     identityStoreId: "STRING_VALUE",
+ *     persona: "ADMINISTRATOR",
+ *     principalId: "STRING_VALUE",
+ *     sid: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStudioMemberCommandInput - {@link GetStudioMemberCommandInput}
@@ -77,6 +87,8 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class GetStudioMemberCommand extends $Command<

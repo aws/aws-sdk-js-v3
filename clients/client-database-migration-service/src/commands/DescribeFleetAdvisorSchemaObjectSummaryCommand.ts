@@ -67,6 +67,20 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * };
  * const command = new DescribeFleetAdvisorSchemaObjectSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetAdvisorSchemaObjectSummaryResponse
+ *   FleetAdvisorSchemaObjects: [ // FleetAdvisorSchemaObjectList
+ *     { // FleetAdvisorSchemaObjectResponse
+ *       SchemaId: "STRING_VALUE",
+ *       ObjectType: "STRING_VALUE",
+ *       NumberOfObjects: Number("long"),
+ *       CodeLineCount: Number("long"),
+ *       CodeSize: Number("long"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeFleetAdvisorSchemaObjectSummaryCommandInput - {@link DescribeFleetAdvisorSchemaObjectSummaryCommandInput}
@@ -78,6 +92,8 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<

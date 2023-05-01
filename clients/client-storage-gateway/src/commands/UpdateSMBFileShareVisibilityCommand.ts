@@ -51,6 +51,11 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  * };
  * const command = new UpdateSMBFileShareVisibilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSMBFileShareVisibilityOutput
+ *   GatewayARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateSMBFileShareVisibilityCommandInput - {@link UpdateSMBFileShareVisibilityCommandInput}
@@ -67,6 +72,8 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class UpdateSMBFileShareVisibilityCommand extends $Command<

@@ -49,6 +49,25 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   Applications: [ // __listOfApplicationSummary
+ *     { // ApplicationSummary
+ *       ApplicationId: "STRING_VALUE", // required
+ *       Author: "STRING_VALUE", // required
+ *       CreationTime: "STRING_VALUE",
+ *       Description: "STRING_VALUE", // required
+ *       HomePageUrl: "STRING_VALUE",
+ *       Labels: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
+ *       Name: "STRING_VALUE", // required
+ *       SpdxLicenseId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -69,6 +88,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

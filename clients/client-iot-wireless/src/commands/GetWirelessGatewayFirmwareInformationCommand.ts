@@ -53,6 +53,17 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * };
  * const command = new GetWirelessGatewayFirmwareInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessGatewayFirmwareInformationResponse
+ *   LoRaWAN: { // LoRaWANGatewayCurrentVersion
+ *     CurrentVersion: { // LoRaWANGatewayVersion
+ *       PackageVersion: "STRING_VALUE",
+ *       Model: "STRING_VALUE",
+ *       Station: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWirelessGatewayFirmwareInformationCommandInput - {@link GetWirelessGatewayFirmwareInformationCommandInput}
@@ -76,6 +87,8 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayFirmwareInformationCommand extends $Command<

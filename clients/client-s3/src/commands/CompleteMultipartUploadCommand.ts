@@ -184,6 +184,24 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CompleteMultipartUploadOutput
+ *   Location: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE",
+ *   Key: "STRING_VALUE",
+ *   Expiration: "STRING_VALUE",
+ *   ETag: "STRING_VALUE",
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   VersionId: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ *   RequestCharged: "requester",
+ * };
+ *
  * ```
  *
  * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
@@ -192,6 +210,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To complete multipart upload
  * ```javascript

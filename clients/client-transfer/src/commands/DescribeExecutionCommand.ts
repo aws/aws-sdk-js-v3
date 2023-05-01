@@ -45,6 +45,68 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExecutionResponse
+ *   WorkflowId: "STRING_VALUE", // required
+ *   Execution: { // DescribedExecution
+ *     ExecutionId: "STRING_VALUE",
+ *     InitialFileLocation: { // FileLocation
+ *       S3FileLocation: { // S3FileLocation
+ *         Bucket: "STRING_VALUE",
+ *         Key: "STRING_VALUE",
+ *         VersionId: "STRING_VALUE",
+ *         Etag: "STRING_VALUE",
+ *       },
+ *       EfsFileLocation: { // EfsFileLocation
+ *         FileSystemId: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *       },
+ *     },
+ *     ServiceMetadata: { // ServiceMetadata
+ *       UserDetails: { // UserDetails
+ *         UserName: "STRING_VALUE", // required
+ *         ServerId: "STRING_VALUE", // required
+ *         SessionId: "STRING_VALUE",
+ *       },
+ *     },
+ *     ExecutionRole: "STRING_VALUE",
+ *     LoggingConfiguration: { // LoggingConfiguration
+ *       LoggingRole: "STRING_VALUE",
+ *       LogGroupName: "STRING_VALUE",
+ *     },
+ *     PosixProfile: { // PosixProfile
+ *       Uid: Number("long"), // required
+ *       Gid: Number("long"), // required
+ *       SecondaryGids: [ // SecondaryGids
+ *         Number("long"),
+ *       ],
+ *     },
+ *     Status: "IN_PROGRESS" || "COMPLETED" || "EXCEPTION" || "HANDLING_EXCEPTION",
+ *     Results: { // ExecutionResults
+ *       Steps: [ // ExecutionStepResults
+ *         { // ExecutionStepResult
+ *           StepType: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *           Outputs: "STRING_VALUE",
+ *           Error: { // ExecutionError
+ *             Type: "PERMISSION_DENIED" || "CUSTOM_STEP_FAILED" || "THROTTLED" || "ALREADY_EXISTS" || "NOT_FOUND" || "BAD_REQUEST" || "TIMEOUT" || "INTERNAL_SERVER_ERROR", // required
+ *             Message: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *       OnExceptionSteps: [
+ *         {
+ *           StepType: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *           Outputs: "STRING_VALUE",
+ *           Error: {
+ *             Type: "PERMISSION_DENIED" || "CUSTOM_STEP_FAILED" || "THROTTLED" || "ALREADY_EXISTS" || "NOT_FOUND" || "BAD_REQUEST" || "TIMEOUT" || "INTERNAL_SERVER_ERROR", // required
+ *             Message: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
@@ -66,6 +128,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeExecutionCommand extends $Command<

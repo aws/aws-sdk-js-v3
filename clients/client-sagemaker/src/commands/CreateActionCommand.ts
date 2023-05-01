@@ -71,6 +71,11 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * };
  * const command = new CreateActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateActionResponse
+ *   ActionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateActionCommandInput - {@link CreateActionCommandInput}
@@ -83,6 +88,8 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateActionCommand extends $Command<

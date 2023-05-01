@@ -54,6 +54,11 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * };
  * const command = new InvokeDeviceMethodCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeDeviceMethodResponse
+ *   DeviceMethodResponse: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param InvokeDeviceMethodCommandInput - {@link InvokeDeviceMethodCommandInput}
@@ -74,6 +79,8 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class InvokeDeviceMethodCommand extends $Command<

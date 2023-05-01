@@ -60,6 +60,9 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * };
  * const command = new StartCostEstimationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartCostEstimationCommandInput - {@link StartCostEstimationCommandInput}
@@ -90,6 +93,8 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class StartCostEstimationCommand extends $Command<

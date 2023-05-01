@@ -77,6 +77,11 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * };
  * const command = new StartDocumentTextDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDocumentTextDetectionResponse
+ *   JobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartDocumentTextDetectionCommandInput - {@link StartDocumentTextDetectionCommandInput}
@@ -141,6 +146,8 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class StartDocumentTextDetectionCommand extends $Command<

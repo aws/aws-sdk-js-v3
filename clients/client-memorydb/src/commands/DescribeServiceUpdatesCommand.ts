@@ -52,6 +52,23 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * };
  * const command = new DescribeServiceUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceUpdatesResponse
+ *   NextToken: "STRING_VALUE",
+ *   ServiceUpdates: [ // ServiceUpdateList
+ *     { // ServiceUpdate
+ *       ClusterName: "STRING_VALUE",
+ *       ServiceUpdateName: "STRING_VALUE",
+ *       ReleaseDate: new Date("TIMESTAMP"),
+ *       Description: "STRING_VALUE",
+ *       Status: "available" || "in-progress" || "complete" || "scheduled",
+ *       Type: "security-update",
+ *       NodesUpdated: "STRING_VALUE",
+ *       AutoUpdateStartDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeServiceUpdatesCommandInput - {@link DescribeServiceUpdatesCommandInput}
@@ -66,6 +83,8 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeServiceUpdatesCommand extends $Command<

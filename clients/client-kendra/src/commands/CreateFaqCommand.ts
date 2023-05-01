@@ -63,6 +63,11 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  * };
  * const command = new CreateFaqCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFaqResponse
+ *   Id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateFaqCommandInput - {@link CreateFaqCommandInput}
@@ -101,6 +106,8 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateFaqCommand extends $Command<

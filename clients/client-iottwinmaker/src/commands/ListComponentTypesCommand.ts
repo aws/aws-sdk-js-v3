@@ -53,6 +53,30 @@ export interface ListComponentTypesCommandOutput extends ListComponentTypesRespo
  * };
  * const command = new ListComponentTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentTypesResponse
+ *   workspaceId: "STRING_VALUE", // required
+ *   componentTypeSummaries: [ // ComponentTypeSummaries // required
+ *     { // ComponentTypeSummary
+ *       arn: "STRING_VALUE", // required
+ *       componentTypeId: "STRING_VALUE", // required
+ *       creationDateTime: new Date("TIMESTAMP"), // required
+ *       updateDateTime: new Date("TIMESTAMP"), // required
+ *       description: "STRING_VALUE",
+ *       status: { // Status
+ *         state: "STRING_VALUE",
+ *         error: { // ErrorDetails
+ *           code: "STRING_VALUE",
+ *           message: "STRING_VALUE",
+ *         },
+ *       },
+ *       componentTypeName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
+ *
  * ```
  *
  * @param ListComponentTypesCommandInput - {@link ListComponentTypesCommandInput}
@@ -73,6 +97,8 @@ export interface ListComponentTypesCommandOutput extends ListComponentTypesRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListComponentTypesCommand extends $Command<

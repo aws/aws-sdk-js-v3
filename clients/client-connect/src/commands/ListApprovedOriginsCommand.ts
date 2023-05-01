@@ -47,6 +47,14 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  * };
  * const command = new ListApprovedOriginsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApprovedOriginsResponse
+ *   Origins: [ // OriginsList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApprovedOriginsCommandInput - {@link ListApprovedOriginsCommandInput}
@@ -70,6 +78,8 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListApprovedOriginsCommand extends $Command<

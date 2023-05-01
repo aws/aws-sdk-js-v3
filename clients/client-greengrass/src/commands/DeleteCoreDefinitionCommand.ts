@@ -44,6 +44,9 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  * };
  * const command = new DeleteCoreDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCoreDefinitionCommandInput - {@link DeleteCoreDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteCoreDefinitionCommand extends $Command<

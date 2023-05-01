@@ -51,6 +51,14 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * };
  * const command = new ListPhoneNumbersOptedOutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPhoneNumbersOptedOutResponse
+ *   phoneNumbers: [ // PhoneNumberList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPhoneNumbersOptedOutCommandInput - {@link ListPhoneNumbersOptedOutCommandInput}
@@ -72,6 +80,8 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListPhoneNumbersOptedOutCommand extends $Command<

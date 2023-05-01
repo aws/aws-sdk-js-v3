@@ -52,6 +52,34 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  * };
  * const command = new ListTableRowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTableRowsResult
+ *   columnIds: [ // ResourceIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   rows: [ // TableRows // required
+ *     { // TableRow
+ *       rowId: "STRING_VALUE", // required
+ *       cells: [ // Cells // required
+ *         { // Cell
+ *           formula: "STRING_VALUE",
+ *           format: "STRING_VALUE",
+ *           rawValue: "STRING_VALUE",
+ *           formattedValue: "STRING_VALUE",
+ *           formattedValues: [ // FormattedValuesList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   rowIdsNotFound: [ // RowIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   workbookCursor: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param ListTableRowsCommandInput - {@link ListTableRowsCommandInput}
@@ -86,6 +114,8 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class ListTableRowsCommand extends $Command<

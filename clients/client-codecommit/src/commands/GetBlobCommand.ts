@@ -45,6 +45,11 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  * };
  * const command = new GetBlobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBlobOutput
+ *   content: "BLOB_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetBlobCommandInput - {@link GetBlobCommandInput}
@@ -96,6 +101,8 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetBlobCommand extends $Command<

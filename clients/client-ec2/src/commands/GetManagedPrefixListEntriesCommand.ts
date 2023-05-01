@@ -48,6 +48,17 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * };
  * const command = new GetManagedPrefixListEntriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetManagedPrefixListEntriesResult
+ *   Entries: [ // PrefixListEntrySet
+ *     { // PrefixListEntry
+ *       Cidr: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetManagedPrefixListEntriesCommandInput - {@link GetManagedPrefixListEntriesCommandInput}
@@ -56,6 +67,8 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * @see {@link GetManagedPrefixListEntriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetManagedPrefixListEntriesCommand extends $Command<

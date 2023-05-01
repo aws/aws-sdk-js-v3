@@ -58,6 +58,24 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * };
  * const command = new CreateDBClusterEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterEndpointOutput
+ *   DBClusterEndpointIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ *   Endpoint: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   EndpointType: "STRING_VALUE",
+ *   CustomEndpointType: "STRING_VALUE",
+ *   StaticMembers: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   ExcludedMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterEndpointArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterEndpointCommandInput - {@link CreateDBClusterEndpointCommandInput}
@@ -86,6 +104,8 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The specified DB instance is not in the <i>available</i> state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CreateDBClusterEndpointCommand extends $Command<

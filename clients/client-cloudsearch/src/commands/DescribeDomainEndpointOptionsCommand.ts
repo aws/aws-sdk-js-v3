@@ -50,6 +50,23 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * };
  * const command = new DescribeDomainEndpointOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainEndpointOptionsResponse
+ *   DomainEndpointOptions: { // DomainEndpointOptionsStatus
+ *     Options: { // DomainEndpointOptions
+ *       EnforceHTTPS: true || false,
+ *       TLSSecurityPolicy: "STRING_VALUE",
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date("TIMESTAMP"), // required
+ *       UpdateDate: new Date("TIMESTAMP"), // required
+ *       UpdateVersion: Number("int"),
+ *       State: "STRING_VALUE", // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDomainEndpointOptionsCommandInput - {@link DescribeDomainEndpointOptionsCommandInput}
@@ -74,6 +91,8 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeDomainEndpointOptionsCommand extends $Command<

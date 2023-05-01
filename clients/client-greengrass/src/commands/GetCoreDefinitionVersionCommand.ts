@@ -45,6 +45,25 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * };
  * const command = new GetCoreDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoreDefinitionVersionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Definition: { // CoreDefinitionVersion
+ *     Cores: [ // __listOfCore
+ *       { // Core
+ *         CertificateArn: "STRING_VALUE", // required
+ *         Id: "STRING_VALUE", // required
+ *         SyncShadow: true || false,
+ *         ThingArn: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   Id: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCoreDefinitionVersionCommandInput - {@link GetCoreDefinitionVersionCommandInput}
@@ -56,6 +75,8 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetCoreDefinitionVersionCommand extends $Command<

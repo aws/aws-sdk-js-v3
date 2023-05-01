@@ -45,6 +45,17 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteConnectionResponse
+ *   Connection: { // Connection
+ *     ConnectionName: "STRING_VALUE",
+ *     ConnectionArn: "STRING_VALUE",
+ *     ProviderType: "GITHUB",
+ *     Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -62,6 +73,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DeleteConnectionCommand extends $Command<

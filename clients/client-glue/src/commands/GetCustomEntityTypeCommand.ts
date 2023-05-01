@@ -44,6 +44,15 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  * };
  * const command = new GetCustomEntityTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomEntityTypeResponse
+ *   Name: "STRING_VALUE",
+ *   RegexString: "STRING_VALUE",
+ *   ContextWords: [ // ContextWords
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCustomEntityTypeCommandInput - {@link GetCustomEntityTypeCommandInput}
@@ -67,6 +76,8 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetCustomEntityTypeCommand extends $Command<

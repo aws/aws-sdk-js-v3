@@ -54,6 +54,11 @@ export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkR
  * };
  * const command = new EnableVpcClassicLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableVpcClassicLinkResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param EnableVpcClassicLinkCommandInput - {@link EnableVpcClassicLinkCommandInput}
@@ -62,6 +67,8 @@ export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkR
  * @see {@link EnableVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableVpcClassicLinkCommand extends $Command<

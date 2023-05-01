@@ -57,6 +57,20 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * };
  * const command = new ListChannelBansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelBansResponse
+ *   ChannelArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   ChannelBans: [ // ChannelBanSummaryList
+ *     { // ChannelBanSummary
+ *       Member: { // Identity
+ *         Arn: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListChannelBansCommandInput - {@link ListChannelBansCommandInput}
@@ -83,6 +97,8 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListChannelBansCommand extends $Command<

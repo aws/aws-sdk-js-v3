@@ -52,6 +52,9 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReplicationConfigurationCommandInput - {@link DeleteReplicationConfigurationCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  *  <p>Returned if the specified file system does not have a replication
  *             configuration.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DeleteReplicationConfigurationCommand extends $Command<

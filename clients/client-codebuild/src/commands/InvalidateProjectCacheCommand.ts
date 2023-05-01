@@ -44,6 +44,9 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * };
  * const command = new InvalidateProjectCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param InvalidateProjectCacheCommandInput - {@link InvalidateProjectCacheCommandInput}
@@ -58,6 +61,8 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class InvalidateProjectCacheCommand extends $Command<

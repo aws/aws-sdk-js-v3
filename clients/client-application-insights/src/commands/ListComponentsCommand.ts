@@ -50,6 +50,26 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentsResponse
+ *   ApplicationComponentList: [ // ApplicationComponentList
+ *     { // ApplicationComponent
+ *       ComponentName: "STRING_VALUE",
+ *       ComponentRemarks: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       OsType: "STRING_VALUE",
+ *       Tier: "STRING_VALUE",
+ *       Monitor: true || false,
+ *       DetectedWorkload: { // DetectedWorkload
+ *         "<keys>": { // WorkloadMetaData
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
@@ -67,6 +87,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class ListComponentsCommand extends $Command<

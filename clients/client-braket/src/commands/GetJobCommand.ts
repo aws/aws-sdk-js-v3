@@ -44,6 +44,72 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJobResponse
+ *   status: "STRING_VALUE", // required
+ *   jobArn: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   failureReason: "STRING_VALUE",
+ *   jobName: "STRING_VALUE", // required
+ *   hyperParameters: { // HyperParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   inputDataConfig: [ // InputConfigList
+ *     { // InputFileConfig
+ *       channelName: "STRING_VALUE", // required
+ *       contentType: "STRING_VALUE",
+ *       dataSource: { // DataSource
+ *         s3DataSource: { // S3DataSource
+ *           s3Uri: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   outputDataConfig: { // JobOutputDataConfig
+ *     kmsKeyId: "STRING_VALUE",
+ *     s3Path: "STRING_VALUE", // required
+ *   },
+ *   stoppingCondition: { // JobStoppingCondition
+ *     maxRuntimeInSeconds: Number("int"),
+ *   },
+ *   checkpointConfig: { // JobCheckpointConfig
+ *     localPath: "STRING_VALUE",
+ *     s3Uri: "STRING_VALUE", // required
+ *   },
+ *   algorithmSpecification: { // AlgorithmSpecification
+ *     scriptModeConfig: { // ScriptModeConfig
+ *       entryPoint: "STRING_VALUE", // required
+ *       s3Uri: "STRING_VALUE", // required
+ *       compressionType: "STRING_VALUE",
+ *     },
+ *     containerImage: { // ContainerImage
+ *       uri: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   instanceConfig: { // InstanceConfig
+ *     instanceType: "STRING_VALUE", // required
+ *     volumeSizeInGb: Number("int"), // required
+ *     instanceCount: Number("int"),
+ *   },
+ *   createdAt: new Date("TIMESTAMP"), // required
+ *   startedAt: new Date("TIMESTAMP"),
+ *   endedAt: new Date("TIMESTAMP"),
+ *   billableDuration: Number("int"),
+ *   deviceConfig: { // DeviceConfig
+ *     device: "STRING_VALUE", // required
+ *   },
+ *   events: [ // JobEvents
+ *     { // JobEventDetails
+ *       eventType: "STRING_VALUE",
+ *       timeOfEvent: new Date("TIMESTAMP"),
+ *       message: "STRING_VALUE",
+ *     },
+ *   ],
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetJobCommandInput - {@link GetJobCommandInput}
@@ -68,6 +134,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, BraketClientResolvedConfig> {

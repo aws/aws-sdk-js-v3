@@ -45,6 +45,22 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  * };
  * const command = new ListFindingsFiltersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsFiltersResponse
+ *   findingsFilterListItems: [ // __listOfFindingsFilterListItem
+ *     { // FindingsFilterListItem
+ *       action: "ARCHIVE" || "NOOP",
+ *       arn: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFindingsFiltersCommandInput - {@link ListFindingsFiltersCommandInput}
@@ -74,6 +90,8 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListFindingsFiltersCommand extends $Command<

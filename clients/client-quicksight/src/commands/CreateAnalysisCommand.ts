@@ -4327,6 +4327,15 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  * };
  * const command = new CreateAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAnalysisResponse
+ *   Arn: "STRING_VALUE",
+ *   AnalysisId: "STRING_VALUE",
+ *   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateAnalysisCommandInput - {@link CreateAnalysisCommandInput}
@@ -4362,6 +4371,8 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateAnalysisCommand extends $Command<

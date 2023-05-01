@@ -64,6 +64,15 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * };
  * const command = new CreateAppInstanceAdminCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppInstanceAdminResponse
+ *   AppInstanceAdmin: { // Identity
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *   },
+ *   AppInstanceArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateAppInstanceAdminCommandInput - {@link CreateAppInstanceAdminCommandInput}
@@ -97,6 +106,8 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class CreateAppInstanceAdminCommand extends $Command<

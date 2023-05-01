@@ -58,6 +58,31 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * };
  * const command = new CreateLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLinkResponse
+ *   Link: { // Link
+ *     LinkId: "STRING_VALUE",
+ *     LinkArn: "STRING_VALUE",
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     SiteId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     Bandwidth: { // Bandwidth
+ *       UploadSpeed: Number("int"),
+ *       DownloadSpeed: Number("int"),
+ *     },
+ *     Provider: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
@@ -88,6 +113,8 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateLinkCommand extends $Command<

@@ -59,6 +59,12 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * };
  * const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseReservedElasticsearchInstanceOfferingResponse
+ *   ReservedElasticsearchInstanceId: "STRING_VALUE",
+ *   ReservationName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PurchaseReservedElasticsearchInstanceOfferingCommandInput - {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput}
@@ -85,6 +91,8 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Command<

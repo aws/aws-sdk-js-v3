@@ -46,6 +46,20 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * };
  * const command = new DescribeEventTrackerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventTrackerResponse
+ *   eventTracker: { // EventTracker
+ *     name: "STRING_VALUE",
+ *     eventTrackerArn: "STRING_VALUE",
+ *     accountId: "STRING_VALUE",
+ *     trackingId: "STRING_VALUE",
+ *     datasetGroupArn: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     creationDateTime: new Date("TIMESTAMP"),
+ *     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEventTrackerCommandInput - {@link DescribeEventTrackerCommandInput}
@@ -60,6 +74,8 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeEventTrackerCommand extends $Command<

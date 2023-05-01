@@ -73,6 +73,9 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * };
  * const command = new AttachTrafficSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachTrafficSourcesCommandInput - {@link AttachTrafficSourcesCommandInput}
@@ -88,6 +91,8 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript

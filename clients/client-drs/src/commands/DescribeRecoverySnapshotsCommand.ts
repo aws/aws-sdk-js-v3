@@ -51,6 +51,22 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * };
  * const command = new DescribeRecoverySnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecoverySnapshotsResponse
+ *   items: [ // RecoverySnapshotsList
+ *     { // RecoverySnapshot
+ *       snapshotID: "STRING_VALUE", // required
+ *       sourceServerID: "STRING_VALUE", // required
+ *       expectedTimestamp: "STRING_VALUE", // required
+ *       timestamp: "STRING_VALUE",
+ *       ebsSnapshots: [ // EbsSnapshotsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeRecoverySnapshotsCommandInput - {@link DescribeRecoverySnapshotsCommandInput}
@@ -74,6 +90,8 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DescribeRecoverySnapshotsCommand extends $Command<

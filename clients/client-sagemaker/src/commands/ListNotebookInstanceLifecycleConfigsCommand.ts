@@ -60,6 +60,19 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * };
  * const command = new ListNotebookInstanceLifecycleConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNotebookInstanceLifecycleConfigsOutput
+ *   NextToken: "STRING_VALUE",
+ *   NotebookInstanceLifecycleConfigs: [ // NotebookInstanceLifecycleConfigSummaryList
+ *     { // NotebookInstanceLifecycleConfigSummary
+ *       NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ *       NotebookInstanceLifecycleConfigArn: "STRING_VALUE", // required
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListNotebookInstanceLifecycleConfigsCommandInput - {@link ListNotebookInstanceLifecycleConfigsCommandInput}
@@ -68,6 +81,8 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<

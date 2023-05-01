@@ -47,6 +47,77 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * };
  * const command = new DescribeProductAsAdminCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProductAsAdminOutput
+ *   ProductViewDetail: { // ProductViewDetail
+ *     ProductViewSummary: { // ProductViewSummary
+ *       Id: "STRING_VALUE",
+ *       ProductId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Owner: "STRING_VALUE",
+ *       ShortDescription: "STRING_VALUE",
+ *       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
+ *       Distributor: "STRING_VALUE",
+ *       HasDefaultPath: true || false,
+ *       SupportEmail: "STRING_VALUE",
+ *       SupportDescription: "STRING_VALUE",
+ *       SupportUrl: "STRING_VALUE",
+ *     },
+ *     Status: "AVAILABLE" || "CREATING" || "FAILED",
+ *     ProductARN: "STRING_VALUE",
+ *     CreatedTime: new Date("TIMESTAMP"),
+ *     SourceConnection: { // SourceConnectionDetail
+ *       Type: "CODESTAR",
+ *       ConnectionParameters: { // SourceConnectionParameters
+ *         CodeStar: { // CodeStarParameters
+ *           ConnectionArn: "STRING_VALUE", // required
+ *           Repository: "STRING_VALUE", // required
+ *           Branch: "STRING_VALUE", // required
+ *           ArtifactPath: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       LastSync: { // LastSync
+ *         LastSyncTime: new Date("TIMESTAMP"),
+ *         LastSyncStatus: "SUCCEEDED" || "FAILED",
+ *         LastSyncStatusMessage: "STRING_VALUE",
+ *         LastSuccessfulSyncTime: new Date("TIMESTAMP"),
+ *         LastSuccessfulSyncProvisioningArtifactId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ProvisioningArtifactSummaries: [ // ProvisioningArtifactSummaries
+ *     { // ProvisioningArtifactSummary
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       ProvisioningArtifactMetadata: { // ProvisioningArtifactInfo
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TagOptions: [ // TagOptionDetails
+ *     { // TagOptionDetail
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       Active: true || false,
+ *       Id: "STRING_VALUE",
+ *       Owner: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Budgets: [ // Budgets
+ *     { // BudgetDetail
+ *       BudgetName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeProductAsAdminCommandInput - {@link DescribeProductAsAdminCommandInput}
@@ -61,6 +132,8 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeProductAsAdminCommand extends $Command<

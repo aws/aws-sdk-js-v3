@@ -51,6 +51,13 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
  * };
  * const command = new DeleteDefaultSenderIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDefaultSenderIdResult
+ *   ConfigurationSetArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   SenderId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteDefaultSenderIdCommandInput - {@link DeleteDefaultSenderIdCommandInput}
@@ -77,6 +84,8 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteDefaultSenderIdCommand extends $Command<

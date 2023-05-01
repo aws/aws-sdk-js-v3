@@ -53,6 +53,14 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * };
  * const command = new ApplyEnvironmentManagedActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplyEnvironmentManagedActionResult
+ *   ActionId: "STRING_VALUE",
+ *   ActionDescription: "STRING_VALUE",
+ *   ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
+ *   Status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ApplyEnvironmentManagedActionCommandInput - {@link ApplyEnvironmentManagedActionCommandInput}
@@ -67,6 +75,8 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * @throws {@link ManagedActionInvalidStateException} (client fault)
  *  <p>Cannot modify the managed action in its current state.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ApplyEnvironmentManagedActionCommand extends $Command<

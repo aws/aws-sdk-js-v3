@@ -122,6 +122,41 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * };
  * const command = new CreateGameSessionQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGameSessionQueueOutput
+ *   GameSessionQueue: { // GameSessionQueue
+ *     Name: "STRING_VALUE",
+ *     GameSessionQueueArn: "STRING_VALUE",
+ *     TimeoutInSeconds: Number("int"),
+ *     PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
+ *       { // PlayerLatencyPolicy
+ *         MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
+ *         PolicyDurationSeconds: Number("int"),
+ *       },
+ *     ],
+ *     Destinations: [ // GameSessionQueueDestinationList
+ *       { // GameSessionQueueDestination
+ *         DestinationArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     FilterConfiguration: { // FilterConfiguration
+ *       AllowedLocations: [ // LocationList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     PriorityConfiguration: { // PriorityConfiguration
+ *       PriorityOrder: [ // PriorityTypeList
+ *         "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
+ *       ],
+ *       LocationOrder: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     CustomEventData: "STRING_VALUE",
+ *     NotificationTarget: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGameSessionQueueCommandInput - {@link CreateGameSessionQueueCommandInput}
@@ -153,6 +188,8 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateGameSessionQueueCommand extends $Command<

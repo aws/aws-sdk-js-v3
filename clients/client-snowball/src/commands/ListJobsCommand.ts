@@ -49,6 +49,22 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsResult
+ *   JobListEntries: [ // JobListEntryList
+ *     { // JobListEntry
+ *       JobId: "STRING_VALUE",
+ *       JobState: "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *       IsMaster: true || false,
+ *       JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -62,6 +78,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
  *       again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To get a list of jobs that you've created for AWS Snowball
  * ```javascript

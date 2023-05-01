@@ -60,6 +60,20 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  * };
  * const command = new GetSlotTypeVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSlotTypeVersionsResponse
+ *   slotTypes: [ // SlotTypeMetadataList
+ *     { // SlotTypeMetadata
+ *       name: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       lastUpdatedDate: new Date("TIMESTAMP"),
+ *       createdDate: new Date("TIMESTAMP"),
+ *       version: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSlotTypeVersionsCommandInput - {@link GetSlotTypeVersionsCommandInput}
@@ -83,6 +97,8 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetSlotTypeVersionsCommand extends $Command<

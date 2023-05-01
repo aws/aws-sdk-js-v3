@@ -44,6 +44,25 @@ export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput,
  * };
  * const command = new GetVirtualMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVirtualMachineOutput
+ *   VirtualMachine: { // VirtualMachineDetails
+ *     HostName: "STRING_VALUE",
+ *     HypervisorId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Path: "STRING_VALUE",
+ *     ResourceArn: "STRING_VALUE",
+ *     LastBackupDate: new Date("TIMESTAMP"),
+ *     VmwareTags: [ // VmwareTags
+ *       { // VmwareTag
+ *         VmwareCategory: "STRING_VALUE",
+ *         VmwareTagName: "STRING_VALUE",
+ *         VmwareTagDescription: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVirtualMachineCommandInput - {@link GetVirtualMachineCommandInput}
@@ -65,6 +84,8 @@ export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class GetVirtualMachineCommand extends $Command<

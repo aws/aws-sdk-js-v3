@@ -56,6 +56,22 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * };
  * const command = new DescribeHomeRegionControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHomeRegionControlsResult
+ *   HomeRegionControls: [ // HomeRegionControls
+ *     { // HomeRegionControl
+ *       ControlId: "STRING_VALUE",
+ *       HomeRegion: "STRING_VALUE",
+ *       Target: { // Target
+ *         Type: "STRING_VALUE", // required
+ *         Id: "STRING_VALUE",
+ *       },
+ *       RequestedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeHomeRegionControlsCommandInput - {@link DescribeHomeRegionControlsCommandInput}
@@ -82,6 +98,8 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubConfigServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
  */
 export class DescribeHomeRegionControlsCommand extends $Command<

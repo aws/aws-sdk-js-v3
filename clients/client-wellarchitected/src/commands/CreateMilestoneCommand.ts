@@ -46,6 +46,12 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * };
  * const command = new CreateMilestoneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMilestoneOutput
+ *   WorkloadId: "STRING_VALUE",
+ *   MilestoneNumber: Number("int"),
+ * };
+ *
  * ```
  *
  * @param CreateMilestoneCommandInput - {@link CreateMilestoneCommandInput}
@@ -75,6 +81,8 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateMilestoneCommand extends $Command<

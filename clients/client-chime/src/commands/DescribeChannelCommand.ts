@@ -55,6 +55,24 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeChannelResponse
+ *   Channel: { // Channel
+ *     Name: "STRING_VALUE",
+ *     ChannelArn: "STRING_VALUE",
+ *     Mode: "UNRESTRICTED" || "RESTRICTED",
+ *     Privacy: "PUBLIC" || "PRIVATE",
+ *     Metadata: "STRING_VALUE",
+ *     CreatedBy: { // Identity
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     LastMessageTimestamp: new Date("TIMESTAMP"),
+ *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeChannelCommandInput - {@link DescribeChannelCommandInput}
@@ -81,6 +99,8 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DescribeChannelCommand extends $Command<

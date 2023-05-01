@@ -90,6 +90,18 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationsResponse
+ *   itemList: [ // ItemList
+ *     { // PredictedItem
+ *       itemId: "STRING_VALUE",
+ *       score: Number("double"),
+ *       promotionName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   recommendationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
@@ -104,6 +116,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link PersonalizeRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
  */
 export class GetRecommendationsCommand extends $Command<

@@ -53,6 +53,12 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
  * };
  * const command = new DescribePipelineDefinitionForExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePipelineDefinitionForExecutionResponse
+ *   PipelineDefinition: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribePipelineDefinitionForExecutionCommandInput - {@link DescribePipelineDefinitionForExecutionCommandInput}
@@ -64,6 +70,8 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribePipelineDefinitionForExecutionCommand extends $Command<

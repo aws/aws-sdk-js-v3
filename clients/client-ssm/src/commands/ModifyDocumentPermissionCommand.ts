@@ -55,6 +55,9 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * };
  * const command = new ModifyDocumentPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyDocumentPermissionCommandInput - {@link ModifyDocumentPermissionCommandInput}
@@ -84,6 +87,8 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  *  <p>The permission type isn't supported. <i>Share</i> is the only supported
  *    permission type.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ModifyDocumentPermissionCommand extends $Command<

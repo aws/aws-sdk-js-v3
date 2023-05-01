@@ -66,6 +66,32 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  * };
  * const command = new CreateInstanceExportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInstanceExportTaskResult
+ *   ExportTask: { // ExportTask
+ *     Description: "STRING_VALUE",
+ *     ExportTaskId: "STRING_VALUE",
+ *     ExportToS3Task: { // ExportToS3Task
+ *       ContainerFormat: "ova",
+ *       DiskImageFormat: "VMDK" || "RAW" || "VHD",
+ *       S3Bucket: "STRING_VALUE",
+ *       S3Key: "STRING_VALUE",
+ *     },
+ *     InstanceExportDetails: { // InstanceExportDetails
+ *       InstanceId: "STRING_VALUE",
+ *       TargetEnvironment: "citrix" || "vmware" || "microsoft",
+ *     },
+ *     State: "active" || "cancelling" || "cancelled" || "completed",
+ *     StatusMessage: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateInstanceExportTaskCommandInput - {@link CreateInstanceExportTaskCommandInput}
@@ -74,6 +100,8 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  * @see {@link CreateInstanceExportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateInstanceExportTaskCommand extends $Command<

@@ -47,6 +47,9 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * };
  * const command = new DeleteListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteListCommandInput - {@link DeleteListCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteListCommand extends $Command<

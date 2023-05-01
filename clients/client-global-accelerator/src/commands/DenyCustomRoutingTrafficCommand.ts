@@ -61,6 +61,9 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * };
  * const command = new DenyCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DenyCustomRoutingTrafficCommandInput - {@link DenyCustomRoutingTrafficCommandInput}
@@ -78,6 +81,8 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DenyCustomRoutingTrafficCommand extends $Command<

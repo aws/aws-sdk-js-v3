@@ -63,6 +63,30 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * };
  * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseReservedCacheNodesOfferingResult
+ *   ReservedCacheNode: { // ReservedCacheNode
+ *     ReservedCacheNodeId: "STRING_VALUE",
+ *     ReservedCacheNodesOfferingId: "STRING_VALUE",
+ *     CacheNodeType: "STRING_VALUE",
+ *     StartTime: new Date("TIMESTAMP"),
+ *     Duration: Number("int"),
+ *     FixedPrice: Number("double"),
+ *     UsagePrice: Number("double"),
+ *     CacheNodeCount: Number("int"),
+ *     ProductDescription: "STRING_VALUE",
+ *     OfferingType: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     RecurringCharges: [ // RecurringChargeList
+ *       { // RecurringCharge
+ *         RecurringChargeAmount: Number("double"),
+ *         RecurringChargeFrequency: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ReservationARN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param PurchaseReservedCacheNodesOfferingCommandInput - {@link PurchaseReservedCacheNodesOfferingCommandInput}
@@ -89,6 +113,8 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example PurchaseReservedCacheNodesOfferings
  * ```javascript

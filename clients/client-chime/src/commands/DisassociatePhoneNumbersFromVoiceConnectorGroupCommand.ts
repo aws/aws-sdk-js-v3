@@ -57,6 +57,17 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  * };
  * const command = new DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ *   PhoneNumberErrors: [ // PhoneNumberErrorList
+ *     { // PhoneNumberError
+ *       PhoneNumberId: "STRING_VALUE",
+ *       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput - {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput}
@@ -86,6 +97,8 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Command<

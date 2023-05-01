@@ -51,6 +51,20 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * };
  * const command = new EnableLoggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LoggingStatus
+ *   LoggingEnabled: true || false,
+ *   BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   LastSuccessfulDeliveryTime: new Date("TIMESTAMP"),
+ *   LastFailureTime: new Date("TIMESTAMP"),
+ *   LastFailureMessage: "STRING_VALUE",
+ *   LogDestinationType: "s3" || "cloudwatch",
+ *   LogExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param EnableLoggingCommandInput - {@link EnableLoggingCommandInput}
@@ -83,6 +97,8 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  *  <p>The string specified for the logging S3 key prefix does not comply with the
  *             documented constraints.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class EnableLoggingCommand extends $Command<

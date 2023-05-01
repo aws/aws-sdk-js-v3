@@ -89,6 +89,12 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * };
  * const command = new RegisterUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterUsageResult
+ *   PublicKeyRotationTimestamp: new Date("TIMESTAMP"),
+ *   Signature: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterUsageCommandInput - {@link RegisterUsageCommandInput}
@@ -128,6 +134,8 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The calls to the API are throttled.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class RegisterUsageCommand extends $Command<

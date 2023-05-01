@@ -48,6 +48,28 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMigrationWorkflowTemplateResponse
+ *   id: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   inputs: [ // TemplateInputList
+ *     { // TemplateInput
+ *       inputName: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       required: true || false,
+ *     },
+ *   ],
+ *   tools: [ // ToolsList
+ *     { // Tool
+ *       name: "STRING_VALUE",
+ *       url: "STRING_VALUE",
+ *     },
+ *   ],
+ *   status: "STRING_VALUE",
+ *   creationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
@@ -68,6 +90,8 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class GetTemplateCommand extends $Command<

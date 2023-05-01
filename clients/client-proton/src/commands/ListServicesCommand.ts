@@ -45,6 +45,23 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServicesOutput
+ *   nextToken: "STRING_VALUE",
+ *   services: [ // ServiceSummaryList // required
+ *     { // ServiceSummary
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       arn: "STRING_VALUE", // required
+ *       templateName: "STRING_VALUE", // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       lastModifiedAt: new Date("TIMESTAMP"), // required
+ *       status: "STRING_VALUE", // required
+ *       statusMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -65,6 +82,8 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListServicesCommand extends $Command<

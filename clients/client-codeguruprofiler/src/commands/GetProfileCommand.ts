@@ -120,6 +120,13 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProfileResponse
+ *   profile: "BLOB_VALUE", // required
+ *   contentType: "STRING_VALUE", // required
+ *   contentEncoding: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetProfileCommandInput - {@link GetProfileCommandInput}
@@ -140,6 +147,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class GetProfileCommand extends $Command<

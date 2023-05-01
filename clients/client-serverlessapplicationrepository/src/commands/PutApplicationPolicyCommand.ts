@@ -65,6 +65,24 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * };
  * const command = new PutApplicationPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutApplicationPolicyResponse
+ *   Statements: [ // __listOfApplicationPolicyStatement
+ *     { // ApplicationPolicyStatement
+ *       Actions: [ // __listOf__string // required
+ *         "STRING_VALUE",
+ *       ],
+ *       PrincipalOrgIDs: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Principals: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       StatementId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutApplicationPolicyCommandInput - {@link PutApplicationPolicyCommandInput}
@@ -88,6 +106,8 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class PutApplicationPolicyCommand extends $Command<

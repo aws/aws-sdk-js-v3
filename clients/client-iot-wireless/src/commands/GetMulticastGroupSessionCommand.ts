@@ -44,6 +44,17 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  * };
  * const command = new GetMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMulticastGroupSessionResponse
+ *   LoRaWAN: { // LoRaWANMulticastSession
+ *     DlDr: Number("int"),
+ *     DlFreq: Number("int"),
+ *     SessionStartTime: new Date("TIMESTAMP"),
+ *     SessionTimeout: Number("int"),
+ *     PingSlotPeriod: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMulticastGroupSessionCommandInput - {@link GetMulticastGroupSessionCommandInput}
@@ -67,6 +78,8 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetMulticastGroupSessionCommand extends $Command<

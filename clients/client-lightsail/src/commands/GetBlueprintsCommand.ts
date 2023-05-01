@@ -55,6 +55,28 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  * };
  * const command = new GetBlueprintsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBlueprintsResult
+ *   blueprints: [ // BlueprintList
+ *     { // Blueprint
+ *       blueprintId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       group: "STRING_VALUE",
+ *       type: "os" || "app",
+ *       description: "STRING_VALUE",
+ *       isActive: true || false,
+ *       minPower: Number("int"),
+ *       version: "STRING_VALUE",
+ *       versionCode: "STRING_VALUE",
+ *       productUrl: "STRING_VALUE",
+ *       licenseUrl: "STRING_VALUE",
+ *       platform: "LINUX_UNIX" || "WINDOWS",
+ *       appCategory: "LfR",
+ *     },
+ *   ],
+ *   nextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetBlueprintsCommandInput - {@link GetBlueprintsCommandInput}
@@ -93,6 +115,8 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBlueprintsCommand extends $Command<

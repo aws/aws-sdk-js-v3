@@ -47,6 +47,9 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * };
  * const command = new DeleteThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteThingCommandInput - {@link DeleteThingCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteThingCommand extends $Command<

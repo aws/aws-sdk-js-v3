@@ -46,6 +46,9 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUseCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUseCaseCommandInput - {@link DeleteUseCaseCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteUseCaseCommand extends $Command<

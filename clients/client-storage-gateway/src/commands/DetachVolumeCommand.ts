@@ -49,6 +49,11 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  * };
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachVolumeOutput
+ *   VolumeARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DetachVolumeCommandInput - {@link DetachVolumeCommandInput}
@@ -65,6 +70,8 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DetachVolumeCommand extends $Command<

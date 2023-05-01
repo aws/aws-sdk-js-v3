@@ -48,6 +48,12 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * };
  * const command = new StopContinuousExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopContinuousExportResponse
+ *   startTime: new Date("TIMESTAMP"),
+ *   stopTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StopContinuousExportCommandInput - {@link StopContinuousExportCommandInput}
@@ -87,6 +93,8 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StopContinuousExportCommand extends $Command<

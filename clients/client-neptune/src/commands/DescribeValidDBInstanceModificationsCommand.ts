@@ -54,6 +54,37 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * };
  * const command = new DescribeValidDBInstanceModificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeValidDBInstanceModificationsResult
+ *   ValidDBInstanceModificationsMessage: { // ValidDBInstanceModificationsMessage
+ *     Storage: [ // ValidStorageOptionsList
+ *       { // ValidStorageOptions
+ *         StorageType: "STRING_VALUE",
+ *         StorageSize: [ // RangeList
+ *           { // Range
+ *             From: Number("int"),
+ *             To: Number("int"),
+ *             Step: Number("int"),
+ *           },
+ *         ],
+ *         ProvisionedIops: [
+ *           {
+ *             From: Number("int"),
+ *             To: Number("int"),
+ *             Step: Number("int"),
+ *           },
+ *         ],
+ *         IopsToStorageRatio: [ // DoubleRangeList
+ *           { // DoubleRange
+ *             From: Number("double"),
+ *             To: Number("double"),
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeValidDBInstanceModificationsCommandInput - {@link DescribeValidDBInstanceModificationsCommandInput}
@@ -69,6 +100,8 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The specified DB instance is not in the <i>available</i> state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command<

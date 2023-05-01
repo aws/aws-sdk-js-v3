@@ -44,6 +44,35 @@ export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePacka
  * };
  * const command = new DescribeEdgePackagingJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEdgePackagingJobResponse
+ *   EdgePackagingJobArn: "STRING_VALUE", // required
+ *   EdgePackagingJobName: "STRING_VALUE", // required
+ *   CompilationJobName: "STRING_VALUE",
+ *   ModelName: "STRING_VALUE",
+ *   ModelVersion: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   OutputConfig: { // EdgeOutputConfig
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     PresetDeploymentType: "GreengrassV2Component",
+ *     PresetDeploymentConfig: "STRING_VALUE",
+ *   },
+ *   ResourceKey: "STRING_VALUE",
+ *   EdgePackagingJobStatus: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
+ *   EdgePackagingJobStatusMessage: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   ModelArtifact: "STRING_VALUE",
+ *   ModelSignature: "STRING_VALUE",
+ *   PresetDeploymentOutput: { // EdgePresetDeploymentOutput
+ *     Type: "GreengrassV2Component", // required
+ *     Artifact: "STRING_VALUE",
+ *     Status: "COMPLETED" || "FAILED",
+ *     StatusMessage: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEdgePackagingJobCommandInput - {@link DescribeEdgePackagingJobCommandInput}
@@ -55,6 +84,8 @@ export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePacka
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeEdgePackagingJobCommand extends $Command<

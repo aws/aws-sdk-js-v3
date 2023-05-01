@@ -50,6 +50,9 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  *  <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete an application
  * ```javascript

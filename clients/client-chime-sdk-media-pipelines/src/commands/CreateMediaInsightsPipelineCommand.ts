@@ -105,6 +105,57 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * };
  * const command = new CreateMediaInsightsPipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMediaInsightsPipelineResponse
+ *   MediaInsightsPipeline: { // MediaInsightsPipeline
+ *     MediaPipelineId: "STRING_VALUE",
+ *     MediaPipelineArn: "STRING_VALUE",
+ *     MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
+ *     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ *     KinesisVideoStreamSourceRuntimeConfiguration: { // KinesisVideoStreamSourceRuntimeConfiguration
+ *       Streams: [ // Streams // required
+ *         { // StreamConfiguration
+ *           StreamArn: "STRING_VALUE", // required
+ *           FragmentNumber: "STRING_VALUE",
+ *           StreamChannelDefinition: { // StreamChannelDefinition
+ *             NumberOfChannels: Number("int"), // required
+ *             ChannelDefinitions: [ // ChannelDefinitions
+ *               { // ChannelDefinition
+ *                 ChannelId: Number("int"), // required
+ *                 ParticipantRole: "AGENT" || "CUSTOMER",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       MediaEncoding: "pcm", // required
+ *       MediaSampleRate: Number("int"), // required
+ *     },
+ *     MediaInsightsRuntimeMetadata: { // MediaInsightsRuntimeMetadata
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KinesisVideoStreamRecordingSourceRuntimeConfiguration: { // KinesisVideoStreamRecordingSourceRuntimeConfiguration
+ *       Streams: [ // RecordingStreamList // required
+ *         { // RecordingStreamConfiguration
+ *           StreamArn: "STRING_VALUE",
+ *         },
+ *       ],
+ *       FragmentSelector: { // FragmentSelector
+ *         FragmentSelectorType: "ProducerTimestamp" || "ServerTimestamp", // required
+ *         TimestampRange: { // TimestampRange
+ *           StartTimestamp: new Date("TIMESTAMP"), // required
+ *           EndTimestamp: new Date("TIMESTAMP"), // required
+ *         },
+ *       },
+ *     },
+ *     S3RecordingSinkRuntimeConfiguration: { // S3RecordingSinkRuntimeConfiguration
+ *       Destination: "STRING_VALUE", // required
+ *       RecordingFileFormat: "Wav" || "Opus", // required
+ *     },
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMediaInsightsPipelineCommandInput - {@link CreateMediaInsightsPipelineCommandInput}
@@ -137,6 +188,8 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class CreateMediaInsightsPipelineCommand extends $Command<

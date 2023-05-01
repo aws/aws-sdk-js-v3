@@ -67,6 +67,9 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
@@ -97,6 +100,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class UpdateContactCommand extends $Command<

@@ -47,6 +47,9 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * };
  * const command = new DisassociateSourceServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateSourceServersCommandInput - {@link DisassociateSourceServersCommandInput}
@@ -64,6 +67,8 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DisassociateSourceServersCommand extends $Command<

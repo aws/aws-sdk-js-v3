@@ -46,6 +46,14 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  * };
  * const command = new DeleteRefreshScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRefreshScheduleResponse
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ *   ScheduleId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteRefreshScheduleCommandInput - {@link DeleteRefreshScheduleCommandInput}
@@ -75,6 +83,8 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteRefreshScheduleCommand extends $Command<

@@ -57,6 +57,21 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * };
  * const command = new GetLifecyclePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLifecyclePoliciesResponse
+ *   Policies: [ // LifecyclePolicySummaryList
+ *     { // LifecyclePolicySummary
+ *       PolicyId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       State: "ENABLED" || "DISABLED" || "ERROR",
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetLifecyclePoliciesCommandInput - {@link GetLifecyclePoliciesCommandInput}
@@ -78,6 +93,8 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource was not found.</p>
  *
+ * @throws {@link DLMServiceException}
+ * <p>Base exception class for all service exceptions from DLM service.</p>
  *
  */
 export class GetLifecyclePoliciesCommand extends $Command<

@@ -55,6 +55,11 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * };
  * const command = new PutProfileObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutProfileObjectResponse
+ *   ProfileObjectUniqueKey: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutProfileObjectCommandInput - {@link PutProfileObjectCommandInput}
@@ -78,6 +83,8 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class PutProfileObjectCommand extends $Command<

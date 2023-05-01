@@ -55,6 +55,24 @@ export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionRes
  * };
  * const command = new CreateVpcConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVpcConnectionResponse
+ *   VpcConnectionArn: "STRING_VALUE",
+ *   State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
+ *   Authentication: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE",
+ *   ClientSubnets: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVpcConnectionCommandInput - {@link CreateVpcConnectionCommandInput}
@@ -81,6 +99,8 @@ export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class CreateVpcConnectionCommand extends $Command<

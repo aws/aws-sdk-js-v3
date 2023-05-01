@@ -47,6 +47,9 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
  * };
  * const command = new DeleteEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEventCommandInput - {@link DeleteEventCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteEventCommand extends $Command<

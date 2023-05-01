@@ -57,6 +57,34 @@ export interface ListPricingRulesCommandOutput extends ListPricingRulesOutput, _
  * };
  * const command = new ListPricingRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPricingRulesOutput
+ *   BillingPeriod: "STRING_VALUE",
+ *   PricingRules: [ // PricingRuleList
+ *     { // PricingRuleListElement
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Scope: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       ModifierPercentage: Number("double"),
+ *       Service: "STRING_VALUE",
+ *       AssociatedPricingPlanCount: Number("long"),
+ *       CreationTime: Number("long"),
+ *       LastModifiedTime: Number("long"),
+ *       BillingEntity: "STRING_VALUE",
+ *       Tiering: { // Tiering
+ *         FreeTier: { // FreeTierConfig
+ *           Activated: true || false, // required
+ *         },
+ *       },
+ *       UsageType: "STRING_VALUE",
+ *       Operation: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPricingRulesCommandInput - {@link ListPricingRulesCommandInput}
@@ -80,6 +108,8 @@ export interface ListPricingRulesCommandOutput extends ListPricingRulesOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListPricingRulesCommand extends $Command<

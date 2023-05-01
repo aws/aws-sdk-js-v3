@@ -59,6 +59,14 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * };
  * const command = new StartBackupJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBackupJobOutput
+ *   BackupJobId: "STRING_VALUE",
+ *   RecoveryPointArn: "STRING_VALUE",
+ *   CreationDate: new Date("TIMESTAMP"),
+ *   IsParent: true || false,
+ * };
+ *
  * ```
  *
  * @param StartBackupJobCommandInput - {@link StartBackupJobCommandInput}
@@ -88,6 +96,8 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StartBackupJobCommand extends $Command<

@@ -47,6 +47,18 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * };
  * const command = new DescribeLDAPSSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLDAPSSettingsResult
+ *   LDAPSSettingsInfo: [ // LDAPSSettingsInfo
+ *     { // LDAPSSettingInfo
+ *       LDAPSStatus: "Enabling" || "Enabled" || "EnableFailed" || "Disabled",
+ *       LDAPSStatusReason: "STRING_VALUE",
+ *       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeLDAPSSettingsCommandInput - {@link DescribeLDAPSSettingsCommandInput}
@@ -73,6 +85,8 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeLDAPSSettingsCommand extends $Command<

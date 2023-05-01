@@ -59,6 +59,21 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
  * };
  * const command = new GetOrganizationConformancePackDetailedStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOrganizationConformancePackDetailedStatusResponse
+ *   OrganizationConformancePackDetailedStatuses: [ // OrganizationConformancePackDetailedStatuses
+ *     { // OrganizationConformancePackDetailedStatus
+ *       AccountId: "STRING_VALUE", // required
+ *       ConformancePackName: "STRING_VALUE", // required
+ *       Status: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *       LastUpdateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetOrganizationConformancePackDetailedStatusCommandInput - {@link GetOrganizationConformancePackDetailedStatusCommandInput}
@@ -100,6 +115,8 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetOrganizationConformancePackDetailedStatusCommand extends $Command<

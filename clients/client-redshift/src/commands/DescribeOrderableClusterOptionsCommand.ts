@@ -60,6 +60,28 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * };
  * const command = new DescribeOrderableClusterOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // OrderableClusterOptionsMessage
+ *   OrderableClusterOptions: [ // OrderableClusterOptionsList
+ *     { // OrderableClusterOption
+ *       ClusterVersion: "STRING_VALUE",
+ *       ClusterType: "STRING_VALUE",
+ *       NodeType: "STRING_VALUE",
+ *       AvailabilityZones: [ // AvailabilityZoneList
+ *         { // AvailabilityZone
+ *           Name: "STRING_VALUE",
+ *           SupportedPlatforms: [ // SupportedPlatformsList
+ *             { // SupportedPlatform
+ *               Name: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeOrderableClusterOptionsCommandInput - {@link DescribeOrderableClusterOptionsCommandInput}
@@ -68,6 +90,8 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * @see {@link DescribeOrderableClusterOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeOrderableClusterOptionsCommand extends $Command<

@@ -45,6 +45,18 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * };
  * const command = new DescribePermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePermissionSetResponse
+ *   PermissionSet: { // PermissionSet
+ *     Name: "STRING_VALUE",
+ *     PermissionSetArn: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     CreatedDate: new Date("TIMESTAMP"),
+ *     SessionDuration: "STRING_VALUE",
+ *     RelayState: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePermissionSetCommandInput - {@link DescribePermissionSetCommandInput}
@@ -70,6 +82,8 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DescribePermissionSetCommand extends $Command<

@@ -46,6 +46,20 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  * };
  * const command = new ListImpersonationRolesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImpersonationRolesResponse
+ *   Roles: [ // ImpersonationRoleList
+ *     { // ImpersonationRole
+ *       ImpersonationRoleId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Type: "FULL_ACCESS" || "READ_ONLY",
+ *       DateCreated: new Date("TIMESTAMP"),
+ *       DateModified: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImpersonationRolesCommandInput - {@link ListImpersonationRolesCommandInput}
@@ -65,6 +79,8 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListImpersonationRolesCommand extends $Command<

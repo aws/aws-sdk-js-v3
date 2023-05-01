@@ -55,6 +55,9 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  * };
  * const command = new AssociateAssessmentReportEvidenceFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateAssessmentReportEvidenceFolderCommandInput - {@link AssociateAssessmentReportEvidenceFolderCommandInput}
@@ -77,6 +80,8 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class AssociateAssessmentReportEvidenceFolderCommand extends $Command<

@@ -46,6 +46,14 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * };
  * const command = new ListTrackerConsumersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrackerConsumersResponse
+ *   ConsumerArns: [ // ArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTrackerConsumersCommandInput - {@link ListTrackerConsumersCommandInput}
@@ -70,6 +78,8 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListTrackerConsumersCommand extends $Command<

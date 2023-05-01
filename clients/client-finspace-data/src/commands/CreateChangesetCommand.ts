@@ -52,6 +52,12 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * };
  * const command = new CreateChangesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChangesetResponse
+ *   datasetId: "STRING_VALUE",
+ *   changesetId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateChangesetCommandInput - {@link CreateChangesetCommandInput}
@@ -82,6 +88,8 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class CreateChangesetCommand extends $Command<

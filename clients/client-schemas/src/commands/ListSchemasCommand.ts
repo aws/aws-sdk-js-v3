@@ -47,6 +47,22 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemasResponse
+ *   NextToken: "STRING_VALUE",
+ *   Schemas: [ // __listOfSchemaSummary
+ *     { // SchemaSummary
+ *       LastModified: new Date("TIMESTAMP"),
+ *       SchemaArn: "STRING_VALUE",
+ *       SchemaName: "STRING_VALUE",
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       VersionCount: Number("long"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
@@ -65,6 +81,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListSchemasCommand extends $Command<

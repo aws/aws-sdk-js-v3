@@ -58,6 +58,20 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  * };
  * const command = new UpdateS3ResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateS3ResourcesResult
+ *   failedS3Resources: [ // FailedS3Resources
+ *     { // FailedS3Resource
+ *       failedItem: { // S3Resource
+ *         bucketName: "STRING_VALUE", // required
+ *         prefix: "STRING_VALUE",
+ *       },
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateS3ResourcesCommandInput - {@link UpdateS3ResourcesCommandInput}
@@ -76,6 +90,8 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class UpdateS3ResourcesCommand extends $Command<

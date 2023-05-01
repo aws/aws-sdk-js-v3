@@ -59,6 +59,16 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * };
  * const command = new GetPercentilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPercentilesResponse
+ *   percentiles: [ // Percentiles
+ *     { // PercentPair
+ *       percent: Number("double"),
+ *       value: Number("double"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPercentilesCommandInput - {@link GetPercentilesCommandInput}
@@ -94,6 +104,8 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetPercentilesCommand extends $Command<

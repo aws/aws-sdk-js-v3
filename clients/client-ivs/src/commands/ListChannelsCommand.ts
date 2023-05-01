@@ -50,6 +50,24 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelsResponse
+ *   channels: [ // ChannelList // required
+ *     { // ChannelSummary
+ *       arn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       latencyMode: "STRING_VALUE",
+ *       authorized: true || false,
+ *       recordingConfigurationArn: "STRING_VALUE",
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       insecureIngest: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
@@ -67,6 +85,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListChannelsCommand extends $Command<

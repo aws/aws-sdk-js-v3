@@ -51,6 +51,14 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  * };
  * const command = new StartReadSetActivationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReadSetActivationJobResponse
+ *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   creationTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param StartReadSetActivationJobCommandInput - {@link StartReadSetActivationJobCommandInput}
@@ -80,6 +88,8 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartReadSetActivationJobCommand extends $Command<

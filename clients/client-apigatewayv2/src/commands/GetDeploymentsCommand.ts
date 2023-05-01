@@ -46,6 +46,21 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentsResponse
+ *   Items: [ // __listOfDeployment
+ *     { // Deployment
+ *       AutoDeployed: true || false,
+ *       CreatedDate: new Date("TIMESTAMP"),
+ *       DeploymentId: "STRING_VALUE",
+ *       DeploymentStatus: "STRING_VALUE",
+ *       DeploymentStatusMessage: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDeploymentsCommandInput - {@link GetDeploymentsCommandInput}
@@ -63,6 +78,8 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetDeploymentsCommand extends $Command<

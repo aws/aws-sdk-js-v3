@@ -92,6 +92,13 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  * };
  * const command = new CreateBudgetActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBudgetActionResponse
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   ActionId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateBudgetActionCommandInput - {@link CreateBudgetActionCommandInput}
@@ -123,6 +130,8 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class CreateBudgetActionCommand extends $Command<

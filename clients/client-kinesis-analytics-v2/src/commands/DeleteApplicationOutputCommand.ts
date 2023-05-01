@@ -52,6 +52,12 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * };
  * const command = new DeleteApplicationOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteApplicationOutputResponse
+ *   ApplicationARN: "STRING_VALUE",
+ *   ApplicationVersionId: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DeleteApplicationOutputCommandInput - {@link DeleteApplicationOutputCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationOutputCommand extends $Command<

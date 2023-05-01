@@ -45,6 +45,9 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example DeleteEnvironment
  * ```javascript

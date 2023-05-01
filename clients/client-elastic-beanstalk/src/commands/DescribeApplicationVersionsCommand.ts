@@ -51,6 +51,32 @@ export interface DescribeApplicationVersionsCommandOutput
  * };
  * const command = new DescribeApplicationVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplicationVersionDescriptionsMessage
+ *   ApplicationVersions: [ // ApplicationVersionDescriptionList
+ *     { // ApplicationVersionDescription
+ *       ApplicationVersionArn: "STRING_VALUE",
+ *       ApplicationName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       VersionLabel: "STRING_VALUE",
+ *       SourceBuildInformation: { // SourceBuildInformation
+ *         SourceType: "Git" || "Zip", // required
+ *         SourceRepository: "CodeCommit" || "S3", // required
+ *         SourceLocation: "STRING_VALUE", // required
+ *       },
+ *       BuildArn: "STRING_VALUE",
+ *       SourceBundle: { // S3Location
+ *         S3Bucket: "STRING_VALUE",
+ *         S3Key: "STRING_VALUE",
+ *       },
+ *       DateCreated: new Date("TIMESTAMP"),
+ *       DateUpdated: new Date("TIMESTAMP"),
+ *       Status: "Processed" || "Unprocessed" || "Failed" || "Processing" || "Building",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeApplicationVersionsCommandInput - {@link DescribeApplicationVersionsCommandInput}
@@ -59,6 +85,8 @@ export interface DescribeApplicationVersionsCommandOutput
  * @see {@link DescribeApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view information about an application version
  * ```javascript

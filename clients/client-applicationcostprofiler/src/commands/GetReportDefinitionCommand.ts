@@ -48,6 +48,20 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * };
  * const command = new GetReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReportDefinitionResult
+ *   reportId: "STRING_VALUE", // required
+ *   reportDescription: "STRING_VALUE", // required
+ *   reportFrequency: "STRING_VALUE", // required
+ *   format: "STRING_VALUE", // required
+ *   destinationS3Location: { // S3Location
+ *     bucket: "STRING_VALUE", // required
+ *     prefix: "STRING_VALUE", // required
+ *   },
+ *   createdAt: new Date("TIMESTAMP"), // required
+ *   lastUpdated: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param GetReportDefinitionCommandInput - {@link GetReportDefinitionCommandInput}
@@ -68,6 +82,8 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class GetReportDefinitionCommand extends $Command<

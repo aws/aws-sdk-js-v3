@@ -60,6 +60,12 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * };
  * const command = new CreateFuotaTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFuotaTaskResponse
+ *   Arn: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateFuotaTaskCommandInput - {@link CreateFuotaTaskCommandInput}
@@ -86,6 +92,8 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateFuotaTaskCommand extends $Command<

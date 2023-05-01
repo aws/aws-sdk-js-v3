@@ -59,6 +59,26 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * };
  * const command = new UpdateIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIdentityProviderResponse
+ *   IdentityProvider: { // IdentityProviderType
+ *     UserPoolId: "STRING_VALUE",
+ *     ProviderName: "STRING_VALUE",
+ *     ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC",
+ *     ProviderDetails: { // ProviderDetailsType
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     AttributeMapping: { // AttributeMappingType
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     IdpIdentifiers: [ // IdpIdentifiersListType
+ *       "STRING_VALUE",
+ *     ],
+ *     LastModifiedDate: new Date("TIMESTAMP"),
+ *     CreationDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateIdentityProviderCommandInput - {@link UpdateIdentityProviderCommandInput}
@@ -92,6 +112,8 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * @throws {@link UnsupportedIdentityProviderException} (client fault)
  *  <p>This exception is thrown when the specified identifier isn't supported.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateIdentityProviderCommand extends $Command<

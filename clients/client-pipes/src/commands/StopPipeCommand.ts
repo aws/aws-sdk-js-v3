@@ -44,6 +44,16 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * };
  * const command = new StopPipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopPipeResponse
+ *   Arn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   DesiredState: "STRING_VALUE",
+ *   CurrentState: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StopPipeCommandInput - {@link StopPipeCommandInput}
@@ -67,6 +77,8 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that an error has occurred while performing a validate operation.</p>
  *
+ * @throws {@link PipesServiceException}
+ * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
 export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeCommandOutput, PipesClientResolvedConfig> {

@@ -52,6 +52,9 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * };
  * const command = new UpdateEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateEmailTemplateCommandInput - {@link UpdateEmailTemplateCommandInput}
@@ -69,6 +72,8 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class UpdateEmailTemplateCommand extends $Command<

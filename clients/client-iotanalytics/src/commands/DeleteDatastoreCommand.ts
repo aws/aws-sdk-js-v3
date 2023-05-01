@@ -44,6 +44,9 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDatastoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDatastoreCommandInput - {@link DeleteDatastoreCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class DeleteDatastoreCommand extends $Command<

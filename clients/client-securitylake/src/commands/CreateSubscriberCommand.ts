@@ -57,6 +57,16 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * };
  * const command = new CreateSubscriberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSubscriberResponse
+ *   subscriptionId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   snsArn: "STRING_VALUE",
+ *   s3BucketArn: "STRING_VALUE",
+ *   resourceShareArn: "STRING_VALUE",
+ *   resourceShareName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSubscriberCommandInput - {@link CreateSubscriberCommandInput}
@@ -97,6 +107,8 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateSubscriberCommand extends $Command<

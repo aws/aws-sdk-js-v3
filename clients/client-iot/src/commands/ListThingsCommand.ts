@@ -57,6 +57,22 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * };
  * const command = new ListThingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingsResponse
+ *   things: [ // ThingAttributeList
+ *     { // ThingAttribute
+ *       thingName: "STRING_VALUE",
+ *       thingTypeName: "STRING_VALUE",
+ *       thingArn: "STRING_VALUE",
+ *       attributes: { // Attributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       version: Number("long"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListThingsCommandInput - {@link ListThingsCommandInput}
@@ -80,6 +96,8 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingsCommand extends $Command<

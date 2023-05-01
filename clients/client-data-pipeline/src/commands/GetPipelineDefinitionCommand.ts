@@ -109,6 +109,40 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * };
  * const command = new GetPipelineDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPipelineDefinitionOutput
+ *   pipelineObjects: [ // PipelineObjectList
+ *     { // PipelineObject
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       fields: [ // fieldList // required
+ *         { // Field
+ *           key: "STRING_VALUE", // required
+ *           stringValue: "STRING_VALUE",
+ *           refValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterObjects: [ // ParameterObjectList
+ *     { // ParameterObject
+ *       id: "STRING_VALUE", // required
+ *       attributes: [ // ParameterAttributeList // required
+ *         { // ParameterAttribute
+ *           key: "STRING_VALUE", // required
+ *           stringValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterValues: [ // ParameterValueList
+ *     { // ParameterValue
+ *       id: "STRING_VALUE", // required
+ *       stringValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPipelineDefinitionCommandInput - {@link GetPipelineDefinitionCommandInput}
@@ -129,6 +163,8 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class GetPipelineDefinitionCommand extends $Command<

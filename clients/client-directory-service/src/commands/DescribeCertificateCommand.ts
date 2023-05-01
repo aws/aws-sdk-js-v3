@@ -45,6 +45,22 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCertificateResult
+ *   Certificate: { // Certificate
+ *     CertificateId: "STRING_VALUE",
+ *     State: "Registering" || "Registered" || "RegisterFailed" || "Deregistering" || "Deregistered" || "DeregisterFailed",
+ *     StateReason: "STRING_VALUE",
+ *     CommonName: "STRING_VALUE",
+ *     RegisteredDateTime: new Date("TIMESTAMP"),
+ *     ExpiryDateTime: new Date("TIMESTAMP"),
+ *     Type: "ClientCertAuth" || "ClientLDAPS",
+ *     ClientCertAuthSettings: { // ClientCertAuthSettings
+ *       OCSPUrl: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
@@ -71,6 +87,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeCertificateCommand extends $Command<

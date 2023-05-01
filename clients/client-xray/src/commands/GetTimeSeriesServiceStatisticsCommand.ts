@@ -57,6 +57,55 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * };
  * const command = new GetTimeSeriesServiceStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTimeSeriesServiceStatisticsResult
+ *   TimeSeriesServiceStatistics: [ // TimeSeriesServiceStatisticsList
+ *     { // TimeSeriesServiceStatistics
+ *       Timestamp: new Date("TIMESTAMP"),
+ *       EdgeSummaryStatistics: { // EdgeStatistics
+ *         OkCount: Number("long"),
+ *         ErrorStatistics: { // ErrorStatistics
+ *           ThrottleCount: Number("long"),
+ *           OtherCount: Number("long"),
+ *           TotalCount: Number("long"),
+ *         },
+ *         FaultStatistics: { // FaultStatistics
+ *           OtherCount: Number("long"),
+ *           TotalCount: Number("long"),
+ *         },
+ *         TotalCount: Number("long"),
+ *         TotalResponseTime: Number("double"),
+ *       },
+ *       ServiceSummaryStatistics: { // ServiceStatistics
+ *         OkCount: Number("long"),
+ *         ErrorStatistics: {
+ *           ThrottleCount: Number("long"),
+ *           OtherCount: Number("long"),
+ *           TotalCount: Number("long"),
+ *         },
+ *         FaultStatistics: {
+ *           OtherCount: Number("long"),
+ *           TotalCount: Number("long"),
+ *         },
+ *         TotalCount: Number("long"),
+ *         TotalResponseTime: Number("double"),
+ *       },
+ *       ServiceForecastStatistics: { // ForecastStatistics
+ *         FaultCountHigh: Number("long"),
+ *         FaultCountLow: Number("long"),
+ *       },
+ *       ResponseTimeHistogram: [ // Histogram
+ *         { // HistogramEntry
+ *           Value: Number("double"),
+ *           Count: Number("int"),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ContainsOldGroupVersions: true || false,
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetTimeSeriesServiceStatisticsCommandInput - {@link GetTimeSeriesServiceStatisticsCommandInput}
@@ -71,6 +120,8 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetTimeSeriesServiceStatisticsCommand extends $Command<

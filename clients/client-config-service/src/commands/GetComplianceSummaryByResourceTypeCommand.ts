@@ -57,6 +57,26 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * };
  * const command = new GetComplianceSummaryByResourceTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComplianceSummaryByResourceTypeResponse
+ *   ComplianceSummariesByResourceType: [ // ComplianceSummariesByResourceType
+ *     { // ComplianceSummaryByResourceType
+ *       ResourceType: "STRING_VALUE",
+ *       ComplianceSummary: { // ComplianceSummary
+ *         CompliantResourceCount: { // ComplianceContributorCount
+ *           CappedCount: Number("int"),
+ *           CapExceeded: true || false,
+ *         },
+ *         NonCompliantResourceCount: {
+ *           CappedCount: Number("int"),
+ *           CapExceeded: true || false,
+ *         },
+ *         ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetComplianceSummaryByResourceTypeCommandInput - {@link GetComplianceSummaryByResourceTypeCommandInput}
@@ -69,6 +89,8 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetComplianceSummaryByResourceTypeCommand extends $Command<

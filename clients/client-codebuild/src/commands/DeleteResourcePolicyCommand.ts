@@ -44,6 +44,9 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

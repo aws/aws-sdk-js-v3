@@ -54,6 +54,16 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationSetsResponse
+ *   ConfigurationSets: [ // ConfigurationSets
+ *     { // ConfigurationSet
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
@@ -62,6 +72,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class ListConfigurationSetsCommand extends $Command<

@@ -307,6 +307,32 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * };
  * const command = new CreateLaunchTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLaunchTemplateResult
+ *   LaunchTemplate: { // LaunchTemplate
+ *     LaunchTemplateId: "STRING_VALUE",
+ *     LaunchTemplateName: "STRING_VALUE",
+ *     CreateTime: new Date("TIMESTAMP"),
+ *     CreatedBy: "STRING_VALUE",
+ *     DefaultVersionNumber: Number("long"),
+ *     LatestVersionNumber: Number("long"),
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Warning: { // ValidationWarning
+ *     Errors: [ // ErrorSet
+ *       { // ValidationError
+ *         Code: "STRING_VALUE",
+ *         Message: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLaunchTemplateCommandInput - {@link CreateLaunchTemplateCommandInput}
@@ -315,6 +341,8 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * @see {@link CreateLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a launch template
  * ```javascript

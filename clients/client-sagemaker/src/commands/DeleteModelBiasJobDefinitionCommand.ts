@@ -47,6 +47,9 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteModelBiasJobDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteModelBiasJobDefinitionCommandInput - {@link DeleteModelBiasJobDefinitionCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteModelBiasJobDefinitionCommand extends $Command<

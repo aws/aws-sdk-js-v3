@@ -67,6 +67,9 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * };
  * const command = new RegisterApplicationRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterApplicationRevisionCommandInput - {@link RegisterApplicationRevisionCommandInput}
@@ -93,6 +96,8 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * @throws {@link RevisionRequiredException} (client fault)
  *  <p>The revision ID was not specified.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class RegisterApplicationRevisionCommand extends $Command<

@@ -49,6 +49,19 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  * };
  * const command = new GetSensitiveDataOccurrencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSensitiveDataOccurrencesResponse
+ *   error: "STRING_VALUE",
+ *   sensitiveDataOccurrences: { // SensitiveDataOccurrences
+ *     "<keys>": [ // __listOfDetectedDataDetails
+ *       { // DetectedDataDetails
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   status: "SUCCESS" || "PROCESSING" || "ERROR",
+ * };
+ *
  * ```
  *
  * @param GetSensitiveDataOccurrencesCommandInput - {@link GetSensitiveDataOccurrencesCommandInput}
@@ -75,6 +88,8 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>Provides information about an error that occurred due to an unprocessable entity.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetSensitiveDataOccurrencesCommand extends $Command<

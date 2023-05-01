@@ -65,6 +65,22 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * };
  * const command = new CopyPackageVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyPackageVersionsResult
+ *   successfulVersions: { // SuccessfulPackageVersionInfoMap
+ *     "<keys>": { // SuccessfulPackageVersionInfo
+ *       revision: "STRING_VALUE",
+ *       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ *     },
+ *   },
+ *   failedVersions: { // PackageVersionErrorMap
+ *     "<keys>": { // PackageVersionError
+ *       errorCode: "ALREADY_EXISTS" || "MISMATCHED_REVISION" || "MISMATCHED_STATUS" || "NOT_ALLOWED" || "NOT_FOUND" || "SKIPPED",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyPackageVersionsCommandInput - {@link CopyPackageVersionsCommandInput}
@@ -106,6 +122,8 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class CopyPackageVersionsCommand extends $Command<

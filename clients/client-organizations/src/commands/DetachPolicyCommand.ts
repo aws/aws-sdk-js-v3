@@ -59,6 +59,9 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachPolicyCommandInput - {@link DetachPolicyCommandInput}
@@ -411,6 +414,8 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To detach a policy from a root, OU, or account
  * ```javascript

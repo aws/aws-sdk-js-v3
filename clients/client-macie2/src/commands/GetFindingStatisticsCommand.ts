@@ -68,6 +68,16 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * };
  * const command = new GetFindingStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFindingStatisticsResponse
+ *   countsByGroup: [ // __listOfGroupCount
+ *     { // GroupCount
+ *       count: Number("long"),
+ *       groupKey: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetFindingStatisticsCommandInput - {@link GetFindingStatisticsCommandInput}
@@ -97,6 +107,8 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetFindingStatisticsCommand extends $Command<

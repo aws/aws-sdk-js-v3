@@ -53,6 +53,9 @@ export interface DisassociateDiscoveredResourceCommandOutput
  * };
  * const command = new DisassociateDiscoveredResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDiscoveredResourceCommandInput - {@link DisassociateDiscoveredResourceCommandInput}
@@ -95,6 +98,8 @@ export interface DisassociateDiscoveredResourceCommandOutput
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class DisassociateDiscoveredResourceCommand extends $Command<

@@ -508,6 +508,440 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  * };
  * const command = new CreateIntentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIntentResponse
+ *   intentId: "STRING_VALUE",
+ *   intentName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   parentIntentSignature: "STRING_VALUE",
+ *   sampleUtterances: [ // SampleUtterancesList
+ *     { // SampleUtterance
+ *       utterance: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   dialogCodeHook: { // DialogCodeHookSettings
+ *     enabled: true || false, // required
+ *   },
+ *   fulfillmentCodeHook: { // FulfillmentCodeHookSettings
+ *     enabled: true || false, // required
+ *     postFulfillmentStatusSpecification: { // PostFulfillmentStatusSpecification
+ *       successResponse: { // ResponseSpecification
+ *         messageGroups: [ // MessageGroupsList // required
+ *           { // MessageGroup
+ *             message: { // Message
+ *               plainTextMessage: { // PlainTextMessage
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               customPayload: { // CustomPayload
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               ssmlMessage: { // SSMLMessage
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               imageResponseCard: { // ImageResponseCard
+ *                 title: "STRING_VALUE", // required
+ *                 subtitle: "STRING_VALUE",
+ *                 imageUrl: "STRING_VALUE",
+ *                 buttons: [ // ButtonsList
+ *                   { // Button
+ *                     text: "STRING_VALUE", // required
+ *                     value: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *             variations: [ // MessageVariationsList
+ *               {
+ *                 plainTextMessage: {
+ *                   value: "STRING_VALUE", // required
+ *                 },
+ *                 customPayload: {
+ *                   value: "STRING_VALUE", // required
+ *                 },
+ *                 ssmlMessage: {
+ *                   value: "STRING_VALUE", // required
+ *                 },
+ *                 imageResponseCard: {
+ *                   title: "STRING_VALUE", // required
+ *                   subtitle: "STRING_VALUE",
+ *                   imageUrl: "STRING_VALUE",
+ *                   buttons: [
+ *                     {
+ *                       text: "STRING_VALUE", // required
+ *                       value: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         allowInterrupt: true || false,
+ *       },
+ *       failureResponse: {
+ *         messageGroups: [ // required
+ *           {
+ *             message: {
+ *               plainTextMessage: {
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               customPayload: {
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               ssmlMessage: {
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               imageResponseCard: {
+ *                 title: "STRING_VALUE", // required
+ *                 subtitle: "STRING_VALUE",
+ *                 imageUrl: "STRING_VALUE",
+ *                 buttons: [
+ *                   {
+ *                     text: "STRING_VALUE", // required
+ *                     value: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *             variations: [
+ *               {
+ *                 plainTextMessage: {
+ *                   value: "STRING_VALUE", // required
+ *                 },
+ *                 customPayload: {
+ *                   value: "STRING_VALUE", // required
+ *                 },
+ *                 ssmlMessage: {
+ *                   value: "STRING_VALUE", // required
+ *                 },
+ *                 imageResponseCard: {
+ *                   title: "STRING_VALUE", // required
+ *                   subtitle: "STRING_VALUE",
+ *                   imageUrl: "STRING_VALUE",
+ *                   buttons: [
+ *                     {
+ *                       text: "STRING_VALUE", // required
+ *                       value: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         allowInterrupt: true || false,
+ *       },
+ *       timeoutResponse: {
+ *         messageGroups: [ // required
+ *           {
+ *             message: {
+ *               plainTextMessage: {
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               customPayload: {
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               ssmlMessage: {
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *               imageResponseCard: {
+ *                 title: "STRING_VALUE", // required
+ *                 subtitle: "STRING_VALUE",
+ *                 imageUrl: "STRING_VALUE",
+ *                 buttons: [
+ *                   {
+ *                     text: "STRING_VALUE", // required
+ *                     value: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *             variations: [
+ *               "<Message>",
+ *             ],
+ *           },
+ *         ],
+ *         allowInterrupt: true || false,
+ *       },
+ *       successNextStep: { // DialogState
+ *         dialogAction: { // DialogAction
+ *           type: "ElicitIntent" || "StartIntent" || "ElicitSlot" || "EvaluateConditional" || "InvokeDialogCodeHook" || "ConfirmIntent" || "FulfillIntent" || "CloseIntent" || "EndConversation", // required
+ *           slotToElicit: "STRING_VALUE",
+ *           suppressNextMessage: true || false,
+ *         },
+ *         intent: { // IntentOverride
+ *           name: "STRING_VALUE",
+ *           slots: { // SlotValueOverrideMap
+ *             "<keys>": { // SlotValueOverride
+ *               shape: "Scalar" || "List",
+ *               value: { // SlotValue
+ *                 interpretedValue: "STRING_VALUE",
+ *               },
+ *               values: [ // SlotValues
+ *                 {
+ *                   shape: "Scalar" || "List",
+ *                   value: {
+ *                     interpretedValue: "STRING_VALUE",
+ *                   },
+ *                   values: [
+ *                     "<SlotValueOverride>",
+ *                   ],
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *         sessionAttributes: { // StringMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       successConditional: { // ConditionalSpecification
+ *         active: true || false, // required
+ *         conditionalBranches: [ // ConditionalBranches // required
+ *           { // ConditionalBranch
+ *             name: "STRING_VALUE", // required
+ *             condition: { // Condition
+ *               expressionString: "STRING_VALUE", // required
+ *             },
+ *             nextStep: {
+ *               dialogAction: {
+ *                 type: "ElicitIntent" || "StartIntent" || "ElicitSlot" || "EvaluateConditional" || "InvokeDialogCodeHook" || "ConfirmIntent" || "FulfillIntent" || "CloseIntent" || "EndConversation", // required
+ *                 slotToElicit: "STRING_VALUE",
+ *                 suppressNextMessage: true || false,
+ *               },
+ *               intent: {
+ *                 name: "STRING_VALUE",
+ *                 slots: {
+ *                   "<keys>": "<SlotValueOverride>",
+ *                 },
+ *               },
+ *               sessionAttributes: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *             response: {
+ *               messageGroups: [ // required
+ *                 {
+ *                   message: "<Message>", // required
+ *                   variations: [
+ *                     "<Message>",
+ *                   ],
+ *                 },
+ *               ],
+ *               allowInterrupt: true || false,
+ *             },
+ *           },
+ *         ],
+ *         defaultBranch: { // DefaultConditionalBranch
+ *           nextStep: "<DialogState>",
+ *           response: "<ResponseSpecification>",
+ *         },
+ *       },
+ *       failureNextStep: "<DialogState>",
+ *       failureConditional: {
+ *         active: true || false, // required
+ *         conditionalBranches: [ // required
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             condition: {
+ *               expressionString: "STRING_VALUE", // required
+ *             },
+ *             nextStep: "<DialogState>", // required
+ *             response: "<ResponseSpecification>",
+ *           },
+ *         ],
+ *         defaultBranch: {
+ *           nextStep: "<DialogState>",
+ *           response: "<ResponseSpecification>",
+ *         },
+ *       },
+ *       timeoutNextStep: "<DialogState>",
+ *       timeoutConditional: {
+ *         active: true || false, // required
+ *         conditionalBranches: [ // required
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             condition: {
+ *               expressionString: "STRING_VALUE", // required
+ *             },
+ *             nextStep: "<DialogState>", // required
+ *             response: "<ResponseSpecification>",
+ *           },
+ *         ],
+ *         defaultBranch: {
+ *           nextStep: "<DialogState>",
+ *           response: "<ResponseSpecification>",
+ *         },
+ *       },
+ *     },
+ *     fulfillmentUpdatesSpecification: { // FulfillmentUpdatesSpecification
+ *       active: true || false, // required
+ *       startResponse: { // FulfillmentStartResponseSpecification
+ *         delayInSeconds: Number("int"), // required
+ *         messageGroups: [ // required
+ *           {
+ *             message: "<Message>", // required
+ *             variations: [
+ *               "<Message>",
+ *             ],
+ *           },
+ *         ],
+ *         allowInterrupt: true || false,
+ *       },
+ *       updateResponse: { // FulfillmentUpdateResponseSpecification
+ *         frequencyInSeconds: Number("int"), // required
+ *         messageGroups: "<MessageGroupsList>", // required
+ *         allowInterrupt: true || false,
+ *       },
+ *       timeoutInSeconds: Number("int"),
+ *     },
+ *     active: true || false,
+ *   },
+ *   intentConfirmationSetting: { // IntentConfirmationSetting
+ *     promptSpecification: { // PromptSpecification
+ *       messageGroups: "<MessageGroupsList>", // required
+ *       maxRetries: Number("int"), // required
+ *       allowInterrupt: true || false,
+ *       messageSelectionStrategy: "Random" || "Ordered",
+ *       promptAttemptsSpecification: { // PromptAttemptsSpecificationMap
+ *         "<keys>": { // PromptAttemptSpecification
+ *           allowInterrupt: true || false,
+ *           allowedInputTypes: { // AllowedInputTypes
+ *             allowAudioInput: true || false, // required
+ *             allowDTMFInput: true || false, // required
+ *           },
+ *           audioAndDTMFInputSpecification: { // AudioAndDTMFInputSpecification
+ *             startTimeoutMs: Number("int"), // required
+ *             audioSpecification: { // AudioSpecification
+ *               maxLengthMs: Number("int"), // required
+ *               endTimeoutMs: Number("int"), // required
+ *             },
+ *             dtmfSpecification: { // DTMFSpecification
+ *               maxLength: Number("int"), // required
+ *               endTimeoutMs: Number("int"), // required
+ *               deletionCharacter: "STRING_VALUE", // required
+ *               endCharacter: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           textInputSpecification: { // TextInputSpecification
+ *             startTimeoutMs: Number("int"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *     declinationResponse: "<ResponseSpecification>",
+ *     active: true || false,
+ *     confirmationResponse: "<ResponseSpecification>",
+ *     confirmationNextStep: "<DialogState>",
+ *     confirmationConditional: {
+ *       active: true || false, // required
+ *       conditionalBranches: [ // required
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           condition: {
+ *             expressionString: "STRING_VALUE", // required
+ *           },
+ *           nextStep: "<DialogState>", // required
+ *           response: "<ResponseSpecification>",
+ *         },
+ *       ],
+ *       defaultBranch: {
+ *         nextStep: "<DialogState>",
+ *         response: "<ResponseSpecification>",
+ *       },
+ *     },
+ *     declinationNextStep: "<DialogState>",
+ *     declinationConditional: {
+ *       active: true || false, // required
+ *       conditionalBranches: [ // required
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           condition: {
+ *             expressionString: "STRING_VALUE", // required
+ *           },
+ *           nextStep: "<DialogState>", // required
+ *           response: "<ResponseSpecification>",
+ *         },
+ *       ],
+ *       defaultBranch: {
+ *         nextStep: "<DialogState>",
+ *         response: "<ResponseSpecification>",
+ *       },
+ *     },
+ *     failureResponse: "<ResponseSpecification>",
+ *     failureNextStep: "<DialogState>",
+ *     failureConditional: "<ConditionalSpecification>",
+ *     codeHook: { // DialogCodeHookInvocationSetting
+ *       enableCodeHookInvocation: true || false, // required
+ *       active: true || false, // required
+ *       invocationLabel: "STRING_VALUE",
+ *       postCodeHookSpecification: { // PostDialogCodeHookInvocationSpecification
+ *         successResponse: "<ResponseSpecification>",
+ *         successNextStep: "<DialogState>",
+ *         successConditional: "<ConditionalSpecification>",
+ *         failureResponse: "<ResponseSpecification>",
+ *         failureNextStep: "<DialogState>",
+ *         failureConditional: "<ConditionalSpecification>",
+ *         timeoutResponse: "<ResponseSpecification>",
+ *         timeoutNextStep: "<DialogState>",
+ *         timeoutConditional: "<ConditionalSpecification>",
+ *       },
+ *     },
+ *     elicitationCodeHook: { // ElicitationCodeHookInvocationSetting
+ *       enableCodeHookInvocation: true || false, // required
+ *       invocationLabel: "STRING_VALUE",
+ *     },
+ *   },
+ *   intentClosingSetting: { // IntentClosingSetting
+ *     closingResponse: "<ResponseSpecification>",
+ *     active: true || false,
+ *     nextStep: "<DialogState>",
+ *     conditional: "<ConditionalSpecification>",
+ *   },
+ *   inputContexts: [ // InputContextsList
+ *     { // InputContext
+ *       name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   outputContexts: [ // OutputContextsList
+ *     { // OutputContext
+ *       name: "STRING_VALUE", // required
+ *       timeToLiveInSeconds: Number("int"), // required
+ *       turnsToLive: Number("int"), // required
+ *     },
+ *   ],
+ *   kendraConfiguration: { // KendraConfiguration
+ *     kendraIndex: "STRING_VALUE", // required
+ *     queryFilterStringEnabled: true || false,
+ *     queryFilterString: "STRING_VALUE",
+ *   },
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   creationDateTime: new Date("TIMESTAMP"),
+ *   initialResponseSetting: { // InitialResponseSetting
+ *     initialResponse: "<ResponseSpecification>",
+ *     nextStep: "<DialogState>",
+ *     conditional: "<ConditionalSpecification>",
+ *     codeHook: {
+ *       enableCodeHookInvocation: true || false, // required
+ *       active: true || false, // required
+ *       invocationLabel: "STRING_VALUE",
+ *       postCodeHookSpecification: {
+ *         successResponse: "<ResponseSpecification>",
+ *         successNextStep: "<DialogState>",
+ *         successConditional: "<ConditionalSpecification>",
+ *         failureResponse: "<ResponseSpecification>",
+ *         failureNextStep: "<DialogState>",
+ *         failureConditional: "<ConditionalSpecification>",
+ *         timeoutResponse: "<ResponseSpecification>",
+ *         timeoutNextStep: "<DialogState>",
+ *         timeoutConditional: "<ConditionalSpecification>",
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateIntentCommandInput - {@link CreateIntentCommandInput}
@@ -541,6 +975,8 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateIntentCommand extends $Command<

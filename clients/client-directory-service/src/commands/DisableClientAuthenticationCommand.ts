@@ -45,6 +45,9 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * };
  * const command = new DisableClientAuthenticationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableClientAuthenticationCommandInput - {@link DisableClientAuthenticationCommandInput}
@@ -71,6 +74,8 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DisableClientAuthenticationCommand extends $Command<

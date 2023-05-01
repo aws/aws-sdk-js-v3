@@ -62,6 +62,13 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * };
  * const command = new CancelRotateSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelRotateSecretResponse
+ *   ARN: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CancelRotateSecretCommandInput - {@link CancelRotateSecretCommandInput}
@@ -97,6 +104,8 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To cancel scheduled rotation for a secret
  * ```javascript

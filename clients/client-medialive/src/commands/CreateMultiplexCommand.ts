@@ -57,6 +57,37 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  * };
  * const command = new CreateMultiplexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMultiplexResponse
+ *   Multiplex: { // Multiplex
+ *     Arn: "STRING_VALUE",
+ *     AvailabilityZones: [ // __listOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *     Destinations: [ // __listOfMultiplexOutputDestination
+ *       { // MultiplexOutputDestination
+ *         MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
+ *           EntitlementArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     Id: "STRING_VALUE",
+ *     MultiplexSettings: { // MultiplexSettings
+ *       MaximumVideoBufferDelayMilliseconds: Number("int"),
+ *       TransportStreamBitrate: Number("int"), // required
+ *       TransportStreamId: Number("int"), // required
+ *       TransportStreamReservedBitrate: Number("int"),
+ *     },
+ *     Name: "STRING_VALUE",
+ *     PipelinesRunningCount: Number("int"),
+ *     ProgramCount: Number("int"),
+ *     State: "CREATING" || "CREATE_FAILED" || "IDLE" || "STARTING" || "RUNNING" || "RECOVERING" || "STOPPING" || "DELETING" || "DELETED",
+ *     Tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMultiplexCommandInput - {@link CreateMultiplexCommandInput}
@@ -89,6 +120,8 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class CreateMultiplexCommand extends $Command<

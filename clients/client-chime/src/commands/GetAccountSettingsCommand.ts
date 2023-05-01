@@ -47,6 +47,14 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * };
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSettingsResponse
+ *   AccountSettings: { // AccountSettings
+ *     DisableRemoteControl: true || false,
+ *     EnableDialOut: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
@@ -76,6 +84,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetAccountSettingsCommand extends $Command<

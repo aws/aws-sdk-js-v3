@@ -46,6 +46,16 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceResponse
+ *   id: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   customDomainName: "STRING_VALUE",
+ *   certificateArn: "STRING_VALUE",
+ *   authType: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
@@ -74,6 +84,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class UpdateServiceCommand extends $Command<

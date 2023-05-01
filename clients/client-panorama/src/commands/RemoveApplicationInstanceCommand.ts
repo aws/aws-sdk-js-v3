@@ -44,6 +44,9 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * };
  * const command = new RemoveApplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveApplicationInstanceCommandInput - {@link RemoveApplicationInstanceCommandInput}
@@ -67,6 +70,8 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class RemoveApplicationInstanceCommand extends $Command<

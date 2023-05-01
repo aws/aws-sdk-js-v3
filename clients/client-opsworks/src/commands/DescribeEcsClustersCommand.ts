@@ -58,6 +58,19 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  * };
  * const command = new DescribeEcsClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEcsClustersResult
+ *   EcsClusters: [ // EcsClusters
+ *     { // EcsCluster
+ *       EcsClusterArn: "STRING_VALUE",
+ *       EcsClusterName: "STRING_VALUE",
+ *       StackId: "STRING_VALUE",
+ *       RegisteredAt: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeEcsClustersCommandInput - {@link DescribeEcsClustersCommandInput}
@@ -72,6 +85,8 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeEcsClustersCommand extends $Command<

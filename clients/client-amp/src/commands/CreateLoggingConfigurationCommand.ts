@@ -46,6 +46,14 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * };
  * const command = new CreateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoggingConfigurationResponse
+ *   status: { // LoggingConfigurationStatus
+ *     statusCode: "STRING_VALUE", // required
+ *     statusReason: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
@@ -66,6 +74,8 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class CreateLoggingConfigurationCommand extends $Command<

@@ -48,6 +48,9 @@ export interface DisassociateMemberFromGroupCommandOutput
  * };
  * const command = new DisassociateMemberFromGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateMemberFromGroupCommandInput - {@link DisassociateMemberFromGroupCommandInput}
@@ -84,6 +87,8 @@ export interface DisassociateMemberFromGroupCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DisassociateMemberFromGroupCommand extends $Command<

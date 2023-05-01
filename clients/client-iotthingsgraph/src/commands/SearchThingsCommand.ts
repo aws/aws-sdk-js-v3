@@ -52,6 +52,17 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * };
  * const command = new SearchThingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchThingsResponse
+ *   things: [ // Things
+ *     { // Thing
+ *       thingArn: "STRING_VALUE",
+ *       thingName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchThingsCommandInput - {@link SearchThingsCommandInput}
@@ -72,6 +83,8 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchThingsCommand extends $Command<

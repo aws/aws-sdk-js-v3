@@ -56,6 +56,9 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  * };
  * const command = new GenerateRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param GenerateRecommendationsCommandInput - {@link GenerateRecommendationsCommandInput}
@@ -71,6 +74,8 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class GenerateRecommendationsCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecoveryInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRecoveryInstanceCommandInput - {@link DeleteRecoveryInstanceCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DeleteRecoveryInstanceCommand extends $Command<

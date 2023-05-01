@@ -44,6 +44,19 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * };
  * const command = new GetVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVehicleResponse
+ *   vehicleName: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   modelManifestArn: "STRING_VALUE",
+ *   decoderManifestArn: "STRING_VALUE",
+ *   attributes: { // attributesMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   creationTime: new Date("TIMESTAMP"),
+ *   lastModificationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetVehicleCommandInput - {@link GetVehicleCommandInput}
@@ -67,6 +80,8 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetVehicleCommand extends $Command<

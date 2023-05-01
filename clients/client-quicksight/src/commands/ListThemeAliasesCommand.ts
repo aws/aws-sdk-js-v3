@@ -47,6 +47,20 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
  * };
  * const command = new ListThemeAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThemeAliasesResponse
+ *   ThemeAliasList: [ // ThemeAliasList
+ *     { // ThemeAlias
+ *       Arn: "STRING_VALUE",
+ *       AliasName: "STRING_VALUE",
+ *       ThemeVersionNumber: Number("long"),
+ *     },
+ *   ],
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListThemeAliasesCommandInput - {@link ListThemeAliasesCommandInput}
@@ -79,6 +93,8 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListThemeAliasesCommand extends $Command<

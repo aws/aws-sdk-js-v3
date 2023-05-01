@@ -54,6 +54,13 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * };
  * const command = new AttachLoadBalancerToSubnetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachLoadBalancerToSubnetsOutput
+ *   Subnets: [ // Subnets
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AttachLoadBalancerToSubnetsCommandInput - {@link AttachLoadBalancerToSubnetsCommandInput}
@@ -74,6 +81,8 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @throws {@link SubnetNotFoundException} (client fault)
  *  <p>One or more of the specified subnets do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To attach subnets to a load balancer
  * ```javascript

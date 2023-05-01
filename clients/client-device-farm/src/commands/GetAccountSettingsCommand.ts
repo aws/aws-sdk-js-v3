@@ -43,6 +43,29 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSettingsResult
+ *   accountSettings: { // AccountSettings
+ *     awsAccountNumber: "STRING_VALUE",
+ *     unmeteredDevices: { // PurchasedDevicesMap
+ *       "<keys>": Number("int"),
+ *     },
+ *     unmeteredRemoteAccessDevices: {
+ *       "<keys>": Number("int"),
+ *     },
+ *     maxJobTimeoutMinutes: Number("int"),
+ *     trialMinutes: { // TrialMinutes
+ *       total: Number("double"),
+ *       remaining: Number("double"),
+ *     },
+ *     maxSlots: { // MaxSlotMap
+ *       "<keys>": Number("int"),
+ *     },
+ *     defaultJobTimeoutMinutes: Number("int"),
+ *     skipAppResign: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
@@ -63,6 +86,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about account settings
  * ```javascript

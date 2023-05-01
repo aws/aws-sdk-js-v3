@@ -76,6 +76,14 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * };
  * const command = new CreateModelVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelVersionResult
+ *   modelId: "STRING_VALUE",
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ *   modelVersionNumber: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateModelVersionCommandInput - {@link CreateModelVersionCommandInput}
@@ -99,6 +107,8 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateModelVersionCommand extends $Command<

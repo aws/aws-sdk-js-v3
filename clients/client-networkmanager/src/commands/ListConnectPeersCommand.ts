@@ -47,6 +47,27 @@ export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse,
  * };
  * const command = new ListConnectPeersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectPeersResponse
+ *   ConnectPeers: [ // ConnectPeerSummaryList
+ *     { // ConnectPeerSummary
+ *       CoreNetworkId: "STRING_VALUE",
+ *       ConnectAttachmentId: "STRING_VALUE",
+ *       ConnectPeerId: "STRING_VALUE",
+ *       EdgeLocation: "STRING_VALUE",
+ *       ConnectPeerState: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConnectPeersCommandInput - {@link ListConnectPeersCommandInput}
@@ -67,6 +88,8 @@ export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class ListConnectPeersCommand extends $Command<

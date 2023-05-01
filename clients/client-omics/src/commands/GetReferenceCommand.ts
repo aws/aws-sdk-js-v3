@@ -53,6 +53,11 @@ export interface GetReferenceCommandOutput
  * };
  * const command = new GetReferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReferenceResponse
+ *   payload: "STREAMING_BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetReferenceCommandInput - {@link GetReferenceCommandInput}
@@ -82,6 +87,8 @@ export interface GetReferenceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReferenceCommand extends $Command<

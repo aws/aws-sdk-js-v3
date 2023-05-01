@@ -52,6 +52,16 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * };
  * const command = new CreateFlowTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFlowTemplateResponse
+ *   summary: { // FlowTemplateSummary
+ *     id: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     revisionNumber: Number("long"),
+ *     createdAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFlowTemplateCommandInput - {@link CreateFlowTemplateCommandInput}
@@ -75,6 +85,8 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class CreateFlowTemplateCommand extends $Command<

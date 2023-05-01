@@ -90,6 +90,42 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * };
  * const command = new DescribeEventDetailsForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventDetailsForOrganizationResponse
+ *   successfulSet: [ // DescribeEventDetailsForOrganizationSuccessfulSet
+ *     { // OrganizationEventDetails
+ *       awsAccountId: "STRING_VALUE",
+ *       event: { // Event
+ *         arn: "STRING_VALUE",
+ *         service: "STRING_VALUE",
+ *         eventTypeCode: "STRING_VALUE",
+ *         eventTypeCategory: "STRING_VALUE",
+ *         region: "STRING_VALUE",
+ *         availabilityZone: "STRING_VALUE",
+ *         startTime: new Date("TIMESTAMP"),
+ *         endTime: new Date("TIMESTAMP"),
+ *         lastUpdatedTime: new Date("TIMESTAMP"),
+ *         statusCode: "STRING_VALUE",
+ *         eventScopeCode: "STRING_VALUE",
+ *       },
+ *       eventDescription: { // EventDescription
+ *         latestDescription: "STRING_VALUE",
+ *       },
+ *       eventMetadata: { // eventMetadata
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   failedSet: [ // DescribeEventDetailsForOrganizationFailedSet
+ *     { // OrganizationEventDetailsErrorItem
+ *       awsAccountId: "STRING_VALUE",
+ *       eventArn: "STRING_VALUE",
+ *       errorName: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventDetailsForOrganizationCommandInput - {@link DescribeEventDetailsForOrganizationCommandInput}
@@ -101,6 +137,8 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventDetailsForOrganizationCommand extends $Command<

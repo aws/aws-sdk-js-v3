@@ -77,6 +77,64 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * };
  * const command = new SubscribeToShardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubscribeToShardOutput
+ *   EventStream: { // SubscribeToShardEventStream Union: only one key present
+ *     SubscribeToShardEvent: { // SubscribeToShardEvent
+ *       Records: [ // RecordList // required
+ *         { // Record
+ *           SequenceNumber: "STRING_VALUE", // required
+ *           ApproximateArrivalTimestamp: new Date("TIMESTAMP"),
+ *           Data: "BLOB_VALUE", // required
+ *           PartitionKey: "STRING_VALUE", // required
+ *           EncryptionType: "NONE" || "KMS",
+ *         },
+ *       ],
+ *       ContinuationSequenceNumber: "STRING_VALUE", // required
+ *       MillisBehindLatest: Number("long"), // required
+ *       ChildShards: [ // ChildShardList
+ *         { // ChildShard
+ *           ShardId: "STRING_VALUE", // required
+ *           ParentShards: [ // ShardIdList // required
+ *             "STRING_VALUE",
+ *           ],
+ *           HashKeyRange: { // HashKeyRange
+ *             StartingHashKey: "STRING_VALUE", // required
+ *             EndingHashKey: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     ResourceNotFoundException: { // ResourceNotFoundException
+ *       message: "STRING_VALUE",
+ *     },
+ *     ResourceInUseException: { // ResourceInUseException
+ *       message: "STRING_VALUE",
+ *     },
+ *     KMSDisabledException: { // KMSDisabledException
+ *       message: "STRING_VALUE",
+ *     },
+ *     KMSInvalidStateException: { // KMSInvalidStateException
+ *       message: "STRING_VALUE",
+ *     },
+ *     KMSAccessDeniedException: { // KMSAccessDeniedException
+ *       message: "STRING_VALUE",
+ *     },
+ *     KMSNotFoundException: { // KMSNotFoundException
+ *       message: "STRING_VALUE",
+ *     },
+ *     KMSOptInRequired: { // KMSOptInRequired
+ *       message: "STRING_VALUE",
+ *     },
+ *     KMSThrottlingException: { // KMSThrottlingException
+ *       message: "STRING_VALUE",
+ *     },
+ *     InternalFailureException: { // InternalFailureException
+ *       message: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param SubscribeToShardCommandInput - {@link SubscribeToShardCommandInput}
@@ -105,6 +163,8 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class SubscribeToShardCommand extends $Command<

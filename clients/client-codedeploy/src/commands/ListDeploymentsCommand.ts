@@ -55,6 +55,14 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentsOutput
+ *   deployments: [ // DeploymentsList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -96,6 +104,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @throws {@link InvalidTimeRangeException} (client fault)
  *  <p>The specified time range was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentsCommand extends $Command<

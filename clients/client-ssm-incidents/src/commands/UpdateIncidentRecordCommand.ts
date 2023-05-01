@@ -62,6 +62,9 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  * };
  * const command = new UpdateIncidentRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateIncidentRecordCommandInput - {@link UpdateIncidentRecordCommandInput}
@@ -90,6 +93,8 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateIncidentRecordCommand extends $Command<

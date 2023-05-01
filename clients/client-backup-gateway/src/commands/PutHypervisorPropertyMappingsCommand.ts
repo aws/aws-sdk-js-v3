@@ -60,6 +60,11 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * };
  * const command = new PutHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutHypervisorPropertyMappingsOutput
+ *   HypervisorArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutHypervisorPropertyMappingsCommandInput - {@link PutHypervisorPropertyMappingsCommandInput}
@@ -87,6 +92,8 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class PutHypervisorPropertyMappingsCommand extends $Command<

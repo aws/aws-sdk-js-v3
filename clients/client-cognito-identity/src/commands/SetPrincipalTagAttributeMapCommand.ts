@@ -52,6 +52,16 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * };
  * const command = new SetPrincipalTagAttributeMapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetPrincipalTagAttributeMapResponse
+ *   IdentityPoolId: "STRING_VALUE",
+ *   IdentityProviderName: "STRING_VALUE",
+ *   UseDefaults: true || false,
+ *   PrincipalTags: { // PrincipalTags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param SetPrincipalTagAttributeMapCommandInput - {@link SetPrincipalTagAttributeMapCommandInput}
@@ -76,6 +86,8 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class SetPrincipalTagAttributeMapCommand extends $Command<

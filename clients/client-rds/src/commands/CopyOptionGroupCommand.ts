@@ -52,6 +52,57 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * };
  * const command = new CopyOptionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyOptionGroupResult
+ *   OptionGroup: { // OptionGroup
+ *     OptionGroupName: "STRING_VALUE",
+ *     OptionGroupDescription: "STRING_VALUE",
+ *     EngineName: "STRING_VALUE",
+ *     MajorEngineVersion: "STRING_VALUE",
+ *     Options: [ // OptionsList
+ *       { // Option
+ *         OptionName: "STRING_VALUE",
+ *         OptionDescription: "STRING_VALUE",
+ *         Persistent: true || false,
+ *         Permanent: true || false,
+ *         Port: Number("int"),
+ *         OptionVersion: "STRING_VALUE",
+ *         OptionSettings: [ // OptionSettingConfigurationList
+ *           { // OptionSetting
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             DefaultValue: "STRING_VALUE",
+ *             Description: "STRING_VALUE",
+ *             ApplyType: "STRING_VALUE",
+ *             DataType: "STRING_VALUE",
+ *             AllowedValues: "STRING_VALUE",
+ *             IsModifiable: true || false,
+ *             IsCollection: true || false,
+ *           },
+ *         ],
+ *         DBSecurityGroupMemberships: [ // DBSecurityGroupMembershipList
+ *           { // DBSecurityGroupMembership
+ *             DBSecurityGroupName: "STRING_VALUE",
+ *             Status: "STRING_VALUE",
+ *           },
+ *         ],
+ *         VpcSecurityGroupMemberships: [ // VpcSecurityGroupMembershipList
+ *           { // VpcSecurityGroupMembership
+ *             VpcSecurityGroupId: "STRING_VALUE",
+ *             Status: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     AllowsVpcAndNonVpcInstanceMemberships: true || false,
+ *     VpcId: "STRING_VALUE",
+ *     OptionGroupArn: "STRING_VALUE",
+ *     SourceOptionGroup: "STRING_VALUE",
+ *     SourceAccountId: "STRING_VALUE",
+ *     CopyTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyOptionGroupCommandInput - {@link CopyOptionGroupCommandInput}
@@ -69,6 +120,8 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * @throws {@link OptionGroupQuotaExceededFault} (client fault)
  *  <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To copy an option group
  * ```javascript

@@ -47,6 +47,25 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * };
  * const command = new DescribeAssessmentTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAssessmentTargetsResponse
+ *   assessmentTargets: [ // AssessmentTargetList // required
+ *     { // AssessmentTarget
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       resourceGroupArn: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       updatedAt: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   failedItems: { // FailedItems // required
+ *     "<keys>": { // FailedItemDetails
+ *       failureCode: "STRING_VALUE", // required
+ *       retryable: true || false, // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAssessmentTargetsCommandInput - {@link DescribeAssessmentTargetsCommandInput}
@@ -62,6 +81,8 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describte assessment targets
  * ```javascript

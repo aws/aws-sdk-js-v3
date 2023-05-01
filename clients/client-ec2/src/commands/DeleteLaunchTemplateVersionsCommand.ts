@@ -54,6 +54,28 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * };
  * const command = new DeleteLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteLaunchTemplateVersionsResult
+ *   SuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseSuccessSet
+ *     { // DeleteLaunchTemplateVersionsResponseSuccessItem
+ *       LaunchTemplateId: "STRING_VALUE",
+ *       LaunchTemplateName: "STRING_VALUE",
+ *       VersionNumber: Number("long"),
+ *     },
+ *   ],
+ *   UnsuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseErrorSet
+ *     { // DeleteLaunchTemplateVersionsResponseErrorItem
+ *       LaunchTemplateId: "STRING_VALUE",
+ *       LaunchTemplateName: "STRING_VALUE",
+ *       VersionNumber: Number("long"),
+ *       ResponseError: { // ResponseError
+ *         Code: "launchTemplateIdDoesNotExist" || "launchTemplateIdMalformed" || "launchTemplateNameDoesNotExist" || "launchTemplateNameMalformed" || "launchTemplateVersionDoesNotExist" || "unexpectedError",
+ *         Message: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteLaunchTemplateVersionsCommandInput - {@link DeleteLaunchTemplateVersionsCommandInput}
@@ -62,6 +84,8 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * @see {@link DeleteLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To delete a launch template version
  * ```javascript

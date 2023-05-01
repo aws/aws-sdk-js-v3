@@ -45,6 +45,11 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  * };
  * const command = new CreateReturnShippingLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReturnShippingLabelResult
+ *   Status: "InProgress" || "TimedOut" || "Succeeded" || "Failed",
+ * };
+ *
  * ```
  *
  * @param CreateReturnShippingLabelCommandInput - {@link CreateReturnShippingLabelCommandInput}
@@ -73,6 +78,8 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  *       return shipping label already exists. In this case, use
  *         <code>DescribeReturnShippingLabel</code> to get the URL.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class CreateReturnShippingLabelCommand extends $Command<

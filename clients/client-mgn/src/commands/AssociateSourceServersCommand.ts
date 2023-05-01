@@ -47,6 +47,9 @@ export interface AssociateSourceServersCommandOutput extends AssociateSourceServ
  * };
  * const command = new AssociateSourceServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateSourceServersCommandInput - {@link AssociateSourceServersCommandInput}
@@ -67,6 +70,8 @@ export interface AssociateSourceServersCommandOutput extends AssociateSourceServ
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class AssociateSourceServersCommand extends $Command<

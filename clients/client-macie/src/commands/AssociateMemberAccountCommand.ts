@@ -45,6 +45,9 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateMemberAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateMemberAccountCommandInput - {@link AssociateMemberAccountCommandInput}
@@ -64,6 +67,8 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  *  <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
  *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class AssociateMemberAccountCommand extends $Command<

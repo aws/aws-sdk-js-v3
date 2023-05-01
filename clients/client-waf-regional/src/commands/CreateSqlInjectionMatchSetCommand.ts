@@ -74,6 +74,24 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * };
  * const command = new CreateSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSqlInjectionMatchSetResponse
+ *   SqlInjectionMatchSet: { // SqlInjectionMatchSet
+ *     SqlInjectionMatchSetId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     SqlInjectionMatchTuples: [ // SqlInjectionMatchTuples // required
+ *       { // SqlInjectionMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TextTransformation: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSqlInjectionMatchSetCommandInput - {@link CreateSqlInjectionMatchSetCommandInput}
@@ -139,6 +157,8 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To create a SQL injection match set
  * ```javascript

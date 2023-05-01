@@ -50,6 +50,11 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEventResponse
+ *   id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendEventCommandInput - {@link SendEventCommandInput}
@@ -73,6 +78,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class SendEventCommand extends $Command<

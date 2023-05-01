@@ -45,6 +45,20 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * };
  * const command = new ListHypervisorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHypervisorsOutput
+ *   Hypervisors: [ // Hypervisors
+ *     { // Hypervisor
+ *       Host: "STRING_VALUE",
+ *       HypervisorArn: "STRING_VALUE",
+ *       KmsKeyArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       State: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListHypervisorsCommandInput - {@link ListHypervisorsCommandInput}
@@ -63,6 +77,8 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class ListHypervisorsCommand extends $Command<

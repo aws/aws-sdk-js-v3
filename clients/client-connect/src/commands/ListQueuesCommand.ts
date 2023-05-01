@@ -55,6 +55,19 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueuesResponse
+ *   QueueSummaryList: [ // QueueSummaryList
+ *     { // QueueSummary
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       QueueType: "STANDARD" || "AGENT",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
@@ -78,6 +91,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListQueuesCommand extends $Command<

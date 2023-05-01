@@ -47,6 +47,9 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * };
  * const command = new UpdateEventLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateEventLabelCommandInput - {@link UpdateEventLabelCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateEventLabelCommand extends $Command<

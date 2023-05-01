@@ -46,6 +46,9 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  * };
  * const command = new DeletePlaybackKeyPairCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePlaybackKeyPairCommandInput - {@link DeletePlaybackKeyPairCommandInput}
@@ -66,6 +69,8 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class DeletePlaybackKeyPairCommand extends $Command<

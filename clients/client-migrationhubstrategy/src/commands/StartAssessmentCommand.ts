@@ -58,6 +58,11 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * };
  * const command = new StartAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAssessmentResponse
+ *   assessmentId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartAssessmentCommandInput - {@link StartAssessmentCommandInput}
@@ -80,6 +85,8 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p> The request was denied due to request throttling. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StartAssessmentCommand extends $Command<

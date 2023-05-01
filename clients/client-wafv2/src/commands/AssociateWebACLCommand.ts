@@ -50,6 +50,9 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * };
  * const command = new AssociateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateWebACLCommandInput - {@link AssociateWebACLCommandInput}
@@ -99,6 +102,8 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  *        for changes to propagate. Verify the resources that you are specifying in your request
  *        parameters and then retry the operation.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class AssociateWebACLCommand extends $Command<

@@ -47,6 +47,9 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * };
  * const command = new CancelLegalHoldCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelLegalHoldCommandInput - {@link CancelLegalHoldCommandInput}
@@ -72,6 +75,8 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CancelLegalHoldCommand extends $Command<

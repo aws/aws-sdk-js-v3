@@ -72,6 +72,9 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteImportedKeyMaterialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteImportedKeyMaterialCommandInput - {@link DeleteImportedKeyMaterialCommandInput}
@@ -118,6 +121,8 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To delete imported key material
  * ```javascript

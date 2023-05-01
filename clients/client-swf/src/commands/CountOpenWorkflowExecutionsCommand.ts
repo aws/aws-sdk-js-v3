@@ -104,6 +104,12 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * };
  * const command = new CountOpenWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WorkflowExecutionCount
+ *   count: Number("int"), // required
+ *   truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param CountOpenWorkflowExecutionsCommandInput - {@link CountOpenWorkflowExecutionsCommandInput}
@@ -118,6 +124,8 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class CountOpenWorkflowExecutionsCommand extends $Command<

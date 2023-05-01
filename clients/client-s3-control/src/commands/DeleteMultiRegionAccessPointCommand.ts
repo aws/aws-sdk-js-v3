@@ -86,6 +86,11 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * };
  * const command = new DeleteMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMultiRegionAccessPointResult
+ *   RequestTokenARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteMultiRegionAccessPointCommandInput - {@link DeleteMultiRegionAccessPointCommandInput}
@@ -94,6 +99,8 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * @see {@link DeleteMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class DeleteMultiRegionAccessPointCommand extends $Command<

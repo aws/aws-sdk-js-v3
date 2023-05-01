@@ -49,6 +49,9 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * };
  * const command = new DeletePendingAggregationRequestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePendingAggregationRequestCommandInput - {@link DeletePendingAggregationRequestCommandInput}
@@ -61,6 +64,8 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeletePendingAggregationRequestCommand extends $Command<

@@ -44,6 +44,12 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  * };
  * const command = new DeleteCustomPluginCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCustomPluginResponse
+ *   customPluginArn: "STRING_VALUE",
+ *   customPluginState: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteCustomPluginCommandInput - {@link DeleteCustomPluginCommandInput}
@@ -79,6 +85,8 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class DeleteCustomPluginCommand extends $Command<

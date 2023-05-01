@@ -45,6 +45,19 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupResult
+ *   Group: { // Group
+ *     GroupName: "STRING_VALUE",
+ *     GroupARN: "STRING_VALUE",
+ *     FilterExpression: "STRING_VALUE",
+ *     InsightsConfiguration: { // InsightsConfiguration
+ *       InsightsEnabled: true || false,
+ *       NotificationsEnabled: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGroupCommandInput - {@link GetGroupCommandInput}
@@ -59,6 +72,8 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, XRayClientResolvedConfig> {

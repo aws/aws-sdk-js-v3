@@ -49,6 +49,15 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  * };
  * const command = new GetSchemaByDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaByDefinitionResponse
+ *   SchemaVersionId: "STRING_VALUE",
+ *   SchemaArn: "STRING_VALUE",
+ *   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
+ *   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ *   CreatedTime: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSchemaByDefinitionCommandInput - {@link GetSchemaByDefinitionCommandInput}
@@ -69,6 +78,8 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaByDefinitionCommand extends $Command<

@@ -61,6 +61,47 @@ export interface ListResourceComplianceSummariesCommandOutput
  * };
  * const command = new ListResourceComplianceSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceComplianceSummariesResult
+ *   ResourceComplianceSummaryItems: [ // ResourceComplianceSummaryItemList
+ *     { // ResourceComplianceSummaryItem
+ *       ComplianceType: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *       Status: "COMPLIANT" || "NON_COMPLIANT",
+ *       OverallSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *       ExecutionSummary: { // ComplianceExecutionSummary
+ *         ExecutionTime: new Date("TIMESTAMP"), // required
+ *         ExecutionId: "STRING_VALUE",
+ *         ExecutionType: "STRING_VALUE",
+ *       },
+ *       CompliantSummary: { // CompliantSummary
+ *         CompliantCount: Number("int"),
+ *         SeveritySummary: { // SeveritySummary
+ *           CriticalCount: Number("int"),
+ *           HighCount: Number("int"),
+ *           MediumCount: Number("int"),
+ *           LowCount: Number("int"),
+ *           InformationalCount: Number("int"),
+ *           UnspecifiedCount: Number("int"),
+ *         },
+ *       },
+ *       NonCompliantSummary: { // NonCompliantSummary
+ *         NonCompliantCount: Number("int"),
+ *         SeveritySummary: {
+ *           CriticalCount: Number("int"),
+ *           HighCount: Number("int"),
+ *           MediumCount: Number("int"),
+ *           LowCount: Number("int"),
+ *           InformationalCount: Number("int"),
+ *           UnspecifiedCount: Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListResourceComplianceSummariesCommandInput - {@link ListResourceComplianceSummariesCommandInput}
@@ -78,6 +119,8 @@ export interface ListResourceComplianceSummariesCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListResourceComplianceSummariesCommand extends $Command<

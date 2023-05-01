@@ -54,6 +54,11 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * };
  * const command = new DisableIpamOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableIpamOrganizationAdminAccountResult
+ *   Success: true || false,
+ * };
+ *
  * ```
  *
  * @param DisableIpamOrganizationAdminAccountCommandInput - {@link DisableIpamOrganizationAdminAccountCommandInput}
@@ -62,6 +67,8 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * @see {@link DisableIpamOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisableIpamOrganizationAdminAccountCommand extends $Command<

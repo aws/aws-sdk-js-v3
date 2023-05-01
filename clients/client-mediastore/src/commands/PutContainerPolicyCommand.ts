@@ -51,6 +51,9 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * };
  * const command = new PutContainerPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutContainerPolicyCommandInput - {@link PutContainerPolicyCommandInput}
@@ -69,6 +72,8 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutContainerPolicyCommand extends $Command<

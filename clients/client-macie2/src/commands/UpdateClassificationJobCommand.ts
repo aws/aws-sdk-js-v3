@@ -45,6 +45,9 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
  * };
  * const command = new UpdateClassificationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateClassificationJobCommandInput - {@link UpdateClassificationJobCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class UpdateClassificationJobCommand extends $Command<

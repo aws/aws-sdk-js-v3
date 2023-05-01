@@ -47,6 +47,9 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * };
  * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource was not found.</p>
  *
+ * @throws {@link DLMServiceException}
+ * <p>Base exception class for all service exceptions from DLM service.</p>
  *
  */
 export class DeleteLifecyclePolicyCommand extends $Command<

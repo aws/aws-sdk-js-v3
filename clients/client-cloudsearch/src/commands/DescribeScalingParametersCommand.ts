@@ -44,6 +44,24 @@ export interface DescribeScalingParametersCommandOutput extends DescribeScalingP
  * };
  * const command = new DescribeScalingParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScalingParametersResponse
+ *   ScalingParameters: { // ScalingParametersStatus
+ *     Options: { // ScalingParameters
+ *       DesiredInstanceType: "STRING_VALUE",
+ *       DesiredReplicationCount: Number("int"),
+ *       DesiredPartitionCount: Number("int"),
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date("TIMESTAMP"), // required
+ *       UpdateDate: new Date("TIMESTAMP"), // required
+ *       UpdateVersion: Number("int"),
+ *       State: "STRING_VALUE", // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeScalingParametersCommandInput - {@link DescribeScalingParametersCommandInput}
@@ -62,6 +80,8 @@ export interface DescribeScalingParametersCommandOutput extends DescribeScalingP
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeScalingParametersCommand extends $Command<

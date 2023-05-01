@@ -48,6 +48,9 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEndpointGroupCommandInput - {@link DeleteEndpointGroupCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DeleteEndpointGroupCommand extends $Command<

@@ -59,6 +59,39 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  * };
  * const command = new BatchGetFrameMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetFrameMetricDataResponse
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   resolution: "STRING_VALUE", // required
+ *   endTimes: [ // ListOfTimestamps // required
+ *     { // TimestampStructure
+ *       value: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   unprocessedEndTimes: { // UnprocessedEndTimeMap // required
+ *     "<keys>": [
+ *       {
+ *         value: new Date("TIMESTAMP"), // required
+ *       },
+ *     ],
+ *   },
+ *   frameMetricData: [ // FrameMetricData // required
+ *     { // FrameMetricDatum
+ *       frameMetric: { // FrameMetric
+ *         frameName: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         threadStates: [ // ThreadStates // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       values: [ // FrameMetricValues // required
+ *         Number("double"),
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetFrameMetricDataCommandInput - {@link BatchGetFrameMetricDataCommandInput}
@@ -79,6 +112,8 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class BatchGetFrameMetricDataCommand extends $Command<

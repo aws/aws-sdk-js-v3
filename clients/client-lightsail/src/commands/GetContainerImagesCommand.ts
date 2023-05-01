@@ -50,6 +50,17 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * };
  * const command = new GetContainerImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContainerImagesResult
+ *   containerImages: [ // ContainerImageList
+ *     { // ContainerImage
+ *       image: "STRING_VALUE",
+ *       digest: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetContainerImagesCommandInput - {@link GetContainerImagesCommandInput}
@@ -81,6 +92,8 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetContainerImagesCommand extends $Command<

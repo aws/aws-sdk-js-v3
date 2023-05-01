@@ -57,6 +57,27 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  * };
  * const command = new UpdateWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkflowStepGroupResponse
+ *   workflowId: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   id: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   tools: [ // ToolsList
+ *     { // Tool
+ *       name: "STRING_VALUE",
+ *       url: "STRING_VALUE",
+ *     },
+ *   ],
+ *   next: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   previous: [
+ *     "STRING_VALUE",
+ *   ],
+ *   lastModifiedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateWorkflowStepGroupCommandInput - {@link UpdateWorkflowStepGroupCommandInput}
@@ -80,6 +101,8 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class UpdateWorkflowStepGroupCommand extends $Command<

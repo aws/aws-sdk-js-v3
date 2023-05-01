@@ -46,6 +46,17 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * };
  * const command = new GetOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpsMetadataResult
+ *   ResourceId: "STRING_VALUE",
+ *   Metadata: { // MetadataMap
+ *     "<keys>": { // MetadataValue
+ *       Value: "STRING_VALUE",
+ *     },
+ *   },
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetOpsMetadataCommandInput - {@link GetOpsMetadataCommandInput}
@@ -63,6 +74,8 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * @throws {@link OpsMetadataNotFoundException} (client fault)
  *  <p>The OpsMetadata object doesn't exist. </p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetOpsMetadataCommand extends $Command<

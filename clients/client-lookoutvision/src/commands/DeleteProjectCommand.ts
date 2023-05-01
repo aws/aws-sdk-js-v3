@@ -52,6 +52,11 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectResponse
+ *   ProjectArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
@@ -79,6 +84,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DeleteProjectCommand extends $Command<

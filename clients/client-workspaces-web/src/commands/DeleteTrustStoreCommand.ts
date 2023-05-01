@@ -44,6 +44,9 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  * };
  * const command = new DeleteTrustStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTrustStoreCommandInput - {@link DeleteTrustStoreCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteTrustStoreCommand extends $Command<

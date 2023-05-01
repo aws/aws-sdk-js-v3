@@ -46,6 +46,9 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
  * };
  * const command = new DeregisterComputeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterComputeCommandInput - {@link DeregisterComputeCommandInput}
@@ -68,6 +71,8 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeregisterComputeCommand extends $Command<

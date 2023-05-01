@@ -45,6 +45,57 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * };
  * const command = new DescribeMultiplexProgramCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMultiplexProgramResponse
+ *   ChannelId: "STRING_VALUE",
+ *   MultiplexProgramSettings: { // MultiplexProgramSettings
+ *     PreferredChannelPipeline: "CURRENTLY_ACTIVE" || "PIPELINE_0" || "PIPELINE_1",
+ *     ProgramNumber: Number("int"), // required
+ *     ServiceDescriptor: { // MultiplexProgramServiceDescriptor
+ *       ProviderName: "STRING_VALUE", // required
+ *       ServiceName: "STRING_VALUE", // required
+ *     },
+ *     VideoSettings: { // MultiplexVideoSettings
+ *       ConstantBitrate: Number("int"),
+ *       StatmuxSettings: { // MultiplexStatmuxVideoSettings
+ *         MaximumBitrate: Number("int"),
+ *         MinimumBitrate: Number("int"),
+ *         Priority: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   PacketIdentifiersMap: { // MultiplexProgramPacketIdentifiersMap
+ *     AudioPids: [ // __listOf__integer
+ *       Number("int"),
+ *     ],
+ *     DvbSubPids: [
+ *       Number("int"),
+ *     ],
+ *     DvbTeletextPid: Number("int"),
+ *     EtvPlatformPid: Number("int"),
+ *     EtvSignalPid: Number("int"),
+ *     KlvDataPids: [
+ *       Number("int"),
+ *     ],
+ *     PcrPid: Number("int"),
+ *     PmtPid: Number("int"),
+ *     PrivateMetadataPid: Number("int"),
+ *     Scte27Pids: [
+ *       Number("int"),
+ *     ],
+ *     Scte35Pid: Number("int"),
+ *     TimedMetadataPid: Number("int"),
+ *     VideoPid: Number("int"),
+ *   },
+ *   PipelineDetails: [ // __listOfMultiplexProgramPipelineDetail
+ *     { // MultiplexProgramPipelineDetail
+ *       ActiveChannelPipeline: "STRING_VALUE",
+ *       PipelineId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ProgramName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeMultiplexProgramCommandInput - {@link DescribeMultiplexProgramCommandInput}
@@ -74,6 +125,8 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DescribeMultiplexProgramCommand extends $Command<

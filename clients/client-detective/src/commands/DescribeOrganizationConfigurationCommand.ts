@@ -55,6 +55,11 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationConfigurationResponse
+ *   AutoEnable: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
@@ -77,6 +82,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<

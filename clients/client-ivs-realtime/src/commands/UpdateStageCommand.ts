@@ -45,6 +45,18 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateStageResponse
+ *   stage: { // Stage
+ *     arn: "STRING_VALUE", // required
+ *     name: "STRING_VALUE",
+ *     activeSessionId: "STRING_VALUE",
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
@@ -68,6 +80,8 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class UpdateStageCommand extends $Command<

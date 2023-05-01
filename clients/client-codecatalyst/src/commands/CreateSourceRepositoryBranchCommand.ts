@@ -56,6 +56,14 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * };
  * const command = new CreateSourceRepositoryBranchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSourceRepositoryBranchResponse
+ *   ref: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   lastUpdatedTime: new Date("TIMESTAMP"),
+ *   headCommitId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSourceRepositoryBranchCommandInput - {@link CreateSourceRepositoryBranchCommandInput}
@@ -84,6 +92,8 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class CreateSourceRepositoryBranchCommand extends $Command<

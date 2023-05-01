@@ -49,6 +49,9 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * };
  * const command = new DeleteDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDocumentCommandInput - {@link DeleteDocumentCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
  *    document before you can delete it.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteDocumentCommand extends $Command<

@@ -46,6 +46,24 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * };
  * const command = new ListDataSetImportHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSetImportHistoryResponse
+ *   dataSetImportTasks: [ // DataSetImportTaskList // required
+ *     { // DataSetImportTask
+ *       taskId: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       summary: { // DataSetImportSummary
+ *         total: Number("int"), // required
+ *         succeeded: Number("int"), // required
+ *         failed: Number("int"), // required
+ *         pending: Number("int"), // required
+ *         inProgress: Number("int"), // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDataSetImportHistoryCommandInput - {@link ListDataSetImportHistoryCommandInput}
@@ -69,6 +87,8 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListDataSetImportHistoryCommand extends $Command<

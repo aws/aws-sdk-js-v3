@@ -50,6 +50,21 @@ export interface UpdateVoiceProfileDomainCommandOutput extends UpdateVoiceProfil
  * };
  * const command = new UpdateVoiceProfileDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVoiceProfileDomainResponse
+ *   VoiceProfileDomain: { // VoiceProfileDomain
+ *     VoiceProfileDomainId: "STRING_VALUE",
+ *     VoiceProfileDomainArn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ *       KmsKeyArn: "STRING_VALUE", // required
+ *     },
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVoiceProfileDomainCommandInput - {@link UpdateVoiceProfileDomainCommandInput}
@@ -82,6 +97,8 @@ export interface UpdateVoiceProfileDomainCommandOutput extends UpdateVoiceProfil
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateVoiceProfileDomainCommand extends $Command<

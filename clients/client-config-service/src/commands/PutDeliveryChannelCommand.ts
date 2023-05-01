@@ -67,6 +67,9 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutDeliveryChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDeliveryChannelCommandInput - {@link PutDeliveryChannelCommandInput}
@@ -103,6 +106,8 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link NoSuchBucketException} (client fault)
  *  <p>The specified Amazon S3 bucket does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutDeliveryChannelCommand extends $Command<

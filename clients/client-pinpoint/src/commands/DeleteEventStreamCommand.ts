@@ -44,6 +44,18 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * };
  * const command = new DeleteEventStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEventStreamResponse
+ *   EventStream: { // EventStream
+ *     ApplicationId: "STRING_VALUE", // required
+ *     DestinationStreamArn: "STRING_VALUE", // required
+ *     ExternalId: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE",
+ *     LastUpdatedBy: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEventStreamCommandInput - {@link DeleteEventStreamCommandInput}
@@ -73,6 +85,8 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteEventStreamCommand extends $Command<

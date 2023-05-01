@@ -53,6 +53,17 @@ export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregatio
  * };
  * const command = new GetBucketsAggregationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketsAggregationResponse
+ *   totalCount: Number("int"),
+ *   buckets: [ // Buckets
+ *     { // Bucket
+ *       keyValue: "STRING_VALUE",
+ *       count: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketsAggregationCommandInput - {@link GetBucketsAggregationCommandInput}
@@ -88,6 +99,8 @@ export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregatio
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetBucketsAggregationCommand extends $Command<

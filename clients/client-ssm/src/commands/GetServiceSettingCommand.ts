@@ -57,6 +57,18 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * };
  * const command = new GetServiceSettingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceSettingResult
+ *   ServiceSetting: { // ServiceSetting
+ *     SettingId: "STRING_VALUE",
+ *     SettingValue: "STRING_VALUE",
+ *     LastModifiedDate: new Date("TIMESTAMP"),
+ *     LastModifiedUser: "STRING_VALUE",
+ *     ARN: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetServiceSettingCommandInput - {@link GetServiceSettingCommandInput}
@@ -72,6 +84,8 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  *  <p>The specified service setting wasn't found. Either the service name or the setting hasn't
  *    been provisioned by the Amazon Web Services service team.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetServiceSettingCommand extends $Command<

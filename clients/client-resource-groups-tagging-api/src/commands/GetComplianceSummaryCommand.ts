@@ -76,6 +76,21 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * };
  * const command = new GetComplianceSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComplianceSummaryOutput
+ *   SummaryList: [ // SummaryList
+ *     { // Summary
+ *       LastUpdated: "STRING_VALUE",
+ *       TargetId: "STRING_VALUE",
+ *       TargetIdType: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       NonCompliantResources: Number("long"),
+ *     },
+ *   ],
+ *   PaginationToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetComplianceSummaryCommandInput - {@link GetComplianceSummaryCommandInput}
@@ -136,6 +151,8 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class GetComplianceSummaryCommand extends $Command<

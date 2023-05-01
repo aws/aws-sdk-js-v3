@@ -49,6 +49,16 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  * };
  * const command = new ListGroupCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupCertificateAuthoritiesResponse
+ *   GroupCertificateAuthorities: [ // __listOfGroupCertificateAuthorityProperties
+ *     { // GroupCertificateAuthorityProperties
+ *       GroupCertificateAuthorityArn: "STRING_VALUE",
+ *       GroupCertificateAuthorityId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListGroupCertificateAuthoritiesCommandInput - {@link ListGroupCertificateAuthoritiesCommandInput}
@@ -63,6 +73,8 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListGroupCertificateAuthoritiesCommand extends $Command<

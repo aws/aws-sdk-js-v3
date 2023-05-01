@@ -55,6 +55,9 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * };
  * const command = new GlobalSignOutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param GlobalSignOutCommandInput - {@link GlobalSignOutCommandInput}
@@ -90,6 +93,8 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * @throws {@link UserNotConfirmedException} (client fault)
  *  <p>This exception is thrown when a user isn't confirmed successfully.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GlobalSignOutCommand extends $Command<

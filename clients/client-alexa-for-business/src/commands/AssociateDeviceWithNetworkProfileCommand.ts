@@ -53,6 +53,9 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * };
  * const command = new AssociateDeviceWithNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDeviceWithNetworkProfileCommandInput - {@link AssociateDeviceWithNetworkProfileCommandInput}
@@ -70,6 +73,8 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateDeviceWithNetworkProfileCommand extends $Command<

@@ -49,6 +49,18 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * };
  * const command = new RegisterTransitGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTransitGatewayResponse
+ *   TransitGatewayRegistration: { // TransitGatewayRegistration
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     TransitGatewayArn: "STRING_VALUE",
+ *     State: { // TransitGatewayRegistrationStateReason
+ *       Code: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED" || "FAILED",
+ *       Message: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param RegisterTransitGatewayCommandInput - {@link RegisterTransitGatewayCommandInput}
@@ -76,6 +88,8 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class RegisterTransitGatewayCommand extends $Command<

@@ -49,6 +49,21 @@ export interface ListReadinessChecksCommandOutput extends ListReadinessChecksRes
  * };
  * const command = new ListReadinessChecksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReadinessChecksResponse
+ *   NextToken: "STRING_VALUE",
+ *   ReadinessChecks: [ // __listOfReadinessCheckOutput
+ *     { // ReadinessCheckOutput
+ *       ReadinessCheckArn: "STRING_VALUE", // required
+ *       ReadinessCheckName: "STRING_VALUE",
+ *       ResourceSet: "STRING_VALUE", // required
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReadinessChecksCommandInput - {@link ListReadinessChecksCommandInput}
@@ -69,6 +84,8 @@ export interface ListReadinessChecksCommandOutput extends ListReadinessChecksRes
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class ListReadinessChecksCommand extends $Command<

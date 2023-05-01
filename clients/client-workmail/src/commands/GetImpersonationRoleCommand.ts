@@ -45,6 +45,30 @@ export interface GetImpersonationRoleCommandOutput extends GetImpersonationRoleR
  * };
  * const command = new GetImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImpersonationRoleResponse
+ *   ImpersonationRoleId: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Type: "FULL_ACCESS" || "READ_ONLY",
+ *   Description: "STRING_VALUE",
+ *   Rules: [ // ImpersonationRuleList
+ *     { // ImpersonationRule
+ *       ImpersonationRuleId: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Effect: "ALLOW" || "DENY", // required
+ *       TargetUsers: [ // TargetUsers
+ *         "STRING_VALUE",
+ *       ],
+ *       NotTargetUsers: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DateCreated: new Date("TIMESTAMP"),
+ *   DateModified: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetImpersonationRoleCommandInput - {@link GetImpersonationRoleCommandInput}
@@ -67,6 +91,8 @@ export interface GetImpersonationRoleCommandOutput extends GetImpersonationRoleR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetImpersonationRoleCommand extends $Command<

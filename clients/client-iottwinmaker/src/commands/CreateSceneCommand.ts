@@ -56,6 +56,12 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * };
  * const command = new CreateSceneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSceneResponse
+ *   arn: "STRING_VALUE", // required
+ *   creationDateTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param CreateSceneCommandInput - {@link CreateSceneCommandInput}
@@ -82,6 +88,8 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class CreateSceneCommand extends $Command<

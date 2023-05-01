@@ -52,6 +52,17 @@ export interface GetGroupsForCapacityReservationCommandOutput
  * };
  * const command = new GetGroupsForCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupsForCapacityReservationResult
+ *   NextToken: "STRING_VALUE",
+ *   CapacityReservationGroups: [ // CapacityReservationGroupSet
+ *     { // CapacityReservationGroup
+ *       GroupArn: "STRING_VALUE",
+ *       OwnerId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetGroupsForCapacityReservationCommandInput - {@link GetGroupsForCapacityReservationCommandInput}
@@ -60,6 +71,8 @@ export interface GetGroupsForCapacityReservationCommandOutput
  * @see {@link GetGroupsForCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetGroupsForCapacityReservationCommand extends $Command<

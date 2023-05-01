@@ -48,6 +48,11 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * };
  * const command = new DeleteNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNotificationRuleResult
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteNotificationRuleCommandInput - {@link DeleteNotificationRuleCommandInput}
@@ -68,6 +73,8 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class DeleteNotificationRuleCommand extends $Command<

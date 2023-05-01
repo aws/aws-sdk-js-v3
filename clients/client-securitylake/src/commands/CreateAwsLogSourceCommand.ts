@@ -75,6 +75,16 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * };
  * const command = new CreateAwsLogSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAwsLogSourceResponse
+ *   processing: [ // AccountList
+ *     "STRING_VALUE",
+ *   ],
+ *   failed: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateAwsLogSourceCommandInput - {@link CreateAwsLogSourceCommandInput}
@@ -110,6 +120,8 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateAwsLogSourceCommand extends $Command<

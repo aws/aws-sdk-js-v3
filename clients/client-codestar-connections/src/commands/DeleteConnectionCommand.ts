@@ -48,6 +48,9 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, _
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class DeleteConnectionCommand extends $Command<

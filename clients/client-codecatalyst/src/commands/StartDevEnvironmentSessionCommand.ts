@@ -59,6 +59,18 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * };
  * const command = new StartDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDevEnvironmentSessionResponse
+ *   accessDetails: { // DevEnvironmentAccessDetails
+ *     streamUrl: "STRING_VALUE", // required
+ *     tokenValue: "STRING_VALUE", // required
+ *   },
+ *   sessionId: "STRING_VALUE",
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StartDevEnvironmentSessionCommandInput - {@link StartDevEnvironmentSessionCommandInput}
@@ -87,6 +99,8 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class StartDevEnvironmentSessionCommand extends $Command<

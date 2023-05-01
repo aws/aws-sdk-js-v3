@@ -44,6 +44,30 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * const input = {};
  * const command = new DescribeAttackStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAttackStatisticsResponse
+ *   TimeRange: { // TimeRange
+ *     FromInclusive: new Date("TIMESTAMP"),
+ *     ToExclusive: new Date("TIMESTAMP"),
+ *   },
+ *   DataItems: [ // AttackStatisticsDataList // required
+ *     { // AttackStatisticsDataItem
+ *       AttackVolume: { // AttackVolume
+ *         BitsPerSecond: { // AttackVolumeStatistics
+ *           Max: Number("double"), // required
+ *         },
+ *         PacketsPerSecond: {
+ *           Max: Number("double"), // required
+ *         },
+ *         RequestsPerSecond: {
+ *           Max: Number("double"), // required
+ *         },
+ *       },
+ *       AttackCount: Number("long"), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAttackStatisticsCommandInput - {@link DescribeAttackStatisticsCommandInput}
@@ -55,6 +79,8 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * @throws {@link InternalErrorException} (server fault)
  *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DescribeAttackStatisticsCommand extends $Command<

@@ -92,6 +92,34 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  * };
  * const command = new ListAggregatedUtterancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAggregatedUtterancesResponse
+ *   botId: "STRING_VALUE",
+ *   botAliasId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   aggregationDuration: { // UtteranceAggregationDuration
+ *     relativeAggregationDuration: { // RelativeAggregationDuration
+ *       timeDimension: "Hours" || "Days" || "Weeks", // required
+ *       timeValue: Number("int"), // required
+ *     },
+ *   },
+ *   aggregationWindowStartTime: new Date("TIMESTAMP"),
+ *   aggregationWindowEndTime: new Date("TIMESTAMP"),
+ *   aggregationLastRefreshedDateTime: new Date("TIMESTAMP"),
+ *   aggregatedUtterancesSummaries: [ // AggregatedUtterancesSummaryList
+ *     { // AggregatedUtterancesSummary
+ *       utterance: "STRING_VALUE",
+ *       hitCount: Number("int"),
+ *       missedCount: Number("int"),
+ *       utteranceFirstRecordedInAggregationDuration: new Date("TIMESTAMP"),
+ *       utteranceLastRecordedInAggregationDuration: new Date("TIMESTAMP"),
+ *       containsDataFromDeletedResources: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAggregatedUtterancesCommandInput - {@link ListAggregatedUtterancesCommandInput}
@@ -117,6 +145,8 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListAggregatedUtterancesCommand extends $Command<

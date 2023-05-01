@@ -87,6 +87,14 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointResponse
+ *   MessageBody: { // MessageBody
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
@@ -116,6 +124,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateEndpointCommand extends $Command<

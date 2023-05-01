@@ -45,6 +45,20 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * };
  * const command = new UpdateAvailabilityOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAvailabilityOptionsResponse
+ *   AvailabilityOptions: { // AvailabilityOptionsStatus
+ *     Options: true || false, // required
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date("TIMESTAMP"), // required
+ *       UpdateDate: new Date("TIMESTAMP"), // required
+ *       UpdateVersion: Number("int"),
+ *       State: "STRING_VALUE", // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAvailabilityOptionsCommandInput - {@link UpdateAvailabilityOptionsCommandInput}
@@ -75,6 +89,8 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class UpdateAvailabilityOptionsCommand extends $Command<

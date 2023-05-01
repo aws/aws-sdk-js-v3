@@ -49,6 +49,22 @@ export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __Metadat
  * };
  * const command = new ListAPIKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAPIKeysResponse
+ *   NextMarker: "STRING_VALUE",
+ *   APIKeySummaries: [ // APIKeySummaries
+ *     { // APIKeySummary
+ *       TokenDomains: [ // TokenDomains
+ *         "STRING_VALUE",
+ *       ],
+ *       APIKey: "STRING_VALUE",
+ *       CreationTimestamp: new Date("TIMESTAMP"),
+ *       Version: Number("int"),
+ *     },
+ *   ],
+ *   ApplicationIntegrationURL: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAPIKeysCommandInput - {@link ListAPIKeysCommandInput}
@@ -89,6 +105,8 @@ export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __Metadat
  *  <p>WAF couldn’t perform the operation because the resource that you requested isn’t
  *          valid. Check the resource, and try again.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListAPIKeysCommand extends $Command<

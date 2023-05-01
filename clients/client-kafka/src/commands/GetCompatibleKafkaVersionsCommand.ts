@@ -44,6 +44,18 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * };
  * const command = new GetCompatibleKafkaVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCompatibleKafkaVersionsResponse
+ *   CompatibleKafkaVersions: [ // __listOfCompatibleKafkaVersion
+ *     { // CompatibleKafkaVersion
+ *       SourceVersion: "STRING_VALUE",
+ *       TargetVersions: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCompatibleKafkaVersionsCommandInput - {@link GetCompatibleKafkaVersionsCommandInput}
@@ -73,6 +85,8 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class GetCompatibleKafkaVersionsCommand extends $Command<

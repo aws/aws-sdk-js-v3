@@ -73,6 +73,122 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * };
  * const command = new BatchGetDeploymentTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetDeploymentTargetsOutput
+ *   deploymentTargets: [ // DeploymentTargetList
+ *     { // DeploymentTarget
+ *       deploymentTargetType: "InstanceTarget" || "LambdaTarget" || "ECSTarget" || "CloudFormationTarget",
+ *       instanceTarget: { // InstanceTarget
+ *         deploymentId: "STRING_VALUE",
+ *         targetId: "STRING_VALUE",
+ *         targetArn: "STRING_VALUE",
+ *         status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown" || "Ready",
+ *         lastUpdatedAt: new Date("TIMESTAMP"),
+ *         lifecycleEvents: [ // LifecycleEventList
+ *           { // LifecycleEvent
+ *             lifecycleEventName: "STRING_VALUE",
+ *             diagnostics: { // Diagnostics
+ *               errorCode: "Success" || "ScriptMissing" || "ScriptNotExecutable" || "ScriptTimedOut" || "ScriptFailed" || "UnknownError",
+ *               scriptName: "STRING_VALUE",
+ *               message: "STRING_VALUE",
+ *               logTail: "STRING_VALUE",
+ *             },
+ *             startTime: new Date("TIMESTAMP"),
+ *             endTime: new Date("TIMESTAMP"),
+ *             status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown",
+ *           },
+ *         ],
+ *         instanceLabel: "Blue" || "Green",
+ *       },
+ *       lambdaTarget: { // LambdaTarget
+ *         deploymentId: "STRING_VALUE",
+ *         targetId: "STRING_VALUE",
+ *         targetArn: "STRING_VALUE",
+ *         status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown" || "Ready",
+ *         lastUpdatedAt: new Date("TIMESTAMP"),
+ *         lifecycleEvents: [
+ *           {
+ *             lifecycleEventName: "STRING_VALUE",
+ *             diagnostics: {
+ *               errorCode: "Success" || "ScriptMissing" || "ScriptNotExecutable" || "ScriptTimedOut" || "ScriptFailed" || "UnknownError",
+ *               scriptName: "STRING_VALUE",
+ *               message: "STRING_VALUE",
+ *               logTail: "STRING_VALUE",
+ *             },
+ *             startTime: new Date("TIMESTAMP"),
+ *             endTime: new Date("TIMESTAMP"),
+ *             status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown",
+ *           },
+ *         ],
+ *         lambdaFunctionInfo: { // LambdaFunctionInfo
+ *           functionName: "STRING_VALUE",
+ *           functionAlias: "STRING_VALUE",
+ *           currentVersion: "STRING_VALUE",
+ *           targetVersion: "STRING_VALUE",
+ *           targetVersionWeight: Number("double"),
+ *         },
+ *       },
+ *       ecsTarget: { // ECSTarget
+ *         deploymentId: "STRING_VALUE",
+ *         targetId: "STRING_VALUE",
+ *         targetArn: "STRING_VALUE",
+ *         lastUpdatedAt: new Date("TIMESTAMP"),
+ *         lifecycleEvents: [
+ *           {
+ *             lifecycleEventName: "STRING_VALUE",
+ *             diagnostics: {
+ *               errorCode: "Success" || "ScriptMissing" || "ScriptNotExecutable" || "ScriptTimedOut" || "ScriptFailed" || "UnknownError",
+ *               scriptName: "STRING_VALUE",
+ *               message: "STRING_VALUE",
+ *               logTail: "STRING_VALUE",
+ *             },
+ *             startTime: new Date("TIMESTAMP"),
+ *             endTime: new Date("TIMESTAMP"),
+ *             status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown",
+ *           },
+ *         ],
+ *         status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown" || "Ready",
+ *         taskSetsInfo: [ // ECSTaskSetList
+ *           { // ECSTaskSet
+ *             identifer: "STRING_VALUE",
+ *             desiredCount: Number("long"),
+ *             pendingCount: Number("long"),
+ *             runningCount: Number("long"),
+ *             status: "STRING_VALUE",
+ *             trafficWeight: Number("double"),
+ *             targetGroup: { // TargetGroupInfo
+ *               name: "STRING_VALUE",
+ *             },
+ *             taskSetLabel: "Blue" || "Green",
+ *           },
+ *         ],
+ *       },
+ *       cloudFormationTarget: { // CloudFormationTarget
+ *         deploymentId: "STRING_VALUE",
+ *         targetId: "STRING_VALUE",
+ *         lastUpdatedAt: new Date("TIMESTAMP"),
+ *         lifecycleEvents: [
+ *           {
+ *             lifecycleEventName: "STRING_VALUE",
+ *             diagnostics: {
+ *               errorCode: "Success" || "ScriptMissing" || "ScriptNotExecutable" || "ScriptTimedOut" || "ScriptFailed" || "UnknownError",
+ *               scriptName: "STRING_VALUE",
+ *               message: "STRING_VALUE",
+ *               logTail: "STRING_VALUE",
+ *             },
+ *             startTime: new Date("TIMESTAMP"),
+ *             endTime: new Date("TIMESTAMP"),
+ *             status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown",
+ *           },
+ *         ],
+ *         status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown" || "Ready",
+ *         resourceType: "STRING_VALUE",
+ *         targetVersionWeight: Number("double"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetDeploymentTargetsCommandInput - {@link BatchGetDeploymentTargetsCommandInput}
@@ -112,6 +228,8 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * @throws {@link InvalidDeploymentTargetIdException} (client fault)
  *  <p> The target ID provided was not valid. </p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class BatchGetDeploymentTargetsCommand extends $Command<

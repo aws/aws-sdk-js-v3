@@ -52,6 +52,9 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * };
  * const command = new DeleteChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChangeSetCommandInput - {@link DeleteChangeSetCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
  *             <code>UPDATE_IN_PROGRESS</code>.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeleteChangeSetCommand extends $Command<

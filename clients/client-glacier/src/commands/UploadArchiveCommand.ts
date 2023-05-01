@@ -88,6 +88,13 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * };
  * const command = new UploadArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ArchiveCreationOutput
+ *   location: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ *   archiveId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UploadArchiveCommandInput - {@link UploadArchiveCommandInput}
@@ -113,6 +120,8 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To upload an archive
  * ```javascript

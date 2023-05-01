@@ -87,6 +87,11 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStackOutput
+ *   StackId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateStackCommandInput - {@link CreateStackCommandInput}
@@ -110,6 +115,8 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateStackCommand extends $Command<

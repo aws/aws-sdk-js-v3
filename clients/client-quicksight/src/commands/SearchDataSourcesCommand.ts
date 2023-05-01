@@ -53,6 +53,23 @@ export interface SearchDataSourcesCommandOutput extends SearchDataSourcesRespons
  * };
  * const command = new SearchDataSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchDataSourcesResponse
+ *   DataSourceSummaries: [ // DataSourceSummaryList
+ *     { // DataSourceSummary
+ *       Arn: "STRING_VALUE",
+ *       DataSourceId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchDataSourcesCommandInput - {@link SearchDataSourcesCommandInput}
@@ -82,6 +99,8 @@ export interface SearchDataSourcesCommandOutput extends SearchDataSourcesRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchDataSourcesCommand extends $Command<

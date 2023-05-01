@@ -46,6 +46,12 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  * };
  * const command = new UpdateBrokerTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBrokerTypeResponse
+ *   ClusterArn: "STRING_VALUE",
+ *   ClusterOperationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateBrokerTypeCommandInput - {@link UpdateBrokerTypeCommandInput}
@@ -75,6 +81,8 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateBrokerTypeCommand extends $Command<

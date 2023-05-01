@@ -56,6 +56,11 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * };
  * const command = new StartStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartStreamProcessorResponse
+ *   SessionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartStreamProcessorCommandInput - {@link StartStreamProcessorCommandInput}
@@ -87,6 +92,8 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartStreamProcessorCommand extends $Command<

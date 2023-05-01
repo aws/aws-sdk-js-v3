@@ -72,6 +72,26 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartImportResponse
+ *   ImportId: "STRING_VALUE",
+ *   Destinations: [ // ImportDestinations
+ *     "STRING_VALUE",
+ *   ],
+ *   ImportSource: { // ImportSource
+ *     S3: { // S3ImportSource
+ *       S3LocationUri: "STRING_VALUE", // required
+ *       S3BucketRegion: "STRING_VALUE", // required
+ *       S3BucketAccessRoleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   StartEventTime: new Date("TIMESTAMP"),
+ *   EndEventTime: new Date("TIMESTAMP"),
+ *   ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",
+ *   CreatedTimestamp: new Date("TIMESTAMP"),
+ *   UpdatedTimestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StartImportCommandInput - {@link StartImportCommandInput}
@@ -121,6 +141,8 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class StartImportCommand extends $Command<

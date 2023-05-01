@@ -72,6 +72,9 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopResourceCommandInput - {@link StopResourceCommandInput}
@@ -91,6 +94,8 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class StopResourceCommand extends $Command<

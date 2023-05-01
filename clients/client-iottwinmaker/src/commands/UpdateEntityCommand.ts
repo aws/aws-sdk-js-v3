@@ -137,6 +137,12 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  * };
  * const command = new UpdateEntityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEntityResponse
+ *   updateDateTime: new Date("TIMESTAMP"), // required
+ *   state: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateEntityCommandInput - {@link UpdateEntityCommandInput}
@@ -166,6 +172,8 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdateEntityCommand extends $Command<

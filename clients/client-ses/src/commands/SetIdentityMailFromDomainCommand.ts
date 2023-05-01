@@ -55,6 +55,9 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * };
  * const command = new SetIdentityMailFromDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetIdentityMailFromDomainCommandInput - {@link SetIdentityMailFromDomainCommandInput}
@@ -63,6 +66,8 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetIdentityMailFromDomain
  * ```javascript

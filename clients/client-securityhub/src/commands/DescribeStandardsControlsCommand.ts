@@ -48,6 +48,27 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * };
  * const command = new DescribeStandardsControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStandardsControlsResponse
+ *   Controls: [ // StandardsControls
+ *     { // StandardsControl
+ *       StandardsControlArn: "STRING_VALUE",
+ *       ControlStatus: "ENABLED" || "DISABLED",
+ *       DisabledReason: "STRING_VALUE",
+ *       ControlStatusUpdatedAt: new Date("TIMESTAMP"),
+ *       ControlId: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       RemediationUrl: "STRING_VALUE",
+ *       SeverityRating: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *       RelatedRequirements: [ // RelatedRequirementsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeStandardsControlsCommandInput - {@link DescribeStandardsControlsCommandInput}
@@ -69,6 +90,8 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get a list of controls for a security standard
  * ```javascript

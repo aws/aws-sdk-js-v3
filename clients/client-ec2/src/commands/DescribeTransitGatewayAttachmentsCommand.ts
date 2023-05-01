@@ -63,6 +63,33 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * };
  * const command = new DescribeTransitGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTransitGatewayAttachmentsResult
+ *   TransitGatewayAttachments: [ // TransitGatewayAttachmentList
+ *     { // TransitGatewayAttachment
+ *       TransitGatewayAttachmentId: "STRING_VALUE",
+ *       TransitGatewayId: "STRING_VALUE",
+ *       TransitGatewayOwnerId: "STRING_VALUE",
+ *       ResourceOwnerId: "STRING_VALUE",
+ *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ *       ResourceId: "STRING_VALUE",
+ *       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
+ *       Association: { // TransitGatewayAttachmentAssociation
+ *         TransitGatewayRouteTableId: "STRING_VALUE",
+ *         State: "associating" || "associated" || "disassociating" || "disassociated",
+ *       },
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeTransitGatewayAttachmentsCommandInput - {@link DescribeTransitGatewayAttachmentsCommandInput}
@@ -71,6 +98,8 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * @see {@link DescribeTransitGatewayAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTransitGatewayAttachmentsCommand extends $Command<

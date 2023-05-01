@@ -46,6 +46,17 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRepositoriesOutput
+ *   repositories: [ // RepositoryNameIdPairList
+ *     { // RepositoryNameIdPair
+ *       repositoryName: "STRING_VALUE",
+ *       repositoryId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRepositoriesCommandInput - {@link ListRepositoriesCommandInput}
@@ -63,6 +74,8 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * @throws {@link InvalidSortByException} (client fault)
  *  <p>The specified sort by value is not valid.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListRepositoriesCommand extends $Command<

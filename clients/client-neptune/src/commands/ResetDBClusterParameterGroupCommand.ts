@@ -68,6 +68,11 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupNameMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
@@ -85,6 +90,8 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<

@@ -69,6 +69,9 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new JoinStorageSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param JoinStorageSessionCommandInput - {@link JoinStorageSessionCommandInput}
@@ -91,6 +94,8 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource is not found.</p>
  *
+ * @throws {@link KinesisVideoWebRTCStorageServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.</p>
  *
  */
 export class JoinStorageSessionCommand extends $Command<

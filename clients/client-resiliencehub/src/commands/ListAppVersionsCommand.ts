@@ -46,6 +46,16 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * };
  * const command = new ListAppVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppVersionsResponse
+ *   appVersions: [ // AppVersionList // required
+ *     { // AppVersionSummary
+ *       appVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAppVersionsCommandInput - {@link ListAppVersionsCommandInput}
@@ -69,6 +79,8 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppVersionsCommand extends $Command<

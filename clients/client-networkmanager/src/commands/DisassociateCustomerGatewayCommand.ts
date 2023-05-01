@@ -50,6 +50,17 @@ export interface DisassociateCustomerGatewayCommandOutput
  * };
  * const command = new DisassociateCustomerGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateCustomerGatewayResponse
+ *   CustomerGatewayAssociation: { // CustomerGatewayAssociation
+ *     CustomerGatewayArn: "STRING_VALUE",
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     DeviceId: "STRING_VALUE",
+ *     LinkId: "STRING_VALUE",
+ *     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateCustomerGatewayCommandInput - {@link DisassociateCustomerGatewayCommandInput}
@@ -77,6 +88,8 @@ export interface DisassociateCustomerGatewayCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DisassociateCustomerGatewayCommand extends $Command<

@@ -50,6 +50,9 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -83,6 +86,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

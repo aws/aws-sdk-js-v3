@@ -59,6 +59,12 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTaskOutput
+ *   taskId: "STRING_VALUE",
+ *   taskArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
@@ -85,6 +91,8 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class CreateTaskCommand extends $Command<

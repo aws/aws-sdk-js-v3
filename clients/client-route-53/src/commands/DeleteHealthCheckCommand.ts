@@ -58,6 +58,9 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * };
  * const command = new DeleteHealthCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHealthCheckCommandInput - {@link DeleteHealthCheckCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * @throws {@link NoSuchHealthCheck} (client fault)
  *  <p>No health check exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteHealthCheckCommand extends $Command<

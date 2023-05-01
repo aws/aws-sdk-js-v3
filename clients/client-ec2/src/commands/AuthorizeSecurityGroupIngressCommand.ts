@@ -115,6 +115,39 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeSecurityGroupIngressResult
+ *   Return: true || false,
+ *   SecurityGroupRules: [ // SecurityGroupRuleList
+ *     { // SecurityGroupRule
+ *       SecurityGroupRuleId: "STRING_VALUE",
+ *       GroupId: "STRING_VALUE",
+ *       GroupOwnerId: "STRING_VALUE",
+ *       IsEgress: true || false,
+ *       IpProtocol: "STRING_VALUE",
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *       CidrIpv4: "STRING_VALUE",
+ *       CidrIpv6: "STRING_VALUE",
+ *       PrefixListId: "STRING_VALUE",
+ *       ReferencedGroupInfo: { // ReferencedSecurityGroup
+ *         GroupId: "STRING_VALUE",
+ *         PeeringStatus: "STRING_VALUE",
+ *         UserId: "STRING_VALUE",
+ *         VpcId: "STRING_VALUE",
+ *         VpcPeeringConnectionId: "STRING_VALUE",
+ *       },
+ *       Description: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AuthorizeSecurityGroupIngressCommandInput - {@link AuthorizeSecurityGroupIngressCommandInput}
@@ -123,6 +156,8 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * @see {@link AuthorizeSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To add a rule that allows inbound SSH traffic from an IPv4 address range
  * ```javascript

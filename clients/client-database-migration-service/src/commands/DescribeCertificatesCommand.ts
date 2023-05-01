@@ -57,6 +57,25 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * };
  * const command = new DescribeCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCertificatesResponse
+ *   Marker: "STRING_VALUE",
+ *   Certificates: [ // CertificateList
+ *     { // Certificate
+ *       CertificateIdentifier: "STRING_VALUE",
+ *       CertificateCreationDate: new Date("TIMESTAMP"),
+ *       CertificatePem: "STRING_VALUE",
+ *       CertificateWallet: "BLOB_VALUE",
+ *       CertificateArn: "STRING_VALUE",
+ *       CertificateOwner: "STRING_VALUE",
+ *       ValidFromDate: new Date("TIMESTAMP"),
+ *       ValidToDate: new Date("TIMESTAMP"),
+ *       SigningAlgorithm: "STRING_VALUE",
+ *       KeyLength: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeCertificatesCommandInput - {@link DescribeCertificatesCommandInput}
@@ -68,6 +87,8 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe certificates
  * ```javascript

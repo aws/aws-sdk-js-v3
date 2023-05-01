@@ -42,6 +42,13 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * const input = {};
  * const command = new GetAccountConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountConfigurationResponse
+ *   ExpiryEvents: { // ExpiryEventsConfiguration
+ *     DaysBeforeExpiry: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountConfigurationCommandInput - {@link GetAccountConfigurationCommandInput}
@@ -56,6 +63,8 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because it exceeded a quota.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class GetAccountConfigurationCommand extends $Command<

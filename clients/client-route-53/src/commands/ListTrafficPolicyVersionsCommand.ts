@@ -49,6 +49,23 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * };
  * const command = new ListTrafficPolicyVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrafficPolicyVersionsResponse
+ *   TrafficPolicies: [ // TrafficPolicies // required
+ *     { // TrafficPolicy
+ *       Id: "STRING_VALUE", // required
+ *       Version: Number("int"), // required
+ *       Name: "STRING_VALUE", // required
+ *       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ *       Document: "STRING_VALUE", // required
+ *       Comment: "STRING_VALUE",
+ *     },
+ *   ],
+ *   IsTruncated: true || false, // required
+ *   TrafficPolicyVersionMarker: "STRING_VALUE", // required
+ *   MaxItems: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param ListTrafficPolicyVersionsCommandInput - {@link ListTrafficPolicyVersionsCommandInput}
@@ -63,6 +80,8 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * @throws {@link NoSuchTrafficPolicy} (client fault)
  *  <p>No traffic policy exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListTrafficPolicyVersionsCommand extends $Command<

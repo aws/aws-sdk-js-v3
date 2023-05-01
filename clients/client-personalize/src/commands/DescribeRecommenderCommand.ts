@@ -61,6 +61,41 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * };
  * const command = new DescribeRecommenderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecommenderResponse
+ *   recommender: { // Recommender
+ *     recommenderArn: "STRING_VALUE",
+ *     datasetGroupArn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     recipeArn: "STRING_VALUE",
+ *     recommenderConfig: { // RecommenderConfig
+ *       itemExplorationConfig: { // HyperParameters
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       minRecommendationRequestsPerSecond: Number("int"),
+ *     },
+ *     creationDateTime: new Date("TIMESTAMP"),
+ *     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *     status: "STRING_VALUE",
+ *     failureReason: "STRING_VALUE",
+ *     latestRecommenderUpdate: { // RecommenderUpdateSummary
+ *       recommenderConfig: {
+ *         itemExplorationConfig: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         minRecommendationRequestsPerSecond: Number("int"),
+ *       },
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       status: "STRING_VALUE",
+ *       failureReason: "STRING_VALUE",
+ *     },
+ *     modelMetrics: { // Metrics
+ *       "<keys>": Number("double"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRecommenderCommandInput - {@link DescribeRecommenderCommandInput}
@@ -75,6 +110,8 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeRecommenderCommand extends $Command<

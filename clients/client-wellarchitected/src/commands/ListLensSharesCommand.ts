@@ -48,6 +48,19 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * };
  * const command = new ListLensSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLensSharesOutput
+ *   LensShareSummaries: [ // LensShareSummaries
+ *     { // LensShareSummary
+ *       ShareId: "STRING_VALUE",
+ *       SharedWith: "STRING_VALUE",
+ *       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ *       StatusMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLensSharesCommandInput - {@link ListLensSharesCommandInput}
@@ -71,6 +84,8 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListLensSharesCommand extends $Command<

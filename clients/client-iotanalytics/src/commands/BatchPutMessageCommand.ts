@@ -50,6 +50,17 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * };
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchPutMessageResponse
+ *   batchPutMessageErrorEntries: [ // BatchPutMessageErrorEntries
+ *     { // BatchPutMessageErrorEntry
+ *       messageId: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
@@ -73,6 +84,8 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class BatchPutMessageCommand extends $Command<

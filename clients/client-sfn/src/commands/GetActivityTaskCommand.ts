@@ -66,6 +66,12 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * };
  * const command = new GetActivityTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetActivityTaskOutput
+ *   taskToken: "STRING_VALUE",
+ *   input: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetActivityTaskCommandInput - {@link GetActivityTaskCommandInput}
@@ -84,6 +90,8 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class GetActivityTaskCommand extends $Command<

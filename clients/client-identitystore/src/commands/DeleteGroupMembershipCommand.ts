@@ -45,6 +45,9 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * };
  * const command = new DeleteGroupMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupMembershipCommandInput - {@link DeleteGroupMembershipCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class DeleteGroupMembershipCommand extends $Command<

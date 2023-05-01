@@ -46,6 +46,9 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateScheduledQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateScheduledQueryCommandInput - {@link UpdateScheduledQueryCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class UpdateScheduledQueryCommand extends $Command<

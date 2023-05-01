@@ -58,6 +58,9 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * };
  * const command = new SendTaskHeartbeatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendTaskHeartbeatCommandInput - {@link SendTaskHeartbeatCommandInput}
@@ -73,6 +76,8 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *
  * @throws {@link TaskTimedOut} (client fault)
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class SendTaskHeartbeatCommand extends $Command<

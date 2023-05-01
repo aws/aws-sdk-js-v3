@@ -49,6 +49,66 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * };
  * const command = new GetActionTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetActionTypeOutput
+ *   actionType: { // ActionTypeDeclaration
+ *     description: "STRING_VALUE",
+ *     executor: { // ActionTypeExecutor
+ *       configuration: { // ExecutorConfiguration
+ *         lambdaExecutorConfiguration: { // LambdaExecutorConfiguration
+ *           lambdaFunctionArn: "STRING_VALUE", // required
+ *         },
+ *         jobWorkerExecutorConfiguration: { // JobWorkerExecutorConfiguration
+ *           pollingAccounts: [ // PollingAccountList
+ *             "STRING_VALUE",
+ *           ],
+ *           pollingServicePrincipals: [ // PollingServicePrincipalList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       type: "STRING_VALUE", // required
+ *       policyStatementsTemplate: "STRING_VALUE",
+ *       jobTimeout: Number("int"),
+ *     },
+ *     id: { // ActionTypeIdentifier
+ *       category: "STRING_VALUE", // required
+ *       owner: "STRING_VALUE", // required
+ *       provider: "STRING_VALUE", // required
+ *       version: "STRING_VALUE", // required
+ *     },
+ *     inputArtifactDetails: { // ActionTypeArtifactDetails
+ *       minimumCount: Number("int"), // required
+ *       maximumCount: Number("int"), // required
+ *     },
+ *     outputArtifactDetails: {
+ *       minimumCount: Number("int"), // required
+ *       maximumCount: Number("int"), // required
+ *     },
+ *     permissions: { // ActionTypePermissions
+ *       allowedAccounts: [ // AllowedAccounts // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     properties: [ // ActionTypeProperties
+ *       { // ActionTypeProperty
+ *         name: "STRING_VALUE", // required
+ *         optional: true || false, // required
+ *         key: true || false, // required
+ *         noEcho: true || false, // required
+ *         queryable: true || false,
+ *         description: "STRING_VALUE",
+ *       },
+ *     ],
+ *     urls: { // ActionTypeUrls
+ *       configurationUrl: "STRING_VALUE",
+ *       entityUrlTemplate: "STRING_VALUE",
+ *       executionUrlTemplate: "STRING_VALUE",
+ *       revisionUrlTemplate: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetActionTypeCommandInput - {@link GetActionTypeCommandInput}
@@ -63,6 +123,8 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class GetActionTypeCommand extends $Command<

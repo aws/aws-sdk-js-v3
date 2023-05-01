@@ -51,6 +51,12 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResponse
+ *   PolicyId: "STRING_VALUE",
+ *   PolicyHash: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -76,6 +82,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *    greater than 1024 bytes in size. And only one policy can be attached to
  *    <code>OpsItemGroup</code>. Verify these limits and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

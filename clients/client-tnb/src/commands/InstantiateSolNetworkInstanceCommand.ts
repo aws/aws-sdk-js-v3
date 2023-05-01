@@ -61,6 +61,14 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * };
  * const command = new InstantiateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InstantiateSolNetworkInstanceOutput
+ *   nsLcmOpOccId: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param InstantiateSolNetworkInstanceCommandInput - {@link InstantiateSolNetworkInstanceCommandInput}
@@ -87,6 +95,8 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class InstantiateSolNetworkInstanceCommand extends $Command<

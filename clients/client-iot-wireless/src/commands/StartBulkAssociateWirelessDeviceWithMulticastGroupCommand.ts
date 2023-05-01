@@ -60,6 +60,9 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  * };
  * const command = new StartBulkAssociateWirelessDeviceWithMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput - {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput}
@@ -83,6 +86,8 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $Command<

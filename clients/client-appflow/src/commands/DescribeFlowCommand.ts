@@ -44,6 +44,308 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * };
  * const command = new DescribeFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFlowResponse
+ *   flowArn: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   flowName: "STRING_VALUE",
+ *   kmsArn: "STRING_VALUE",
+ *   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ *   flowStatusMessage: "STRING_VALUE",
+ *   sourceFlowConfig: { // SourceFlowConfig
+ *     connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot", // required
+ *     apiVersion: "STRING_VALUE",
+ *     connectorProfileName: "STRING_VALUE",
+ *     sourceConnectorProperties: { // SourceConnectorProperties
+ *       Amplitude: { // AmplitudeSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       Datadog: { // DatadogSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       Dynatrace: { // DynatraceSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       GoogleAnalytics: { // GoogleAnalyticsSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       InforNexus: { // InforNexusSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       Marketo: { // MarketoSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       S3: { // S3SourceProperties
+ *         bucketName: "STRING_VALUE", // required
+ *         bucketPrefix: "STRING_VALUE",
+ *         s3InputFormatConfig: { // S3InputFormatConfig
+ *           s3InputFileType: "CSV" || "JSON",
+ *         },
+ *       },
+ *       Salesforce: { // SalesforceSourceProperties
+ *         object: "STRING_VALUE", // required
+ *         enableDynamicFieldUpdate: true || false,
+ *         includeDeletedRecords: true || false,
+ *         dataTransferApi: "AUTOMATIC" || "BULKV2" || "REST_SYNC",
+ *       },
+ *       ServiceNow: { // ServiceNowSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       Singular: { // SingularSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       Slack: { // SlackSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       Trendmicro: { // TrendmicroSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       Veeva: { // VeevaSourceProperties
+ *         object: "STRING_VALUE", // required
+ *         documentType: "STRING_VALUE",
+ *         includeSourceFiles: true || false,
+ *         includeRenditions: true || false,
+ *         includeAllVersions: true || false,
+ *       },
+ *       Zendesk: { // ZendeskSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *       SAPOData: { // SAPODataSourceProperties
+ *         objectPath: "STRING_VALUE",
+ *       },
+ *       CustomConnector: { // CustomConnectorSourceProperties
+ *         entityName: "STRING_VALUE", // required
+ *         customProperties: { // CustomProperties
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       Pardot: { // PardotSourceProperties
+ *         object: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     incrementalPullConfig: { // IncrementalPullConfig
+ *       datetimeTypeFieldName: "STRING_VALUE",
+ *     },
+ *   },
+ *   destinationFlowConfigList: [ // DestinationFlowConfigList
+ *     { // DestinationFlowConfig
+ *       connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot", // required
+ *       apiVersion: "STRING_VALUE",
+ *       connectorProfileName: "STRING_VALUE",
+ *       destinationConnectorProperties: { // DestinationConnectorProperties
+ *         Redshift: { // RedshiftDestinationProperties
+ *           object: "STRING_VALUE", // required
+ *           intermediateBucketName: "STRING_VALUE", // required
+ *           bucketPrefix: "STRING_VALUE",
+ *           errorHandlingConfig: { // ErrorHandlingConfig
+ *             failOnFirstDestinationError: true || false,
+ *             bucketPrefix: "STRING_VALUE",
+ *             bucketName: "STRING_VALUE",
+ *           },
+ *         },
+ *         S3: { // S3DestinationProperties
+ *           bucketName: "STRING_VALUE", // required
+ *           bucketPrefix: "STRING_VALUE",
+ *           s3OutputFormatConfig: { // S3OutputFormatConfig
+ *             fileType: "CSV" || "JSON" || "PARQUET",
+ *             prefixConfig: { // PrefixConfig
+ *               prefixType: "FILENAME" || "PATH" || "PATH_AND_FILENAME",
+ *               prefixFormat: "YEAR" || "MONTH" || "DAY" || "HOUR" || "MINUTE",
+ *               pathPrefixHierarchy: [ // PathPrefixHierarchy
+ *                 "EXECUTION_ID" || "SCHEMA_VERSION",
+ *               ],
+ *             },
+ *             aggregationConfig: { // AggregationConfig
+ *               aggregationType: "None" || "SingleFile",
+ *               targetFileSize: Number("long"),
+ *             },
+ *             preserveSourceDataTyping: true || false,
+ *           },
+ *         },
+ *         Salesforce: { // SalesforceDestinationProperties
+ *           object: "STRING_VALUE", // required
+ *           idFieldNames: [ // IdFieldNameList
+ *             "STRING_VALUE",
+ *           ],
+ *           errorHandlingConfig: {
+ *             failOnFirstDestinationError: true || false,
+ *             bucketPrefix: "STRING_VALUE",
+ *             bucketName: "STRING_VALUE",
+ *           },
+ *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
+ *           dataTransferApi: "AUTOMATIC" || "BULKV2" || "REST_SYNC",
+ *         },
+ *         Snowflake: { // SnowflakeDestinationProperties
+ *           object: "STRING_VALUE", // required
+ *           intermediateBucketName: "STRING_VALUE", // required
+ *           bucketPrefix: "STRING_VALUE",
+ *           errorHandlingConfig: {
+ *             failOnFirstDestinationError: true || false,
+ *             bucketPrefix: "STRING_VALUE",
+ *             bucketName: "STRING_VALUE",
+ *           },
+ *         },
+ *         EventBridge: { // EventBridgeDestinationProperties
+ *           object: "STRING_VALUE", // required
+ *           errorHandlingConfig: {
+ *             failOnFirstDestinationError: true || false,
+ *             bucketPrefix: "STRING_VALUE",
+ *             bucketName: "STRING_VALUE",
+ *           },
+ *         },
+ *         LookoutMetrics: {},
+ *         Upsolver: { // UpsolverDestinationProperties
+ *           bucketName: "STRING_VALUE", // required
+ *           bucketPrefix: "STRING_VALUE",
+ *           s3OutputFormatConfig: { // UpsolverS3OutputFormatConfig
+ *             fileType: "CSV" || "JSON" || "PARQUET",
+ *             prefixConfig: {
+ *               prefixType: "FILENAME" || "PATH" || "PATH_AND_FILENAME",
+ *               prefixFormat: "YEAR" || "MONTH" || "DAY" || "HOUR" || "MINUTE",
+ *               pathPrefixHierarchy: [
+ *                 "EXECUTION_ID" || "SCHEMA_VERSION",
+ *               ],
+ *             },
+ *             aggregationConfig: {
+ *               aggregationType: "None" || "SingleFile",
+ *               targetFileSize: Number("long"),
+ *             },
+ *           },
+ *         },
+ *         Honeycode: { // HoneycodeDestinationProperties
+ *           object: "STRING_VALUE", // required
+ *           errorHandlingConfig: {
+ *             failOnFirstDestinationError: true || false,
+ *             bucketPrefix: "STRING_VALUE",
+ *             bucketName: "STRING_VALUE",
+ *           },
+ *         },
+ *         CustomerProfiles: { // CustomerProfilesDestinationProperties
+ *           domainName: "STRING_VALUE", // required
+ *           objectTypeName: "STRING_VALUE",
+ *         },
+ *         Zendesk: { // ZendeskDestinationProperties
+ *           object: "STRING_VALUE", // required
+ *           idFieldNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
+ *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
+ *         },
+ *         Marketo: { // MarketoDestinationProperties
+ *           object: "STRING_VALUE", // required
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
+ *         },
+ *         CustomConnector: { // CustomConnectorDestinationProperties
+ *           entityName: "STRING_VALUE", // required
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
+ *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
+ *           idFieldNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           customProperties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *         SAPOData: { // SAPODataDestinationProperties
+ *           objectPath: "STRING_VALUE", // required
+ *           successResponseHandlingConfig: { // SuccessResponseHandlingConfig
+ *             bucketPrefix: "STRING_VALUE",
+ *             bucketName: "STRING_VALUE",
+ *           },
+ *           idFieldNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
+ *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   lastRunExecutionDetails: { // ExecutionDetails
+ *     mostRecentExecutionMessage: "STRING_VALUE",
+ *     mostRecentExecutionTime: new Date("TIMESTAMP"),
+ *     mostRecentExecutionStatus: "InProgress" || "Successful" || "Error",
+ *   },
+ *   triggerConfig: { // TriggerConfig
+ *     triggerType: "Scheduled" || "Event" || "OnDemand", // required
+ *     triggerProperties: { // TriggerProperties
+ *       Scheduled: { // ScheduledTriggerProperties
+ *         scheduleExpression: "STRING_VALUE", // required
+ *         dataPullMode: "Incremental" || "Complete",
+ *         scheduleStartTime: new Date("TIMESTAMP"),
+ *         scheduleEndTime: new Date("TIMESTAMP"),
+ *         timezone: "STRING_VALUE",
+ *         scheduleOffset: Number("long"),
+ *         firstExecutionFrom: new Date("TIMESTAMP"),
+ *         flowErrorDeactivationThreshold: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   tasks: [ // Tasks
+ *     { // Task
+ *       sourceFields: [ // SourceFields // required
+ *         "STRING_VALUE",
+ *       ],
+ *       connectorOperator: { // ConnectorOperator
+ *         Amplitude: "BETWEEN",
+ *         Datadog: "PROJECTION" || "BETWEEN" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Dynatrace: "PROJECTION" || "BETWEEN" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         GoogleAnalytics: "PROJECTION" || "BETWEEN",
+ *         InforNexus: "PROJECTION" || "BETWEEN" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Marketo: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         S3: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Salesforce: "PROJECTION" || "LESS_THAN" || "CONTAINS" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         ServiceNow: "PROJECTION" || "CONTAINS" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Singular: "PROJECTION" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Slack: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Trendmicro: "PROJECTION" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Veeva: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "CONTAINS" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Zendesk: "PROJECTION" || "GREATER_THAN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         SAPOData: "PROJECTION" || "LESS_THAN" || "CONTAINS" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         CustomConnector: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "CONTAINS" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *         Pardot: "PROJECTION" || "EQUAL_TO" || "NO_OP" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC",
+ *       },
+ *       destinationField: "STRING_VALUE",
+ *       taskType: "Arithmetic" || "Filter" || "Map" || "Map_all" || "Mask" || "Merge" || "Passthrough" || "Truncate" || "Validate" || "Partition", // required
+ *       taskProperties: { // TaskPropertiesMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   createdAt: new Date("TIMESTAMP"),
+ *   lastUpdatedAt: new Date("TIMESTAMP"),
+ *   createdBy: "STRING_VALUE",
+ *   lastUpdatedBy: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   metadataCatalogConfig: { // MetadataCatalogConfig
+ *     glueDataCatalog: { // GlueDataCatalogConfig
+ *       roleArn: "STRING_VALUE", // required
+ *       databaseName: "STRING_VALUE", // required
+ *       tablePrefix: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   lastRunMetadataCatalogDetails: [ // MetadataCatalogDetails
+ *     { // MetadataCatalogDetail
+ *       catalogType: "GLUE",
+ *       tableName: "STRING_VALUE",
+ *       tableRegistrationOutput: { // RegistrationOutput
+ *         message: "STRING_VALUE",
+ *         result: "STRING_VALUE",
+ *         status: "InProgress" || "Successful" || "Error",
+ *       },
+ *       partitionRegistrationOutput: {
+ *         message: "STRING_VALUE",
+ *         result: "STRING_VALUE",
+ *         status: "InProgress" || "Successful" || "Error",
+ *       },
+ *     },
+ *   ],
+ *   schemaVersion: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DescribeFlowCommandInput - {@link DescribeFlowCommandInput}
@@ -60,6 +362,8 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  *  <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class DescribeFlowCommand extends $Command<

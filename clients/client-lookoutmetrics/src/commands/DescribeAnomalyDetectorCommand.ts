@@ -46,6 +46,22 @@ export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDet
  * };
  * const command = new DescribeAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAnomalyDetectorResponse
+ *   AnomalyDetectorArn: "STRING_VALUE",
+ *   AnomalyDetectorName: "STRING_VALUE",
+ *   AnomalyDetectorDescription: "STRING_VALUE",
+ *   AnomalyDetectorConfig: { // AnomalyDetectorConfigSummary
+ *     AnomalyDetectorFrequency: "STRING_VALUE",
+ *   },
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   LastModificationTime: new Date("TIMESTAMP"),
+ *   Status: "STRING_VALUE",
+ *   FailureReason: "STRING_VALUE",
+ *   KmsKeyArn: "STRING_VALUE",
+ *   FailureType: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAnomalyDetectorCommandInput - {@link DescribeAnomalyDetectorCommandInput}
@@ -70,6 +86,8 @@ export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDet
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DescribeAnomalyDetectorCommand extends $Command<

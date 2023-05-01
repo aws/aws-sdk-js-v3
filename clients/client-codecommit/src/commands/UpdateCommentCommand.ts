@@ -45,6 +45,26 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * };
  * const command = new UpdateCommentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCommentOutput
+ *   comment: { // Comment
+ *     commentId: "STRING_VALUE",
+ *     content: "STRING_VALUE",
+ *     inReplyTo: "STRING_VALUE",
+ *     creationDate: new Date("TIMESTAMP"),
+ *     lastModifiedDate: new Date("TIMESTAMP"),
+ *     authorArn: "STRING_VALUE",
+ *     deleted: true || false,
+ *     clientRequestToken: "STRING_VALUE",
+ *     callerReactions: [ // CallerReactions
+ *       "STRING_VALUE",
+ *     ],
+ *     reactionCounts: { // ReactionCountsMap
+ *       "<keys>": Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCommentCommandInput - {@link UpdateCommentCommandInput}
@@ -75,6 +95,8 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * @throws {@link InvalidCommentIdException} (client fault)
  *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateCommentCommand extends $Command<

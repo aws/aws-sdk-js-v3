@@ -49,6 +49,11 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  * };
  * const command = new GetOrganizationCustomRulePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOrganizationCustomRulePolicyResponse
+ *   PolicyText: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetOrganizationCustomRulePolicyCommandInput - {@link GetOrganizationCustomRulePolicyCommandInput}
@@ -81,6 +86,8 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetOrganizationCustomRulePolicyCommand extends $Command<

@@ -58,6 +58,9 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * };
  * const command = new DisassociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociatePhoneNumberContactFlowCommandInput - {@link DisassociatePhoneNumberContactFlowCommandInput}
@@ -81,6 +84,8 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociatePhoneNumberContactFlowCommand extends $Command<

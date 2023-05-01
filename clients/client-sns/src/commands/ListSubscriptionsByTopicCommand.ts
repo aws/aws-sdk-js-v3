@@ -49,6 +49,20 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  * };
  * const command = new ListSubscriptionsByTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscriptionsByTopicResponse
+ *   Subscriptions: [ // SubscriptionsList
+ *     { // Subscription
+ *       SubscriptionArn: "STRING_VALUE",
+ *       Owner: "STRING_VALUE",
+ *       Protocol: "STRING_VALUE",
+ *       Endpoint: "STRING_VALUE",
+ *       TopicArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSubscriptionsByTopicCommandInput - {@link ListSubscriptionsByTopicCommandInput}
@@ -70,6 +84,8 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListSubscriptionsByTopicCommand extends $Command<

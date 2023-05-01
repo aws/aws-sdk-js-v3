@@ -61,6 +61,30 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  * };
  * const command = new GetResourceSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceSharesResponse
+ *   resourceShares: [ // ResourceShareList
+ *     { // ResourceShare
+ *       resourceShareArn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       owningAccountId: "STRING_VALUE",
+ *       allowExternalPrincipals: true || false,
+ *       status: "PENDING" || "ACTIVE" || "FAILED" || "DELETING" || "DELETED",
+ *       statusMessage: "STRING_VALUE",
+ *       tags: [ // TagList
+ *         { // Tag
+ *           key: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdatedTime: new Date("TIMESTAMP"),
+ *       featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetResourceSharesCommandInput - {@link GetResourceSharesCommandInput}
@@ -91,6 +115,8 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class GetResourceSharesCommand extends $Command<

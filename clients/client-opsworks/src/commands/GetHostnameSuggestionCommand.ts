@@ -49,6 +49,12 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * };
  * const command = new GetHostnameSuggestionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHostnameSuggestionResult
+ *   LayerId: "STRING_VALUE",
+ *   Hostname: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetHostnameSuggestionCommandInput - {@link GetHostnameSuggestionCommandInput}
@@ -63,6 +69,8 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class GetHostnameSuggestionCommand extends $Command<

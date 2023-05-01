@@ -50,6 +50,14 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * };
  * const command = new GetDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDefaultCreditSpecificationResult
+ *   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
+ *     InstanceFamily: "t2" || "t3" || "t3a" || "t4g",
+ *     CpuCredits: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDefaultCreditSpecificationCommandInput - {@link GetDefaultCreditSpecificationCommandInput}
@@ -58,6 +66,8 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * @see {@link GetDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetDefaultCreditSpecificationCommand extends $Command<

@@ -53,6 +53,11 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * const input = {};
  * const command = new DisassociateServiceRoleFromAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateServiceRoleFromAccountResponse
+ *   disassociatedAt: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
@@ -64,6 +69,8 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<

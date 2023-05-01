@@ -44,6 +44,9 @@ export interface StartClockCommandOutput extends StartClockOutput, __MetadataBea
  * };
  * const command = new StartClockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartClockCommandInput - {@link StartClockCommandInput}
@@ -67,6 +70,8 @@ export interface StartClockCommandOutput extends StartClockOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StartClockCommand extends $Command<

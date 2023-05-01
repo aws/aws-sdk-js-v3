@@ -50,6 +50,39 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
  * };
  * const command = new DeleteTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTransitGatewayConnectPeerResult
+ *   TransitGatewayConnectPeer: { // TransitGatewayConnectPeer
+ *     TransitGatewayAttachmentId: "STRING_VALUE",
+ *     TransitGatewayConnectPeerId: "STRING_VALUE",
+ *     State: "pending" || "available" || "deleting" || "deleted",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     ConnectPeerConfiguration: { // TransitGatewayConnectPeerConfiguration
+ *       TransitGatewayAddress: "STRING_VALUE",
+ *       PeerAddress: "STRING_VALUE",
+ *       InsideCidrBlocks: [ // InsideCidrBlocksStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       Protocol: "gre",
+ *       BgpConfigurations: [ // TransitGatewayAttachmentBgpConfigurationList
+ *         { // TransitGatewayAttachmentBgpConfiguration
+ *           TransitGatewayAsn: Number("long"),
+ *           PeerAsn: Number("long"),
+ *           TransitGatewayAddress: "STRING_VALUE",
+ *           PeerAddress: "STRING_VALUE",
+ *           BgpStatus: "up" || "down",
+ *         },
+ *       ],
+ *     },
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteTransitGatewayConnectPeerCommandInput - {@link DeleteTransitGatewayConnectPeerCommandInput}
@@ -58,6 +91,8 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
  * @see {@link DeleteTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteTransitGatewayConnectPeerCommand extends $Command<

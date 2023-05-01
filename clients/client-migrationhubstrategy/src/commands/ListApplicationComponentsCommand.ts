@@ -58,6 +58,89 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * };
  * const command = new ListApplicationComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationComponentsResponse
+ *   applicationComponentInfos: [ // ApplicationComponentDetails
+ *     { // ApplicationComponentDetail
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       recommendationSet: { // RecommendationSet
+ *         transformationTool: { // TransformationTool
+ *           name: "STRING_VALUE",
+ *           description: "STRING_VALUE",
+ *           tranformationToolInstallationLink: "STRING_VALUE",
+ *         },
+ *         targetDestination: "STRING_VALUE",
+ *         strategy: "STRING_VALUE",
+ *       },
+ *       analysisStatus: "STRING_VALUE",
+ *       statusMessage: "STRING_VALUE",
+ *       listAntipatternSeveritySummary: [ // ListAntipatternSeveritySummary
+ *         { // AntipatternSeveritySummary
+ *           severity: "STRING_VALUE",
+ *           count: Number("int"),
+ *         },
+ *       ],
+ *       databaseConfigDetail: { // DatabaseConfigDetail
+ *         secretName: "STRING_VALUE",
+ *       },
+ *       sourceCodeRepositories: [ // SourceCodeRepositories
+ *         { // SourceCodeRepository
+ *           repository: "STRING_VALUE",
+ *           branch: "STRING_VALUE",
+ *           versionControlType: "STRING_VALUE",
+ *           projectName: "STRING_VALUE",
+ *         },
+ *       ],
+ *       appType: "STRING_VALUE",
+ *       resourceSubType: "STRING_VALUE",
+ *       inclusionStatus: "STRING_VALUE",
+ *       antipatternReportS3Object: { // S3Object
+ *         s3Bucket: "STRING_VALUE",
+ *         s3key: "STRING_VALUE",
+ *       },
+ *       antipatternReportStatus: "STRING_VALUE",
+ *       antipatternReportStatusMessage: "STRING_VALUE",
+ *       osVersion: "STRING_VALUE",
+ *       osDriver: "STRING_VALUE",
+ *       lastAnalyzedTimestamp: new Date("TIMESTAMP"),
+ *       associatedServerId: "STRING_VALUE",
+ *       moreServerAssociationExists: true || false,
+ *       runtimeStatus: "STRING_VALUE",
+ *       runtimeStatusMessage: "STRING_VALUE",
+ *       appUnitError: { // AppUnitError
+ *         appUnitErrorCategory: "STRING_VALUE",
+ *       },
+ *       resultList: [ // ResultList
+ *         { // Result
+ *           analysisType: "STRING_VALUE",
+ *           analysisStatus: { // AnalysisStatusUnion Union: only one key present
+ *             runtimeAnalysisStatus: "STRING_VALUE",
+ *             srcCodeOrDbAnalysisStatus: "STRING_VALUE",
+ *           },
+ *           statusMessage: "STRING_VALUE",
+ *           antipatternReportResultList: [ // AntipatternReportResultList
+ *             { // AntipatternReportResult
+ *               analyzerName: { // AnalyzerNameUnion Union: only one key present
+ *                 binaryAnalyzerName: "STRING_VALUE",
+ *                 runTimeAnalyzerName: "STRING_VALUE",
+ *                 sourceCodeAnalyzerName: "STRING_VALUE",
+ *               },
+ *               antiPatternReportS3Object: {
+ *                 s3Bucket: "STRING_VALUE",
+ *                 s3key: "STRING_VALUE",
+ *               },
+ *               antipatternReportStatus: "STRING_VALUE",
+ *               antipatternReportStatusMessage: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApplicationComponentsCommandInput - {@link ListApplicationComponentsCommandInput}
@@ -79,6 +162,8 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class ListApplicationComponentsCommand extends $Command<

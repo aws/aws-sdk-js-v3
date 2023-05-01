@@ -57,6 +57,12 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * };
  * const command = new CreateTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrafficDistributionGroupResponse
+ *   Id: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateTrafficDistributionGroupCommandInput - {@link CreateTrafficDistributionGroupCommandInput}
@@ -89,6 +95,8 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateTrafficDistributionGroupCommand extends $Command<

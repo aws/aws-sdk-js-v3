@@ -57,6 +57,11 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * };
  * const command = new ReloadTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReloadTablesResponse
+ *   ReplicationTaskArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ReloadTablesCommandInput - {@link ReloadTablesCommandInput}
@@ -71,6 +76,8 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class ReloadTablesCommand extends $Command<

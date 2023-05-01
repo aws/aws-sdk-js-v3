@@ -44,6 +44,9 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUsagePlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUsagePlanCommandInput - {@link DeleteUsagePlanCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteUsagePlanCommand extends $Command<

@@ -103,6 +103,12 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * };
  * const command = new GetMediaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMediaOutput
+ *   ContentType: "STRING_VALUE",
+ *   Payload: "STREAMING_BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetMediaCommandInput - {@link GetMediaCommandInput}
@@ -135,6 +141,8 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Status Code: 404, The stream with the given name does not exist.</p>
  *
+ * @throws {@link KinesisVideoMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoMedia service.</p>
  *
  */
 export class GetMediaCommand extends $Command<

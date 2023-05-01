@@ -50,6 +50,61 @@ export interface GetResourceDefinitionVersionCommandOutput
  * };
  * const command = new GetResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceDefinitionVersionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Definition: { // ResourceDefinitionVersion
+ *     Resources: [ // __listOfResource
+ *       { // Resource
+ *         Id: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         ResourceDataContainer: { // ResourceDataContainer
+ *           LocalDeviceResourceData: { // LocalDeviceResourceData
+ *             GroupOwnerSetting: { // GroupOwnerSetting
+ *               AutoAddGroupOwner: true || false,
+ *               GroupOwner: "STRING_VALUE",
+ *             },
+ *             SourcePath: "STRING_VALUE",
+ *           },
+ *           LocalVolumeResourceData: { // LocalVolumeResourceData
+ *             DestinationPath: "STRING_VALUE",
+ *             GroupOwnerSetting: {
+ *               AutoAddGroupOwner: true || false,
+ *               GroupOwner: "STRING_VALUE",
+ *             },
+ *             SourcePath: "STRING_VALUE",
+ *           },
+ *           S3MachineLearningModelResourceData: { // S3MachineLearningModelResourceData
+ *             DestinationPath: "STRING_VALUE",
+ *             OwnerSetting: { // ResourceDownloadOwnerSetting
+ *               GroupOwner: "STRING_VALUE", // required
+ *               GroupPermission: "ro" || "rw", // required
+ *             },
+ *             S3Uri: "STRING_VALUE",
+ *           },
+ *           SageMakerMachineLearningModelResourceData: { // SageMakerMachineLearningModelResourceData
+ *             DestinationPath: "STRING_VALUE",
+ *             OwnerSetting: {
+ *               GroupOwner: "STRING_VALUE", // required
+ *               GroupPermission: "ro" || "rw", // required
+ *             },
+ *             SageMakerJobArn: "STRING_VALUE",
+ *           },
+ *           SecretsManagerSecretResourceData: { // SecretsManagerSecretResourceData
+ *             ARN: "STRING_VALUE",
+ *             AdditionalStagingLabelsToDownload: [ // __listOf__string
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Id: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetResourceDefinitionVersionCommandInput - {@link GetResourceDefinitionVersionCommandInput}
@@ -61,6 +116,8 @@ export interface GetResourceDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetResourceDefinitionVersionCommand extends $Command<

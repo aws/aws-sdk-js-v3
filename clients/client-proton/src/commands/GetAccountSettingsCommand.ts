@@ -42,6 +42,20 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSettingsOutput
+ *   accountSettings: { // AccountSettings
+ *     pipelineServiceRoleArn: "STRING_VALUE",
+ *     pipelineProvisioningRepository: { // RepositoryBranch
+ *       arn: "STRING_VALUE", // required
+ *       provider: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       branch: "STRING_VALUE", // required
+ *     },
+ *     pipelineCodebuildRoleArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
@@ -65,6 +79,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetAccountSettingsCommand extends $Command<

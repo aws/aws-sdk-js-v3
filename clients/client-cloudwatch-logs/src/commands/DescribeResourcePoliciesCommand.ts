@@ -45,6 +45,18 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * };
  * const command = new DescribeResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourcePoliciesResponse
+ *   resourcePolicies: [ // ResourcePolicies
+ *     { // ResourcePolicy
+ *       policyName: "STRING_VALUE",
+ *       policyDocument: "STRING_VALUE",
+ *       lastUpdatedTime: Number("long"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeResourcePoliciesCommandInput - {@link DescribeResourcePoliciesCommandInput}
@@ -59,6 +71,8 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeResourcePoliciesCommand extends $Command<

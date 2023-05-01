@@ -45,6 +45,29 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * };
  * const command = new ListPortalsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPortalsResponse
+ *   portalSummaries: [ // PortalSummaries
+ *     { // PortalSummary
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       startUrl: "STRING_VALUE", // required
+ *       creationDate: new Date("TIMESTAMP"),
+ *       lastUpdateDate: new Date("TIMESTAMP"),
+ *       roleArn: "STRING_VALUE",
+ *       status: { // PortalStatus
+ *         state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ *         error: { // MonitorErrorDetails
+ *           code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
+ *           message: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPortalsCommandInput - {@link ListPortalsCommandInput}
@@ -66,6 +89,8 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListPortalsCommand extends $Command<

@@ -59,6 +59,23 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * };
  * const command = new UpdateTrailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrailResponse
+ *   Name: "STRING_VALUE",
+ *   S3BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   SnsTopicName: "STRING_VALUE",
+ *   SnsTopicARN: "STRING_VALUE",
+ *   IncludeGlobalServiceEvents: true || false,
+ *   IsMultiRegionTrail: true || false,
+ *   TrailARN: "STRING_VALUE",
+ *   LogFileValidationEnabled: true || false,
+ *   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *   CloudWatchLogsRoleArn: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   IsOrganizationTrail: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateTrailCommandInput - {@link UpdateTrailCommandInput}
@@ -243,6 +260,8 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class UpdateTrailCommand extends $Command<

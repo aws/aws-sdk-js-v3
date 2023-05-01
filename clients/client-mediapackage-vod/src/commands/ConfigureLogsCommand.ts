@@ -47,6 +47,24 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * };
  * const command = new ConfigureLogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureLogsResponse
+ *   Arn: "STRING_VALUE",
+ *   Authorization: { // Authorization
+ *     CdnIdentifierSecret: "STRING_VALUE", // required
+ *     SecretsRoleArn: "STRING_VALUE", // required
+ *   },
+ *   CreatedAt: "STRING_VALUE",
+ *   DomainName: "STRING_VALUE",
+ *   EgressAccessLogs: { // EgressAccessLogs
+ *     LogGroupName: "STRING_VALUE",
+ *   },
+ *   Id: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ConfigureLogsCommandInput - {@link ConfigureLogsCommandInput}
@@ -73,6 +91,8 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class ConfigureLogsCommand extends $Command<

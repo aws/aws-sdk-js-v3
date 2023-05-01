@@ -56,6 +56,11 @@ export interface CreatePublishingDestinationCommandOutput
  * };
  * const command = new CreatePublishingDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePublishingDestinationResponse
+ *   DestinationId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreatePublishingDestinationCommandInput - {@link CreatePublishingDestinationCommandInput}
@@ -70,6 +75,8 @@ export interface CreatePublishingDestinationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreatePublishingDestinationCommand extends $Command<

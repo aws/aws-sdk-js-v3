@@ -50,6 +50,22 @@ export interface DeleteObservabilityConfigurationCommandOutput
  * };
  * const command = new DeleteObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteObservabilityConfigurationResponse
+ *   ObservabilityConfiguration: { // ObservabilityConfiguration
+ *     ObservabilityConfigurationArn: "STRING_VALUE",
+ *     ObservabilityConfigurationName: "STRING_VALUE",
+ *     TraceConfiguration: { // TraceConfiguration
+ *       Vendor: "AWSXRAY", // required
+ *     },
+ *     ObservabilityConfigurationRevision: Number("int"),
+ *     Latest: true || false,
+ *     Status: "ACTIVE" || "INACTIVE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     DeletedAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteObservabilityConfigurationCommandInput - {@link DeleteObservabilityConfigurationCommandInput}
@@ -67,6 +83,8 @@ export interface DeleteObservabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DeleteObservabilityConfigurationCommand extends $Command<

@@ -53,6 +53,9 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * };
  * const command = new AssociateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateWebACLCommandInput - {@link AssociateWebACLCommandInput}
@@ -114,6 +117,8 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  *  <p>The operation failed because the entity
  *       referenced is temporarily unavailable. Retry your request.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class AssociateWebACLCommand extends $Command<

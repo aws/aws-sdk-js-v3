@@ -126,6 +126,13 @@ export interface CreateDistributionConfigurationCommandOutput
  * };
  * const command = new CreateDistributionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDistributionConfigurationResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   distributionConfigurationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDistributionConfigurationCommandInput - {@link CreateDistributionConfigurationCommandInput}
@@ -175,6 +182,8 @@ export interface CreateDistributionConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateDistributionConfigurationCommand extends $Command<

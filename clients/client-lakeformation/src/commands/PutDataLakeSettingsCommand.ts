@@ -87,6 +87,9 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * };
  * const command = new PutDataLakeSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDataLakeSettingsCommandInput - {@link PutDataLakeSettingsCommandInput}
@@ -101,6 +104,8 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class PutDataLakeSettingsCommand extends $Command<

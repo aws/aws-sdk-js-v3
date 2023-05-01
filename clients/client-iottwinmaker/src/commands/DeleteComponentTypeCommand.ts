@@ -45,6 +45,11 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * };
  * const command = new DeleteComponentTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteComponentTypeResponse
+ *   state: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteComponentTypeCommandInput - {@link DeleteComponentTypeCommandInput}
@@ -68,6 +73,8 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteComponentTypeCommand extends $Command<

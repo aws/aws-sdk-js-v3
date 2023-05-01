@@ -45,6 +45,9 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  * };
  * const command = new DeleteParameterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteParameterCommandInput - {@link DeleteParameterCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteParameterCommand extends $Command<

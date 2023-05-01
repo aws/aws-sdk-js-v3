@@ -59,6 +59,9 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutKeyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutKeyPolicyCommandInput - {@link PutKeyPolicyCommandInput}
@@ -113,6 +116,8 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To attach a key policy to a KMS key
  * ```javascript

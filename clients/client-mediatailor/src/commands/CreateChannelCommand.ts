@@ -68,6 +68,40 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelResponse
+ *   Arn: "STRING_VALUE",
+ *   ChannelName: "STRING_VALUE",
+ *   ChannelState: "RUNNING" || "STOPPED",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   FillerSlate: { // SlateSource
+ *     SourceLocationName: "STRING_VALUE",
+ *     VodSourceName: "STRING_VALUE",
+ *   },
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   Outputs: [ // ResponseOutputs
+ *     { // ResponseOutputItem
+ *       DashPlaylistSettings: { // DashPlaylistSettings
+ *         ManifestWindowSeconds: Number("int"),
+ *         MinBufferTimeSeconds: Number("int"),
+ *         MinUpdatePeriodSeconds: Number("int"),
+ *         SuggestedPresentationDelaySeconds: Number("int"),
+ *       },
+ *       HlsPlaylistSettings: { // HlsPlaylistSettings
+ *         ManifestWindowSeconds: Number("int"),
+ *       },
+ *       ManifestName: "STRING_VALUE", // required
+ *       PlaybackUrl: "STRING_VALUE", // required
+ *       SourceGroup: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   PlaybackMode: "STRING_VALUE",
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tier: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -76,6 +110,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

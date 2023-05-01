@@ -48,6 +48,18 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * };
  * const command = new GetIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityProviderResponse
+ *   identityProvider: { // IdentityProvider
+ *     identityProviderArn: "STRING_VALUE", // required
+ *     identityProviderName: "STRING_VALUE",
+ *     identityProviderType: "STRING_VALUE",
+ *     identityProviderDetails: { // IdentityProviderDetails
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityProviderCommandInput - {@link GetIdentityProviderCommandInput}
@@ -71,6 +83,8 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetIdentityProviderCommand extends $Command<

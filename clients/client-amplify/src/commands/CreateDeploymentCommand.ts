@@ -49,6 +49,15 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResult
+ *   jobId: "STRING_VALUE",
+ *   fileUploadUrls: { // FileUploadUrls // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   zipUploadUrl: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -69,6 +78,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

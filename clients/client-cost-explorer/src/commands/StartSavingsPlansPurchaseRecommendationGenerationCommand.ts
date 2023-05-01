@@ -59,6 +59,13 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * const input = {};
  * const command = new StartSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSavingsPlansPurchaseRecommendationGenerationResponse
+ *   RecommendationId: "STRING_VALUE",
+ *   GenerationStartedTime: "STRING_VALUE",
+ *   EstimatedCompletionTime: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link StartSavingsPlansPurchaseRecommendationGenerationCommandInput}
@@ -77,6 +84,8 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  *  <p> You've reached the limit on the number of resources you can create, or exceeded the
  *             size of an individual resource. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $Command<

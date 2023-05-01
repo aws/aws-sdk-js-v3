@@ -48,6 +48,9 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<

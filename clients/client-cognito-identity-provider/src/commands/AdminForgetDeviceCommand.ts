@@ -52,6 +52,9 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AdminForgetDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminForgetDeviceCommandInput - {@link AdminForgetDeviceCommandInput}
@@ -84,6 +87,8 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminForgetDeviceCommand extends $Command<

@@ -64,6 +64,14 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * };
  * const command = new SearchAvailablePhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchAvailablePhoneNumbersResponse
+ *   E164PhoneNumbers: [ // E164PhoneNumberList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
@@ -93,6 +101,8 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command<

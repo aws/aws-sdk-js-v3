@@ -52,6 +52,12 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * };
  * const command = new UpdateConnectivityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectivityInfoResponse
+ *   Message: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
@@ -66,6 +72,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateConnectivityInfoCommand extends $Command<

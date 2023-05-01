@@ -48,6 +48,9 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * };
  * const command = new AssociateSkillGroupWithRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateSkillGroupWithRoomCommandInput - {@link AssociateSkillGroupWithRoomCommandInput}
@@ -59,6 +62,8 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is a concurrent modification of resources.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateSkillGroupWithRoomCommand extends $Command<

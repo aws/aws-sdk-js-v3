@@ -47,6 +47,24 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * };
  * const command = new GetTaskProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTaskProtectionResponse
+ *   protectedTasks: [ // ProtectedTasks
+ *     { // ProtectedTask
+ *       taskArn: "STRING_VALUE",
+ *       protectionEnabled: true || false,
+ *       expirationDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   failures: [ // Failures
+ *     { // Failure
+ *       arn: "STRING_VALUE",
+ *       reason: "STRING_VALUE",
+ *       detail: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTaskProtectionCommandInput - {@link GetTaskProtectionCommandInput}
@@ -79,6 +97,8 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * @throws {@link UnsupportedFeatureException} (client fault)
  *  <p>The specified task isn't supported in this Region.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To get the protection status of a task
  * ```javascript

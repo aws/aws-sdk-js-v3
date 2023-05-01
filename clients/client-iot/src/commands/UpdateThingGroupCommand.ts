@@ -55,6 +55,11 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  * };
  * const command = new UpdateThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateThingGroupResponse
+ *   version: Number("long"),
+ * };
+ *
  * ```
  *
  * @param UpdateThingGroupCommandInput - {@link UpdateThingGroupCommandInput}
@@ -80,6 +85,8 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateThingGroupCommand extends $Command<

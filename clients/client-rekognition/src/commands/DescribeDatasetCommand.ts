@@ -48,6 +48,23 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetResponse
+ *   DatasetDescription: { // DatasetDescription
+ *     CreationTimestamp: new Date("TIMESTAMP"),
+ *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ *     Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
+ *     StatusMessage: "STRING_VALUE",
+ *     StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
+ *     DatasetStats: { // DatasetStats
+ *       LabeledEntries: Number("int"),
+ *       TotalEntries: Number("int"),
+ *       TotalLabels: Number("int"),
+ *       ErrorEntries: Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -76,6 +93,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

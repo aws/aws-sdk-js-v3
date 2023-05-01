@@ -53,6 +53,50 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  * };
  * const command = new ListLabelingJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLabelingJobsResponse
+ *   LabelingJobSummaryList: [ // LabelingJobSummaryList
+ *     { // LabelingJobSummary
+ *       LabelingJobName: "STRING_VALUE", // required
+ *       LabelingJobArn: "STRING_VALUE", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *       LastModifiedTime: new Date("TIMESTAMP"), // required
+ *       LabelingJobStatus: "Initializing" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ *       LabelCounters: { // LabelCounters
+ *         TotalLabeled: Number("int"),
+ *         HumanLabeled: Number("int"),
+ *         MachineLabeled: Number("int"),
+ *         FailedNonRetryableError: Number("int"),
+ *         Unlabeled: Number("int"),
+ *       },
+ *       WorkteamArn: "STRING_VALUE", // required
+ *       PreHumanTaskLambdaArn: "STRING_VALUE", // required
+ *       AnnotationConsolidationLambdaArn: "STRING_VALUE",
+ *       FailureReason: "STRING_VALUE",
+ *       LabelingJobOutput: { // LabelingJobOutput
+ *         OutputDatasetS3Uri: "STRING_VALUE", // required
+ *         FinalActiveLearningModelArn: "STRING_VALUE",
+ *       },
+ *       InputConfig: { // LabelingJobInputConfig
+ *         DataSource: { // LabelingJobDataSource
+ *           S3DataSource: { // LabelingJobS3DataSource
+ *             ManifestS3Uri: "STRING_VALUE", // required
+ *           },
+ *           SnsDataSource: { // LabelingJobSnsDataSource
+ *             SnsTopicArn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         DataAttributes: { // LabelingJobDataAttributes
+ *           ContentClassifiers: [ // ContentClassifiers
+ *             "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLabelingJobsCommandInput - {@link ListLabelingJobsCommandInput}
@@ -61,6 +105,8 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  * @see {@link ListLabelingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListLabelingJobsCommand extends $Command<

@@ -65,6 +65,14 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * };
  * const command = new TagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagOutput
+ *   Arn: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param TagCommandInput - {@link TagCommandInput}
@@ -92,6 +100,8 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, ResourceGroupsClientResolvedConfig> {

@@ -46,6 +46,22 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  * };
  * const command = new ListWebhooksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWebhooksResult
+ *   webhooks: [ // Webhooks // required
+ *     { // Webhook
+ *       webhookArn: "STRING_VALUE", // required
+ *       webhookId: "STRING_VALUE", // required
+ *       webhookUrl: "STRING_VALUE", // required
+ *       branchName: "STRING_VALUE", // required
+ *       description: "STRING_VALUE", // required
+ *       createTime: new Date("TIMESTAMP"), // required
+ *       updateTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListWebhooksCommandInput - {@link ListWebhooksCommandInput}
@@ -66,6 +82,8 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class ListWebhooksCommand extends $Command<

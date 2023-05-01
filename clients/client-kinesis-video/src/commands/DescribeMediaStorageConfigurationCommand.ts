@@ -51,6 +51,14 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * };
  * const command = new DescribeMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMediaStorageConfigurationOutput
+ *   MediaStorageConfiguration: { // MediaStorageConfiguration
+ *     StreamARN: "STRING_VALUE",
+ *     Status: "ENABLED" || "DISABLED", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMediaStorageConfigurationCommandInput - {@link DescribeMediaStorageConfigurationCommandInput}
@@ -72,6 +80,8 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeMediaStorageConfigurationCommand extends $Command<

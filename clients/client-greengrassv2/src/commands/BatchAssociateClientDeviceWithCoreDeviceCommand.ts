@@ -69,6 +69,17 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  * };
  * const command = new BatchAssociateClientDeviceWithCoreDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateClientDeviceWithCoreDeviceResponse
+ *   errorEntries: [ // AssociateClientDeviceWithCoreDeviceErrorList
+ *     { // AssociateClientDeviceWithCoreDeviceErrorEntry
+ *       thingName: "STRING_VALUE",
+ *       code: "STRING_VALUE",
+ *       message: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateClientDeviceWithCoreDeviceCommandInput - {@link BatchAssociateClientDeviceWithCoreDeviceCommandInput}
@@ -94,6 +105,8 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<

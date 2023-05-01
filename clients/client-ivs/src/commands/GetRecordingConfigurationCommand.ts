@@ -44,6 +44,28 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * };
  * const command = new GetRecordingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecordingConfigurationResponse
+ *   recordingConfiguration: { // RecordingConfiguration
+ *     arn: "STRING_VALUE", // required
+ *     name: "STRING_VALUE",
+ *     destinationConfiguration: { // DestinationConfiguration
+ *       s3: { // S3DestinationConfiguration
+ *         bucketName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     state: "STRING_VALUE", // required
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     thumbnailConfiguration: { // ThumbnailConfiguration
+ *       recordingMode: "STRING_VALUE",
+ *       targetIntervalSeconds: Number("long"),
+ *     },
+ *     recordingReconnectWindowSeconds: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRecordingConfigurationCommandInput - {@link GetRecordingConfigurationCommandInput}
@@ -64,6 +86,8 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetRecordingConfigurationCommand extends $Command<

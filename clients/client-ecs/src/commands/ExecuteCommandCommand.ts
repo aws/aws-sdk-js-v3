@@ -58,6 +58,20 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  * };
  * const command = new ExecuteCommandCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteCommandResponse
+ *   clusterArn: "STRING_VALUE",
+ *   containerArn: "STRING_VALUE",
+ *   containerName: "STRING_VALUE",
+ *   interactive: true || false,
+ *   session: { // Session
+ *     sessionId: "STRING_VALUE",
+ *     streamUrl: "STRING_VALUE",
+ *     tokenValue: "STRING_VALUE",
+ *   },
+ *   taskArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExecuteCommandCommandInput - {@link ExecuteCommandCommandInput}
@@ -102,6 +116,8 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  *          <p>For information about how to troubleshoot the issues, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Troubleshooting issues with ECS
  * 				Exec</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class ExecuteCommandCommand extends $Command<

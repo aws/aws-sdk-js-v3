@@ -56,6 +56,21 @@ export interface DeleteRemediationExceptionsCommandOutput
  * };
  * const command = new DeleteRemediationExceptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRemediationExceptionsResponse
+ *   FailedBatches: [ // FailedDeleteRemediationExceptionsBatches
+ *     { // FailedDeleteRemediationExceptionsBatch
+ *       FailureMessage: "STRING_VALUE",
+ *       FailedItems: [ // RemediationExceptionResourceKeys
+ *         { // RemediationExceptionResourceKey
+ *           ResourceType: "STRING_VALUE",
+ *           ResourceId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteRemediationExceptionsCommandInput - {@link DeleteRemediationExceptionsCommandInput}
@@ -67,6 +82,8 @@ export interface DeleteRemediationExceptionsCommandOutput
  * @throws {@link NoSuchRemediationExceptionException} (client fault)
  *  <p>You tried to delete a remediation exception that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteRemediationExceptionsCommand extends $Command<

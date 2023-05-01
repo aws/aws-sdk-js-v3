@@ -56,6 +56,9 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  * };
  * const command = new UpdateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCustomVerificationEmailTemplateCommandInput - {@link UpdateCustomVerificationEmailTemplateCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  *  <p>Indicates that the sender address specified for a custom verification email is not
  *             verified, and is therefore not eligible to send the custom verification email. </p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateCustomVerificationEmailTemplateCommand extends $Command<

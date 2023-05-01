@@ -55,6 +55,14 @@ export interface CreateProvisioningTemplateVersionCommandOutput
  * };
  * const command = new CreateProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProvisioningTemplateVersionResponse
+ *   templateArn: "STRING_VALUE",
+ *   templateName: "STRING_VALUE",
+ *   versionId: Number("int"),
+ *   isDefaultVersion: true || false,
+ * };
+ *
  * ```
  *
  * @param CreateProvisioningTemplateVersionCommandInput - {@link CreateProvisioningTemplateVersionCommandInput}
@@ -85,6 +93,8 @@ export interface CreateProvisioningTemplateVersionCommandOutput
  * @throws {@link VersionsLimitExceededException} (client fault)
  *  <p>The number of policy versions exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateProvisioningTemplateVersionCommand extends $Command<

@@ -45,6 +45,21 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * };
  * const command = new RemoveNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveNotificationChannelResponse
+ *   notificationConfiguration: { // NotificationConfiguration
+ *     channels: [ // Channels
+ *       { // Channel
+ *         id: "STRING_VALUE",
+ *         uri: "STRING_VALUE", // required
+ *         eventPublishers: [ // EventPublishers // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param RemoveNotificationChannelCommandInput - {@link RemoveNotificationChannelCommandInput}
@@ -65,6 +80,8 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class RemoveNotificationChannelCommand extends $Command<

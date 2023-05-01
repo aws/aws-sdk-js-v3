@@ -58,6 +58,22 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotsResponse
+ *   botSummaries: [ // BotSummaryList
+ *     { // BotSummary
+ *       botId: "STRING_VALUE",
+ *       botName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ *       latestBotVersion: "STRING_VALUE",
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       botType: "Bot" || "BotNetwork",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBotsCommandInput - {@link ListBotsCommandInput}
@@ -81,6 +97,8 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotsCommand extends $Command<

@@ -50,6 +50,9 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * };
  * const command = new PutLexiconCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLexiconCommandInput - {@link PutLexiconCommandInput}
@@ -85,6 +88,8 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  *  <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @example To save a lexicon
  * ```javascript

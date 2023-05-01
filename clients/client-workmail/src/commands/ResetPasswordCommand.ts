@@ -50,6 +50,9 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  * };
  * const command = new ResetPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResetPasswordCommandInput - {@link ResetPasswordCommandInput}
@@ -90,6 +93,8 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ResetPasswordCommand extends $Command<

@@ -45,6 +45,18 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
  * };
  * const command = new ListAccessTokensCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessTokensResponse
+ *   items: [ // AccessTokenSummaries // required
+ *     { // AccessTokenSummary
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       expiresTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAccessTokensCommandInput - {@link ListAccessTokensCommandInput}
@@ -73,6 +85,8 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class ListAccessTokensCommand extends $Command<

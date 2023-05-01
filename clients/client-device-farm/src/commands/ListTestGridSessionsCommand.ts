@@ -51,6 +51,21 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  * };
  * const command = new ListTestGridSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTestGridSessionsResult
+ *   testGridSessions: [ // TestGridSessions
+ *     { // TestGridSession
+ *       arn: "STRING_VALUE",
+ *       status: "ACTIVE" || "CLOSED" || "ERRORED",
+ *       created: new Date("TIMESTAMP"),
+ *       ended: new Date("TIMESTAMP"),
+ *       billingMinutes: Number("double"),
+ *       seleniumProperties: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTestGridSessionsCommandInput - {@link ListTestGridSessionsCommandInput}
@@ -69,6 +84,8 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListTestGridSessionsCommand extends $Command<

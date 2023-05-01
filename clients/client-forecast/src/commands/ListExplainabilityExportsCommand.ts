@@ -55,6 +55,28 @@ export interface ListExplainabilityExportsCommandOutput extends ListExplainabili
  * };
  * const command = new ListExplainabilityExportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExplainabilityExportsResponse
+ *   ExplainabilityExports: [ // ExplainabilityExports
+ *     { // ExplainabilityExportSummary
+ *       ExplainabilityExportArn: "STRING_VALUE",
+ *       ExplainabilityExportName: "STRING_VALUE",
+ *       Destination: { // DataDestination
+ *         S3Config: { // S3Config
+ *           Path: "STRING_VALUE", // required
+ *           RoleArn: "STRING_VALUE", // required
+ *           KMSKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       Status: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModificationTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListExplainabilityExportsCommandInput - {@link ListExplainabilityExportsCommandInput}
@@ -70,6 +92,8 @@ export interface ListExplainabilityExportsCommandOutput extends ListExplainabili
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListExplainabilityExportsCommand extends $Command<

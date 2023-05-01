@@ -47,6 +47,11 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionRes
  * };
  * const command = new GetResourcePositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePositionResponse
+ *   GeoJsonPayload: "BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetResourcePositionCommandInput - {@link GetResourcePositionCommandInput}
@@ -70,6 +75,8 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetResourcePositionCommand extends $Command<

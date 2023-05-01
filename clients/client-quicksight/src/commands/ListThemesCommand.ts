@@ -47,6 +47,23 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * };
  * const command = new ListThemesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThemesResponse
+ *   ThemeSummaryList: [ // ThemeSummaryList
+ *     { // ThemeSummary
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       ThemeId: "STRING_VALUE",
+ *       LatestVersionNumber: Number("long"),
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListThemesCommandInput - {@link ListThemesCommandInput}
@@ -82,6 +99,8 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListThemesCommand extends $Command<

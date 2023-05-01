@@ -47,6 +47,21 @@ export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataB
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainsResult
+ *   domains: [ // DomainSummaryList
+ *     { // DomainSummary
+ *       name: "STRING_VALUE",
+ *       owner: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       status: "Active" || "Deleted",
+ *       createdTime: new Date("TIMESTAMP"),
+ *       encryptionKey: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -73,6 +88,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataB
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

@@ -69,6 +69,15 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * };
  * const command = new RefreshTrustedAdvisorCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RefreshTrustedAdvisorCheckResponse
+ *   status: { // TrustedAdvisorCheckRefreshStatus
+ *     checkId: "STRING_VALUE", // required
+ *     status: "STRING_VALUE", // required
+ *     millisUntilNextRefreshable: Number("long"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param RefreshTrustedAdvisorCheckCommandInput - {@link RefreshTrustedAdvisorCheckCommandInput}
@@ -80,6 +89,8 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class RefreshTrustedAdvisorCheckCommand extends $Command<

@@ -50,6 +50,21 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * };
  * const command = new ListS3ResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListS3ResourcesResult
+ *   s3Resources: [ // S3ResourcesClassification
+ *     { // S3ResourceClassification
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *       classificationType: { // ClassificationType
+ *         oneTime: "STRING_VALUE", // required
+ *         continuous: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListS3ResourcesCommandInput - {@link ListS3ResourcesCommandInput}
@@ -68,6 +83,8 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class ListS3ResourcesCommand extends $Command<

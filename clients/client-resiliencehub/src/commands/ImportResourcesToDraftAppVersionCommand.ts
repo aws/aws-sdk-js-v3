@@ -67,6 +67,29 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * };
  * const command = new ImportResourcesToDraftAppVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportResourcesToDraftAppVersionResponse
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   sourceArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   status: "STRING_VALUE", // required
+ *   terraformSources: [ // TerraformSourceList
+ *     { // TerraformSource
+ *       s3StateFileUrl: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   eksSources: [ // EksSourceList
+ *     { // EksSource
+ *       eksClusterArn: "STRING_VALUE", // required
+ *       namespaces: [ // EksNamespaceList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ImportResourcesToDraftAppVersionCommandInput - {@link ImportResourcesToDraftAppVersionCommandInput}
@@ -99,6 +122,8 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ImportResourcesToDraftAppVersionCommand extends $Command<

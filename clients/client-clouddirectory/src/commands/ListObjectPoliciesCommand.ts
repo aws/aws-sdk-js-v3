@@ -50,6 +50,14 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  * };
  * const command = new ListObjectPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListObjectPoliciesResponse
+ *   AttachedPolicyIds: [ // ObjectIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListObjectPoliciesCommandInput - {@link ListObjectPoliciesCommandInput}
@@ -86,6 +94,8 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListObjectPoliciesCommand extends $Command<

@@ -49,6 +49,28 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserResponse
+ *   User: { // User
+ *     UserId: "STRING_VALUE", // required
+ *     AccountId: "STRING_VALUE",
+ *     PrimaryEmail: "STRING_VALUE",
+ *     PrimaryProvisionedNumber: "STRING_VALUE",
+ *     DisplayName: "STRING_VALUE",
+ *     LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
+ *     UserType: "PrivateUser" || "SharedDevice",
+ *     UserRegistrationStatus: "Unregistered" || "Registered" || "Suspended",
+ *     UserInvitationStatus: "Pending" || "Accepted" || "Failed",
+ *     RegisteredOn: new Date("TIMESTAMP"),
+ *     InvitedOn: new Date("TIMESTAMP"),
+ *     AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ *       IsAlexaForBusinessEnabled: true || false,
+ *       AlexaForBusinessRoomArn: "STRING_VALUE",
+ *     },
+ *     PersonalPIN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetUserCommandInput - {@link GetUserCommandInput}
@@ -78,6 +100,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, ChimeClientResolvedConfig> {

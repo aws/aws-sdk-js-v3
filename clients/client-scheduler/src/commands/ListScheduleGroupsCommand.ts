@@ -46,6 +46,20 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * };
  * const command = new ListScheduleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListScheduleGroupsOutput
+ *   NextToken: "STRING_VALUE",
+ *   ScheduleGroups: [ // ScheduleGroupList // required
+ *     { // ScheduleGroupSummary
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       State: "STRING_VALUE",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       LastModificationDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListScheduleGroupsCommandInput - {@link ListScheduleGroupsCommandInput}
@@ -63,6 +77,8 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link SchedulerServiceException}
+ * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
  */
 export class ListScheduleGroupsCommand extends $Command<

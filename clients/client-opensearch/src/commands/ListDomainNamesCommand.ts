@@ -45,6 +45,16 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainNamesResponse
+ *   DomainNames: [ // DomainInfoList
+ *     { // DomainInfo
+ *       DomainName: "STRING_VALUE",
+ *       EngineType: "OpenSearch" || "Elasticsearch",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
@@ -59,6 +69,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListDomainNamesCommand extends $Command<

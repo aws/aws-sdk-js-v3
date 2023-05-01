@@ -52,6 +52,21 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * };
  * const command = new ListManagedInsightRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedInsightRulesOutput
+ *   ManagedRules: [ // ManagedRuleDescriptions
+ *     { // ManagedRuleDescription
+ *       TemplateName: "STRING_VALUE",
+ *       ResourceARN: "STRING_VALUE",
+ *       RuleState: { // ManagedRuleState
+ *         RuleName: "STRING_VALUE", // required
+ *         State: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListManagedInsightRulesCommandInput - {@link ListManagedInsightRulesCommandInput}
@@ -69,6 +84,8 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class ListManagedInsightRulesCommand extends $Command<

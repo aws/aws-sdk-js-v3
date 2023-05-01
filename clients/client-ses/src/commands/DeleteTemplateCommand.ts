@@ -45,6 +45,9 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * };
  * const command = new DeleteTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTemplateCommandInput - {@link DeleteTemplateCommandInput}
@@ -53,6 +56,8 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @see {@link DeleteTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DeleteTemplateCommand extends $Command<

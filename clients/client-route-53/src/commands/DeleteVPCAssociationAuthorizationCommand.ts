@@ -68,6 +68,9 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * };
  * const command = new DeleteVPCAssociationAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVPCAssociationAuthorizationCommandInput - {@link DeleteVPCAssociationAuthorizationCommandInput}
@@ -94,6 +97,8 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  *  <p>The VPC that you specified is not authorized to be associated with the hosted
  * 			zone.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteVPCAssociationAuthorizationCommand extends $Command<

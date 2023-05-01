@@ -47,6 +47,9 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * };
  * const command = new DeleteDeviceUsageDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeviceUsageDataCommandInput - {@link DeleteDeviceUsageDataCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteDeviceUsageDataCommand extends $Command<

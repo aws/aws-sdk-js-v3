@@ -45,6 +45,28 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentsResult
+ *   Deployments: [ // EdgeDeployments
+ *     { // EdgeDeployment
+ *       DeploymentName: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       FailureHandlingPolicy: "STRING_VALUE",
+ *       Definitions: [ // Definitions
+ *         { // Definition
+ *           ModelHandle: "STRING_VALUE",
+ *           S3Url: "STRING_VALUE",
+ *           Checksum: { // Checksum
+ *             Type: "STRING_VALUE",
+ *             Sum: "STRING_VALUE",
+ *           },
+ *           State: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDeploymentsCommandInput - {@link GetDeploymentsCommandInput}
@@ -57,6 +79,8 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  *  <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact Amazon Web Services customer support.</p>
  *
+ * @throws {@link SagemakerEdgeServiceException}
+ * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
  */
 export class GetDeploymentsCommand extends $Command<

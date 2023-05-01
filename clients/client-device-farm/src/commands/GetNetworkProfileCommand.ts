@@ -44,6 +44,24 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkProfileResult
+ *   networkProfile: { // NetworkProfile
+ *     arn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     type: "CURATED" || "PRIVATE",
+ *     uplinkBandwidthBits: Number("long"),
+ *     downlinkBandwidthBits: Number("long"),
+ *     uplinkDelayMs: Number("long"),
+ *     downlinkDelayMs: Number("long"),
+ *     uplinkJitterMs: Number("long"),
+ *     downlinkJitterMs: Number("long"),
+ *     uplinkLossPercent: Number("int"),
+ *     downlinkLossPercent: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
@@ -64,6 +82,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetNetworkProfileCommand extends $Command<

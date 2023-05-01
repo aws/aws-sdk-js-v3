@@ -51,6 +51,20 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * };
  * const command = new DisassociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateIamInstanceProfileResult
+ *   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
+ *     AssociationId: "STRING_VALUE",
+ *     InstanceId: "STRING_VALUE",
+ *     IamInstanceProfile: { // IamInstanceProfile
+ *       Arn: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *     },
+ *     State: "associating" || "associated" || "disassociating" || "disassociated",
+ *     Timestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateIamInstanceProfileCommandInput - {@link DisassociateIamInstanceProfileCommandInput}
@@ -59,6 +73,8 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To disassociate an IAM instance profile
  * ```javascript

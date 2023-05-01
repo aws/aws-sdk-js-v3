@@ -47,6 +47,38 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * };
  * const command = new BatchGetCommitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetCommitsOutput
+ *   commits: [ // CommitObjectsList
+ *     { // Commit
+ *       commitId: "STRING_VALUE",
+ *       treeId: "STRING_VALUE",
+ *       parents: [ // ParentList
+ *         "STRING_VALUE",
+ *       ],
+ *       message: "STRING_VALUE",
+ *       author: { // UserInfo
+ *         name: "STRING_VALUE",
+ *         email: "STRING_VALUE",
+ *         date: "STRING_VALUE",
+ *       },
+ *       committer: {
+ *         name: "STRING_VALUE",
+ *         email: "STRING_VALUE",
+ *         date: "STRING_VALUE",
+ *       },
+ *       additionalData: "STRING_VALUE",
+ *     },
+ *   ],
+ *   errors: [ // BatchGetCommitsErrorsList
+ *     { // BatchGetCommitsError
+ *       commitId: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetCommitsCommandInput - {@link BatchGetCommitsCommandInput}
@@ -91,6 +123,8 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class BatchGetCommitsCommand extends $Command<

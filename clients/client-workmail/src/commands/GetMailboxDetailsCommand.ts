@@ -45,6 +45,12 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  * };
  * const command = new GetMailboxDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMailboxDetailsResponse
+ *   MailboxQuota: Number("int"),
+ *   MailboxSize: Number("double"),
+ * };
+ *
  * ```
  *
  * @param GetMailboxDetailsCommandInput - {@link GetMailboxDetailsCommandInput}
@@ -65,6 +71,8 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetMailboxDetailsCommand extends $Command<

@@ -50,6 +50,9 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * };
  * const command = new StartSmartHomeApplianceDiscoveryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartSmartHomeApplianceDiscoveryCommandInput - {@link StartSmartHomeApplianceDiscoveryCommandInput}
@@ -61,6 +64,8 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class StartSmartHomeApplianceDiscoveryCommand extends $Command<

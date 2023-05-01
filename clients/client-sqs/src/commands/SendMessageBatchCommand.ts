@@ -98,6 +98,28 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * };
  * const command = new SendMessageBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendMessageBatchResult
+ *   Successful: [ // SendMessageBatchResultEntryList // required
+ *     { // SendMessageBatchResultEntry
+ *       Id: "STRING_VALUE", // required
+ *       MessageId: "STRING_VALUE", // required
+ *       MD5OfMessageBody: "STRING_VALUE", // required
+ *       MD5OfMessageAttributes: "STRING_VALUE",
+ *       MD5OfMessageSystemAttributes: "STRING_VALUE",
+ *       SequenceNumber: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Failed: [ // BatchResultErrorEntryList // required
+ *     { // BatchResultErrorEntry
+ *       Id: "STRING_VALUE", // required
+ *       SenderFault: true || false, // required
+ *       Code: "STRING_VALUE", // required
+ *       Message: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SendMessageBatchCommandInput - {@link SendMessageBatchCommandInput}
@@ -124,6 +146,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>Error code 400. Unsupported operation.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class SendMessageBatchCommand extends $Command<

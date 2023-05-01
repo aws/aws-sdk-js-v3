@@ -57,6 +57,25 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  * };
  * const command = new DescribeBudgetNotificationsForAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBudgetNotificationsForAccountResponse
+ *   BudgetNotificationsForAccount: [ // BudgetNotificationsForAccountList
+ *     { // BudgetNotificationsForAccount
+ *       Notifications: [ // Notifications
+ *         { // Notification
+ *           NotificationType: "STRING_VALUE", // required
+ *           ComparisonOperator: "STRING_VALUE", // required
+ *           Threshold: Number("double"), // required
+ *           ThresholdType: "STRING_VALUE",
+ *           NotificationState: "STRING_VALUE",
+ *         },
+ *       ],
+ *       BudgetName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeBudgetNotificationsForAccountCommandInput - {@link DescribeBudgetNotificationsForAccountCommandInput}
@@ -88,6 +107,8 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeBudgetNotificationsForAccountCommand extends $Command<

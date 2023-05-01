@@ -50,6 +50,22 @@ export interface SearchVocabulariesCommandOutput extends SearchVocabulariesRespo
  * };
  * const command = new SearchVocabulariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchVocabulariesResponse
+ *   VocabularySummaryList: [ // VocabularySummaryList
+ *     { // VocabularySummary
+ *       Name: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *       Arn: "STRING_VALUE", // required
+ *       LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
+ *       State: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "DELETE_IN_PROGRESS", // required
+ *       LastModifiedTime: new Date("TIMESTAMP"), // required
+ *       FailureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchVocabulariesCommandInput - {@link SearchVocabulariesCommandInput}
@@ -70,6 +86,8 @@ export interface SearchVocabulariesCommandOutput extends SearchVocabulariesRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchVocabulariesCommand extends $Command<

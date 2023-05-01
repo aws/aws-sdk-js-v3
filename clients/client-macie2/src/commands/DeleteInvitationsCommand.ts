@@ -46,6 +46,17 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInvitationsResponse
+ *   unprocessedAccounts: [ // __listOfUnprocessedAccount
+ *     { // UnprocessedAccount
+ *       accountId: "STRING_VALUE",
+ *       errorCode: "ClientError" || "InternalError",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
@@ -75,6 +86,8 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DeleteInvitationsCommand extends $Command<

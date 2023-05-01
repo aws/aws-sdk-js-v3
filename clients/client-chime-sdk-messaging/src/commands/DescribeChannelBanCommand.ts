@@ -59,6 +59,22 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  * };
  * const command = new DescribeChannelBanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeChannelBanResponse
+ *   ChannelBan: { // ChannelBan
+ *     Member: { // Identity
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     ChannelArn: "STRING_VALUE",
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     CreatedBy: {
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeChannelBanCommandInput - {@link DescribeChannelBanCommandInput}
@@ -88,6 +104,8 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class DescribeChannelBanCommand extends $Command<

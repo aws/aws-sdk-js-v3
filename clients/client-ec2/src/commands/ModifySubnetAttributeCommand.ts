@@ -91,6 +91,9 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifySubnetAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifySubnetAttributeCommandInput - {@link ModifySubnetAttributeCommandInput}
@@ -99,6 +102,8 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifySubnetAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To change a subnet's public IP addressing behavior
  * ```javascript

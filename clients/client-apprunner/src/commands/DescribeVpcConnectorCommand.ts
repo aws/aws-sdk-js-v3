@@ -44,6 +44,24 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  * };
  * const command = new DescribeVpcConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcConnectorResponse
+ *   VpcConnector: { // VpcConnector
+ *     VpcConnectorName: "STRING_VALUE",
+ *     VpcConnectorArn: "STRING_VALUE",
+ *     VpcConnectorRevision: Number("int"),
+ *     Subnets: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Status: "ACTIVE" || "INACTIVE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     DeletedAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeVpcConnectorCommandInput - {@link DescribeVpcConnectorCommandInput}
@@ -61,6 +79,8 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeVpcConnectorCommand extends $Command<

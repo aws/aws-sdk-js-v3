@@ -92,6 +92,11 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * };
  * const command = new RegisterScalableTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterScalableTargetResponse
+ *   ScalableTargetARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterScalableTargetCommandInput - {@link RegisterScalableTargetCommandInput}
@@ -114,6 +119,8 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To register an ECS service as a scalable target
  * ```javascript

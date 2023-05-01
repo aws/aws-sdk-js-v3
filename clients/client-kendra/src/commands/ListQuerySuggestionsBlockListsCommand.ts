@@ -57,6 +57,21 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
  * };
  * const command = new ListQuerySuggestionsBlockListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQuerySuggestionsBlockListsResponse
+ *   BlockListSummaryItems: [ // QuerySuggestionsBlockListSummaryItems
+ *     { // QuerySuggestionsBlockListSummary
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Status: "ACTIVE" || "CREATING" || "DELETING" || "UPDATING" || "ACTIVE_BUT_UPDATE_FAILED" || "FAILED",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       UpdatedAt: new Date("TIMESTAMP"),
+ *       ItemCount: Number("int"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListQuerySuggestionsBlockListsCommandInput - {@link ListQuerySuggestionsBlockListsCommandInput}
@@ -85,6 +100,8 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListQuerySuggestionsBlockListsCommand extends $Command<

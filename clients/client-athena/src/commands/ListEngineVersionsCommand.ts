@@ -46,6 +46,17 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  * };
  * const command = new ListEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEngineVersionsOutput
+ *   EngineVersions: [ // EngineVersionsList
+ *     { // EngineVersion
+ *       SelectedEngineVersion: "STRING_VALUE",
+ *       EffectiveEngineVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEngineVersionsCommandInput - {@link ListEngineVersionsCommandInput}
@@ -62,6 +73,8 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListEngineVersionsCommand extends $Command<

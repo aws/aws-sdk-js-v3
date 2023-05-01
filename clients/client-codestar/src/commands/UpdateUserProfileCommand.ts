@@ -54,6 +54,16 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserProfileResult
+ *   userArn: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   emailAddress: "STRING_VALUE",
+ *   sshPublicKey: "STRING_VALUE",
+ *   createdTimestamp: new Date("TIMESTAMP"),
+ *   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
@@ -68,6 +78,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UpdateUserProfileCommand extends $Command<

@@ -44,6 +44,12 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * };
  * const command = new DeleteImageRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteImageRecipeResponse
+ *   requestId: "STRING_VALUE",
+ *   imageRecipeArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteImageRecipeCommandInput - {@link DeleteImageRecipeCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteImageRecipeCommand extends $Command<

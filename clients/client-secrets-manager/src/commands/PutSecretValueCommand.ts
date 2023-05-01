@@ -81,6 +81,16 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * };
  * const command = new PutSecretValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSecretValueResponse
+ *   ARN: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ *   VersionStages: [ // SecretVersionStagesType
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutSecretValueCommandInput - {@link PutSecretValueCommandInput}
@@ -130,6 +140,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To store a secret value in a new version of a secret
  * ```javascript

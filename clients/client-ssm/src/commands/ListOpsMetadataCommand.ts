@@ -54,6 +54,20 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * };
  * const command = new ListOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOpsMetadataResult
+ *   OpsMetadataList: [ // OpsMetadataList
+ *     { // OpsMetadata
+ *       ResourceId: "STRING_VALUE",
+ *       OpsMetadataArn: "STRING_VALUE",
+ *       LastModifiedDate: new Date("TIMESTAMP"),
+ *       LastModifiedUser: "STRING_VALUE",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOpsMetadataCommandInput - {@link ListOpsMetadataCommandInput}
@@ -68,6 +82,8 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
  *  <p>One of the arguments passed is invalid. </p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListOpsMetadataCommand extends $Command<

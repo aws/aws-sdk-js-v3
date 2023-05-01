@@ -56,6 +56,25 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * };
  * const command = new BatchCheckLayerAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCheckLayerAvailabilityResponse
+ *   layers: [ // LayerList
+ *     { // Layer
+ *       layerDigest: "STRING_VALUE",
+ *       layerAvailability: "AVAILABLE" || "UNAVAILABLE",
+ *       layerSize: Number("long"),
+ *       mediaType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   failures: [ // LayerFailureList
+ *     { // LayerFailure
+ *       layerDigest: "STRING_VALUE",
+ *       failureCode: "InvalidLayerDigest" || "MissingLayerDigest",
+ *       failureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCheckLayerAvailabilityCommandInput - {@link BatchCheckLayerAvailabilityCommandInput}
@@ -81,6 +100,8 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command<

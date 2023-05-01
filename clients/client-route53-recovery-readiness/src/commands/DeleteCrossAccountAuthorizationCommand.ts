@@ -53,6 +53,9 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * };
  * const command = new DeleteCrossAccountAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCrossAccountAuthorizationCommandInput - {@link DeleteCrossAccountAuthorizationCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class DeleteCrossAccountAuthorizationCommand extends $Command<

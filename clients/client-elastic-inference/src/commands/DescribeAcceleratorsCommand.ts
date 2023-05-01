@@ -63,6 +63,22 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * };
  * const command = new DescribeAcceleratorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAcceleratorsResponse
+ *   acceleratorSet: [ // ElasticInferenceAcceleratorSet
+ *     { // ElasticInferenceAccelerator
+ *       acceleratorHealth: { // ElasticInferenceAcceleratorHealth
+ *         status: "STRING_VALUE",
+ *       },
+ *       acceleratorType: "STRING_VALUE",
+ *       acceleratorId: "STRING_VALUE",
+ *       availabilityZone: "STRING_VALUE",
+ *       attachedResource: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAcceleratorsCommandInput - {@link DescribeAcceleratorsCommandInput}
@@ -86,6 +102,8 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class DescribeAcceleratorsCommand extends $Command<

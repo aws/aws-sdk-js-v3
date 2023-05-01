@@ -50,6 +50,49 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * };
  * const command = new DescribeConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationSetResponse
+ *   ConfigurationSet: { // ConfigurationSet
+ *     Name: "STRING_VALUE", // required
+ *   },
+ *   EventDestinations: [ // EventDestinations
+ *     { // EventDestination
+ *       Name: "STRING_VALUE", // required
+ *       Enabled: true || false,
+ *       MatchingEventTypes: [ // EventTypes // required
+ *         "STRING_VALUE",
+ *       ],
+ *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *         IAMRoleARN: "STRING_VALUE", // required
+ *         DeliveryStreamARN: "STRING_VALUE", // required
+ *       },
+ *       CloudWatchDestination: { // CloudWatchDestination
+ *         DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *           { // CloudWatchDimensionConfiguration
+ *             DimensionName: "STRING_VALUE", // required
+ *             DimensionValueSource: "STRING_VALUE", // required
+ *             DefaultDimensionValue: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       SNSDestination: { // SNSDestination
+ *         TopicARN: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   TrackingOptions: { // TrackingOptions
+ *     CustomRedirectDomain: "STRING_VALUE",
+ *   },
+ *   DeliveryOptions: { // DeliveryOptions
+ *     TlsPolicy: "STRING_VALUE",
+ *   },
+ *   ReputationOptions: { // ReputationOptions
+ *     SendingEnabled: true || false,
+ *     ReputationMetricsEnabled: true || false,
+ *     LastFreshStart: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationSetCommandInput - {@link DescribeConfigurationSetCommandInput}
@@ -61,6 +104,8 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
  *  <p>Indicates that the configuration set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DescribeConfigurationSetCommand extends $Command<

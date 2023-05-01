@@ -54,6 +54,12 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  * };
  * const command = new StartContactEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartContactEvaluationResponse
+ *   EvaluationId: "STRING_VALUE", // required
+ *   EvaluationArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StartContactEvaluationCommandInput - {@link StartContactEvaluationCommandInput}
@@ -80,6 +86,8 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartContactEvaluationCommand extends $Command<

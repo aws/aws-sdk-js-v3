@@ -44,6 +44,12 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * };
  * const command = new DescribeEnvironmentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentStatusResult
+ *   status: "error" || "creating" || "connecting" || "ready" || "stopping" || "stopped" || "deleting", // required
+ *   message: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentStatusCommandInput - {@link DescribeEnvironmentStatusCommandInput}
@@ -73,6 +79,8 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example DescribeEnvironmentStatus
  * ```javascript

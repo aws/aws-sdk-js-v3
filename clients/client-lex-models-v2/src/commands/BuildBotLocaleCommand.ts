@@ -48,6 +48,15 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  * };
  * const command = new BuildBotLocaleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BuildBotLocaleResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ *   lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param BuildBotLocaleCommandInput - {@link BuildBotLocaleCommandInput}
@@ -81,6 +90,8 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class BuildBotLocaleCommand extends $Command<

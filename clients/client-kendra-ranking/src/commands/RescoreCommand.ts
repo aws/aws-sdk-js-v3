@@ -63,6 +63,17 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * };
  * const command = new RescoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RescoreResult
+ *   RescoreId: "STRING_VALUE",
+ *   ResultItems: [ // RescoreResultItemList
+ *     { // RescoreResultItem
+ *       DocumentId: "STRING_VALUE",
+ *       Score: Number("float"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RescoreCommandInput - {@link RescoreCommandInput}
@@ -101,6 +112,8 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class RescoreCommand extends $Command<

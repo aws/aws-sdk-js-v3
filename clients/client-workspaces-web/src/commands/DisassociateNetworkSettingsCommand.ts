@@ -49,6 +49,9 @@ export interface DisassociateNetworkSettingsCommandOutput
  * };
  * const command = new DisassociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateNetworkSettingsCommandInput - {@link DisassociateNetworkSettingsCommandInput}
@@ -72,6 +75,8 @@ export interface DisassociateNetworkSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateNetworkSettingsCommand extends $Command<

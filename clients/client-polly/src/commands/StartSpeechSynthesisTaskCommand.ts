@@ -68,6 +68,31 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * };
  * const command = new StartSpeechSynthesisTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSpeechSynthesisTaskOutput
+ *   SynthesisTask: { // SynthesisTask
+ *     Engine: "standard" || "neural",
+ *     TaskId: "STRING_VALUE",
+ *     TaskStatus: "scheduled" || "inProgress" || "completed" || "failed",
+ *     TaskStatusReason: "STRING_VALUE",
+ *     OutputUri: "STRING_VALUE",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     RequestCharacters: Number("int"),
+ *     SnsTopicArn: "STRING_VALUE",
+ *     LexiconNames: [ // LexiconNameList
+ *       "STRING_VALUE",
+ *     ],
+ *     OutputFormat: "json" || "mp3" || "ogg_vorbis" || "pcm",
+ *     SampleRate: "STRING_VALUE",
+ *     SpeechMarkTypes: [ // SpeechMarkTypeList
+ *       "sentence" || "ssml" || "viseme" || "word",
+ *     ],
+ *     TextType: "ssml" || "text",
+ *     VoiceId: "Aditi" || "Amy" || "Astrid" || "Bianca" || "Brian" || "Camila" || "Carla" || "Carmen" || "Celine" || "Chantal" || "Conchita" || "Cristiano" || "Dora" || "Emma" || "Enrique" || "Ewa" || "Filiz" || "Gabrielle" || "Geraint" || "Giorgio" || "Gwyneth" || "Hans" || "Ines" || "Ivy" || "Jacek" || "Jan" || "Joanna" || "Joey" || "Justin" || "Karl" || "Kendra" || "Kevin" || "Kimberly" || "Lea" || "Liv" || "Lotte" || "Lucia" || "Lupe" || "Mads" || "Maja" || "Marlene" || "Mathieu" || "Matthew" || "Maxim" || "Mia" || "Miguel" || "Mizuki" || "Naja" || "Nicole" || "Olivia" || "Penelope" || "Raveena" || "Ricardo" || "Ruben" || "Russell" || "Salli" || "Seoyeon" || "Takumi" || "Tatyana" || "Vicki" || "Vitoria" || "Zeina" || "Zhiyu" || "Aria" || "Ayanda" || "Arlet" || "Hannah" || "Arthur" || "Daniel" || "Liam" || "Pedro" || "Kajal" || "Hiujin" || "Laura" || "Elin" || "Ida" || "Suvi" || "Ola" || "Hala" || "Andres" || "Sergio" || "Remi" || "Adriano" || "Thiago" || "Ruth" || "Stephen" || "Kazuha" || "Tomoko",
+ *     LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI",
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartSpeechSynthesisTaskCommandInput - {@link StartSpeechSynthesisTaskCommandInput}
@@ -132,6 +157,8 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  *       billed characters. SSML tags are not counted as billed
  *       characters.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  */
 export class StartSpeechSynthesisTaskCommand extends $Command<

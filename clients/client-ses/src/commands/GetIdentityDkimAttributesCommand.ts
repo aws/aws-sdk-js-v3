@@ -68,6 +68,19 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * };
  * const command = new GetIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityDkimAttributesResponse
+ *   DkimAttributes: { // DkimAttributes // required
+ *     "<keys>": { // IdentityDkimAttributes
+ *       DkimEnabled: true || false, // required
+ *       DkimVerificationStatus: "STRING_VALUE", // required
+ *       DkimTokens: [ // VerificationTokenList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityDkimAttributesCommandInput - {@link GetIdentityDkimAttributesCommandInput}
@@ -76,6 +89,8 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * @see {@link GetIdentityDkimAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityDkimAttributes
  * ```javascript

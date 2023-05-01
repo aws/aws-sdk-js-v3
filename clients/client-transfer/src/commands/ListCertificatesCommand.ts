@@ -49,6 +49,23 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCertificatesResponse
+ *   NextToken: "STRING_VALUE",
+ *   Certificates: [ // ListedCertificates // required
+ *     { // ListedCertificate
+ *       Arn: "STRING_VALUE",
+ *       CertificateId: "STRING_VALUE",
+ *       Usage: "SIGNING" || "ENCRYPTION",
+ *       Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
+ *       ActiveDate: new Date("TIMESTAMP"),
+ *       InactiveDate: new Date("TIMESTAMP"),
+ *       Type: "CERTIFICATE" || "CERTIFICATE_WITH_PRIVATE_KEY",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
@@ -73,6 +90,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListCertificatesCommand extends $Command<

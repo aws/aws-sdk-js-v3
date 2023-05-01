@@ -61,6 +61,17 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * };
  * const command = new ListCreatedArtifactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCreatedArtifactsResult
+ *   NextToken: "STRING_VALUE",
+ *   CreatedArtifactList: [ // CreatedArtifactList
+ *     { // CreatedArtifact
+ *       Name: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCreatedArtifactsCommandInput - {@link ListCreatedArtifactsCommandInput}
@@ -95,6 +106,8 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListCreatedArtifactsCommand extends $Command<

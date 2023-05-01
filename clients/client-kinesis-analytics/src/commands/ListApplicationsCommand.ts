@@ -61,6 +61,18 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   ApplicationSummaries: [ // ApplicationSummaries // required
+ *     { // ApplicationSummary
+ *       ApplicationName: "STRING_VALUE", // required
+ *       ApplicationARN: "STRING_VALUE", // required
+ *       ApplicationStatus: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   HasMoreApplications: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -69,6 +81,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

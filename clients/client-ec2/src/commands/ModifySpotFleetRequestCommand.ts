@@ -159,6 +159,11 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * };
  * const command = new ModifySpotFleetRequestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifySpotFleetRequestResponse
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifySpotFleetRequestCommandInput - {@link ModifySpotFleetRequestCommandInput}
@@ -167,6 +172,8 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * @see {@link ModifySpotFleetRequestCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To increase the target capacity of a Spot fleet request
  * ```javascript

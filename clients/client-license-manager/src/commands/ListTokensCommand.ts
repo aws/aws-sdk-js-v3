@@ -56,6 +56,26 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * };
  * const command = new ListTokensCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTokensResponse
+ *   Tokens: [ // TokenList
+ *     { // TokenData
+ *       TokenId: "STRING_VALUE",
+ *       TokenType: "STRING_VALUE",
+ *       LicenseArn: "STRING_VALUE",
+ *       ExpirationTime: "STRING_VALUE",
+ *       TokenProperties: [ // MaxSize3StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       RoleArns: [ // ArnList
+ *         "STRING_VALUE",
+ *       ],
+ *       Status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTokensCommandInput - {@link ListTokensCommandInput}
@@ -80,6 +100,8 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListTokensCommand extends $Command<

@@ -118,6 +118,11 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * };
  * const command = new CreateRecipeJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRecipeJobResponse
+ *   Name: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateRecipeJobCommandInput - {@link CreateRecipeJobCommandInput}
@@ -141,6 +146,8 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateRecipeJobCommand extends $Command<

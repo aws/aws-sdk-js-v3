@@ -42,6 +42,42 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  * const input = {};
  * const command = new DescribeSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubscriptionResponse
+ *   Subscription: { // Subscription
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *     TimeCommitmentInSeconds: Number("long"),
+ *     AutoRenew: "STRING_VALUE",
+ *     Limits: [ // Limits
+ *       { // Limit
+ *         Type: "STRING_VALUE",
+ *         Max: Number("long"),
+ *       },
+ *     ],
+ *     ProactiveEngagementStatus: "STRING_VALUE",
+ *     SubscriptionLimits: { // SubscriptionLimits
+ *       ProtectionLimits: { // ProtectionLimits
+ *         ProtectedResourceTypeLimits: [ // required
+ *           {
+ *             Type: "STRING_VALUE",
+ *             Max: Number("long"),
+ *           },
+ *         ],
+ *       },
+ *       ProtectionGroupLimits: { // ProtectionGroupLimits
+ *         MaxProtectionGroups: Number("long"), // required
+ *         PatternTypeLimits: { // ProtectionGroupPatternTypeLimits
+ *           ArbitraryPatternLimits: { // ProtectionGroupArbitraryPatternLimits
+ *             MaxMembers: Number("long"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *     SubscriptionArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSubscriptionCommandInput - {@link DescribeSubscriptionCommandInput}
@@ -56,6 +92,8 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DescribeSubscriptionCommand extends $Command<

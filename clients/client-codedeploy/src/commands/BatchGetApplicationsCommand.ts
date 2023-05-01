@@ -47,6 +47,20 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * };
  * const command = new BatchGetApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetApplicationsOutput
+ *   applicationsInfo: [ // ApplicationsInfoList
+ *     { // ApplicationInfo
+ *       applicationId: "STRING_VALUE",
+ *       applicationName: "STRING_VALUE",
+ *       createTime: new Date("TIMESTAMP"),
+ *       linkedToGitHub: true || false,
+ *       gitHubAccountName: "STRING_VALUE",
+ *       computePlatform: "Server" || "Lambda" || "ECS",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetApplicationsCommandInput - {@link BatchGetApplicationsCommandInput}
@@ -67,6 +81,8 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * @throws {@link InvalidApplicationNameException} (client fault)
  *  <p>The application name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class BatchGetApplicationsCommand extends $Command<

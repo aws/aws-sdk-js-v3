@@ -48,6 +48,27 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * };
  * const command = new ListDomainsForPackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainsForPackageResponse
+ *   DomainPackageDetailsList: [ // DomainPackageDetailsList
+ *     { // DomainPackageDetails
+ *       PackageID: "STRING_VALUE",
+ *       PackageName: "STRING_VALUE",
+ *       PackageType: "TXT-DICTIONARY",
+ *       LastUpdated: new Date("TIMESTAMP"),
+ *       DomainName: "STRING_VALUE",
+ *       DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
+ *       PackageVersion: "STRING_VALUE",
+ *       ReferencePath: "STRING_VALUE",
+ *       ErrorDetails: { // ErrorDetails
+ *         ErrorType: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDomainsForPackageCommandInput - {@link ListDomainsForPackageCommandInput}
@@ -71,6 +92,8 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListDomainsForPackageCommand extends $Command<

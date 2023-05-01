@@ -60,6 +60,45 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVolumesResult
+ *   Volumes: [ // VolumeList
+ *     { // Volume
+ *       Attachments: [ // VolumeAttachmentList
+ *         { // VolumeAttachment
+ *           AttachTime: new Date("TIMESTAMP"),
+ *           Device: "STRING_VALUE",
+ *           InstanceId: "STRING_VALUE",
+ *           State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ *           VolumeId: "STRING_VALUE",
+ *           DeleteOnTermination: true || false,
+ *         },
+ *       ],
+ *       AvailabilityZone: "STRING_VALUE",
+ *       CreateTime: new Date("TIMESTAMP"),
+ *       Encrypted: true || false,
+ *       KmsKeyId: "STRING_VALUE",
+ *       OutpostArn: "STRING_VALUE",
+ *       Size: Number("int"),
+ *       SnapshotId: "STRING_VALUE",
+ *       State: "creating" || "available" || "in-use" || "deleting" || "deleted" || "error",
+ *       VolumeId: "STRING_VALUE",
+ *       Iops: Number("int"),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *       FastRestored: true || false,
+ *       MultiAttachEnabled: true || false,
+ *       Throughput: Number("int"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
@@ -68,6 +107,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe all volumes
  * ```javascript

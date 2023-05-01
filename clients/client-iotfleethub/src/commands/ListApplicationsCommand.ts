@@ -47,6 +47,22 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   applicationSummaries: [ // ApplicationSummaries
+ *     { // ApplicationSummary
+ *       applicationId: "STRING_VALUE", // required
+ *       applicationName: "STRING_VALUE", // required
+ *       applicationDescription: "STRING_VALUE",
+ *       applicationUrl: "STRING_VALUE", // required
+ *       applicationCreationDate: Number("long"),
+ *       applicationLastUpdateDate: Number("long"),
+ *       applicationState: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -64,6 +80,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

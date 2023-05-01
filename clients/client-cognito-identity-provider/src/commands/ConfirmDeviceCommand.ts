@@ -60,6 +60,11 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * };
  * const command = new ConfirmDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmDeviceResponse
+ *   UserConfirmationNecessary: true || false,
+ * };
+ *
  * ```
  *
  * @param ConfirmDeviceCommandInput - {@link ConfirmDeviceCommandInput}
@@ -111,6 +116,8 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ConfirmDeviceCommand extends $Command<

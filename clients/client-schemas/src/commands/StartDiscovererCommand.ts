@@ -44,6 +44,12 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  * };
  * const command = new StartDiscovererCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDiscovererResponse
+ *   DiscovererId: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartDiscovererCommandInput - {@link StartDiscovererCommandInput}
@@ -64,6 +70,8 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class StartDiscovererCommand extends $Command<

@@ -67,6 +67,11 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * };
  * const command = new CreateMicrosoftADCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMicrosoftADResult
+ *   DirectoryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMicrosoftADCommandInput - {@link CreateMicrosoftADCommandInput}
@@ -92,6 +97,8 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateMicrosoftADCommand extends $Command<

@@ -59,6 +59,9 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * };
  * const command = new CreateLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLoadBalancerListenersCommandInput - {@link CreateLoadBalancerListenersCommandInput}
@@ -84,6 +87,8 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol or signature version is not supported.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To create an HTTP listener for a load balancer
  * ```javascript

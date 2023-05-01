@@ -48,6 +48,25 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   applications: [ // ApplicationList // required
+ *     { // ApplicationSummary
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE",
+ *       arn: "STRING_VALUE", // required
+ *       releaseLabel: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       state: "STRING_VALUE", // required
+ *       stateDetails: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       updatedAt: new Date("TIMESTAMP"), // required
+ *       architecture: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -63,6 +82,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

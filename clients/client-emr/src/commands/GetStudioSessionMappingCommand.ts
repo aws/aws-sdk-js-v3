@@ -48,6 +48,19 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * };
  * const command = new GetStudioSessionMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStudioSessionMappingOutput
+ *   SessionMapping: { // SessionMappingDetail
+ *     StudioId: "STRING_VALUE",
+ *     IdentityId: "STRING_VALUE",
+ *     IdentityName: "STRING_VALUE",
+ *     IdentityType: "USER" || "GROUP",
+ *     SessionPolicyArn: "STRING_VALUE",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     LastModifiedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStudioSessionMappingCommandInput - {@link GetStudioSessionMappingCommandInput}
@@ -63,6 +76,8 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class GetStudioSessionMappingCommand extends $Command<

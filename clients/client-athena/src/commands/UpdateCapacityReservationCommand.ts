@@ -45,6 +45,9 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  * };
  * const command = new UpdateCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCapacityReservationCommandInput - {@link UpdateCapacityReservationCommandInput}
@@ -61,6 +64,8 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateCapacityReservationCommand extends $Command<

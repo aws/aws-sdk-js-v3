@@ -49,6 +49,9 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteRuleCommand extends $Command<

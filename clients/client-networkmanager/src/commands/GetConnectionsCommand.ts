@@ -50,6 +50,31 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * };
  * const command = new GetConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectionsResponse
+ *   Connections: [ // ConnectionList
+ *     { // Connection
+ *       ConnectionId: "STRING_VALUE",
+ *       ConnectionArn: "STRING_VALUE",
+ *       GlobalNetworkId: "STRING_VALUE",
+ *       DeviceId: "STRING_VALUE",
+ *       ConnectedDeviceId: "STRING_VALUE",
+ *       LinkId: "STRING_VALUE",
+ *       ConnectedLinkId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
@@ -73,6 +98,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetConnectionsCommand extends $Command<

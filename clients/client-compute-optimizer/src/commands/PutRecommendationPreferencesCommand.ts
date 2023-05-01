@@ -62,6 +62,9 @@ export interface PutRecommendationPreferencesCommandOutput
  * };
  * const command = new PutRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRecommendationPreferencesCommandInput - {@link PutRecommendationPreferencesCommandInput}
@@ -95,6 +98,8 @@ export interface PutRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class PutRecommendationPreferencesCommand extends $Command<

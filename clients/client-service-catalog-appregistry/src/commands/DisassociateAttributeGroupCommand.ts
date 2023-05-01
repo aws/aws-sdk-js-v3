@@ -49,6 +49,12 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * };
  * const command = new DisassociateAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateAttributeGroupResponse
+ *   applicationArn: "STRING_VALUE",
+ *   attributeGroupArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateAttributeGroupCommandInput - {@link DisassociateAttributeGroupCommandInput}
@@ -66,6 +72,8 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class DisassociateAttributeGroupCommand extends $Command<

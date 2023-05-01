@@ -45,6 +45,14 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
  * };
  * const command = new ListAssociatedStacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedStacksResult
+ *   Names: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssociatedStacksCommandInput - {@link ListAssociatedStacksCommandInput}
@@ -53,6 +61,8 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
  * @see {@link ListAssociatedStacksCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class ListAssociatedStacksCommand extends $Command<

@@ -51,6 +51,9 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStudioCommandInput - {@link UpdateStudioCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class UpdateStudioCommand extends $Command<

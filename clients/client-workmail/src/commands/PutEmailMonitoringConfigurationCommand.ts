@@ -51,6 +51,9 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * };
  * const command = new PutEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEmailMonitoringConfigurationCommandInput - {@link PutEmailMonitoringConfigurationCommandInput}
@@ -73,6 +76,8 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutEmailMonitoringConfigurationCommand extends $Command<

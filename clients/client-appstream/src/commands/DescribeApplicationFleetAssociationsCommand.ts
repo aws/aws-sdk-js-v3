@@ -55,6 +55,17 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  * };
  * const command = new DescribeApplicationFleetAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeApplicationFleetAssociationsResult
+ *   ApplicationFleetAssociations: [ // ApplicationFleetAssociationList
+ *     { // ApplicationFleetAssociation
+ *       FleetName: "STRING_VALUE", // required
+ *       ApplicationArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeApplicationFleetAssociationsCommandInput - {@link DescribeApplicationFleetAssociationsCommandInput}
@@ -69,6 +80,8 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeApplicationFleetAssociationsCommand extends $Command<

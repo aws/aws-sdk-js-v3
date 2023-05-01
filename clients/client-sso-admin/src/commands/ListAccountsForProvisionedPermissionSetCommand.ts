@@ -57,6 +57,14 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
  * };
  * const command = new ListAccountsForProvisionedPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountsForProvisionedPermissionSetResponse
+ *   AccountIds: [ // AccountList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAccountsForProvisionedPermissionSetCommandInput - {@link ListAccountsForProvisionedPermissionSetCommandInput}
@@ -82,6 +90,8 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListAccountsForProvisionedPermissionSetCommand extends $Command<

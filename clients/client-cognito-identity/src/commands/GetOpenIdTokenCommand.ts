@@ -51,6 +51,12 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * };
  * const command = new GetOpenIdTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpenIdTokenResponse
+ *   IdentityId: "STRING_VALUE",
+ *   Token: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetOpenIdTokenCommandInput - {@link GetOpenIdTokenCommandInput}
@@ -83,6 +89,8 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetOpenIdTokenCommand extends $Command<

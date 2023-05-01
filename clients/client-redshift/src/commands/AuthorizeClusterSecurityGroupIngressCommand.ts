@@ -70,6 +70,45 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  * };
  * const command = new AuthorizeClusterSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeClusterSecurityGroupIngressResult
+ *   ClusterSecurityGroup: { // ClusterSecurityGroup
+ *     ClusterSecurityGroupName: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: "STRING_VALUE",
+ *         EC2SecurityGroupName: "STRING_VALUE",
+ *         EC2SecurityGroupOwnerId: "STRING_VALUE",
+ *         Tags: [ // TagList
+ *           { // Tag
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     IPRanges: [ // IPRangeList
+ *       { // IPRange
+ *         Status: "STRING_VALUE",
+ *         CIDRIP: "STRING_VALUE",
+ *         Tags: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Tags: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AuthorizeClusterSecurityGroupIngressCommandInput - {@link AuthorizeClusterSecurityGroupIngressCommandInput}
@@ -92,6 +131,8 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
  *  <p>The state of the cluster security group is not <code>available</code>. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<

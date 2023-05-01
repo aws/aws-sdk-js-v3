@@ -56,6 +56,21 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * };
  * const command = new UpdateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIAMPolicyAssignmentResponse
+ *   AssignmentName: "STRING_VALUE",
+ *   AssignmentId: "STRING_VALUE",
+ *   PolicyArn: "STRING_VALUE",
+ *   Identities: { // IdentityMap
+ *     "<keys>": [ // IdentityNameList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param UpdateIAMPolicyAssignmentCommandInput - {@link UpdateIAMPolicyAssignmentCommandInput}
@@ -89,6 +104,8 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateIAMPolicyAssignmentCommand extends $Command<

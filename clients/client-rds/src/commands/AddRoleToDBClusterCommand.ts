@@ -46,6 +46,9 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddRoleToDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
@@ -67,6 +70,8 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB cluster
  * ```javascript

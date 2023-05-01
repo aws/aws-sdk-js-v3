@@ -43,6 +43,15 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * const input = {};
  * const command = new DescribeScalingProcessTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProcessesType
+ *   Processes: [ // Processes
+ *     { // ProcessType
+ *       ProcessName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeScalingProcessTypesCommandInput - {@link DescribeScalingProcessTypesCommandInput}
@@ -55,6 +64,8 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe the Auto Scaling process types
  * ```javascript

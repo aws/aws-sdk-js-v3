@@ -47,6 +47,9 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * };
  * const command = new UpdateStandardsControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStandardsControlCommandInput - {@link UpdateStandardsControlCommandInput}
@@ -68,6 +71,8 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To update the enablement status of a standard control
  * ```javascript

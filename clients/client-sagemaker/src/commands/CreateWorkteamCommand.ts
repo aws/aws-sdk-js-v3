@@ -72,6 +72,11 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * };
  * const command = new CreateWorkteamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkteamResponse
+ *   WorkteamArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateWorkteamCommandInput - {@link CreateWorkteamCommandInput}
@@ -87,6 +92,8 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateWorkteamCommand extends $Command<

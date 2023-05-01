@@ -45,6 +45,23 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * };
  * const command = new DeleteGlobalNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGlobalNetworkResponse
+ *   GlobalNetwork: { // GlobalNetwork
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     GlobalNetworkArn: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteGlobalNetworkCommandInput - {@link DeleteGlobalNetworkCommandInput}
@@ -72,6 +89,8 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DeleteGlobalNetworkCommand extends $Command<

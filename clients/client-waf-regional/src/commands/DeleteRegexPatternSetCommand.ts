@@ -54,6 +54,11 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * };
  * const command = new DeleteRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRegexPatternSetResponse
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteRegexPatternSetCommandInput - {@link DeleteRegexPatternSetCommandInput}
@@ -103,6 +108,8 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class DeleteRegexPatternSetCommand extends $Command<

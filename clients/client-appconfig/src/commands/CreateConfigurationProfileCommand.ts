@@ -102,6 +102,23 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * };
  * const command = new CreateConfigurationProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationProfile
+ *   ApplicationId: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LocationUri: "STRING_VALUE",
+ *   RetrievalRoleArn: "STRING_VALUE",
+ *   Validators: [ // ValidatorList
+ *     { // Validator
+ *       Type: "JSON_SCHEMA" || "LAMBDA", // required
+ *       Content: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Type: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateConfigurationProfileCommandInput - {@link CreateConfigurationProfileCommandInput}
@@ -119,6 +136,8 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To create a configuration profile
  * ```javascript

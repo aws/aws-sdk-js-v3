@@ -51,6 +51,28 @@ export interface ListTemplateStepsCommandOutput extends ListTemplateStepsRespons
  * };
  * const command = new ListTemplateStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplateStepsResponse
+ *   nextToken: "STRING_VALUE",
+ *   templateStepSummaryList: [ // TemplateStepSummaryList
+ *     { // TemplateStepSummary
+ *       id: "STRING_VALUE",
+ *       stepGroupId: "STRING_VALUE",
+ *       templateId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       stepActionType: "STRING_VALUE",
+ *       targetType: "STRING_VALUE",
+ *       owner: "STRING_VALUE",
+ *       previous: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       next: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTemplateStepsCommandInput - {@link ListTemplateStepsCommandInput}
@@ -74,6 +96,8 @@ export interface ListTemplateStepsCommandOutput extends ListTemplateStepsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListTemplateStepsCommand extends $Command<

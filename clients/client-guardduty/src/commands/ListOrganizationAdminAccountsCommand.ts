@@ -50,6 +50,17 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationAdminAccountsResponse
+ *   AdminAccounts: [ // AdminAccounts
+ *     { // AdminAccount
+ *       AdminAccountId: "STRING_VALUE",
+ *       AdminStatus: "ENABLED" || "DISABLE_IN_PROGRESS",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
@@ -64,6 +75,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<

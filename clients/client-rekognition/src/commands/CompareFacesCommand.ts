@@ -111,6 +111,93 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * };
  * const command = new CompareFacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CompareFacesResponse
+ *   SourceImageFace: { // ComparedSourceImageFace
+ *     BoundingBox: { // BoundingBox
+ *       Width: Number("float"),
+ *       Height: Number("float"),
+ *       Left: Number("float"),
+ *       Top: Number("float"),
+ *     },
+ *     Confidence: Number("float"),
+ *   },
+ *   FaceMatches: [ // CompareFacesMatchList
+ *     { // CompareFacesMatch
+ *       Similarity: Number("float"),
+ *       Face: { // ComparedFace
+ *         BoundingBox: {
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Confidence: Number("float"),
+ *         Landmarks: [ // Landmarks
+ *           { // Landmark
+ *             Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *         Pose: { // Pose
+ *           Roll: Number("float"),
+ *           Yaw: Number("float"),
+ *           Pitch: Number("float"),
+ *         },
+ *         Quality: { // ImageQuality
+ *           Brightness: Number("float"),
+ *           Sharpness: Number("float"),
+ *         },
+ *         Emotions: [ // Emotions
+ *           { // Emotion
+ *             Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ *             Confidence: Number("float"),
+ *           },
+ *         ],
+ *         Smile: { // Smile
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   UnmatchedFaces: [ // CompareFacesUnmatchList
+ *     {
+ *       BoundingBox: "<BoundingBox>",
+ *       Confidence: Number("float"),
+ *       Landmarks: [
+ *         {
+ *           Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ *           X: Number("float"),
+ *           Y: Number("float"),
+ *         },
+ *       ],
+ *       Pose: {
+ *         Roll: Number("float"),
+ *         Yaw: Number("float"),
+ *         Pitch: Number("float"),
+ *       },
+ *       Quality: {
+ *         Brightness: Number("float"),
+ *         Sharpness: Number("float"),
+ *       },
+ *       Emotions: [
+ *         {
+ *           Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ *           Confidence: Number("float"),
+ *         },
+ *       ],
+ *       Smile: {
+ *         Value: true || false,
+ *         Confidence: Number("float"),
+ *       },
+ *     },
+ *   ],
+ *   SourceImageOrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",
+ *   TargetImageOrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",
+ * };
+ *
  * ```
  *
  * @param CompareFacesCommandInput - {@link CompareFacesCommandInput}
@@ -148,6 +235,8 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To compare two images
  * ```javascript

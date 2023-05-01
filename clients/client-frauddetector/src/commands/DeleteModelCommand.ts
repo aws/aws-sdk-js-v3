@@ -47,6 +47,9 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteModelCommand extends $Command<

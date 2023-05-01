@@ -47,6 +47,31 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * };
  * const command = new ListBackupPlanVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupPlanVersionsOutput
+ *   NextToken: "STRING_VALUE",
+ *   BackupPlanVersionsList: [ // BackupPlanVersionsList
+ *     { // BackupPlansListMember
+ *       BackupPlanArn: "STRING_VALUE",
+ *       BackupPlanId: "STRING_VALUE",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       DeletionDate: new Date("TIMESTAMP"),
+ *       VersionId: "STRING_VALUE",
+ *       BackupPlanName: "STRING_VALUE",
+ *       CreatorRequestId: "STRING_VALUE",
+ *       LastExecutionDate: new Date("TIMESTAMP"),
+ *       AdvancedBackupSettings: [ // AdvancedBackupSettings
+ *         { // AdvancedBackupSetting
+ *           ResourceType: "STRING_VALUE",
+ *           BackupOptions: { // BackupOptions
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBackupPlanVersionsCommandInput - {@link ListBackupPlanVersionsCommandInput}
@@ -68,6 +93,8 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupPlanVersionsCommand extends $Command<

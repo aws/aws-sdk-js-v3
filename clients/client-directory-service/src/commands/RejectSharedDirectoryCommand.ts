@@ -44,6 +44,11 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * };
  * const command = new RejectSharedDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RejectSharedDirectoryResult
+ *   SharedDirectoryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RejectSharedDirectoryCommandInput - {@link RejectSharedDirectoryCommandInput}
@@ -67,6 +72,8 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RejectSharedDirectoryCommand extends $Command<

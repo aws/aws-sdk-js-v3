@@ -85,6 +85,12 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * };
  * const command = new ChannelFlowCallbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ChannelFlowCallbackResponse
+ *   ChannelArn: "STRING_VALUE",
+ *   CallbackId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ChannelFlowCallbackCommandInput - {@link ChannelFlowCallbackCommandInput}
@@ -115,6 +121,8 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ChannelFlowCallbackCommand extends $Command<

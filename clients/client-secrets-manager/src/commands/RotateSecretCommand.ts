@@ -67,6 +67,13 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * };
  * const command = new RotateSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RotateSecretResponse
+ *   ARN: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RotateSecretCommandInput - {@link RotateSecretCommandInput}
@@ -102,6 +109,8 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To configure rotation for a secret
  * ```javascript

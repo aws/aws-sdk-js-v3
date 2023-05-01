@@ -54,6 +54,17 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOperationsResponse
+ *   Operations: [ // OperationSummaryList
+ *     { // OperationSummary
+ *       Id: "STRING_VALUE",
+ *       Status: "SUBMITTED" || "PENDING" || "SUCCESS" || "FAIL",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
@@ -67,6 +78,8 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example ListOperations Example
  * ```javascript

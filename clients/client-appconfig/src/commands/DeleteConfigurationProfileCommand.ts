@@ -46,6 +46,9 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteConfigurationProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationProfileCommandInput - {@link DeleteConfigurationProfileCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To delete a configuration profile
  * ```javascript

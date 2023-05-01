@@ -44,6 +44,12 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  * };
  * const command = new DeleteContainerRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteContainerRecipeResponse
+ *   requestId: "STRING_VALUE",
+ *   containerRecipeArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteContainerRecipeCommandInput - {@link DeleteContainerRecipeCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteContainerRecipeCommand extends $Command<

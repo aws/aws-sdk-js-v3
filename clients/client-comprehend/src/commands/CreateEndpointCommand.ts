@@ -57,6 +57,12 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointResponse
+ *   EndpointArn: "STRING_VALUE",
+ *   ModelArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
@@ -94,6 +100,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateEndpointCommand extends $Command<

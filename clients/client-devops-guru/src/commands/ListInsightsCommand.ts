@@ -66,6 +66,85 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * };
  * const command = new ListInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInsightsResponse
+ *   ProactiveInsights: [ // ProactiveInsights
+ *     { // ProactiveInsightSummary
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Severity: "LOW" || "MEDIUM" || "HIGH",
+ *       Status: "ONGOING" || "CLOSED",
+ *       InsightTimeRange: { // InsightTimeRange
+ *         StartTime: new Date("TIMESTAMP"), // required
+ *         EndTime: new Date("TIMESTAMP"),
+ *       },
+ *       PredictionTimeRange: { // PredictionTimeRange
+ *         StartTime: new Date("TIMESTAMP"), // required
+ *         EndTime: new Date("TIMESTAMP"),
+ *       },
+ *       ResourceCollection: { // ResourceCollection
+ *         CloudFormation: { // CloudFormationCollection
+ *           StackNames: [ // StackNames
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Tags: [ // TagCollections
+ *           { // TagCollection
+ *             AppBoundaryKey: "STRING_VALUE", // required
+ *             TagValues: [ // TagValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       ServiceCollection: { // ServiceCollection
+ *         ServiceNames: [ // ServiceNames
+ *           "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *         ],
+ *       },
+ *       AssociatedResourceArns: [ // AssociatedResourceArns
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ReactiveInsights: [ // ReactiveInsights
+ *     { // ReactiveInsightSummary
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Severity: "LOW" || "MEDIUM" || "HIGH",
+ *       Status: "ONGOING" || "CLOSED",
+ *       InsightTimeRange: {
+ *         StartTime: new Date("TIMESTAMP"), // required
+ *         EndTime: new Date("TIMESTAMP"),
+ *       },
+ *       ResourceCollection: {
+ *         CloudFormation: {
+ *           StackNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Tags: [
+ *           {
+ *             AppBoundaryKey: "STRING_VALUE", // required
+ *             TagValues: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       ServiceCollection: {
+ *         ServiceNames: [
+ *           "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *         ],
+ *       },
+ *       AssociatedResourceArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInsightsCommandInput - {@link ListInsightsCommandInput}
@@ -90,6 +169,8 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListInsightsCommand extends $Command<

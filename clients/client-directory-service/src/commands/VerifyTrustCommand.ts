@@ -47,6 +47,11 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * };
  * const command = new VerifyTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VerifyTrustResult
+ *   TrustId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param VerifyTrustCommandInput - {@link VerifyTrustCommandInput}
@@ -70,6 +75,8 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class VerifyTrustCommand extends $Command<

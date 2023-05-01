@@ -51,6 +51,26 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * };
  * const command = new DescribeTrustsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrustsResult
+ *   Trusts: [ // Trusts
+ *     { // Trust
+ *       DirectoryId: "STRING_VALUE",
+ *       TrustId: "STRING_VALUE",
+ *       RemoteDomainName: "STRING_VALUE",
+ *       TrustType: "Forest" || "External",
+ *       TrustDirection: "One-Way: Outgoing" || "One-Way: Incoming" || "Two-Way",
+ *       TrustState: "Creating" || "Created" || "Verifying" || "VerifyFailed" || "Verified" || "Updating" || "UpdateFailed" || "Updated" || "Deleting" || "Deleted" || "Failed",
+ *       CreatedDateTime: new Date("TIMESTAMP"),
+ *       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       StateLastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       TrustStateReason: "STRING_VALUE",
+ *       SelectiveAuth: "Enabled" || "Disabled",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeTrustsCommandInput - {@link DescribeTrustsCommandInput}
@@ -77,6 +97,8 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeTrustsCommand extends $Command<

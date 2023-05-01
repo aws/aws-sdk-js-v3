@@ -516,6 +516,11 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * };
  * const command = new CreateDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeliveryStreamOutput
+ *   DeliveryStreamARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDeliveryStreamCommandInput - {@link CreateDeliveryStreamCommandInput}
@@ -540,6 +545,8 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource is already in use and not available for this operation.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class CreateDeliveryStreamCommand extends $Command<

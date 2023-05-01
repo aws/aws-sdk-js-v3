@@ -280,6 +280,11 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateJobResult
+ *   JobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateJobCommandInput - {@link CreateJobCommandInput}
@@ -308,6 +313,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *  <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To create a job
  * ```javascript

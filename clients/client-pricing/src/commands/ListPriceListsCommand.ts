@@ -61,6 +61,21 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * };
  * const command = new ListPriceListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPriceListsResponse
+ *   PriceLists: [ // PriceLists
+ *     { // PriceList
+ *       PriceListArn: "STRING_VALUE",
+ *       RegionCode: "STRING_VALUE",
+ *       CurrencyCode: "STRING_VALUE",
+ *       FileFormats: [ // FileFormats
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPriceListsCommandInput - {@link ListPriceListsCommandInput}
@@ -87,6 +102,8 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  */
 export class ListPriceListsCommand extends $Command<

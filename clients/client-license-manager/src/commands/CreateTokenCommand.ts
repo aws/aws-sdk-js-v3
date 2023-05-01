@@ -55,6 +55,13 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTokenResponse
+ *   TokenId: "STRING_VALUE",
+ *   TokenType: "REFRESH_TOKEN",
+ *   Token: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
@@ -88,6 +95,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateTokenCommand extends $Command<

@@ -45,6 +45,23 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * };
  * const command = new DeauthorizeDataShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DataShare
+ *   DataShareArn: "STRING_VALUE",
+ *   ProducerArn: "STRING_VALUE",
+ *   AllowPubliclyAccessibleConsumers: true || false,
+ *   DataShareAssociations: [ // DataShareAssociationList
+ *     { // DataShareAssociation
+ *       ConsumerIdentifier: "STRING_VALUE",
+ *       Status: "ACTIVE" || "PENDING_AUTHORIZATION" || "AUTHORIZED" || "DEAUTHORIZED" || "REJECTED" || "AVAILABLE",
+ *       ConsumerRegion: "STRING_VALUE",
+ *       CreatedDate: new Date("TIMESTAMP"),
+ *       StatusChangeDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   ManagedBy: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeauthorizeDataShareCommandInput - {@link DeauthorizeDataShareCommandInput}
@@ -56,6 +73,8 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * @throws {@link InvalidDataShareFault} (client fault)
  *  <p>There is an error with the datashare.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeauthorizeDataShareCommand extends $Command<

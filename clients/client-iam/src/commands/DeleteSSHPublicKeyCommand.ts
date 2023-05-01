@@ -49,6 +49,9 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSSHPublicKeyCommandInput - {@link DeleteSSHPublicKeyCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteSSHPublicKeyCommand extends $Command<

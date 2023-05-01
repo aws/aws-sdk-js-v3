@@ -46,6 +46,188 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * };
  * const command = new DescribeContactEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeContactEvaluationResponse
+ *   Evaluation: { // Evaluation
+ *     EvaluationId: "STRING_VALUE", // required
+ *     EvaluationArn: "STRING_VALUE", // required
+ *     Metadata: { // EvaluationMetadata
+ *       ContactId: "STRING_VALUE", // required
+ *       EvaluatorArn: "STRING_VALUE", // required
+ *       ContactAgentId: "STRING_VALUE",
+ *       Score: { // EvaluationScore
+ *         Percentage: Number("double"),
+ *         NotApplicable: true || false,
+ *         AutomaticFail: true || false,
+ *       },
+ *     },
+ *     Answers: { // EvaluationAnswersOutputMap // required
+ *       "<keys>": { // EvaluationAnswerOutput
+ *         Value: { // EvaluationAnswerData Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           NumericValue: Number("double"),
+ *           NotApplicable: true || false,
+ *         },
+ *         SystemSuggestedValue: {//  Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           NumericValue: Number("double"),
+ *           NotApplicable: true || false,
+ *         },
+ *       },
+ *     },
+ *     Notes: { // EvaluationNotesMap // required
+ *       "<keys>": { // EvaluationNote
+ *         Value: "STRING_VALUE",
+ *       },
+ *     },
+ *     Status: "DRAFT" || "SUBMITTED", // required
+ *     Scores: { // EvaluationScoresMap
+ *       "<keys>": {
+ *         Percentage: Number("double"),
+ *         NotApplicable: true || false,
+ *         AutomaticFail: true || false,
+ *       },
+ *     },
+ *     CreatedTime: new Date("TIMESTAMP"), // required
+ *     LastModifiedTime: new Date("TIMESTAMP"), // required
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   EvaluationForm: { // EvaluationFormContent
+ *     EvaluationFormVersion: Number("int"), // required
+ *     EvaluationFormId: "STRING_VALUE", // required
+ *     EvaluationFormArn: "STRING_VALUE", // required
+ *     Title: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Items: [ // EvaluationFormItemsList // required
+ *       { // EvaluationFormItem Union: only one key present
+ *         Section: { // EvaluationFormSection
+ *           Title: "STRING_VALUE", // required
+ *           RefId: "STRING_VALUE", // required
+ *           Instructions: "STRING_VALUE",
+ *           Items: [
+ *             {//  Union: only one key present
+ *               Section: {
+ *                 Title: "STRING_VALUE", // required
+ *                 RefId: "STRING_VALUE", // required
+ *                 Instructions: "STRING_VALUE",
+ *                 Items: "<EvaluationFormItemsList>",
+ *                 Weight: Number("double"),
+ *               },
+ *               Question: { // EvaluationFormQuestion
+ *                 Title: "STRING_VALUE", // required
+ *                 Instructions: "STRING_VALUE",
+ *                 RefId: "STRING_VALUE", // required
+ *                 NotApplicableEnabled: true || false,
+ *                 QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC", // required
+ *                 QuestionTypeProperties: { // EvaluationFormQuestionTypeProperties Union: only one key present
+ *                   Numeric: { // EvaluationFormNumericQuestionProperties
+ *                     MinValue: Number("int"), // required
+ *                     MaxValue: Number("int"), // required
+ *                     Options: [ // EvaluationFormNumericQuestionOptionList
+ *                       { // EvaluationFormNumericQuestionOption
+ *                         MinValue: Number("int"), // required
+ *                         MaxValue: Number("int"), // required
+ *                         Score: Number("int"),
+ *                         AutomaticFail: true || false,
+ *                       },
+ *                     ],
+ *                     Automation: { // EvaluationFormNumericQuestionAutomation Union: only one key present
+ *                       PropertyValue: { // NumericQuestionPropertyValueAutomation
+ *                         Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME", // required
+ *                       },
+ *                     },
+ *                   },
+ *                   SingleSelect: { // EvaluationFormSingleSelectQuestionProperties
+ *                     Options: [ // EvaluationFormSingleSelectQuestionOptionList // required
+ *                       { // EvaluationFormSingleSelectQuestionOption
+ *                         RefId: "STRING_VALUE", // required
+ *                         Text: "STRING_VALUE", // required
+ *                         Score: Number("int"),
+ *                         AutomaticFail: true || false,
+ *                       },
+ *                     ],
+ *                     DisplayAs: "DROPDOWN" || "RADIO",
+ *                     Automation: { // EvaluationFormSingleSelectQuestionAutomation
+ *                       Options: [ // EvaluationFormSingleSelectQuestionAutomationOptionList // required
+ *                         { // EvaluationFormSingleSelectQuestionAutomationOption Union: only one key present
+ *                           RuleCategory: { // SingleSelectQuestionRuleCategoryAutomation
+ *                             Category: "STRING_VALUE", // required
+ *                             Condition: "PRESENT" || "NOT_PRESENT", // required
+ *                             OptionRefId: "STRING_VALUE", // required
+ *                           },
+ *                         },
+ *                       ],
+ *                       DefaultOptionRefId: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                 },
+ *                 Weight: Number("double"),
+ *               },
+ *             },
+ *           ],
+ *           Weight: Number("double"),
+ *         },
+ *         Question: {
+ *           Title: "STRING_VALUE", // required
+ *           Instructions: "STRING_VALUE",
+ *           RefId: "STRING_VALUE", // required
+ *           NotApplicableEnabled: true || false,
+ *           QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC", // required
+ *           QuestionTypeProperties: {//  Union: only one key present
+ *             Numeric: {
+ *               MinValue: Number("int"), // required
+ *               MaxValue: Number("int"), // required
+ *               Options: [
+ *                 {
+ *                   MinValue: Number("int"), // required
+ *                   MaxValue: Number("int"), // required
+ *                   Score: Number("int"),
+ *                   AutomaticFail: true || false,
+ *                 },
+ *               ],
+ *               Automation: {//  Union: only one key present
+ *                 PropertyValue: {
+ *                   Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME", // required
+ *                 },
+ *               },
+ *             },
+ *             SingleSelect: {
+ *               Options: [ // required
+ *                 {
+ *                   RefId: "STRING_VALUE", // required
+ *                   Text: "STRING_VALUE", // required
+ *                   Score: Number("int"),
+ *                   AutomaticFail: true || false,
+ *                 },
+ *               ],
+ *               DisplayAs: "DROPDOWN" || "RADIO",
+ *               Automation: {
+ *                 Options: [ // required
+ *                   {//  Union: only one key present
+ *                     RuleCategory: {
+ *                       Category: "STRING_VALUE", // required
+ *                       Condition: "PRESENT" || "NOT_PRESENT", // required
+ *                       OptionRefId: "STRING_VALUE", // required
+ *                     },
+ *                   },
+ *                 ],
+ *                 DefaultOptionRefId: "STRING_VALUE",
+ *               },
+ *             },
+ *           },
+ *           Weight: Number("double"),
+ *         },
+ *       },
+ *     ],
+ *     ScoringStrategy: { // EvaluationFormScoringStrategy
+ *       Mode: "QUESTION_ONLY" || "SECTION_ONLY", // required
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeContactEvaluationCommandInput - {@link DescribeContactEvaluationCommandInput}
@@ -66,6 +248,8 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeContactEvaluationCommand extends $Command<

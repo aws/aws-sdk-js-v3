@@ -44,6 +44,9 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * };
  * const command = new DeleteWorkerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkerCommandInput - {@link DeleteWorkerCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class DeleteWorkerCommand extends $Command<

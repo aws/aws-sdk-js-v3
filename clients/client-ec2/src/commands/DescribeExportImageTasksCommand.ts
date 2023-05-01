@@ -57,6 +57,31 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
  * };
  * const command = new DescribeExportImageTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExportImageTasksResult
+ *   ExportImageTasks: [ // ExportImageTaskList
+ *     { // ExportImageTask
+ *       Description: "STRING_VALUE",
+ *       ExportImageTaskId: "STRING_VALUE",
+ *       ImageId: "STRING_VALUE",
+ *       Progress: "STRING_VALUE",
+ *       S3ExportLocation: { // ExportTaskS3Location
+ *         S3Bucket: "STRING_VALUE",
+ *         S3Prefix: "STRING_VALUE",
+ *       },
+ *       Status: "STRING_VALUE",
+ *       StatusMessage: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeExportImageTasksCommandInput - {@link DescribeExportImageTasksCommandInput}
@@ -65,6 +90,8 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
  * @see {@link DescribeExportImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeExportImageTasksCommand extends $Command<

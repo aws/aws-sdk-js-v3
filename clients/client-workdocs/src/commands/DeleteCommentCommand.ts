@@ -47,6 +47,9 @@ export interface DeleteCommentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCommentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCommentCommandInput - {@link DeleteCommentCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteCommentCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteCommentCommand extends $Command<

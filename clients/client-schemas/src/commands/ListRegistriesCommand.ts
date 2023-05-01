@@ -47,6 +47,20 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * };
  * const command = new ListRegistriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegistriesResponse
+ *   NextToken: "STRING_VALUE",
+ *   Registries: [ // __listOfRegistrySummary
+ *     { // RegistrySummary
+ *       RegistryArn: "STRING_VALUE",
+ *       RegistryName: "STRING_VALUE",
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
@@ -65,6 +79,8 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListRegistriesCommand extends $Command<

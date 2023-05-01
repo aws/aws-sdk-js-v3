@@ -45,6 +45,9 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDistributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDistributionCommandInput - {@link DeleteDistributionCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteDistributionCommand extends $Command<

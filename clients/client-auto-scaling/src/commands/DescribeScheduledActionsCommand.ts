@@ -54,6 +54,26 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ScheduledActionsType
+ *   ScheduledUpdateGroupActions: [ // ScheduledUpdateGroupActions
+ *     { // ScheduledUpdateGroupAction
+ *       AutoScalingGroupName: "STRING_VALUE",
+ *       ScheduledActionName: "STRING_VALUE",
+ *       ScheduledActionARN: "STRING_VALUE",
+ *       Time: new Date("TIMESTAMP"),
+ *       StartTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *       Recurrence: "STRING_VALUE",
+ *       MinSize: Number("int"),
+ *       MaxSize: Number("int"),
+ *       DesiredCapacity: Number("int"),
+ *       TimeZone: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
@@ -69,6 +89,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe scheduled actions
  * ```javascript

@@ -53,6 +53,31 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  * };
  * const command = new DescribeNodeFromTemplateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNodeFromTemplateJobResponse
+ *   JobId: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ *   StatusMessage: "STRING_VALUE", // required
+ *   CreatedTime: new Date("TIMESTAMP"), // required
+ *   LastUpdatedTime: new Date("TIMESTAMP"), // required
+ *   OutputPackageName: "STRING_VALUE", // required
+ *   OutputPackageVersion: "STRING_VALUE", // required
+ *   NodeName: "STRING_VALUE", // required
+ *   NodeDescription: "STRING_VALUE",
+ *   TemplateType: "STRING_VALUE", // required
+ *   TemplateParameters: { // TemplateParametersMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   JobTags: [ // JobTagsList
+ *     { // JobResourceTags
+ *       ResourceType: "STRING_VALUE", // required
+ *       Tags: { // TagMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeNodeFromTemplateJobCommandInput - {@link DescribeNodeFromTemplateJobCommandInput}
@@ -73,6 +98,8 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeNodeFromTemplateJobCommand extends $Command<

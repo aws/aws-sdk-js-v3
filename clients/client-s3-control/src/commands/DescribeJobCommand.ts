@@ -71,6 +71,193 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobResult
+ *   Job: { // JobDescriptor
+ *     JobId: "STRING_VALUE",
+ *     ConfirmationRequired: true || false,
+ *     Description: "STRING_VALUE",
+ *     JobArn: "STRING_VALUE",
+ *     Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
+ *     Manifest: { // JobManifest
+ *       Spec: { // JobManifestSpec
+ *         Format: "S3BatchOperations_CSV_20180820" || "S3InventoryReport_CSV_20161130", // required
+ *         Fields: [ // JobManifestFieldList
+ *           "Ignore" || "Bucket" || "Key" || "VersionId",
+ *         ],
+ *       },
+ *       Location: { // JobManifestLocation
+ *         ObjectArn: "STRING_VALUE", // required
+ *         ObjectVersionId: "STRING_VALUE",
+ *         ETag: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Operation: { // JobOperation
+ *       LambdaInvoke: { // LambdaInvokeOperation
+ *         FunctionArn: "STRING_VALUE",
+ *       },
+ *       S3PutObjectCopy: { // S3CopyObjectOperation
+ *         TargetResource: "STRING_VALUE",
+ *         CannedAccessControlList: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         AccessControlGrants: [ // S3GrantList
+ *           { // S3Grant
+ *             Grantee: { // S3Grantee
+ *               TypeIdentifier: "id" || "emailAddress" || "uri",
+ *               Identifier: "STRING_VALUE",
+ *               DisplayName: "STRING_VALUE",
+ *             },
+ *             Permission: "FULL_CONTROL" || "READ" || "WRITE" || "READ_ACP" || "WRITE_ACP",
+ *           },
+ *         ],
+ *         MetadataDirective: "COPY" || "REPLACE",
+ *         ModifiedSinceConstraint: new Date("TIMESTAMP"),
+ *         NewObjectMetadata: { // S3ObjectMetadata
+ *           CacheControl: "STRING_VALUE",
+ *           ContentDisposition: "STRING_VALUE",
+ *           ContentEncoding: "STRING_VALUE",
+ *           ContentLanguage: "STRING_VALUE",
+ *           UserMetadata: { // S3UserMetadata
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           ContentLength: Number("long"),
+ *           ContentMD5: "STRING_VALUE",
+ *           ContentType: "STRING_VALUE",
+ *           HttpExpiresDate: new Date("TIMESTAMP"),
+ *           RequesterCharged: true || false,
+ *           SSEAlgorithm: "AES256" || "KMS",
+ *         },
+ *         NewObjectTagging: [ // S3TagSet
+ *           { // S3Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         RedirectLocation: "STRING_VALUE",
+ *         RequesterPays: true || false,
+ *         StorageClass: "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "GLACIER" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *         UnModifiedSinceConstraint: new Date("TIMESTAMP"),
+ *         SSEAwsKmsKeyId: "STRING_VALUE",
+ *         TargetKeyPrefix: "STRING_VALUE",
+ *         ObjectLockLegalHoldStatus: "OFF" || "ON",
+ *         ObjectLockMode: "COMPLIANCE" || "GOVERNANCE",
+ *         ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *         BucketKeyEnabled: true || false,
+ *         ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *       },
+ *       S3PutObjectAcl: { // S3SetObjectAclOperation
+ *         AccessControlPolicy: { // S3AccessControlPolicy
+ *           AccessControlList: { // S3AccessControlList
+ *             Owner: { // S3ObjectOwner
+ *               ID: "STRING_VALUE",
+ *               DisplayName: "STRING_VALUE",
+ *             },
+ *             Grants: [
+ *               {
+ *                 Grantee: {
+ *                   TypeIdentifier: "id" || "emailAddress" || "uri",
+ *                   Identifier: "STRING_VALUE",
+ *                   DisplayName: "STRING_VALUE",
+ *                 },
+ *                 Permission: "FULL_CONTROL" || "READ" || "WRITE" || "READ_ACP" || "WRITE_ACP",
+ *               },
+ *             ],
+ *           },
+ *           CannedAccessControlList: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         },
+ *       },
+ *       S3PutObjectTagging: { // S3SetObjectTaggingOperation
+ *         TagSet: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       S3DeleteObjectTagging: {},
+ *       S3InitiateRestoreObject: { // S3InitiateRestoreObjectOperation
+ *         ExpirationInDays: Number("int"),
+ *         GlacierJobTier: "BULK" || "STANDARD",
+ *       },
+ *       S3PutObjectLegalHold: { // S3SetObjectLegalHoldOperation
+ *         LegalHold: { // S3ObjectLockLegalHold
+ *           Status: "OFF" || "ON", // required
+ *         },
+ *       },
+ *       S3PutObjectRetention: { // S3SetObjectRetentionOperation
+ *         BypassGovernanceRetention: true || false,
+ *         Retention: { // S3Retention
+ *           RetainUntilDate: new Date("TIMESTAMP"),
+ *           Mode: "COMPLIANCE" || "GOVERNANCE",
+ *         },
+ *       },
+ *       S3ReplicateObject: {},
+ *     },
+ *     Priority: Number("int"),
+ *     ProgressSummary: { // JobProgressSummary
+ *       TotalNumberOfTasks: Number("long"),
+ *       NumberOfTasksSucceeded: Number("long"),
+ *       NumberOfTasksFailed: Number("long"),
+ *       Timers: { // JobTimers
+ *         ElapsedTimeInActiveSeconds: Number("long"),
+ *       },
+ *     },
+ *     StatusUpdateReason: "STRING_VALUE",
+ *     FailureReasons: [ // JobFailureList
+ *       { // JobFailure
+ *         FailureCode: "STRING_VALUE",
+ *         FailureReason: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Report: { // JobReport
+ *       Bucket: "STRING_VALUE",
+ *       Format: "Report_CSV_20180820",
+ *       Enabled: true || false, // required
+ *       Prefix: "STRING_VALUE",
+ *       ReportScope: "AllTasks" || "FailedTasksOnly",
+ *     },
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     TerminationDate: new Date("TIMESTAMP"),
+ *     RoleArn: "STRING_VALUE",
+ *     SuspendedDate: new Date("TIMESTAMP"),
+ *     SuspendedCause: "STRING_VALUE",
+ *     ManifestGenerator: { // JobManifestGenerator Union: only one key present
+ *       S3JobManifestGenerator: { // S3JobManifestGenerator
+ *         ExpectedBucketOwner: "STRING_VALUE",
+ *         SourceBucket: "STRING_VALUE", // required
+ *         ManifestOutputLocation: { // S3ManifestOutputLocation
+ *           ExpectedManifestBucketOwner: "STRING_VALUE",
+ *           Bucket: "STRING_VALUE", // required
+ *           ManifestPrefix: "STRING_VALUE",
+ *           ManifestEncryption: { // GeneratedManifestEncryption
+ *             SSES3: {},
+ *             SSEKMS: { // SSEKMSEncryption
+ *               KeyId: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           ManifestFormat: "S3InventoryReport_CSV_20211130", // required
+ *         },
+ *         Filter: { // JobManifestGeneratorFilter
+ *           EligibleForReplication: true || false,
+ *           CreatedAfter: new Date("TIMESTAMP"),
+ *           CreatedBefore: new Date("TIMESTAMP"),
+ *           ObjectReplicationStatuses: [ // ReplicationStatusFilterList
+ *             "COMPLETED" || "FAILED" || "REPLICA" || "NONE",
+ *           ],
+ *         },
+ *         EnableManifestOutput: true || false, // required
+ *       },
+ *     },
+ *     GeneratedManifestDescriptor: { // S3GeneratedManifestDescriptor
+ *       Format: "S3InventoryReport_CSV_20211130",
+ *       Location: {
+ *         ObjectArn: "STRING_VALUE", // required
+ *         ObjectVersionId: "STRING_VALUE",
+ *         ETag: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
@@ -91,6 +278,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class DescribeJobCommand extends $Command<

@@ -54,6 +54,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -77,6 +80,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

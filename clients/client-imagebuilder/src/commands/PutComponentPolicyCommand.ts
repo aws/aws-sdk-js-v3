@@ -47,6 +47,12 @@ export interface PutComponentPolicyCommandOutput extends PutComponentPolicyRespo
  * };
  * const command = new PutComponentPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutComponentPolicyResponse
+ *   requestId: "STRING_VALUE",
+ *   componentArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutComponentPolicyCommandInput - {@link PutComponentPolicyCommandInput}
@@ -82,6 +88,8 @@ export interface PutComponentPolicyCommandOutput extends PutComponentPolicyRespo
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class PutComponentPolicyCommand extends $Command<

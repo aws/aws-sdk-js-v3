@@ -51,6 +51,20 @@ export interface ListLineageGroupsCommandOutput extends ListLineageGroupsRespons
  * };
  * const command = new ListLineageGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLineageGroupsResponse
+ *   LineageGroupSummaries: [ // LineageGroupSummaries
+ *     { // LineageGroupSummary
+ *       LineageGroupArn: "STRING_VALUE",
+ *       LineageGroupName: "STRING_VALUE",
+ *       DisplayName: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLineageGroupsCommandInput - {@link ListLineageGroupsCommandInput}
@@ -59,6 +73,8 @@ export interface ListLineageGroupsCommandOutput extends ListLineageGroupsRespons
  * @see {@link ListLineageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListLineageGroupsCommand extends $Command<

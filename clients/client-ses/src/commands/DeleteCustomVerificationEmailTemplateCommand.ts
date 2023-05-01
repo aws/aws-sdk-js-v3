@@ -51,6 +51,9 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __Me
  * };
  * const command = new DeleteCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCustomVerificationEmailTemplateCommandInput - {@link DeleteCustomVerificationEmailTemplateCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __Me
  * @see {@link DeleteCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DeleteCustomVerificationEmailTemplateCommand extends $Command<

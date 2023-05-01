@@ -47,6 +47,20 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRuleGroupsResponse
+ *   NextMarker: "STRING_VALUE",
+ *   RuleGroups: [ // RuleGroupSummaries
+ *     { // RuleGroupSummary
+ *       Name: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       LockToken: "STRING_VALUE",
+ *       ARN: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
@@ -83,6 +97,8 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListRuleGroupsCommand extends $Command<

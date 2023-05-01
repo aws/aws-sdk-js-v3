@@ -54,6 +54,9 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * };
  * const command = new UpdateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateProvisioningTemplateCommandInput - {@link UpdateProvisioningTemplateCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateProvisioningTemplateCommand extends $Command<

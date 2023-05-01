@@ -46,6 +46,15 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * };
  * const command = new ListDeploymentGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentGroupsOutput
+ *   applicationName: "STRING_VALUE",
+ *   deploymentGroups: [ // DeploymentGroupsList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDeploymentGroupsCommandInput - {@link ListDeploymentGroupsCommandInput}
@@ -66,6 +75,8 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The next token was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentGroupsCommand extends $Command<

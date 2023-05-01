@@ -52,6 +52,14 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * };
  * const command = new AuthorizeClientVpnIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeClientVpnIngressResult
+ *   Status: { // ClientVpnAuthorizationRuleStatus
+ *     Code: "authorizing" || "active" || "failed" || "revoking",
+ *     Message: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param AuthorizeClientVpnIngressCommandInput - {@link AuthorizeClientVpnIngressCommandInput}
@@ -60,6 +68,8 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * @see {@link AuthorizeClientVpnIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AuthorizeClientVpnIngressCommand extends $Command<

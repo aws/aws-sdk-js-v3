@@ -46,6 +46,18 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * };
  * const command = new GetImpersonationRoleEffectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImpersonationRoleEffectResponse
+ *   Type: "FULL_ACCESS" || "READ_ONLY",
+ *   Effect: "ALLOW" || "DENY",
+ *   MatchedRules: [ // ImpersonationMatchedRuleList
+ *     { // ImpersonationMatchedRule
+ *       ImpersonationRuleId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetImpersonationRoleEffectCommandInput - {@link GetImpersonationRoleEffectCommandInput}
@@ -76,6 +88,8 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetImpersonationRoleEffectCommand extends $Command<

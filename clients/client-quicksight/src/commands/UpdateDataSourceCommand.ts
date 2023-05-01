@@ -276,6 +276,15 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataSourceResponse
+ *   Arn: "STRING_VALUE",
+ *   DataSourceId: "STRING_VALUE",
+ *   UpdateStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
@@ -305,6 +314,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateDataSourceCommand extends $Command<

@@ -47,6 +47,17 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupResponse
+ *   Group: { // Group
+ *     Path: "STRING_VALUE", // required
+ *     GroupName: "STRING_VALUE", // required
+ *     GroupId: "STRING_VALUE", // required
+ *     Arn: "STRING_VALUE", // required
+ *     CreateDate: new Date("TIMESTAMP"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -71,6 +82,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To create an IAM group
  * ```javascript

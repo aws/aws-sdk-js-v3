@@ -47,6 +47,14 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * };
  * const command = new ConfigureLogsForChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureLogsForChannelResponse
+ *   ChannelName: "STRING_VALUE",
+ *   LogTypes: [ // LogTypes
+ *     "AS_RUN",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ConfigureLogsForChannelCommandInput - {@link ConfigureLogsForChannelCommandInput}
@@ -55,6 +63,8 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * @see {@link ConfigureLogsForChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ConfigureLogsForChannelCommand extends $Command<

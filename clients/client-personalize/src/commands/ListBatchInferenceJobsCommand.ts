@@ -47,6 +47,22 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * };
  * const command = new ListBatchInferenceJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBatchInferenceJobsResponse
+ *   batchInferenceJobs: [ // BatchInferenceJobs
+ *     { // BatchInferenceJobSummary
+ *       batchInferenceJobArn: "STRING_VALUE",
+ *       jobName: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       failureReason: "STRING_VALUE",
+ *       solutionVersionArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBatchInferenceJobsCommandInput - {@link ListBatchInferenceJobsCommandInput}
@@ -61,6 +77,8 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListBatchInferenceJobsCommand extends $Command<

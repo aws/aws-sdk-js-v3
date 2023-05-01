@@ -52,6 +52,31 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
  * };
  * const command = new GetFieldLevelEncryptionProfileConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFieldLevelEncryptionProfileConfigResult
+ *   FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ *     Name: "STRING_VALUE", // required
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE",
+ *     EncryptionEntities: { // EncryptionEntities
+ *       Quantity: Number("int"), // required
+ *       Items: [ // EncryptionEntityList
+ *         { // EncryptionEntity
+ *           PublicKeyId: "STRING_VALUE", // required
+ *           ProviderId: "STRING_VALUE", // required
+ *           FieldPatterns: { // FieldPatterns
+ *             Quantity: Number("int"), // required
+ *             Items: [ // FieldPatternList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ETag: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetFieldLevelEncryptionProfileConfigCommandInput - {@link GetFieldLevelEncryptionProfileConfigCommandInput}
@@ -66,6 +91,8 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
  * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
  *  <p>The specified profile for field-level encryption doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<

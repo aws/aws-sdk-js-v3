@@ -48,6 +48,17 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * };
  * const command = new ProvisionPublicIpv4PoolCidrCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionPublicIpv4PoolCidrResult
+ *   PoolId: "STRING_VALUE",
+ *   PoolAddressRange: { // PublicIpv4PoolRange
+ *     FirstAddress: "STRING_VALUE",
+ *     LastAddress: "STRING_VALUE",
+ *     AddressCount: Number("int"),
+ *     AvailableAddressCount: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ProvisionPublicIpv4PoolCidrCommandInput - {@link ProvisionPublicIpv4PoolCidrCommandInput}
@@ -56,6 +67,8 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * @see {@link ProvisionPublicIpv4PoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ProvisionPublicIpv4PoolCidrCommand extends $Command<

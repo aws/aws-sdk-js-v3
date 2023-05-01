@@ -49,6 +49,19 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDiscoveredResourcesResponse
+ *   Items: [ // DiscoveredResourceList
+ *     { // DiscoveredResource
+ *       URI: "STRING_VALUE",
+ *       AccountId: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
@@ -71,6 +84,8 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  *   that's disabled by default, and that you need to enable for the Firewall Manager
  *   administrator account and for Organizations before you can access it.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListDiscoveredResourcesCommand extends $Command<

@@ -46,6 +46,16 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  * };
  * const command = new UpdateResolverConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateResolverConfigResponse
+ *   ResolverConfig: { // ResolverConfig
+ *     Id: "STRING_VALUE",
+ *     ResourceId: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     AutodefinedReverse: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" || "USE_LOCAL_RESOURCE_SETTING",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateResolverConfigCommandInput - {@link UpdateResolverConfigCommandInput}
@@ -82,6 +92,8 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class UpdateResolverConfigCommand extends $Command<

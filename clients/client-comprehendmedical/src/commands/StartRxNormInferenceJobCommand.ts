@@ -62,6 +62,11 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  * };
  * const command = new StartRxNormInferenceJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRxNormInferenceJobResponse
+ *   JobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartRxNormInferenceJobCommandInput - {@link StartRxNormInferenceJobCommandInput}
@@ -86,6 +91,8 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StartRxNormInferenceJobCommand extends $Command<

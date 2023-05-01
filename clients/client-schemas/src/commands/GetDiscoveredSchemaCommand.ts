@@ -47,6 +47,11 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  * };
  * const command = new GetDiscoveredSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDiscoveredSchemaResponse
+ *   Content: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDiscoveredSchemaCommandInput - {@link GetDiscoveredSchemaCommandInput}
@@ -65,6 +70,8 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class GetDiscoveredSchemaCommand extends $Command<

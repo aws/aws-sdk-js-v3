@@ -48,6 +48,15 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelResponse
+ *   ContentType: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ModelId: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Schema: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateModelCommandInput - {@link CreateModelCommandInput}
@@ -68,6 +77,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateModelCommand extends $Command<

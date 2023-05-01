@@ -61,6 +61,23 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * };
  * const command = new ListControlInsightsByControlDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListControlInsightsByControlDomainResponse
+ *   controlInsightsMetadata: [ // ControlInsightsMetadata
+ *     { // ControlInsightsMetadataItem
+ *       name: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *       evidenceInsights: { // EvidenceInsights
+ *         noncompliantEvidenceCount: Number("int"),
+ *         compliantEvidenceCount: Number("int"),
+ *         inconclusiveEvidenceCount: Number("int"),
+ *       },
+ *       lastUpdated: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListControlInsightsByControlDomainCommandInput - {@link ListControlInsightsByControlDomainCommandInput}
@@ -83,6 +100,8 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListControlInsightsByControlDomainCommand extends $Command<

@@ -65,6 +65,26 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetSubnetsOutput
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     { // AvailabilityZone
+ *       ZoneName: "STRING_VALUE",
+ *       SubnetId: "STRING_VALUE",
+ *       OutpostId: "STRING_VALUE",
+ *       LoadBalancerAddresses: [ // LoadBalancerAddresses
+ *         { // LoadBalancerAddress
+ *           IpAddress: "STRING_VALUE",
+ *           AllocationId: "STRING_VALUE",
+ *           PrivateIPv4Address: "STRING_VALUE",
+ *           IPv6Address: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IpAddressType: "ipv4" || "dualstack",
+ * };
+ *
  * ```
  *
  * @param SetSubnetsCommandInput - {@link SetSubnetsCommandInput}
@@ -91,6 +111,8 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @throws {@link SubnetNotFoundException} (client fault)
  *  <p>The specified subnet does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To enable Availability Zones for a load balancer
  * ```javascript

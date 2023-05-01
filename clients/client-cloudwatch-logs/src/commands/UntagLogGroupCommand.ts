@@ -59,6 +59,9 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagLogGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagLogGroupCommandInput - {@link UntagLogGroupCommandInput}
@@ -70,6 +73,8 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class UntagLogGroupCommand extends $Command<

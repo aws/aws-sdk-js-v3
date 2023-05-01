@@ -73,6 +73,9 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAdminAccountCommandInput - {@link PutAdminAccountCommandInput}
@@ -101,6 +104,8 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutAdminAccountCommand extends $Command<

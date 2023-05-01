@@ -44,6 +44,43 @@ export interface GetTargetGroupCommandOutput extends GetTargetGroupResponse, __M
  * };
  * const command = new GetTargetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTargetGroupResponse
+ *   id: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   type: "STRING_VALUE",
+ *   config: { // TargetGroupConfig
+ *     port: Number("int"), // required
+ *     protocol: "STRING_VALUE", // required
+ *     protocolVersion: "STRING_VALUE",
+ *     ipAddressType: "STRING_VALUE",
+ *     vpcIdentifier: "STRING_VALUE", // required
+ *     healthCheck: { // HealthCheckConfig
+ *       enabled: true || false,
+ *       protocol: "STRING_VALUE",
+ *       protocolVersion: "STRING_VALUE",
+ *       port: Number("int"),
+ *       path: "STRING_VALUE",
+ *       healthCheckIntervalSeconds: Number("int"),
+ *       healthCheckTimeoutSeconds: Number("int"),
+ *       healthyThresholdCount: Number("int"),
+ *       unhealthyThresholdCount: Number("int"),
+ *       matcher: { // Matcher Union: only one key present
+ *         httpCode: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   createdAt: new Date("TIMESTAMP"),
+ *   lastUpdatedAt: new Date("TIMESTAMP"),
+ *   status: "STRING_VALUE",
+ *   serviceArns: [ // ServiceArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   failureMessage: "STRING_VALUE",
+ *   failureCode: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetTargetGroupCommandInput - {@link GetTargetGroupCommandInput}
@@ -65,6 +102,8 @@ export interface GetTargetGroupCommandOutput extends GetTargetGroupResponse, __M
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetTargetGroupCommand extends $Command<

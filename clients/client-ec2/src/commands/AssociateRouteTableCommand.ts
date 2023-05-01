@@ -53,6 +53,15 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * };
  * const command = new AssociateRouteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateRouteTableResult
+ *   AssociationId: "STRING_VALUE",
+ *   AssociationState: { // RouteTableAssociationState
+ *     State: "associating" || "associated" || "disassociating" || "disassociated" || "failed",
+ *     StatusMessage: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateRouteTableCommandInput - {@link AssociateRouteTableCommandInput}
@@ -61,6 +70,8 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * @see {@link AssociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To associate a route table with a subnet
  * ```javascript

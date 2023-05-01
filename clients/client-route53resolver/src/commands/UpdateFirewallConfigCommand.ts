@@ -46,6 +46,16 @@ export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigR
  * };
  * const command = new UpdateFirewallConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFirewallConfigResponse
+ *   FirewallConfig: { // FirewallConfig
+ *     Id: "STRING_VALUE",
+ *     ResourceId: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     FirewallFailOpen: "ENABLED" || "DISABLED" || "USE_LOCAL_RESOURCE_SETTING",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateFirewallConfigCommandInput - {@link UpdateFirewallConfigCommandInput}
@@ -70,6 +80,8 @@ export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigR
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class UpdateFirewallConfigCommand extends $Command<

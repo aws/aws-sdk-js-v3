@@ -44,6 +44,21 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * };
  * const command = new DescribeArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeArchiveResponse
+ *   ArchiveArn: "STRING_VALUE",
+ *   ArchiveName: "STRING_VALUE",
+ *   EventSourceArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
+ *   StateReason: "STRING_VALUE",
+ *   RetentionDays: Number("int"),
+ *   SizeBytes: Number("long"),
+ *   EventCount: Number("long"),
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeArchiveCommandInput - {@link DescribeArchiveCommandInput}
@@ -61,6 +76,8 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DescribeArchiveCommand extends $Command<

@@ -61,6 +61,9 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * };
  * const command = new SetUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetUserSettingsCommandInput - {@link SetUserSettingsCommandInput}
@@ -95,6 +98,8 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class SetUserSettingsCommand extends $Command<

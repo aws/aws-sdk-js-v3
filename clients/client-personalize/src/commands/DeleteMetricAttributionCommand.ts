@@ -44,6 +44,9 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMetricAttributionCommandInput - {@link DeleteMetricAttributionCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DeleteMetricAttributionCommand extends $Command<

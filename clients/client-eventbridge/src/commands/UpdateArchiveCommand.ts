@@ -47,6 +47,14 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * };
  * const command = new UpdateArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateArchiveResponse
+ *   ArchiveArn: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
+ *   StateReason: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateArchiveCommandInput - {@link UpdateArchiveCommandInput}
@@ -71,6 +79,8 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class UpdateArchiveCommand extends $Command<

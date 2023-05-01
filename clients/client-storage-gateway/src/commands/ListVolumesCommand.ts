@@ -55,6 +55,23 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * };
  * const command = new ListVolumesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVolumesOutput
+ *   GatewayARN: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   VolumeInfos: [ // VolumeInfos
+ *     { // VolumeInfo
+ *       VolumeARN: "STRING_VALUE",
+ *       VolumeId: "STRING_VALUE",
+ *       GatewayARN: "STRING_VALUE",
+ *       GatewayId: "STRING_VALUE",
+ *       VolumeType: "STRING_VALUE",
+ *       VolumeSizeInBytes: Number("long"),
+ *       VolumeAttachmentStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVolumesCommandInput - {@link ListVolumesCommandInput}
@@ -71,6 +88,8 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To list the iSCSI stored volumes of a gateway
  * ```javascript

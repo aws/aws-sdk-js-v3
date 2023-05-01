@@ -47,6 +47,28 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOfferingsResult
+ *   offerings: [ // Offerings
+ *     { // Offering
+ *       id: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       type: "RECURRING",
+ *       platform: "ANDROID" || "IOS",
+ *       recurringCharges: [ // RecurringCharges
+ *         { // RecurringCharge
+ *           cost: { // MonetaryAmount
+ *             amount: Number("double"),
+ *             currencyCode: "USD",
+ *           },
+ *           frequency: "MONTHLY",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
@@ -71,6 +93,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about device offerings
  * ```javascript

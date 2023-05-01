@@ -44,6 +44,9 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * };
  * const command = new DeleteLoggerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoggerDefinitionCommandInput - {@link DeleteLoggerDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteLoggerDefinitionCommand extends $Command<

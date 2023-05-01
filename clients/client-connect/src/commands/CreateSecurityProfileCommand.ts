@@ -59,6 +59,12 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * };
  * const command = new CreateSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSecurityProfileResponse
+ *   SecurityProfileId: "STRING_VALUE",
+ *   SecurityProfileArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSecurityProfileCommandInput - {@link CreateSecurityProfileCommandInput}
@@ -88,6 +94,8 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateSecurityProfileCommand extends $Command<

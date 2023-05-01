@@ -62,6 +62,24 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * };
  * const command = new DescribeChannelMembershipForAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeChannelMembershipForAppInstanceUserResponse
+ *   ChannelMembership: { // ChannelMembershipForAppInstanceUserSummary
+ *     ChannelSummary: { // ChannelSummary
+ *       Name: "STRING_VALUE",
+ *       ChannelArn: "STRING_VALUE",
+ *       Mode: "UNRESTRICTED" || "RESTRICTED",
+ *       Privacy: "PUBLIC" || "PRIVATE",
+ *       Metadata: "STRING_VALUE",
+ *       LastMessageTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *     AppInstanceUserMembershipSummary: { // AppInstanceUserMembershipSummary
+ *       Type: "DEFAULT" || "HIDDEN",
+ *       ReadMarkerTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeChannelMembershipForAppInstanceUserCommandInput - {@link DescribeChannelMembershipForAppInstanceUserCommandInput}
@@ -88,6 +106,8 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command<

@@ -48,6 +48,19 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * };
  * const command = new TestMetricFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestMetricFilterResponse
+ *   matches: [ // MetricFilterMatches
+ *     { // MetricFilterMatchRecord
+ *       eventNumber: Number("long"),
+ *       eventMessage: "STRING_VALUE",
+ *       extractedValues: { // ExtractedValues
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param TestMetricFilterCommandInput - {@link TestMetricFilterCommandInput}
@@ -62,6 +75,8 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class TestMetricFilterCommand extends $Command<

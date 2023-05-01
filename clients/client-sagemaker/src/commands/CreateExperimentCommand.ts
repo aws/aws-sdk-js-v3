@@ -71,6 +71,11 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * };
  * const command = new CreateExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExperimentResponse
+ *   ExperimentArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
@@ -83,6 +88,8 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateExperimentCommand extends $Command<

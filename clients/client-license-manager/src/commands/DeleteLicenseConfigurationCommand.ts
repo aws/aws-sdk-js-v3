@@ -45,6 +45,9 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * };
  * const command = new DeleteLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLicenseConfigurationCommandInput - {@link DeleteLicenseConfigurationCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteLicenseConfigurationCommand extends $Command<

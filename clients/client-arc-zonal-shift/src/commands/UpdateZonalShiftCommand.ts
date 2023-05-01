@@ -47,6 +47,17 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * };
  * const command = new UpdateZonalShiftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ZonalShift
+ *   zonalShiftId: "STRING_VALUE", // required
+ *   resourceIdentifier: "STRING_VALUE", // required
+ *   awayFrom: "STRING_VALUE", // required
+ *   expiryTime: new Date("TIMESTAMP"), // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
+ *   comment: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateZonalShiftCommandInput - {@link UpdateZonalShiftCommandInput}
@@ -73,6 +84,8 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class UpdateZonalShiftCommand extends $Command<

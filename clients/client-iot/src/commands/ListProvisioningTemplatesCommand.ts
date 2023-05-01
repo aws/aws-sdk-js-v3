@@ -46,6 +46,22 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * };
  * const command = new ListProvisioningTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProvisioningTemplatesResponse
+ *   templates: [ // ProvisioningTemplateListing
+ *     { // ProvisioningTemplateSummary
+ *       templateArn: "STRING_VALUE",
+ *       templateName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       creationDate: new Date("TIMESTAMP"),
+ *       lastModifiedDate: new Date("TIMESTAMP"),
+ *       enabled: true || false,
+ *       type: "FLEET_PROVISIONING" || "JITP",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListProvisioningTemplatesCommandInput - {@link ListProvisioningTemplatesCommandInput}
@@ -66,6 +82,8 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListProvisioningTemplatesCommand extends $Command<

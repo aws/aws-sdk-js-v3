@@ -47,6 +47,11 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyOutput
+ *   policyId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -72,6 +77,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

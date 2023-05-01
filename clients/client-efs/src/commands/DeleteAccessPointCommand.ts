@@ -47,6 +47,9 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccessPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccessPointCommandInput - {@link DeleteAccessPointCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DeleteAccessPointCommand extends $Command<

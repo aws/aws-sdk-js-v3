@@ -49,6 +49,31 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * };
  * const command = new DescribeAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccessResponse
+ *   ServerId: "STRING_VALUE", // required
+ *   Access: { // DescribedAccess
+ *     HomeDirectory: "STRING_VALUE",
+ *     HomeDirectoryMappings: [ // HomeDirectoryMappings
+ *       { // HomeDirectoryMapEntry
+ *         Entry: "STRING_VALUE", // required
+ *         Target: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     HomeDirectoryType: "PATH" || "LOGICAL",
+ *     Policy: "STRING_VALUE",
+ *     PosixProfile: { // PosixProfile
+ *       Uid: Number("long"), // required
+ *       Gid: Number("long"), // required
+ *       SecondaryGids: [ // SecondaryGids
+ *         Number("long"),
+ *       ],
+ *     },
+ *     Role: "STRING_VALUE",
+ *     ExternalId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAccessCommandInput - {@link DescribeAccessCommandInput}
@@ -70,6 +95,8 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeAccessCommand extends $Command<

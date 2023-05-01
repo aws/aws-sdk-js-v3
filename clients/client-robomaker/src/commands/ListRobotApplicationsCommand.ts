@@ -55,6 +55,23 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * };
  * const command = new ListRobotApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRobotApplicationsResponse
+ *   robotApplicationSummaries: [ // RobotApplicationSummaries
+ *     { // RobotApplicationSummary
+ *       name: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *       robotSoftwareSuite: { // RobotSoftwareSuite
+ *         name: "STRING_VALUE",
+ *         version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRobotApplicationsCommandInput - {@link ListRobotApplicationsCommandInput}
@@ -73,6 +90,8 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListRobotApplicationsCommand extends $Command<

@@ -44,6 +44,13 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * };
  * const command = new BuildSuggestersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BuildSuggestersResponse
+ *   FieldNames: [ // FieldNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BuildSuggestersCommandInput - {@link BuildSuggestersCommandInput}
@@ -65,6 +72,8 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class BuildSuggestersCommand extends $Command<

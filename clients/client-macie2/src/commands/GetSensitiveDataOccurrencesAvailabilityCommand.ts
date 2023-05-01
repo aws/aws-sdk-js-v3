@@ -53,6 +53,14 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * };
  * const command = new GetSensitiveDataOccurrencesAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSensitiveDataOccurrencesAvailabilityResponse
+ *   code: "AVAILABLE" || "UNAVAILABLE",
+ *   reasons: [ // __listOfUnavailabilityReasonCode
+ *     "OBJECT_EXCEEDS_SIZE_QUOTA" || "UNSUPPORTED_OBJECT_TYPE" || "UNSUPPORTED_FINDING_TYPE" || "INVALID_CLASSIFICATION_RESULT" || "OBJECT_UNAVAILABLE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSensitiveDataOccurrencesAvailabilityCommandInput - {@link GetSensitiveDataOccurrencesAvailabilityCommandInput}
@@ -73,6 +81,8 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<

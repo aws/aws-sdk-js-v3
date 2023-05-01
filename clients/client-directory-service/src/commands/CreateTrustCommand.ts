@@ -58,6 +58,11 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * };
  * const command = new CreateTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrustResult
+ *   TrustId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateTrustCommandInput - {@link CreateTrustCommandInput}
@@ -84,6 +89,8 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateTrustCommand extends $Command<

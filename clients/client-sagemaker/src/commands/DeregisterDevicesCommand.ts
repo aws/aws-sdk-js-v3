@@ -47,6 +47,9 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterDevicesCommandInput - {@link DeregisterDevicesCommandInput}
@@ -55,6 +58,8 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * @see {@link DeregisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeregisterDevicesCommand extends $Command<

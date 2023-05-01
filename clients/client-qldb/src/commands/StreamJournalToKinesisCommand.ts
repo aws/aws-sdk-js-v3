@@ -57,6 +57,11 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * };
  * const command = new StreamJournalToKinesisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StreamJournalToKinesisResponse
+ *   StreamId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StreamJournalToKinesisCommandInput - {@link StreamJournalToKinesisCommandInput}
@@ -74,6 +79,8 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class StreamJournalToKinesisCommand extends $Command<

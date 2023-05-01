@@ -53,6 +53,13 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * };
  * const command = new GetSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSipMediaApplicationLoggingConfigurationResponse
+ *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
+ *     EnableSipMediaApplicationMessageLogs: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSipMediaApplicationLoggingConfigurationCommandInput - {@link GetSipMediaApplicationLoggingConfigurationCommandInput}
@@ -82,6 +89,8 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<

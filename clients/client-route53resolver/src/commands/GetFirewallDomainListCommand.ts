@@ -44,6 +44,22 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  * };
  * const command = new GetFirewallDomainListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFirewallDomainListResponse
+ *   FirewallDomainList: { // FirewallDomainList
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     DomainCount: Number("int"),
+ *     Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
+ *     StatusMessage: "STRING_VALUE",
+ *     ManagedOwnerName: "STRING_VALUE",
+ *     CreatorRequestId: "STRING_VALUE",
+ *     CreationTime: "STRING_VALUE",
+ *     ModificationTime: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFirewallDomainListCommandInput - {@link GetFirewallDomainListCommandInput}
@@ -64,6 +80,8 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetFirewallDomainListCommand extends $Command<

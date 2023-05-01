@@ -88,6 +88,11 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  * };
  * const command = new UpdateModelPackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateModelPackageOutput
+ *   ModelPackageArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateModelPackageCommandInput - {@link UpdateModelPackageCommandInput}
@@ -96,6 +101,8 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  * @see {@link UpdateModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateModelPackageCommand extends $Command<

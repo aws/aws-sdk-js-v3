@@ -56,6 +56,25 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProjectResult
+ *   project: { // Project
+ *     arn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     defaultJobTimeoutMinutes: Number("int"),
+ *     created: new Date("TIMESTAMP"),
+ *     vpcConfig: { // VpcConfig
+ *       securityGroupIds: [ // VpcSecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnetIds: [ // VpcSubnetIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       vpcId: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -76,6 +95,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To update a device pool
  * ```javascript

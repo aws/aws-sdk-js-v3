@@ -59,6 +59,37 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * };
  * const command = new PurchaseScheduledInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseScheduledInstancesResult
+ *   ScheduledInstanceSet: [ // PurchasedScheduledInstanceSet
+ *     { // ScheduledInstance
+ *       AvailabilityZone: "STRING_VALUE",
+ *       CreateDate: new Date("TIMESTAMP"),
+ *       HourlyPrice: "STRING_VALUE",
+ *       InstanceCount: Number("int"),
+ *       InstanceType: "STRING_VALUE",
+ *       NetworkPlatform: "STRING_VALUE",
+ *       NextSlotStartTime: new Date("TIMESTAMP"),
+ *       Platform: "STRING_VALUE",
+ *       PreviousSlotEndTime: new Date("TIMESTAMP"),
+ *       Recurrence: { // ScheduledInstanceRecurrence
+ *         Frequency: "STRING_VALUE",
+ *         Interval: Number("int"),
+ *         OccurrenceDaySet: [ // OccurrenceDaySet
+ *           Number("int"),
+ *         ],
+ *         OccurrenceRelativeToEnd: true || false,
+ *         OccurrenceUnit: "STRING_VALUE",
+ *       },
+ *       ScheduledInstanceId: "STRING_VALUE",
+ *       SlotDurationInHours: Number("int"),
+ *       TermEndDate: new Date("TIMESTAMP"),
+ *       TermStartDate: new Date("TIMESTAMP"),
+ *       TotalScheduledInstanceHours: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PurchaseScheduledInstancesCommandInput - {@link PurchaseScheduledInstancesCommandInput}
@@ -67,6 +98,8 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * @see {@link PurchaseScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To purchase a Scheduled Instance
  * ```javascript

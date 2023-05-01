@@ -47,6 +47,20 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * };
  * const command = new UpdateConstraintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConstraintOutput
+ *   ConstraintDetail: { // ConstraintDetail
+ *     ConstraintId: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Owner: "STRING_VALUE",
+ *     ProductId: "STRING_VALUE",
+ *     PortfolioId: "STRING_VALUE",
+ *   },
+ *   ConstraintParameters: "STRING_VALUE",
+ *   Status: "AVAILABLE" || "CREATING" || "FAILED",
+ * };
+ *
  * ```
  *
  * @param UpdateConstraintCommandInput - {@link UpdateConstraintCommandInput}
@@ -61,6 +75,8 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateConstraintCommand extends $Command<

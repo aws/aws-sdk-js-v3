@@ -58,6 +58,30 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * };
  * const command = new DescribeElasticGpusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeElasticGpusResult
+ *   ElasticGpuSet: [ // ElasticGpuSet
+ *     { // ElasticGpus
+ *       ElasticGpuId: "STRING_VALUE",
+ *       AvailabilityZone: "STRING_VALUE",
+ *       ElasticGpuType: "STRING_VALUE",
+ *       ElasticGpuHealth: { // ElasticGpuHealth
+ *         Status: "OK" || "IMPAIRED",
+ *       },
+ *       ElasticGpuState: "ATTACHED",
+ *       InstanceId: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeElasticGpusCommandInput - {@link DescribeElasticGpusCommandInput}
@@ -66,6 +90,8 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * @see {@link DescribeElasticGpusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeElasticGpusCommand extends $Command<

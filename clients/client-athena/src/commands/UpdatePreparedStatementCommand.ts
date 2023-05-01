@@ -47,6 +47,9 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
  * };
  * const command = new UpdatePreparedStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePreparedStatementCommandInput - {@link UpdatePreparedStatementCommandInput}
@@ -66,6 +69,8 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdatePreparedStatementCommand extends $Command<

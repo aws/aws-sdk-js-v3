@@ -48,6 +48,31 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * };
  * const command = new DeleteVerifiedAccessInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVerifiedAccessInstanceResult
+ *   VerifiedAccessInstance: { // VerifiedAccessInstance
+ *     VerifiedAccessInstanceId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderCondensedList
+ *       { // VerifiedAccessTrustProviderCondensed
+ *         VerifiedAccessTrustProviderId: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *         TrustProviderType: "user" || "device",
+ *         UserTrustProviderType: "iam-identity-center" || "oidc",
+ *         DeviceTrustProviderType: "jamf" || "crowdstrike",
+ *       },
+ *     ],
+ *     CreationTime: "STRING_VALUE",
+ *     LastUpdatedTime: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVerifiedAccessInstanceCommandInput - {@link DeleteVerifiedAccessInstanceCommandInput}
@@ -56,6 +81,8 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * @see {@link DeleteVerifiedAccessInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteVerifiedAccessInstanceCommand extends $Command<

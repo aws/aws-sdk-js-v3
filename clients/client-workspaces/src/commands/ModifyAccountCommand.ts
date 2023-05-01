@@ -46,6 +46,9 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * };
  * const command = new ModifyAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyAccountCommandInput - {@link ModifyAccountCommandInput}
@@ -69,6 +72,8 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyAccountCommand extends $Command<

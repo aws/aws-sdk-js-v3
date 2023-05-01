@@ -44,6 +44,9 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * };
  * const command = new StopFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopFleetCommandInput - {@link StopFleetCommandInput}
@@ -58,6 +61,8 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class StopFleetCommand extends $Command<

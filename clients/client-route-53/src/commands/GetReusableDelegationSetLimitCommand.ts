@@ -55,6 +55,15 @@ export interface GetReusableDelegationSetLimitCommandOutput
  * };
  * const command = new GetReusableDelegationSetLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReusableDelegationSetLimitResponse
+ *   Limit: { // ReusableDelegationSetLimit
+ *     Type: "MAX_ZONES_BY_REUSABLE_DELEGATION_SET", // required
+ *     Value: Number("long"), // required
+ *   },
+ *   Count: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param GetReusableDelegationSetLimitCommandInput - {@link GetReusableDelegationSetLimitCommandInput}
@@ -69,6 +78,8 @@ export interface GetReusableDelegationSetLimitCommandOutput
  * @throws {@link NoSuchDelegationSet} (client fault)
  *  <p>A reusable delegation set with the specified ID does not exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetReusableDelegationSetLimitCommand extends $Command<

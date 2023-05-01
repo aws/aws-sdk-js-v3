@@ -61,6 +61,11 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * };
  * const command = new CreateLocationEfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationEfsResponse
+ *   LocationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLocationEfsCommandInput - {@link CreateLocationEfsCommandInput}
@@ -76,6 +81,8 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationEfsCommand extends $Command<

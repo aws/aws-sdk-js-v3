@@ -45,6 +45,9 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteVerifiedEmailAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVerifiedEmailAddressCommandInput - {@link DeleteVerifiedEmailAddressCommandInput}
@@ -53,6 +56,8 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * @see {@link DeleteVerifiedEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DeleteVerifiedEmailAddress
  * ```javascript

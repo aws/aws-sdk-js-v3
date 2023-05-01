@@ -46,6 +46,9 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  * };
  * const command = new DeleteContainerImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContainerImageCommandInput - {@link DeleteContainerImageCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class DeleteContainerImageCommand extends $Command<

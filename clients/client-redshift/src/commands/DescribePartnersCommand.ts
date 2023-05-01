@@ -47,6 +47,20 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * };
  * const command = new DescribePartnersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePartnersOutputMessage
+ *   PartnerIntegrationInfoList: [ // PartnerIntegrationInfoList
+ *     { // PartnerIntegrationInfo
+ *       DatabaseName: "STRING_VALUE",
+ *       PartnerName: "STRING_VALUE",
+ *       Status: "Active" || "Inactive" || "RuntimeFailure" || "ConnectionFailure",
+ *       StatusMessage: "STRING_VALUE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       UpdatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribePartnersCommandInput - {@link DescribePartnersCommandInput}
@@ -62,6 +76,8 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
  *  <p>The partner integration is not authorized.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribePartnersCommand extends $Command<

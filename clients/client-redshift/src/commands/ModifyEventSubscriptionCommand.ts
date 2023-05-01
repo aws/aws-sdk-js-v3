@@ -54,6 +54,32 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * };
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyEventSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: "STRING_VALUE",
+ *     CustSubscriptionId: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     SubscriptionCreationTime: new Date("TIMESTAMP"),
+ *     SourceType: "STRING_VALUE",
+ *     SourceIdsList: [ // SourceIdsList
+ *       "STRING_VALUE",
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       "STRING_VALUE",
+ *     ],
+ *     Severity: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
@@ -97,6 +123,8 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *             specified a severity that does not apply to the specified source type. The allowed
  *             values are ERROR and INFO.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyEventSubscriptionCommand extends $Command<

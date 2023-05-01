@@ -50,6 +50,18 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * };
  * const command = new MonitorInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MonitorInstancesResult
+ *   InstanceMonitorings: [ // InstanceMonitoringList
+ *     { // InstanceMonitoring
+ *       InstanceId: "STRING_VALUE",
+ *       Monitoring: { // Monitoring
+ *         State: "disabled" || "disabling" || "enabled" || "pending",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param MonitorInstancesCommandInput - {@link MonitorInstancesCommandInput}
@@ -58,6 +70,8 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * @see {@link MonitorInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class MonitorInstancesCommand extends $Command<

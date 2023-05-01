@@ -44,6 +44,17 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * };
  * const command = new DescribeIpRestrictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIpRestrictionResponse
+ *   AwsAccountId: "STRING_VALUE",
+ *   IpRestrictionRuleMap: { // IpRestrictionRuleMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Enabled: true || false,
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param DescribeIpRestrictionCommandInput - {@link DescribeIpRestrictionCommandInput}
@@ -70,6 +81,8 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeIpRestrictionCommand extends $Command<

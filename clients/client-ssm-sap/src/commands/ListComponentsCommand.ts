@@ -46,6 +46,21 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentsOutput
+ *   Components: [ // ComponentSummaryList
+ *     { // ComponentSummary
+ *       ApplicationId: "STRING_VALUE",
+ *       ComponentId: "STRING_VALUE",
+ *       ComponentType: "STRING_VALUE",
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
@@ -63,6 +78,8 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class ListComponentsCommand extends $Command<

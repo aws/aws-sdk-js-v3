@@ -44,6 +44,20 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  * };
  * const command = new GetApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApprovalRuleTemplateOutput
+ *   approvalRuleTemplate: { // ApprovalRuleTemplate
+ *     approvalRuleTemplateId: "STRING_VALUE",
+ *     approvalRuleTemplateName: "STRING_VALUE",
+ *     approvalRuleTemplateDescription: "STRING_VALUE",
+ *     approvalRuleTemplateContent: "STRING_VALUE",
+ *     ruleContentSha256: "STRING_VALUE",
+ *     lastModifiedDate: new Date("TIMESTAMP"),
+ *     creationDate: new Date("TIMESTAMP"),
+ *     lastModifiedUser: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApprovalRuleTemplateCommandInput - {@link GetApprovalRuleTemplateCommandInput}
@@ -65,6 +79,8 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
  *                 CodeCommit User Guide</a>.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetApprovalRuleTemplateCommand extends $Command<

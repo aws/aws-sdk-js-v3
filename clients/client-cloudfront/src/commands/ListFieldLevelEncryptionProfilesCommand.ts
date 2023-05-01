@@ -51,6 +51,38 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
  * };
  * const command = new ListFieldLevelEncryptionProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFieldLevelEncryptionProfilesResult
+ *   FieldLevelEncryptionProfileList: { // FieldLevelEncryptionProfileList
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // FieldLevelEncryptionProfileSummaryList
+ *       { // FieldLevelEncryptionProfileSummary
+ *         Id: "STRING_VALUE", // required
+ *         LastModifiedTime: new Date("TIMESTAMP"), // required
+ *         Name: "STRING_VALUE", // required
+ *         EncryptionEntities: { // EncryptionEntities
+ *           Quantity: Number("int"), // required
+ *           Items: [ // EncryptionEntityList
+ *             { // EncryptionEntity
+ *               PublicKeyId: "STRING_VALUE", // required
+ *               ProviderId: "STRING_VALUE", // required
+ *               FieldPatterns: { // FieldPatterns
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // FieldPatternList
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           ],
+ *         },
+ *         Comment: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListFieldLevelEncryptionProfilesCommandInput - {@link ListFieldLevelEncryptionProfilesCommandInput}
@@ -62,6 +94,8 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListFieldLevelEncryptionProfilesCommand extends $Command<

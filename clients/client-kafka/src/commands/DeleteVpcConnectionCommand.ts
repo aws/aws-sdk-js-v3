@@ -44,6 +44,12 @@ export interface DeleteVpcConnectionCommandOutput extends DeleteVpcConnectionRes
  * };
  * const command = new DeleteVpcConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVpcConnectionResponse
+ *   VpcConnectionArn: "STRING_VALUE",
+ *   State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
+ * };
+ *
  * ```
  *
  * @param DeleteVpcConnectionCommandInput - {@link DeleteVpcConnectionCommandInput}
@@ -64,6 +70,8 @@ export interface DeleteVpcConnectionCommandOutput extends DeleteVpcConnectionRes
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class DeleteVpcConnectionCommand extends $Command<

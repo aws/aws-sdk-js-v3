@@ -52,6 +52,32 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * };
  * const command = new BatchGetVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetVpcEndpointResponse
+ *   vpcEndpointDetails: [ // VpcEndpointDetails
+ *     { // VpcEndpointDetail
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       vpcId: "STRING_VALUE",
+ *       subnetIds: [ // SubnetIds
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroupIds: [ // SecurityGroupIds
+ *         "STRING_VALUE",
+ *       ],
+ *       status: "STRING_VALUE",
+ *       createdDate: Number("long"),
+ *     },
+ *   ],
+ *   vpcEndpointErrorDetails: [ // VpcEndpointErrorDetails
+ *     { // VpcEndpointErrorDetail
+ *       id: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetVpcEndpointCommandInput - {@link BatchGetVpcEndpointCommandInput}
@@ -67,6 +93,8 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class BatchGetVpcEndpointCommand extends $Command<

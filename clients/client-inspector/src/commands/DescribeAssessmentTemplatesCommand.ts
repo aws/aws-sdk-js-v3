@@ -49,6 +49,36 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * };
  * const command = new DescribeAssessmentTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAssessmentTemplatesResponse
+ *   assessmentTemplates: [ // AssessmentTemplateList // required
+ *     { // AssessmentTemplate
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       assessmentTargetArn: "STRING_VALUE", // required
+ *       durationInSeconds: Number("int"), // required
+ *       rulesPackageArns: [ // AssessmentTemplateRulesPackageArnList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       userAttributesForFindings: [ // UserAttributeList // required
+ *         { // Attribute
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       lastAssessmentRunArn: "STRING_VALUE",
+ *       assessmentRunCount: Number("int"), // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   failedItems: { // FailedItems // required
+ *     "<keys>": { // FailedItemDetails
+ *       failureCode: "STRING_VALUE", // required
+ *       retryable: true || false, // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAssessmentTemplatesCommandInput - {@link DescribeAssessmentTemplatesCommandInput}
@@ -64,6 +94,8 @@ export interface DescribeAssessmentTemplatesCommandOutput
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describte assessment templates
  * ```javascript

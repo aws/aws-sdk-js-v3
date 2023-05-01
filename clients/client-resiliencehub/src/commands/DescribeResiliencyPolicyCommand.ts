@@ -50,6 +50,28 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * };
  * const command = new DescribeResiliencyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResiliencyPolicyResponse
+ *   policy: { // ResiliencyPolicy
+ *     policyArn: "STRING_VALUE",
+ *     policyName: "STRING_VALUE",
+ *     policyDescription: "STRING_VALUE",
+ *     dataLocationConstraint: "STRING_VALUE",
+ *     tier: "STRING_VALUE",
+ *     estimatedCostTier: "STRING_VALUE",
+ *     policy: { // DisruptionPolicy
+ *       "<keys>": { // FailurePolicy
+ *         rtoInSecs: Number("int"), // required
+ *         rpoInSecs: Number("int"), // required
+ *       },
+ *     },
+ *     creationTime: new Date("TIMESTAMP"),
+ *     tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeResiliencyPolicyCommandInput - {@link DescribeResiliencyPolicyCommandInput}
@@ -76,6 +98,8 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeResiliencyPolicyCommand extends $Command<

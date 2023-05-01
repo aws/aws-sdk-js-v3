@@ -45,6 +45,25 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * };
  * const command = new ListFunctionDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFunctionDefinitionsResponse
+ *   Definitions: [ // __listOfDefinitionInformation
+ *     { // DefinitionInformation
+ *       Arn: "STRING_VALUE",
+ *       CreationTimestamp: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       LastUpdatedTimestamp: "STRING_VALUE",
+ *       LatestVersion: "STRING_VALUE",
+ *       LatestVersionArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFunctionDefinitionsCommandInput - {@link ListFunctionDefinitionsCommandInput}
@@ -53,6 +72,8 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * @see {@link ListFunctionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListFunctionDefinitionsCommand extends $Command<

@@ -46,6 +46,21 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * };
  * const command = new UpdateBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBotResponse
+ *   Bot: { // Bot
+ *     BotId: "STRING_VALUE",
+ *     UserId: "STRING_VALUE",
+ *     DisplayName: "STRING_VALUE",
+ *     BotType: "ChatBot",
+ *     Disabled: true || false,
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     BotEmail: "STRING_VALUE",
+ *     SecurityToken: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateBotCommandInput - {@link UpdateBotCommandInput}
@@ -75,6 +90,8 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateBotCommand extends $Command<

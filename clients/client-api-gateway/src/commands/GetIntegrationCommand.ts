@@ -46,6 +46,45 @@ export interface GetIntegrationCommandOutput extends Integration, __MetadataBear
  * };
  * const command = new GetIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Integration
+ *   type: "HTTP" || "AWS" || "MOCK" || "HTTP_PROXY" || "AWS_PROXY",
+ *   httpMethod: "STRING_VALUE",
+ *   uri: "STRING_VALUE",
+ *   connectionType: "INTERNET" || "VPC_LINK",
+ *   connectionId: "STRING_VALUE",
+ *   credentials: "STRING_VALUE",
+ *   requestParameters: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   passthroughBehavior: "STRING_VALUE",
+ *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ *   timeoutInMillis: Number("int"),
+ *   cacheNamespace: "STRING_VALUE",
+ *   cacheKeyParameters: [ // ListOfString
+ *     "STRING_VALUE",
+ *   ],
+ *   integrationResponses: { // MapOfIntegrationResponse
+ *     "<keys>": { // IntegrationResponse
+ *       statusCode: "STRING_VALUE",
+ *       selectionPattern: "STRING_VALUE",
+ *       responseParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       responseTemplates: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ *     },
+ *   },
+ *   tlsConfig: { // TlsConfig
+ *     insecureSkipVerification: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
@@ -66,6 +105,8 @@ export interface GetIntegrationCommandOutput extends Integration, __MetadataBear
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetIntegrationCommand extends $Command<

@@ -48,6 +48,21 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetsResponse
+ *   datasets: [ // Datasets
+ *     { // DatasetSummary
+ *       name: "STRING_VALUE",
+ *       datasetArn: "STRING_VALUE",
+ *       datasetType: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
@@ -62,6 +77,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListDatasetsCommand extends $Command<

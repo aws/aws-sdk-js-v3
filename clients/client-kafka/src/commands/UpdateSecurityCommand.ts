@@ -73,6 +73,12 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * };
  * const command = new UpdateSecurityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecurityResponse
+ *   ClusterArn: "STRING_VALUE",
+ *   ClusterOperationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateSecurityCommandInput - {@link UpdateSecurityCommandInput}
@@ -102,6 +108,8 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateSecurityCommand extends $Command<

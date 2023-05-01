@@ -47,6 +47,9 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  * };
  * const command = new AttachSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachSecurityProfileCommandInput - {@link AttachSecurityProfileCommandInput}
@@ -75,6 +78,8 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class AttachSecurityProfileCommand extends $Command<

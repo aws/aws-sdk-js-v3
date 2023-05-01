@@ -46,6 +46,9 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDeliveryChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeliveryChannelCommandInput - {@link DeleteDeliveryChannelCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  *  <p>You have specified a delivery channel that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteDeliveryChannelCommand extends $Command<

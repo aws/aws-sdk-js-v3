@@ -45,6 +45,28 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResult
+ *   projects: [ // Projects
+ *     { // Project
+ *       arn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       defaultJobTimeoutMinutes: Number("int"),
+ *       created: new Date("TIMESTAMP"),
+ *       vpcConfig: { // VpcConfig
+ *         securityGroupIds: [ // VpcSecurityGroupIds // required
+ *           "STRING_VALUE",
+ *         ],
+ *         subnetIds: [ // VpcSubnetIds // required
+ *           "STRING_VALUE",
+ *         ],
+ *         vpcId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -65,6 +87,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about a Device Farm project
  * ```javascript

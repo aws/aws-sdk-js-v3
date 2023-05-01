@@ -49,6 +49,28 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * };
  * const command = new DescribeProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectsResponse
+ *   ProjectDescriptions: [ // ProjectDescriptions
+ *     { // ProjectDescription
+ *       ProjectArn: "STRING_VALUE",
+ *       CreationTimestamp: new Date("TIMESTAMP"),
+ *       Status: "CREATING" || "CREATED" || "DELETING",
+ *       Datasets: [ // DatasetMetadataList
+ *         { // DatasetMetadata
+ *           CreationTimestamp: new Date("TIMESTAMP"),
+ *           DatasetType: "TRAIN" || "TEST",
+ *           DatasetArn: "STRING_VALUE",
+ *           Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
+ *           StatusMessage: "STRING_VALUE",
+ *           StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeProjectsCommandInput - {@link DescribeProjectsCommandInput}
@@ -77,6 +99,8 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DescribeProjectsCommand extends $Command<

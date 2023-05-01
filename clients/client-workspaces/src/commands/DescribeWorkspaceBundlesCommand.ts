@@ -49,6 +49,33 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * };
  * const command = new DescribeWorkspaceBundlesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspaceBundlesResult
+ *   Bundles: [ // BundleList
+ *     { // WorkspaceBundle
+ *       BundleId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Owner: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       ImageId: "STRING_VALUE",
+ *       RootStorage: { // RootStorage
+ *         Capacity: "STRING_VALUE",
+ *       },
+ *       UserStorage: { // UserStorage
+ *         Capacity: "STRING_VALUE",
+ *       },
+ *       ComputeType: { // ComputeType
+ *         Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *       },
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       State: "AVAILABLE" || "PENDING" || "ERROR",
+ *       BundleType: "REGULAR" || "STANDBY",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspaceBundlesCommandInput - {@link DescribeWorkspaceBundlesCommandInput}
@@ -60,6 +87,8 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspaceBundlesCommand extends $Command<

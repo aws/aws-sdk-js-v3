@@ -96,6 +96,18 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * };
  * const command = new ListCoverageStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoverageStatisticsResponse
+ *   countsByGroup: [ // CountsList
+ *     { // Counts
+ *       count: Number("long"),
+ *       groupKey: "STRING_VALUE",
+ *     },
+ *   ],
+ *   totalCounts: Number("long"), // required
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCoverageStatisticsCommandInput - {@link ListCoverageStatisticsCommandInput}
@@ -114,6 +126,8 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListCoverageStatisticsCommand extends $Command<

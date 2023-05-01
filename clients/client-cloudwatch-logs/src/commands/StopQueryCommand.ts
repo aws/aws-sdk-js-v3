@@ -45,6 +45,11 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * };
  * const command = new StopQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopQueryResponse
+ *   success: true || false,
+ * };
+ *
  * ```
  *
  * @param StopQueryCommandInput - {@link StopQueryCommandInput}
@@ -62,6 +67,8 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class StopQueryCommand extends $Command<

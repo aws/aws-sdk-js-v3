@@ -47,6 +47,23 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  * };
  * const command = new ListDashboardVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDashboardVersionsResponse
+ *   DashboardVersionSummaryList: [ // DashboardVersionSummaryList
+ *     { // DashboardVersionSummary
+ *       Arn: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       VersionNumber: Number("long"),
+ *       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ *       SourceEntityArn: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDashboardVersionsCommandInput - {@link ListDashboardVersionsCommandInput}
@@ -76,6 +93,8 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListDashboardVersionsCommand extends $Command<

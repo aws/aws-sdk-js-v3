@@ -59,6 +59,9 @@ export interface CreateContactListCommandOutput extends CreateContactListRespons
  * };
  * const command = new CreateContactListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateContactListCommandInput - {@link CreateContactListCommandInput}
@@ -79,6 +82,8 @@ export interface CreateContactListCommandOutput extends CreateContactListRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateContactListCommand extends $Command<

@@ -46,6 +46,17 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * };
  * const command = new ListBackupPlanTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupPlanTemplatesOutput
+ *   NextToken: "STRING_VALUE",
+ *   BackupPlanTemplatesList: [ // BackupPlanTemplatesList
+ *     { // BackupPlanTemplatesListMember
+ *       BackupPlanTemplateId: "STRING_VALUE",
+ *       BackupPlanTemplateName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBackupPlanTemplatesCommandInput - {@link ListBackupPlanTemplatesCommandInput}
@@ -67,6 +78,8 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupPlanTemplatesCommand extends $Command<

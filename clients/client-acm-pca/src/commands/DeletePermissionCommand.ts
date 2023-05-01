@@ -74,6 +74,9 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
@@ -96,6 +99,8 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class DeletePermissionCommand extends $Command<

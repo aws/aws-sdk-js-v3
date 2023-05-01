@@ -52,6 +52,9 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  * };
  * const command = new UpdateTagsForDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTagsForDomainCommandInput - {@link UpdateTagsForDomainCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class UpdateTagsForDomainCommand extends $Command<

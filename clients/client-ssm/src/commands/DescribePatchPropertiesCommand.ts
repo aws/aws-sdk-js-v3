@@ -111,6 +111,16 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * };
  * const command = new DescribePatchPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePatchPropertiesResult
+ *   Properties: [ // PatchPropertiesList
+ *     { // PatchPropertyEntry
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribePatchPropertiesCommandInput - {@link DescribePatchPropertiesCommandInput}
@@ -122,6 +132,8 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribePatchPropertiesCommand extends $Command<

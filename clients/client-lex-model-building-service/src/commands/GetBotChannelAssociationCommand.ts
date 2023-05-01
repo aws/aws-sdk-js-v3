@@ -57,6 +57,21 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * };
  * const command = new GetBotChannelAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBotChannelAssociationResponse
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   botAlias: "STRING_VALUE",
+ *   botName: "STRING_VALUE",
+ *   createdDate: new Date("TIMESTAMP"),
+ *   type: "STRING_VALUE",
+ *   botConfiguration: { // ChannelConfigurationMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   status: "STRING_VALUE",
+ *   failureReason: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetBotChannelAssociationCommandInput - {@link GetBotChannelAssociationCommandInput}
@@ -80,6 +95,8 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBotChannelAssociationCommand extends $Command<

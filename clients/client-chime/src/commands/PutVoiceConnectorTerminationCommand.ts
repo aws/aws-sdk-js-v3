@@ -68,6 +68,21 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * };
  * const command = new PutVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutVoiceConnectorTerminationResponse
+ *   Termination: { // Termination
+ *     CpsLimit: Number("int"),
+ *     DefaultPhoneNumber: "STRING_VALUE",
+ *     CallingRegions: [ // CallingRegionList
+ *       "STRING_VALUE",
+ *     ],
+ *     CidrAllowedList: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     Disabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutVoiceConnectorTerminationCommandInput - {@link PutVoiceConnectorTerminationCommandInput}
@@ -100,6 +115,8 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutVoiceConnectorTerminationCommand extends $Command<

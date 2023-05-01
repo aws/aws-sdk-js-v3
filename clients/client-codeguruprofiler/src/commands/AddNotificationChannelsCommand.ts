@@ -53,6 +53,21 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * };
  * const command = new AddNotificationChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddNotificationChannelsResponse
+ *   notificationConfiguration: { // NotificationConfiguration
+ *     channels: [ // Channels
+ *       { // Channel
+ *         id: "STRING_VALUE",
+ *         uri: "STRING_VALUE", // required
+ *         eventPublishers: [ // EventPublishers // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddNotificationChannelsCommandInput - {@link AddNotificationChannelsCommandInput}
@@ -85,6 +100,8 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class AddNotificationChannelsCommand extends $Command<

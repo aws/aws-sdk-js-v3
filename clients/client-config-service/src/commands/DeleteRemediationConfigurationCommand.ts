@@ -50,6 +50,9 @@ export interface DeleteRemediationConfigurationCommandOutput
  * };
  * const command = new DeleteRemediationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRemediationConfigurationCommandInput - {@link DeleteRemediationConfigurationCommandInput}
@@ -93,6 +96,8 @@ export interface DeleteRemediationConfigurationCommandOutput
  * @throws {@link RemediationInProgressException} (client fault)
  *  <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later. </p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteRemediationConfigurationCommand extends $Command<

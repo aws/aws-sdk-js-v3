@@ -57,6 +57,14 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * };
  * const command = new UpdateEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEmailTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEmailTemplateCommandInput - {@link UpdateEmailTemplateCommandInput}
@@ -86,6 +94,8 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateEmailTemplateCommand extends $Command<

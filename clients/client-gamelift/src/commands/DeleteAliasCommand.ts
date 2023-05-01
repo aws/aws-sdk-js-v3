@@ -52,6 +52,9 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteAliasCommand extends $Command<

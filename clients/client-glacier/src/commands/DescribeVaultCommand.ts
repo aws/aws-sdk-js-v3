@@ -62,6 +62,16 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * };
  * const command = new DescribeVaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVaultOutput
+ *   VaultARN: "STRING_VALUE",
+ *   VaultName: "STRING_VALUE",
+ *   CreationDate: "STRING_VALUE",
+ *   LastInventoryDate: "STRING_VALUE",
+ *   NumberOfArchives: Number("long"),
+ *   SizeInBytes: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DescribeVaultCommandInput - {@link DescribeVaultCommandInput}
@@ -83,6 +93,8 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To retrieve information about a vault
  * ```javascript

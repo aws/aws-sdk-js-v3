@@ -47,6 +47,11 @@ export interface DeleteNetworkInsightsAnalysisCommandOutput
  * };
  * const command = new DeleteNetworkInsightsAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNetworkInsightsAnalysisResult
+ *   NetworkInsightsAnalysisId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteNetworkInsightsAnalysisCommandInput - {@link DeleteNetworkInsightsAnalysisCommandInput}
@@ -55,6 +60,8 @@ export interface DeleteNetworkInsightsAnalysisCommandOutput
  * @see {@link DeleteNetworkInsightsAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteNetworkInsightsAnalysisCommand extends $Command<

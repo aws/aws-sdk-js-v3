@@ -241,6 +241,11 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * };
  * const command = new GetHLSStreamingSessionURLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHLSStreamingSessionURLOutput
+ *   HLSStreamingSessionURL: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetHLSStreamingSessionURLCommandInput - {@link GetHLSStreamingSessionURLCommandInput}
@@ -289,6 +294,8 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetHLSStreamingSessionURLCommand extends $Command<

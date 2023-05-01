@@ -45,6 +45,9 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * };
  * const command = new DeleteStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamProcessorCommandInput - {@link DeleteStreamProcessorCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DeleteStreamProcessorCommand extends $Command<

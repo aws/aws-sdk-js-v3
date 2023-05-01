@@ -54,6 +54,11 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * };
  * const command = new CreateStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStudioLifecycleConfigResponse
+ *   StudioLifecycleConfigArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateStudioLifecycleConfigCommandInput - {@link CreateStudioLifecycleConfigCommandInput}
@@ -65,6 +70,8 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateStudioLifecycleConfigCommand extends $Command<

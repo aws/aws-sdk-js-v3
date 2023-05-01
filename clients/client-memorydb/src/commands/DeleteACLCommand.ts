@@ -44,6 +44,30 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  * };
  * const command = new DeleteACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteACLResponse
+ *   ACL: { // ACL
+ *     Name: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     UserNames: [ // UserNameList
+ *       "STRING_VALUE",
+ *     ],
+ *     MinimumEngineVersion: "STRING_VALUE",
+ *     PendingChanges: { // ACLPendingChanges
+ *       UserNamesToRemove: [
+ *         "STRING_VALUE",
+ *       ],
+ *       UserNamesToAdd: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Clusters: [ // ACLClusterNameList
+ *       "STRING_VALUE",
+ *     ],
+ *     ARN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteACLCommandInput - {@link DeleteACLCommandInput}
@@ -61,6 +85,8 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DeleteACLCommand extends $Command<

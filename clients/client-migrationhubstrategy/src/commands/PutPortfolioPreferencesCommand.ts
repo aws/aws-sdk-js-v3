@@ -95,6 +95,9 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * };
  * const command = new PutPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPortfolioPreferencesCommandInput - {@link PutPortfolioPreferencesCommandInput}
@@ -120,6 +123,8 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class PutPortfolioPreferencesCommand extends $Command<

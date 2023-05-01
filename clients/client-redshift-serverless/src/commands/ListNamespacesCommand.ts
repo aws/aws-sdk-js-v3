@@ -53,6 +53,30 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNamespacesResponse
+ *   nextToken: "STRING_VALUE",
+ *   namespaces: [ // NamespaceList // required
+ *     { // Namespace
+ *       namespaceArn: "STRING_VALUE",
+ *       namespaceId: "STRING_VALUE",
+ *       namespaceName: "STRING_VALUE",
+ *       adminUsername: "STRING_VALUE",
+ *       dbName: "STRING_VALUE",
+ *       kmsKeyId: "STRING_VALUE",
+ *       defaultIamRoleArn: "STRING_VALUE",
+ *       iamRoles: [ // IamRoleArnList
+ *         "STRING_VALUE",
+ *       ],
+ *       logExports: [ // LogExportList
+ *         "STRING_VALUE",
+ *       ],
+ *       status: "STRING_VALUE",
+ *       creationDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
@@ -67,6 +91,8 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class ListNamespacesCommand extends $Command<

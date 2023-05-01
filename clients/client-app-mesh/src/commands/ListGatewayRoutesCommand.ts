@@ -49,6 +49,24 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  * };
  * const command = new ListGatewayRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewayRoutesOutput
+ *   gatewayRoutes: [ // GatewayRouteList // required
+ *     { // GatewayRouteRef
+ *       meshName: "STRING_VALUE", // required
+ *       gatewayRouteName: "STRING_VALUE", // required
+ *       virtualGatewayName: "STRING_VALUE", // required
+ *       meshOwner: "STRING_VALUE", // required
+ *       resourceOwner: "STRING_VALUE", // required
+ *       arn: "STRING_VALUE", // required
+ *       version: Number("long"), // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListGatewayRoutesCommandInput - {@link ListGatewayRoutesCommandInput}
@@ -78,6 +96,8 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListGatewayRoutesCommand extends $Command<

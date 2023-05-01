@@ -54,6 +54,12 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * };
  * const command = new CreateWorkloadShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkloadShareOutput
+ *   WorkloadId: "STRING_VALUE",
+ *   ShareId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateWorkloadShareCommandInput - {@link CreateWorkloadShareCommandInput}
@@ -83,6 +89,8 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateWorkloadShareCommand extends $Command<

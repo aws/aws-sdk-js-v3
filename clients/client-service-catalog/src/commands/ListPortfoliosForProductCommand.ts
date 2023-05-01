@@ -47,6 +47,21 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * };
  * const command = new ListPortfoliosForProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPortfoliosForProductOutput
+ *   PortfolioDetails: [ // PortfolioDetails
+ *     { // PortfolioDetail
+ *       Id: "STRING_VALUE",
+ *       ARN: "STRING_VALUE",
+ *       DisplayName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       ProviderName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPortfoliosForProductCommandInput - {@link ListPortfoliosForProductCommandInput}
@@ -61,6 +76,8 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPortfoliosForProductCommand extends $Command<

@@ -56,6 +56,17 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * };
  * const command = new RebuildWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RebuildWorkspacesResult
+ *   FailedRequests: [ // FailedRebuildWorkspaceRequests
+ *     { // FailedWorkspaceChangeRequest
+ *       WorkspaceId: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RebuildWorkspacesCommandInput - {@link RebuildWorkspacesCommandInput}
@@ -67,6 +78,8 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>This operation is not supported.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RebuildWorkspacesCommand extends $Command<

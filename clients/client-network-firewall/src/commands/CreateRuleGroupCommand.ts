@@ -190,6 +190,38 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleGroupResponse
+ *   UpdateToken: "STRING_VALUE", // required
+ *   RuleGroupResponse: { // RuleGroupResponse
+ *     RuleGroupArn: "STRING_VALUE", // required
+ *     RuleGroupName: "STRING_VALUE", // required
+ *     RuleGroupId: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Type: "STATELESS" || "STATEFUL",
+ *     Capacity: Number("int"),
+ *     RuleGroupStatus: "ACTIVE" || "DELETING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ConsumedCapacity: Number("int"),
+ *     NumberOfAssociations: Number("int"),
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       KeyId: "STRING_VALUE",
+ *       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *     },
+ *     SourceMetadata: { // SourceMetadata
+ *       SourceArn: "STRING_VALUE",
+ *       SourceUpdateToken: "STRING_VALUE",
+ *     },
+ *     SnsTopic: "STRING_VALUE",
+ *     LastModifiedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
@@ -228,6 +260,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class CreateRuleGroupCommand extends $Command<

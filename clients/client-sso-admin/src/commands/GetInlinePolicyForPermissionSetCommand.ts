@@ -50,6 +50,11 @@ export interface GetInlinePolicyForPermissionSetCommandOutput
  * };
  * const command = new GetInlinePolicyForPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInlinePolicyForPermissionSetResponse
+ *   InlinePolicy: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetInlinePolicyForPermissionSetCommandInput - {@link GetInlinePolicyForPermissionSetCommandInput}
@@ -75,6 +80,8 @@ export interface GetInlinePolicyForPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class GetInlinePolicyForPermissionSetCommand extends $Command<

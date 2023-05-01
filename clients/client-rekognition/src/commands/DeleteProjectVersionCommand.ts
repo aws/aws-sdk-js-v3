@@ -51,6 +51,11 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * };
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectVersionResponse
+ *   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * };
+ *
  * ```
  *
  * @param DeleteProjectVersionCommandInput - {@link DeleteProjectVersionCommandInput}
@@ -82,6 +87,8 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DeleteProjectVersionCommand extends $Command<

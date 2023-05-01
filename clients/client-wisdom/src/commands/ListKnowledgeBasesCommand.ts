@@ -45,6 +45,38 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * };
  * const command = new ListKnowledgeBasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKnowledgeBasesResponse
+ *   knowledgeBaseSummaries: [ // KnowledgeBaseList // required
+ *     { // KnowledgeBaseSummary
+ *       knowledgeBaseId: "STRING_VALUE", // required
+ *       knowledgeBaseArn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       knowledgeBaseType: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       sourceConfiguration: { // SourceConfiguration Union: only one key present
+ *         appIntegrations: { // AppIntegrationsConfiguration
+ *           appIntegrationArn: "STRING_VALUE", // required
+ *           objectFields: [ // ObjectFieldsList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       renderingConfiguration: { // RenderingConfiguration
+ *         templateUri: "STRING_VALUE",
+ *       },
+ *       serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ *         kmsKeyId: "STRING_VALUE",
+ *       },
+ *       description: "STRING_VALUE",
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListKnowledgeBasesCommandInput - {@link ListKnowledgeBasesCommandInput}
@@ -59,6 +91,8 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class ListKnowledgeBasesCommand extends $Command<

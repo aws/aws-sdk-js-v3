@@ -57,6 +57,103 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * };
  * const command = new DescribeRecoveryInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecoveryInstancesResponse
+ *   nextToken: "STRING_VALUE",
+ *   items: [ // DescribeRecoveryInstancesItems
+ *     { // RecoveryInstance
+ *       ec2InstanceID: "STRING_VALUE",
+ *       ec2InstanceState: "STRING_VALUE",
+ *       jobID: "STRING_VALUE",
+ *       recoveryInstanceID: "STRING_VALUE",
+ *       sourceServerID: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       tags: { // TagsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       failback: { // RecoveryInstanceFailback
+ *         failbackClientID: "STRING_VALUE",
+ *         failbackJobID: "STRING_VALUE",
+ *         failbackInitiationTime: "STRING_VALUE",
+ *         state: "STRING_VALUE",
+ *         agentLastSeenByServiceDateTime: "STRING_VALUE",
+ *         failbackClientLastSeenByServiceDateTime: "STRING_VALUE",
+ *         failbackToOriginalServer: true || false,
+ *         firstByteDateTime: "STRING_VALUE",
+ *         elapsedReplicationDuration: "STRING_VALUE",
+ *         failbackLaunchType: "STRING_VALUE",
+ *       },
+ *       dataReplicationInfo: { // RecoveryInstanceDataReplicationInfo
+ *         lagDuration: "STRING_VALUE",
+ *         etaDateTime: "STRING_VALUE",
+ *         replicatedDisks: [ // RecoveryInstanceDataReplicationInfoReplicatedDisks
+ *           { // RecoveryInstanceDataReplicationInfoReplicatedDisk
+ *             deviceName: "STRING_VALUE",
+ *             totalStorageBytes: Number("long"),
+ *             replicatedStorageBytes: Number("long"),
+ *             rescannedStorageBytes: Number("long"),
+ *             backloggedStorageBytes: Number("long"),
+ *           },
+ *         ],
+ *         dataReplicationState: "STRING_VALUE",
+ *         dataReplicationInitiation: { // RecoveryInstanceDataReplicationInitiation
+ *           startDateTime: "STRING_VALUE",
+ *           steps: [ // RecoveryInstanceDataReplicationInitiationSteps
+ *             { // RecoveryInstanceDataReplicationInitiationStep
+ *               name: "STRING_VALUE",
+ *               status: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         dataReplicationError: { // RecoveryInstanceDataReplicationError
+ *           error: "STRING_VALUE",
+ *           rawError: "STRING_VALUE",
+ *         },
+ *         stagingAvailabilityZone: "STRING_VALUE",
+ *       },
+ *       recoveryInstanceProperties: { // RecoveryInstanceProperties
+ *         lastUpdatedDateTime: "STRING_VALUE",
+ *         identificationHints: { // IdentificationHints
+ *           fqdn: "STRING_VALUE",
+ *           hostname: "STRING_VALUE",
+ *           vmWareUuid: "STRING_VALUE",
+ *           awsInstanceID: "STRING_VALUE",
+ *         },
+ *         networkInterfaces: [ // NetworkInterfaces
+ *           { // NetworkInterface
+ *             macAddress: "STRING_VALUE",
+ *             ips: [ // IPsList
+ *               "STRING_VALUE",
+ *             ],
+ *             isPrimary: true || false,
+ *           },
+ *         ],
+ *         disks: [ // RecoveryInstanceDisks
+ *           { // RecoveryInstanceDisk
+ *             internalDeviceName: "STRING_VALUE",
+ *             bytes: Number("long"),
+ *             ebsVolumeID: "STRING_VALUE",
+ *           },
+ *         ],
+ *         cpus: [ // Cpus
+ *           { // CPU
+ *             cores: Number("long"),
+ *             modelName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ramBytes: Number("long"),
+ *         os: { // OS
+ *           fullString: "STRING_VALUE",
+ *         },
+ *       },
+ *       pointInTimeSnapshotDateTime: "STRING_VALUE",
+ *       isDrill: true || false,
+ *       originEnvironment: "STRING_VALUE",
+ *       originAvailabilityZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeRecoveryInstancesCommandInput - {@link DescribeRecoveryInstancesCommandInput}
@@ -77,6 +174,8 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DescribeRecoveryInstancesCommand extends $Command<

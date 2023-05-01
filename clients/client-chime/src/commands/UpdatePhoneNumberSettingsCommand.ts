@@ -49,6 +49,9 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * };
  * const command = new UpdatePhoneNumberSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePhoneNumberSettingsCommandInput - {@link UpdatePhoneNumberSettingsCommandInput}
@@ -75,6 +78,8 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdatePhoneNumberSettingsCommand extends $Command<

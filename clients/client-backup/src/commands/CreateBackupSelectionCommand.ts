@@ -89,6 +89,13 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * };
  * const command = new CreateBackupSelectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackupSelectionOutput
+ *   SelectionId: "STRING_VALUE",
+ *   BackupPlanId: "STRING_VALUE",
+ *   CreationDate: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateBackupSelectionCommandInput - {@link CreateBackupSelectionCommandInput}
@@ -114,6 +121,8 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateBackupSelectionCommand extends $Command<

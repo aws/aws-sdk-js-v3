@@ -50,6 +50,12 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelQueryResponse
+ *   QueryId: "STRING_VALUE", // required
+ *   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT", // required
+ * };
+ *
  * ```
  *
  * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
@@ -94,6 +100,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class CancelQueryCommand extends $Command<

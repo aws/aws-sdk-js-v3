@@ -56,6 +56,11 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * };
  * const command = new UpdatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePublicDnsNamespaceResponse
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdatePublicDnsNamespaceCommandInput - {@link UpdatePublicDnsNamespaceCommandInput}
@@ -79,6 +84,8 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  *  <p>The specified resource can't be deleted because it contains other resources. For example,
  *    you can't delete a service that contains any instances.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  */
 export class UpdatePublicDnsNamespaceCommand extends $Command<

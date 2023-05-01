@@ -45,6 +45,14 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  * };
  * const command = new GetAuthPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAuthPolicyResponse
+ *   policy: "STRING_VALUE",
+ *   state: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   lastUpdatedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetAuthPolicyCommandInput - {@link GetAuthPolicyCommandInput}
@@ -69,6 +77,8 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetAuthPolicyCommand extends $Command<

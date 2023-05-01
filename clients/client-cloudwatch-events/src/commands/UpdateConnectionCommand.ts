@@ -110,6 +110,15 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectionResponse
+ *   ConnectionArn: "STRING_VALUE",
+ *   ConnectionState: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   LastAuthorizedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
@@ -131,6 +140,8 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class UpdateConnectionCommand extends $Command<

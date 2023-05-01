@@ -54,6 +54,11 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * };
  * const command = new ModifyCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyCapacityReservationResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifyCapacityReservationCommandInput - {@link ModifyCapacityReservationCommandInput}
@@ -62,6 +67,8 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * @see {@link ModifyCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyCapacityReservationCommand extends $Command<

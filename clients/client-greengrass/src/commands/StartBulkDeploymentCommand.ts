@@ -49,6 +49,12 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * };
  * const command = new StartBulkDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBulkDeploymentResponse
+ *   BulkDeploymentArn: "STRING_VALUE",
+ *   BulkDeploymentId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartBulkDeploymentCommandInput - {@link StartBulkDeploymentCommandInput}
@@ -60,6 +66,8 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class StartBulkDeploymentCommand extends $Command<

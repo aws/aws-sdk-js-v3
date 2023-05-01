@@ -51,6 +51,20 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * };
  * const command = new CreateInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInstanceProfileResult
+ *   instanceProfile: { // InstanceProfile
+ *     arn: "STRING_VALUE",
+ *     packageCleanup: true || false,
+ *     excludeAppPackagesFromCleanup: [ // PackageIds
+ *       "STRING_VALUE",
+ *     ],
+ *     rebootAfterUse: true || false,
+ *     name: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateInstanceProfileCommandInput - {@link CreateInstanceProfileCommandInput}
@@ -71,6 +85,8 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class CreateInstanceProfileCommand extends $Command<

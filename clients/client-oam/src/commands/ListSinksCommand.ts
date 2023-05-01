@@ -45,6 +45,18 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * };
  * const command = new ListSinksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSinksOutput
+ *   Items: [ // ListSinksItems // required
+ *     { // ListSinksItem
+ *       Arn: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSinksCommandInput - {@link ListSinksCommandInput}
@@ -62,6 +74,8 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksCommandOutput, OAMClientResolvedConfig> {

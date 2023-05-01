@@ -44,6 +44,9 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeleteArchiveCommand extends $Command<

@@ -44,6 +44,52 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectOutput
+ *   ProjectArn: "STRING_VALUE", // required
+ *   ProjectName: "STRING_VALUE", // required
+ *   ProjectId: "STRING_VALUE", // required
+ *   ProjectDescription: "STRING_VALUE",
+ *   ServiceCatalogProvisioningDetails: { // ServiceCatalogProvisioningDetails
+ *     ProductId: "STRING_VALUE", // required
+ *     ProvisioningArtifactId: "STRING_VALUE",
+ *     PathId: "STRING_VALUE",
+ *     ProvisioningParameters: [ // ProvisioningParameters
+ *       { // ProvisioningParameter
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   ServiceCatalogProvisionedProductDetails: { // ServiceCatalogProvisionedProductDetails
+ *     ProvisionedProductId: "STRING_VALUE",
+ *     ProvisionedProductStatusMessage: "STRING_VALUE",
+ *   },
+ *   ProjectStatus: "Pending" || "CreateInProgress" || "CreateCompleted" || "CreateFailed" || "DeleteInProgress" || "DeleteFailed" || "DeleteCompleted" || "UpdateInProgress" || "UpdateCompleted" || "UpdateFailed", // required
+ *   CreatedBy: { // UserContext
+ *     UserProfileArn: "STRING_VALUE",
+ *     UserProfileName: "STRING_VALUE",
+ *     DomainId: "STRING_VALUE",
+ *     IamIdentity: { // IamIdentity
+ *       Arn: "STRING_VALUE",
+ *       PrincipalId: "STRING_VALUE",
+ *       SourceIdentity: "STRING_VALUE",
+ *     },
+ *   },
+ *   CreationTime: new Date("TIMESTAMP"), // required
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   LastModifiedBy: {
+ *     UserProfileArn: "STRING_VALUE",
+ *     UserProfileName: "STRING_VALUE",
+ *     DomainId: "STRING_VALUE",
+ *     IamIdentity: {
+ *       Arn: "STRING_VALUE",
+ *       PrincipalId: "STRING_VALUE",
+ *       SourceIdentity: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
@@ -52,6 +98,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<

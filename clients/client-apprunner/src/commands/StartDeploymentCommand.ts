@@ -49,6 +49,11 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDeploymentResponse
+ *   OperationId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
@@ -66,6 +71,8 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class StartDeploymentCommand extends $Command<

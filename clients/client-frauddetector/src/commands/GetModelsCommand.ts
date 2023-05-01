@@ -53,6 +53,22 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * };
  * const command = new GetModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetModelsResult
+ *   nextToken: "STRING_VALUE",
+ *   models: [ // modelList
+ *     { // Model
+ *       modelId: "STRING_VALUE",
+ *       modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ *       description: "STRING_VALUE",
+ *       eventTypeName: "STRING_VALUE",
+ *       createdTime: "STRING_VALUE",
+ *       lastUpdatedTime: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetModelsCommandInput - {@link GetModelsCommandInput}
@@ -76,6 +92,8 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetModelsCommand extends $Command<

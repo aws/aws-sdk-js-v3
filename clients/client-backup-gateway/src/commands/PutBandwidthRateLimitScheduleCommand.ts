@@ -64,6 +64,11 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
  * };
  * const command = new PutBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutBandwidthRateLimitScheduleOutput
+ *   GatewayArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutBandwidthRateLimitScheduleCommandInput - {@link PutBandwidthRateLimitScheduleCommandInput}
@@ -85,6 +90,8 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class PutBandwidthRateLimitScheduleCommand extends $Command<

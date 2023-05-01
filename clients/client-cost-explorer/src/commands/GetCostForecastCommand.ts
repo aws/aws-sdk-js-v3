@@ -118,6 +118,25 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  * };
  * const command = new GetCostForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCostForecastResponse
+ *   Total: { // MetricValue
+ *     Amount: "STRING_VALUE",
+ *     Unit: "STRING_VALUE",
+ *   },
+ *   ForecastResultsByTime: [ // ForecastResultsByTime
+ *     { // ForecastResult
+ *       TimePeriod: { // DateInterval
+ *         Start: "STRING_VALUE", // required
+ *         End: "STRING_VALUE", // required
+ *       },
+ *       MeanValue: "STRING_VALUE",
+ *       PredictionIntervalLowerBound: "STRING_VALUE",
+ *       PredictionIntervalUpperBound: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCostForecastCommandInput - {@link GetCostForecastCommandInput}
@@ -132,6 +151,8 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetCostForecastCommand extends $Command<

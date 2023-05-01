@@ -45,6 +45,20 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * };
  * const command = new ListSimulationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSimulationsOutput
+ *   Simulations: [ // SimulationList
+ *     { // SimulationMetadata
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       Status: "STRING_VALUE",
+ *       TargetStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSimulationsCommandInput - {@link ListSimulationsCommandInput}
@@ -62,6 +76,8 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class ListSimulationsCommand extends $Command<

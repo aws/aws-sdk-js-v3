@@ -52,6 +52,37 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * };
  * const command = new DescribeInstancePatchStatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstancePatchStatesResult
+ *   InstancePatchStates: [ // InstancePatchStateList
+ *     { // InstancePatchState
+ *       InstanceId: "STRING_VALUE", // required
+ *       PatchGroup: "STRING_VALUE", // required
+ *       BaselineId: "STRING_VALUE", // required
+ *       SnapshotId: "STRING_VALUE",
+ *       InstallOverrideList: "STRING_VALUE",
+ *       OwnerInformation: "STRING_VALUE",
+ *       InstalledCount: Number("int"),
+ *       InstalledOtherCount: Number("int"),
+ *       InstalledPendingRebootCount: Number("int"),
+ *       InstalledRejectedCount: Number("int"),
+ *       MissingCount: Number("int"),
+ *       FailedCount: Number("int"),
+ *       UnreportedNotApplicableCount: Number("int"),
+ *       NotApplicableCount: Number("int"),
+ *       OperationStartTime: new Date("TIMESTAMP"), // required
+ *       OperationEndTime: new Date("TIMESTAMP"), // required
+ *       Operation: "Scan" || "Install", // required
+ *       LastNoRebootInstallOperationTime: new Date("TIMESTAMP"),
+ *       RebootOption: "RebootIfNeeded" || "NoReboot",
+ *       CriticalNonCompliantCount: Number("int"),
+ *       SecurityNonCompliantCount: Number("int"),
+ *       OtherNonCompliantCount: Number("int"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeInstancePatchStatesCommandInput - {@link DescribeInstancePatchStatesCommandInput}
@@ -66,6 +97,8 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeInstancePatchStatesCommand extends $Command<

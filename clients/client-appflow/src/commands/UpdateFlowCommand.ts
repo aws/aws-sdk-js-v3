@@ -309,6 +309,11 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * };
  * const command = new UpdateFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFlowResponse
+ *   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ * };
+ *
  * ```
  *
  * @param UpdateFlowCommandInput - {@link UpdateFlowCommandInput}
@@ -342,6 +347,8 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class UpdateFlowCommand extends $Command<

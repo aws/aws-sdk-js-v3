@@ -47,6 +47,18 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * };
  * const command = new ListImagePackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagePackagesResponse
+ *   requestId: "STRING_VALUE",
+ *   imagePackageList: [ // ImagePackageList
+ *     { // ImagePackage
+ *       packageName: "STRING_VALUE",
+ *       packageVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImagePackagesCommandInput - {@link ListImagePackagesCommandInput}
@@ -82,6 +94,8 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImagePackagesCommand extends $Command<

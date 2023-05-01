@@ -49,6 +49,11 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  * };
  * const command = new ExportBundleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportBundleResult
+ *   downloadUrl: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExportBundleCommandInput - {@link ExportBundleCommandInput}
@@ -91,6 +96,8 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class ExportBundleCommand extends $Command<

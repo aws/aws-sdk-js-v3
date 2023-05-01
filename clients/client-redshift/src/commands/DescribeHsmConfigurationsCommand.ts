@@ -62,6 +62,25 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * };
  * const command = new DescribeHsmConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HsmConfigurationMessage
+ *   Marker: "STRING_VALUE",
+ *   HsmConfigurations: [ // HsmConfigurationList
+ *     { // HsmConfiguration
+ *       HsmConfigurationIdentifier: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       HsmIpAddress: "STRING_VALUE",
+ *       HsmPartitionName: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeHsmConfigurationsCommandInput - {@link DescribeHsmConfigurationsCommandInput}
@@ -76,6 +95,8 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeHsmConfigurationsCommand extends $Command<

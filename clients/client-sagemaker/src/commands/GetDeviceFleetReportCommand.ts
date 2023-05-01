@@ -44,6 +44,40 @@ export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportR
  * };
  * const command = new GetDeviceFleetReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceFleetReportResponse
+ *   DeviceFleetArn: "STRING_VALUE", // required
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   OutputConfig: { // EdgeOutputConfig
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     PresetDeploymentType: "GreengrassV2Component",
+ *     PresetDeploymentConfig: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ReportGenerated: new Date("TIMESTAMP"),
+ *   DeviceStats: { // DeviceStats
+ *     ConnectedDeviceCount: Number("long"), // required
+ *     RegisteredDeviceCount: Number("long"), // required
+ *   },
+ *   AgentVersions: [ // AgentVersions
+ *     { // AgentVersion
+ *       Version: "STRING_VALUE", // required
+ *       AgentCount: Number("long"), // required
+ *     },
+ *   ],
+ *   ModelStats: [ // EdgeModelStats
+ *     { // EdgeModelStat
+ *       ModelName: "STRING_VALUE", // required
+ *       ModelVersion: "STRING_VALUE", // required
+ *       OfflineDeviceCount: Number("long"), // required
+ *       ConnectedDeviceCount: Number("long"), // required
+ *       ActiveDeviceCount: Number("long"), // required
+ *       SamplingDeviceCount: Number("long"), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDeviceFleetReportCommandInput - {@link GetDeviceFleetReportCommandInput}
@@ -52,6 +86,8 @@ export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportR
  * @see {@link GetDeviceFleetReportCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetDeviceFleetReportCommand extends $Command<

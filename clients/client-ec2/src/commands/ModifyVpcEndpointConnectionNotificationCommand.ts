@@ -59,6 +59,11 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  * };
  * const command = new ModifyVpcEndpointConnectionNotificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVpcEndpointConnectionNotificationResult
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifyVpcEndpointConnectionNotificationCommandInput - {@link ModifyVpcEndpointConnectionNotificationCommandInput}
@@ -67,6 +72,8 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  * @see {@link ModifyVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<

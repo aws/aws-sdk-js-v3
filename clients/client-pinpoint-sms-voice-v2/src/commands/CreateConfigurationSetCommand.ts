@@ -59,6 +59,19 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConfigurationSetResult
+ *   ConfigurationSetArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   CreatedTimestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
@@ -91,6 +104,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class CreateConfigurationSetCommand extends $Command<

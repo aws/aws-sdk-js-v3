@@ -73,6 +73,19 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  * };
  * const command = new CreateLanguageModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLanguageModelResponse
+ *   LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP",
+ *   BaseModelName: "NarrowBand" || "WideBand",
+ *   ModelName: "STRING_VALUE",
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     TuningDataS3Uri: "STRING_VALUE",
+ *     DataAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   ModelStatus: "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * };
+ *
  * ```
  *
  * @param CreateLanguageModelCommandInput - {@link CreateLanguageModelCommandInput}
@@ -99,6 +112,8 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class CreateLanguageModelCommand extends $Command<

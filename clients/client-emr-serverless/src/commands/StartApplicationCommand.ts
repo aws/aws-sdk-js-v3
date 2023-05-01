@@ -44,6 +44,9 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
@@ -65,6 +68,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class StartApplicationCommand extends $Command<

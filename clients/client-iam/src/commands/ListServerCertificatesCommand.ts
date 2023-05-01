@@ -57,6 +57,22 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * };
  * const command = new ListServerCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServerCertificatesResponse
+ *   ServerCertificateMetadataList: [ // serverCertificateMetadataListType // required
+ *     { // ServerCertificateMetadata
+ *       Path: "STRING_VALUE", // required
+ *       ServerCertificateName: "STRING_VALUE", // required
+ *       ServerCertificateId: "STRING_VALUE", // required
+ *       Arn: "STRING_VALUE", // required
+ *       UploadDate: new Date("TIMESTAMP"),
+ *       Expiration: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListServerCertificatesCommandInput - {@link ListServerCertificatesCommandInput}
@@ -69,6 +85,8 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListServerCertificatesCommand extends $Command<

@@ -105,6 +105,11 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * };
  * const command = new StartAutomationExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAutomationExecutionResult
+ *   AutomationExecutionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartAutomationExecutionCommandInput - {@link StartAutomationExecutionCommandInput}
@@ -139,6 +144,8 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *  <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
  *    not have permission to perform the operation.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StartAutomationExecutionCommand extends $Command<

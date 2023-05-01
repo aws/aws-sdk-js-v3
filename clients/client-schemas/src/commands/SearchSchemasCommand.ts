@@ -47,6 +47,25 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * };
  * const command = new SearchSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchSchemasResponse
+ *   NextToken: "STRING_VALUE",
+ *   Schemas: [ // __listOfSearchSchemaSummary
+ *     { // SearchSchemaSummary
+ *       RegistryName: "STRING_VALUE",
+ *       SchemaArn: "STRING_VALUE",
+ *       SchemaName: "STRING_VALUE",
+ *       SchemaVersions: [ // __listOfSearchSchemaVersionSummary
+ *         { // SearchSchemaVersionSummary
+ *           CreatedDate: new Date("TIMESTAMP"),
+ *           SchemaVersion: "STRING_VALUE",
+ *           Type: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchSchemasCommandInput - {@link SearchSchemasCommandInput}
@@ -65,6 +84,8 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class SearchSchemasCommand extends $Command<

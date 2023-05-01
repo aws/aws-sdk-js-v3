@@ -51,6 +51,20 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * };
  * const command = new ListDatasetLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetLabelsResponse
+ *   DatasetLabelDescriptions: [ // DatasetLabelDescriptions
+ *     { // DatasetLabelDescription
+ *       LabelName: "STRING_VALUE",
+ *       LabelStats: { // DatasetLabelStats
+ *         EntryCount: Number("int"),
+ *         BoundingBoxCount: Number("int"),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatasetLabelsCommandInput - {@link ListDatasetLabelsCommandInput}
@@ -90,6 +104,8 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class ListDatasetLabelsCommand extends $Command<

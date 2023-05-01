@@ -98,6 +98,73 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * };
  * const command = new CreateCanaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCanaryResponse
+ *   Canary: { // Canary
+ *     Id: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Code: { // CanaryCodeOutput
+ *       SourceLocationArn: "STRING_VALUE",
+ *       Handler: "STRING_VALUE",
+ *     },
+ *     ExecutionRoleArn: "STRING_VALUE",
+ *     Schedule: { // CanaryScheduleOutput
+ *       Expression: "STRING_VALUE",
+ *       DurationInSeconds: Number("long"),
+ *     },
+ *     RunConfig: { // CanaryRunConfigOutput
+ *       TimeoutInSeconds: Number("int"),
+ *       MemoryInMB: Number("int"),
+ *       ActiveTracing: true || false,
+ *     },
+ *     SuccessRetentionPeriodInDays: Number("int"),
+ *     FailureRetentionPeriodInDays: Number("int"),
+ *     Status: { // CanaryStatus
+ *       State: "STRING_VALUE",
+ *       StateReason: "STRING_VALUE",
+ *       StateReasonCode: "STRING_VALUE",
+ *     },
+ *     Timeline: { // CanaryTimeline
+ *       Created: new Date("TIMESTAMP"),
+ *       LastModified: new Date("TIMESTAMP"),
+ *       LastStarted: new Date("TIMESTAMP"),
+ *       LastStopped: new Date("TIMESTAMP"),
+ *     },
+ *     ArtifactS3Location: "STRING_VALUE",
+ *     EngineArn: "STRING_VALUE",
+ *     RuntimeVersion: "STRING_VALUE",
+ *     VpcConfig: { // VpcConfigOutput
+ *       VpcId: "STRING_VALUE",
+ *       SubnetIds: [ // SubnetIds
+ *         "STRING_VALUE",
+ *       ],
+ *       SecurityGroupIds: [ // SecurityGroupIds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     VisualReference: { // VisualReferenceOutput
+ *       BaseScreenshots: [ // BaseScreenshots
+ *         { // BaseScreenshot
+ *           ScreenshotName: "STRING_VALUE", // required
+ *           IgnoreCoordinates: [ // BaseScreenshotIgnoreCoordinates
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       BaseCanaryRunId: "STRING_VALUE",
+ *     },
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     ArtifactConfig: { // ArtifactConfigOutput
+ *       S3Encryption: { // S3EncryptionConfig
+ *         EncryptionMode: "STRING_VALUE",
+ *         KmsKeyArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCanaryCommandInput - {@link CreateCanaryCommandInput}
@@ -115,6 +182,8 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class CreateCanaryCommand extends $Command<

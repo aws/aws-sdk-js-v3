@@ -49,6 +49,23 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnvironmentsResponse
+ *   environments: [ // EnvironmentSummaryList // required
+ *     { // EnvironmentSummary
+ *       name: "STRING_VALUE", // required
+ *       environmentArn: "STRING_VALUE", // required
+ *       environmentId: "STRING_VALUE", // required
+ *       instanceType: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       engineType: "STRING_VALUE", // required
+ *       engineVersion: "STRING_VALUE", // required
+ *       creationTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
@@ -69,6 +86,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListEnvironmentsCommand extends $Command<

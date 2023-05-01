@@ -60,6 +60,12 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTemplateResponse
+ *   templateId: "STRING_VALUE", // required
+ *   templateArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateTemplateCommandInput - {@link CreateTemplateCommandInput}
@@ -94,6 +100,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class CreateTemplateCommand extends $Command<

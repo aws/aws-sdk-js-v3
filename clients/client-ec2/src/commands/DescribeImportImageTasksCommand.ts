@@ -57,6 +57,57 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  * };
  * const command = new DescribeImportImageTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImportImageTasksResult
+ *   ImportImageTasks: [ // ImportImageTaskList
+ *     { // ImportImageTask
+ *       Architecture: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Encrypted: true || false,
+ *       Hypervisor: "STRING_VALUE",
+ *       ImageId: "STRING_VALUE",
+ *       ImportTaskId: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *       LicenseType: "STRING_VALUE",
+ *       Platform: "STRING_VALUE",
+ *       Progress: "STRING_VALUE",
+ *       SnapshotDetails: [ // SnapshotDetailList
+ *         { // SnapshotDetail
+ *           Description: "STRING_VALUE",
+ *           DeviceName: "STRING_VALUE",
+ *           DiskImageSize: Number("double"),
+ *           Format: "STRING_VALUE",
+ *           Progress: "STRING_VALUE",
+ *           SnapshotId: "STRING_VALUE",
+ *           Status: "STRING_VALUE",
+ *           StatusMessage: "STRING_VALUE",
+ *           Url: "STRING_VALUE",
+ *           UserBucket: { // UserBucketDetails
+ *             S3Bucket: "STRING_VALUE",
+ *             S3Key: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       Status: "STRING_VALUE",
+ *       StatusMessage: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       LicenseSpecifications: [ // ImportImageLicenseSpecificationListResponse
+ *         { // ImportImageLicenseConfigurationResponse
+ *           LicenseConfigurationArn: "STRING_VALUE",
+ *         },
+ *       ],
+ *       UsageOperation: "STRING_VALUE",
+ *       BootMode: "legacy-bios" || "uefi" || "uefi-preferred",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeImportImageTasksCommandInput - {@link DescribeImportImageTasksCommandInput}
@@ -65,6 +116,8 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  * @see {@link DescribeImportImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeImportImageTasksCommand extends $Command<

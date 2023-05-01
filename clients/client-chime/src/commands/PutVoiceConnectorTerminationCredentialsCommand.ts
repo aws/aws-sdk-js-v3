@@ -57,6 +57,9 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * };
  * const command = new PutVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutVoiceConnectorTerminationCredentialsCommandInput - {@link PutVoiceConnectorTerminationCredentialsCommandInput}
@@ -86,6 +89,8 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<

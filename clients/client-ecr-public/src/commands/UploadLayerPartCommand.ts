@@ -55,6 +55,14 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * };
  * const command = new UploadLayerPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadLayerPartResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   uploadId: "STRING_VALUE",
+ *   lastByteReceived: Number("long"),
+ * };
+ *
  * ```
  *
  * @param UploadLayerPartCommandInput - {@link UploadLayerPartCommandInput}
@@ -93,6 +101,8 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  *  <p>The upload can't be found, or the specified upload ID isn't valid for this
  *          repository.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class UploadLayerPartCommand extends $Command<

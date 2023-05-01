@@ -50,6 +50,19 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * };
  * const command = new ListVolumeRecoveryPointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVolumeRecoveryPointsOutput
+ *   GatewayARN: "STRING_VALUE",
+ *   VolumeRecoveryPointInfos: [ // VolumeRecoveryPointInfos
+ *     { // VolumeRecoveryPointInfo
+ *       VolumeARN: "STRING_VALUE",
+ *       VolumeSizeInBytes: Number("long"),
+ *       VolumeUsageInBytes: Number("long"),
+ *       VolumeRecoveryPointTime: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVolumeRecoveryPointsCommandInput - {@link ListVolumeRecoveryPointsCommandInput}
@@ -66,6 +79,8 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To list recovery points for a gateway
  * ```javascript

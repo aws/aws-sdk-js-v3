@@ -45,6 +45,14 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * };
  * const command = new RestoreAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreAnalysisResponse
+ *   Status: Number("int"),
+ *   Arn: "STRING_VALUE",
+ *   AnalysisId: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RestoreAnalysisCommandInput - {@link RestoreAnalysisCommandInput}
@@ -74,6 +82,8 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class RestoreAnalysisCommand extends $Command<

@@ -55,6 +55,11 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * };
  * const command = new SubscribeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubscribeResult
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SubscribeCommandInput - {@link SubscribeCommandInput}
@@ -72,6 +77,8 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class SubscribeCommand extends $Command<

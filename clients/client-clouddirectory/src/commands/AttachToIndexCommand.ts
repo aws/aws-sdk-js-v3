@@ -50,6 +50,11 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * };
  * const command = new AttachToIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachToIndexResponse
+ *   AttachedObjectIdentifier: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AttachToIndexCommandInput - {@link AttachToIndexCommandInput}
@@ -97,6 +102,8 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AttachToIndexCommand extends $Command<

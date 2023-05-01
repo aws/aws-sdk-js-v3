@@ -168,6 +168,169 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsResponse
+ *   nextToken: "STRING_VALUE",
+ *   findings: [ // FindingList
+ *     { // Finding
+ *       findingArn: "STRING_VALUE", // required
+ *       awsAccountId: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       description: "STRING_VALUE", // required
+ *       title: "STRING_VALUE",
+ *       remediation: { // Remediation
+ *         recommendation: { // Recommendation
+ *           text: "STRING_VALUE",
+ *           Url: "STRING_VALUE",
+ *         },
+ *       },
+ *       severity: "STRING_VALUE", // required
+ *       firstObservedAt: new Date("TIMESTAMP"), // required
+ *       lastObservedAt: new Date("TIMESTAMP"), // required
+ *       updatedAt: new Date("TIMESTAMP"),
+ *       status: "STRING_VALUE", // required
+ *       resources: [ // ResourceList // required
+ *         { // Resource
+ *           type: "STRING_VALUE", // required
+ *           id: "STRING_VALUE", // required
+ *           partition: "STRING_VALUE",
+ *           region: "STRING_VALUE",
+ *           tags: { // TagMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           details: { // ResourceDetails
+ *             awsEc2Instance: { // AwsEc2InstanceDetails
+ *               type: "STRING_VALUE",
+ *               imageId: "STRING_VALUE",
+ *               ipV4Addresses: [ // IpV4AddressList
+ *                 "STRING_VALUE",
+ *               ],
+ *               ipV6Addresses: [ // IpV6AddressList
+ *                 "STRING_VALUE",
+ *               ],
+ *               keyName: "STRING_VALUE",
+ *               iamInstanceProfileArn: "STRING_VALUE",
+ *               vpcId: "STRING_VALUE",
+ *               subnetId: "STRING_VALUE",
+ *               launchedAt: new Date("TIMESTAMP"),
+ *               platform: "STRING_VALUE",
+ *             },
+ *             awsEcrContainerImage: { // AwsEcrContainerImageDetails
+ *               repositoryName: "STRING_VALUE", // required
+ *               imageTags: [ // ImageTagList
+ *                 "STRING_VALUE",
+ *               ],
+ *               pushedAt: new Date("TIMESTAMP"),
+ *               author: "STRING_VALUE",
+ *               architecture: "STRING_VALUE",
+ *               imageHash: "STRING_VALUE", // required
+ *               registry: "STRING_VALUE", // required
+ *               platform: "STRING_VALUE",
+ *             },
+ *             awsLambdaFunction: { // AwsLambdaFunctionDetails
+ *               functionName: "STRING_VALUE", // required
+ *               runtime: "STRING_VALUE", // required
+ *               codeSha256: "STRING_VALUE", // required
+ *               version: "STRING_VALUE", // required
+ *               executionRoleArn: "STRING_VALUE", // required
+ *               layers: [ // LayerList
+ *                 "STRING_VALUE",
+ *               ],
+ *               vpcConfig: { // LambdaVpcConfig
+ *                 subnetIds: [ // SubnetIdList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 securityGroupIds: [ // SecurityGroupIdList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 vpcId: "STRING_VALUE",
+ *               },
+ *               packageType: "STRING_VALUE",
+ *               architectures: [ // ArchitectureList
+ *                 "STRING_VALUE",
+ *               ],
+ *               lastModifiedAt: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       inspectorScore: Number("double"),
+ *       inspectorScoreDetails: { // InspectorScoreDetails
+ *         adjustedCvss: { // CvssScoreDetails
+ *           scoreSource: "STRING_VALUE", // required
+ *           cvssSource: "STRING_VALUE",
+ *           version: "STRING_VALUE", // required
+ *           score: Number("double"), // required
+ *           scoringVector: "STRING_VALUE", // required
+ *           adjustments: [ // CvssScoreAdjustmentList
+ *             { // CvssScoreAdjustment
+ *               metric: "STRING_VALUE", // required
+ *               reason: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       networkReachabilityDetails: { // NetworkReachabilityDetails
+ *         openPortRange: { // PortRange
+ *           begin: Number("int"), // required
+ *           end: Number("int"), // required
+ *         },
+ *         protocol: "STRING_VALUE", // required
+ *         networkPath: { // NetworkPath
+ *           steps: [ // StepList
+ *             { // Step
+ *               componentId: "STRING_VALUE", // required
+ *               componentType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       packageVulnerabilityDetails: { // PackageVulnerabilityDetails
+ *         vulnerabilityId: "STRING_VALUE", // required
+ *         vulnerablePackages: [ // VulnerablePackageList
+ *           { // VulnerablePackage
+ *             name: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *             sourceLayerHash: "STRING_VALUE",
+ *             epoch: Number("int"),
+ *             release: "STRING_VALUE",
+ *             arch: "STRING_VALUE",
+ *             packageManager: "STRING_VALUE",
+ *             filePath: "STRING_VALUE",
+ *             fixedInVersion: "STRING_VALUE",
+ *             remediation: "STRING_VALUE",
+ *             sourceLambdaLayerArn: "STRING_VALUE",
+ *           },
+ *         ],
+ *         source: "STRING_VALUE", // required
+ *         cvss: [ // CvssScoreList
+ *           { // CvssScore
+ *             baseScore: Number("double"), // required
+ *             scoringVector: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *             source: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         relatedVulnerabilities: [ // VulnerabilityIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         sourceUrl: "STRING_VALUE",
+ *         vendorSeverity: "STRING_VALUE",
+ *         vendorCreatedAt: new Date("TIMESTAMP"),
+ *         vendorUpdatedAt: new Date("TIMESTAMP"),
+ *         referenceUrls: [ // NonEmptyStringList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       fixAvailable: "STRING_VALUE",
+ *       exploitAvailable: "STRING_VALUE",
+ *       exploitabilityDetails: { // ExploitabilityDetails
+ *         lastKnownExploitAt: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
@@ -186,6 +349,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListFindingsCommand extends $Command<

@@ -46,6 +46,23 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectResponse
+ *   ProjectDescription: { // ProjectDescription
+ *     ProjectArn: "STRING_VALUE",
+ *     ProjectName: "STRING_VALUE",
+ *     CreationTimestamp: new Date("TIMESTAMP"),
+ *     Datasets: [ // DatasetMetadataList
+ *       { // DatasetMetadata
+ *         DatasetType: "STRING_VALUE",
+ *         CreationTimestamp: new Date("TIMESTAMP"),
+ *         Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED_ROLLBACK_IN_PROGRESS" || "UPDATE_FAILED_ROLLBACK_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED",
+ *         StatusMessage: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
@@ -73,6 +90,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<

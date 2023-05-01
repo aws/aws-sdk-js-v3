@@ -50,6 +50,17 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * };
  * const command = new UpgradeElasticsearchDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpgradeElasticsearchDomainResponse
+ *   DomainName: "STRING_VALUE",
+ *   TargetVersion: "STRING_VALUE",
+ *   PerformCheckOnly: true || false,
+ *   ChangeProgressDetails: { // ChangeProgressDetails
+ *     ChangeId: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpgradeElasticsearchDomainCommandInput - {@link UpgradeElasticsearchDomainCommandInput}
@@ -76,6 +87,8 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class UpgradeElasticsearchDomainCommand extends $Command<

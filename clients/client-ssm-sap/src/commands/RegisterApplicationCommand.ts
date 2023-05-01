@@ -71,6 +71,23 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * };
  * const command = new RegisterApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterApplicationOutput
+ *   Application: { // Application
+ *     Id: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     AppRegistryArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     Components: [ // ComponentIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     LastUpdated: new Date("TIMESTAMP"),
+ *     StatusMessage: "STRING_VALUE",
+ *   },
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterApplicationCommandInput - {@link RegisterApplicationCommandInput}
@@ -88,6 +105,8 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class RegisterApplicationCommand extends $Command<

@@ -55,6 +55,21 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * };
  * const command = new DiscoverInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DiscoverInstancesResponse
+ *   Instances: [ // HttpInstanceSummaryList
+ *     { // HttpInstanceSummary
+ *       InstanceId: "STRING_VALUE",
+ *       NamespaceName: "STRING_VALUE",
+ *       ServiceName: "STRING_VALUE",
+ *       HealthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
+ *       Attributes: { // Attributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DiscoverInstancesCommandInput - {@link DiscoverInstancesCommandInput}
@@ -79,6 +94,8 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Discover registered instances
  * ```javascript

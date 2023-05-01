@@ -53,6 +53,9 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * };
  * const command = new DisassociateContactFromAddressBookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateContactFromAddressBookCommandInput - {@link DisassociateContactFromAddressBookCommandInput}
@@ -61,6 +64,8 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * @see {@link DisassociateContactFromAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateContactFromAddressBookCommand extends $Command<

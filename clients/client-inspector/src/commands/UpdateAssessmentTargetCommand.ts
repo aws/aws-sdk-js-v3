@@ -49,6 +49,9 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAssessmentTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAssessmentTargetCommandInput - {@link UpdateAssessmentTargetCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Update assessment target
  * ```javascript

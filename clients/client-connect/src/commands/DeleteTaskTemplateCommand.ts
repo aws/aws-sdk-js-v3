@@ -45,6 +45,9 @@ export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateRespo
  * };
  * const command = new DeleteTaskTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTaskTemplateCommandInput - {@link DeleteTaskTemplateCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteTaskTemplateCommand extends $Command<

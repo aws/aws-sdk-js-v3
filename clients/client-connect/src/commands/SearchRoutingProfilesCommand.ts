@@ -91,6 +91,36 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * };
  * const command = new SearchRoutingProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchRoutingProfilesResponse
+ *   RoutingProfiles: [ // RoutingProfileList
+ *     { // RoutingProfile
+ *       InstanceId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       RoutingProfileArn: "STRING_VALUE",
+ *       RoutingProfileId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       MediaConcurrencies: [ // MediaConcurrencies
+ *         { // MediaConcurrency
+ *           Channel: "VOICE" || "CHAT" || "TASK", // required
+ *           Concurrency: Number("int"), // required
+ *           CrossChannelBehavior: { // CrossChannelBehavior
+ *             BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
+ *           },
+ *         },
+ *       ],
+ *       DefaultOutboundQueueId: "STRING_VALUE",
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       NumberOfAssociatedQueues: Number("long"),
+ *       NumberOfAssociatedUsers: Number("long"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   ApproximateTotalCount: Number("long"),
+ * };
+ *
  * ```
  *
  * @param SearchRoutingProfilesCommandInput - {@link SearchRoutingProfilesCommandInput}
@@ -114,6 +144,8 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchRoutingProfilesCommand extends $Command<

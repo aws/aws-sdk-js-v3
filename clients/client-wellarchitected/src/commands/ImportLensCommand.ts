@@ -68,6 +68,12 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * };
  * const command = new ImportLensCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportLensOutput
+ *   LensArn: "STRING_VALUE",
+ *   Status: "IN_PROGRESS" || "COMPLETE" || "ERROR",
+ * };
+ *
  * ```
  *
  * @param ImportLensCommandInput - {@link ImportLensCommandInput}
@@ -97,6 +103,8 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ImportLensCommand extends $Command<

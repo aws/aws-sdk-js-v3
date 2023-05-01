@@ -60,6 +60,9 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * };
  * const command = new CreateConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetTrackingOptionsCommandInput - {@link CreateConfigurationSetTrackingOptionsCommandInput}
@@ -88,6 +91,8 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  *  <p>Indicates that the configuration set you specified already contains a TrackingOptions
  *             object.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateConfigurationSetTrackingOptionsCommand extends $Command<

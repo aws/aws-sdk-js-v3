@@ -62,6 +62,59 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
  * };
  * const command = new CreateMultiplexProgramCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMultiplexProgramResponse
+ *   MultiplexProgram: { // MultiplexProgram
+ *     ChannelId: "STRING_VALUE",
+ *     MultiplexProgramSettings: { // MultiplexProgramSettings
+ *       PreferredChannelPipeline: "CURRENTLY_ACTIVE" || "PIPELINE_0" || "PIPELINE_1",
+ *       ProgramNumber: Number("int"), // required
+ *       ServiceDescriptor: { // MultiplexProgramServiceDescriptor
+ *         ProviderName: "STRING_VALUE", // required
+ *         ServiceName: "STRING_VALUE", // required
+ *       },
+ *       VideoSettings: { // MultiplexVideoSettings
+ *         ConstantBitrate: Number("int"),
+ *         StatmuxSettings: { // MultiplexStatmuxVideoSettings
+ *           MaximumBitrate: Number("int"),
+ *           MinimumBitrate: Number("int"),
+ *           Priority: Number("int"),
+ *         },
+ *       },
+ *     },
+ *     PacketIdentifiersMap: { // MultiplexProgramPacketIdentifiersMap
+ *       AudioPids: [ // __listOf__integer
+ *         Number("int"),
+ *       ],
+ *       DvbSubPids: [
+ *         Number("int"),
+ *       ],
+ *       DvbTeletextPid: Number("int"),
+ *       EtvPlatformPid: Number("int"),
+ *       EtvSignalPid: Number("int"),
+ *       KlvDataPids: [
+ *         Number("int"),
+ *       ],
+ *       PcrPid: Number("int"),
+ *       PmtPid: Number("int"),
+ *       PrivateMetadataPid: Number("int"),
+ *       Scte27Pids: [
+ *         Number("int"),
+ *       ],
+ *       Scte35Pid: Number("int"),
+ *       TimedMetadataPid: Number("int"),
+ *       VideoPid: Number("int"),
+ *     },
+ *     PipelineDetails: [ // __listOfMultiplexProgramPipelineDetail
+ *       { // MultiplexProgramPipelineDetail
+ *         ActiveChannelPipeline: "STRING_VALUE",
+ *         PipelineId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ProgramName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMultiplexProgramCommandInput - {@link CreateMultiplexProgramCommandInput}
@@ -94,6 +147,8 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class CreateMultiplexProgramCommand extends $Command<

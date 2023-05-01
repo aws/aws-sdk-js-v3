@@ -46,6 +46,11 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  * };
  * const command = new RunStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RunStatementResponse
+ *   Id: Number("int"),
+ * };
+ *
  * ```
  *
  * @param RunStatementCommandInput - {@link RunStatementCommandInput}
@@ -78,6 +83,8 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A value could not be validated.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class RunStatementCommand extends $Command<

@@ -44,6 +44,27 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAttributesResult
+ *   ResourceQuotas: { // ResourceQuotas
+ *     ApplicationQuota: { // ResourceQuota
+ *       Maximum: Number("int"),
+ *     },
+ *     ApplicationVersionQuota: {
+ *       Maximum: Number("int"),
+ *     },
+ *     EnvironmentQuota: {
+ *       Maximum: Number("int"),
+ *     },
+ *     ConfigurationTemplateQuota: {
+ *       Maximum: Number("int"),
+ *     },
+ *     CustomPlatformQuota: {
+ *       Maximum: Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -56,6 +77,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

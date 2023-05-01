@@ -49,6 +49,11 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * };
  * const command = new DeleteBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBandwidthRateLimitOutput
+ *   GatewayARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteBandwidthRateLimitCommandInput - {@link DeleteBandwidthRateLimitCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete bandwidth rate limits of gateway
  * ```javascript

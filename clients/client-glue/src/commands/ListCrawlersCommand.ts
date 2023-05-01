@@ -53,6 +53,14 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * };
  * const command = new ListCrawlersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCrawlersResponse
+ *   CrawlerNames: [ // CrawlerNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCrawlersCommandInput - {@link ListCrawlersCommandInput}
@@ -64,6 +72,8 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListCrawlersCommand extends $Command<

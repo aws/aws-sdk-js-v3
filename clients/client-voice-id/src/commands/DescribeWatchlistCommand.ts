@@ -49,6 +49,19 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  * };
  * const command = new DescribeWatchlistCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWatchlistResponse
+ *   Watchlist: { // Watchlist
+ *     DomainId: "STRING_VALUE",
+ *     WatchlistId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     DefaultWatchlist: true || false,
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     UpdatedAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeWatchlistCommandInput - {@link DescribeWatchlistCommandInput}
@@ -78,6 +91,8 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DescribeWatchlistCommand extends $Command<

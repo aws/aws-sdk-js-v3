@@ -54,6 +54,19 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesResponse
+ *   ResourceInfoList: [ // ResourceInfoList
+ *     { // ResourceInfo
+ *       ResourceArn: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *       LastModified: new Date("TIMESTAMP"),
+ *       WithFederation: true || false,
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
@@ -71,6 +84,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListResourcesCommand extends $Command<

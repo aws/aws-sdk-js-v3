@@ -45,6 +45,14 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnvironmentsResult
+ *   nextToken: "STRING_VALUE",
+ *   environmentIds: [ // EnvironmentIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
@@ -74,6 +82,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example ListEnvironments
  * ```javascript

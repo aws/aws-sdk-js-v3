@@ -47,6 +47,9 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * };
  * const command = new StartLoggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartLoggingCommandInput - {@link StartLoggingCommandInput}
@@ -125,6 +128,8 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class StartLoggingCommand extends $Command<

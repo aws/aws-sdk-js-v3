@@ -45,6 +45,9 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * };
  * const command = new UpdateCoreDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCoreDefinitionCommandInput - {@link UpdateCoreDefinitionCommandInput}
@@ -56,6 +59,8 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateCoreDefinitionCommand extends $Command<

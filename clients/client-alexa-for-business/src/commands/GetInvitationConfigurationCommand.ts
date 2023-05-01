@@ -43,6 +43,15 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * const input = {};
  * const command = new GetInvitationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInvitationConfigurationResponse
+ *   OrganizationName: "STRING_VALUE",
+ *   ContactEmail: "STRING_VALUE",
+ *   PrivateSkillIds: [ // ShortSkillIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetInvitationConfigurationCommandInput - {@link GetInvitationConfigurationCommandInput}
@@ -54,6 +63,8 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetInvitationConfigurationCommand extends $Command<

@@ -62,6 +62,9 @@ export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemRes
  * };
  * const command = new UpdateStorageSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStorageSystemCommandInput - {@link UpdateStorageSystemCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateStorageSystemCommand extends $Command<

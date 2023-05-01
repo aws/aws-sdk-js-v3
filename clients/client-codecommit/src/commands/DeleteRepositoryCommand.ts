@@ -49,6 +49,11 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRepositoryOutput
+ *   repositoryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
@@ -84,6 +89,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteRepositoryCommand extends $Command<

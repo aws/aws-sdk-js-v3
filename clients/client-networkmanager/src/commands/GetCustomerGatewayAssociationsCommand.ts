@@ -55,6 +55,20 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * };
  * const command = new GetCustomerGatewayAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomerGatewayAssociationsResponse
+ *   CustomerGatewayAssociations: [ // CustomerGatewayAssociationList
+ *     { // CustomerGatewayAssociation
+ *       CustomerGatewayArn: "STRING_VALUE",
+ *       GlobalNetworkId: "STRING_VALUE",
+ *       DeviceId: "STRING_VALUE",
+ *       LinkId: "STRING_VALUE",
+ *       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCustomerGatewayAssociationsCommandInput - {@link GetCustomerGatewayAssociationsCommandInput}
@@ -82,6 +96,8 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetCustomerGatewayAssociationsCommand extends $Command<

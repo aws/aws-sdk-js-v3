@@ -86,6 +86,11 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * };
  * const command = new StartTextDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTextDetectionResponse
+ *   JobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartTextDetectionCommandInput - {@link StartTextDetectionCommandInput}
@@ -127,6 +132,8 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartTextDetectionCommand extends $Command<

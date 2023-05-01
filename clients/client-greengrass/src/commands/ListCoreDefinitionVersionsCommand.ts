@@ -46,6 +46,19 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  * };
  * const command = new ListCoreDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoreDefinitionVersionsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Versions: [ // __listOfVersionInformation
+ *     { // VersionInformation
+ *       Arn: "STRING_VALUE",
+ *       CreationTimestamp: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCoreDefinitionVersionsCommandInput - {@link ListCoreDefinitionVersionsCommandInput}
@@ -57,6 +70,8 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListCoreDefinitionVersionsCommand extends $Command<

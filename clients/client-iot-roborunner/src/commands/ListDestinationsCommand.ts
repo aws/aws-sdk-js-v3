@@ -47,6 +47,23 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * };
  * const command = new ListDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDestinationsResponse
+ *   nextToken: "STRING_VALUE",
+ *   destinations: [ // Destinations
+ *     { // Destination
+ *       arn: "STRING_VALUE", // required
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       site: "STRING_VALUE", // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       updatedAt: new Date("TIMESTAMP"), // required
+ *       state: "STRING_VALUE", // required
+ *       additionalFixedProperties: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDestinationsCommandInput - {@link ListDestinationsCommandInput}
@@ -70,6 +87,8 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class ListDestinationsCommand extends $Command<

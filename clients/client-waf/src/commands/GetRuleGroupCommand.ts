@@ -53,6 +53,15 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * };
  * const command = new GetRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRuleGroupResponse
+ *   RuleGroup: { // RuleGroup
+ *     RuleGroupId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     MetricName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRuleGroupCommandInput - {@link GetRuleGroupCommandInput}
@@ -67,6 +76,8 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetRuleGroupCommand extends $Command<

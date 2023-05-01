@@ -58,6 +58,17 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * };
  * const command = new ListInputRoutingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInputRoutingsResponse
+ *   routedResources: [ // RoutedResources
+ *     { // RoutedResource
+ *       name: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInputRoutingsCommandInput - {@link ListInputRoutingsCommandInput}
@@ -81,6 +92,8 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListInputRoutingsCommand extends $Command<

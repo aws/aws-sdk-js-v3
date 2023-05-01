@@ -47,6 +47,15 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * };
  * const command = new ListNamedShadowsForThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNamedShadowsForThingResponse
+ *   results: [ // NamedShadowList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   timestamp: Number("long"),
+ * };
+ *
  * ```
  *
  * @param ListNamedShadowsForThingCommandInput - {@link ListNamedShadowsForThingCommandInput}
@@ -76,6 +85,8 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class ListNamedShadowsForThingCommand extends $Command<

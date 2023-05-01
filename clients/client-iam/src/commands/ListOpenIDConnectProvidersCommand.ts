@@ -47,6 +47,15 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * const input = {};
  * const command = new ListOpenIDConnectProvidersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOpenIDConnectProvidersResponse
+ *   OpenIDConnectProviderList: [ // OpenIDConnectProviderListType
+ *     { // OpenIDConnectProviderListEntry
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOpenIDConnectProvidersCommandInput - {@link ListOpenIDConnectProvidersCommandInput}
@@ -59,6 +68,8 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListOpenIDConnectProvidersCommand extends $Command<

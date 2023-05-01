@@ -61,6 +61,21 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  * };
  * const command = new DescribeDBClusterBacktracksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterBacktrackMessage
+ *   Marker: "STRING_VALUE",
+ *   DBClusterBacktracks: [ // DBClusterBacktrackList
+ *     { // DBClusterBacktrack
+ *       DBClusterIdentifier: "STRING_VALUE",
+ *       BacktrackIdentifier: "STRING_VALUE",
+ *       BacktrackTo: new Date("TIMESTAMP"),
+ *       BacktrackedFrom: new Date("TIMESTAMP"),
+ *       BacktrackRequestCreationTime: new Date("TIMESTAMP"),
+ *       Status: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterBacktracksCommandInput - {@link DescribeDBClusterBacktracksCommandInput}
@@ -77,6 +92,8 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  *  <p>
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe backtracks for a DB cluster
  * ```javascript

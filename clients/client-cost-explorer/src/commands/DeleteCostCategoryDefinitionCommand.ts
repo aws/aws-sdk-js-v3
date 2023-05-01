@@ -50,6 +50,12 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * };
  * const command = new DeleteCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCostCategoryDefinitionResponse
+ *   CostCategoryArn: "STRING_VALUE",
+ *   EffectiveEnd: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteCostCategoryDefinitionCommandInput - {@link DeleteCostCategoryDefinitionCommandInput}
@@ -64,6 +70,8 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p> The specified ARN in the request doesn't exist. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class DeleteCostCategoryDefinitionCommand extends $Command<

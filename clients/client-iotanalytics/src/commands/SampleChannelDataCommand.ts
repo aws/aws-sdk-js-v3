@@ -48,6 +48,13 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * };
  * const command = new SampleChannelDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SampleChannelDataResponse
+ *   payloads: [ // MessagePayloads
+ *     "BLOB_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SampleChannelDataCommandInput - {@link SampleChannelDataCommandInput}
@@ -71,6 +78,8 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class SampleChannelDataCommand extends $Command<

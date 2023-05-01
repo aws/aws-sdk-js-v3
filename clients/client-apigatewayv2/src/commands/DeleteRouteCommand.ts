@@ -45,6 +45,9 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class DeleteRouteCommand extends $Command<

@@ -57,6 +57,31 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * };
  * const command = new GetLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLifecyclePolicyPreviewResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   lifecyclePolicyText: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   previewResults: [ // LifecyclePolicyPreviewResultList
+ *     { // LifecyclePolicyPreviewResult
+ *       imageTags: [ // ImageTagList
+ *         "STRING_VALUE",
+ *       ],
+ *       imageDigest: "STRING_VALUE",
+ *       imagePushedAt: new Date("TIMESTAMP"),
+ *       action: { // LifecyclePolicyRuleAction
+ *         type: "STRING_VALUE",
+ *       },
+ *       appliedRulePriority: Number("int"),
+ *     },
+ *   ],
+ *   summary: { // LifecyclePolicyPreviewSummary
+ *     expiringImageTotalCount: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLifecyclePolicyPreviewCommandInput - {@link GetLifecyclePolicyPreviewCommandInput}
@@ -79,6 +104,8 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class GetLifecyclePolicyPreviewCommand extends $Command<

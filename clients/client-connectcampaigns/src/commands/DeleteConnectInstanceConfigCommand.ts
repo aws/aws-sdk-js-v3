@@ -47,6 +47,9 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteConnectInstanceConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectInstanceConfigCommandInput - {@link DeleteConnectInstanceConfigCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class DeleteConnectInstanceConfigCommand extends $Command<

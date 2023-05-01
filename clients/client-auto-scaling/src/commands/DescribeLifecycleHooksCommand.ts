@@ -47,6 +47,23 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * };
  * const command = new DescribeLifecycleHooksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLifecycleHooksAnswer
+ *   LifecycleHooks: [ // LifecycleHooks
+ *     { // LifecycleHook
+ *       LifecycleHookName: "STRING_VALUE",
+ *       AutoScalingGroupName: "STRING_VALUE",
+ *       LifecycleTransition: "STRING_VALUE",
+ *       NotificationTargetARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       NotificationMetadata: "STRING_VALUE",
+ *       HeartbeatTimeout: Number("int"),
+ *       GlobalTimeout: Number("int"),
+ *       DefaultResult: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeLifecycleHooksCommandInput - {@link DescribeLifecycleHooksCommandInput}
@@ -59,6 +76,8 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe your lifecycle hooks
  * ```javascript

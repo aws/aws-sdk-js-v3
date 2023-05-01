@@ -51,6 +51,17 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCollectionsResponse
+ *   CollectionIds: [ // CollectionIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   FaceModelVersions: [ // FaceModelVersionList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
@@ -82,6 +93,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To list the collections
  * ```javascript

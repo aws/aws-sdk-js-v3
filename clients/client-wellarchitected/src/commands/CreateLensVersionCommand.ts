@@ -53,6 +53,12 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * };
  * const command = new CreateLensVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLensVersionOutput
+ *   LensArn: "STRING_VALUE",
+ *   LensVersion: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLensVersionCommandInput - {@link CreateLensVersionCommandInput}
@@ -82,6 +88,8 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateLensVersionCommand extends $Command<

@@ -55,6 +55,81 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * };
  * const command = new GetRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecordsOutput
+ *   Records: [ // RecordList
+ *     { // Record
+ *       eventID: "STRING_VALUE",
+ *       eventName: "INSERT" || "MODIFY" || "REMOVE",
+ *       eventVersion: "STRING_VALUE",
+ *       eventSource: "STRING_VALUE",
+ *       awsRegion: "STRING_VALUE",
+ *       dynamodb: { // StreamRecord
+ *         ApproximateCreationDateTime: new Date("TIMESTAMP"),
+ *         Keys: { // AttributeMap
+ *           "<keys>": { // AttributeValue Union: only one key present
+ *             S: "STRING_VALUE",
+ *             N: "STRING_VALUE",
+ *             B: "BLOB_VALUE",
+ *             SS: [ // StringSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             NS: [ // NumberSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             BS: [ // BinarySetAttributeValue
+ *               "BLOB_VALUE",
+ *             ],
+ *             M: { // MapAttributeValue
+ *               "<keys>": {//  Union: only one key present
+ *                 S: "STRING_VALUE",
+ *                 N: "STRING_VALUE",
+ *                 B: "BLOB_VALUE",
+ *                 SS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 NS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 BS: [
+ *                   "BLOB_VALUE",
+ *                 ],
+ *                 M: {
+ *                   "<keys>": "<AttributeValue>",
+ *                 },
+ *                 L: [ // ListAttributeValue
+ *                   "<AttributeValue>",
+ *                 ],
+ *                 NULL: true || false,
+ *                 BOOL: true || false,
+ *               },
+ *             },
+ *             L: [
+ *               "<AttributeValue>",
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *         NewImage: {
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         OldImage: {
+ *           "<keys>": "<AttributeValue>",
+ *         },
+ *         SequenceNumber: "STRING_VALUE",
+ *         SizeBytes: Number("long"),
+ *         StreamViewType: "NEW_IMAGE" || "OLD_IMAGE" || "NEW_AND_OLD_IMAGES" || "KEYS_ONLY",
+ *       },
+ *       userIdentity: { // Identity
+ *         PrincipalId: "STRING_VALUE",
+ *         Type: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextShardIterator: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetRecordsCommandInput - {@link GetRecordsCommandInput}
@@ -103,6 +178,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *             </li>
  *          </ul>
  *
+ * @throws {@link DynamoDBStreamsServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
  * @example To retrieve all the stream records from a shard
  * ```javascript

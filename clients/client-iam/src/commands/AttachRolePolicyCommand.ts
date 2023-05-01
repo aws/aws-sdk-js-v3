@@ -59,6 +59,9 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachRolePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachRolePolicyCommandInput - {@link AttachRolePolicyCommandInput}
@@ -93,6 +96,8 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To attach a managed policy to an IAM role
  * ```javascript

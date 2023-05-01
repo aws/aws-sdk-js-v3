@@ -46,6 +46,19 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  * };
  * const command = new UpdateDiscovererCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDiscovererResponse
+ *   Description: "STRING_VALUE",
+ *   DiscovererArn: "STRING_VALUE",
+ *   DiscovererId: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   CrossAccount: true || false,
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDiscovererCommandInput - {@link UpdateDiscovererCommandInput}
@@ -66,6 +79,8 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class UpdateDiscovererCommand extends $Command<

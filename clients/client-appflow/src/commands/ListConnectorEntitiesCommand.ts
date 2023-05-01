@@ -52,6 +52,20 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * };
  * const command = new ListConnectorEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectorEntitiesResponse
+ *   connectorEntityMap: { // ConnectorEntityMap // required
+ *     "<keys>": [ // ConnectorEntityList
+ *       { // ConnectorEntity
+ *         name: "STRING_VALUE", // required
+ *         label: "STRING_VALUE",
+ *         hasNestedEntities: true || false,
+ *       },
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConnectorEntitiesCommandInput - {@link ListConnectorEntitiesCommandInput}
@@ -77,6 +91,8 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class ListConnectorEntitiesCommand extends $Command<

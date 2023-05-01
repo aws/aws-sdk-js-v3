@@ -175,6 +175,61 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  * };
  * const command = new GetReservationCoverageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReservationCoverageResponse
+ *   CoveragesByTime: [ // CoveragesByTime // required
+ *     { // CoverageByTime
+ *       TimePeriod: { // DateInterval
+ *         Start: "STRING_VALUE", // required
+ *         End: "STRING_VALUE", // required
+ *       },
+ *       Groups: [ // ReservationCoverageGroups
+ *         { // ReservationCoverageGroup
+ *           Attributes: { // Attributes
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           Coverage: { // Coverage
+ *             CoverageHours: { // CoverageHours
+ *               OnDemandHours: "STRING_VALUE",
+ *               ReservedHours: "STRING_VALUE",
+ *               TotalRunningHours: "STRING_VALUE",
+ *               CoverageHoursPercentage: "STRING_VALUE",
+ *             },
+ *             CoverageNormalizedUnits: { // CoverageNormalizedUnits
+ *               OnDemandNormalizedUnits: "STRING_VALUE",
+ *               ReservedNormalizedUnits: "STRING_VALUE",
+ *               TotalRunningNormalizedUnits: "STRING_VALUE",
+ *               CoverageNormalizedUnitsPercentage: "STRING_VALUE",
+ *             },
+ *             CoverageCost: { // CoverageCost
+ *               OnDemandCost: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       Total: {
+ *         CoverageHours: {
+ *           OnDemandHours: "STRING_VALUE",
+ *           ReservedHours: "STRING_VALUE",
+ *           TotalRunningHours: "STRING_VALUE",
+ *           CoverageHoursPercentage: "STRING_VALUE",
+ *         },
+ *         CoverageNormalizedUnits: {
+ *           OnDemandNormalizedUnits: "STRING_VALUE",
+ *           ReservedNormalizedUnits: "STRING_VALUE",
+ *           TotalRunningNormalizedUnits: "STRING_VALUE",
+ *           CoverageNormalizedUnitsPercentage: "STRING_VALUE",
+ *         },
+ *         CoverageCost: {
+ *           OnDemandCost: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Total: "<Coverage>",
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetReservationCoverageCommandInput - {@link GetReservationCoverageCommandInput}
@@ -192,6 +247,8 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetReservationCoverageCommand extends $Command<

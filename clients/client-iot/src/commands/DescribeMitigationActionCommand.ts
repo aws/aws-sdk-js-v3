@@ -45,6 +45,41 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  * };
  * const command = new DescribeMitigationActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMitigationActionResponse
+ *   actionName: "STRING_VALUE",
+ *   actionType: "UPDATE_DEVICE_CERTIFICATE" || "UPDATE_CA_CERTIFICATE" || "ADD_THINGS_TO_THING_GROUP" || "REPLACE_DEFAULT_POLICY_VERSION" || "ENABLE_IOT_LOGGING" || "PUBLISH_FINDING_TO_SNS",
+ *   actionArn: "STRING_VALUE",
+ *   actionId: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE",
+ *   actionParams: { // MitigationActionParams
+ *     updateDeviceCertificateParams: { // UpdateDeviceCertificateParams
+ *       action: "DEACTIVATE", // required
+ *     },
+ *     updateCACertificateParams: { // UpdateCACertificateParams
+ *       action: "DEACTIVATE", // required
+ *     },
+ *     addThingsToThingGroupParams: { // AddThingsToThingGroupParams
+ *       thingGroupNames: [ // ThingGroupNames // required
+ *         "STRING_VALUE",
+ *       ],
+ *       overrideDynamicGroups: true || false,
+ *     },
+ *     replaceDefaultPolicyVersionParams: { // ReplaceDefaultPolicyVersionParams
+ *       templateName: "BLANK_POLICY", // required
+ *     },
+ *     enableIoTLoggingParams: { // EnableIoTLoggingParams
+ *       roleArnForLogging: "STRING_VALUE", // required
+ *       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
+ *     },
+ *     publishFindingToSnsParams: { // PublishFindingToSnsParams
+ *       topicArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   creationDate: new Date("TIMESTAMP"),
+ *   lastModifiedDate: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeMitigationActionCommandInput - {@link DescribeMitigationActionCommandInput}
@@ -65,6 +100,8 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeMitigationActionCommand extends $Command<

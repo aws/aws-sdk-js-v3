@@ -52,6 +52,33 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEnvironmentResponse
+ *   Name: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   NetworkFabricType: "STRING_VALUE",
+ *   OwnerAccountId: "STRING_VALUE",
+ *   TransitGatewayId: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Error: { // ErrorResponse
+ *     Code: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *     AccountId: "STRING_VALUE",
+ *     ResourceIdentifier: "STRING_VALUE",
+ *     ResourceType: "STRING_VALUE",
+ *     AdditionalDetails: { // AdditionalDetails
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   LastUpdatedTime: new Date("TIMESTAMP"),
+ *   CreatedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
@@ -76,6 +103,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class GetEnvironmentCommand extends $Command<

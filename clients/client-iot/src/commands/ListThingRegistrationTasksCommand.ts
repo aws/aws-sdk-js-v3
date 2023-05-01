@@ -47,6 +47,14 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * };
  * const command = new ListThingRegistrationTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingRegistrationTasksResponse
+ *   taskIds: [ // TaskIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListThingRegistrationTasksCommandInput - {@link ListThingRegistrationTasksCommandInput}
@@ -67,6 +75,8 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingRegistrationTasksCommand extends $Command<

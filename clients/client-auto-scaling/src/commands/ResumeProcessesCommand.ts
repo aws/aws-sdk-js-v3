@@ -50,6 +50,9 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResumeProcessesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResumeProcessesCommandInput - {@link ResumeProcessesCommandInput}
@@ -65,6 +68,8 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUseFault} (client fault)
  *  <p>The operation can't be performed because the resource is in use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To resume Auto Scaling processes
  * ```javascript

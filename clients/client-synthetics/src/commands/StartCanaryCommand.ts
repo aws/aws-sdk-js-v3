@@ -46,6 +46,9 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  * };
  * const command = new StartCanaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartCanaryCommandInput - {@link StartCanaryCommandInput}
@@ -66,6 +69,8 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class StartCanaryCommand extends $Command<

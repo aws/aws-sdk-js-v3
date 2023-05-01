@@ -51,6 +51,37 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  * };
  * const command = new GetEventTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEventTypesResult
+ *   eventTypes: [ // eventTypeList
+ *     { // EventType
+ *       name: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       eventVariables: [ // ListOfStrings
+ *         "STRING_VALUE",
+ *       ],
+ *       labels: [
+ *         "STRING_VALUE",
+ *       ],
+ *       entityTypes: [ // NonEmptyListOfStrings
+ *         "STRING_VALUE",
+ *       ],
+ *       eventIngestion: "ENABLED" || "DISABLED",
+ *       ingestedEventStatistics: { // IngestedEventStatistics
+ *         numberOfEvents: Number("long"),
+ *         eventDataSizeInBytes: Number("long"),
+ *         leastRecentEvent: "STRING_VALUE",
+ *         mostRecentEvent: "STRING_VALUE",
+ *         lastUpdatedTime: "STRING_VALUE",
+ *       },
+ *       lastUpdatedTime: "STRING_VALUE",
+ *       createdTime: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetEventTypesCommandInput - {@link GetEventTypesCommandInput}
@@ -74,6 +105,8 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetEventTypesCommand extends $Command<

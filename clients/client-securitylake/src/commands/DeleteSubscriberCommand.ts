@@ -46,6 +46,9 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * };
  * const command = new DeleteSubscriberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSubscriberCommandInput - {@link DeleteSubscriberCommandInput}
@@ -86,6 +89,8 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteSubscriberCommand extends $Command<

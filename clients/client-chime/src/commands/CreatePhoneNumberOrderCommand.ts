@@ -53,6 +53,23 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * };
  * const command = new CreatePhoneNumberOrderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePhoneNumberOrderResponse
+ *   PhoneNumberOrder: { // PhoneNumberOrder
+ *     PhoneNumberOrderId: "STRING_VALUE",
+ *     ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
+ *     Status: "Processing" || "Successful" || "Failed" || "Partial",
+ *     OrderedPhoneNumbers: [ // OrderedPhoneNumberList
+ *       { // OrderedPhoneNumber
+ *         E164PhoneNumber: "STRING_VALUE",
+ *         Status: "Processing" || "Acquired" || "Failed",
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePhoneNumberOrderCommandInput - {@link CreatePhoneNumberOrderCommandInput}
@@ -85,6 +102,8 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreatePhoneNumberOrderCommand extends $Command<

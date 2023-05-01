@@ -56,6 +56,25 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * };
  * const command = new GetEntitlementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEntitlementsResult
+ *   Entitlements: [ // EntitlementList
+ *     { // Entitlement
+ *       ProductCode: "STRING_VALUE",
+ *       Dimension: "STRING_VALUE",
+ *       CustomerIdentifier: "STRING_VALUE",
+ *       Value: { // EntitlementValue
+ *         IntegerValue: Number("int"),
+ *         DoubleValue: Number("double"),
+ *         BooleanValue: true || false,
+ *         StringValue: "STRING_VALUE",
+ *       },
+ *       ExpirationDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetEntitlementsCommandInput - {@link GetEntitlementsCommandInput}
@@ -74,6 +93,8 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The calls to the GetEntitlements API are throttled.</p>
  *
+ * @throws {@link MarketplaceEntitlementServiceServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceEntitlementService service.</p>
  *
  */
 export class GetEntitlementsCommand extends $Command<

@@ -46,6 +46,11 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * };
  * const command = new DeleteTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTrustResult
+ *   TrustId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteTrustCommandInput - {@link DeleteTrustCommandInput}
@@ -69,6 +74,8 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteTrustCommand extends $Command<

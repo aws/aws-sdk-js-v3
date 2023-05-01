@@ -45,6 +45,33 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  * };
  * const command = new DescribeMeshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMeshOutput
+ *   mesh: { // MeshData
+ *     meshName: "STRING_VALUE", // required
+ *     spec: { // MeshSpec
+ *       egressFilter: { // EgressFilter
+ *         type: "STRING_VALUE", // required
+ *       },
+ *       serviceDiscovery: { // MeshServiceDiscovery
+ *         ipPreference: "STRING_VALUE",
+ *       },
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: "STRING_VALUE", // required
+ *       version: Number("long"), // required
+ *       uid: "STRING_VALUE", // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ *       meshOwner: "STRING_VALUE", // required
+ *       resourceOwner: "STRING_VALUE", // required
+ *     },
+ *     status: { // MeshStatus
+ *       status: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMeshCommandInput - {@link DescribeMeshCommandInput}
@@ -74,6 +101,8 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class DescribeMeshCommand extends $Command<

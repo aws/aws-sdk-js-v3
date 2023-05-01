@@ -118,6 +118,74 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * };
  * const command = new CreatePresetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePresetResponse
+ *   Preset: { // Preset
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Container: "STRING_VALUE",
+ *     Audio: { // AudioParameters
+ *       Codec: "STRING_VALUE",
+ *       SampleRate: "STRING_VALUE",
+ *       BitRate: "STRING_VALUE",
+ *       Channels: "STRING_VALUE",
+ *       AudioPackingMode: "STRING_VALUE",
+ *       CodecOptions: { // AudioCodecOptions
+ *         Profile: "STRING_VALUE",
+ *         BitDepth: "STRING_VALUE",
+ *         BitOrder: "STRING_VALUE",
+ *         Signed: "STRING_VALUE",
+ *       },
+ *     },
+ *     Video: { // VideoParameters
+ *       Codec: "STRING_VALUE",
+ *       CodecOptions: { // CodecOptions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       KeyframesMaxDist: "STRING_VALUE",
+ *       FixedGOP: "STRING_VALUE",
+ *       BitRate: "STRING_VALUE",
+ *       FrameRate: "STRING_VALUE",
+ *       MaxFrameRate: "STRING_VALUE",
+ *       Resolution: "STRING_VALUE",
+ *       AspectRatio: "STRING_VALUE",
+ *       MaxWidth: "STRING_VALUE",
+ *       MaxHeight: "STRING_VALUE",
+ *       DisplayAspectRatio: "STRING_VALUE",
+ *       SizingPolicy: "STRING_VALUE",
+ *       PaddingPolicy: "STRING_VALUE",
+ *       Watermarks: [ // PresetWatermarks
+ *         { // PresetWatermark
+ *           Id: "STRING_VALUE",
+ *           MaxWidth: "STRING_VALUE",
+ *           MaxHeight: "STRING_VALUE",
+ *           SizingPolicy: "STRING_VALUE",
+ *           HorizontalAlign: "STRING_VALUE",
+ *           HorizontalOffset: "STRING_VALUE",
+ *           VerticalAlign: "STRING_VALUE",
+ *           VerticalOffset: "STRING_VALUE",
+ *           Opacity: "STRING_VALUE",
+ *           Target: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     Thumbnails: { // Thumbnails
+ *       Format: "STRING_VALUE",
+ *       Interval: "STRING_VALUE",
+ *       Resolution: "STRING_VALUE",
+ *       AspectRatio: "STRING_VALUE",
+ *       MaxWidth: "STRING_VALUE",
+ *       MaxHeight: "STRING_VALUE",
+ *       SizingPolicy: "STRING_VALUE",
+ *       PaddingPolicy: "STRING_VALUE",
+ *     },
+ *     Type: "STRING_VALUE",
+ *   },
+ *   Warning: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreatePresetCommandInput - {@link CreatePresetCommandInput}
@@ -141,6 +209,8 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class CreatePresetCommand extends $Command<

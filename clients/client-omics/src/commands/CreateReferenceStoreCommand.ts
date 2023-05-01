@@ -53,6 +53,19 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  * };
  * const command = new CreateReferenceStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReferenceStoreResponse
+ *   id: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   sseConfig: { // SseConfig
+ *     type: "STRING_VALUE", // required
+ *     keyArn: "STRING_VALUE",
+ *   },
+ *   creationTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param CreateReferenceStoreCommandInput - {@link CreateReferenceStoreCommandInput}
@@ -79,6 +92,8 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateReferenceStoreCommand extends $Command<

@@ -53,6 +53,14 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * };
  * const command = new DeleteFileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFileOutput
+ *   commitId: "STRING_VALUE", // required
+ *   blobId: "STRING_VALUE", // required
+ *   treeId: "STRING_VALUE", // required
+ *   filePath: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteFileCommandInput - {@link DeleteFileCommandInput}
@@ -139,6 +147,8 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteFileCommand extends $Command<

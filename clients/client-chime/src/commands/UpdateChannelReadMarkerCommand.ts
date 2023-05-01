@@ -50,6 +50,11 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * };
  * const command = new UpdateChannelReadMarkerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelReadMarkerResponse
+ *   ChannelArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateChannelReadMarkerCommandInput - {@link UpdateChannelReadMarkerCommandInput}
@@ -80,6 +85,8 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateChannelReadMarkerCommand extends $Command<

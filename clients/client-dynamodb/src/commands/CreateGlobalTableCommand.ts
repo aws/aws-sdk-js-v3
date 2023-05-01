@@ -111,6 +111,41 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * };
  * const command = new CreateGlobalTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGlobalTableOutput
+ *   GlobalTableDescription: { // GlobalTableDescription
+ *     ReplicationGroup: [ // ReplicaDescriptionList
+ *       { // ReplicaDescription
+ *         RegionName: "STRING_VALUE",
+ *         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ *         ReplicaStatusDescription: "STRING_VALUE",
+ *         ReplicaStatusPercentProgress: "STRING_VALUE",
+ *         KMSMasterKeyId: "STRING_VALUE",
+ *         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
+ *           ReadCapacityUnits: Number("long"),
+ *         },
+ *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
+ *           { // ReplicaGlobalSecondaryIndexDescription
+ *             IndexName: "STRING_VALUE",
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number("long"),
+ *             },
+ *           },
+ *         ],
+ *         ReplicaInaccessibleDateTime: new Date("TIMESTAMP"),
+ *         ReplicaTableClassSummary: { // TableClassSummary
+ *           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *           LastUpdateDateTime: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     ],
+ *     GlobalTableArn: "STRING_VALUE",
+ *     CreationDateTime: new Date("TIMESTAMP"),
+ *     GlobalTableStatus: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING",
+ *     GlobalTableName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGlobalTableCommandInput - {@link CreateGlobalTableCommandInput}
@@ -144,6 +179,8 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class CreateGlobalTableCommand extends $Command<

@@ -47,6 +47,9 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * };
  * const command = new UntagProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagProjectCommandInput - {@link UntagProjectCommandInput}
@@ -68,6 +71,8 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UntagProjectCommand extends $Command<

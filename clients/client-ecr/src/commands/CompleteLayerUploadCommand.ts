@@ -57,6 +57,14 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * };
  * const command = new CompleteLayerUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CompleteLayerUploadResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   uploadId: "STRING_VALUE",
+ *   layerDigest: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CompleteLayerUploadCommandInput - {@link CompleteLayerUploadCommandInput}
@@ -96,6 +104,8 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  *  <p>The upload could not be found, or the specified upload ID is not valid for this
  *             repository.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class CompleteLayerUploadCommand extends $Command<

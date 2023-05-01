@@ -45,6 +45,14 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLifecyclePolicyResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   lifecyclePolicyText: "STRING_VALUE",
+ *   lastEvaluatedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
@@ -68,6 +76,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class GetLifecyclePolicyCommand extends $Command<

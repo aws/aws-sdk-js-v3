@@ -47,6 +47,9 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteModelPackageGroupPolicyCommandInput - {@link DeleteModelPackageGroupPolicyCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  * @see {@link DeleteModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteModelPackageGroupPolicyCommand extends $Command<

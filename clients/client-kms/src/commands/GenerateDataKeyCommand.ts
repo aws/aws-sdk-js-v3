@@ -149,6 +149,13 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * };
  * const command = new GenerateDataKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateDataKeyResponse
+ *   CiphertextBlob: "BLOB_VALUE",
+ *   Plaintext: "BLOB_VALUE",
+ *   KeyId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GenerateDataKeyCommandInput - {@link GenerateDataKeyCommandInput}
@@ -218,6 +225,8 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate a data key
  * ```javascript

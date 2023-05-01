@@ -46,6 +46,21 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * };
  * const command = new ListControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListControlsResponse
+ *   controlMetadataList: [ // ControlMetadataList
+ *     { // ControlMetadata
+ *       arn: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       controlSources: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListControlsCommandInput - {@link ListControlsCommandInput}
@@ -65,6 +80,8 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListControlsCommand extends $Command<

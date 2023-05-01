@@ -58,6 +58,21 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * };
  * const command = new GetQualificationScoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQualificationScoreResponse
+ *   Qualification: { // Qualification
+ *     QualificationTypeId: "STRING_VALUE",
+ *     WorkerId: "STRING_VALUE",
+ *     GrantTime: new Date("TIMESTAMP"),
+ *     IntegerValue: Number("int"),
+ *     LocaleValue: { // Locale
+ *       Country: "STRING_VALUE", // required
+ *       Subdivision: "STRING_VALUE",
+ *     },
+ *     Status: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetQualificationScoreCommandInput - {@link GetQualificationScoreCommandInput}
@@ -72,6 +87,8 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class GetQualificationScoreCommand extends $Command<

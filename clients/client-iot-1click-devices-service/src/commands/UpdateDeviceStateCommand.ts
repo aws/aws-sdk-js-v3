@@ -50,6 +50,9 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * };
  * const command = new UpdateDeviceStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeviceStateCommandInput - {@link UpdateDeviceStateCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class UpdateDeviceStateCommand extends $Command<

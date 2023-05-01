@@ -51,6 +51,22 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * };
  * const command = new CancelResourceRequestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelResourceRequestOutput
+ *   ProgressEvent: { // ProgressEvent
+ *     TypeName: "STRING_VALUE",
+ *     Identifier: "STRING_VALUE",
+ *     RequestToken: "STRING_VALUE",
+ *     Operation: "STRING_VALUE",
+ *     OperationStatus: "STRING_VALUE",
+ *     EventTime: new Date("TIMESTAMP"),
+ *     ResourceModel: "STRING_VALUE",
+ *     StatusMessage: "STRING_VALUE",
+ *     ErrorCode: "STRING_VALUE",
+ *     RetryAfter: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CancelResourceRequestCommandInput - {@link CancelResourceRequestCommandInput}
@@ -65,6 +81,8 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * @throws {@link RequestTokenNotFoundException} (client fault)
  *  <p>A resource operation with the specified request token can't be found.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class CancelResourceRequestCommand extends $Command<

@@ -51,6 +51,9 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * };
  * const command = new DeleteSecurityConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSecurityConfigCommandInput - {@link DeleteSecurityConfigCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class DeleteSecurityConfigCommand extends $Command<

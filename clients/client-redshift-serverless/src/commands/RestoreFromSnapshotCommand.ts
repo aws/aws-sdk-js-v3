@@ -56,6 +56,29 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreFromSnapshotResponse
+ *   snapshotName: "STRING_VALUE",
+ *   ownerAccount: "STRING_VALUE",
+ *   namespace: { // Namespace
+ *     namespaceArn: "STRING_VALUE",
+ *     namespaceId: "STRING_VALUE",
+ *     namespaceName: "STRING_VALUE",
+ *     adminUsername: "STRING_VALUE",
+ *     dbName: "STRING_VALUE",
+ *     kmsKeyId: "STRING_VALUE",
+ *     defaultIamRoleArn: "STRING_VALUE",
+ *     iamRoles: [ // IamRoleArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     logExports: [ // LogExportList
+ *       "STRING_VALUE",
+ *     ],
+ *     status: "STRING_VALUE",
+ *     creationDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
@@ -79,6 +102,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class RestoreFromSnapshotCommand extends $Command<

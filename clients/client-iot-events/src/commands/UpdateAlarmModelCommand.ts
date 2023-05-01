@@ -190,6 +190,15 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * };
  * const command = new UpdateAlarmModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAlarmModelResponse
+ *   creationTime: new Date("TIMESTAMP"),
+ *   alarmModelArn: "STRING_VALUE",
+ *   alarmModelVersion: "STRING_VALUE",
+ *   lastUpdateTime: new Date("TIMESTAMP"),
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateAlarmModelCommandInput - {@link UpdateAlarmModelCommandInput}
@@ -216,6 +225,8 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class UpdateAlarmModelCommand extends $Command<

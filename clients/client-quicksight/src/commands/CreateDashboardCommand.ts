@@ -4373,6 +4373,16 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDashboardResponse
+ *   Arn: "STRING_VALUE",
+ *   VersionArn: "STRING_VALUE",
+ *   DashboardId: "STRING_VALUE",
+ *   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDashboardCommandInput - {@link CreateDashboardCommandInput}
@@ -4408,6 +4418,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateDashboardCommand extends $Command<

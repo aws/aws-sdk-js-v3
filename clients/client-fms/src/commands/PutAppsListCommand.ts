@@ -72,6 +72,34 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  * };
  * const command = new PutAppsListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAppsListResponse
+ *   AppsList: { // AppsListData
+ *     ListId: "STRING_VALUE",
+ *     ListName: "STRING_VALUE", // required
+ *     ListUpdateToken: "STRING_VALUE",
+ *     CreateTime: new Date("TIMESTAMP"),
+ *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     AppsList: [ // AppsList // required
+ *       { // App
+ *         AppName: "STRING_VALUE", // required
+ *         Protocol: "STRING_VALUE", // required
+ *         Port: Number("long"), // required
+ *       },
+ *     ],
+ *     PreviousAppsList: { // PreviousAppsList
+ *       "<keys>": [
+ *         {
+ *           AppName: "STRING_VALUE", // required
+ *           Protocol: "STRING_VALUE", // required
+ *           Port: Number("long"), // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   AppsListArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutAppsListCommandInput - {@link PutAppsListCommandInput}
@@ -103,6 +131,8 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutAppsListCommand extends $Command<

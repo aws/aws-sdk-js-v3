@@ -49,6 +49,51 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * };
  * const command = new CreateDefaultSubnetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDefaultSubnetResult
+ *   Subnet: { // Subnet
+ *     AvailabilityZone: "STRING_VALUE",
+ *     AvailabilityZoneId: "STRING_VALUE",
+ *     AvailableIpAddressCount: Number("int"),
+ *     CidrBlock: "STRING_VALUE",
+ *     DefaultForAz: true || false,
+ *     EnableLniAtDeviceIndex: Number("int"),
+ *     MapPublicIpOnLaunch: true || false,
+ *     MapCustomerOwnedIpOnLaunch: true || false,
+ *     CustomerOwnedIpv4Pool: "STRING_VALUE",
+ *     State: "pending" || "available",
+ *     SubnetId: "STRING_VALUE",
+ *     VpcId: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     AssignIpv6AddressOnCreation: true || false,
+ *     Ipv6CidrBlockAssociationSet: [ // SubnetIpv6CidrBlockAssociationSet
+ *       { // SubnetIpv6CidrBlockAssociation
+ *         AssociationId: "STRING_VALUE",
+ *         Ipv6CidrBlock: "STRING_VALUE",
+ *         Ipv6CidrBlockState: { // SubnetCidrBlockState
+ *           State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ *           StatusMessage: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     SubnetArn: "STRING_VALUE",
+ *     OutpostArn: "STRING_VALUE",
+ *     EnableDns64: true || false,
+ *     Ipv6Native: true || false,
+ *     PrivateDnsNameOptionsOnLaunch: { // PrivateDnsNameOptionsOnLaunch
+ *       HostnameType: "ip-name" || "resource-name",
+ *       EnableResourceNameDnsARecord: true || false,
+ *       EnableResourceNameDnsAAAARecord: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDefaultSubnetCommandInput - {@link CreateDefaultSubnetCommandInput}
@@ -57,6 +102,8 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * @see {@link CreateDefaultSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateDefaultSubnetCommand extends $Command<

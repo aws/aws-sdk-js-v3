@@ -44,6 +44,11 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * };
  * const command = new BulkPublishCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BulkPublishResponse
+ *   IdentityPoolId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param BulkPublishCommandInput - {@link BulkPublishCommandInput}
@@ -74,6 +79,8 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  *  Thrown if the resource doesn't
  *       exist.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class BulkPublishCommand extends $Command<

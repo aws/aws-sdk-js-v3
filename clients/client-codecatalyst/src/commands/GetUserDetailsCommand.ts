@@ -45,6 +45,18 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * };
  * const command = new GetUserDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserDetailsResponse
+ *   userId: "STRING_VALUE",
+ *   userName: "STRING_VALUE",
+ *   displayName: "STRING_VALUE",
+ *   primaryEmail: { // EmailAddress
+ *     email: "STRING_VALUE",
+ *     verified: true || false,
+ *   },
+ *   version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetUserDetailsCommandInput - {@link GetUserDetailsCommandInput}
@@ -73,6 +85,8 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetUserDetailsCommand extends $Command<

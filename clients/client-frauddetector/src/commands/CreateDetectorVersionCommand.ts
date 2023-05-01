@@ -70,6 +70,13 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
  * };
  * const command = new CreateDetectorVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDetectorVersionResult
+ *   detectorId: "STRING_VALUE",
+ *   detectorVersionId: "STRING_VALUE",
+ *   status: "DRAFT" || "ACTIVE" || "INACTIVE",
+ * };
+ *
  * ```
  *
  * @param CreateDetectorVersionCommandInput - {@link CreateDetectorVersionCommandInput}
@@ -93,6 +100,8 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateDetectorVersionCommand extends $Command<

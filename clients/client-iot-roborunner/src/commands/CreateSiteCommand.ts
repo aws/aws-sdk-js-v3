@@ -47,6 +47,14 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * };
  * const command = new CreateSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSiteResponse
+ *   arn: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   createdAt: new Date("TIMESTAMP"), // required
+ *   updatedAt: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param CreateSiteCommandInput - {@link CreateSiteCommandInput}
@@ -73,6 +81,8 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class CreateSiteCommand extends $Command<

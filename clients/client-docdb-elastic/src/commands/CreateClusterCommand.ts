@@ -61,6 +61,29 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterOutput
+ *   cluster: { // Cluster
+ *     clusterName: "STRING_VALUE", // required
+ *     clusterArn: "STRING_VALUE", // required
+ *     status: "STRING_VALUE", // required
+ *     clusterEndpoint: "STRING_VALUE", // required
+ *     createTime: "STRING_VALUE", // required
+ *     adminUserName: "STRING_VALUE", // required
+ *     authType: "STRING_VALUE", // required
+ *     shardCapacity: Number("int"), // required
+ *     shardCount: Number("int"), // required
+ *     vpcSecurityGroupIds: [ // StringList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     preferredMaintenanceWindow: "STRING_VALUE", // required
+ *     kmsKeyId: "STRING_VALUE", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
@@ -87,6 +110,8 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class CreateClusterCommand extends $Command<

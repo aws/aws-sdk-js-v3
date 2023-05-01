@@ -45,6 +45,22 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * };
  * const command = new ListPackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackagesResponse
+ *   Packages: [ // PackageList
+ *     { // PackageListItem
+ *       PackageId: "STRING_VALUE",
+ *       PackageName: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPackagesCommandInput - {@link ListPackagesCommandInput}
@@ -68,6 +84,8 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListPackagesCommand extends $Command<

@@ -90,6 +90,17 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * };
  * const command = new SendBulkEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendBulkEmailResponse
+ *   BulkEmailEntryResults: [ // BulkEmailEntryResultList // required
+ *     { // BulkEmailEntryResult
+ *       Status: "SUCCESS" || "MESSAGE_REJECTED" || "MAIL_FROM_DOMAIN_NOT_VERIFIED" || "CONFIGURATION_SET_NOT_FOUND" || "TEMPLATE_NOT_FOUND" || "ACCOUNT_SUSPENDED" || "ACCOUNT_THROTTLED" || "ACCOUNT_DAILY_QUOTA_EXCEEDED" || "INVALID_SENDING_POOL_NAME" || "ACCOUNT_SENDING_PAUSED" || "CONFIGURATION_SET_SENDING_PAUSED" || "INVALID_PARAMETER" || "TRANSIENT_FAILURE" || "FAILED",
+ *       Error: "STRING_VALUE",
+ *       MessageId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SendBulkEmailCommandInput - {@link SendBulkEmailCommandInput}
@@ -124,6 +135,8 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class SendBulkEmailCommand extends $Command<

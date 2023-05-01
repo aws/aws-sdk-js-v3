@@ -71,6 +71,11 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterInstanceResult
+ *   InstanceId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
@@ -85,6 +90,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterInstanceCommand extends $Command<

@@ -97,6 +97,16 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * };
  * const command = new PutLogEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutLogEventsResponse
+ *   nextSequenceToken: "STRING_VALUE",
+ *   rejectedLogEventsInfo: { // RejectedLogEventsInfo
+ *     tooNewLogEventStartIndex: Number("int"),
+ *     tooOldLogEventEndIndex: Number("int"),
+ *     expiredLogEventEndIndex: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutLogEventsCommandInput - {@link PutLogEventsCommandInput}
@@ -139,6 +149,8 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *  <p>The most likely cause is an Amazon Web Services access key ID or secret key that's not
  *       valid.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutLogEventsCommand extends $Command<

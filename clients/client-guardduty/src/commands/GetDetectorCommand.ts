@@ -47,6 +47,60 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * };
  * const command = new GetDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDetectorResponse
+ *   CreatedAt: "STRING_VALUE",
+ *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   ServiceRole: "STRING_VALUE", // required
+ *   Status: "ENABLED" || "DISABLED", // required
+ *   UpdatedAt: "STRING_VALUE",
+ *   DataSources: { // DataSourceConfigurationsResult
+ *     CloudTrail: { // CloudTrailConfigurationResult
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
+ *     DNSLogs: { // DNSLogsConfigurationResult
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
+ *     FlowLogs: { // FlowLogsConfigurationResult
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
+ *     S3Logs: { // S3LogsConfigurationResult
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
+ *     Kubernetes: { // KubernetesConfigurationResult
+ *       AuditLogs: { // KubernetesAuditLogsConfigurationResult
+ *         Status: "ENABLED" || "DISABLED", // required
+ *       },
+ *     },
+ *     MalwareProtection: { // MalwareProtectionConfigurationResult
+ *       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindingsResult
+ *         EbsVolumes: { // EbsVolumesResult
+ *           Status: "ENABLED" || "DISABLED",
+ *           Reason: "STRING_VALUE",
+ *         },
+ *       },
+ *       ServiceRole: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Features: [ // DetectorFeatureConfigurationsResults
+ *     { // DetectorFeatureConfigurationResult
+ *       Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ *       Status: "ENABLED" || "DISABLED",
+ *       UpdatedAt: new Date("TIMESTAMP"),
+ *       AdditionalConfiguration: [ // DetectorAdditionalConfigurationResults
+ *         { // DetectorAdditionalConfigurationResult
+ *           Name: "EKS_ADDON_MANAGEMENT",
+ *           Status: "ENABLED" || "DISABLED",
+ *           UpdatedAt: new Date("TIMESTAMP"),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDetectorCommandInput - {@link GetDetectorCommandInput}
@@ -61,6 +115,8 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetDetectorCommand extends $Command<

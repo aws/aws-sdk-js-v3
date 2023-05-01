@@ -46,6 +46,20 @@ export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBea
  * };
  * const command = new GetModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetModelsResponse
+ *   Items: [ // __listOfModel
+ *     { // Model
+ *       ContentType: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       ModelId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *       Schema: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetModelsCommandInput - {@link GetModelsCommandInput}
@@ -63,6 +77,8 @@ export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetModelsCommand extends $Command<

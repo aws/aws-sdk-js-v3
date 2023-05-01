@@ -50,6 +50,9 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * };
  * const command = new UpdateProtectionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateProtectionGroupCommandInput - {@link UpdateProtectionGroupCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class UpdateProtectionGroupCommand extends $Command<

@@ -50,6 +50,20 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * };
  * const command = new QueryWhatIfForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryWhatIfForecastResponse
+ *   Forecast: { // Forecast
+ *     Predictions: { // Predictions
+ *       "<keys>": [ // TimeSeries
+ *         { // DataPoint
+ *           Timestamp: "STRING_VALUE",
+ *           Value: Number("double"),
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param QueryWhatIfForecastCommandInput - {@link QueryWhatIfForecastCommandInput}
@@ -74,6 +88,8 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  *  <p>We can't find that resource. Check the information that you've provided and try
  *       again.</p>
  *
+ * @throws {@link ForecastqueryServiceException}
+ * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
  */
 export class QueryWhatIfForecastCommand extends $Command<

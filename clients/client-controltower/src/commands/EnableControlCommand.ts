@@ -47,6 +47,11 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * };
  * const command = new EnableControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableControlOutput
+ *   operationIdentifier: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param EnableControlCommandInput - {@link EnableControlCommandInput}
@@ -77,6 +82,8 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ControlTowerServiceException}
+ * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
 export class EnableControlCommand extends $Command<

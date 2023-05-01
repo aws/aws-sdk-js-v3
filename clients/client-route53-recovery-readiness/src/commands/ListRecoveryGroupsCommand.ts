@@ -49,6 +49,23 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  * };
  * const command = new ListRecoveryGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecoveryGroupsResponse
+ *   NextToken: "STRING_VALUE",
+ *   RecoveryGroups: [ // __listOfRecoveryGroupOutput
+ *     { // RecoveryGroupOutput
+ *       Cells: [ // __listOf__string // required
+ *         "STRING_VALUE",
+ *       ],
+ *       RecoveryGroupArn: "STRING_VALUE", // required
+ *       RecoveryGroupName: "STRING_VALUE", // required
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRecoveryGroupsCommandInput - {@link ListRecoveryGroupsCommandInput}
@@ -69,6 +86,8 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class ListRecoveryGroupsCommand extends $Command<

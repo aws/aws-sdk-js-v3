@@ -74,6 +74,16 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleGroupResponse
+ *   RuleGroup: { // RuleGroup
+ *     RuleGroupId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     MetricName: "STRING_VALUE",
+ *   },
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
@@ -105,6 +115,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class CreateRuleGroupCommand extends $Command<

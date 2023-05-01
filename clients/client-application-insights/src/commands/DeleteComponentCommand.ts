@@ -51,6 +51,9 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

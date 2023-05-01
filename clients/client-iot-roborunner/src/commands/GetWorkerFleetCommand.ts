@@ -44,6 +44,17 @@ export interface GetWorkerFleetCommandOutput extends GetWorkerFleetResponse, __M
  * };
  * const command = new GetWorkerFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkerFleetResponse
+ *   id: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   site: "STRING_VALUE", // required
+ *   createdAt: new Date("TIMESTAMP"), // required
+ *   updatedAt: new Date("TIMESTAMP"), // required
+ *   additionalFixedProperties: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetWorkerFleetCommandInput - {@link GetWorkerFleetCommandInput}
@@ -67,6 +78,8 @@ export interface GetWorkerFleetCommandOutput extends GetWorkerFleetResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class GetWorkerFleetCommand extends $Command<

@@ -53,6 +53,9 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete an instance profile
  * ```javascript

@@ -95,6 +95,9 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisconnectCustomKeyStoreCommandInput - {@link DisconnectCustomKeyStoreCommandInput}
@@ -147,6 +150,8 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To disconnect a custom key store from its CloudHSM cluster
  * ```javascript

@@ -44,6 +44,11 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLifecyclePolicyOutput
+ *   LifecyclePolicy: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
@@ -65,6 +70,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class GetLifecyclePolicyCommand extends $Command<

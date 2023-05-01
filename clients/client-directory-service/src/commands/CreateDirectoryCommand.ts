@@ -69,6 +69,11 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDirectoryResult
+ *   DirectoryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
@@ -91,6 +96,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateDirectoryCommand extends $Command<

@@ -45,6 +45,26 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  * };
  * const command = new DescribeThesaurusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeThesaurusResponse
+ *   Id: "STRING_VALUE",
+ *   IndexId: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "ACTIVE_BUT_UPDATE_FAILED" || "FAILED",
+ *   ErrorMessage: "STRING_VALUE",
+ *   CreatedAt: new Date("TIMESTAMP"),
+ *   UpdatedAt: new Date("TIMESTAMP"),
+ *   RoleArn: "STRING_VALUE",
+ *   SourceS3Path: { // S3Path
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *   },
+ *   FileSizeBytes: Number("long"),
+ *   TermCount: Number("long"),
+ *   SynonymRuleCount: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DescribeThesaurusCommandInput - {@link DescribeThesaurusCommandInput}
@@ -73,6 +93,8 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeThesaurusCommand extends $Command<

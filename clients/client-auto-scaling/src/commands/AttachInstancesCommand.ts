@@ -56,6 +56,9 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachInstancesCommandInput - {@link AttachInstancesCommandInput}
@@ -71,6 +74,8 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To attach an instance to an Auto Scaling group
  * ```javascript

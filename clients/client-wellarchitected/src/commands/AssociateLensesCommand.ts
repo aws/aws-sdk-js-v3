@@ -57,6 +57,9 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateLensesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateLensesCommandInput - {@link AssociateLensesCommandInput}
@@ -83,6 +86,8 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class AssociateLensesCommand extends $Command<

@@ -48,6 +48,38 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * };
  * const command = new GetSubjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubjectDetailResponse
+ *   subject: { // SubjectDetail
+ *     subjectArn: "STRING_VALUE",
+ *     subjectId: "STRING_VALUE",
+ *     enabled: true || false,
+ *     x509Subject: "STRING_VALUE",
+ *     lastSeenAt: new Date("TIMESTAMP"),
+ *     createdAt: new Date("TIMESTAMP"),
+ *     updatedAt: new Date("TIMESTAMP"),
+ *     credentials: [ // CredentialSummaries
+ *       { // CredentialSummary
+ *         seenAt: new Date("TIMESTAMP"),
+ *         serialNumber: "STRING_VALUE",
+ *         issuer: "STRING_VALUE",
+ *         enabled: true || false,
+ *         x509CertificateData: "STRING_VALUE",
+ *         failed: true || false,
+ *       },
+ *     ],
+ *     instanceProperties: [ // InstanceProperties
+ *       { // InstanceProperty
+ *         seenAt: new Date("TIMESTAMP"),
+ *         properties: { // InstancePropertyMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         failed: true || false,
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSubjectCommandInput - {@link GetSubjectCommandInput}
@@ -62,6 +94,8 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class GetSubjectCommand extends $Command<

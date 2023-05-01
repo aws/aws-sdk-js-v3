@@ -77,6 +77,14 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeEndpointOutput
+ *   Body: "BLOB_VALUE", // required
+ *   ContentType: "STRING_VALUE",
+ *   InvokedProductionVariant: "STRING_VALUE",
+ *   CustomAttributes: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param InvokeEndpointCommandInput - {@link InvokeEndpointCommandInput}
@@ -107,6 +115,8 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * @throws {@link ValidationError} (client fault)
  *  <p> Inspect your request and try again. </p>
  *
+ * @throws {@link SageMakerRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
  */
 export class InvokeEndpointCommand extends $Command<

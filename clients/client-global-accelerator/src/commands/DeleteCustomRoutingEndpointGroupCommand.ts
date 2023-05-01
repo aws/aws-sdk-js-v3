@@ -51,6 +51,9 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  * };
  * const command = new DeleteCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCustomRoutingEndpointGroupCommandInput - {@link DeleteCustomRoutingEndpointGroupCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DeleteCustomRoutingEndpointGroupCommand extends $Command<

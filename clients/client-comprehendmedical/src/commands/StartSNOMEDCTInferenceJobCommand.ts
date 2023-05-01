@@ -62,6 +62,11 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  * };
  * const command = new StartSNOMEDCTInferenceJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSNOMEDCTInferenceJobResponse
+ *   JobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartSNOMEDCTInferenceJobCommandInput - {@link StartSNOMEDCTInferenceJobCommandInput}
@@ -86,6 +91,8 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StartSNOMEDCTInferenceJobCommand extends $Command<

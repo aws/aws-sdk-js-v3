@@ -50,6 +50,17 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * };
  * const command = new StartWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartWorkspacesResult
+ *   FailedRequests: [ // FailedStartWorkspaceRequests
+ *     { // FailedWorkspaceChangeRequest
+ *       WorkspaceId: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param StartWorkspacesCommandInput - {@link StartWorkspacesCommandInput}
@@ -58,6 +69,8 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class StartWorkspacesCommand extends $Command<

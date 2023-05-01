@@ -45,6 +45,9 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFraudsterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFraudsterCommandInput - {@link DeleteFraudsterCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DeleteFraudsterCommand extends $Command<

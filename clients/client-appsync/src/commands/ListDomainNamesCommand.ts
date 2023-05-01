@@ -45,6 +45,20 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainNamesResponse
+ *   domainNameConfigs: [ // DomainNameConfigs
+ *     { // DomainNameConfig
+ *       domainName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       certificateArn: "STRING_VALUE",
+ *       appsyncDomainName: "STRING_VALUE",
+ *       hostedZoneId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
@@ -63,6 +77,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class ListDomainNamesCommand extends $Command<

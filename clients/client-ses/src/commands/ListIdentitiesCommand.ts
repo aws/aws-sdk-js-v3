@@ -48,6 +48,14 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * };
  * const command = new ListIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentitiesResponse
+ *   Identities: [ // IdentityList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListIdentitiesCommandInput - {@link ListIdentitiesCommandInput}
@@ -56,6 +64,8 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListIdentities
  * ```javascript

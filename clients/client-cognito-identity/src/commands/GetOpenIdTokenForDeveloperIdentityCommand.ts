@@ -73,6 +73,12 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * };
  * const command = new GetOpenIdTokenForDeveloperIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpenIdTokenForDeveloperIdentityResponse
+ *   IdentityId: "STRING_VALUE",
+ *   Token: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetOpenIdTokenForDeveloperIdentityCommandInput - {@link GetOpenIdTokenForDeveloperIdentityCommandInput}
@@ -105,6 +111,8 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<

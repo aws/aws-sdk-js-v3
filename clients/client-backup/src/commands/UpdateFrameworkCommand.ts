@@ -69,6 +69,13 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * };
  * const command = new UpdateFrameworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFrameworkOutput
+ *   FrameworkName: "STRING_VALUE",
+ *   FrameworkArn: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateFrameworkCommandInput - {@link UpdateFrameworkCommandInput}
@@ -101,6 +108,8 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateFrameworkCommand extends $Command<

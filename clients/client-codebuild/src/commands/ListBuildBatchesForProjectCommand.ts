@@ -50,6 +50,14 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * };
  * const command = new ListBuildBatchesForProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuildBatchesForProjectOutput
+ *   ids: [ // BuildBatchIds
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBuildBatchesForProjectCommandInput - {@link ListBuildBatchesForProjectCommandInput}
@@ -64,6 +72,8 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListBuildBatchesForProjectCommand extends $Command<

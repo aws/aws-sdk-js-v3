@@ -124,6 +124,11 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * };
  * const command = new CreateBatchLoadTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBatchLoadTaskResponse
+ *   TaskId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateBatchLoadTaskCommandInput - {@link CreateBatchLoadTaskCommandInput}
@@ -161,6 +166,8 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class CreateBatchLoadTaskCommand extends $Command<

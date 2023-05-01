@@ -47,6 +47,14 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  * };
  * const command = new DeleteCustomVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCustomVocabularyResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   customVocabularyStatus: "Ready" || "Deleting" || "Exporting" || "Importing" || "Creating",
+ * };
+ *
  * ```
  *
  * @param DeleteCustomVocabularyCommandInput - {@link DeleteCustomVocabularyCommandInput}
@@ -80,6 +88,8 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteCustomVocabularyCommand extends $Command<

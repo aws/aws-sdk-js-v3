@@ -58,6 +58,9 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
  * };
  * const command = new DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput - {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput}
@@ -89,6 +92,8 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extends $Command<

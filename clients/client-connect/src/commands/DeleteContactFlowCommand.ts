@@ -45,6 +45,9 @@ export interface DeleteContactFlowCommandOutput extends DeleteContactFlowRespons
  * };
  * const command = new DeleteContactFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContactFlowCommandInput - {@link DeleteContactFlowCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteContactFlowCommandOutput extends DeleteContactFlowRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteContactFlowCommand extends $Command<

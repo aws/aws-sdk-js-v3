@@ -80,6 +80,52 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupOutput
+ *   Group: { // Group
+ *     GroupArn: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *   },
+ *   ResourceQuery: { // ResourceQuery
+ *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ *     Query: "STRING_VALUE", // required
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   GroupConfiguration: { // GroupConfiguration
+ *     Configuration: [ // GroupConfigurationList
+ *       { // GroupConfigurationItem
+ *         Type: "STRING_VALUE", // required
+ *         Parameters: [ // GroupParameterList
+ *           { // GroupConfigurationParameter
+ *             Name: "STRING_VALUE", // required
+ *             Values: [ // GroupConfigurationParameterValueList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     ProposedConfiguration: [
+ *       {
+ *         Type: "STRING_VALUE", // required
+ *         Parameters: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Status: "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ *     FailureReason: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -104,6 +150,8 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class CreateGroupCommand extends $Command<

@@ -45,6 +45,11 @@ export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, _
  * };
  * const command = new EnableDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableDirectoryResponse
+ *   DirectoryArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param EnableDirectoryCommandInput - {@link EnableDirectoryCommandInput}
@@ -79,6 +84,8 @@ export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class EnableDirectoryCommand extends $Command<

@@ -44,6 +44,17 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * };
  * const command = new GetDomainNameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDomainNameResponse
+ *   domainNameConfig: { // DomainNameConfig
+ *     domainName: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     certificateArn: "STRING_VALUE",
+ *     appsyncDomainName: "STRING_VALUE",
+ *     hostedZoneId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDomainNameCommandInput - {@link GetDomainNameCommandInput}
@@ -65,6 +76,8 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetDomainNameCommand extends $Command<

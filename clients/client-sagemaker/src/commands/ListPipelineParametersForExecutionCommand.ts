@@ -54,6 +54,17 @@ export interface ListPipelineParametersForExecutionCommandOutput
  * };
  * const command = new ListPipelineParametersForExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelineParametersForExecutionResponse
+ *   PipelineParameters: [ // ParameterList
+ *     { // Parameter
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPipelineParametersForExecutionCommandInput - {@link ListPipelineParametersForExecutionCommandInput}
@@ -65,6 +76,8 @@ export interface ListPipelineParametersForExecutionCommandOutput
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListPipelineParametersForExecutionCommand extends $Command<

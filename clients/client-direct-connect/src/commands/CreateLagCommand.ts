@@ -79,6 +79,80 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  * };
  * const command = new CreateLagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Lag
+ *   connectionsBandwidth: "STRING_VALUE",
+ *   numberOfConnections: Number("int"),
+ *   lagId: "STRING_VALUE",
+ *   ownerAccount: "STRING_VALUE",
+ *   lagName: "STRING_VALUE",
+ *   lagState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
+ *   location: "STRING_VALUE",
+ *   region: "STRING_VALUE",
+ *   minimumLinks: Number("int"),
+ *   awsDevice: "STRING_VALUE",
+ *   awsDeviceV2: "STRING_VALUE",
+ *   awsLogicalDeviceId: "STRING_VALUE",
+ *   connections: [ // ConnectionList
+ *     { // Connection
+ *       ownerAccount: "STRING_VALUE",
+ *       connectionId: "STRING_VALUE",
+ *       connectionName: "STRING_VALUE",
+ *       connectionState: "ordering" || "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ *       region: "STRING_VALUE",
+ *       location: "STRING_VALUE",
+ *       bandwidth: "STRING_VALUE",
+ *       vlan: Number("int"),
+ *       partnerName: "STRING_VALUE",
+ *       loaIssueTime: new Date("TIMESTAMP"),
+ *       lagId: "STRING_VALUE",
+ *       awsDevice: "STRING_VALUE",
+ *       jumboFrameCapable: true || false,
+ *       awsDeviceV2: "STRING_VALUE",
+ *       awsLogicalDeviceId: "STRING_VALUE",
+ *       hasLogicalRedundancy: "unknown" || "yes" || "no",
+ *       tags: [ // TagList
+ *         { // Tag
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       providerName: "STRING_VALUE",
+ *       macSecCapable: true || false,
+ *       portEncryptionStatus: "STRING_VALUE",
+ *       encryptionMode: "STRING_VALUE",
+ *       macSecKeys: [ // MacSecKeyList
+ *         { // MacSecKey
+ *           secretARN: "STRING_VALUE",
+ *           ckn: "STRING_VALUE",
+ *           state: "STRING_VALUE",
+ *           startOn: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   allowsHostedConnections: true || false,
+ *   jumboFrameCapable: true || false,
+ *   hasLogicalRedundancy: "unknown" || "yes" || "no",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   providerName: "STRING_VALUE",
+ *   macSecCapable: true || false,
+ *   encryptionMode: "STRING_VALUE",
+ *   macSecKeys: [
+ *     {
+ *       secretARN: "STRING_VALUE",
+ *       ckn: "STRING_VALUE",
+ *       state: "STRING_VALUE",
+ *       startOn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateLagCommandInput - {@link CreateLagCommandInput}
@@ -99,6 +173,8 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have reached the limit on the number of tags that can be assigned.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class CreateLagCommand extends $Command<

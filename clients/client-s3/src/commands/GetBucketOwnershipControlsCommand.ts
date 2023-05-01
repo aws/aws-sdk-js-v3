@@ -62,6 +62,17 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * };
  * const command = new GetBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketOwnershipControlsOutput
+ *   OwnershipControls: { // OwnershipControls
+ *     Rules: [ // OwnershipControlsRules // required
+ *       { // OwnershipControlsRule
+ *         ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBucketOwnershipControlsCommandInput - {@link GetBucketOwnershipControlsCommandInput}
@@ -70,6 +81,8 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * @see {@link GetBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketOwnershipControlsCommand extends $Command<

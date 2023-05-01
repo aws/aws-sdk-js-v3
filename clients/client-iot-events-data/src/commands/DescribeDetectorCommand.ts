@@ -45,6 +45,32 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
  * };
  * const command = new DescribeDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDetectorResponse
+ *   detector: { // Detector
+ *     detectorModelName: "STRING_VALUE",
+ *     keyValue: "STRING_VALUE",
+ *     detectorModelVersion: "STRING_VALUE",
+ *     state: { // DetectorState
+ *       stateName: "STRING_VALUE", // required
+ *       variables: [ // Variables // required
+ *         { // Variable
+ *           name: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       timers: [ // Timers // required
+ *         { // Timer
+ *           name: "STRING_VALUE", // required
+ *           timestamp: new Date("TIMESTAMP"), // required
+ *         },
+ *       ],
+ *     },
+ *     creationTime: new Date("TIMESTAMP"),
+ *     lastUpdateTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDetectorCommandInput - {@link DescribeDetectorCommandInput}
@@ -68,6 +94,8 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class DescribeDetectorCommand extends $Command<

@@ -46,6 +46,9 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteV2LoggingLevelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteV2LoggingLevelCommandInput - {@link DeleteV2LoggingLevelCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteV2LoggingLevelCommand extends $Command<

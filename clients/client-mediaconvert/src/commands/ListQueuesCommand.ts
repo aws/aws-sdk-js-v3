@@ -47,6 +47,33 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueuesResponse
+ *   NextToken: "STRING_VALUE",
+ *   Queues: [ // __listOfQueue
+ *     { // Queue
+ *       Arn: "STRING_VALUE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       Description: "STRING_VALUE",
+ *       LastUpdated: new Date("TIMESTAMP"),
+ *       Name: "STRING_VALUE", // required
+ *       PricingPlan: "ON_DEMAND" || "RESERVED",
+ *       ProgressingJobsCount: Number("int"),
+ *       ReservationPlan: { // ReservationPlan
+ *         Commitment: "ONE_YEAR",
+ *         ExpiresAt: new Date("TIMESTAMP"),
+ *         PurchasedAt: new Date("TIMESTAMP"),
+ *         RenewalType: "AUTO_RENEW" || "EXPIRE",
+ *         ReservedSlots: Number("int"),
+ *         Status: "ACTIVE" || "EXPIRED",
+ *       },
+ *       Status: "ACTIVE" || "PAUSED",
+ *       SubmittedJobsCount: Number("int"),
+ *       Type: "SYSTEM" || "CUSTOM",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
@@ -73,6 +100,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class ListQueuesCommand extends $Command<

@@ -120,6 +120,11 @@ export interface UpdateDomainContactCommandOutput extends UpdateDomainContactRes
  * };
  * const command = new UpdateDomainContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDomainContactResponse
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateDomainContactCommandInput - {@link UpdateDomainContactCommandInput}
@@ -147,6 +152,8 @@ export interface UpdateDomainContactCommandOutput extends UpdateDomainContactRes
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class UpdateDomainContactCommand extends $Command<

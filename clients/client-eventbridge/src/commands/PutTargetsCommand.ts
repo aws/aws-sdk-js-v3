@@ -347,6 +347,18 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * };
  * const command = new PutTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutTargetsResponse
+ *   FailedEntryCount: Number("int"),
+ *   FailedEntries: [ // PutTargetsResultEntryList
+ *     { // PutTargetsResultEntry
+ *       TargetId: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutTargetsCommandInput - {@link PutTargetsCommandInput}
@@ -376,6 +388,8 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class PutTargetsCommand extends $Command<

@@ -62,6 +62,19 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * };
  * const command = new ListEndpointsByPlatformApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEndpointsByPlatformApplicationResponse
+ *   Endpoints: [ // ListOfEndpoints
+ *     { // Endpoint
+ *       EndpointArn: "STRING_VALUE",
+ *       Attributes: { // MapStringToString
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEndpointsByPlatformApplicationCommandInput - {@link ListEndpointsByPlatformApplicationCommandInput}
@@ -83,6 +96,8 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListEndpointsByPlatformApplicationCommand extends $Command<

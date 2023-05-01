@@ -71,6 +71,26 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * };
  * const command = new FilterLogEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FilterLogEventsResponse
+ *   events: [ // FilteredLogEvents
+ *     { // FilteredLogEvent
+ *       logStreamName: "STRING_VALUE",
+ *       timestamp: Number("long"),
+ *       message: "STRING_VALUE",
+ *       ingestionTime: Number("long"),
+ *       eventId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   searchedLogStreams: [ // SearchedLogStreams
+ *     { // SearchedLogStream
+ *       logStreamName: "STRING_VALUE",
+ *       searchedCompletely: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param FilterLogEventsCommandInput - {@link FilterLogEventsCommandInput}
@@ -88,6 +108,8 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class FilterLogEventsCommand extends $Command<

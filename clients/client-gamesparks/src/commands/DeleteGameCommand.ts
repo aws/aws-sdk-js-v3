@@ -44,6 +44,9 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * };
  * const command = new DeleteGameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGameCommandInput - {@link DeleteGameCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class DeleteGameCommand extends $Command<

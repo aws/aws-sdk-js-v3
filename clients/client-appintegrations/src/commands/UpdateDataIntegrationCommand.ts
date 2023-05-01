@@ -51,6 +51,9 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * };
  * const command = new UpdateDataIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDataIntegrationCommandInput - {@link UpdateDataIntegrationCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class UpdateDataIntegrationCommand extends $Command<

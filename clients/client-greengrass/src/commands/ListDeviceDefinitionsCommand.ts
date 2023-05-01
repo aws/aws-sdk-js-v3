@@ -45,6 +45,25 @@ export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinition
  * };
  * const command = new ListDeviceDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeviceDefinitionsResponse
+ *   Definitions: [ // __listOfDefinitionInformation
+ *     { // DefinitionInformation
+ *       Arn: "STRING_VALUE",
+ *       CreationTimestamp: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       LastUpdatedTimestamp: "STRING_VALUE",
+ *       LatestVersion: "STRING_VALUE",
+ *       LatestVersionArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDeviceDefinitionsCommandInput - {@link ListDeviceDefinitionsCommandInput}
@@ -53,6 +72,8 @@ export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinition
  * @see {@link ListDeviceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListDeviceDefinitionsCommand extends $Command<

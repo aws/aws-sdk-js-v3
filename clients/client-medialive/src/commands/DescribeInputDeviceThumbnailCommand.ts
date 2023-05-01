@@ -57,6 +57,15 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * };
  * const command = new DescribeInputDeviceThumbnailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInputDeviceThumbnailResponse
+ *   Body: "STREAMING_BLOB_VALUE",
+ *   ContentType: "image/jpeg",
+ *   ContentLength: Number("long"),
+ *   ETag: "STRING_VALUE",
+ *   LastModified: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeInputDeviceThumbnailCommandInput - {@link DescribeInputDeviceThumbnailCommandInput}
@@ -86,6 +95,8 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DescribeInputDeviceThumbnailCommand extends $Command<

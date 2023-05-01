@@ -101,6 +101,14 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartJobRunResponse
+ *   id: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   virtualClusterId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
@@ -118,6 +126,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class StartJobRunCommand extends $Command<

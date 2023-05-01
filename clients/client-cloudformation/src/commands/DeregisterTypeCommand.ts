@@ -56,6 +56,9 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * };
  * const command = new DeregisterTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterTypeCommandInput - {@link DeregisterTypeCommandInput}
@@ -70,6 +73,8 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeregisterTypeCommand extends $Command<

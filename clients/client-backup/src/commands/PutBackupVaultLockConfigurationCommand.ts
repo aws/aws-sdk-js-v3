@@ -62,6 +62,9 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBackupVaultLockConfigurationCommandInput - {@link PutBackupVaultLockConfigurationCommandInput}
@@ -87,6 +90,8 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class PutBackupVaultLockConfigurationCommand extends $Command<

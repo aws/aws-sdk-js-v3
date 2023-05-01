@@ -48,6 +48,27 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  * };
  * const command = new GetViewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetViewOutput
+ *   View: { // View
+ *     ViewArn: "STRING_VALUE",
+ *     Owner: "STRING_VALUE",
+ *     LastUpdatedAt: new Date("TIMESTAMP"),
+ *     Scope: "STRING_VALUE",
+ *     IncludedProperties: [ // IncludedPropertyList
+ *       { // IncludedProperty
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Filters: { // SearchFilter
+ *       FilterString: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetViewCommandInput - {@link GetViewCommandInput}
@@ -80,6 +101,8 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class GetViewCommand extends $Command<

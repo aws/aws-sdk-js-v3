@@ -49,6 +49,31 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * };
  * const command = new DescribeKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeKeyResponse
+ *   Key: "STRING_VALUE", // required
+ *   KeyArn: "STRING_VALUE", // required
+ *   KeyName: "STRING_VALUE", // required
+ *   Restrictions: { // ApiKeyRestrictions
+ *     AllowActions: [ // ApiKeyActionList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowResources: [ // GeoArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowReferers: [ // RefererPatternList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CreateTime: new Date("TIMESTAMP"), // required
+ *   ExpireTime: new Date("TIMESTAMP"), // required
+ *   UpdateTime: new Date("TIMESTAMP"), // required
+ *   Description: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeKeyCommandInput - {@link DescribeKeyCommandInput}
@@ -73,6 +98,8 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DescribeKeyCommand extends $Command<

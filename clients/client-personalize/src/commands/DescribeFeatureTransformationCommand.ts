@@ -49,6 +49,20 @@ export interface DescribeFeatureTransformationCommandOutput
  * };
  * const command = new DescribeFeatureTransformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFeatureTransformationResponse
+ *   featureTransformation: { // FeatureTransformation
+ *     name: "STRING_VALUE",
+ *     featureTransformationArn: "STRING_VALUE",
+ *     defaultParameters: { // FeaturizationParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     creationDateTime: new Date("TIMESTAMP"),
+ *     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *     status: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFeatureTransformationCommandInput - {@link DescribeFeatureTransformationCommandInput}
@@ -63,6 +77,8 @@ export interface DescribeFeatureTransformationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeFeatureTransformationCommand extends $Command<

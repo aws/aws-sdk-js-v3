@@ -61,6 +61,25 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * };
  * const command = new UngroupResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UngroupResourcesOutput
+ *   Succeeded: [ // ResourceArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Failed: [ // FailedResourceList
+ *     { // FailedResource
+ *       ResourceArn: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Pending: [ // PendingResourceList
+ *     { // PendingResource
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UngroupResourcesCommandInput - {@link UngroupResourcesCommandInput}
@@ -88,6 +107,8 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UngroupResourcesCommand extends $Command<

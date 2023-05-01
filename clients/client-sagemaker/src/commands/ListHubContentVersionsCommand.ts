@@ -57,6 +57,27 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * };
  * const command = new ListHubContentVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHubContentVersionsResponse
+ *   HubContentSummaries: [ // HubContentInfoList // required
+ *     { // HubContentInfo
+ *       HubContentName: "STRING_VALUE", // required
+ *       HubContentArn: "STRING_VALUE", // required
+ *       HubContentVersion: "STRING_VALUE", // required
+ *       HubContentType: "Model" || "Notebook", // required
+ *       DocumentSchemaVersion: "STRING_VALUE", // required
+ *       HubContentDisplayName: "STRING_VALUE",
+ *       HubContentDescription: "STRING_VALUE",
+ *       HubContentSearchKeywords: [ // HubContentSearchKeywordList
+ *         "STRING_VALUE",
+ *       ],
+ *       HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListHubContentVersionsCommandInput - {@link ListHubContentVersionsCommandInput}
@@ -68,6 +89,8 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListHubContentVersionsCommand extends $Command<

@@ -93,6 +93,9 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateIndexCommandInput - {@link UpdateIndexCommandInput}
@@ -131,6 +134,8 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateIndexCommand extends $Command<

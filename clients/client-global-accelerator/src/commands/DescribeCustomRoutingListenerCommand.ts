@@ -53,6 +53,19 @@ export interface DescribeCustomRoutingListenerCommandOutput
  * };
  * const command = new DescribeCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomRoutingListenerResponse
+ *   Listener: { // CustomRoutingListener
+ *     ListenerArn: "STRING_VALUE",
+ *     PortRanges: [ // PortRanges
+ *       { // PortRange
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCustomRoutingListenerCommandInput - {@link DescribeCustomRoutingListenerCommandInput}
@@ -70,6 +83,8 @@ export interface DescribeCustomRoutingListenerCommandOutput
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DescribeCustomRoutingListenerCommand extends $Command<

@@ -48,6 +48,19 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * };
  * const command = new ListFlowExecutionMessagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFlowExecutionMessagesResponse
+ *   messages: [ // FlowExecutionMessages
+ *     { // FlowExecutionMessage
+ *       messageId: "STRING_VALUE",
+ *       eventType: "STRING_VALUE",
+ *       timestamp: new Date("TIMESTAMP"),
+ *       payload: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFlowExecutionMessagesCommandInput - {@link ListFlowExecutionMessagesCommandInput}
@@ -68,6 +81,8 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class ListFlowExecutionMessagesCommand extends $Command<

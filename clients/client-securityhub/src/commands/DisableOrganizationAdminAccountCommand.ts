@@ -50,6 +50,9 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
@@ -72,6 +75,8 @@ export interface DisableOrganizationAdminAccountCommandOutput
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To remove a Security Hub administrator account
  * ```javascript

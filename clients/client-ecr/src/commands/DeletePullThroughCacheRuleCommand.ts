@@ -45,6 +45,14 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * };
  * const command = new DeletePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePullThroughCacheRuleResponse
+ *   ecrRepositoryPrefix: "STRING_VALUE",
+ *   upstreamRegistryUrl: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   registryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeletePullThroughCacheRuleCommandInput - {@link DeletePullThroughCacheRuleCommandInput}
@@ -67,6 +75,8 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DeletePullThroughCacheRuleCommand extends $Command<

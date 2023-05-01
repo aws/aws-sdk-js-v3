@@ -45,6 +45,9 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class DeleteGroupCommand extends $Command<

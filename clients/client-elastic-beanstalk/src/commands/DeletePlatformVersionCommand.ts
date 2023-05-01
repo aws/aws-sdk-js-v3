@@ -44,6 +44,28 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * };
  * const command = new DeletePlatformVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePlatformVersionResult
+ *   PlatformSummary: { // PlatformSummary
+ *     PlatformArn: "STRING_VALUE",
+ *     PlatformOwner: "STRING_VALUE",
+ *     PlatformStatus: "Creating" || "Failed" || "Ready" || "Deleting" || "Deleted",
+ *     PlatformCategory: "STRING_VALUE",
+ *     OperatingSystemName: "STRING_VALUE",
+ *     OperatingSystemVersion: "STRING_VALUE",
+ *     SupportedTierList: [ // SupportedTierList
+ *       "STRING_VALUE",
+ *     ],
+ *     SupportedAddonList: [ // SupportedAddonList
+ *       "STRING_VALUE",
+ *     ],
+ *     PlatformLifecycleState: "STRING_VALUE",
+ *     PlatformVersion: "STRING_VALUE",
+ *     PlatformBranchName: "STRING_VALUE",
+ *     PlatformBranchLifecycleState: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeletePlatformVersionCommandInput - {@link DeletePlatformVersionCommandInput}
@@ -66,6 +88,8 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * @throws {@link PlatformVersionStillReferencedException} (client fault)
  *  <p>You cannot delete the platform version because there are still environments running on it.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DeletePlatformVersionCommand extends $Command<

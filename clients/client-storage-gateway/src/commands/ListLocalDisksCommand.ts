@@ -52,6 +52,25 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * };
  * const command = new ListLocalDisksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLocalDisksOutput
+ *   GatewayARN: "STRING_VALUE",
+ *   Disks: [ // Disks
+ *     { // Disk
+ *       DiskId: "STRING_VALUE",
+ *       DiskPath: "STRING_VALUE",
+ *       DiskNode: "STRING_VALUE",
+ *       DiskStatus: "STRING_VALUE",
+ *       DiskSizeInBytes: Number("long"),
+ *       DiskAllocationType: "STRING_VALUE",
+ *       DiskAllocationResource: "STRING_VALUE",
+ *       DiskAttributeList: [ // DiskAttributeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListLocalDisksCommandInput - {@link ListLocalDisksCommandInput}
@@ -68,6 +87,8 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To list the gateway's local disks
  * ```javascript

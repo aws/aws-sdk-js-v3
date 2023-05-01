@@ -74,6 +74,16 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * };
  * const command = new GetBucketTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketTaggingOutput
+ *   TagSet: [ // TagSet // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketTaggingCommandInput - {@link GetBucketTaggingCommandInput}
@@ -82,6 +92,8 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get tag set associated with a bucket
  * ```javascript

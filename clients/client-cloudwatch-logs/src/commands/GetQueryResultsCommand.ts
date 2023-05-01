@@ -56,6 +56,24 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueryResultsResponse
+ *   results: [ // QueryResults
+ *     [ // ResultRows
+ *       { // ResultField
+ *         field: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   ],
+ *   statistics: { // QueryStatistics
+ *     recordsMatched: Number("double"),
+ *     recordsScanned: Number("double"),
+ *     bytesScanned: Number("double"),
+ *   },
+ *   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
+ * };
+ *
  * ```
  *
  * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
@@ -73,6 +91,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetQueryResultsCommand extends $Command<

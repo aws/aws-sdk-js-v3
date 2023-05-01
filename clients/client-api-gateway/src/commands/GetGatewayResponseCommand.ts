@@ -45,6 +45,19 @@ export interface GetGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * };
  * const command = new GetGatewayResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GatewayResponse
+ *   responseType: "DEFAULT_4XX" || "DEFAULT_5XX" || "RESOURCE_NOT_FOUND" || "UNAUTHORIZED" || "INVALID_API_KEY" || "ACCESS_DENIED" || "AUTHORIZER_FAILURE" || "AUTHORIZER_CONFIGURATION_ERROR" || "INVALID_SIGNATURE" || "EXPIRED_TOKEN" || "MISSING_AUTHENTICATION_TOKEN" || "INTEGRATION_FAILURE" || "INTEGRATION_TIMEOUT" || "API_CONFIGURATION_ERROR" || "UNSUPPORTED_MEDIA_TYPE" || "BAD_REQUEST_PARAMETERS" || "BAD_REQUEST_BODY" || "REQUEST_TOO_LARGE" || "THROTTLED" || "QUOTA_EXCEEDED" || "WAF_FILTERED",
+ *   statusCode: "STRING_VALUE",
+ *   responseParameters: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   responseTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   defaultResponse: true || false,
+ * };
+ *
  * ```
  *
  * @param GetGatewayResponseCommandInput - {@link GetGatewayResponseCommandInput}
@@ -65,6 +78,8 @@ export interface GetGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetGatewayResponseCommand extends $Command<

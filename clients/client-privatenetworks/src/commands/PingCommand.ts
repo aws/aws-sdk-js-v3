@@ -42,6 +42,11 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * const input = {};
  * const command = new PingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PingResponse
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PingCommandInput - {@link PingCommandInput}
@@ -53,6 +58,8 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * @throws {@link InternalServerException} (server fault)
  *  <p>Information about an internal error.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, PrivateNetworksClientResolvedConfig> {

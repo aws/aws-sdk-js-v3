@@ -57,6 +57,20 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * };
  * const command = new PutImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutImageResponse
+ *   image: { // Image
+ *     registryId: "STRING_VALUE",
+ *     repositoryName: "STRING_VALUE",
+ *     imageId: { // ImageIdentifier
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *     imageManifest: "STRING_VALUE",
+ *     imageManifestMediaType: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutImageCommandInput - {@link PutImageCommandInput}
@@ -103,6 +117,8 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutImageCommand extends $Command<PutImageCommandInput, PutImageCommandOutput, ECRClientResolvedConfig> {

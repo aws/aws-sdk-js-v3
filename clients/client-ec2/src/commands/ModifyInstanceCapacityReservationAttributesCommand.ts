@@ -63,6 +63,11 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * };
  * const command = new ModifyInstanceCapacityReservationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyInstanceCapacityReservationAttributesResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifyInstanceCapacityReservationAttributesCommandInput - {@link ModifyInstanceCapacityReservationAttributesCommandInput}
@@ -71,6 +76,8 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * @see {@link ModifyInstanceCapacityReservationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceCapacityReservationAttributesCommand extends $Command<

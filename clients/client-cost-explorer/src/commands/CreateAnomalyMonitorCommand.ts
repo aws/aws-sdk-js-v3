@@ -127,6 +127,11 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * };
  * const command = new CreateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAnomalyMonitorResponse
+ *   MonitorArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateAnomalyMonitorCommandInput - {@link CreateAnomalyMonitorCommandInput}
@@ -138,6 +143,8 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class CreateAnomalyMonitorCommand extends $Command<

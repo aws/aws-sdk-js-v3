@@ -49,6 +49,9 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * };
  * const command = new UpdateRuleMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRuleMetadataCommandInput - {@link UpdateRuleMetadataCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateRuleMetadataCommand extends $Command<

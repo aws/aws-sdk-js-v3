@@ -48,6 +48,12 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResponse
+ *   DeploymentArn: "STRING_VALUE",
+ *   DeploymentId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -59,6 +65,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

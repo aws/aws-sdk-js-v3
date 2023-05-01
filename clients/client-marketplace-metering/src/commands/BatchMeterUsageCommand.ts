@@ -93,6 +93,52 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * };
  * const command = new BatchMeterUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchMeterUsageResult
+ *   Results: [ // UsageRecordResultList
+ *     { // UsageRecordResult
+ *       UsageRecord: { // UsageRecord
+ *         Timestamp: new Date("TIMESTAMP"), // required
+ *         CustomerIdentifier: "STRING_VALUE", // required
+ *         Dimension: "STRING_VALUE", // required
+ *         Quantity: Number("int"),
+ *         UsageAllocations: [ // UsageAllocations
+ *           { // UsageAllocation
+ *             AllocatedUsageQuantity: Number("int"), // required
+ *             Tags: [ // TagList
+ *               { // Tag
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       MeteringRecordId: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UnprocessedRecords: [ // UsageRecordList
+ *     {
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       CustomerIdentifier: "STRING_VALUE", // required
+ *       Dimension: "STRING_VALUE", // required
+ *       Quantity: Number("int"),
+ *       UsageAllocations: [
+ *         {
+ *           AllocatedUsageQuantity: Number("int"), // required
+ *           Tags: [
+ *             {
+ *               Key: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchMeterUsageCommandInput - {@link BatchMeterUsageCommandInput}
@@ -137,6 +183,8 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class BatchMeterUsageCommand extends $Command<

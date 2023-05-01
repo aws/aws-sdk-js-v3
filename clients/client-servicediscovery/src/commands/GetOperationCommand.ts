@@ -48,6 +48,22 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * };
  * const command = new GetOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOperationResponse
+ *   Operation: { // Operation
+ *     Id: "STRING_VALUE",
+ *     Type: "CREATE_NAMESPACE" || "DELETE_NAMESPACE" || "UPDATE_NAMESPACE" || "UPDATE_SERVICE" || "REGISTER_INSTANCE" || "DEREGISTER_INSTANCE",
+ *     Status: "SUBMITTED" || "PENDING" || "SUCCESS" || "FAIL",
+ *     ErrorMessage: "STRING_VALUE",
+ *     ErrorCode: "STRING_VALUE",
+ *     CreateDate: new Date("TIMESTAMP"),
+ *     UpdateDate: new Date("TIMESTAMP"),
+ *     Targets: { // OperationTargetsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetOperationCommandInput - {@link GetOperationCommandInput}
@@ -64,6 +80,8 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * @throws {@link OperationNotFound} (client fault)
  *  <p>No operation exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Get operation result
  * ```javascript

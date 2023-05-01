@@ -54,6 +54,19 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Events: [ // EventList
+ *     { // Event
+ *       SourceName: "STRING_VALUE",
+ *       SourceType: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *       Date: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -71,6 +84,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

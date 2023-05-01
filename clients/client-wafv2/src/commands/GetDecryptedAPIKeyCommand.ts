@@ -48,6 +48,14 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  * };
  * const command = new GetDecryptedAPIKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDecryptedAPIKeyResponse
+ *   TokenDomains: [ // TokenDomains
+ *     "STRING_VALUE",
+ *   ],
+ *   CreationTimestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetDecryptedAPIKeyCommandInput - {@link GetDecryptedAPIKeyCommandInput}
@@ -88,6 +96,8 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  *  <p>WAF couldn’t perform the operation because the resource that you requested isn’t
  *          valid. Check the resource, and try again.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetDecryptedAPIKeyCommand extends $Command<

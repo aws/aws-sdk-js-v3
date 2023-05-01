@@ -47,6 +47,18 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * };
  * const command = new ListLayoutsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLayoutsResponse
+ *   layouts: [ // LayoutSummaryList // required
+ *     { // LayoutSummary
+ *       layoutId: "STRING_VALUE", // required
+ *       layoutArn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLayoutsCommandInput - {@link ListLayoutsCommandInput}
@@ -72,6 +84,8 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class ListLayoutsCommand extends $Command<

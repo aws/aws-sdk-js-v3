@@ -72,6 +72,42 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * };
  * const command = new GetRecommendationSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationSummariesResponse
+ *   nextToken: "STRING_VALUE",
+ *   recommendationSummaries: [ // RecommendationSummaries
+ *     { // RecommendationSummary
+ *       summaries: [ // Summaries
+ *         { // Summary
+ *           name: "Underprovisioned" || "Overprovisioned" || "Optimized" || "NotOptimized",
+ *           value: Number("double"),
+ *           reasonCodeSummaries: [ // ReasonCodeSummaries
+ *             { // ReasonCodeSummary
+ *               name: "MemoryOverprovisioned" || "MemoryUnderprovisioned",
+ *               value: Number("double"),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService",
+ *       accountId: "STRING_VALUE",
+ *       savingsOpportunity: { // SavingsOpportunity
+ *         savingsOpportunityPercentage: Number("double"),
+ *         estimatedMonthlySavings: { // EstimatedMonthlySavings
+ *           currency: "USD" || "CNY",
+ *           value: Number("double"),
+ *         },
+ *       },
+ *       currentPerformanceRiskRatings: { // CurrentPerformanceRiskRatings
+ *         high: Number("long"),
+ *         medium: Number("long"),
+ *         low: Number("long"),
+ *         veryLow: Number("long"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecommendationSummariesCommandInput - {@link GetRecommendationSummariesCommandInput}
@@ -102,6 +138,8 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetRecommendationSummariesCommand extends $Command<

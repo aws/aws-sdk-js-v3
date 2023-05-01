@@ -51,6 +51,9 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRealtimeLogConfigCommandInput - {@link DeleteRealtimeLogConfigCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  *  <p>Cannot delete the real-time log configuration because it is attached to one or more
  * 			cache behaviors.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteRealtimeLogConfigCommand extends $Command<

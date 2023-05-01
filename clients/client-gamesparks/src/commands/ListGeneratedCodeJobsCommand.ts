@@ -47,6 +47,20 @@ export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJob
  * };
  * const command = new ListGeneratedCodeJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGeneratedCodeJobsResult
+ *   GeneratedCodeJobs: [ // GeneratedCodeJobDetailsList
+ *     { // GeneratedCodeJobDetails
+ *       S3Url: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       ExpirationTime: new Date("TIMESTAMP"),
+ *       GeneratedCodeJobId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListGeneratedCodeJobsCommandInput - {@link ListGeneratedCodeJobsCommandInput}
@@ -70,6 +84,8 @@ export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJob
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListGeneratedCodeJobsCommand extends $Command<

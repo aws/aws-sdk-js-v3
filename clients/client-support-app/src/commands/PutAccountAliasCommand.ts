@@ -46,6 +46,9 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * };
  * const command = new PutAccountAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccountAliasCommandInput - {@link PutAccountAliasCommandInput}
@@ -63,6 +66,8 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class PutAccountAliasCommand extends $Command<

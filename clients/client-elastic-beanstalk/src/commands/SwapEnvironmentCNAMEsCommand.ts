@@ -47,6 +47,9 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SwapEnvironmentCNAMEsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SwapEnvironmentCNAMEsCommandInput - {@link SwapEnvironmentCNAMEsCommandInput}
@@ -55,6 +58,8 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * @see {@link SwapEnvironmentCNAMEsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To swap environment CNAMES
  * ```javascript

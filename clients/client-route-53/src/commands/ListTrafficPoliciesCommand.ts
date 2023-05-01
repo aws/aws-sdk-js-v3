@@ -49,6 +49,22 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * };
  * const command = new ListTrafficPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrafficPoliciesResponse
+ *   TrafficPolicySummaries: [ // TrafficPolicySummaries // required
+ *     { // TrafficPolicySummary
+ *       Id: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ *       LatestVersion: Number("int"), // required
+ *       TrafficPolicyCount: Number("int"), // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false, // required
+ *   TrafficPolicyIdMarker: "STRING_VALUE", // required
+ *   MaxItems: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param ListTrafficPoliciesCommandInput - {@link ListTrafficPoliciesCommandInput}
@@ -60,6 +76,8 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListTrafficPoliciesCommand extends $Command<

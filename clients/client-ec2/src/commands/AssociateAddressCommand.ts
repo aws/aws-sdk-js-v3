@@ -77,6 +77,11 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateAddressResult
+ *   AssociationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateAddressCommandInput - {@link AssociateAddressCommandInput}
@@ -85,6 +90,8 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To associate an Elastic IP address in EC2-VPC
  * ```javascript

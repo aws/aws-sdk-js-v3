@@ -62,6 +62,23 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLogGroupsResponse
+ *   logGroups: [ // LogGroups
+ *     { // LogGroup
+ *       logGroupName: "STRING_VALUE",
+ *       creationTime: Number("long"),
+ *       retentionInDays: Number("int"),
+ *       metricFilterCount: Number("int"),
+ *       arn: "STRING_VALUE",
+ *       storedBytes: Number("long"),
+ *       kmsKeyId: "STRING_VALUE",
+ *       dataProtectionStatus: "ACTIVATED" || "DELETED" || "ARCHIVED" || "DISABLED",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeLogGroupsCommandInput - {@link DescribeLogGroupsCommandInput}
@@ -76,6 +93,8 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeLogGroupsCommand extends $Command<

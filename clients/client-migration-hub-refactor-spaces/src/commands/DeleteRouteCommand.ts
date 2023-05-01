@@ -50,6 +50,16 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRouteResponse
+ *   RouteId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   ServiceId: "STRING_VALUE",
+ *   ApplicationId: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   LastUpdatedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
@@ -77,6 +87,8 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteRouteCommand extends $Command<

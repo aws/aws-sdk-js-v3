@@ -49,6 +49,11 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  * };
  * const command = new AssignTapePoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssignTapePoolOutput
+ *   TapeARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssignTapePoolCommandInput - {@link AssignTapePoolCommandInput}
@@ -65,6 +70,8 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class AssignTapePoolCommand extends $Command<

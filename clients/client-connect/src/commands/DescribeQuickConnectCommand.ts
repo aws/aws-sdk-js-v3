@@ -45,6 +45,33 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * };
  * const command = new DescribeQuickConnectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeQuickConnectResponse
+ *   QuickConnect: { // QuickConnect
+ *     QuickConnectARN: "STRING_VALUE",
+ *     QuickConnectId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     QuickConnectConfig: { // QuickConnectConfig
+ *       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ *       UserConfig: { // UserQuickConnectConfig
+ *         UserId: "STRING_VALUE", // required
+ *         ContactFlowId: "STRING_VALUE", // required
+ *       },
+ *       QueueConfig: { // QueueQuickConnectConfig
+ *         QueueId: "STRING_VALUE", // required
+ *         ContactFlowId: "STRING_VALUE", // required
+ *       },
+ *       PhoneConfig: { // PhoneNumberQuickConnectConfig
+ *         PhoneNumber: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeQuickConnectCommandInput - {@link DescribeQuickConnectCommandInput}
@@ -68,6 +95,8 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeQuickConnectCommand extends $Command<

@@ -51,6 +51,21 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * };
  * const command = new UpdateAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAttributeGroupResponse
+ *   attributeGroup: { // AttributeGroup
+ *     id: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     creationTime: new Date("TIMESTAMP"),
+ *     lastUpdateTime: new Date("TIMESTAMP"),
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAttributeGroupCommandInput - {@link UpdateAttributeGroupCommandInput}
@@ -72,6 +87,8 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class UpdateAttributeGroupCommand extends $Command<

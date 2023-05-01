@@ -53,6 +53,17 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAuthorizationTokenResponse
+ *   authorizationData: [ // AuthorizationDataList
+ *     { // AuthorizationData
+ *       authorizationToken: "STRING_VALUE",
+ *       expiresAt: new Date("TIMESTAMP"),
+ *       proxyEndpoint: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
@@ -68,6 +79,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To obtain an authorization token
  * ```javascript

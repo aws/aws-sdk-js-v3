@@ -53,6 +53,9 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteConfigurationRecorderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationRecorderCommandInput - {@link DeleteConfigurationRecorderCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteConfigurationRecorderCommand extends $Command<

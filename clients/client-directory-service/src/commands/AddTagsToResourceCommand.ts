@@ -52,6 +52,9 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -75,6 +78,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @throws {@link TagLimitExceededException} (client fault)
  *  <p>The maximum allowed number of tags was exceeded.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class AddTagsToResourceCommand extends $Command<

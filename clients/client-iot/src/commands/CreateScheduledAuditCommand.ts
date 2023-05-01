@@ -58,6 +58,11 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * };
  * const command = new CreateScheduledAuditCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScheduledAuditResponse
+ *   scheduledAuditArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateScheduledAuditCommandInput - {@link CreateScheduledAuditCommandInput}
@@ -81,6 +86,8 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateScheduledAuditCommand extends $Command<

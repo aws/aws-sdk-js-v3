@@ -70,6 +70,12 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * };
  * const command = new CreateCertificateAuthorityAuditReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCertificateAuthorityAuditReportResponse
+ *   AuditReportId: "STRING_VALUE",
+ *   S3Key: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCertificateAuthorityAuditReportCommandInput - {@link CreateCertificateAuthorityAuditReportCommandInput}
@@ -98,6 +104,8 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class CreateCertificateAuthorityAuditReportCommand extends $Command<

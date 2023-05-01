@@ -44,6 +44,11 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  * };
  * const command = new DeleteHypervisorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteHypervisorOutput
+ *   HypervisorArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteHypervisorCommandInput - {@link DeleteHypervisorCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class DeleteHypervisorCommand extends $Command<

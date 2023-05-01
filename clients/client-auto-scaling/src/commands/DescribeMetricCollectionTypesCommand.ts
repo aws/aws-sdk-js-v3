@@ -47,6 +47,20 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * const input = {};
  * const command = new DescribeMetricCollectionTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMetricCollectionTypesAnswer
+ *   Metrics: [ // MetricCollectionTypes
+ *     { // MetricCollectionType
+ *       Metric: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Granularities: [ // MetricGranularityTypes
+ *     { // MetricGranularityType
+ *       Granularity: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeMetricCollectionTypesCommandInput - {@link DescribeMetricCollectionTypesCommandInput}
@@ -59,6 +73,8 @@ export interface DescribeMetricCollectionTypesCommandOutput
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe the Auto Scaling metric collection types
  * ```javascript

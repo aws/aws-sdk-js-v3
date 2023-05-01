@@ -50,6 +50,9 @@ export interface DisassociateApplicationFleetCommandOutput
  * };
  * const command = new DisassociateApplicationFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateApplicationFleetCommandInput - {@link DisassociateApplicationFleetCommandInput}
@@ -67,6 +70,8 @@ export interface DisassociateApplicationFleetCommandOutput
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DisassociateApplicationFleetCommand extends $Command<

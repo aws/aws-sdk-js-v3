@@ -53,6 +53,9 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * };
  * const command = new CreateDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDatalakeAutoEnableCommandInput - {@link CreateDatalakeAutoEnableCommandInput}
@@ -79,6 +82,8 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateDatalakeAutoEnableCommand extends $Command<

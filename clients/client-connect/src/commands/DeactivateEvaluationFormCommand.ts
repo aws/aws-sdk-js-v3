@@ -47,6 +47,13 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * };
  * const command = new DeactivateEvaluationFormCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeactivateEvaluationFormResponse
+ *   EvaluationFormId: "STRING_VALUE", // required
+ *   EvaluationFormArn: "STRING_VALUE", // required
+ *   EvaluationFormVersion: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param DeactivateEvaluationFormCommandInput - {@link DeactivateEvaluationFormCommandInput}
@@ -70,6 +77,8 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeactivateEvaluationFormCommand extends $Command<

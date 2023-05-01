@@ -137,6 +137,23 @@ export interface CreateReplicationConfigurationCommandOutput
  * };
  * const command = new CreateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicationConfigurationDescription
+ *   SourceFileSystemId: "STRING_VALUE", // required
+ *   SourceFileSystemRegion: "STRING_VALUE", // required
+ *   SourceFileSystemArn: "STRING_VALUE", // required
+ *   OriginalSourceFileSystemArn: "STRING_VALUE", // required
+ *   CreationTime: new Date("TIMESTAMP"), // required
+ *   Destinations: [ // Destinations // required
+ *     { // Destination
+ *       Status: "ENABLED" || "ENABLING" || "DELETING" || "ERROR" || "PAUSED" || "PAUSING", // required
+ *       FileSystemId: "STRING_VALUE", // required
+ *       Region: "STRING_VALUE", // required
+ *       LastReplicatedTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateReplicationConfigurationCommandInput - {@link CreateReplicationConfigurationCommandInput}
@@ -184,6 +201,8 @@ export interface CreateReplicationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class CreateReplicationConfigurationCommand extends $Command<

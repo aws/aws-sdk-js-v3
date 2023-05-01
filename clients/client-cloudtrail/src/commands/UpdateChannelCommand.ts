@@ -51,6 +51,19 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelResponse
+ *   ChannelArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Source: "STRING_VALUE",
+ *   Destinations: [ // Destinations
+ *     { // Destination
+ *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
+ *       Location: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
@@ -94,6 +107,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class UpdateChannelCommand extends $Command<

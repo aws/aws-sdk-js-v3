@@ -52,6 +52,9 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateLoginProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLoginProfileCommandInput - {@link UpdateLoginProfileCommandInput}
@@ -82,6 +85,8 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To change the password for an IAM user
  * ```javascript

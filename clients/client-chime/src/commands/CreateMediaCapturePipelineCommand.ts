@@ -78,6 +78,45 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * };
  * const command = new CreateMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMediaCapturePipelineResponse
+ *   MediaCapturePipeline: { // MediaCapturePipeline
+ *     MediaPipelineId: "STRING_VALUE",
+ *     SourceType: "ChimeSdkMeeting",
+ *     SourceArn: "STRING_VALUE",
+ *     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped",
+ *     SinkType: "S3Bucket",
+ *     SinkArn: "STRING_VALUE",
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ *       SourceConfiguration: { // SourceConfiguration
+ *         SelectedVideoStreams: { // SelectedVideoStreams
+ *           AttendeeIds: [ // AttendeeIdList
+ *             "STRING_VALUE",
+ *           ],
+ *           ExternalUserIds: [ // ExternalUserIdList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ArtifactsConfiguration: { // ArtifactsConfiguration
+ *         Audio: { // AudioArtifactsConfiguration
+ *           MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo", // required
+ *         },
+ *         Video: { // VideoArtifactsConfiguration
+ *           State: "Enabled" || "Disabled", // required
+ *           MuxType: "VideoOnly",
+ *         },
+ *         Content: { // ContentArtifactsConfiguration
+ *           State: "Enabled" || "Disabled", // required
+ *           MuxType: "ContentOnly",
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMediaCapturePipelineCommandInput - {@link CreateMediaCapturePipelineCommandInput}
@@ -107,6 +146,8 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateMediaCapturePipelineCommand extends $Command<

@@ -51,6 +51,22 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * };
  * const command = new ListDatasetImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetImportJobsResponse
+ *   datasetImportJobs: [ // DatasetImportJobs
+ *     { // DatasetImportJobSummary
+ *       datasetImportJobArn: "STRING_VALUE",
+ *       jobName: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       failureReason: "STRING_VALUE",
+ *       importMode: "FULL" || "INCREMENTAL",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatasetImportJobsCommandInput - {@link ListDatasetImportJobsCommandInput}
@@ -65,6 +81,8 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListDatasetImportJobsCommand extends $Command<

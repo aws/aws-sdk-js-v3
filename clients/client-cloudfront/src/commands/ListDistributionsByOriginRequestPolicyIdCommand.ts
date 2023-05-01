@@ -61,6 +61,20 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * };
  * const command = new ListDistributionsByOriginRequestPolicyIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionsByOriginRequestPolicyIdResult
+ *   DistributionIdList: { // DistributionIdList
+ *     Marker: "STRING_VALUE", // required
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // DistributionIdListSummary
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDistributionsByOriginRequestPolicyIdCommandInput - {@link ListDistributionsByOriginRequestPolicyIdCommandInput}
@@ -78,6 +92,8 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * @throws {@link NoSuchOriginRequestPolicy} (client fault)
  *  <p>The origin request policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<

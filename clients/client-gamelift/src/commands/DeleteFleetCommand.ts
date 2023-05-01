@@ -62,6 +62,9 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
@@ -94,6 +97,8 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteFleetCommand extends $Command<

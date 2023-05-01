@@ -92,6 +92,11 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterInstanceResponse
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
@@ -119,6 +124,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Register Instance
  * ```javascript

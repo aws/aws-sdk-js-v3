@@ -47,6 +47,14 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  * };
  * const command = new PutCodeBindingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutCodeBindingResponse
+ *   CreationDate: new Date("TIMESTAMP"),
+ *   LastModified: new Date("TIMESTAMP"),
+ *   SchemaVersion: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutCodeBindingCommandInput - {@link PutCodeBindingCommandInput}
@@ -69,6 +77,8 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class PutCodeBindingCommand extends $Command<

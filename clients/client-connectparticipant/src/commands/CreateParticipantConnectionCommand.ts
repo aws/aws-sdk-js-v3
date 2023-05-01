@@ -91,6 +91,18 @@ export interface CreateParticipantConnectionCommandOutput
  * };
  * const command = new CreateParticipantConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParticipantConnectionResponse
+ *   Websocket: { // Websocket
+ *     Url: "STRING_VALUE",
+ *     ConnectionExpiry: "STRING_VALUE",
+ *   },
+ *   ConnectionCredentials: { // ConnectionCredentials
+ *     ConnectionToken: "STRING_VALUE",
+ *     Expiry: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateParticipantConnectionCommandInput - {@link CreateParticipantConnectionCommandInput}
@@ -111,6 +123,8 @@ export interface CreateParticipantConnectionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class CreateParticipantConnectionCommand extends $Command<

@@ -46,6 +46,9 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * };
  * const command = new DeleteTrailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTrailCommandInput - {@link DeleteTrailCommandInput}
@@ -124,6 +127,8 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DeleteTrailCommand extends $Command<

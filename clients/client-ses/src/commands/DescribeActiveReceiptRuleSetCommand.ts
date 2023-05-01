@@ -48,6 +48,63 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * const input = {};
  * const command = new DescribeActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeActiveReceiptRuleSetResponse
+ *   Metadata: { // ReceiptRuleSetMetadata
+ *     Name: "STRING_VALUE",
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ *   Rules: [ // ReceiptRulesList
+ *     { // ReceiptRule
+ *       Name: "STRING_VALUE", // required
+ *       Enabled: true || false,
+ *       TlsPolicy: "STRING_VALUE",
+ *       Recipients: [ // RecipientsList
+ *         "STRING_VALUE",
+ *       ],
+ *       Actions: [ // ReceiptActionsList
+ *         { // ReceiptAction
+ *           S3Action: { // S3Action
+ *             TopicArn: "STRING_VALUE",
+ *             BucketName: "STRING_VALUE", // required
+ *             ObjectKeyPrefix: "STRING_VALUE",
+ *             KmsKeyArn: "STRING_VALUE",
+ *           },
+ *           BounceAction: { // BounceAction
+ *             TopicArn: "STRING_VALUE",
+ *             SmtpReplyCode: "STRING_VALUE", // required
+ *             StatusCode: "STRING_VALUE",
+ *             Message: "STRING_VALUE", // required
+ *             Sender: "STRING_VALUE", // required
+ *           },
+ *           WorkmailAction: { // WorkmailAction
+ *             TopicArn: "STRING_VALUE",
+ *             OrganizationArn: "STRING_VALUE", // required
+ *           },
+ *           LambdaAction: { // LambdaAction
+ *             TopicArn: "STRING_VALUE",
+ *             FunctionArn: "STRING_VALUE", // required
+ *             InvocationType: "STRING_VALUE",
+ *           },
+ *           StopAction: { // StopAction
+ *             Scope: "STRING_VALUE", // required
+ *             TopicArn: "STRING_VALUE",
+ *           },
+ *           AddHeaderAction: { // AddHeaderAction
+ *             HeaderName: "STRING_VALUE", // required
+ *             HeaderValue: "STRING_VALUE", // required
+ *           },
+ *           SNSAction: { // SNSAction
+ *             TopicArn: "STRING_VALUE", // required
+ *             Encoding: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       ScanEnabled: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeActiveReceiptRuleSetCommandInput - {@link DescribeActiveReceiptRuleSetCommandInput}
@@ -56,6 +113,8 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * @see {@link DescribeActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DescribeActiveReceiptRuleSet
  * ```javascript

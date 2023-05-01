@@ -57,6 +57,20 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * };
  * const command = new ListChannelModeratorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelModeratorsResponse
+ *   ChannelArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   ChannelModerators: [ // ChannelModeratorSummaryList
+ *     { // ChannelModeratorSummary
+ *       Moderator: { // Identity
+ *         Arn: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListChannelModeratorsCommandInput - {@link ListChannelModeratorsCommandInput}
@@ -83,6 +97,8 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListChannelModeratorsCommand extends $Command<

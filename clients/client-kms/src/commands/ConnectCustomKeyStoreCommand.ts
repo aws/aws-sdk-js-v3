@@ -130,6 +130,9 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * };
  * const command = new ConnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ConnectCustomKeyStoreCommandInput - {@link ConnectCustomKeyStoreCommandInput}
@@ -222,6 +225,8 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To connect a custom key store
  * ```javascript

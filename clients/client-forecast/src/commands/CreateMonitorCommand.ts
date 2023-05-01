@@ -57,6 +57,11 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMonitorResponse
+ *   MonitorArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
@@ -82,6 +87,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateMonitorCommand extends $Command<

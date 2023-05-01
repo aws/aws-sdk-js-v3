@@ -45,6 +45,9 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * };
  * const command = new DeleteDevicePoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDevicePoolCommandInput - {@link DeleteDevicePoolCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To delete a device pool
  * ```javascript

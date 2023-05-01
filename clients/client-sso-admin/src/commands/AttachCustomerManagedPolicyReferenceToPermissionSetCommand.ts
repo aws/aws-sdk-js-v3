@@ -58,6 +58,9 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * };
  * const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput - {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput}
@@ -93,6 +96,8 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends $Command<

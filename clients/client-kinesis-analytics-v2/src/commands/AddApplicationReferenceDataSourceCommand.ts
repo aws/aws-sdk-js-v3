@@ -91,6 +91,45 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * };
  * const command = new AddApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationReferenceDataSourceResponse
+ *   ApplicationARN: "STRING_VALUE",
+ *   ApplicationVersionId: Number("long"),
+ *   ReferenceDataSourceDescriptions: [ // ReferenceDataSourceDescriptions
+ *     { // ReferenceDataSourceDescription
+ *       ReferenceId: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       S3ReferenceDataSourceDescription: { // S3ReferenceDataSourceDescription
+ *         BucketARN: "STRING_VALUE", // required
+ *         FileKey: "STRING_VALUE", // required
+ *         ReferenceRoleARN: "STRING_VALUE",
+ *       },
+ *       ReferenceSchema: { // SourceSchema
+ *         RecordFormat: { // RecordFormat
+ *           RecordFormatType: "JSON" || "CSV", // required
+ *           MappingParameters: { // MappingParameters
+ *             JSONMappingParameters: { // JSONMappingParameters
+ *               RecordRowPath: "STRING_VALUE", // required
+ *             },
+ *             CSVMappingParameters: { // CSVMappingParameters
+ *               RecordRowDelimiter: "STRING_VALUE", // required
+ *               RecordColumnDelimiter: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         RecordEncoding: "STRING_VALUE",
+ *         RecordColumns: [ // RecordColumns // required
+ *           { // RecordColumn
+ *             Name: "STRING_VALUE", // required
+ *             Mapping: "STRING_VALUE",
+ *             SqlType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddApplicationReferenceDataSourceCommandInput - {@link AddApplicationReferenceDataSourceCommandInput}
@@ -116,6 +155,8 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command<

@@ -52,6 +52,20 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LaunchConfiguration
+ *   sourceServerID: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   ec2LaunchTemplateID: "STRING_VALUE",
+ *   launchDisposition: "STRING_VALUE",
+ *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ *   copyPrivateIp: true || false,
+ *   copyTags: true || false,
+ *   licensing: { // Licensing
+ *     osByol: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateLaunchConfigurationCommandInput - {@link UpdateLaunchConfigurationCommandInput}
@@ -78,6 +92,8 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class UpdateLaunchConfigurationCommand extends $Command<

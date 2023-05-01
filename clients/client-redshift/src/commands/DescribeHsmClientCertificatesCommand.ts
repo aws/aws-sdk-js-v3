@@ -64,6 +64,23 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * };
  * const command = new DescribeHsmClientCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HsmClientCertificateMessage
+ *   Marker: "STRING_VALUE",
+ *   HsmClientCertificates: [ // HsmClientCertificateList
+ *     { // HsmClientCertificate
+ *       HsmClientCertificateIdentifier: "STRING_VALUE",
+ *       HsmClientCertificatePublicKey: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeHsmClientCertificatesCommandInput - {@link DescribeHsmClientCertificatesCommandInput}
@@ -79,6 +96,8 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeHsmClientCertificatesCommand extends $Command<

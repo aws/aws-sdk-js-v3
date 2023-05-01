@@ -46,6 +46,42 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * };
  * const command = new ExportThemesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportThemesResponse
+ *   entities: [ // ThemeList // required
+ *     { // Theme
+ *       appId: "STRING_VALUE", // required
+ *       environmentName: "STRING_VALUE", // required
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       modifiedAt: new Date("TIMESTAMP"),
+ *       values: [ // ThemeValuesList // required
+ *         { // ThemeValues
+ *           key: "STRING_VALUE",
+ *           value: { // ThemeValue
+ *             value: "STRING_VALUE",
+ *             children: [
+ *               {
+ *                 key: "STRING_VALUE",
+ *                 value: {
+ *                   value: "STRING_VALUE",
+ *                   children: "<ThemeValuesList>",
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       overrides: "<ThemeValuesList>",
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExportThemesCommandInput - {@link ExportThemesCommandInput}
@@ -60,6 +96,8 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class ExportThemesCommand extends $Command<

@@ -46,6 +46,11 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * };
  * const command = new AssociateGatewayToServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateGatewayToServerOutput
+ *   GatewayArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateGatewayToServerCommandInput - {@link AssociateGatewayToServerCommandInput}
@@ -67,6 +72,8 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class AssociateGatewayToServerCommand extends $Command<

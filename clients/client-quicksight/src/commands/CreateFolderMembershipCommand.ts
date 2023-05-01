@@ -47,6 +47,16 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * };
  * const command = new CreateFolderMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFolderMembershipResponse
+ *   Status: Number("int"),
+ *   FolderMember: { // FolderMember
+ *     MemberId: "STRING_VALUE",
+ *     MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET",
+ *   },
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateFolderMembershipCommandInput - {@link CreateFolderMembershipCommandInput}
@@ -85,6 +95,8 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateFolderMembershipCommand extends $Command<

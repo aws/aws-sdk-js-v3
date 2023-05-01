@@ -61,6 +61,9 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRecordCommandInput - {@link PutRecordCommandInput}
@@ -82,6 +85,8 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationError} (client fault)
  *  <p>There was an error validating your request.</p>
  *
+ * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
  */
 export class PutRecordCommand extends $Command<

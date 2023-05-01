@@ -50,6 +50,26 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * };
  * const command = new AddSourceIdentifierToSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddSourceIdentifierToSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: "STRING_VALUE",
+ *     CustSubscriptionId: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     SubscriptionCreationTime: "STRING_VALUE",
+ *     SourceType: "STRING_VALUE",
+ *     SourceIdsList: [ // SourceIdsList
+ *       "STRING_VALUE",
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       "STRING_VALUE",
+ *     ],
+ *     Enabled: true || false,
+ *     EventSubscriptionArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddSourceIdentifierToSubscriptionCommandInput - {@link AddSourceIdentifierToSubscriptionCommandInput}
@@ -64,6 +84,8 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The designated subscription could not be found.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<

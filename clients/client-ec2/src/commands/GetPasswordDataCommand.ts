@@ -57,6 +57,13 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * };
  * const command = new GetPasswordDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPasswordDataResult
+ *   InstanceId: "STRING_VALUE",
+ *   PasswordData: "STRING_VALUE",
+ *   Timestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetPasswordDataCommandInput - {@link GetPasswordDataCommandInput}
@@ -65,6 +72,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * @see {@link GetPasswordDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetPasswordDataCommand extends $Command<

@@ -59,6 +59,17 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * };
  * const command = new ListChildrenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChildrenResponse
+ *   Children: [ // Children
+ *     { // Child
+ *       Id: "STRING_VALUE",
+ *       Type: "ACCOUNT" || "ORGANIZATIONAL_UNIT",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListChildrenCommandInput - {@link ListChildrenCommandInput}
@@ -196,6 +207,8 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the child accounts and OUs in a parent root or OU
  * ```javascript

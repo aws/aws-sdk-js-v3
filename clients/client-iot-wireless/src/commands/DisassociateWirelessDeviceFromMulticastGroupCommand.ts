@@ -54,6 +54,9 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  * };
  * const command = new DisassociateWirelessDeviceFromMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateWirelessDeviceFromMulticastGroupCommandInput - {@link DisassociateWirelessDeviceFromMulticastGroupCommandInput}
@@ -77,6 +80,8 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Command<

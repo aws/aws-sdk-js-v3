@@ -58,6 +58,15 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupOutput
+ *   Group: { // Group
+ *     GroupArn: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -85,6 +94,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

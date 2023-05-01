@@ -90,6 +90,67 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  * };
  * const command = new UpdateGraphqlApiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGraphqlApiResponse
+ *   graphqlApi: { // GraphqlApi
+ *     name: "STRING_VALUE",
+ *     apiId: "STRING_VALUE",
+ *     authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ *     logConfig: { // LogConfig
+ *       fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ *       cloudWatchLogsRoleArn: "STRING_VALUE", // required
+ *       excludeVerboseContent: true || false,
+ *     },
+ *     userPoolConfig: { // UserPoolConfig
+ *       userPoolId: "STRING_VALUE", // required
+ *       awsRegion: "STRING_VALUE", // required
+ *       defaultAction: "ALLOW" || "DENY", // required
+ *       appIdClientRegex: "STRING_VALUE",
+ *     },
+ *     openIDConnectConfig: { // OpenIDConnectConfig
+ *       issuer: "STRING_VALUE", // required
+ *       clientId: "STRING_VALUE",
+ *       iatTTL: Number("long"),
+ *       authTTL: Number("long"),
+ *     },
+ *     arn: "STRING_VALUE",
+ *     uris: { // MapOfStringToString
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     additionalAuthenticationProviders: [ // AdditionalAuthenticationProviders
+ *       { // AdditionalAuthenticationProvider
+ *         authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ *         openIDConnectConfig: {
+ *           issuer: "STRING_VALUE", // required
+ *           clientId: "STRING_VALUE",
+ *           iatTTL: Number("long"),
+ *           authTTL: Number("long"),
+ *         },
+ *         userPoolConfig: { // CognitoUserPoolConfig
+ *           userPoolId: "STRING_VALUE", // required
+ *           awsRegion: "STRING_VALUE", // required
+ *           appIdClientRegex: "STRING_VALUE",
+ *         },
+ *         lambdaAuthorizerConfig: { // LambdaAuthorizerConfig
+ *           authorizerResultTtlInSeconds: Number("int"),
+ *           authorizerUri: "STRING_VALUE", // required
+ *           identityValidationExpression: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     xrayEnabled: true || false,
+ *     wafWebAclArn: "STRING_VALUE",
+ *     lambdaAuthorizerConfig: {
+ *       authorizerResultTtlInSeconds: Number("int"),
+ *       authorizerUri: "STRING_VALUE", // required
+ *       identityValidationExpression: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGraphqlApiCommandInput - {@link UpdateGraphqlApiCommandInput}
@@ -118,6 +179,8 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class UpdateGraphqlApiCommand extends $Command<

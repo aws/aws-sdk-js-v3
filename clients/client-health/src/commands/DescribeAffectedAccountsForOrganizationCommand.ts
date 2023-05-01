@@ -63,6 +63,15 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * };
  * const command = new DescribeAffectedAccountsForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAffectedAccountsForOrganizationResponse
+ *   affectedAccounts: [ // affectedAccountsList
+ *     "STRING_VALUE",
+ *   ],
+ *   eventScopeCode: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAffectedAccountsForOrganizationCommandInput - {@link DescribeAffectedAccountsForOrganizationCommandInput}
@@ -74,6 +83,8 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * @throws {@link InvalidPaginationToken} (client fault)
  *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeAffectedAccountsForOrganizationCommand extends $Command<

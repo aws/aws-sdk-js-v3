@@ -45,6 +45,24 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * };
  * const command = new DeleteSubnetCidrReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSubnetCidrReservationResult
+ *   DeletedSubnetCidrReservation: { // SubnetCidrReservation
+ *     SubnetCidrReservationId: "STRING_VALUE",
+ *     SubnetId: "STRING_VALUE",
+ *     Cidr: "STRING_VALUE",
+ *     ReservationType: "prefix" || "explicit",
+ *     OwnerId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteSubnetCidrReservationCommandInput - {@link DeleteSubnetCidrReservationCommandInput}
@@ -53,6 +71,8 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * @see {@link DeleteSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteSubnetCidrReservationCommand extends $Command<

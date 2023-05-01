@@ -57,6 +57,21 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  * };
  * const command = new ListBotVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotVersionsResponse
+ *   botId: "STRING_VALUE",
+ *   botVersionSummaries: [ // BotVersionSummaryList
+ *     { // BotVersionSummary
+ *       botName: "STRING_VALUE",
+ *       botVersion: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBotVersionsCommandInput - {@link ListBotVersionsCommandInput}
@@ -80,6 +95,8 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotVersionsCommand extends $Command<

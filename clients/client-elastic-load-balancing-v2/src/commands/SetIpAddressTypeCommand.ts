@@ -49,6 +49,11 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetIpAddressTypeOutput
+ *   IpAddressType: "ipv4" || "dualstack",
+ * };
+ *
  * ```
  *
  * @param SetIpAddressTypeCommandInput - {@link SetIpAddressTypeCommandInput}
@@ -66,6 +71,8 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class SetIpAddressTypeCommand extends $Command<

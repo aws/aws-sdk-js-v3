@@ -55,6 +55,17 @@ export interface GetClusterSessionCredentialsCommandOutput
  * };
  * const command = new GetClusterSessionCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetClusterSessionCredentialsOutput
+ *   Credentials: { // Credentials Union: only one key present
+ *     UsernamePassword: { // UsernamePassword
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *   },
+ *   ExpiresAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetClusterSessionCredentialsCommandInput - {@link GetClusterSessionCredentialsCommandInput}
@@ -70,6 +81,8 @@ export interface GetClusterSessionCredentialsCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class GetClusterSessionCredentialsCommand extends $Command<

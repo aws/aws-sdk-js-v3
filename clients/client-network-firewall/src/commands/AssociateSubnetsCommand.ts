@@ -57,6 +57,19 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * };
  * const command = new AssociateSubnetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateSubnetsResponse
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   SubnetMappings: [ // SubnetMappings
+ *     { // SubnetMapping
+ *       SubnetId: "STRING_VALUE", // required
+ *       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
+ *     },
+ *   ],
+ *   UpdateToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateSubnetsCommandInput - {@link AssociateSubnetsCommandInput}
@@ -102,6 +115,8 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class AssociateSubnetsCommand extends $Command<

@@ -59,6 +59,24 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput
  * };
  * const command = new ListReplacePermissionAssociationsWorkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReplacePermissionAssociationsWorkResponse
+ *   replacePermissionAssociationsWorks: [ // ReplacePermissionAssociationsWorkList
+ *     { // ReplacePermissionAssociationsWork
+ *       id: "STRING_VALUE",
+ *       fromPermissionArn: "STRING_VALUE",
+ *       fromPermissionVersion: "STRING_VALUE",
+ *       toPermissionArn: "STRING_VALUE",
+ *       toPermissionVersion: "STRING_VALUE",
+ *       status: "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ *       statusMessage: "STRING_VALUE",
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListReplacePermissionAssociationsWorkCommandInput - {@link ListReplacePermissionAssociationsWorkCommandInput}
@@ -82,6 +100,8 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListReplacePermissionAssociationsWorkCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * };
  * const command = new DeleteAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssessmentCommandInput - {@link DeleteAssessmentCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeleteAssessmentCommand extends $Command<

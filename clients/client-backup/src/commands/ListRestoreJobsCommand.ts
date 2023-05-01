@@ -52,6 +52,28 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * };
  * const command = new ListRestoreJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRestoreJobsOutput
+ *   RestoreJobs: [ // RestoreJobsList
+ *     { // RestoreJobsListMember
+ *       AccountId: "STRING_VALUE",
+ *       RestoreJobId: "STRING_VALUE",
+ *       RecoveryPointArn: "STRING_VALUE",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       CompletionDate: new Date("TIMESTAMP"),
+ *       Status: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
+ *       StatusMessage: "STRING_VALUE",
+ *       PercentDone: "STRING_VALUE",
+ *       BackupSizeInBytes: Number("long"),
+ *       IamRoleArn: "STRING_VALUE",
+ *       ExpectedCompletionTimeMinutes: Number("long"),
+ *       CreatedResourceArn: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRestoreJobsCommandInput - {@link ListRestoreJobsCommandInput}
@@ -73,6 +95,8 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListRestoreJobsCommand extends $Command<

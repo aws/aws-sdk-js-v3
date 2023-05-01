@@ -59,6 +59,12 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * };
  * const command = new UpdateChapCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChapCredentialsOutput
+ *   TargetARN: "STRING_VALUE",
+ *   InitiatorName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateChapCredentialsCommandInput - {@link UpdateChapCredentialsCommandInput}
@@ -75,6 +81,8 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update CHAP credentials for an iSCSI target
  * ```javascript

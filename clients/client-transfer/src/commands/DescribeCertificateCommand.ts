@@ -48,6 +48,31 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCertificateResponse
+ *   Certificate: { // DescribedCertificate
+ *     Arn: "STRING_VALUE", // required
+ *     CertificateId: "STRING_VALUE",
+ *     Usage: "SIGNING" || "ENCRYPTION",
+ *     Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
+ *     Certificate: "STRING_VALUE",
+ *     CertificateChain: "STRING_VALUE",
+ *     ActiveDate: new Date("TIMESTAMP"),
+ *     InactiveDate: new Date("TIMESTAMP"),
+ *     Serial: "STRING_VALUE",
+ *     NotBeforeDate: new Date("TIMESTAMP"),
+ *     NotAfterDate: new Date("TIMESTAMP"),
+ *     Type: "CERTIFICATE" || "CERTIFICATE_WITH_PRIVATE_KEY",
+ *     Description: "STRING_VALUE",
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
@@ -69,6 +94,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeCertificateCommand extends $Command<

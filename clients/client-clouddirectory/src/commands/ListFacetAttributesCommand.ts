@@ -47,6 +47,40 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * };
  * const command = new ListFacetAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFacetAttributesResponse
+ *   Attributes: [ // FacetAttributeList
+ *     { // FacetAttribute
+ *       Name: "STRING_VALUE", // required
+ *       AttributeDefinition: { // FacetAttributeDefinition
+ *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         DefaultValue: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         IsImmutable: true || false,
+ *         Rules: { // RuleMap
+ *           "<keys>": { // Rule
+ *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *             Parameters: { // RuleParameterMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       },
+ *       AttributeReference: { // FacetAttributeReference
+ *         TargetFacetName: "STRING_VALUE", // required
+ *         TargetAttributeName: "STRING_VALUE", // required
+ *       },
+ *       RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFacetAttributesCommandInput - {@link ListFacetAttributesCommandInput}
@@ -83,6 +117,8 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListFacetAttributesCommand extends $Command<

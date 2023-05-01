@@ -63,6 +63,21 @@ export interface DescribeConformancePackComplianceCommandOutput
  * };
  * const command = new DescribeConformancePackComplianceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConformancePackComplianceResponse
+ *   ConformancePackName: "STRING_VALUE", // required
+ *   ConformancePackRuleComplianceList: [ // ConformancePackRuleComplianceList // required
+ *     { // ConformancePackRuleCompliance
+ *       ConfigRuleName: "STRING_VALUE",
+ *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
+ *       Controls: [ // ControlsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeConformancePackComplianceCommandInput - {@link DescribeConformancePackComplianceCommandInput}
@@ -89,6 +104,8 @@ export interface DescribeConformancePackComplianceCommandOutput
  * @throws {@link NoSuchConformancePackException} (client fault)
  *  <p>You specified one or more conformance packs that do not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConformancePackComplianceCommand extends $Command<

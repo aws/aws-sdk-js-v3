@@ -48,6 +48,21 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  * };
  * const command = new AcceptSharedDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptSharedDirectoryResult
+ *   SharedDirectory: { // SharedDirectory
+ *     OwnerAccountId: "STRING_VALUE",
+ *     OwnerDirectoryId: "STRING_VALUE",
+ *     ShareMethod: "ORGANIZATIONS" || "HANDSHAKE",
+ *     SharedAccountId: "STRING_VALUE",
+ *     SharedDirectoryId: "STRING_VALUE",
+ *     ShareStatus: "Shared" || "PendingAcceptance" || "Rejected" || "Rejecting" || "RejectFailed" || "Sharing" || "ShareFailed" || "Deleted" || "Deleting",
+ *     ShareNotes: "STRING_VALUE",
+ *     CreatedDateTime: new Date("TIMESTAMP"),
+ *     LastUpdatedDateTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param AcceptSharedDirectoryCommandInput - {@link AcceptSharedDirectoryCommandInput}
@@ -71,6 +86,8 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class AcceptSharedDirectoryCommand extends $Command<

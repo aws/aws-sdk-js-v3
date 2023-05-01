@@ -48,6 +48,11 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * };
  * const command = new DeleteQueryDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteQueryDefinitionResponse
+ *   success: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteQueryDefinitionCommandInput - {@link DeleteQueryDefinitionCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DeleteQueryDefinitionCommand extends $Command<

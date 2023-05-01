@@ -50,6 +50,18 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesResponse
+ *   NextToken: "STRING_VALUE",
+ *   Rules: [ // __listOfListRulesOutput
+ *     { // ListRulesOutput
+ *       ResourceType: "STRING_VALUE", // required
+ *       RuleDescription: "STRING_VALUE", // required
+ *       RuleId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -70,6 +82,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

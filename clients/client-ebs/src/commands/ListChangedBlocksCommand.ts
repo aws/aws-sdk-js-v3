@@ -53,6 +53,21 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * };
  * const command = new ListChangedBlocksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChangedBlocksResponse
+ *   ChangedBlocks: [ // ChangedBlocks
+ *     { // ChangedBlock
+ *       BlockIndex: Number("int"),
+ *       FirstBlockToken: "STRING_VALUE",
+ *       SecondBlockToken: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ExpiryTime: new Date("TIMESTAMP"),
+ *   VolumeSize: Number("long"),
+ *   BlockSize: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListChangedBlocksCommandInput - {@link ListChangedBlocksCommandInput}
@@ -80,6 +95,8 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class ListChangedBlocksCommand extends $Command<

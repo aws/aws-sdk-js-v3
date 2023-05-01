@@ -44,6 +44,11 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * };
  * const command = new DeleteVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVirtualInterfaceResponse
+ *   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * };
+ *
  * ```
  *
  * @param DeleteVirtualInterfaceCommandInput - {@link DeleteVirtualInterfaceCommandInput}
@@ -58,6 +63,8 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteVirtualInterfaceCommand extends $Command<

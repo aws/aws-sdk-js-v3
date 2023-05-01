@@ -47,6 +47,9 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableRuleCommandInput - {@link EnableRuleCommandInput}
@@ -72,6 +75,8 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class EnableRuleCommand extends $Command<

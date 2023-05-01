@@ -69,6 +69,29 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * };
  * const command = new AddDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddDraftAppVersionResourceMappingsResponse
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   resourceMappings: [ // ResourceMappingList // required
+ *     { // ResourceMapping
+ *       resourceName: "STRING_VALUE",
+ *       logicalStackName: "STRING_VALUE",
+ *       appRegistryAppName: "STRING_VALUE",
+ *       resourceGroupName: "STRING_VALUE",
+ *       mappingType: "STRING_VALUE", // required
+ *       physicalResourceId: { // PhysicalResourceId
+ *         identifier: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         awsRegion: "STRING_VALUE",
+ *         awsAccountId: "STRING_VALUE",
+ *       },
+ *       terraformSourceName: "STRING_VALUE",
+ *       eksSourceName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddDraftAppVersionResourceMappingsCommandInput - {@link AddDraftAppVersionResourceMappingsCommandInput}
@@ -101,6 +124,8 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class AddDraftAppVersionResourceMappingsCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteHsmConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHsmConfigurationCommandInput - {@link DeleteHsmConfigurationCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  *  <p>The specified HSM configuration is not in the <code>available</code> state, or it
  *             is still in use by one or more Amazon Redshift clusters.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteHsmConfigurationCommand extends $Command<

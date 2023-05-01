@@ -65,6 +65,9 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokeCertificateCommandInput - {@link RevokeCertificateCommandInput}
@@ -103,6 +106,8 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class RevokeCertificateCommand extends $Command<

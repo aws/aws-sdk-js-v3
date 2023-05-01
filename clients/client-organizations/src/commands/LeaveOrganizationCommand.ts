@@ -105,6 +105,9 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * const input = {};
  * const command = new LeaveOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param LeaveOrganizationCommandInput - {@link LeaveOrganizationCommandInput}
@@ -450,6 +453,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To leave an organization as a member account
  * ```javascript

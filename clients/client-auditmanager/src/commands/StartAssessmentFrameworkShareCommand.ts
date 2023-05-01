@@ -88,6 +88,27 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * };
  * const command = new StartAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAssessmentFrameworkShareResponse
+ *   assessmentFrameworkShareRequest: { // AssessmentFrameworkShareRequest
+ *     id: "STRING_VALUE",
+ *     frameworkId: "STRING_VALUE",
+ *     frameworkName: "STRING_VALUE",
+ *     frameworkDescription: "STRING_VALUE",
+ *     status: "ACTIVE" || "REPLICATING" || "SHARED" || "EXPIRING" || "FAILED" || "EXPIRED" || "DECLINED" || "REVOKED",
+ *     sourceAccount: "STRING_VALUE",
+ *     destinationAccount: "STRING_VALUE",
+ *     destinationRegion: "STRING_VALUE",
+ *     expirationTime: new Date("TIMESTAMP"),
+ *     creationTime: new Date("TIMESTAMP"),
+ *     lastUpdated: new Date("TIMESTAMP"),
+ *     comment: "STRING_VALUE",
+ *     standardControlsCount: Number("int"),
+ *     customControlsCount: Number("int"),
+ *     complianceType: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartAssessmentFrameworkShareCommandInput - {@link StartAssessmentFrameworkShareCommandInput}
@@ -110,6 +131,8 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class StartAssessmentFrameworkShareCommand extends $Command<

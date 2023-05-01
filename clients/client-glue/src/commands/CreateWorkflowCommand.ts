@@ -52,6 +52,11 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkflowResponse
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -78,6 +83,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

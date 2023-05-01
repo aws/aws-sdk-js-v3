@@ -55,6 +55,21 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * };
  * const command = new CreateNetworkInterfacePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkInterfacePermissionResult
+ *   InterfacePermission: { // NetworkInterfacePermission
+ *     NetworkInterfacePermissionId: "STRING_VALUE",
+ *     NetworkInterfaceId: "STRING_VALUE",
+ *     AwsAccountId: "STRING_VALUE",
+ *     AwsService: "STRING_VALUE",
+ *     Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE",
+ *     PermissionState: { // NetworkInterfacePermissionState
+ *       State: "pending" || "granted" || "revoking" || "revoked",
+ *       StatusMessage: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateNetworkInterfacePermissionCommandInput - {@link CreateNetworkInterfacePermissionCommandInput}
@@ -63,6 +78,8 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * @see {@link CreateNetworkInterfacePermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateNetworkInterfacePermissionCommand extends $Command<

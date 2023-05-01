@@ -49,6 +49,11 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * };
  * const command = new DescribeWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspaceConfigurationResponse
+ *   configuration: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspaceConfigurationCommandInput - {@link DescribeWorkspaceConfigurationCommandInput}
@@ -69,6 +74,8 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling. Retry the request.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class DescribeWorkspaceConfigurationCommand extends $Command<

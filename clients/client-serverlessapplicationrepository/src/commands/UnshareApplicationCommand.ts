@@ -49,6 +49,9 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UnshareApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnshareApplicationCommandInput - {@link UnshareApplicationCommandInput}
@@ -72,6 +75,8 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class UnshareApplicationCommand extends $Command<

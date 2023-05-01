@@ -96,6 +96,34 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * };
  * const command = new DetectTextCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectTextResponse
+ *   TextDetections: [ // TextDetectionList
+ *     { // TextDetection
+ *       DetectedText: "STRING_VALUE",
+ *       Type: "LINE" || "WORD",
+ *       Id: Number("int"),
+ *       ParentId: Number("int"),
+ *       Confidence: Number("float"),
+ *       Geometry: { // Geometry
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   TextModelVersion: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DetectTextCommandInput - {@link DetectTextCommandInput}
@@ -133,6 +161,8 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DetectTextCommand extends $Command<

@@ -46,6 +46,11 @@ export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMir
  * };
  * const command = new DeleteTrafficMirrorFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTrafficMirrorFilterResult
+ *   TrafficMirrorFilterId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteTrafficMirrorFilterCommandInput - {@link DeleteTrafficMirrorFilterCommandInput}
@@ -54,6 +59,8 @@ export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMir
  * @see {@link DeleteTrafficMirrorFilterCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteTrafficMirrorFilterCommand extends $Command<

@@ -48,6 +48,20 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * };
  * const command = new ListMailboxPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMailboxPermissionsResponse
+ *   Permissions: [ // Permissions
+ *     { // Permission
+ *       GranteeId: "STRING_VALUE", // required
+ *       GranteeType: "GROUP" || "USER", // required
+ *       PermissionValues: [ // PermissionValues // required
+ *         "FULL_ACCESS" || "SEND_AS" || "SEND_ON_BEHALF",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMailboxPermissionsCommandInput - {@link ListMailboxPermissionsCommandInput}
@@ -71,6 +85,8 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMailboxPermissionsCommand extends $Command<

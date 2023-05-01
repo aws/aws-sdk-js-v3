@@ -45,6 +45,28 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteConnectionResponse
+ *   Connection: { // Connection
+ *     ConnectionId: "STRING_VALUE",
+ *     ConnectionArn: "STRING_VALUE",
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     DeviceId: "STRING_VALUE",
+ *     ConnectedDeviceId: "STRING_VALUE",
+ *     LinkId: "STRING_VALUE",
+ *     ConnectedLinkId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -72,6 +94,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DeleteConnectionCommand extends $Command<

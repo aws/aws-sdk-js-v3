@@ -50,6 +50,20 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * };
  * const command = new ListAccessorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessorsOutput
+ *   Accessors: [ // AccessorSummaryList
+ *     { // AccessorSummary
+ *       Id: "STRING_VALUE",
+ *       Type: "BILLING_TOKEN",
+ *       Status: "AVAILABLE" || "PENDING_DELETION" || "DELETED",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAccessorsCommandInput - {@link ListAccessorsCommandInput}
@@ -73,6 +87,8 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListAccessorsCommand extends $Command<

@@ -52,6 +52,9 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  * };
  * const command = new RegisterToWorkMailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterToWorkMailCommandInput - {@link RegisterToWorkMailCommandInput}
@@ -100,6 +103,8 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class RegisterToWorkMailCommand extends $Command<

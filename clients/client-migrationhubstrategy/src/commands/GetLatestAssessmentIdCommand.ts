@@ -46,6 +46,11 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * const input = {};
  * const command = new GetLatestAssessmentIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLatestAssessmentIdResponse
+ *   id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetLatestAssessmentIdCommandInput - {@link GetLatestAssessmentIdCommandInput}
@@ -67,6 +72,8 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetLatestAssessmentIdCommand extends $Command<

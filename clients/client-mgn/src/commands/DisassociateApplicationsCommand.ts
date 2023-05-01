@@ -47,6 +47,9 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * };
  * const command = new DisassociateApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateApplicationsCommandInput - {@link DisassociateApplicationsCommandInput}
@@ -64,6 +67,8 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DisassociateApplicationsCommand extends $Command<

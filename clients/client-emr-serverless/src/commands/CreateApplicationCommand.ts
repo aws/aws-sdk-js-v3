@@ -91,6 +91,13 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   applicationId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -113,6 +120,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

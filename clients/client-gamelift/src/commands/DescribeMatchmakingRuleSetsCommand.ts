@@ -62,6 +62,19 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  * };
  * const command = new DescribeMatchmakingRuleSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMatchmakingRuleSetsOutput
+ *   RuleSets: [ // MatchmakingRuleSetList // required
+ *     { // MatchmakingRuleSet
+ *       RuleSetName: "STRING_VALUE",
+ *       RuleSetArn: "STRING_VALUE",
+ *       RuleSetBody: "STRING_VALUE", // required
+ *       CreationTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeMatchmakingRuleSetsCommandInput - {@link DescribeMatchmakingRuleSetsCommandInput}
@@ -84,6 +97,8 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeMatchmakingRuleSetsCommand extends $Command<

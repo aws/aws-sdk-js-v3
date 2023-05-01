@@ -45,6 +45,9 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * };
  * const command = new DeleteWorkerBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkerBlockCommandInput - {@link DeleteWorkerBlockCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class DeleteWorkerBlockCommand extends $Command<

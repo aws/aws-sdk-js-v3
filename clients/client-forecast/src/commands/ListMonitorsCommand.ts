@@ -53,6 +53,21 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitorsResponse
+ *   Monitors: [ // Monitors
+ *     { // MonitorSummary
+ *       MonitorArn: "STRING_VALUE",
+ *       MonitorName: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModificationTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
@@ -68,6 +83,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListMonitorsCommand extends $Command<

@@ -45,6 +45,16 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * };
  * const command = new ListProgressUpdateStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProgressUpdateStreamsResult
+ *   ProgressUpdateStreamSummaryList: [ // ProgressUpdateStreamSummaryList
+ *     { // ProgressUpdateStreamSummary
+ *       ProgressUpdateStreamName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListProgressUpdateStreamsCommandInput - {@link ListProgressUpdateStreamsCommandInput}
@@ -74,6 +84,8 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListProgressUpdateStreamsCommand extends $Command<

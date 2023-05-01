@@ -63,6 +63,23 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * };
  * const command = new ListCreateAccountStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCreateAccountStatusResponse
+ *   CreateAccountStatuses: [ // CreateAccountStatuses
+ *     { // CreateAccountStatus
+ *       Id: "STRING_VALUE",
+ *       AccountName: "STRING_VALUE",
+ *       State: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ *       RequestedTimestamp: new Date("TIMESTAMP"),
+ *       CompletedTimestamp: new Date("TIMESTAMP"),
+ *       AccountId: "STRING_VALUE",
+ *       GovCloudAccountId: "STRING_VALUE",
+ *       FailureReason: "ACCOUNT_LIMIT_EXCEEDED" || "EMAIL_ALREADY_EXISTS" || "INVALID_ADDRESS" || "INVALID_EMAIL" || "CONCURRENT_ACCOUNT_MODIFICATION" || "INTERNAL_FAILURE" || "GOVCLOUD_ACCOUNT_ALREADY_EXISTS" || "MISSING_BUSINESS_VALIDATION" || "FAILED_BUSINESS_VALIDATION" || "PENDING_BUSINESS_VALIDATION" || "INVALID_IDENTITY_FOR_BUSINESS_VALIDATION" || "UNKNOWN_BUSINESS_VALIDATION" || "MISSING_PAYMENT_INSTRUMENT" || "INVALID_PAYMENT_INSTRUMENT" || "UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCreateAccountStatusCommandInput - {@link ListCreateAccountStatusCommandInput}
@@ -200,6 +217,8 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To get a list of completed account creation requests made in the organization
  * ```javascript

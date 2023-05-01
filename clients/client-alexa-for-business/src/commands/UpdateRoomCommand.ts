@@ -48,6 +48,9 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
@@ -62,6 +65,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateRoomCommand extends $Command<

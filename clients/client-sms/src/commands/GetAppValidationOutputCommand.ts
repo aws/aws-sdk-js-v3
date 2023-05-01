@@ -44,6 +44,45 @@ export interface GetAppValidationOutputCommandOutput extends GetAppValidationOut
  * };
  * const command = new GetAppValidationOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppValidationOutputResponse
+ *   validationOutputList: [ // ValidationOutputList
+ *     { // ValidationOutput
+ *       validationId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       status: "READY_FOR_VALIDATION" || "PENDING" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ *       statusMessage: "STRING_VALUE",
+ *       latestValidationTime: new Date("TIMESTAMP"),
+ *       appValidationOutput: { // AppValidationOutput
+ *         ssmOutput: { // SSMOutput
+ *           s3Location: { // S3Location
+ *             bucket: "STRING_VALUE",
+ *             key: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       serverValidationOutput: { // ServerValidationOutput
+ *         server: { // Server
+ *           serverId: "STRING_VALUE",
+ *           serverType: "VIRTUAL_MACHINE",
+ *           vmServer: { // VmServer
+ *             vmServerAddress: { // VmServerAddress
+ *               vmManagerId: "STRING_VALUE",
+ *               vmId: "STRING_VALUE",
+ *             },
+ *             vmName: "STRING_VALUE",
+ *             vmManagerName: "STRING_VALUE",
+ *             vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ *             vmPath: "STRING_VALUE",
+ *           },
+ *           replicationJobId: "STRING_VALUE",
+ *           replicationJobTerminated: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAppValidationOutputCommandInput - {@link GetAppValidationOutputCommandInput}
@@ -68,6 +107,8 @@ export interface GetAppValidationOutputCommandOutput extends GetAppValidationOut
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class GetAppValidationOutputCommand extends $Command<

@@ -72,6 +72,27 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
  * };
  * const command = new ModifyFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyFpgaImageAttributeResult
+ *   FpgaImageAttribute: { // FpgaImageAttribute
+ *     FpgaImageId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     LoadPermissions: [ // LoadPermissionList
+ *       { // LoadPermission
+ *         UserId: "STRING_VALUE",
+ *         Group: "all",
+ *       },
+ *     ],
+ *     ProductCodes: [ // ProductCodeList
+ *       { // ProductCode
+ *         ProductCodeId: "STRING_VALUE",
+ *         ProductCodeType: "devpay" || "marketplace",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyFpgaImageAttributeCommandInput - {@link ModifyFpgaImageAttributeCommandInput}
@@ -80,6 +101,8 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
  * @see {@link ModifyFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyFpgaImageAttributeCommand extends $Command<

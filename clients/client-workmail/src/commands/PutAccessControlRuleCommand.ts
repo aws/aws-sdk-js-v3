@@ -74,6 +74,9 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * };
  * const command = new PutAccessControlRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccessControlRuleCommandInput - {@link PutAccessControlRuleCommandInput}
@@ -103,6 +106,8 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutAccessControlRuleCommand extends $Command<

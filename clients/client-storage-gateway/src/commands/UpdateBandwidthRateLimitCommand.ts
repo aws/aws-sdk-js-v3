@@ -57,6 +57,11 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * };
  * const command = new UpdateBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBandwidthRateLimitOutput
+ *   GatewayARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateBandwidthRateLimitCommandInput - {@link UpdateBandwidthRateLimitCommandInput}
@@ -73,6 +78,8 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update the bandwidth rate limits of a gateway
  * ```javascript

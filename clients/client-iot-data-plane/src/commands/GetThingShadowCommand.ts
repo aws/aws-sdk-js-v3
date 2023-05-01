@@ -48,6 +48,11 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  * };
  * const command = new GetThingShadowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetThingShadowResponse
+ *   payload: "BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetThingShadowCommandInput - {@link GetThingShadowCommandInput}
@@ -80,6 +85,8 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  * @throws {@link UnsupportedDocumentEncodingException} (client fault)
  *  <p>The document encoding is not supported.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class GetThingShadowCommand extends $Command<

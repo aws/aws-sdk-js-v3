@@ -46,6 +46,15 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * };
  * const command = new DescribeNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNamespaceResponse
+ *   namespaceArn: "STRING_VALUE",
+ *   namespaceName: "STRING_VALUE",
+ *   trackingNamespaceName: "STRING_VALUE",
+ *   trackingNamespaceVersion: Number("long"),
+ *   namespaceVersion: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DescribeNamespaceCommandInput - {@link DescribeNamespaceCommandInput}
@@ -66,6 +75,8 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DescribeNamespaceCommand extends $Command<

@@ -67,6 +67,14 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * };
  * const command = new GetTemporaryGluePartitionCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemporaryGluePartitionCredentialsResponse
+ *   AccessKeyId: "STRING_VALUE",
+ *   SecretAccessKey: "STRING_VALUE",
+ *   SessionToken: "STRING_VALUE",
+ *   Expiration: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetTemporaryGluePartitionCredentialsCommandInput - {@link GetTemporaryGluePartitionCredentialsCommandInput}
@@ -93,6 +101,8 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * @throws {@link PermissionTypeMismatchException} (client fault)
  *  <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetTemporaryGluePartitionCredentialsCommand extends $Command<

@@ -51,6 +51,16 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * };
  * const command = new DeleteKeySigningKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteKeySigningKeyResponse
+ *   ChangeInfo: { // ChangeInfo
+ *     Id: "STRING_VALUE", // required
+ *     Status: "PENDING" || "INSYNC", // required
+ *     SubmittedAt: new Date("TIMESTAMP"), // required
+ *     Comment: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteKeySigningKeyCommandInput - {@link DeleteKeySigningKeyCommandInput}
@@ -81,6 +91,8 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * @throws {@link NoSuchKeySigningKey} (client fault)
  *  <p>The specified key-signing key (KSK) doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteKeySigningKeyCommand extends $Command<

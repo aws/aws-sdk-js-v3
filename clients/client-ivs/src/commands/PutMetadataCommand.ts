@@ -49,6 +49,9 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetadataCommandInput - {@link PutMetadataCommandInput}
@@ -72,6 +75,8 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class PutMetadataCommand extends $Command<

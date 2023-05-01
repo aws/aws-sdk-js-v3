@@ -52,6 +52,25 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * };
  * const command = new GetByteMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetByteMatchSetResponse
+ *   ByteMatchSet: { // ByteMatchSet
+ *     ByteMatchSetId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     ByteMatchTuples: [ // ByteMatchTuples // required
+ *       { // ByteMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TargetString: "BLOB_VALUE", // required
+ *         TextTransformation: "STRING_VALUE", // required
+ *         PositionalConstraint: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetByteMatchSetCommandInput - {@link GetByteMatchSetCommandInput}
@@ -69,6 +88,8 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get a byte match set
  * ```javascript

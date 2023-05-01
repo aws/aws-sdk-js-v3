@@ -55,6 +55,21 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * };
  * const command = new CreateRouteResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRouteResponseResponse
+ *   ModelSelectionExpression: "STRING_VALUE",
+ *   ResponseModels: { // RouteModels
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseParameters: { // RouteParameters
+ *     "<keys>": { // ParameterConstraints
+ *       Required: true || false,
+ *     },
+ *   },
+ *   RouteResponseId: "STRING_VALUE",
+ *   RouteResponseKey: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateRouteResponseCommandInput - {@link CreateRouteResponseCommandInput}
@@ -75,6 +90,8 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateRouteResponseCommand extends $Command<

@@ -68,6 +68,14 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * };
  * const command = new CreateKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateKeyResponse
+ *   Key: "STRING_VALUE", // required
+ *   KeyArn: "STRING_VALUE", // required
+ *   KeyName: "STRING_VALUE", // required
+ *   CreateTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param CreateKeyCommandInput - {@link CreateKeyCommandInput}
@@ -96,6 +104,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CreateKeyCommand extends $Command<

@@ -47,6 +47,24 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * };
  * const command = new DeleteDBClusterEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterEndpoint
+ *   DBClusterEndpointIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ *   Endpoint: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   EndpointType: "STRING_VALUE",
+ *   CustomEndpointType: "STRING_VALUE",
+ *   StaticMembers: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   ExcludedMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterEndpointArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteDBClusterEndpointCommandInput - {@link DeleteDBClusterEndpointCommandInput}
@@ -64,6 +82,8 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a custom DB cluster endpoint
  * ```javascript

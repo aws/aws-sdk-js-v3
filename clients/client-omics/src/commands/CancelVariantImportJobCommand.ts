@@ -44,6 +44,9 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * };
  * const command = new CancelVariantImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelVariantImportJobCommandInput - {@link CancelVariantImportJobCommandInput}
@@ -67,6 +70,8 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CancelVariantImportJobCommand extends $Command<

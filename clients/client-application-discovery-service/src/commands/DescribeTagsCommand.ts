@@ -72,6 +72,20 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTagsResponse
+ *   tags: [ // ConfigurationTagSet
+ *     { // ConfigurationTag
+ *       configurationType: "SERVER" || "PROCESS" || "CONNECTION" || "APPLICATION",
+ *       configurationId: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       timeOfCreation: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -101,6 +115,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DescribeTagsCommand extends $Command<

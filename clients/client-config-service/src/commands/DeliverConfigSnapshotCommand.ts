@@ -60,6 +60,11 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * };
  * const command = new DeliverConfigSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeliverConfigSnapshotResponse
+ *   configSnapshotId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeliverConfigSnapshotCommandInput - {@link DeliverConfigSnapshotCommandInput}
@@ -80,6 +85,8 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  *  <p>You have specified a delivery channel that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeliverConfigSnapshotCommand extends $Command<

@@ -52,6 +52,11 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  * };
  * const command = new CreateAPIKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAPIKeyResponse
+ *   APIKey: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateAPIKeyCommandInput - {@link CreateAPIKeyCommandInput}
@@ -94,6 +99,8 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
  *             <i>WAF Developer Guide</i>.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateAPIKeyCommand extends $Command<

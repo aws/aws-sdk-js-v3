@@ -60,6 +60,11 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * };
  * const command = new UpdateEndpointWeightsAndCapacitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointWeightsAndCapacitiesOutput
+ *   EndpointArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointWeightsAndCapacitiesCommandInput - {@link UpdateEndpointWeightsAndCapacitiesCommandInput}
@@ -72,6 +77,8 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<

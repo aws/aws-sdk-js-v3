@@ -47,6 +47,18 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  * };
  * const command = new ListComponentVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentVersionsResponse
+ *   componentVersions: [ // ComponentVersionList
+ *     { // ComponentVersionListItem
+ *       componentName: "STRING_VALUE",
+ *       componentVersion: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListComponentVersionsCommandInput - {@link ListComponentVersionsCommandInput}
@@ -72,6 +84,8 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListComponentVersionsCommand extends $Command<

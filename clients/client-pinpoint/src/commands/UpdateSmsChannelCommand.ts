@@ -49,6 +49,26 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  * };
  * const command = new UpdateSmsChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSmsChannelResponse
+ *   SMSChannelResponse: { // SMSChannelResponse
+ *     ApplicationId: "STRING_VALUE",
+ *     CreationDate: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     HasCredential: true || false,
+ *     Id: "STRING_VALUE",
+ *     IsArchived: true || false,
+ *     LastModifiedBy: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE",
+ *     Platform: "STRING_VALUE", // required
+ *     PromotionalMessagesPerSecond: Number("int"),
+ *     SenderId: "STRING_VALUE",
+ *     ShortCode: "STRING_VALUE",
+ *     TransactionalMessagesPerSecond: Number("int"),
+ *     Version: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSmsChannelCommandInput - {@link UpdateSmsChannelCommandInput}
@@ -78,6 +98,8 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateSmsChannelCommand extends $Command<

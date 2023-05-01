@@ -58,6 +58,11 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * };
  * const command = new StartQueryPlanningCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartQueryPlanningResponse
+ *   QueryId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StartQueryPlanningCommandInput - {@link StartQueryPlanningCommandInput}
@@ -78,6 +83,8 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * @throws {@link ThrottledException} (client fault)
  *  <p>Contains details about an error where the query request was throttled.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class StartQueryPlanningCommand extends $Command<

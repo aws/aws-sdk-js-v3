@@ -46,6 +46,15 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * };
  * const command = new DeleteAccountSettingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAccountSettingResponse
+ *   setting: { // Setting
+ *     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ *     value: "STRING_VALUE",
+ *     principalArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAccountSettingCommandInput - {@link DeleteAccountSettingCommandInput}
@@ -66,6 +75,8 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To delete your account setting
  * ```javascript

@@ -53,6 +53,13 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  * };
  * const command = new DeleteDefaultMessageTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDefaultMessageTypeResult
+ *   ConfigurationSetArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   MessageType: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteDefaultMessageTypeCommandInput - {@link DeleteDefaultMessageTypeCommandInput}
@@ -79,6 +86,8 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteDefaultMessageTypeCommand extends $Command<

@@ -45,6 +45,22 @@ export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBea
  * };
  * const command = new UpdateGameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGameResult
+ *   Game: { // GameDetails
+ *     Name: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Created: new Date("TIMESTAMP"),
+ *     LastUpdated: new Date("TIMESTAMP"),
+ *     State: "STRING_VALUE",
+ *     EnableTerminationProtection: true || false,
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGameCommandInput - {@link UpdateGameCommandInput}
@@ -68,6 +84,8 @@ export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class UpdateGameCommand extends $Command<

@@ -56,6 +56,9 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * };
  * const command = new DeleteInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInstanceAccessControlAttributeConfigurationCommandInput - {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput}
@@ -87,6 +90,8 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $Command<

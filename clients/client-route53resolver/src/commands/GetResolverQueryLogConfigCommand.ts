@@ -45,6 +45,22 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * };
  * const command = new GetResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResolverQueryLogConfigResponse
+ *   ResolverQueryLogConfig: { // ResolverQueryLogConfig
+ *     Id: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     Status: "CREATING" || "CREATED" || "DELETING" || "FAILED",
+ *     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
+ *     AssociationCount: Number("int"),
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     DestinationArn: "STRING_VALUE",
+ *     CreatorRequestId: "STRING_VALUE",
+ *     CreationTime: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResolverQueryLogConfigCommandInput - {@link GetResolverQueryLogConfigCommandInput}
@@ -71,6 +87,8 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetResolverQueryLogConfigCommand extends $Command<

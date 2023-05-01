@@ -55,6 +55,24 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * };
  * const command = new UpdateServiceSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceSettingsResponse
+ *   LinuxSubscriptionsDiscovery: "STRING_VALUE",
+ *   LinuxSubscriptionsDiscoverySettings: { // LinuxSubscriptionsDiscoverySettings
+ *     SourceRegions: [ // StringList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     OrganizationIntegration: "STRING_VALUE", // required
+ *   },
+ *   Status: "STRING_VALUE",
+ *   StatusMessage: { // StringMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   HomeRegions: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateServiceSettingsCommandInput - {@link UpdateServiceSettingsCommandInput}
@@ -72,6 +90,8 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
  */
 export class UpdateServiceSettingsCommand extends $Command<

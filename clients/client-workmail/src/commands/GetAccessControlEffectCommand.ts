@@ -49,6 +49,14 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * };
  * const command = new GetAccessControlEffectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessControlEffectResponse
+ *   Effect: "ALLOW" || "DENY",
+ *   MatchedRules: [ // AccessControlRuleNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAccessControlEffectCommandInput - {@link GetAccessControlEffectCommandInput}
@@ -75,6 +83,8 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetAccessControlEffectCommand extends $Command<

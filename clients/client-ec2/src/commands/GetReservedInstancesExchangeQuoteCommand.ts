@@ -60,6 +60,48 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  * };
  * const command = new GetReservedInstancesExchangeQuoteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReservedInstancesExchangeQuoteResult
+ *   CurrencyCode: "STRING_VALUE",
+ *   IsValidExchange: true || false,
+ *   OutputReservedInstancesWillExpireAt: new Date("TIMESTAMP"),
+ *   PaymentDue: "STRING_VALUE",
+ *   ReservedInstanceValueRollup: { // ReservationValue
+ *     HourlyPrice: "STRING_VALUE",
+ *     RemainingTotalValue: "STRING_VALUE",
+ *     RemainingUpfrontValue: "STRING_VALUE",
+ *   },
+ *   ReservedInstanceValueSet: [ // ReservedInstanceReservationValueSet
+ *     { // ReservedInstanceReservationValue
+ *       ReservationValue: {
+ *         HourlyPrice: "STRING_VALUE",
+ *         RemainingTotalValue: "STRING_VALUE",
+ *         RemainingUpfrontValue: "STRING_VALUE",
+ *       },
+ *       ReservedInstanceId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   TargetConfigurationValueRollup: {
+ *     HourlyPrice: "STRING_VALUE",
+ *     RemainingTotalValue: "STRING_VALUE",
+ *     RemainingUpfrontValue: "STRING_VALUE",
+ *   },
+ *   TargetConfigurationValueSet: [ // TargetReservationValueSet
+ *     { // TargetReservationValue
+ *       ReservationValue: {
+ *         HourlyPrice: "STRING_VALUE",
+ *         RemainingTotalValue: "STRING_VALUE",
+ *         RemainingUpfrontValue: "STRING_VALUE",
+ *       },
+ *       TargetConfiguration: { // TargetConfiguration
+ *         InstanceCount: Number("int"),
+ *         OfferingId: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ValidationFailureReason: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetReservedInstancesExchangeQuoteCommandInput - {@link GetReservedInstancesExchangeQuoteCommandInput}
@@ -68,6 +110,8 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  * @see {@link GetReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetReservedInstancesExchangeQuoteCommand extends $Command<

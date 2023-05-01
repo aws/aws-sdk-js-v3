@@ -62,6 +62,9 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * };
  * const command = new DeregisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterWorkspaceDirectoryCommandInput - {@link DeregisterWorkspaceDirectoryCommandInput}
@@ -85,6 +88,8 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeregisterWorkspaceDirectoryCommand extends $Command<

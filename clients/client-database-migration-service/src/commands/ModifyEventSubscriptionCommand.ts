@@ -54,6 +54,25 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * };
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyEventSubscriptionResponse
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: "STRING_VALUE",
+ *     CustSubscriptionId: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     SubscriptionCreationTime: "STRING_VALUE",
+ *     SourceType: "STRING_VALUE",
+ *     SourceIdsList: [ // SourceIdsList
+ *       "STRING_VALUE",
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       "STRING_VALUE",
+ *     ],
+ *     Enabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
@@ -89,6 +108,8 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @throws {@link SNSNoAuthorizationFault} (client fault)
  *  <p>You are not authorized for the SNS subscription.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class ModifyEventSubscriptionCommand extends $Command<

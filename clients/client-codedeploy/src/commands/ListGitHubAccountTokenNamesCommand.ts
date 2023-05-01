@@ -44,6 +44,14 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * };
  * const command = new ListGitHubAccountTokenNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGitHubAccountTokenNamesOutput
+ *   tokenNameList: [ // GitHubAccountTokenNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListGitHubAccountTokenNamesCommandInput - {@link ListGitHubAccountTokenNamesCommandInput}
@@ -61,6 +69,8 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * @throws {@link ResourceValidationException} (client fault)
  *  <p>The specified resource could not be validated.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListGitHubAccountTokenNamesCommand extends $Command<

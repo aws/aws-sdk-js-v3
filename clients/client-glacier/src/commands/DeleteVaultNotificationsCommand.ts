@@ -57,6 +57,9 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVaultNotificationsCommandInput - {@link DeleteVaultNotificationsCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To delete the notification configuration set for a vault
  * ```javascript

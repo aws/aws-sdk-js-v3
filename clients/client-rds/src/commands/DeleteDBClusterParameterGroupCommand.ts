@@ -53,6 +53,9 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBClusterParameterGroupCommandInput - {@link DeleteDBClusterParameterGroupCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *             to delete the parameter group, you can't delete it when the parameter group is in
  *             this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB cluster parameter group
  * ```javascript

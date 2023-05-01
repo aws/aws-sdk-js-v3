@@ -51,6 +51,12 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  * };
  * const command = new CreateContactFlowModuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContactFlowModuleResponse
+ *   Id: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateContactFlowModuleCommandInput - {@link CreateContactFlowModuleCommandInput}
@@ -89,6 +95,8 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateContactFlowModuleCommand extends $Command<

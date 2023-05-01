@@ -52,6 +52,69 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
  * };
  * const command = new DescribeAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAuditMitigationActionsTaskResponse
+ *   taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   taskStatistics: { // AuditMitigationActionsTaskStatistics
+ *     "<keys>": { // TaskStatisticsForAuditCheck
+ *       totalFindingsCount: Number("long"),
+ *       failedFindingsCount: Number("long"),
+ *       succeededFindingsCount: Number("long"),
+ *       skippedFindingsCount: Number("long"),
+ *       canceledFindingsCount: Number("long"),
+ *     },
+ *   },
+ *   target: { // AuditMitigationActionsTaskTarget
+ *     auditTaskId: "STRING_VALUE",
+ *     findingIds: [ // FindingIds
+ *       "STRING_VALUE",
+ *     ],
+ *     auditCheckToReasonCodeFilter: { // AuditCheckToReasonCodeFilter
+ *       "<keys>": [ // ReasonForNonComplianceCodes
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   auditCheckToActionsMapping: { // AuditCheckToActionsMapping
+ *     "<keys>": [ // MitigationActionNameList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   actionsDefinition: [ // MitigationActionList
+ *     { // MitigationAction
+ *       name: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE",
+ *       actionParams: { // MitigationActionParams
+ *         updateDeviceCertificateParams: { // UpdateDeviceCertificateParams
+ *           action: "DEACTIVATE", // required
+ *         },
+ *         updateCACertificateParams: { // UpdateCACertificateParams
+ *           action: "DEACTIVATE", // required
+ *         },
+ *         addThingsToThingGroupParams: { // AddThingsToThingGroupParams
+ *           thingGroupNames: [ // ThingGroupNames // required
+ *             "STRING_VALUE",
+ *           ],
+ *           overrideDynamicGroups: true || false,
+ *         },
+ *         replaceDefaultPolicyVersionParams: { // ReplaceDefaultPolicyVersionParams
+ *           templateName: "BLANK_POLICY", // required
+ *         },
+ *         enableIoTLoggingParams: { // EnableIoTLoggingParams
+ *           roleArnForLogging: "STRING_VALUE", // required
+ *           logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
+ *         },
+ *         publishFindingToSnsParams: { // PublishFindingToSnsParams
+ *           topicArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAuditMitigationActionsTaskCommandInput - {@link DescribeAuditMitigationActionsTaskCommandInput}
@@ -72,6 +135,8 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeAuditMitigationActionsTaskCommand extends $Command<

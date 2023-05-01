@@ -52,6 +52,9 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * };
  * const command = new AssociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateQueueQuickConnectsCommandInput - {@link AssociateQueueQuickConnectsCommandInput}
@@ -78,6 +81,8 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateQueueQuickConnectsCommand extends $Command<

@@ -89,6 +89,9 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  * };
  * const command = new UpdateFacetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFacetCommandInput - {@link UpdateFacetCommandInput}
@@ -133,6 +136,8 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpdateFacetCommand extends $Command<

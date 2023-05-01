@@ -46,6 +46,14 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * };
  * const command = new ListIndicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIndicesResponse
+ *   indexNames: [ // IndexNamesList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListIndicesCommandInput - {@link ListIndicesCommandInput}
@@ -69,6 +77,8 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListIndicesCommand extends $Command<

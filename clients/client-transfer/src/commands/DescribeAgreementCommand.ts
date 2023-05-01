@@ -45,6 +45,27 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * };
  * const command = new DescribeAgreementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAgreementResponse
+ *   Agreement: { // DescribedAgreement
+ *     Arn: "STRING_VALUE", // required
+ *     AgreementId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Status: "ACTIVE" || "INACTIVE",
+ *     ServerId: "STRING_VALUE",
+ *     LocalProfileId: "STRING_VALUE",
+ *     PartnerProfileId: "STRING_VALUE",
+ *     BaseDirectory: "STRING_VALUE",
+ *     AccessRole: "STRING_VALUE",
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAgreementCommandInput - {@link DescribeAgreementCommandInput}
@@ -66,6 +87,8 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeAgreementCommand extends $Command<

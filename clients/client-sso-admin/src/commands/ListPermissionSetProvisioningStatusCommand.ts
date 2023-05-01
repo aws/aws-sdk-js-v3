@@ -58,6 +58,18 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * };
  * const command = new ListPermissionSetProvisioningStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionSetProvisioningStatusResponse
+ *   PermissionSetsProvisioningStatus: [ // PermissionSetProvisioningStatusList
+ *     { // PermissionSetProvisioningStatusMetadata
+ *       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ *       RequestId: "STRING_VALUE",
+ *       CreatedDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPermissionSetProvisioningStatusCommandInput - {@link ListPermissionSetProvisioningStatusCommandInput}
@@ -83,6 +95,8 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListPermissionSetProvisioningStatusCommand extends $Command<

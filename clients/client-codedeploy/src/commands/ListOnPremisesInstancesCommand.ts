@@ -55,6 +55,14 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * };
  * const command = new ListOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOnPremisesInstancesOutput
+ *   instanceNames: [ // InstanceNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOnPremisesInstancesCommandInput - {@link ListOnPremisesInstancesCommandInput}
@@ -72,6 +80,8 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * @throws {@link InvalidTagFilterException} (client fault)
  *  <p>The tag filter was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListOnPremisesInstancesCommand extends $Command<

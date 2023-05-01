@@ -48,6 +48,12 @@ export interface GetOrganizationAdminAccountCommandOutput
  * const input = {};
  * const command = new GetOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOrganizationAdminAccountResponse
+ *   adminAccountId: "STRING_VALUE",
+ *   organizationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetOrganizationAdminAccountCommandInput - {@link GetOrganizationAdminAccountCommandInput}
@@ -70,6 +76,8 @@ export interface GetOrganizationAdminAccountCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetOrganizationAdminAccountCommand extends $Command<

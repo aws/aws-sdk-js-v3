@@ -61,6 +61,24 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * };
  * const command = new QuerySchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QuerySchemaVersionMetadataResponse
+ *   MetadataInfoMap: { // MetadataInfoMap
+ *     "<keys>": { // MetadataInfo
+ *       MetadataValue: "STRING_VALUE",
+ *       CreatedTime: "STRING_VALUE",
+ *       OtherMetadataValueList: [ // OtherMetadataValueList
+ *         { // OtherMetadataValueListItem
+ *           MetadataValue: "STRING_VALUE",
+ *           CreatedTime: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   SchemaVersionId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param QuerySchemaVersionMetadataCommandInput - {@link QuerySchemaVersionMetadataCommandInput}
@@ -78,6 +96,8 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class QuerySchemaVersionMetadataCommand extends $Command<

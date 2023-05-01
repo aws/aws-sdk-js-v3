@@ -139,6 +139,15 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * };
  * const command = new CreateOTAUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateOTAUpdateResponse
+ *   otaUpdateId: "STRING_VALUE",
+ *   awsIotJobId: "STRING_VALUE",
+ *   otaUpdateArn: "STRING_VALUE",
+ *   awsIotJobArn: "STRING_VALUE",
+ *   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
+ * };
+ *
  * ```
  *
  * @param CreateOTAUpdateCommandInput - {@link CreateOTAUpdateCommandInput}
@@ -171,6 +180,8 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateOTAUpdateCommand extends $Command<

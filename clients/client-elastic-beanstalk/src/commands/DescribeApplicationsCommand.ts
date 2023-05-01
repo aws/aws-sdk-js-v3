@@ -46,6 +46,40 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * };
  * const command = new DescribeApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplicationDescriptionsMessage
+ *   Applications: [ // ApplicationDescriptionList
+ *     { // ApplicationDescription
+ *       ApplicationArn: "STRING_VALUE",
+ *       ApplicationName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       DateCreated: new Date("TIMESTAMP"),
+ *       DateUpdated: new Date("TIMESTAMP"),
+ *       Versions: [ // VersionLabelsList
+ *         "STRING_VALUE",
+ *       ],
+ *       ConfigurationTemplates: [ // ConfigurationTemplateNamesList
+ *         "STRING_VALUE",
+ *       ],
+ *       ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
+ *         ServiceRole: "STRING_VALUE",
+ *         VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ *           MaxCountRule: { // MaxCountRule
+ *             Enabled: true || false, // required
+ *             MaxCount: Number("int"),
+ *             DeleteSourceFromS3: true || false,
+ *           },
+ *           MaxAgeRule: { // MaxAgeRule
+ *             Enabled: true || false, // required
+ *             MaxAgeInDays: Number("int"),
+ *             DeleteSourceFromS3: true || false,
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeApplicationsCommandInput - {@link DescribeApplicationsCommandInput}
@@ -54,6 +88,8 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view a list of applications
  * ```javascript

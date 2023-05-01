@@ -48,6 +48,18 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  * };
  * const command = new ListInstanceProfileTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstanceProfileTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInstanceProfileTagsCommandInput - {@link ListInstanceProfileTagsCommandInput}
@@ -64,6 +76,8 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListInstanceProfileTagsCommand extends $Command<

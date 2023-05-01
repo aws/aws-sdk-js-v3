@@ -61,6 +61,22 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * };
  * const command = new DeleteAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAppVersionAppComponentResponse
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   appComponent: { // AppComponent
+ *     name: "STRING_VALUE", // required
+ *     type: "STRING_VALUE", // required
+ *     id: "STRING_VALUE",
+ *     additionalInfo: { // AdditionalInfoMap
+ *       "<keys>": [ // AdditionalInfoValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAppVersionAppComponentCommandInput - {@link DeleteAppVersionAppComponentCommandInput}
@@ -93,6 +109,8 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppVersionAppComponentCommand extends $Command<

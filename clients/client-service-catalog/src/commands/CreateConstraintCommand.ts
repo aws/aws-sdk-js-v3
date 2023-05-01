@@ -51,6 +51,20 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  * };
  * const command = new CreateConstraintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConstraintOutput
+ *   ConstraintDetail: { // ConstraintDetail
+ *     ConstraintId: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Owner: "STRING_VALUE",
+ *     ProductId: "STRING_VALUE",
+ *     PortfolioId: "STRING_VALUE",
+ *   },
+ *   ConstraintParameters: "STRING_VALUE",
+ *   Status: "AVAILABLE" || "CREATING" || "FAILED",
+ * };
+ *
  * ```
  *
  * @param CreateConstraintCommandInput - {@link CreateConstraintCommandInput}
@@ -72,6 +86,8 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreateConstraintCommand extends $Command<

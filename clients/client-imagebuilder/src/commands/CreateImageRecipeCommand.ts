@@ -89,6 +89,13 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * };
  * const command = new CreateImageRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageRecipeResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   imageRecipeArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateImageRecipeCommandInput - {@link CreateImageRecipeCommandInput}
@@ -137,6 +144,8 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateImageRecipeCommand extends $Command<

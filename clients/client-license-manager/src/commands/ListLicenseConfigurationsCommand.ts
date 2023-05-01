@@ -56,6 +56,58 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  * };
  * const command = new ListLicenseConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLicenseConfigurationsResponse
+ *   LicenseConfigurations: [ // LicenseConfigurations
+ *     { // LicenseConfiguration
+ *       LicenseConfigurationId: "STRING_VALUE",
+ *       LicenseConfigurationArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       LicenseCountingType: "vCPU" || "Instance" || "Core" || "Socket",
+ *       LicenseRules: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       LicenseCount: Number("long"),
+ *       LicenseCountHardLimit: true || false,
+ *       DisassociateWhenNotFound: true || false,
+ *       ConsumedLicenses: Number("long"),
+ *       Status: "STRING_VALUE",
+ *       OwnerAccountId: "STRING_VALUE",
+ *       ConsumedLicenseSummaryList: [ // ConsumedLicenseSummaryList
+ *         { // ConsumedLicenseSummary
+ *           ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ *           ConsumedLicenses: Number("long"),
+ *         },
+ *       ],
+ *       ManagedResourceSummaryList: [ // ManagedResourceSummaryList
+ *         { // ManagedResourceSummary
+ *           ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ *           AssociationCount: Number("long"),
+ *         },
+ *       ],
+ *       ProductInformationList: [ // ProductInformationList
+ *         { // ProductInformation
+ *           ResourceType: "STRING_VALUE", // required
+ *           ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *             { // ProductInformationFilter
+ *               ProductInformationFilterName: "STRING_VALUE", // required
+ *               ProductInformationFilterValue: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               ProductInformationFilterComparator: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       AutomatedDiscoveryInformation: { // AutomatedDiscoveryInformation
+ *         LastRunTime: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLicenseConfigurationsCommandInput - {@link ListLicenseConfigurationsCommandInput}
@@ -83,6 +135,8 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseConfigurationsCommand extends $Command<

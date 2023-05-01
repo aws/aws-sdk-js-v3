@@ -52,6 +52,29 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  * };
  * const command = new DescribeChannelFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeChannelFlowResponse
+ *   ChannelFlow: { // ChannelFlow
+ *     ChannelFlowArn: "STRING_VALUE",
+ *     Processors: [ // ProcessorList
+ *       { // Processor
+ *         Name: "STRING_VALUE", // required
+ *         Configuration: { // ProcessorConfiguration
+ *           Lambda: { // LambdaConfiguration
+ *             ResourceArn: "STRING_VALUE", // required
+ *             InvocationType: "ASYNC", // required
+ *           },
+ *         },
+ *         ExecutionOrder: Number("int"), // required
+ *         FallbackAction: "CONTINUE" || "ABORT", // required
+ *       },
+ *     ],
+ *     Name: "STRING_VALUE",
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeChannelFlowCommandInput - {@link DescribeChannelFlowCommandInput}
@@ -78,6 +101,8 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class DescribeChannelFlowCommand extends $Command<

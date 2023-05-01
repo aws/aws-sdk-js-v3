@@ -48,6 +48,18 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * };
  * const command = new GetVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorProxyResponse
+ *   Proxy: { // Proxy
+ *     DefaultSessionExpiryMinutes: Number("int"),
+ *     Disabled: true || false,
+ *     FallBackPhoneNumber: "STRING_VALUE",
+ *     PhoneNumberCountries: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorProxyCommandInput - {@link GetVoiceConnectorProxyCommandInput}
@@ -77,6 +89,8 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetVoiceConnectorProxyCommand extends $Command<

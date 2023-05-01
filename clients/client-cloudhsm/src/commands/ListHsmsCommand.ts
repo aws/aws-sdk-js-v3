@@ -59,6 +59,14 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * };
  * const command = new ListHsmsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHsmsResponse
+ *   HsmList: [ // HsmList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListHsmsCommandInput - {@link ListHsmsCommandInput}
@@ -76,6 +84,8 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ListHsmsCommand extends $Command<

@@ -69,6 +69,9 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * };
  * const command = new SetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetUserMFAPreferenceCommandInput - {@link SetUserMFAPreferenceCommandInput}
@@ -103,6 +106,8 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class SetUserMFAPreferenceCommand extends $Command<

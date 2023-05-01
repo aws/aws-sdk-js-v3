@@ -50,6 +50,19 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * };
  * const command = new GetConnectivityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectivityInfoResponse
+ *   connectivityInfo: [ // connectivityInfoList
+ *     { // ConnectivityInfo
+ *       id: "STRING_VALUE",
+ *       hostAddress: "STRING_VALUE",
+ *       portNumber: Number("int"),
+ *       metadata: "STRING_VALUE",
+ *     },
+ *   ],
+ *   message: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetConnectivityInfoCommandInput - {@link GetConnectivityInfoCommandInput}
@@ -65,6 +78,8 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetConnectivityInfoCommand extends $Command<

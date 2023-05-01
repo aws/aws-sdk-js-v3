@@ -47,6 +47,9 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * };
  * const command = new DeleteDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDataCellsFilterCommandInput - {@link DeleteDataCellsFilterCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DeleteDataCellsFilterCommand extends $Command<

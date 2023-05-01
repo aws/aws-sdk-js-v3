@@ -45,6 +45,9 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  * };
  * const command = new DeleteRobotApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRobotApplicationCommandInput - {@link DeleteRobotApplicationCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DeleteRobotApplicationCommand extends $Command<

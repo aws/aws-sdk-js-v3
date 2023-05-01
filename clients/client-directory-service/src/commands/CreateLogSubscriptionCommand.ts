@@ -46,6 +46,9 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * };
  * const command = new CreateLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLogSubscriptionCommandInput - {@link CreateLogSubscriptionCommandInput}
@@ -72,6 +75,8 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateLogSubscriptionCommand extends $Command<

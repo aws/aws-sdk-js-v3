@@ -60,6 +60,21 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * };
  * const command = new CreateClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterParameterGroupResult
+ *   ClusterParameterGroup: { // ClusterParameterGroup
+ *     ParameterGroupName: "STRING_VALUE",
+ *     ParameterGroupFamily: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterParameterGroupCommandInput - {@link CreateClusterParameterGroupCommandInput}
@@ -84,6 +99,8 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateClusterParameterGroupCommand extends $Command<

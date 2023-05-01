@@ -82,6 +82,11 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * };
  * const command = new InitiateVaultLockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitiateVaultLockOutput
+ *   lockId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param InitiateVaultLockCommandInput - {@link InitiateVaultLockCommandInput}
@@ -103,6 +108,8 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To initiate the vault locking process
  * ```javascript

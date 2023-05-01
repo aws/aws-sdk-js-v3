@@ -48,6 +48,9 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * };
  * const command = new DeleteReceiptRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReceiptRuleCommandInput - {@link DeleteReceiptRuleCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * @throws {@link RuleSetDoesNotExistException} (client fault)
  *  <p>Indicates that the provided receipt rule set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DeleteReceiptRule
  * ```javascript

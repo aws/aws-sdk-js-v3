@@ -109,6 +109,9 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdatePrimaryRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePrimaryRegionCommandInput - {@link UpdatePrimaryRegionCommandInput}
@@ -154,6 +157,8 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To update the primary Region of a multi-Region KMS key
  * ```javascript

@@ -47,6 +47,17 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * };
  * const command = new BatchDeleteReadSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteReadSetResponse
+ *   errors: [ // ReadSetBatchErrorList
+ *     { // ReadSetBatchError
+ *       id: "STRING_VALUE", // required
+ *       code: "STRING_VALUE", // required
+ *       message: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteReadSetCommandInput - {@link BatchDeleteReadSetCommandInput}
@@ -73,6 +84,8 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class BatchDeleteReadSetCommand extends $Command<

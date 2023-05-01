@@ -48,6 +48,9 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutDestinationPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDestinationPolicyCommandInput - {@link PutDestinationPolicyCommandInput}
@@ -65,6 +68,8 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutDestinationPolicyCommand extends $Command<

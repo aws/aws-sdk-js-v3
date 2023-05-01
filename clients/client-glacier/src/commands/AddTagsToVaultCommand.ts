@@ -53,6 +53,9 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToVaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToVaultCommandInput - {@link AddTagsToVaultCommandInput}
@@ -77,6 +80,8 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To add tags to a vault
  * ```javascript

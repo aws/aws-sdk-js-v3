@@ -54,6 +54,16 @@ export interface ListAccessControlConfigurationsCommandOutput
  * };
  * const command = new ListAccessControlConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessControlConfigurationsResponse
+ *   NextToken: "STRING_VALUE",
+ *   AccessControlConfigurations: [ // AccessControlConfigurationSummaryList // required
+ *     { // AccessControlConfigurationSummary
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAccessControlConfigurationsCommandInput - {@link ListAccessControlConfigurationsCommandInput}
@@ -82,6 +92,8 @@ export interface ListAccessControlConfigurationsCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListAccessControlConfigurationsCommand extends $Command<

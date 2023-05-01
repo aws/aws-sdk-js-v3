@@ -45,6 +45,11 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * };
  * const command = new PublishRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishRecipeResponse
+ *   Name: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param PublishRecipeCommandInput - {@link PublishRecipeCommandInput}
@@ -62,6 +67,8 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class PublishRecipeCommand extends $Command<

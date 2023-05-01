@@ -53,6 +53,13 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * };
  * const command = new StopActivityStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopActivityStreamResponse
+ *   KmsKeyId: "STRING_VALUE",
+ *   KinesisStreamName: "STRING_VALUE",
+ *   Status: "stopped" || "starting" || "started" || "stopping",
+ * };
+ *
  * ```
  *
  * @param StopActivityStreamCommandInput - {@link StopActivityStreamCommandInput}
@@ -78,6 +85,8 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To stop a database activity stream
  * ```javascript

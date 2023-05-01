@@ -57,6 +57,9 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput
  * };
  * const command = new DeleteCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCustomVerificationEmailTemplateCommandInput - {@link DeleteCustomVerificationEmailTemplateCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class DeleteCustomVerificationEmailTemplateCommand extends $Command<

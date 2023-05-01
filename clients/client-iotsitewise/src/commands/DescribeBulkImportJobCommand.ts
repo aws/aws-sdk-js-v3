@@ -45,6 +45,36 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * };
  * const command = new DescribeBulkImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBulkImportJobResponse
+ *   jobId: "STRING_VALUE", // required
+ *   jobName: "STRING_VALUE", // required
+ *   jobStatus: "PENDING" || "CANCELLED" || "RUNNING" || "COMPLETED" || "FAILED" || "COMPLETED_WITH_FAILURES", // required
+ *   jobRoleArn: "STRING_VALUE", // required
+ *   files: [ // Files // required
+ *     { // File
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *       versionId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   errorReportLocation: { // ErrorReportLocation
+ *     bucket: "STRING_VALUE", // required
+ *     prefix: "STRING_VALUE", // required
+ *   },
+ *   jobConfiguration: { // JobConfiguration
+ *     fileFormat: { // FileFormat
+ *       csv: { // Csv
+ *         columnNames: [ // ColumnNames
+ *           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   jobCreationDate: new Date("TIMESTAMP"), // required
+ *   jobLastUpdateDate: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param DescribeBulkImportJobCommandInput - {@link DescribeBulkImportJobCommandInput}
@@ -69,6 +99,8 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribeBulkImportJobCommand extends $Command<

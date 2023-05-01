@@ -44,6 +44,9 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * };
  * const command = new DeletePortalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePortalCommandInput - {@link DeletePortalCommandInput}
@@ -67,6 +70,8 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeletePortalCommand extends $Command<

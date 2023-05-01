@@ -66,6 +66,9 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateNetworkAclEntryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateNetworkAclEntryCommandInput - {@link CreateNetworkAclEntryCommandInput}
@@ -74,6 +77,8 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @see {@link CreateNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a network ACL entry
  * ```javascript

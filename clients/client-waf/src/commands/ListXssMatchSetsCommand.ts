@@ -53,6 +53,17 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * };
  * const command = new ListXssMatchSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListXssMatchSetsResponse
+ *   NextMarker: "STRING_VALUE",
+ *   XssMatchSets: [ // XssMatchSetSummaries
+ *     { // XssMatchSetSummary
+ *       XssMatchSetId: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListXssMatchSetsCommandInput - {@link ListXssMatchSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To list XSS match sets
  * ```javascript

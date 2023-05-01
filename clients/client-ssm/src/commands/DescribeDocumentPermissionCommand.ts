@@ -49,6 +49,20 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * };
  * const command = new DescribeDocumentPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDocumentPermissionResponse
+ *   AccountIds: [ // AccountIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   AccountSharingInfoList: [ // AccountSharingInfoList
+ *     { // AccountSharingInfo
+ *       AccountId: "STRING_VALUE",
+ *       SharedDocumentVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDocumentPermissionCommandInput - {@link DescribeDocumentPermissionCommandInput}
@@ -74,6 +88,8 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  *  <p>The permission type isn't supported. <i>Share</i> is the only supported
  *    permission type.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeDocumentPermissionCommand extends $Command<

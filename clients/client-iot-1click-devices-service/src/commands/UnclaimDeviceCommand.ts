@@ -48,6 +48,11 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  * };
  * const command = new UnclaimDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UnclaimDeviceResponse
+ *   State: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UnclaimDeviceCommandInput - {@link UnclaimDeviceCommandInput}
@@ -62,6 +67,8 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class UnclaimDeviceCommand extends $Command<

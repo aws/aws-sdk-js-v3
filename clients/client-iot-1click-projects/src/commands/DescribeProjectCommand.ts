@@ -48,6 +48,33 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectResponse
+ *   project: { // ProjectDescription
+ *     arn: "STRING_VALUE",
+ *     projectName: "STRING_VALUE", // required
+ *     description: "STRING_VALUE",
+ *     createdDate: new Date("TIMESTAMP"), // required
+ *     updatedDate: new Date("TIMESTAMP"), // required
+ *     placementTemplate: { // PlacementTemplate
+ *       defaultAttributes: { // DefaultPlacementAttributeMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       deviceTemplates: { // DeviceTemplateMap
+ *         "<keys>": { // DeviceTemplate
+ *           deviceType: "STRING_VALUE",
+ *           callbackOverrides: { // DeviceCallbackOverrideMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *     tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
@@ -65,6 +92,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<

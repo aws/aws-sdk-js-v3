@@ -73,6 +73,9 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  * };
  * const command = new PutScheduledActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutScheduledActionCommandInput - {@link PutScheduledActionCommandInput}
@@ -102,6 +105,8 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To create a recurring scheduled action
  * ```javascript

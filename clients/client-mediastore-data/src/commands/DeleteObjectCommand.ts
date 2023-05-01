@@ -44,6 +44,9 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @throws {@link ObjectNotFoundException} (client fault)
  *  <p>Could not perform an operation on an object that does not exist.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class DeleteObjectCommand extends $Command<

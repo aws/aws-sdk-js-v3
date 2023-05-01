@@ -62,6 +62,11 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * };
  * const command = new PutLifecycleEventHookExecutionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutLifecycleEventHookExecutionStatusOutput
+ *   lifecycleEventHookExecutionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutLifecycleEventHookExecutionStatusCommandInput - {@link PutLifecycleEventHookExecutionStatusCommandInput}
@@ -96,6 +101,8 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
  *  <p>A call was submitted that is not supported for the specified deployment type.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class PutLifecycleEventHookExecutionStatusCommand extends $Command<

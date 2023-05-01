@@ -49,6 +49,11 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * };
  * const command = new CreateCustomEntityTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomEntityTypeResponse
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCustomEntityTypeCommandInput - {@link CreateCustomEntityTypeCommandInput}
@@ -78,6 +83,8 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateCustomEntityTypeCommand extends $Command<

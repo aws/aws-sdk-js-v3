@@ -56,6 +56,11 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * };
  * const command = new CancelKeyDeletionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelKeyDeletionResponse
+ *   KeyId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CancelKeyDeletionCommandInput - {@link CancelKeyDeletionCommandInput}
@@ -98,6 +103,8 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To cancel deletion of a KMS key
  * ```javascript

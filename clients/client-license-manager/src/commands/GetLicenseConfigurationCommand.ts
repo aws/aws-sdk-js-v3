@@ -44,6 +44,59 @@ export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigur
  * };
  * const command = new GetLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLicenseConfigurationResponse
+ *   LicenseConfigurationId: "STRING_VALUE",
+ *   LicenseConfigurationArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LicenseCountingType: "vCPU" || "Instance" || "Core" || "Socket",
+ *   LicenseRules: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   LicenseCount: Number("long"),
+ *   LicenseCountHardLimit: true || false,
+ *   ConsumedLicenses: Number("long"),
+ *   Status: "STRING_VALUE",
+ *   OwnerAccountId: "STRING_VALUE",
+ *   ConsumedLicenseSummaryList: [ // ConsumedLicenseSummaryList
+ *     { // ConsumedLicenseSummary
+ *       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ *       ConsumedLicenses: Number("long"),
+ *     },
+ *   ],
+ *   ManagedResourceSummaryList: [ // ManagedResourceSummaryList
+ *     { // ManagedResourceSummary
+ *       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ *       AssociationCount: Number("long"),
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ProductInformationList: [ // ProductInformationList
+ *     { // ProductInformation
+ *       ResourceType: "STRING_VALUE", // required
+ *       ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *         { // ProductInformationFilter
+ *           ProductInformationFilterName: "STRING_VALUE", // required
+ *           ProductInformationFilterValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           ProductInformationFilterComparator: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   AutomatedDiscoveryInformation: { // AutomatedDiscoveryInformation
+ *     LastRunTime: new Date("TIMESTAMP"),
+ *   },
+ *   DisassociateWhenNotFound: true || false,
+ * };
+ *
  * ```
  *
  * @param GetLicenseConfigurationCommandInput - {@link GetLicenseConfigurationCommandInput}
@@ -68,6 +121,8 @@ export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigur
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetLicenseConfigurationCommand extends $Command<

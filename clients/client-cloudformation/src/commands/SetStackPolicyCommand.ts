@@ -46,6 +46,9 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetStackPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetStackPolicyCommandInput - {@link SetStackPolicyCommandInput}
@@ -54,6 +57,8 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link SetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class SetStackPolicyCommand extends $Command<

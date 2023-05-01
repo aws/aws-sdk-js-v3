@@ -54,6 +54,25 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectResult
+ *   project: { // Project
+ *     arn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     defaultJobTimeoutMinutes: Number("int"),
+ *     created: new Date("TIMESTAMP"),
+ *     vpcConfig: { // VpcConfig
+ *       securityGroupIds: [ // VpcSecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnetIds: [ // VpcSubnetIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       vpcId: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -77,6 +96,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @throws {@link TagOperationException} (client fault)
  *  <p>The operation was not successful. Try again.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To create a new project
  * ```javascript

@@ -91,6 +91,12 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * };
  * const command = new CreateNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkOutput
+ *   NetworkId: "STRING_VALUE",
+ *   MemberId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
@@ -124,6 +130,8 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateNetworkCommand extends $Command<

@@ -46,6 +46,14 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * };
  * const command = new ListDimensionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDimensionsResponse
+ *   dimensionNames: [ // DimensionNames
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDimensionsCommandInput - {@link ListDimensionsCommandInput}
@@ -63,6 +71,8 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListDimensionsCommand extends $Command<

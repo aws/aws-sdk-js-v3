@@ -58,6 +58,20 @@ export interface ListExtensibleSourceServersCommandOutput
  * };
  * const command = new ListExtensibleSourceServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExtensibleSourceServersResponse
+ *   items: [ // StagingSourceServersList
+ *     { // StagingSourceServer
+ *       hostname: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       tags: { // TagsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListExtensibleSourceServersCommandInput - {@link ListExtensibleSourceServersCommandInput}
@@ -81,6 +95,8 @@ export interface ListExtensibleSourceServersCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class ListExtensibleSourceServersCommand extends $Command<

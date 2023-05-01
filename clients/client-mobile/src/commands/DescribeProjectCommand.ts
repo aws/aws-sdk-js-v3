@@ -47,6 +47,30 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectResult
+ *   details: { // ProjectDetails
+ *     name: "STRING_VALUE",
+ *     projectId: "STRING_VALUE",
+ *     region: "STRING_VALUE",
+ *     state: "STRING_VALUE",
+ *     createdDate: new Date("TIMESTAMP"),
+ *     lastUpdatedDate: new Date("TIMESTAMP"),
+ *     consoleUrl: "STRING_VALUE",
+ *     resources: [ // Resources
+ *       { // Resource
+ *         type: "STRING_VALUE",
+ *         name: "STRING_VALUE",
+ *         arn: "STRING_VALUE",
+ *         feature: "STRING_VALUE",
+ *         attributes: { // Attributes
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
@@ -89,6 +113,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<

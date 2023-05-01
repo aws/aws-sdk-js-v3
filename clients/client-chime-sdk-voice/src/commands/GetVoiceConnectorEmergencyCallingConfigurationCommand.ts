@@ -54,6 +54,19 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * };
  * const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorEmergencyCallingConfigurationResponse
+ *   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
+ *     DNIS: [ // DNISEmergencyCallingConfigurationList
+ *       { // DNISEmergencyCallingConfiguration
+ *         EmergencyPhoneNumber: "STRING_VALUE", // required
+ *         TestPhoneNumber: "STRING_VALUE",
+ *         CallingCountry: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput}
@@ -83,6 +96,8 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<

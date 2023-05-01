@@ -52,6 +52,11 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  * };
  * const command = new StopReplicationToReplicaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopReplicationToReplicaResponse
+ *   ARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StopReplicationToReplicaCommandInput - {@link StopReplicationToReplicaCommandInput}
@@ -87,6 +92,8 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  */
 export class StopReplicationToReplicaCommand extends $Command<

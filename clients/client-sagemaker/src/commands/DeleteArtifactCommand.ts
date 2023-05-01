@@ -54,6 +54,11 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * };
  * const command = new DeleteArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteArtifactResponse
+ *   ArtifactArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteArtifactCommandInput - {@link DeleteArtifactCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteArtifactCommand extends $Command<

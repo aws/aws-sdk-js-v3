@@ -44,6 +44,9 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  * };
  * const command = new DeleteSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSiteCommandInput - {@link DeleteSiteCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class DeleteSiteCommand extends $Command<

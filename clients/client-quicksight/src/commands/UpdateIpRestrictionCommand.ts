@@ -48,6 +48,13 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
  * };
  * const command = new UpdateIpRestrictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIpRestrictionResponse
+ *   AwsAccountId: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param UpdateIpRestrictionCommandInput - {@link UpdateIpRestrictionCommandInput}
@@ -77,6 +84,8 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateIpRestrictionCommand extends $Command<

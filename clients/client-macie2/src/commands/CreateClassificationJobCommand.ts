@@ -171,6 +171,12 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * };
  * const command = new CreateClassificationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClassificationJobResponse
+ *   jobArn: "STRING_VALUE",
+ *   jobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateClassificationJobCommandInput - {@link CreateClassificationJobCommandInput}
@@ -200,6 +206,8 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateClassificationJobCommand extends $Command<

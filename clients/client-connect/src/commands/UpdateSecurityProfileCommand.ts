@@ -56,6 +56,9 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSecurityProfileCommandInput - {@link UpdateSecurityProfileCommandInput}
@@ -79,6 +82,8 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateSecurityProfileCommand extends $Command<

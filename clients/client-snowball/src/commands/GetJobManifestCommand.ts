@@ -59,6 +59,11 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  * };
  * const command = new GetJobManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJobManifestResult
+ *   ManifestURI: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetJobManifestCommandInput - {@link GetJobManifestCommandInput}
@@ -75,6 +80,8 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To get the manifest for a job you've created for AWS Snowball
  * ```javascript

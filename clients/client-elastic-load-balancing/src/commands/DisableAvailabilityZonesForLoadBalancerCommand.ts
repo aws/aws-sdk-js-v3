@@ -64,6 +64,13 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * };
  * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveAvailabilityZonesOutput
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisableAvailabilityZonesForLoadBalancerCommandInput - {@link DisableAvailabilityZonesForLoadBalancerCommandInput}
@@ -78,6 +85,8 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link InvalidConfigurationRequestException} (client fault)
  *  <p>The requested configuration change is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To disable an Availability Zone for a load balancer
  * ```javascript

@@ -51,6 +51,17 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * };
  * const command = new DescribeWorkspaceImagePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspaceImagePermissionsResult
+ *   ImageId: "STRING_VALUE",
+ *   ImagePermissions: [ // ImagePermissions
+ *     { // ImagePermission
+ *       SharedAccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspaceImagePermissionsCommandInput - {@link DescribeWorkspaceImagePermissionsCommandInput}
@@ -68,6 +79,8 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspaceImagePermissionsCommand extends $Command<

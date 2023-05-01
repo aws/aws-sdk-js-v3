@@ -44,6 +44,19 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * };
  * const command = new GetReferenceStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReferenceStoreResponse
+ *   id: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   sseConfig: { // SseConfig
+ *     type: "STRING_VALUE", // required
+ *     keyArn: "STRING_VALUE",
+ *   },
+ *   creationTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param GetReferenceStoreCommandInput - {@link GetReferenceStoreCommandInput}
@@ -70,6 +83,8 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReferenceStoreCommand extends $Command<

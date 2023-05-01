@@ -58,6 +58,11 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * };
  * const command = new GetSchemaVersionsDiffCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaVersionsDiffResponse
+ *   Diff: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSchemaVersionsDiffCommandInput - {@link GetSchemaVersionsDiffCommandInput}
@@ -78,6 +83,8 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaVersionsDiffCommand extends $Command<

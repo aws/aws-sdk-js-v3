@@ -45,6 +45,18 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * };
  * const command = new ListServiceProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceProfilesResponse
+ *   NextToken: "STRING_VALUE",
+ *   ServiceProfileList: [ // ServiceProfileList
+ *     { // ServiceProfile
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListServiceProfilesCommandInput - {@link ListServiceProfilesCommandInput}
@@ -65,6 +77,8 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListServiceProfilesCommand extends $Command<

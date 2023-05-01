@@ -65,6 +65,19 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * };
  * const command = new DescribeNodeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // NodeConfigurationOptionsMessage
+ *   NodeConfigurationOptionList: [ // NodeConfigurationOptionList
+ *     { // NodeConfigurationOption
+ *       NodeType: "STRING_VALUE",
+ *       NumberOfNodes: Number("int"),
+ *       EstimatedDiskUtilizationPercent: Number("double"),
+ *       Mode: "standard" || "high-performance",
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeNodeConfigurationOptionsCommandInput - {@link DescribeNodeConfigurationOptionsCommandInput}
@@ -91,6 +104,8 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeNodeConfigurationOptionsCommand extends $Command<

@@ -83,6 +83,39 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * };
  * const command = new CreateMeetingWithAttendeesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMeetingWithAttendeesResponse
+ *   Meeting: { // Meeting
+ *     MeetingId: "STRING_VALUE",
+ *     ExternalMeetingId: "STRING_VALUE",
+ *     MediaPlacement: { // MediaPlacement
+ *       AudioHostUrl: "STRING_VALUE",
+ *       AudioFallbackUrl: "STRING_VALUE",
+ *       ScreenDataUrl: "STRING_VALUE",
+ *       ScreenSharingUrl: "STRING_VALUE",
+ *       ScreenViewingUrl: "STRING_VALUE",
+ *       SignalingUrl: "STRING_VALUE",
+ *       TurnControlUrl: "STRING_VALUE",
+ *       EventIngestionUrl: "STRING_VALUE",
+ *     },
+ *     MediaRegion: "STRING_VALUE",
+ *   },
+ *   Attendees: [ // AttendeeList
+ *     { // Attendee
+ *       ExternalUserId: "STRING_VALUE",
+ *       AttendeeId: "STRING_VALUE",
+ *       JoinToken: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Errors: [ // BatchCreateAttendeeErrorList
+ *     { // CreateAttendeeError
+ *       ExternalUserId: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateMeetingWithAttendeesCommandInput - {@link CreateMeetingWithAttendeesCommandInput}
@@ -112,6 +145,8 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateMeetingWithAttendeesCommand extends $Command<

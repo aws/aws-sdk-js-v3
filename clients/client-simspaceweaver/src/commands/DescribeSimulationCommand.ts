@@ -44,6 +44,52 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * };
  * const command = new DescribeSimulationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSimulationOutput
+ *   Name: "STRING_VALUE",
+ *   ExecutionId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   Status: "STRING_VALUE",
+ *   TargetStatus: "STRING_VALUE",
+ *   SchemaS3Location: { // S3Location
+ *     BucketName: "STRING_VALUE",
+ *     ObjectKey: "STRING_VALUE",
+ *   },
+ *   SchemaError: "STRING_VALUE",
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     Destinations: [ // LogDestinations
+ *       { // LogDestination
+ *         CloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
+ *           LogGroupArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   LiveSimulationState: { // LiveSimulationState
+ *     Domains: [ // DomainList
+ *       { // Domain
+ *         Name: "STRING_VALUE",
+ *         Lifecycle: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Clocks: [ // SimulationClockList
+ *       { // SimulationClock
+ *         Status: "STRING_VALUE",
+ *         TargetStatus: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   MaximumDuration: "STRING_VALUE",
+ *   SnapshotS3Location: {
+ *     BucketName: "STRING_VALUE",
+ *     ObjectKey: "STRING_VALUE",
+ *   },
+ *   StartError: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeSimulationCommandInput - {@link DescribeSimulationCommandInput}
@@ -64,6 +110,8 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class DescribeSimulationCommand extends $Command<

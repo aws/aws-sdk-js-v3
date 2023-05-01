@@ -54,6 +54,16 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * };
  * const command = new PutAccountPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAccountPreferencesResponse
+ *   ResourceIdPreference: { // ResourceIdPreference
+ *     ResourceIdType: "LONG_ID" || "SHORT_ID",
+ *     Resources: [ // Resources
+ *       "FILE_SYSTEM" || "MOUNT_TARGET",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutAccountPreferencesCommandInput - {@link PutAccountPreferencesCommandInput}
@@ -69,6 +79,8 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class PutAccountPreferencesCommand extends $Command<

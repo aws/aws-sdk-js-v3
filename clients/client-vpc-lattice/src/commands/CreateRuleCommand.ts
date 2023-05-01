@@ -90,6 +90,50 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleResponse
+ *   arn: "STRING_VALUE",
+ *   id: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   match: { // RuleMatch Union: only one key present
+ *     httpMatch: { // HttpMatch
+ *       method: "STRING_VALUE",
+ *       pathMatch: { // PathMatch
+ *         match: { // PathMatchType Union: only one key present
+ *           exact: "STRING_VALUE",
+ *           prefix: "STRING_VALUE",
+ *         },
+ *         caseSensitive: true || false,
+ *       },
+ *       headerMatches: [ // HeaderMatchList
+ *         { // HeaderMatch
+ *           name: "STRING_VALUE", // required
+ *           match: { // HeaderMatchType Union: only one key present
+ *             exact: "STRING_VALUE",
+ *             prefix: "STRING_VALUE",
+ *             contains: "STRING_VALUE",
+ *           },
+ *           caseSensitive: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   priority: Number("int"),
+ *   action: { // RuleAction Union: only one key present
+ *     forward: { // ForwardAction
+ *       targetGroups: [ // WeightedTargetGroupList // required
+ *         { // WeightedTargetGroup
+ *           targetGroupIdentifier: "STRING_VALUE", // required
+ *           weight: Number("int"),
+ *         },
+ *       ],
+ *     },
+ *     fixedResponse: { // FixedResponseAction
+ *       statusCode: Number("int"), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -121,6 +165,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateRuleCommand extends $Command<

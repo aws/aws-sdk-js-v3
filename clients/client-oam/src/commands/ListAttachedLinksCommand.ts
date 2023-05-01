@@ -48,6 +48,20 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * };
  * const command = new ListAttachedLinksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttachedLinksOutput
+ *   Items: [ // ListAttachedLinksItems // required
+ *     { // ListAttachedLinksItem
+ *       Label: "STRING_VALUE",
+ *       LinkArn: "STRING_VALUE",
+ *       ResourceTypes: [ // ResourceTypesOutput
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAttachedLinksCommandInput - {@link ListAttachedLinksCommandInput}
@@ -68,6 +82,8 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class ListAttachedLinksCommand extends $Command<

@@ -53,6 +53,16 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * };
  * const command = new CreatePolicyVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePolicyVersionResponse
+ *   PolicyVersion: { // PolicyVersion
+ *     Document: "STRING_VALUE",
+ *     VersionId: "STRING_VALUE",
+ *     IsDefaultVersion: true || false,
+ *     CreateDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
@@ -81,6 +91,8 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class CreatePolicyVersionCommand extends $Command<

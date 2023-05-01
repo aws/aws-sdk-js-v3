@@ -50,6 +50,20 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * };
  * const command = new ListSchemaVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemaVersionsResponse
+ *   Schemas: [ // SchemaVersionList
+ *     { // SchemaVersionListItem
+ *       SchemaArn: "STRING_VALUE",
+ *       SchemaVersionId: "STRING_VALUE",
+ *       VersionNumber: Number("long"),
+ *       Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ *       CreatedTime: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSchemaVersionsCommandInput - {@link ListSchemaVersionsCommandInput}
@@ -70,6 +84,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListSchemaVersionsCommand extends $Command<

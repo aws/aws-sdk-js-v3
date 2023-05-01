@@ -45,6 +45,16 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * };
  * const command = new DeleteDeploymentGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDeploymentGroupOutput
+ *   hooksNotCleanedUp: [ // AutoScalingGroupList
+ *     { // AutoScalingGroup
+ *       name: "STRING_VALUE",
+ *       hook: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteDeploymentGroupCommandInput - {@link DeleteDeploymentGroupCommandInput}
@@ -70,6 +80,8 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  *             group was specified, the specified service role does not grant the appropriate
  *             permissions to Amazon EC2 Auto Scaling.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteDeploymentGroupCommand extends $Command<

@@ -53,6 +53,18 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * };
  * const command = new ListSubscribedRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscribedRuleGroupsResponse
+ *   NextMarker: "STRING_VALUE",
+ *   RuleGroups: [ // SubscribedRuleGroupSummaries
+ *     { // SubscribedRuleGroupSummary
+ *       RuleGroupId: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       MetricName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSubscribedRuleGroupsCommandInput - {@link ListSubscribedRuleGroupsCommandInput}
@@ -67,6 +79,8 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListSubscribedRuleGroupsCommand extends $Command<

@@ -57,6 +57,31 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * };
  * const command = new ListDecoderManifestNetworkInterfacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDecoderManifestNetworkInterfacesResponse
+ *   networkInterfaces: [ // NetworkInterfaces
+ *     { // NetworkInterface
+ *       interfaceId: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       canInterface: { // CanInterface
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "STRING_VALUE",
+ *         protocolVersion: "STRING_VALUE",
+ *       },
+ *       obdInterface: { // ObdInterface
+ *         name: "STRING_VALUE", // required
+ *         requestMessageId: Number("int"), // required
+ *         obdStandard: "STRING_VALUE",
+ *         pidRequestIntervalSeconds: Number("int"),
+ *         dtcRequestIntervalSeconds: Number("int"),
+ *         useExtendedIds: true || false,
+ *         hasTransmissionEcu: true || false,
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDecoderManifestNetworkInterfacesCommandInput - {@link ListDecoderManifestNetworkInterfacesCommandInput}
@@ -80,6 +105,8 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListDecoderManifestNetworkInterfacesCommand extends $Command<

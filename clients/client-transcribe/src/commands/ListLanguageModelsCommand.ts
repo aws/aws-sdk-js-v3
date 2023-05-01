@@ -49,6 +49,28 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  * };
  * const command = new ListLanguageModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLanguageModelsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Models: [ // Models
+ *     { // LanguageModel
+ *       ModelName: "STRING_VALUE",
+ *       CreateTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *       LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP",
+ *       BaseModelName: "NarrowBand" || "WideBand",
+ *       ModelStatus: "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ *       UpgradeAvailability: true || false,
+ *       FailureReason: "STRING_VALUE",
+ *       InputDataConfig: { // InputDataConfig
+ *         S3Uri: "STRING_VALUE", // required
+ *         TuningDataS3Uri: "STRING_VALUE",
+ *         DataAccessRoleArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListLanguageModelsCommandInput - {@link ListLanguageModelsCommandInput}
@@ -71,6 +93,8 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class ListLanguageModelsCommand extends $Command<

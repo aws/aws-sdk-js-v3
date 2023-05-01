@@ -57,6 +57,9 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * };
  * const command = new RemoveRoleFromInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveRoleFromInstanceProfileCommandInput - {@link RemoveRoleFromInstanceProfileCommandInput}
@@ -83,6 +86,8 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To remove a role from an instance profile
  * ```javascript

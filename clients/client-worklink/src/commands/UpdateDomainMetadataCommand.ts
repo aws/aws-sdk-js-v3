@@ -48,6 +48,9 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * };
  * const command = new UpdateDomainMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDomainMetadataCommandInput - {@link UpdateDomainMetadataCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class UpdateDomainMetadataCommand extends $Command<

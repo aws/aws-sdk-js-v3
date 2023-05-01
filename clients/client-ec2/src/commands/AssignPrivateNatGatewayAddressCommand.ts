@@ -54,6 +54,23 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * };
  * const command = new AssignPrivateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssignPrivateNatGatewayAddressResult
+ *   NatGatewayId: "STRING_VALUE",
+ *   NatGatewayAddresses: [ // NatGatewayAddressList
+ *     { // NatGatewayAddress
+ *       AllocationId: "STRING_VALUE",
+ *       NetworkInterfaceId: "STRING_VALUE",
+ *       PrivateIp: "STRING_VALUE",
+ *       PublicIp: "STRING_VALUE",
+ *       AssociationId: "STRING_VALUE",
+ *       IsPrimary: true || false,
+ *       FailureMessage: "STRING_VALUE",
+ *       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssignPrivateNatGatewayAddressCommandInput - {@link AssignPrivateNatGatewayAddressCommandInput}
@@ -62,6 +79,8 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * @see {@link AssignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssignPrivateNatGatewayAddressCommand extends $Command<

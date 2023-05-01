@@ -88,6 +88,14 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectResult
+ *   id: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
+ *   projectTemplateId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -120,6 +128,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

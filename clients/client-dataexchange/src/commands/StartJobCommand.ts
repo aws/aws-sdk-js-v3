@@ -44,6 +44,9 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  * };
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartJobCommandInput - {@link StartJobCommandInput}
@@ -70,6 +73,8 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class StartJobCommand extends $Command<

@@ -57,6 +57,9 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterResourceCommandInput - {@link RegisterResourceCommandInput}
@@ -86,6 +89,8 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class RegisterResourceCommand extends $Command<

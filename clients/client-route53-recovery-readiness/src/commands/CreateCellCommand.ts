@@ -54,6 +54,21 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  * };
  * const command = new CreateCellCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCellResponse
+ *   CellArn: "STRING_VALUE",
+ *   CellName: "STRING_VALUE",
+ *   Cells: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   ParentReadinessScopes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCellCommandInput - {@link CreateCellCommandInput}
@@ -77,6 +92,8 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class CreateCellCommand extends $Command<

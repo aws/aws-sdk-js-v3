@@ -51,6 +51,17 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * };
  * const command = new RenderUiTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RenderUiTemplateResponse
+ *   RenderedContent: "STRING_VALUE", // required
+ *   Errors: [ // RenderingErrorList // required
+ *     { // RenderingError
+ *       Code: "STRING_VALUE", // required
+ *       Message: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RenderUiTemplateCommandInput - {@link RenderUiTemplateCommandInput}
@@ -62,6 +73,8 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class RenderUiTemplateCommand extends $Command<

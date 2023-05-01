@@ -67,6 +67,9 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * };
  * const command = new StartContactRecordingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartContactRecordingCommandInput - {@link StartContactRecordingCommandInput}
@@ -87,6 +90,8 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartContactRecordingCommand extends $Command<

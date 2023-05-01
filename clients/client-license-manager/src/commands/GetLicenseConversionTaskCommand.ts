@@ -44,6 +44,23 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * };
  * const command = new GetLicenseConversionTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLicenseConversionTaskResponse
+ *   LicenseConversionTaskId: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE",
+ *   SourceLicenseContext: { // LicenseConversionContext
+ *     UsageOperation: "STRING_VALUE",
+ *   },
+ *   DestinationLicenseContext: {
+ *     UsageOperation: "STRING_VALUE",
+ *   },
+ *   StatusMessage: "STRING_VALUE",
+ *   Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   LicenseConversionTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetLicenseConversionTaskCommandInput - {@link GetLicenseConversionTaskCommandInput}
@@ -68,6 +85,8 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetLicenseConversionTaskCommand extends $Command<

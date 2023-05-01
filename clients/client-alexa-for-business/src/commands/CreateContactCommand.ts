@@ -70,6 +70,11 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContactResponse
+ *   ContactArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateContactCommandInput - {@link CreateContactCommandInput}
@@ -84,6 +89,8 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateContactCommand extends $Command<

@@ -45,6 +45,18 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  * };
  * const command = new DescribeDimensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDimensionResponse
+ *   name: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   type: "TOPIC_FILTER",
+ *   stringValues: [ // DimensionStringValues
+ *     "STRING_VALUE",
+ *   ],
+ *   creationDate: new Date("TIMESTAMP"),
+ *   lastModifiedDate: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeDimensionCommandInput - {@link DescribeDimensionCommandInput}
@@ -65,6 +77,8 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeDimensionCommand extends $Command<

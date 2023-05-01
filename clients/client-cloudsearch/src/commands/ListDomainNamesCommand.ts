@@ -42,6 +42,13 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * const input = {};
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainNamesResponse
+ *   DomainNames: { // DomainNameMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
@@ -53,6 +60,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link BaseException} (client fault)
  *  <p>An error occurred while processing the request.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class ListDomainNamesCommand extends $Command<

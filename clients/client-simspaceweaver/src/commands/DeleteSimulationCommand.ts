@@ -48,6 +48,9 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * };
  * const command = new DeleteSimulationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSimulationCommandInput - {@link DeleteSimulationCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class DeleteSimulationCommand extends $Command<

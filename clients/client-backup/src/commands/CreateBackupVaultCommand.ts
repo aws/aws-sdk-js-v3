@@ -59,6 +59,13 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * };
  * const command = new CreateBackupVaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackupVaultOutput
+ *   BackupVaultName: "STRING_VALUE",
+ *   BackupVaultArn: "STRING_VALUE",
+ *   CreationDate: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateBackupVaultCommandInput - {@link CreateBackupVaultCommandInput}
@@ -84,6 +91,8 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateBackupVaultCommand extends $Command<

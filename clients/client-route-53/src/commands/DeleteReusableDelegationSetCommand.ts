@@ -54,6 +54,9 @@ export interface DeleteReusableDelegationSetCommandOutput
  * };
  * const command = new DeleteReusableDelegationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReusableDelegationSetCommandInput - {@link DeleteReusableDelegationSetCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteReusableDelegationSetCommandOutput
  * @throws {@link NoSuchDelegationSet} (client fault)
  *  <p>A reusable delegation set with the specified ID does not exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteReusableDelegationSetCommand extends $Command<

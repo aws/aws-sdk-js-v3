@@ -51,6 +51,17 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationAdminAccountsResponse
+ *   AdminAccounts: [ // AdminAccounts
+ *     { // AdminAccount
+ *       AccountId: "STRING_VALUE",
+ *       Status: "ENABLED" || "DISABLE_IN_PROGRESS",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
@@ -73,6 +84,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To list administrator acccounts for an organization
  * ```javascript

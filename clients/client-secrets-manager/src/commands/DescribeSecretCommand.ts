@@ -52,6 +52,49 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * };
  * const command = new DescribeSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSecretResponse
+ *   ARN: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   RotationEnabled: true || false,
+ *   RotationLambdaARN: "STRING_VALUE",
+ *   RotationRules: { // RotationRulesType
+ *     AutomaticallyAfterDays: Number("long"),
+ *     Duration: "STRING_VALUE",
+ *     ScheduleExpression: "STRING_VALUE",
+ *   },
+ *   LastRotatedDate: new Date("TIMESTAMP"),
+ *   LastChangedDate: new Date("TIMESTAMP"),
+ *   LastAccessedDate: new Date("TIMESTAMP"),
+ *   DeletedDate: new Date("TIMESTAMP"),
+ *   NextRotationDate: new Date("TIMESTAMP"),
+ *   Tags: [ // TagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   VersionIdsToStages: { // SecretVersionsToStagesMapType
+ *     "<keys>": [ // SecretVersionStagesType
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   OwningService: "STRING_VALUE",
+ *   CreatedDate: new Date("TIMESTAMP"),
+ *   PrimaryRegion: "STRING_VALUE",
+ *   ReplicationStatus: [ // ReplicationStatusListType
+ *     { // ReplicationStatusType
+ *       Region: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *       Status: "InSync" || "Failed" || "InProgress",
+ *       StatusMessage: "STRING_VALUE",
+ *       LastAccessedDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSecretCommandInput - {@link DescribeSecretCommandInput}
@@ -69,6 +112,8 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To retrieve the details of a secret
  * ```javascript

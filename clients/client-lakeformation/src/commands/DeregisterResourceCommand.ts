@@ -45,6 +45,9 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * };
  * const command = new DeregisterResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterResourceCommandInput - {@link DeregisterResourceCommandInput}
@@ -65,6 +68,8 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DeregisterResourceCommand extends $Command<

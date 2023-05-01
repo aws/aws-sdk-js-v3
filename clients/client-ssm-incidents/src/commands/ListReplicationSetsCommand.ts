@@ -45,6 +45,14 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  * };
  * const command = new ListReplicationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReplicationSetsOutput
+ *   replicationSetArns: [ // ReplicationSetArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListReplicationSetsCommandInput - {@link ListReplicationSetsCommandInput}
@@ -67,6 +75,8 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class ListReplicationSetsCommand extends $Command<

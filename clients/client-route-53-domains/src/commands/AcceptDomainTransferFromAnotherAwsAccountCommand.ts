@@ -60,6 +60,11 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * };
  * const command = new AcceptDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptDomainTransferFromAnotherAwsAccountResponse
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AcceptDomainTransferFromAnotherAwsAccountCommandInput - {@link AcceptDomainTransferFromAnotherAwsAccountCommandInput}
@@ -84,6 +89,8 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<

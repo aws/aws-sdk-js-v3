@@ -45,6 +45,68 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * };
  * const command = new DescribeInsightCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInsightResponse
+ *   ProactiveInsight: { // ProactiveInsight
+ *     Id: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Severity: "LOW" || "MEDIUM" || "HIGH",
+ *     Status: "ONGOING" || "CLOSED",
+ *     InsightTimeRange: { // InsightTimeRange
+ *       StartTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"),
+ *     },
+ *     PredictionTimeRange: { // PredictionTimeRange
+ *       StartTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"),
+ *     },
+ *     ResourceCollection: { // ResourceCollection
+ *       CloudFormation: { // CloudFormationCollection
+ *         StackNames: [ // StackNames
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Tags: [ // TagCollections
+ *         { // TagCollection
+ *           AppBoundaryKey: "STRING_VALUE", // required
+ *           TagValues: [ // TagValues // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     SsmOpsItemId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *   },
+ *   ReactiveInsight: { // ReactiveInsight
+ *     Id: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Severity: "LOW" || "MEDIUM" || "HIGH",
+ *     Status: "ONGOING" || "CLOSED",
+ *     InsightTimeRange: {
+ *       StartTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"),
+ *     },
+ *     ResourceCollection: {
+ *       CloudFormation: {
+ *         StackNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Tags: [
+ *         {
+ *           AppBoundaryKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     SsmOpsItemId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeInsightCommandInput - {@link DescribeInsightCommandInput}
@@ -72,6 +134,8 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeInsightCommand extends $Command<

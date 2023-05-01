@@ -49,6 +49,11 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBillingGroupResponse
+ *   version: Number("long"),
+ * };
+ *
  * ```
  *
  * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
@@ -74,6 +79,8 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateBillingGroupCommand extends $Command<

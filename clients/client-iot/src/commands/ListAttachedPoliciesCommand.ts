@@ -48,6 +48,17 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  * };
  * const command = new ListAttachedPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttachedPoliciesResponse
+ *   policies: [ // Policies
+ *     { // Policy
+ *       policyName: "STRING_VALUE",
+ *       policyArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextMarker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAttachedPoliciesCommandInput - {@link ListAttachedPoliciesCommandInput}
@@ -77,6 +88,8 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListAttachedPoliciesCommand extends $Command<

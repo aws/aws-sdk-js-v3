@@ -44,6 +44,9 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * };
  * const command = new DeleteAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAnomalySubscriptionCommandInput - {@link DeleteAnomalySubscriptionCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * @throws {@link UnknownSubscriptionException} (client fault)
  *  <p>The cost anomaly subscription does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class DeleteAnomalySubscriptionCommand extends $Command<

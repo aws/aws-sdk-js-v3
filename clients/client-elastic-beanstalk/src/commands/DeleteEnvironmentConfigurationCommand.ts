@@ -53,6 +53,9 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteEnvironmentConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEnvironmentConfigurationCommandInput - {@link DeleteEnvironmentConfigurationCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete a draft configuration
  * ```javascript

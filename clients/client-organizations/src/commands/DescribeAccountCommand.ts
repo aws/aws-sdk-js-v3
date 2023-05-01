@@ -50,6 +50,19 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * };
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountResponse
+ *   Account: { // Account
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Email: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ *     JoinedMethod: "INVITED" || "CREATED",
+ *     JoinedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
@@ -189,6 +202,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To get the details about an account
  * ```javascript

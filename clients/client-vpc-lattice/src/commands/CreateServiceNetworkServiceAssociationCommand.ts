@@ -65,6 +65,19 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
  * };
  * const command = new CreateServiceNetworkServiceAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceNetworkServiceAssociationResponse
+ *   id: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   createdBy: "STRING_VALUE",
+ *   customDomainName: "STRING_VALUE",
+ *   dnsEntry: { // DnsEntry
+ *     domainName: "STRING_VALUE",
+ *     hostedZoneId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServiceNetworkServiceAssociationCommandInput - {@link CreateServiceNetworkServiceAssociationCommandInput}
@@ -93,6 +106,8 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateServiceNetworkServiceAssociationCommand extends $Command<

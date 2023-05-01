@@ -87,6 +87,9 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new MergeShardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param MergeShardsCommandInput - {@link MergeShardsCommandInput}
@@ -120,6 +123,8 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  *             capacity mode. This API is only supported for data streams with the provisioned capacity
  *             mode. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class MergeShardsCommand extends $Command<

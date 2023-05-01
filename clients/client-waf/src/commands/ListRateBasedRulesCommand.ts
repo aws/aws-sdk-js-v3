@@ -53,6 +53,17 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * };
  * const command = new ListRateBasedRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRateBasedRulesResponse
+ *   NextMarker: "STRING_VALUE",
+ *   Rules: [ // RuleSummaries
+ *     { // RuleSummary
+ *       RuleId: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRateBasedRulesCommandInput - {@link ListRateBasedRulesCommandInput}
@@ -67,6 +78,8 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListRateBasedRulesCommand extends $Command<

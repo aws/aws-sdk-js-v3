@@ -50,6 +50,23 @@ export interface DescribeAddressesAttributeCommandOutput extends DescribeAddress
  * };
  * const command = new DescribeAddressesAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAddressesAttributeResult
+ *   Addresses: [ // AddressSet
+ *     { // AddressAttribute
+ *       PublicIp: "STRING_VALUE",
+ *       AllocationId: "STRING_VALUE",
+ *       PtrRecord: "STRING_VALUE",
+ *       PtrRecordUpdate: { // PtrUpdateStatus
+ *         Value: "STRING_VALUE",
+ *         Status: "STRING_VALUE",
+ *         Reason: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAddressesAttributeCommandInput - {@link DescribeAddressesAttributeCommandInput}
@@ -58,6 +75,8 @@ export interface DescribeAddressesAttributeCommandOutput extends DescribeAddress
  * @see {@link DescribeAddressesAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeAddressesAttributeCommand extends $Command<

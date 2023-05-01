@@ -47,6 +47,9 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  * };
  * const command = new DeleteRouteCalculatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRouteCalculatorCommandInput - {@link DeleteRouteCalculatorCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DeleteRouteCalculatorCommand extends $Command<

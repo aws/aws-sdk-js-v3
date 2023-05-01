@@ -52,6 +52,12 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * };
  * const command = new GetCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCertificateResponse
+ *   Certificate: "STRING_VALUE",
+ *   CertificateChain: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCertificateCommandInput - {@link GetCertificateCommandInput}
@@ -77,6 +83,8 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class GetCertificateCommand extends $Command<

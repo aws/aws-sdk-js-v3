@@ -48,6 +48,9 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * };
  * const command = new StopCanaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopCanaryCommandInput - {@link StopCanaryCommandInput}
@@ -68,6 +71,8 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class StopCanaryCommand extends $Command<

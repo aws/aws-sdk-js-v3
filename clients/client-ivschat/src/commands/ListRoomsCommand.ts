@@ -49,6 +49,30 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * };
  * const command = new ListRoomsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoomsResponse
+ *   rooms: [ // RoomList // required
+ *     { // RoomSummary
+ *       arn: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       messageReviewHandler: { // MessageReviewHandler
+ *         uri: "STRING_VALUE",
+ *         fallbackResult: "STRING_VALUE",
+ *       },
+ *       createTime: new Date("TIMESTAMP"),
+ *       updateTime: new Date("TIMESTAMP"),
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRoomsCommandInput - {@link ListRoomsCommandInput}
@@ -66,6 +90,8 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class ListRoomsCommand extends $Command<

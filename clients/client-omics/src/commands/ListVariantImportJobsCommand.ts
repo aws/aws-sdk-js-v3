@@ -52,6 +52,23 @@ export interface ListVariantImportJobsCommandOutput extends ListVariantImportJob
  * };
  * const command = new ListVariantImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVariantImportJobsResponse
+ *   variantImportJobs: [ // VariantImportJobItems
+ *     { // VariantImportJobItem
+ *       id: "STRING_VALUE", // required
+ *       destinationName: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       creationTime: new Date("TIMESTAMP"), // required
+ *       updateTime: new Date("TIMESTAMP"), // required
+ *       completionTime: new Date("TIMESTAMP"),
+ *       runLeftNormalization: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListVariantImportJobsCommandInput - {@link ListVariantImportJobsCommandInput}
@@ -75,6 +92,8 @@ export interface ListVariantImportJobsCommandOutput extends ListVariantImportJob
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListVariantImportJobsCommand extends $Command<

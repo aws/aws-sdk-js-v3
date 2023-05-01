@@ -88,6 +88,11 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * };
  * const command = new ReportTaskProgressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReportTaskProgressOutput
+ *   canceled: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ReportTaskProgressCommandInput - {@link ReportTaskProgressCommandInput}
@@ -111,6 +116,8 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * @throws {@link TaskNotFoundException} (client fault)
  *  <p>The specified task was not found. </p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class ReportTaskProgressCommand extends $Command<

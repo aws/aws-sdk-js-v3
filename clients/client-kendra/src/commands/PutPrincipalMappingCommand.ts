@@ -76,6 +76,9 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutPrincipalMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPrincipalMappingCommandInput - {@link PutPrincipalMappingCommandInput}
@@ -114,6 +117,8 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class PutPrincipalMappingCommand extends $Command<

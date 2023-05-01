@@ -51,6 +51,9 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelJobExecutionCommandInput - {@link CancelJobExecutionCommandInput}
@@ -81,6 +84,8 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelJobExecutionCommand extends $Command<

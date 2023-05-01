@@ -48,6 +48,23 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * };
  * const command = new ModifyUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UsageLimit
+ *   UsageLimitId: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing",
+ *   LimitType: "time" || "data-scanned",
+ *   Amount: Number("long"),
+ *   Period: "daily" || "weekly" || "monthly",
+ *   BreachAction: "log" || "emit-metric" || "disable",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyUsageLimitCommandInput - {@link ModifyUsageLimitCommandInput}
@@ -65,6 +82,8 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @throws {@link UsageLimitNotFoundFault} (client fault)
  *  <p>The usage limit identifier can't be found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyUsageLimitCommand extends $Command<

@@ -45,6 +45,9 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  * };
  * const command = new RemoveSourceServerActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveSourceServerActionCommandInput - {@link RemoveSourceServerActionCommandInput}
@@ -62,6 +65,8 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class RemoveSourceServerActionCommand extends $Command<

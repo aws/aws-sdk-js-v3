@@ -56,6 +56,11 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVolumeOutput
+ *   VolumeARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
@@ -72,6 +77,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete a gateway volume
  * ```javascript

@@ -53,6 +53,21 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   application: { // Application
+ *     id: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     creationTime: new Date("TIMESTAMP"),
+ *     lastUpdateTime: new Date("TIMESTAMP"),
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -84,6 +99,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

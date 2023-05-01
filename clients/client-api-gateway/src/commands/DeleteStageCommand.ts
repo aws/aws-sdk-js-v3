@@ -45,6 +45,9 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteStageCommand extends $Command<

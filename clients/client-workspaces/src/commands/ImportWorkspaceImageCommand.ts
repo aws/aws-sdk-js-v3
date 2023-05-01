@@ -60,6 +60,11 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * };
  * const command = new ImportWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportWorkspaceImageResult
+ *   ImageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ImportWorkspaceImageCommandInput - {@link ImportWorkspaceImageCommandInput}
@@ -86,6 +91,8 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ImportWorkspaceImageCommand extends $Command<

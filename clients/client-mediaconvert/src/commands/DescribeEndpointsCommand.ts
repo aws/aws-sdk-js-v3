@@ -46,6 +46,16 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * };
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointsResponse
+ *   Endpoints: [ // __listOfEndpoint
+ *     { // Endpoint
+ *       Url: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
@@ -72,6 +82,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class DescribeEndpointsCommand extends $Command<

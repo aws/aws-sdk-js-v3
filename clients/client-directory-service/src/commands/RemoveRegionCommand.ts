@@ -46,6 +46,9 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * };
  * const command = new RemoveRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveRegionCommandInput - {@link RemoveRegionCommandInput}
@@ -72,6 +75,8 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RemoveRegionCommand extends $Command<

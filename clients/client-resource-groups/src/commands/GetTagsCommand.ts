@@ -56,6 +56,14 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTagsOutput
+ *   Arn: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTagsCommandInput - {@link GetTagsCommandInput}
@@ -83,6 +91,8 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GetTagsCommand extends $Command<

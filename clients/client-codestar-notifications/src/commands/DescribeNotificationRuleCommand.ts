@@ -52,6 +52,36 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * };
  * const command = new DescribeNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNotificationRuleResult
+ *   Arn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   EventTypes: [ // EventTypeBatch
+ *     { // EventTypeSummary
+ *       EventTypeId: "STRING_VALUE",
+ *       ServiceName: "STRING_VALUE",
+ *       EventTypeName: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Resource: "STRING_VALUE",
+ *   Targets: [ // TargetsBatch
+ *     { // TargetSummary
+ *       TargetAddress: "STRING_VALUE",
+ *       TargetType: "STRING_VALUE",
+ *       TargetStatus: "PENDING" || "ACTIVE" || "UNREACHABLE" || "INACTIVE" || "DEACTIVATED",
+ *     },
+ *   ],
+ *   DetailType: "BASIC" || "FULL",
+ *   CreatedBy: "STRING_VALUE",
+ *   Status: "ENABLED" || "DISABLED",
+ *   CreatedTimestamp: new Date("TIMESTAMP"),
+ *   LastModifiedTimestamp: new Date("TIMESTAMP"),
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeNotificationRuleCommandInput - {@link DescribeNotificationRuleCommandInput}
@@ -66,6 +96,8 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class DescribeNotificationRuleCommand extends $Command<

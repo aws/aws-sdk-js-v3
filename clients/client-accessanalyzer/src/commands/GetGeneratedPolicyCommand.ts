@@ -47,6 +47,44 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * };
  * const command = new GetGeneratedPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGeneratedPolicyResponse
+ *   jobDetails: { // JobDetails
+ *     jobId: "STRING_VALUE", // required
+ *     status: "STRING_VALUE", // required
+ *     startedOn: new Date("TIMESTAMP"), // required
+ *     completedOn: new Date("TIMESTAMP"),
+ *     jobError: { // JobError
+ *       code: "STRING_VALUE", // required
+ *       message: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   generatedPolicyResult: { // GeneratedPolicyResult
+ *     properties: { // GeneratedPolicyProperties
+ *       isComplete: true || false,
+ *       principalArn: "STRING_VALUE", // required
+ *       cloudTrailProperties: { // CloudTrailProperties
+ *         trailProperties: [ // TrailPropertiesList // required
+ *           { // TrailProperties
+ *             cloudTrailArn: "STRING_VALUE", // required
+ *             regions: [ // RegionList
+ *               "STRING_VALUE",
+ *             ],
+ *             allRegions: true || false,
+ *           },
+ *         ],
+ *         startTime: new Date("TIMESTAMP"), // required
+ *         endTime: new Date("TIMESTAMP"), // required
+ *       },
+ *     },
+ *     generatedPolicies: [ // GeneratedPolicyList
+ *       { // GeneratedPolicy
+ *         policy: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGeneratedPolicyCommandInput - {@link GetGeneratedPolicyCommandInput}
@@ -67,6 +105,8 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class GetGeneratedPolicyCommand extends $Command<

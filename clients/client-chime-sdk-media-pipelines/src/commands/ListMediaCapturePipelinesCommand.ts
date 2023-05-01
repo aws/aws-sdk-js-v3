@@ -49,6 +49,17 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * };
  * const command = new ListMediaCapturePipelinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMediaCapturePipelinesResponse
+ *   MediaCapturePipelines: [ // MediaCapturePipelineSummaryList
+ *     { // MediaCapturePipelineSummary
+ *       MediaPipelineId: "STRING_VALUE",
+ *       MediaPipelineArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMediaCapturePipelinesCommandInput - {@link ListMediaCapturePipelinesCommandInput}
@@ -78,6 +89,8 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class ListMediaCapturePipelinesCommand extends $Command<

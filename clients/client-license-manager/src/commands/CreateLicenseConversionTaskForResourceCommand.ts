@@ -59,6 +59,11 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  * };
  * const command = new CreateLicenseConversionTaskForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLicenseConversionTaskForResourceResponse
+ *   LicenseConversionTaskId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLicenseConversionTaskForResourceCommandInput - {@link CreateLicenseConversionTaskForResourceCommandInput}
@@ -86,6 +91,8 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateLicenseConversionTaskForResourceCommand extends $Command<

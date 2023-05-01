@@ -46,6 +46,19 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  * };
  * const command = new BatchDeleteBuildsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteBuildsOutput
+ *   buildsDeleted: [ // BuildIds
+ *     "STRING_VALUE",
+ *   ],
+ *   buildsNotDeleted: [ // BuildsNotDeleted
+ *     { // BuildNotDeleted
+ *       id: "STRING_VALUE",
+ *       statusCode: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteBuildsCommandInput - {@link BatchDeleteBuildsCommandInput}
@@ -57,6 +70,8 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class BatchDeleteBuildsCommand extends $Command<

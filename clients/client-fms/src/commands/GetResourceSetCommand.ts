@@ -44,6 +44,22 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * };
  * const command = new GetResourceSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceSetResponse
+ *   ResourceSet: { // ResourceSet
+ *     Id: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     UpdateToken: "STRING_VALUE",
+ *     ResourceTypeList: [ // ResourceTypeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *   },
+ *   ResourceSetArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetResourceSetCommandInput - {@link GetResourceSetCommandInput}
@@ -69,6 +85,8 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetResourceSetCommand extends $Command<

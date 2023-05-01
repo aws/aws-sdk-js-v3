@@ -48,6 +48,9 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  * };
  * const command = new UpdateConnectClientAddInCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConnectClientAddInCommandInput - {@link UpdateConnectClientAddInCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class UpdateConnectClientAddInCommand extends $Command<

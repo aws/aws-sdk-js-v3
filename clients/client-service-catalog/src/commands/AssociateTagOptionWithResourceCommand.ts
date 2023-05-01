@@ -50,6 +50,9 @@ export interface AssociateTagOptionWithResourceCommandOutput
  * };
  * const command = new AssociateTagOptionWithResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateTagOptionWithResourceCommandInput - {@link AssociateTagOptionWithResourceCommandInput}
@@ -80,6 +83,8 @@ export interface AssociateTagOptionWithResourceCommandOutput
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class AssociateTagOptionWithResourceCommand extends $Command<

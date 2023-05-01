@@ -64,6 +64,23 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * };
  * const command = new DescribeReplicationTaskAssessmentResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReplicationTaskAssessmentResultsResponse
+ *   Marker: "STRING_VALUE",
+ *   BucketName: "STRING_VALUE",
+ *   ReplicationTaskAssessmentResults: [ // ReplicationTaskAssessmentResultList
+ *     { // ReplicationTaskAssessmentResult
+ *       ReplicationTaskIdentifier: "STRING_VALUE",
+ *       ReplicationTaskArn: "STRING_VALUE",
+ *       ReplicationTaskLastAssessmentDate: new Date("TIMESTAMP"),
+ *       AssessmentStatus: "STRING_VALUE",
+ *       AssessmentResultsFile: "STRING_VALUE",
+ *       AssessmentResults: "STRING_VALUE",
+ *       S3ObjectUrl: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReplicationTaskAssessmentResultsCommandInput - {@link DescribeReplicationTaskAssessmentResultsCommandInput}
@@ -75,6 +92,8 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<

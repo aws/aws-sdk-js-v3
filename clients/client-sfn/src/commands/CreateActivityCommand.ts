@@ -66,6 +66,12 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * };
  * const command = new CreateActivityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateActivityOutput
+ *   activityArn: "STRING_VALUE", // required
+ *   creationDate: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param CreateActivityCommandInput - {@link CreateActivityCommandInput}
@@ -85,6 +91,8 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       Step Functions Developer Guide.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class CreateActivityCommand extends $Command<

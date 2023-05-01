@@ -128,6 +128,19 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  * };
  * const command = new GetCostCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCostCategoriesResponse
+ *   NextPageToken: "STRING_VALUE",
+ *   CostCategoryNames: [ // CostCategoryNamesList
+ *     "STRING_VALUE",
+ *   ],
+ *   CostCategoryValues: [ // CostCategoryValuesList
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnSize: Number("int"), // required
+ *   TotalSize: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param GetCostCategoriesCommandInput - {@link GetCostCategoriesCommandInput}
@@ -152,6 +165,8 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetCostCategoriesCommand extends $Command<

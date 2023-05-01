@@ -122,6 +122,23 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutIntegrationResponse
+ *   DomainName: "STRING_VALUE", // required
+ *   Uri: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE",
+ *   CreatedAt: new Date("TIMESTAMP"), // required
+ *   LastUpdatedAt: new Date("TIMESTAMP"), // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ObjectTypeNames: { // ObjectTypeNames
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   WorkflowId: "STRING_VALUE",
+ *   IsUnstructured: true || false,
+ * };
+ *
  * ```
  *
  * @param PutIntegrationCommandInput - {@link PutIntegrationCommandInput}
@@ -145,6 +162,8 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class PutIntegrationCommand extends $Command<

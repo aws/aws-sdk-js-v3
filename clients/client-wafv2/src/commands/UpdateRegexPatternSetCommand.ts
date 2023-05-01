@@ -70,6 +70,11 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRegexPatternSetResponse
+ *   NextLockToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
@@ -127,6 +132,8 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class UpdateRegexPatternSetCommand extends $Command<

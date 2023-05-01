@@ -45,6 +45,13 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * };
  * const command = new DeleteConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigIdResponse
+ *   configId: "STRING_VALUE",
+ *   configType: "STRING_VALUE",
+ *   configArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteConfigCommandInput - {@link DeleteConfigCommandInput}
@@ -62,6 +69,8 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class DeleteConfigCommand extends $Command<

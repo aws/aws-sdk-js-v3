@@ -53,6 +53,20 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  * };
  * const command = new UpdateApprovalRuleTemplateDescriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApprovalRuleTemplateDescriptionOutput
+ *   approvalRuleTemplate: { // ApprovalRuleTemplate
+ *     approvalRuleTemplateId: "STRING_VALUE",
+ *     approvalRuleTemplateName: "STRING_VALUE",
+ *     approvalRuleTemplateDescription: "STRING_VALUE",
+ *     approvalRuleTemplateContent: "STRING_VALUE",
+ *     ruleContentSha256: "STRING_VALUE",
+ *     lastModifiedDate: new Date("TIMESTAMP"),
+ *     creationDate: new Date("TIMESTAMP"),
+ *     lastModifiedUser: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApprovalRuleTemplateDescriptionCommandInput - {@link UpdateApprovalRuleTemplateDescriptionCommandInput}
@@ -80,6 +94,8 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
  *                 CodeCommit User Guide</a>.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<

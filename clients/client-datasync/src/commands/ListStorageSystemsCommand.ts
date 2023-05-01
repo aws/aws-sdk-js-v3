@@ -45,6 +45,17 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * };
  * const command = new ListStorageSystemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStorageSystemsResponse
+ *   StorageSystems: [ // StorageSystemList
+ *     { // StorageSystemListEntry
+ *       StorageSystemArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListStorageSystemsCommandInput - {@link ListStorageSystemsCommandInput}
@@ -60,6 +71,8 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListStorageSystemsCommand extends $Command<

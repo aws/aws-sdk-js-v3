@@ -55,6 +55,30 @@ export interface DescribeDomainChangeProgressCommandOutput
  * };
  * const command = new DescribeDomainChangeProgressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainChangeProgressResponse
+ *   ChangeProgressStatus: { // ChangeProgressStatusDetails
+ *     ChangeId: "STRING_VALUE",
+ *     StartTime: new Date("TIMESTAMP"),
+ *     Status: "PENDING" || "PROCESSING" || "COMPLETED" || "FAILED",
+ *     PendingProperties: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     CompletedProperties: [
+ *       "STRING_VALUE",
+ *     ],
+ *     TotalNumberOfStages: Number("int"),
+ *     ChangeProgressStages: [ // ChangeProgressStageList
+ *       { // ChangeProgressStage
+ *         Name: "STRING_VALUE",
+ *         Status: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *         LastUpdated: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDomainChangeProgressCommandInput - {@link DescribeDomainChangeProgressCommandInput}
@@ -75,6 +99,8 @@ export interface DescribeDomainChangeProgressCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribeDomainChangeProgressCommand extends $Command<

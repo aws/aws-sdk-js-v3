@@ -46,6 +46,9 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  * };
  * const command = new AssociateApprovedOriginCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateApprovedOriginCommandInput - {@link AssociateApprovedOriginCommandInput}
@@ -75,6 +78,8 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateApprovedOriginCommand extends $Command<

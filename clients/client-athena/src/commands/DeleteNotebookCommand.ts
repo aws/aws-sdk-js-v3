@@ -44,6 +44,9 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * };
  * const command = new DeleteNotebookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNotebookCommandInput - {@link DeleteNotebookCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class DeleteNotebookCommand extends $Command<

@@ -49,6 +49,11 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  * };
  * const command = new DescribeInboundDmarcSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInboundDmarcSettingsResponse
+ *   Enforced: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeInboundDmarcSettingsCommandInput - {@link DescribeInboundDmarcSettingsCommandInput}
@@ -65,6 +70,8 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeInboundDmarcSettingsCommand extends $Command<

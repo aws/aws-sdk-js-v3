@@ -44,6 +44,11 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * };
  * const command = new StopTriggerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopTriggerResponse
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StopTriggerCommandInput - {@link StopTriggerCommandInput}
@@ -67,6 +72,8 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StopTriggerCommand extends $Command<

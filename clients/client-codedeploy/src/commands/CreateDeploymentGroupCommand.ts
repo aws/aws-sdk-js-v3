@@ -171,6 +171,11 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * };
  * const command = new CreateDeploymentGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentGroupOutput
+ *   deploymentGroupId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentGroupCommandInput - {@link CreateDeploymentGroupCommandInput}
@@ -309,6 +314,8 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * @throws {@link TriggerTargetsLimitExceededException} (client fault)
  *  <p>The maximum allowed number of triggers was exceeded.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateDeploymentGroupCommand extends $Command<

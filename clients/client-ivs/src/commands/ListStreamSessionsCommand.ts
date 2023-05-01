@@ -47,6 +47,19 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * };
  * const command = new ListStreamSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamSessionsResponse
+ *   streamSessions: [ // StreamSessionList // required
+ *     { // StreamSessionSummary
+ *       streamId: "STRING_VALUE",
+ *       startTime: new Date("TIMESTAMP"),
+ *       endTime: new Date("TIMESTAMP"),
+ *       hasErrorEvent: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListStreamSessionsCommandInput - {@link ListStreamSessionsCommandInput}
@@ -64,6 +77,8 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListStreamSessionsCommand extends $Command<

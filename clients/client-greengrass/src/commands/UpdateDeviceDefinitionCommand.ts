@@ -45,6 +45,9 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  * };
  * const command = new UpdateDeviceDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeviceDefinitionCommandInput - {@link UpdateDeviceDefinitionCommandInput}
@@ -56,6 +59,8 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateDeviceDefinitionCommand extends $Command<

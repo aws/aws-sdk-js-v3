@@ -62,6 +62,9 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * };
  * const command = new UpdateDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDataCellsFilterCommandInput - {@link UpdateDataCellsFilterCommandInput}
@@ -88,6 +91,8 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateDataCellsFilterCommand extends $Command<

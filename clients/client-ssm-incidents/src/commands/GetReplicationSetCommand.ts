@@ -44,6 +44,27 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  * };
  * const command = new GetReplicationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReplicationSetOutput
+ *   replicationSet: { // ReplicationSet
+ *     arn: "STRING_VALUE",
+ *     regionMap: { // RegionInfoMap // required
+ *       "<keys>": { // RegionInfo
+ *         sseKmsKeyId: "STRING_VALUE",
+ *         status: "STRING_VALUE", // required
+ *         statusMessage: "STRING_VALUE",
+ *         statusUpdateDateTime: new Date("TIMESTAMP"), // required
+ *       },
+ *     },
+ *     status: "STRING_VALUE", // required
+ *     deletionProtected: true || false, // required
+ *     createdTime: new Date("TIMESTAMP"), // required
+ *     createdBy: "STRING_VALUE", // required
+ *     lastModifiedTime: new Date("TIMESTAMP"), // required
+ *     lastModifiedBy: "STRING_VALUE", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetReplicationSetCommandInput - {@link GetReplicationSetCommandInput}
@@ -69,6 +90,8 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class GetReplicationSetCommand extends $Command<

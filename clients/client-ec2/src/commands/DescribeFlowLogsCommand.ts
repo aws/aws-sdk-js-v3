@@ -59,6 +59,40 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * };
  * const command = new DescribeFlowLogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFlowLogsResult
+ *   FlowLogs: [ // FlowLogSet
+ *     { // FlowLog
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       DeliverLogsErrorMessage: "STRING_VALUE",
+ *       DeliverLogsPermissionArn: "STRING_VALUE",
+ *       DeliverCrossAccountRole: "STRING_VALUE",
+ *       DeliverLogsStatus: "STRING_VALUE",
+ *       FlowLogId: "STRING_VALUE",
+ *       FlowLogStatus: "STRING_VALUE",
+ *       LogGroupName: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *       TrafficType: "ACCEPT" || "REJECT" || "ALL",
+ *       LogDestinationType: "cloud-watch-logs" || "s3" || "kinesis-data-firehose",
+ *       LogDestination: "STRING_VALUE",
+ *       LogFormat: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       MaxAggregationInterval: Number("int"),
+ *       DestinationOptions: { // DestinationOptionsResponse
+ *         FileFormat: "plain-text" || "parquet",
+ *         HiveCompatiblePartitions: true || false,
+ *         PerHourPartition: true || false,
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeFlowLogsCommandInput - {@link DescribeFlowLogsCommandInput}
@@ -67,6 +101,8 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * @see {@link DescribeFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFlowLogsCommand extends $Command<

@@ -71,6 +71,12 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * };
  * const command = new StartFleetActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFleetActionsOutput
+ *   FleetId: "STRING_VALUE",
+ *   FleetArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartFleetActionsCommandInput - {@link StartFleetActionsCommandInput}
@@ -96,6 +102,8 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class StartFleetActionsCommand extends $Command<

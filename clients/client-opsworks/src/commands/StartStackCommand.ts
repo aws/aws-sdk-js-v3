@@ -49,6 +49,9 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartStackCommandInput - {@link StartStackCommandInput}
@@ -63,6 +66,8 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class StartStackCommand extends $Command<

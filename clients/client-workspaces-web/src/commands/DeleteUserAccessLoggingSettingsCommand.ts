@@ -49,6 +49,9 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new DeleteUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserAccessLoggingSettingsCommandInput - {@link DeleteUserAccessLoggingSettingsCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteUserAccessLoggingSettingsCommand extends $Command<

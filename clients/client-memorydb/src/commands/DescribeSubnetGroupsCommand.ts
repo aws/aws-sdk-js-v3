@@ -46,6 +46,27 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * };
  * const command = new DescribeSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubnetGroupsResponse
+ *   NextToken: "STRING_VALUE",
+ *   SubnetGroups: [ // SubnetGroupList
+ *     { // SubnetGroup
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           Identifier: "STRING_VALUE",
+ *           AvailabilityZone: { // AvailabilityZone
+ *             Name: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       ARN: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSubnetGroupsCommandInput - {@link DescribeSubnetGroupsCommandInput}
@@ -60,6 +81,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeSubnetGroupsCommand extends $Command<

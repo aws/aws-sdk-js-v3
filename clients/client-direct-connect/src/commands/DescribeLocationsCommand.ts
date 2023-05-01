@@ -43,6 +43,26 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  * const input = {};
  * const command = new DescribeLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Locations
+ *   locations: [ // LocationList
+ *     { // Location
+ *       locationCode: "STRING_VALUE",
+ *       locationName: "STRING_VALUE",
+ *       region: "STRING_VALUE",
+ *       availablePortSpeeds: [ // AvailablePortSpeeds
+ *         "STRING_VALUE",
+ *       ],
+ *       availableProviders: [ // ProviderList
+ *         "STRING_VALUE",
+ *       ],
+ *       availableMacSecPortSpeeds: [ // AvailableMacSecPortSpeeds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeLocationsCommandInput - {@link DescribeLocationsCommandInput}
@@ -57,6 +77,8 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeLocationsCommand extends $Command<

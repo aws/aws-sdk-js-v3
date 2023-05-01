@@ -64,6 +64,26 @@ export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __M
  * };
  * const command = new UpdateComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateComponentOutput
+ *   component: { // Component
+ *     name: "STRING_VALUE", // required
+ *     description: "STRING_VALUE",
+ *     arn: "STRING_VALUE", // required
+ *     environmentName: "STRING_VALUE", // required
+ *     serviceName: "STRING_VALUE",
+ *     serviceInstanceName: "STRING_VALUE",
+ *     createdAt: new Date("TIMESTAMP"), // required
+ *     lastModifiedAt: new Date("TIMESTAMP"), // required
+ *     lastDeploymentAttemptedAt: new Date("TIMESTAMP"),
+ *     lastDeploymentSucceededAt: new Date("TIMESTAMP"),
+ *     deploymentStatus: "STRING_VALUE", // required
+ *     deploymentStatusMessage: "STRING_VALUE",
+ *     serviceSpec: "STRING_VALUE",
+ *     lastClientRequestToken: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateComponentCommandInput - {@link UpdateComponentCommandInput}
@@ -94,6 +114,8 @@ export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateComponentCommand extends $Command<

@@ -47,6 +47,21 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  * };
  * const command = new ListBackendEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackendEnvironmentsResult
+ *   backendEnvironments: [ // BackendEnvironments // required
+ *     { // BackendEnvironment
+ *       backendEnvironmentArn: "STRING_VALUE", // required
+ *       environmentName: "STRING_VALUE", // required
+ *       stackName: "STRING_VALUE",
+ *       deploymentArtifacts: "STRING_VALUE",
+ *       createTime: new Date("TIMESTAMP"), // required
+ *       updateTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBackendEnvironmentsCommandInput - {@link ListBackendEnvironmentsCommandInput}
@@ -64,6 +79,8 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class ListBackendEnvironmentsCommand extends $Command<

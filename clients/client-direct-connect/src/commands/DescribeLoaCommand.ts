@@ -49,6 +49,12 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * };
  * const command = new DescribeLoaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Loa
+ *   loaContent: "BLOB_VALUE",
+ *   loaContentType: "application/pdf",
+ * };
+ *
  * ```
  *
  * @param DescribeLoaCommandInput - {@link DescribeLoaCommandInput}
@@ -63,6 +69,8 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeLoaCommand extends $Command<

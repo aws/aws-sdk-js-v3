@@ -44,6 +44,37 @@ export interface GetOrderCommandOutput extends GetOrderResponse, __MetadataBeare
  * };
  * const command = new GetOrderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOrderResponse
+ *   order: { // Order
+ *     orderArn: "STRING_VALUE",
+ *     shippingAddress: { // Address
+ *       city: "STRING_VALUE", // required
+ *       company: "STRING_VALUE",
+ *       country: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       phoneNumber: "STRING_VALUE",
+ *       postalCode: "STRING_VALUE", // required
+ *       stateOrProvince: "STRING_VALUE", // required
+ *       street1: "STRING_VALUE", // required
+ *       street2: "STRING_VALUE",
+ *       street3: "STRING_VALUE",
+ *     },
+ *     networkArn: "STRING_VALUE",
+ *     networkSiteArn: "STRING_VALUE",
+ *     trackingInformation: [ // TrackingInformationList
+ *       { // TrackingInformation
+ *         trackingNumber: "STRING_VALUE",
+ *       },
+ *     ],
+ *     acknowledgmentStatus: "STRING_VALUE",
+ *     createdAt: new Date("TIMESTAMP"),
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetOrderCommandInput - {@link GetOrderCommandInput}
@@ -61,6 +92,8 @@ export interface GetOrderCommandOutput extends GetOrderResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class GetOrderCommand extends $Command<

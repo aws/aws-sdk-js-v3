@@ -67,6 +67,13 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * };
  * const command = new RotateTunnelAccessTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RotateTunnelAccessTokenResponse
+ *   tunnelArn: "STRING_VALUE",
+ *   sourceAccessToken: "STRING_VALUE",
+ *   destinationAccessToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RotateTunnelAccessTokenCommandInput - {@link RotateTunnelAccessTokenCommandInput}
@@ -78,6 +85,8 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class RotateTunnelAccessTokenCommand extends $Command<

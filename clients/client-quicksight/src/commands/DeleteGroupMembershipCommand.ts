@@ -47,6 +47,12 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * };
  * const command = new DeleteGroupMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGroupMembershipResponse
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param DeleteGroupMembershipCommandInput - {@link DeleteGroupMembershipCommandInput}
@@ -79,6 +85,8 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteGroupMembershipCommand extends $Command<

@@ -56,6 +56,9 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * };
  * const command = new StartReportCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartReportCreationCommandInput - {@link StartReportCreationCommandInput}
@@ -120,6 +123,8 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class StartReportCreationCommand extends $Command<

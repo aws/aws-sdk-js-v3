@@ -51,6 +51,11 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * };
  * const command = new DeleteViewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteViewOutput
+ *   ViewArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteViewCommandInput - {@link DeleteViewCommandInput}
@@ -83,6 +88,8 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class DeleteViewCommand extends $Command<

@@ -43,6 +43,9 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * const input = {};
  * const command = new DeleteNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNotificationChannelCommandInput - {@link DeleteNotificationChannelCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DeleteNotificationChannelCommand extends $Command<

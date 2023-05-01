@@ -66,6 +66,19 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * };
  * const command = new GetSecretValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSecretValueResponse
+ *   ARN: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ *   SecretBinary: "BLOB_VALUE",
+ *   SecretString: "STRING_VALUE",
+ *   VersionStages: [ // SecretVersionStagesType
+ *     "STRING_VALUE",
+ *   ],
+ *   CreatedDate: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetSecretValueCommandInput - {@link GetSecretValueCommandInput}
@@ -104,6 +117,8 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To retrieve the encrypted secret value of a secret
  * ```javascript

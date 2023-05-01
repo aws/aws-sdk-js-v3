@@ -59,6 +59,11 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * };
  * const command = new DisassociateEnclaveCertificateIamRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateEnclaveCertificateIamRoleResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param DisassociateEnclaveCertificateIamRoleCommandInput - {@link DisassociateEnclaveCertificateIamRoleCommandInput}
@@ -67,6 +72,8 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * @see {@link DisassociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<

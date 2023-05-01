@@ -60,6 +60,24 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * };
  * const command = new StartProductSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartProductSubscriptionResponse
+ *   ProductUserSummary: { // ProductUserSummary
+ *     Username: "STRING_VALUE", // required
+ *     Product: "STRING_VALUE", // required
+ *     IdentityProvider: { // IdentityProvider Union: only one key present
+ *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *         DirectoryId: "STRING_VALUE",
+ *       },
+ *     },
+ *     Status: "STRING_VALUE", // required
+ *     StatusMessage: "STRING_VALUE",
+ *     Domain: "STRING_VALUE",
+ *     SubscriptionStartDate: "STRING_VALUE",
+ *     SubscriptionEndDate: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartProductSubscriptionCommandInput - {@link StartProductSubscriptionCommandInput}
@@ -90,6 +108,8 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class StartProductSubscriptionCommand extends $Command<

@@ -46,6 +46,17 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  * };
  * const command = new ListFleetMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFleetMetricsResponse
+ *   fleetMetrics: [ // FleetMetricNameAndArnList
+ *     { // FleetMetricNameAndArn
+ *       metricName: "STRING_VALUE",
+ *       metricArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFleetMetricsCommandInput - {@link ListFleetMetricsCommandInput}
@@ -69,6 +80,8 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListFleetMetricsCommand extends $Command<

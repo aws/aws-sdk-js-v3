@@ -52,6 +52,23 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * };
  * const command = new UpdateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateNetworkSettingsResponse
+ *   networkSettings: { // NetworkSettings
+ *     networkSettingsArn: "STRING_VALUE", // required
+ *     associatedPortalArns: [ // ArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE",
+ *     subnetIds: [ // SubnetIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [ // SecurityGroupIdList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateNetworkSettingsCommandInput - {@link UpdateNetworkSettingsCommandInput}
@@ -75,6 +92,8 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateNetworkSettingsCommand extends $Command<

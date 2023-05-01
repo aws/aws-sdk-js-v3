@@ -62,6 +62,14 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * };
  * const command = new StartReplayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReplayResponse
+ *   ReplayArn: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   StateReason: "STRING_VALUE",
+ *   ReplayStartTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StartReplayCommandInput - {@link StartReplayCommandInput}
@@ -86,6 +94,8 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class StartReplayCommand extends $Command<

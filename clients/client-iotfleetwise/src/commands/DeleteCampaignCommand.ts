@@ -45,6 +45,12 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCampaignResponse
+ *   name: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteCampaignCommand extends $Command<

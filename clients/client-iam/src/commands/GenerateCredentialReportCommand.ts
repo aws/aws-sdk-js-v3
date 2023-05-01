@@ -44,6 +44,12 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  * const input = {};
  * const command = new GenerateCredentialReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateCredentialReportResponse
+ *   State: "STARTED" || "INPROGRESS" || "COMPLETE",
+ *   Description: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GenerateCredentialReportCommandInput - {@link GenerateCredentialReportCommandInput}
@@ -60,6 +66,8 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GenerateCredentialReportCommand extends $Command<

@@ -55,6 +55,27 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * };
  * const command = new GetResourceEvaluationSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceEvaluationSummaryResponse
+ *   ResourceEvaluationId: "STRING_VALUE",
+ *   EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ *   EvaluationStatus: { // EvaluationStatus
+ *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED", // required
+ *     FailureReason: "STRING_VALUE",
+ *   },
+ *   EvaluationStartTimestamp: new Date("TIMESTAMP"),
+ *   Compliance: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *   EvaluationContext: { // EvaluationContext
+ *     EvaluationContextIdentifier: "STRING_VALUE",
+ *   },
+ *   ResourceDetails: { // ResourceDetails
+ *     ResourceId: "STRING_VALUE", // required
+ *     ResourceType: "STRING_VALUE", // required
+ *     ResourceConfiguration: "STRING_VALUE", // required
+ *     ResourceConfigurationSchemaType: "CFN_RESOURCE_SCHEMA",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResourceEvaluationSummaryCommandInput - {@link GetResourceEvaluationSummaryCommandInput}
@@ -66,6 +87,8 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You have specified a resource that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetResourceEvaluationSummaryCommand extends $Command<

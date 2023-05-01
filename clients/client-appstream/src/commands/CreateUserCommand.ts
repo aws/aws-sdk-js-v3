@@ -48,6 +48,9 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -71,6 +74,8 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The specified resource already exists.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

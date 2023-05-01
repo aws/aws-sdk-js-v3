@@ -49,6 +49,9 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  * };
  * const command = new ImportMigrationTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ImportMigrationTaskCommandInput - {@link ImportMigrationTaskCommandInput}
@@ -91,6 +94,8 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ImportMigrationTaskCommand extends $Command<

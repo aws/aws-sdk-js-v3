@@ -60,6 +60,16 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * };
  * const command = new DescribeSeverityLevelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSeverityLevelsResponse
+ *   severityLevels: [ // SeverityLevelsList
+ *     { // SeverityLevel
+ *       code: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSeverityLevelsCommandInput - {@link DescribeSeverityLevelsCommandInput}
@@ -71,6 +81,8 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeSeverityLevelsCommand extends $Command<

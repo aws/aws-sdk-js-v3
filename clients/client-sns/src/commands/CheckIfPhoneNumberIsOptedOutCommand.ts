@@ -50,6 +50,11 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * };
  * const command = new CheckIfPhoneNumberIsOptedOutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckIfPhoneNumberIsOptedOutResponse
+ *   isOptedOut: true || false,
+ * };
+ *
  * ```
  *
  * @param CheckIfPhoneNumberIsOptedOutCommandInput - {@link CheckIfPhoneNumberIsOptedOutCommandInput}
@@ -71,6 +76,8 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<

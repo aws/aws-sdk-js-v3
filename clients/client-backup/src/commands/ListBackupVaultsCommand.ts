@@ -46,6 +46,25 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * };
  * const command = new ListBackupVaultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupVaultsOutput
+ *   BackupVaultList: [ // BackupVaultList
+ *     { // BackupVaultListMember
+ *       BackupVaultName: "STRING_VALUE",
+ *       BackupVaultArn: "STRING_VALUE",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       EncryptionKeyArn: "STRING_VALUE",
+ *       CreatorRequestId: "STRING_VALUE",
+ *       NumberOfRecoveryPoints: Number("long"),
+ *       Locked: true || false,
+ *       MinRetentionDays: Number("long"),
+ *       MaxRetentionDays: Number("long"),
+ *       LockDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBackupVaultsCommandInput - {@link ListBackupVaultsCommandInput}
@@ -67,6 +86,8 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupVaultsCommand extends $Command<

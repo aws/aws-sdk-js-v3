@@ -55,6 +55,25 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  * };
  * const command = new DescribeClientVpnRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClientVpnRoutesResult
+ *   Routes: [ // ClientVpnRouteSet
+ *     { // ClientVpnRoute
+ *       ClientVpnEndpointId: "STRING_VALUE",
+ *       DestinationCidr: "STRING_VALUE",
+ *       TargetSubnet: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Origin: "STRING_VALUE",
+ *       Status: { // ClientVpnRouteStatus
+ *         Code: "creating" || "active" || "failed" || "deleting",
+ *         Message: "STRING_VALUE",
+ *       },
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeClientVpnRoutesCommandInput - {@link DescribeClientVpnRoutesCommandInput}
@@ -63,6 +82,8 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  * @see {@link DescribeClientVpnRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeClientVpnRoutesCommand extends $Command<

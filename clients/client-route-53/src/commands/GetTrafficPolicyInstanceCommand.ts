@@ -56,6 +56,21 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * };
  * const command = new GetTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrafficPolicyInstanceResponse
+ *   TrafficPolicyInstance: { // TrafficPolicyInstance
+ *     Id: "STRING_VALUE", // required
+ *     HostedZoneId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     TTL: Number("long"), // required
+ *     State: "STRING_VALUE", // required
+ *     Message: "STRING_VALUE", // required
+ *     TrafficPolicyId: "STRING_VALUE", // required
+ *     TrafficPolicyVersion: Number("int"), // required
+ *     TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTrafficPolicyInstanceCommandInput - {@link GetTrafficPolicyInstanceCommandInput}
@@ -70,6 +85,8 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
  *  <p>No traffic policy instance exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetTrafficPolicyInstanceCommand extends $Command<

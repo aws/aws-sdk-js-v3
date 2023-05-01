@@ -91,6 +91,11 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupNameMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterParameterGroupCommandInput - {@link ModifyDBClusterParameterGroupCommandInput}
@@ -109,6 +114,8 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *             to delete the parameter group, you can't delete it when the parameter group is in
  *             this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify parameters in a DB cluster parameter group
  * ```javascript

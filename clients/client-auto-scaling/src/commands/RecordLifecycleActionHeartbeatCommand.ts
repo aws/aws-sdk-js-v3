@@ -88,6 +88,9 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * };
  * const command = new RecordLifecycleActionHeartbeatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RecordLifecycleActionHeartbeatCommandInput - {@link RecordLifecycleActionHeartbeatCommandInput}
@@ -100,6 +103,8 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To record a lifecycle action heartbeat
  * ```javascript

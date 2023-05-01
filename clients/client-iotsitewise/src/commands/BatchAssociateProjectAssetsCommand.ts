@@ -53,6 +53,17 @@ export interface BatchAssociateProjectAssetsCommandOutput
  * };
  * const command = new BatchAssociateProjectAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateProjectAssetsResponse
+ *   errors: [ // BatchAssociateProjectAssetsErrors
+ *     { // AssetErrorDetails
+ *       assetId: "STRING_VALUE", // required
+ *       code: "INTERNAL_FAILURE", // required
+ *       message: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateProjectAssetsCommandInput - {@link BatchAssociateProjectAssetsCommandInput}
@@ -83,6 +94,8 @@ export interface BatchAssociateProjectAssetsCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchAssociateProjectAssetsCommand extends $Command<

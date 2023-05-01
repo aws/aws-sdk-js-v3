@@ -68,6 +68,9 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * };
  * const command = new UpdateTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTaskExecutionCommandInput - {@link UpdateTaskExecutionCommandInput}
@@ -83,6 +86,8 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateTaskExecutionCommand extends $Command<

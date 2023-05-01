@@ -62,6 +62,11 @@ export interface StartRecommendationReportGenerationCommandOutput
  * };
  * const command = new StartRecommendationReportGenerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRecommendationReportGenerationResponse
+ *   id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartRecommendationReportGenerationCommandInput - {@link StartRecommendationReportGenerationCommandInput}
@@ -87,6 +92,8 @@ export interface StartRecommendationReportGenerationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StartRecommendationReportGenerationCommand extends $Command<

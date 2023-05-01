@@ -50,6 +50,13 @@ export interface StartImagePipelineExecutionCommandOutput
  * };
  * const command = new StartImagePipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartImagePipelineExecutionResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   imageBuildVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartImagePipelineExecutionCommandInput - {@link StartImagePipelineExecutionCommandInput}
@@ -90,6 +97,8 @@ export interface StartImagePipelineExecutionCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class StartImagePipelineExecutionCommand extends $Command<

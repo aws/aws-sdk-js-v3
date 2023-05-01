@@ -61,6 +61,11 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * };
  * const command = new UpdateMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMetricAttributionResponse
+ *   metricAttributionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateMetricAttributionCommandInput - {@link UpdateMetricAttributionCommandInput}
@@ -81,6 +86,8 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class UpdateMetricAttributionCommand extends $Command<

@@ -44,6 +44,9 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
  * };
  * const command = new RestartSimulationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RestartSimulationJobCommandInput - {@link RestartSimulationJobCommandInput}
@@ -69,6 +72,8 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class RestartSimulationJobCommand extends $Command<

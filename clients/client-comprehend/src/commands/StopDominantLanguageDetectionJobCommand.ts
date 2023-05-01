@@ -58,6 +58,12 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * };
  * const command = new StopDominantLanguageDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDominantLanguageDetectionJobResponse
+ *   JobId: "STRING_VALUE",
+ *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * };
+ *
  * ```
  *
  * @param StopDominantLanguageDetectionJobCommandInput - {@link StopDominantLanguageDetectionJobCommandInput}
@@ -75,6 +81,8 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * @throws {@link JobNotFoundException} (client fault)
  *  <p>The specified job was not found. Check the job ID and try again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopDominantLanguageDetectionJobCommand extends $Command<

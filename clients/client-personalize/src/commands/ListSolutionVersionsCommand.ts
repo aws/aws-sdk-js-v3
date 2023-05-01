@@ -48,6 +48,20 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * };
  * const command = new ListSolutionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSolutionVersionsResponse
+ *   solutionVersions: [ // SolutionVersions
+ *     { // SolutionVersionSummary
+ *       solutionVersionArn: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       failureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSolutionVersionsCommandInput - {@link ListSolutionVersionsCommandInput}
@@ -65,6 +79,8 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListSolutionVersionsCommand extends $Command<

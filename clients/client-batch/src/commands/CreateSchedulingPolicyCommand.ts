@@ -57,6 +57,12 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * };
  * const command = new CreateSchedulingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSchedulingPolicyResponse
+ *   name: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateSchedulingPolicyCommandInput - {@link CreateSchedulingPolicyCommandInput}
@@ -73,6 +79,8 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  */
 export class CreateSchedulingPolicyCommand extends $Command<

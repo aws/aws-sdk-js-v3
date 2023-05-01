@@ -57,6 +57,13 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * };
  * const command = new ImportComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportComponentResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   componentBuildVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ImportComponentCommandInput - {@link ImportComponentCommandInput}
@@ -101,6 +108,8 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ImportComponentCommand extends $Command<

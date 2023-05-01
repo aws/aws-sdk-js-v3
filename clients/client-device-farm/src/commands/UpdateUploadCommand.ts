@@ -47,6 +47,22 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  * };
  * const command = new UpdateUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUploadResult
+ *   upload: { // Upload
+ *     arn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     created: new Date("TIMESTAMP"),
+ *     type: "ANDROID_APP" || "IOS_APP" || "WEB_APP" || "EXTERNAL_DATA" || "APPIUM_JAVA_JUNIT_TEST_PACKAGE" || "APPIUM_JAVA_TESTNG_TEST_PACKAGE" || "APPIUM_PYTHON_TEST_PACKAGE" || "APPIUM_NODE_TEST_PACKAGE" || "APPIUM_RUBY_TEST_PACKAGE" || "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE" || "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE" || "APPIUM_WEB_PYTHON_TEST_PACKAGE" || "APPIUM_WEB_NODE_TEST_PACKAGE" || "APPIUM_WEB_RUBY_TEST_PACKAGE" || "CALABASH_TEST_PACKAGE" || "INSTRUMENTATION_TEST_PACKAGE" || "UIAUTOMATION_TEST_PACKAGE" || "UIAUTOMATOR_TEST_PACKAGE" || "XCTEST_TEST_PACKAGE" || "XCTEST_UI_TEST_PACKAGE" || "APPIUM_JAVA_JUNIT_TEST_SPEC" || "APPIUM_JAVA_TESTNG_TEST_SPEC" || "APPIUM_PYTHON_TEST_SPEC" || "APPIUM_NODE_TEST_SPEC" || "APPIUM_RUBY_TEST_SPEC" || "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC" || "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC" || "APPIUM_WEB_PYTHON_TEST_SPEC" || "APPIUM_WEB_NODE_TEST_SPEC" || "APPIUM_WEB_RUBY_TEST_SPEC" || "INSTRUMENTATION_TEST_SPEC" || "XCTEST_UI_TEST_SPEC",
+ *     status: "INITIALIZED" || "PROCESSING" || "SUCCEEDED" || "FAILED",
+ *     url: "STRING_VALUE",
+ *     metadata: "STRING_VALUE",
+ *     contentType: "STRING_VALUE",
+ *     message: "STRING_VALUE",
+ *     category: "CURATED" || "PRIVATE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateUploadCommandInput - {@link UpdateUploadCommandInput}
@@ -67,6 +83,8 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateUploadCommand extends $Command<

@@ -93,6 +93,11 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageResult
+ *   ImageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateImageCommandInput - {@link CreateImageCommandInput}
@@ -101,6 +106,8 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create an AMI from an Amazon EBS-backed instance
  * ```javascript

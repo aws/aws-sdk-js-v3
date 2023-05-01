@@ -49,6 +49,17 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * };
  * const command = new ListVpcIngressConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcIngressConnectionsResponse
+ *   VpcIngressConnectionSummaryList: [ // VpcIngressConnectionSummaryList // required
+ *     { // VpcIngressConnectionSummary
+ *       VpcIngressConnectionArn: "STRING_VALUE",
+ *       ServiceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListVpcIngressConnectionsCommandInput - {@link ListVpcIngressConnectionsCommandInput}
@@ -63,6 +74,8 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class ListVpcIngressConnectionsCommand extends $Command<

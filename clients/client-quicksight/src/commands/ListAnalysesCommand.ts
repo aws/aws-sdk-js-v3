@@ -46,6 +46,23 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
  * };
  * const command = new ListAnalysesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnalysesResponse
+ *   AnalysisSummaryList: [ // AnalysisSummaryList
+ *     { // AnalysisSummary
+ *       Arn: "STRING_VALUE",
+ *       AnalysisId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAnalysesCommandInput - {@link ListAnalysesCommandInput}
@@ -69,6 +86,8 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListAnalysesCommand extends $Command<

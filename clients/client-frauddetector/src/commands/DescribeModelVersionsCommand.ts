@@ -48,6 +48,172 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  * };
  * const command = new DescribeModelVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeModelVersionsResult
+ *   modelVersionDetails: [ // modelVersionDetailList
+ *     { // ModelVersionDetail
+ *       modelId: "STRING_VALUE",
+ *       modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ *       modelVersionNumber: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       trainingDataSource: "EXTERNAL_EVENTS" || "INGESTED_EVENTS",
+ *       trainingDataSchema: { // TrainingDataSchema
+ *         modelVariables: [ // ListOfStrings // required
+ *           "STRING_VALUE",
+ *         ],
+ *         labelSchema: { // LabelSchema
+ *           labelMapper: { // labelMapper
+ *             "<keys>": [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           unlabeledEventsTreatment: "IGNORE" || "FRAUD" || "LEGIT" || "AUTO",
+ *         },
+ *       },
+ *       externalEventsDetail: { // ExternalEventsDetail
+ *         dataLocation: "STRING_VALUE", // required
+ *         dataAccessRoleArn: "STRING_VALUE", // required
+ *       },
+ *       ingestedEventsDetail: { // IngestedEventsDetail
+ *         ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
+ *           startTime: "STRING_VALUE", // required
+ *           endTime: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       trainingResult: { // TrainingResult
+ *         dataValidationMetrics: { // DataValidationMetrics
+ *           fileLevelMessages: [ // fileValidationMessageList
+ *             { // FileValidationMessage
+ *               title: "STRING_VALUE",
+ *               content: "STRING_VALUE",
+ *               type: "STRING_VALUE",
+ *             },
+ *           ],
+ *           fieldLevelMessages: [ // fieldValidationMessageList
+ *             { // FieldValidationMessage
+ *               fieldName: "STRING_VALUE",
+ *               identifier: "STRING_VALUE",
+ *               title: "STRING_VALUE",
+ *               content: "STRING_VALUE",
+ *               type: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         trainingMetrics: { // TrainingMetrics
+ *           auc: Number("float"),
+ *           metricDataPoints: [ // metricDataPointsList
+ *             { // MetricDataPoint
+ *               fpr: Number("float"),
+ *               precision: Number("float"),
+ *               tpr: Number("float"),
+ *               threshold: Number("float"),
+ *             },
+ *           ],
+ *         },
+ *         variableImportanceMetrics: { // VariableImportanceMetrics
+ *           logOddsMetrics: [ // ListOfLogOddsMetrics
+ *             { // LogOddsMetric
+ *               variableName: "STRING_VALUE", // required
+ *               variableType: "STRING_VALUE", // required
+ *               variableImportance: Number("float"), // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       lastUpdatedTime: "STRING_VALUE",
+ *       createdTime: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       trainingResultV2: { // TrainingResultV2
+ *         dataValidationMetrics: {
+ *           fileLevelMessages: [
+ *             {
+ *               title: "STRING_VALUE",
+ *               content: "STRING_VALUE",
+ *               type: "STRING_VALUE",
+ *             },
+ *           ],
+ *           fieldLevelMessages: [
+ *             {
+ *               fieldName: "STRING_VALUE",
+ *               identifier: "STRING_VALUE",
+ *               title: "STRING_VALUE",
+ *               content: "STRING_VALUE",
+ *               type: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         trainingMetricsV2: { // TrainingMetricsV2
+ *           ofi: { // OFITrainingMetricsValue
+ *             metricDataPoints: [ // OFIMetricDataPointsList
+ *               { // OFIMetricDataPoint
+ *                 fpr: Number("float"),
+ *                 precision: Number("float"),
+ *                 tpr: Number("float"),
+ *                 threshold: Number("float"),
+ *               },
+ *             ],
+ *             modelPerformance: { // OFIModelPerformance
+ *               auc: Number("float"),
+ *               uncertaintyRange: { // UncertaintyRange
+ *                 lowerBoundValue: Number("float"), // required
+ *                 upperBoundValue: Number("float"), // required
+ *               },
+ *             },
+ *           },
+ *           tfi: { // TFITrainingMetricsValue
+ *             metricDataPoints: [ // TFIMetricDataPointsList
+ *               { // TFIMetricDataPoint
+ *                 fpr: Number("float"),
+ *                 precision: Number("float"),
+ *                 tpr: Number("float"),
+ *                 threshold: Number("float"),
+ *               },
+ *             ],
+ *             modelPerformance: { // TFIModelPerformance
+ *               auc: Number("float"),
+ *               uncertaintyRange: {
+ *                 lowerBoundValue: Number("float"), // required
+ *                 upperBoundValue: Number("float"), // required
+ *               },
+ *             },
+ *           },
+ *           ati: { // ATITrainingMetricsValue
+ *             metricDataPoints: [ // ATIMetricDataPointsList
+ *               { // ATIMetricDataPoint
+ *                 cr: Number("float"),
+ *                 adr: Number("float"),
+ *                 threshold: Number("float"),
+ *                 atodr: Number("float"),
+ *               },
+ *             ],
+ *             modelPerformance: { // ATIModelPerformance
+ *               asi: Number("float"),
+ *             },
+ *           },
+ *         },
+ *         variableImportanceMetrics: {
+ *           logOddsMetrics: [
+ *             {
+ *               variableName: "STRING_VALUE", // required
+ *               variableType: "STRING_VALUE", // required
+ *               variableImportance: Number("float"), // required
+ *             },
+ *           ],
+ *         },
+ *         aggregatedVariablesImportanceMetrics: { // AggregatedVariablesImportanceMetrics
+ *           logOddsMetrics: [ // ListOfAggregatedLogOddsMetrics
+ *             { // AggregatedLogOddsMetric
+ *               variableNames: "<ListOfStrings>", // required
+ *               aggregatedVariablesImportance: Number("float"), // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeModelVersionsCommandInput - {@link DescribeModelVersionsCommandInput}
@@ -71,6 +237,8 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DescribeModelVersionsCommand extends $Command<

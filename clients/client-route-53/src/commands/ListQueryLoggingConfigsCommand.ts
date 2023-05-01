@@ -52,6 +52,18 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * };
  * const command = new ListQueryLoggingConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueryLoggingConfigsResponse
+ *   QueryLoggingConfigs: [ // QueryLoggingConfigs // required
+ *     { // QueryLoggingConfig
+ *       Id: "STRING_VALUE", // required
+ *       HostedZoneId: "STRING_VALUE", // required
+ *       CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListQueryLoggingConfigsCommandInput - {@link ListQueryLoggingConfigsCommandInput}
@@ -70,6 +82,8 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListQueryLoggingConfigsCommand extends $Command<

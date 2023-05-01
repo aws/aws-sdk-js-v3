@@ -63,6 +63,12 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * };
  * const command = new UpdateAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAccessResponse
+ *   ServerId: "STRING_VALUE", // required
+ *   ExternalId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateAccessCommandInput - {@link UpdateAccessCommandInput}
@@ -90,6 +96,8 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateAccessCommand extends $Command<

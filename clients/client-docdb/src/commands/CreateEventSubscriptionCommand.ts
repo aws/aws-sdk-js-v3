@@ -61,6 +61,26 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: "STRING_VALUE",
+ *     CustSubscriptionId: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     SubscriptionCreationTime: "STRING_VALUE",
+ *     SourceType: "STRING_VALUE",
+ *     SourceIdsList: [ // SourceIdsList
+ *       "STRING_VALUE",
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       "STRING_VALUE",
+ *     ],
+ *     Enabled: true || false,
+ *     EventSubscriptionArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
@@ -90,6 +110,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
  *  <p>The provided category does not exist. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<

@@ -64,6 +64,19 @@ export interface CreateServiceSpecificCredentialCommandOutput
  * };
  * const command = new CreateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceSpecificCredentialResponse
+ *   ServiceSpecificCredential: { // ServiceSpecificCredential
+ *     CreateDate: new Date("TIMESTAMP"), // required
+ *     ServiceName: "STRING_VALUE", // required
+ *     ServiceUserName: "STRING_VALUE", // required
+ *     ServicePassword: "STRING_VALUE", // required
+ *     ServiceSpecificCredentialId: "STRING_VALUE", // required
+ *     UserName: "STRING_VALUE", // required
+ *     Status: "Active" || "Inactive", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServiceSpecificCredentialCommandInput - {@link CreateServiceSpecificCredentialCommandInput}
@@ -83,6 +96,8 @@ export interface CreateServiceSpecificCredentialCommandOutput
  * @throws {@link ServiceNotSupportedException} (client fault)
  *  <p>The specified service does not support service-specific credentials.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class CreateServiceSpecificCredentialCommand extends $Command<

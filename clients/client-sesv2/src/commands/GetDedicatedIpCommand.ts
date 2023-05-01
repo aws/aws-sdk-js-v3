@@ -46,6 +46,16 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * };
  * const command = new GetDedicatedIpCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDedicatedIpResponse
+ *   DedicatedIp: { // DedicatedIp
+ *     Ip: "STRING_VALUE", // required
+ *     WarmupStatus: "IN_PROGRESS" || "DONE", // required
+ *     WarmupPercentage: Number("int"), // required
+ *     PoolName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDedicatedIpCommandInput - {@link GetDedicatedIpCommandInput}
@@ -63,6 +73,8 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetDedicatedIpCommand extends $Command<

@@ -44,6 +44,11 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * };
  * const command = new StopRecommenderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopRecommenderResponse
+ *   recommenderArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
@@ -61,6 +66,8 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class StopRecommenderCommand extends $Command<

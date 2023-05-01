@@ -73,6 +73,23 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionsResponse
+ *   Permissions: [ // PermissionList
+ *     { // Permission
+ *       CertificateAuthorityArn: "STRING_VALUE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       Principal: "STRING_VALUE",
+ *       SourceAccount: "STRING_VALUE",
+ *       Actions: [ // ActionList
+ *         "IssueCertificate" || "GetCertificate" || "ListPermissions",
+ *       ],
+ *       Policy: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
@@ -99,6 +116,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class ListPermissionsCommand extends $Command<

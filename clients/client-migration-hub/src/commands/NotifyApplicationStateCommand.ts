@@ -50,6 +50,9 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * };
  * const command = new NotifyApplicationStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param NotifyApplicationStateCommandInput - {@link NotifyApplicationStateCommandInput}
@@ -97,6 +100,8 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class NotifyApplicationStateCommand extends $Command<

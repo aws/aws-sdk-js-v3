@@ -44,6 +44,9 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * };
  * const command = new BackTestAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param BackTestAnomalyDetectorCommandInput - {@link BackTestAnomalyDetectorCommandInput}
@@ -68,6 +71,8 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class BackTestAnomalyDetectorCommand extends $Command<

@@ -51,6 +51,9 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * };
  * const command = new SendAutomationSignalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendAutomationSignalCommandInput - {@link SendAutomationSignalCommandInput}
@@ -73,6 +76,8 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * @throws {@link InvalidAutomationSignalException} (client fault)
  *  <p>The signal isn't valid for the current Automation execution.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class SendAutomationSignalCommand extends $Command<

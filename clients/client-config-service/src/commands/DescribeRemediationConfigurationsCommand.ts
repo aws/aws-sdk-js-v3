@@ -54,6 +54,42 @@ export interface DescribeRemediationConfigurationsCommandOutput
  * };
  * const command = new DescribeRemediationConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRemediationConfigurationsResponse
+ *   RemediationConfigurations: [ // RemediationConfigurations
+ *     { // RemediationConfiguration
+ *       ConfigRuleName: "STRING_VALUE", // required
+ *       TargetType: "SSM_DOCUMENT", // required
+ *       TargetId: "STRING_VALUE", // required
+ *       TargetVersion: "STRING_VALUE",
+ *       Parameters: { // RemediationParameters
+ *         "<keys>": { // RemediationParameterValue
+ *           ResourceValue: { // ResourceValue
+ *             Value: "RESOURCE_ID", // required
+ *           },
+ *           StaticValue: { // StaticValue
+ *             Values: [ // StaticParameterValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *       ResourceType: "STRING_VALUE",
+ *       Automatic: true || false,
+ *       ExecutionControls: { // ExecutionControls
+ *         SsmControls: { // SsmControls
+ *           ConcurrentExecutionRatePercentage: Number("int"),
+ *           ErrorPercentage: Number("int"),
+ *         },
+ *       },
+ *       MaximumAutomaticAttempts: Number("int"),
+ *       RetryAttemptSeconds: Number("long"),
+ *       Arn: "STRING_VALUE",
+ *       CreatedByService: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeRemediationConfigurationsCommandInput - {@link DescribeRemediationConfigurationsCommandInput}
@@ -62,6 +98,8 @@ export interface DescribeRemediationConfigurationsCommandOutput
  * @see {@link DescribeRemediationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeRemediationConfigurationsCommand extends $Command<

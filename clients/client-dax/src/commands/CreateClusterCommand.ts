@@ -68,6 +68,65 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterResponse
+ *   Cluster: { // Cluster
+ *     ClusterName: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     ClusterArn: "STRING_VALUE",
+ *     TotalNodes: Number("int"),
+ *     ActiveNodes: Number("int"),
+ *     NodeType: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     ClusterDiscoveryEndpoint: { // Endpoint
+ *       Address: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       URL: "STRING_VALUE",
+ *     },
+ *     NodeIdsToRemove: [ // NodeIdentifierList
+ *       "STRING_VALUE",
+ *     ],
+ *     Nodes: [ // NodeList
+ *       { // Node
+ *         NodeId: "STRING_VALUE",
+ *         Endpoint: {
+ *           Address: "STRING_VALUE",
+ *           Port: Number("int"),
+ *           URL: "STRING_VALUE",
+ *         },
+ *         NodeCreateTime: new Date("TIMESTAMP"),
+ *         AvailabilityZone: "STRING_VALUE",
+ *         NodeStatus: "STRING_VALUE",
+ *         ParameterGroupStatus: "STRING_VALUE",
+ *       },
+ *     ],
+ *     PreferredMaintenanceWindow: "STRING_VALUE",
+ *     NotificationConfiguration: { // NotificationConfiguration
+ *       TopicArn: "STRING_VALUE",
+ *       TopicStatus: "STRING_VALUE",
+ *     },
+ *     SubnetGroup: "STRING_VALUE",
+ *     SecurityGroups: [ // SecurityGroupMembershipList
+ *       { // SecurityGroupMembership
+ *         SecurityGroupIdentifier: "STRING_VALUE",
+ *         Status: "STRING_VALUE",
+ *       },
+ *     ],
+ *     IamRoleArn: "STRING_VALUE",
+ *     ParameterGroup: { // ParameterGroupStatus
+ *       ParameterGroupName: "STRING_VALUE",
+ *       ParameterApplyStatus: "STRING_VALUE",
+ *       NodeIdsToReboot: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     SSEDescription: { // SSEDescription
+ *       Status: "STRING_VALUE",
+ *     },
+ *     ClusterEndpointEncryptionType: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
@@ -129,6 +188,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class CreateClusterCommand extends $Command<

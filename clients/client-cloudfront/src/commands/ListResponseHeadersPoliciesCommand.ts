@@ -53,6 +53,108 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
  * };
  * const command = new ListResponseHeadersPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResponseHeadersPoliciesResult
+ *   ResponseHeadersPolicyList: { // ResponseHeadersPolicyList
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // ResponseHeadersPolicySummaryList
+ *       { // ResponseHeadersPolicySummary
+ *         Type: "managed" || "custom", // required
+ *         ResponseHeadersPolicy: { // ResponseHeadersPolicy
+ *           Id: "STRING_VALUE", // required
+ *           LastModifiedTime: new Date("TIMESTAMP"), // required
+ *           ResponseHeadersPolicyConfig: { // ResponseHeadersPolicyConfig
+ *             Comment: "STRING_VALUE",
+ *             Name: "STRING_VALUE", // required
+ *             CorsConfig: { // ResponseHeadersPolicyCorsConfig
+ *               AccessControlAllowOrigins: { // ResponseHeadersPolicyAccessControlAllowOrigins
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // AccessControlAllowOriginsList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               AccessControlAllowHeaders: { // ResponseHeadersPolicyAccessControlAllowHeaders
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // AccessControlAllowHeadersList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               AccessControlAllowMethods: { // ResponseHeadersPolicyAccessControlAllowMethods
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // AccessControlAllowMethodsList // required
+ *                   "GET" || "POST" || "OPTIONS" || "PUT" || "DELETE" || "PATCH" || "HEAD" || "ALL",
+ *                 ],
+ *               },
+ *               AccessControlAllowCredentials: true || false, // required
+ *               AccessControlExposeHeaders: { // ResponseHeadersPolicyAccessControlExposeHeaders
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // AccessControlExposeHeadersList
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               AccessControlMaxAgeSec: Number("int"),
+ *               OriginOverride: true || false, // required
+ *             },
+ *             SecurityHeadersConfig: { // ResponseHeadersPolicySecurityHeadersConfig
+ *               XSSProtection: { // ResponseHeadersPolicyXSSProtection
+ *                 Override: true || false, // required
+ *                 Protection: true || false, // required
+ *                 ModeBlock: true || false,
+ *                 ReportUri: "STRING_VALUE",
+ *               },
+ *               FrameOptions: { // ResponseHeadersPolicyFrameOptions
+ *                 Override: true || false, // required
+ *                 FrameOption: "DENY" || "SAMEORIGIN", // required
+ *               },
+ *               ReferrerPolicy: { // ResponseHeadersPolicyReferrerPolicy
+ *                 Override: true || false, // required
+ *                 ReferrerPolicy: "no-referrer" || "no-referrer-when-downgrade" || "origin" || "origin-when-cross-origin" || "same-origin" || "strict-origin" || "strict-origin-when-cross-origin" || "unsafe-url", // required
+ *               },
+ *               ContentSecurityPolicy: { // ResponseHeadersPolicyContentSecurityPolicy
+ *                 Override: true || false, // required
+ *                 ContentSecurityPolicy: "STRING_VALUE", // required
+ *               },
+ *               ContentTypeOptions: { // ResponseHeadersPolicyContentTypeOptions
+ *                 Override: true || false, // required
+ *               },
+ *               StrictTransportSecurity: { // ResponseHeadersPolicyStrictTransportSecurity
+ *                 Override: true || false, // required
+ *                 IncludeSubdomains: true || false,
+ *                 Preload: true || false,
+ *                 AccessControlMaxAgeSec: Number("int"), // required
+ *               },
+ *             },
+ *             ServerTimingHeadersConfig: { // ResponseHeadersPolicyServerTimingHeadersConfig
+ *               Enabled: true || false, // required
+ *               SamplingRate: Number("double"),
+ *             },
+ *             CustomHeadersConfig: { // ResponseHeadersPolicyCustomHeadersConfig
+ *               Quantity: Number("int"), // required
+ *               Items: [ // ResponseHeadersPolicyCustomHeaderList
+ *                 { // ResponseHeadersPolicyCustomHeader
+ *                   Header: "STRING_VALUE", // required
+ *                   Value: "STRING_VALUE", // required
+ *                   Override: true || false, // required
+ *                 },
+ *               ],
+ *             },
+ *             RemoveHeadersConfig: { // ResponseHeadersPolicyRemoveHeadersConfig
+ *               Quantity: Number("int"), // required
+ *               Items: [ // ResponseHeadersPolicyRemoveHeaderList
+ *                 { // ResponseHeadersPolicyRemoveHeader
+ *                   Header: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListResponseHeadersPoliciesCommandInput - {@link ListResponseHeadersPoliciesCommandInput}
@@ -70,6 +172,8 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
  * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
  *  <p>The response headers policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListResponseHeadersPoliciesCommand extends $Command<

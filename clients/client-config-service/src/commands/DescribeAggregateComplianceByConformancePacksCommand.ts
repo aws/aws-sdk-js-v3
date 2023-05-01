@@ -65,6 +65,24 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  * };
  * const command = new DescribeAggregateComplianceByConformancePacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAggregateComplianceByConformancePacksResponse
+ *   AggregateComplianceByConformancePacks: [ // AggregateComplianceByConformancePackList
+ *     { // AggregateComplianceByConformancePack
+ *       ConformancePackName: "STRING_VALUE",
+ *       Compliance: { // AggregateConformancePackCompliance
+ *         ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
+ *         CompliantRuleCount: Number("int"),
+ *         NonCompliantRuleCount: Number("int"),
+ *         TotalRuleCount: Number("int"),
+ *       },
+ *       AccountId: "STRING_VALUE",
+ *       AwsRegion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAggregateComplianceByConformancePacksCommandInput - {@link DescribeAggregateComplianceByConformancePacksCommandInput}
@@ -89,6 +107,8 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeAggregateComplianceByConformancePacksCommand extends $Command<

@@ -83,6 +83,22 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * };
  * const command = new PollForActivityTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivityTask
+ *   taskToken: "STRING_VALUE", // required
+ *   activityId: "STRING_VALUE", // required
+ *   startedEventId: Number("long"), // required
+ *   workflowExecution: { // WorkflowExecution
+ *     workflowId: "STRING_VALUE", // required
+ *     runId: "STRING_VALUE", // required
+ *   },
+ *   activityType: { // ActivityType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ *   input: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PollForActivityTaskCommandInput - {@link PollForActivityTaskCommandInput}
@@ -100,6 +116,8 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class PollForActivityTaskCommand extends $Command<

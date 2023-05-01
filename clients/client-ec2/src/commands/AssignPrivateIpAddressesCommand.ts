@@ -68,6 +68,21 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssignPrivateIpAddressesResult
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   AssignedPrivateIpAddresses: [ // AssignedPrivateIpAddressList
+ *     { // AssignedPrivateIpAddress
+ *       PrivateIpAddress: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AssignedIpv4Prefixes: [ // Ipv4PrefixesList
+ *     { // Ipv4PrefixSpecification
+ *       Ipv4Prefix: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssignPrivateIpAddressesCommandInput - {@link AssignPrivateIpAddressesCommandInput}
@@ -76,6 +91,8 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To assign a specific secondary private IP address to an interface
  * ```javascript

@@ -54,6 +54,14 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * };
  * const command = new PutRetentionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRetentionConfigurationResponse
+ *   RetentionConfiguration: { // RetentionConfiguration
+ *     Name: "STRING_VALUE", // required
+ *     RetentionPeriodInDays: Number("int"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRetentionConfigurationCommandInput - {@link PutRetentionConfigurationCommandInput}
@@ -69,6 +77,8 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * @throws {@link MaxNumberOfRetentionConfigurationsExceededException} (client fault)
  *  <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutRetentionConfigurationCommand extends $Command<

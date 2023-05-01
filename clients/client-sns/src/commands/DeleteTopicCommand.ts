@@ -47,6 +47,9 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTopicCommandInput - {@link DeleteTopicCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  *  <p>The request doesn't comply with the IAM tag policy. Correct your request and then
  *             retry it.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class DeleteTopicCommand extends $Command<

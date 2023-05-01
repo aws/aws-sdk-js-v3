@@ -60,6 +60,27 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWebhookOutput
+ *   webhook: { // Webhook
+ *     url: "STRING_VALUE",
+ *     payloadUrl: "STRING_VALUE",
+ *     secret: "STRING_VALUE",
+ *     branchFilter: "STRING_VALUE",
+ *     filterGroups: [ // FilterGroups
+ *       [ // FilterGroup
+ *         { // WebhookFilter
+ *           type: "STRING_VALUE", // required
+ *           pattern: "STRING_VALUE", // required
+ *           excludeMatchedPattern: true || false,
+ *         },
+ *       ],
+ *     ],
+ *     buildType: "STRING_VALUE",
+ *     lastModifiedSecret: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateWebhookCommandInput - {@link UpdateWebhookCommandInput}
@@ -77,6 +98,8 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class UpdateWebhookCommand extends $Command<

@@ -45,6 +45,18 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  * };
  * const command = new DescribeScheduledAuditCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScheduledAuditResponse
+ *   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",
+ *   dayOfMonth: "STRING_VALUE",
+ *   dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
+ *   targetCheckNames: [ // TargetAuditCheckNames
+ *     "STRING_VALUE",
+ *   ],
+ *   scheduledAuditName: "STRING_VALUE",
+ *   scheduledAuditArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeScheduledAuditCommandInput - {@link DescribeScheduledAuditCommandInput}
@@ -65,6 +77,8 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeScheduledAuditCommand extends $Command<

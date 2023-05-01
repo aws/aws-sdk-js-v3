@@ -48,6 +48,20 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * };
  * const command = new ListSkillsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSkillsResponse
+ *   SkillSummaries: [ // SkillSummaryList
+ *     { // SkillSummary
+ *       SkillId: "STRING_VALUE",
+ *       SkillName: "STRING_VALUE",
+ *       SupportsLinking: true || false,
+ *       EnablementType: "STRING_VALUE",
+ *       SkillType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSkillsCommandInput - {@link ListSkillsCommandInput}
@@ -56,6 +70,8 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * @see {@link ListSkillsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListSkillsCommand extends $Command<

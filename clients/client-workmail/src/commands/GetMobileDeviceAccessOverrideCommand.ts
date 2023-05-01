@@ -51,6 +51,16 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * };
  * const command = new GetMobileDeviceAccessOverrideCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMobileDeviceAccessOverrideResponse
+ *   UserId: "STRING_VALUE",
+ *   DeviceId: "STRING_VALUE",
+ *   Effect: "ALLOW" || "DENY",
+ *   Description: "STRING_VALUE",
+ *   DateCreated: new Date("TIMESTAMP"),
+ *   DateModified: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetMobileDeviceAccessOverrideCommandInput - {@link GetMobileDeviceAccessOverrideCommandInput}
@@ -77,6 +87,8 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetMobileDeviceAccessOverrideCommand extends $Command<

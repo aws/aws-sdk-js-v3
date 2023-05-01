@@ -65,6 +65,11 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * };
  * const command = new ModifyHsmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyHsmResponse
+ *   HsmArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ModifyHsmCommandInput - {@link ModifyHsmCommandInput}
@@ -82,6 +87,8 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ModifyHsmCommand extends $Command<

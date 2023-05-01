@@ -49,6 +49,14 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApiDestinationResponse
+ *   ApiDestinationArn: "STRING_VALUE",
+ *   ApiDestinationState: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateApiDestinationCommandInput - {@link UpdateApiDestinationCommandInput}
@@ -70,6 +78,8 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class UpdateApiDestinationCommand extends $Command<

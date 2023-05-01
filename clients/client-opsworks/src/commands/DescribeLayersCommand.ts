@@ -55,6 +55,93 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  * };
  * const command = new DescribeLayersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLayersResult
+ *   Layers: [ // Layers
+ *     { // Layer
+ *       Arn: "STRING_VALUE",
+ *       StackId: "STRING_VALUE",
+ *       LayerId: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Shortname: "STRING_VALUE",
+ *       Attributes: { // LayerAttributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       CloudWatchLogsConfiguration: { // CloudWatchLogsConfiguration
+ *         Enabled: true || false,
+ *         LogStreams: [ // CloudWatchLogsLogStreams
+ *           { // CloudWatchLogsLogStream
+ *             LogGroupName: "STRING_VALUE",
+ *             DatetimeFormat: "STRING_VALUE",
+ *             TimeZone: "STRING_VALUE",
+ *             File: "STRING_VALUE",
+ *             FileFingerprintLines: "STRING_VALUE",
+ *             MultiLineStartPattern: "STRING_VALUE",
+ *             InitialPosition: "STRING_VALUE",
+ *             Encoding: "STRING_VALUE",
+ *             BufferDuration: Number("int"),
+ *             BatchCount: Number("int"),
+ *             BatchSize: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       CustomInstanceProfileArn: "STRING_VALUE",
+ *       CustomJson: "STRING_VALUE",
+ *       CustomSecurityGroupIds: [ // Strings
+ *         "STRING_VALUE",
+ *       ],
+ *       DefaultSecurityGroupNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Packages: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VolumeConfigurations: [ // VolumeConfigurations
+ *         { // VolumeConfiguration
+ *           MountPoint: "STRING_VALUE", // required
+ *           RaidLevel: Number("int"),
+ *           NumberOfDisks: Number("int"), // required
+ *           Size: Number("int"), // required
+ *           VolumeType: "STRING_VALUE",
+ *           Iops: Number("int"),
+ *           Encrypted: true || false,
+ *         },
+ *       ],
+ *       EnableAutoHealing: true || false,
+ *       AutoAssignElasticIps: true || false,
+ *       AutoAssignPublicIps: true || false,
+ *       DefaultRecipes: { // Recipes
+ *         Setup: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Configure: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Deploy: "<Strings>",
+ *         Undeploy: "<Strings>",
+ *         Shutdown: "<Strings>",
+ *       },
+ *       CustomRecipes: {
+ *         Setup: "<Strings>",
+ *         Configure: "<Strings>",
+ *         Deploy: "<Strings>",
+ *         Undeploy: "<Strings>",
+ *         Shutdown: "<Strings>",
+ *       },
+ *       CreatedAt: "STRING_VALUE",
+ *       InstallUpdatesOnBoot: true || false,
+ *       UseEbsOptimizedInstances: true || false,
+ *       LifecycleEventConfiguration: { // LifecycleEventConfiguration
+ *         Shutdown: { // ShutdownEventConfiguration
+ *           ExecutionTimeout: Number("int"),
+ *           DelayUntilElbConnectionsDrained: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeLayersCommandInput - {@link DescribeLayersCommandInput}
@@ -69,6 +156,8 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeLayersCommand extends $Command<

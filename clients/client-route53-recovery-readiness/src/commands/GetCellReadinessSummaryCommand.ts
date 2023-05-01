@@ -50,6 +50,18 @@ export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSu
  * };
  * const command = new GetCellReadinessSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCellReadinessSummaryResponse
+ *   NextToken: "STRING_VALUE",
+ *   Readiness: "STRING_VALUE",
+ *   ReadinessChecks: [ // __listOfReadinessCheckSummary
+ *     { // ReadinessCheckSummary
+ *       Readiness: "STRING_VALUE",
+ *       ReadinessCheckName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCellReadinessSummaryCommandInput - {@link GetCellReadinessSummaryCommandInput}
@@ -73,6 +85,8 @@ export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSu
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetCellReadinessSummaryCommand extends $Command<

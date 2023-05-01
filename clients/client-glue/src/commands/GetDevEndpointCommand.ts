@@ -49,6 +49,43 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
  * };
  * const command = new GetDevEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDevEndpointResponse
+ *   DevEndpoint: { // DevEndpoint
+ *     EndpointName: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     SecurityGroupIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     SubnetId: "STRING_VALUE",
+ *     YarnEndpointAddress: "STRING_VALUE",
+ *     PrivateAddress: "STRING_VALUE",
+ *     ZeppelinRemoteSparkInterpreterPort: Number("int"),
+ *     PublicAddress: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *     GlueVersion: "STRING_VALUE",
+ *     NumberOfWorkers: Number("int"),
+ *     NumberOfNodes: Number("int"),
+ *     AvailabilityZone: "STRING_VALUE",
+ *     VpcId: "STRING_VALUE",
+ *     ExtraPythonLibsS3Path: "STRING_VALUE",
+ *     ExtraJarsS3Path: "STRING_VALUE",
+ *     FailureReason: "STRING_VALUE",
+ *     LastUpdateStatus: "STRING_VALUE",
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     LastModifiedTimestamp: new Date("TIMESTAMP"),
+ *     PublicKey: "STRING_VALUE",
+ *     PublicKeys: [ // PublicKeysList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityConfiguration: "STRING_VALUE",
+ *     Arguments: { // MapValue
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDevEndpointCommandInput - {@link GetDevEndpointCommandInput}
@@ -69,6 +106,8 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDevEndpointCommand extends $Command<

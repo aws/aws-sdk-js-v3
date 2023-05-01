@@ -55,6 +55,18 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * };
  * const command = new DescribeContinuousBackupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeContinuousBackupsOutput
+ *   ContinuousBackupsDescription: { // ContinuousBackupsDescription
+ *     ContinuousBackupsStatus: "ENABLED" || "DISABLED", // required
+ *     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
+ *       PointInTimeRecoveryStatus: "ENABLED" || "DISABLED",
+ *       EarliestRestorableDateTime: new Date("TIMESTAMP"),
+ *       LatestRestorableDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeContinuousBackupsCommandInput - {@link DescribeContinuousBackupsCommandInput}
@@ -72,6 +84,8 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeContinuousBackupsCommand extends $Command<

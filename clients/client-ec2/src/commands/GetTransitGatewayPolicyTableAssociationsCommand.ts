@@ -64,6 +64,20 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * };
  * const command = new GetTransitGatewayPolicyTableAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayPolicyTableAssociationsResult
+ *   Associations: [ // TransitGatewayPolicyTableAssociationList
+ *     { // TransitGatewayPolicyTableAssociation
+ *       TransitGatewayPolicyTableId: "STRING_VALUE",
+ *       TransitGatewayAttachmentId: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ *       State: "associating" || "associated" || "disassociating" || "disassociated",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayPolicyTableAssociationsCommandInput - {@link GetTransitGatewayPolicyTableAssociationsCommandInput}
@@ -72,6 +86,8 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * @see {@link GetTransitGatewayPolicyTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command<

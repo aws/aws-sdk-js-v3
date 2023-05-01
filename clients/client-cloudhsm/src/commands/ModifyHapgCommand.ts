@@ -58,6 +58,11 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * };
  * const command = new ModifyHapgCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyHapgResponse
+ *   HapgArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ModifyHapgCommandInput - {@link ModifyHapgCommandInput}
@@ -75,6 +80,8 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ModifyHapgCommand extends $Command<

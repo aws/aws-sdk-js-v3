@@ -48,6 +48,16 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainNamesResponse
+ *   DomainNames: [ // DomainInfoList
+ *     { // DomainInfo
+ *       DomainName: "STRING_VALUE",
+ *       EngineType: "OpenSearch" || "Elasticsearch",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
@@ -62,6 +72,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListDomainNamesCommand extends $Command<

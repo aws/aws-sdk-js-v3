@@ -45,6 +45,24 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * };
  * const command = new GetOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpenIDConnectProviderResponse
+ *   Url: "STRING_VALUE",
+ *   ClientIDList: [ // clientIDListType
+ *     "STRING_VALUE",
+ *   ],
+ *   ThumbprintList: [ // thumbprintListType
+ *     "STRING_VALUE",
+ *   ],
+ *   CreateDate: new Date("TIMESTAMP"),
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetOpenIDConnectProviderCommandInput - {@link GetOpenIDConnectProviderCommandInput}
@@ -65,6 +83,8 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetOpenIDConnectProviderCommand extends $Command<

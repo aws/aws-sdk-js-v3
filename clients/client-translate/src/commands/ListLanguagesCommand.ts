@@ -46,6 +46,18 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * };
  * const command = new ListLanguagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLanguagesResponse
+ *   Languages: [ // LanguagesList
+ *     { // Language
+ *       LanguageName: "STRING_VALUE", // required
+ *       LanguageCode: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DisplayLanguageCode: "de" || "en" || "es" || "fr" || "it" || "ja" || "ko" || "pt" || "zh" || "zh-TW",
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLanguagesCommandInput - {@link ListLanguagesCommandInput}
@@ -68,6 +80,8 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * @throws {@link UnsupportedDisplayLanguageCodeException} (client fault)
  *  <p>Requested display language code is not supported.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class ListLanguagesCommand extends $Command<

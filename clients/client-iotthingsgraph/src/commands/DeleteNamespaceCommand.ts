@@ -45,6 +45,12 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * const input = {};
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNamespaceResponse
+ *   namespaceArn: "STRING_VALUE",
+ *   namespaceName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
@@ -59,6 +65,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeleteNamespaceCommand extends $Command<

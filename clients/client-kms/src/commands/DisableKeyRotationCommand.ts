@@ -76,6 +76,9 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableKeyRotationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableKeyRotationCommandInput - {@link DisableKeyRotationCommandInput}
@@ -125,6 +128,8 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To disable automatic rotation of key material
  * ```javascript

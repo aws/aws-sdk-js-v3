@@ -50,6 +50,9 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * };
  * const command = new DisassociateVehicleFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateVehicleFleetCommandInput - {@link DisassociateVehicleFleetCommandInput}
@@ -73,6 +76,8 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DisassociateVehicleFleetCommand extends $Command<

@@ -60,6 +60,11 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * };
  * const command = new CreateModelCardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelCardResponse
+ *   ModelCardArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateModelCardCommandInput - {@link CreateModelCardCommandInput}
@@ -76,6 +81,8 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateModelCardCommand extends $Command<

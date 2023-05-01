@@ -45,6 +45,9 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * };
  * const command = new DeregisterApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterApplicationCommandInput - {@link DeregisterApplicationCommandInput}
@@ -59,6 +62,8 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class DeregisterApplicationCommand extends $Command<

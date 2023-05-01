@@ -51,6 +51,20 @@ export interface GetHypervisorPropertyMappingsCommandOutput
  * };
  * const command = new GetHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHypervisorPropertyMappingsOutput
+ *   HypervisorArn: "STRING_VALUE",
+ *   VmwareToAwsTagMappings: [ // VmwareToAwsTagMappings
+ *     { // VmwareToAwsTagMapping
+ *       VmwareCategory: "STRING_VALUE", // required
+ *       VmwareTagName: "STRING_VALUE", // required
+ *       AwsTagKey: "STRING_VALUE", // required
+ *       AwsTagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   IamRoleArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetHypervisorPropertyMappingsCommandInput - {@link GetHypervisorPropertyMappingsCommandInput}
@@ -72,6 +86,8 @@ export interface GetHypervisorPropertyMappingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class GetHypervisorPropertyMappingsCommand extends $Command<

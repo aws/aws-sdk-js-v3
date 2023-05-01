@@ -47,6 +47,9 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * };
  * const command = new DisassociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateLambdaFunctionCommandInput - {@link DisassociateLambdaFunctionCommandInput}
@@ -70,6 +73,8 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateLambdaFunctionCommand extends $Command<

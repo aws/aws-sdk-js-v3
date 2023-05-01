@@ -46,6 +46,9 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  * };
  * const command = new DisassociateConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateConnectorCommandInput - {@link DisassociateConnectorCommandInput}
@@ -67,6 +70,8 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class DisassociateConnectorCommand extends $Command<

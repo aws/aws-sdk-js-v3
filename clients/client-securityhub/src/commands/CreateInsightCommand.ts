@@ -299,6 +299,11 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  * };
  * const command = new CreateInsightCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInsightResponse
+ *   InsightArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateInsightCommandInput - {@link CreateInsightCommandInput}
@@ -324,6 +329,8 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To create a custom insight
  * ```javascript

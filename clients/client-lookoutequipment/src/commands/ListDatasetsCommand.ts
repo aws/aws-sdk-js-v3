@@ -47,6 +47,19 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetsResponse
+ *   NextToken: "STRING_VALUE",
+ *   DatasetSummaries: [ // DatasetSummaries
+ *     { // DatasetSummary
+ *       DatasetName: "STRING_VALUE",
+ *       DatasetArn: "STRING_VALUE",
+ *       Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
@@ -70,6 +83,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListDatasetsCommand extends $Command<

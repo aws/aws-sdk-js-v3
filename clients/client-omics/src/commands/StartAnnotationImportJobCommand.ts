@@ -70,6 +70,11 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * };
  * const command = new StartAnnotationImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAnnotationImportResponse
+ *   jobId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StartAnnotationImportJobCommandInput - {@link StartAnnotationImportJobCommandInput}
@@ -96,6 +101,8 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartAnnotationImportJobCommand extends $Command<

@@ -78,6 +78,15 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * };
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvocationResponse
+ *   StatusCode: Number("int"),
+ *   FunctionError: "STRING_VALUE",
+ *   LogResult: "STRING_VALUE",
+ *   Payload: "BLOB_VALUE",
+ *   ExecutedVersion: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param InvokeCommandInput - {@link InvokeCommandInput}
@@ -186,6 +195,8 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * @throws {@link UnsupportedMediaTypeException} (client fault)
  *  <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {

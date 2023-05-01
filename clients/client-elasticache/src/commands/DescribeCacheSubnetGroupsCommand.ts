@@ -49,6 +49,36 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * };
  * const command = new DescribeCacheSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CacheSubnetGroupMessage
+ *   Marker: "STRING_VALUE",
+ *   CacheSubnetGroups: [ // CacheSubnetGroups
+ *     { // CacheSubnetGroup
+ *       CacheSubnetGroupName: "STRING_VALUE",
+ *       CacheSubnetGroupDescription: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: "STRING_VALUE",
+ *           SubnetAvailabilityZone: { // AvailabilityZone
+ *             Name: "STRING_VALUE",
+ *           },
+ *           SubnetOutpost: { // SubnetOutpost
+ *             SubnetOutpostArn: "STRING_VALUE",
+ *           },
+ *           SupportedNetworkTypes: [ // NetworkTypeList
+ *             "ipv4" || "ipv6" || "dual_stack",
+ *           ],
+ *         },
+ *       ],
+ *       ARN: "STRING_VALUE",
+ *       SupportedNetworkTypes: [
+ *         "ipv4" || "ipv6" || "dual_stack",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeCacheSubnetGroupsCommandInput - {@link DescribeCacheSubnetGroupsCommandInput}
@@ -60,6 +90,8 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
  *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeCacheSubnetGroups
  * ```javascript

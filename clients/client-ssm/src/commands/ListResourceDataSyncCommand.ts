@@ -54,6 +54,50 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  * };
  * const command = new ListResourceDataSyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceDataSyncResult
+ *   ResourceDataSyncItems: [ // ResourceDataSyncItemList
+ *     { // ResourceDataSyncItem
+ *       SyncName: "STRING_VALUE",
+ *       SyncType: "STRING_VALUE",
+ *       SyncSource: { // ResourceDataSyncSourceWithState
+ *         SourceType: "STRING_VALUE",
+ *         AwsOrganizationsSource: { // ResourceDataSyncAwsOrganizationsSource
+ *           OrganizationSourceType: "STRING_VALUE", // required
+ *           OrganizationalUnits: [ // ResourceDataSyncOrganizationalUnitList
+ *             { // ResourceDataSyncOrganizationalUnit
+ *               OrganizationalUnitId: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         SourceRegions: [ // ResourceDataSyncSourceRegionList
+ *           "STRING_VALUE",
+ *         ],
+ *         IncludeFutureRegions: true || false,
+ *         State: "STRING_VALUE",
+ *         EnableAllOpsDataSources: true || false,
+ *       },
+ *       S3Destination: { // ResourceDataSyncS3Destination
+ *         BucketName: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE",
+ *         SyncFormat: "JsonSerDe", // required
+ *         Region: "STRING_VALUE", // required
+ *         AWSKMSKeyARN: "STRING_VALUE",
+ *         DestinationDataSharing: { // ResourceDataSyncDestinationDataSharing
+ *           DestinationDataSharingType: "STRING_VALUE",
+ *         },
+ *       },
+ *       LastSyncTime: new Date("TIMESTAMP"),
+ *       LastSuccessfulSyncTime: new Date("TIMESTAMP"),
+ *       SyncLastModifiedTime: new Date("TIMESTAMP"),
+ *       LastStatus: "Successful" || "Failed" || "InProgress",
+ *       SyncCreatedTime: new Date("TIMESTAMP"),
+ *       LastSyncStatusMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListResourceDataSyncCommandInput - {@link ListResourceDataSyncCommandInput}
@@ -71,6 +115,8 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
  *  <p>The specified sync configuration is invalid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListResourceDataSyncCommand extends $Command<

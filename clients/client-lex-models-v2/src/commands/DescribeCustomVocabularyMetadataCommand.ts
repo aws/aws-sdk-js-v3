@@ -51,6 +51,16 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  * };
  * const command = new DescribeCustomVocabularyMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomVocabularyMetadataResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   customVocabularyStatus: "Ready" || "Deleting" || "Exporting" || "Importing" || "Creating",
+ *   creationDateTime: new Date("TIMESTAMP"),
+ *   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeCustomVocabularyMetadataCommandInput - {@link DescribeCustomVocabularyMetadataCommandInput}
@@ -78,6 +88,8 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeCustomVocabularyMetadataCommand extends $Command<

@@ -68,6 +68,26 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * };
  * const command = new ListShardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListShardsOutput
+ *   Shards: [ // ShardList
+ *     { // Shard
+ *       ShardId: "STRING_VALUE", // required
+ *       ParentShardId: "STRING_VALUE",
+ *       AdjacentParentShardId: "STRING_VALUE",
+ *       HashKeyRange: { // HashKeyRange
+ *         StartingHashKey: "STRING_VALUE", // required
+ *         EndingHashKey: "STRING_VALUE", // required
+ *       },
+ *       SequenceNumberRange: { // SequenceNumberRange
+ *         StartingSequenceNumber: "STRING_VALUE", // required
+ *         EndingSequenceNumber: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListShardsCommandInput - {@link ListShardsCommandInput}
@@ -99,6 +119,8 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class ListShardsCommand extends $Command<

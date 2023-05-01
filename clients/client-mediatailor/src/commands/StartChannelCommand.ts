@@ -44,6 +44,9 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * };
  * const command = new StartChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartChannelCommandInput - {@link StartChannelCommandInput}
@@ -52,6 +55,8 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * @see {@link StartChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class StartChannelCommand extends $Command<

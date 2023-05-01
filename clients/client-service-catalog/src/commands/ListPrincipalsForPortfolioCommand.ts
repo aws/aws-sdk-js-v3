@@ -47,6 +47,17 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * };
  * const command = new ListPrincipalsForPortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPrincipalsForPortfolioOutput
+ *   Principals: [ // Principals
+ *     { // Principal
+ *       PrincipalARN: "STRING_VALUE",
+ *       PrincipalType: "IAM" || "IAM_PATTERN",
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPrincipalsForPortfolioCommandInput - {@link ListPrincipalsForPortfolioCommandInput}
@@ -61,6 +72,8 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPrincipalsForPortfolioCommand extends $Command<

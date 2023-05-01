@@ -50,6 +50,9 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  * };
  * const command = new DeleteSecurityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSecurityPolicyCommandInput - {@link DeleteSecurityPolicyCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class DeleteSecurityPolicyCommand extends $Command<

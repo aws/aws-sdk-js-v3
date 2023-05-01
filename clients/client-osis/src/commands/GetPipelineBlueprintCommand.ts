@@ -47,6 +47,14 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * };
  * const command = new GetPipelineBlueprintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPipelineBlueprintResponse
+ *   Blueprint: { // PipelineBlueprint
+ *     BlueprintName: "STRING_VALUE",
+ *     PipelineConfigurationBody: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPipelineBlueprintCommandInput - {@link GetPipelineBlueprintCommandInput}
@@ -68,6 +76,8 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class GetPipelineBlueprintCommand extends $Command<

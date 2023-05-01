@@ -72,6 +72,20 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  * };
  * const command = new BatchCreateTableRowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreateTableRowsResult
+ *   workbookCursor: Number("long"), // required
+ *   createdRows: { // CreatedRowsMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   failedBatchItems: [ // FailedBatchItems
+ *     { // FailedBatchItem
+ *       id: "STRING_VALUE", // required
+ *       errorMessage: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreateTableRowsCommandInput - {@link BatchCreateTableRowsCommandInput}
@@ -111,6 +125,8 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class BatchCreateTableRowsCommand extends $Command<

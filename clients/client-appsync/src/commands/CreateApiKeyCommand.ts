@@ -46,6 +46,16 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * };
  * const command = new CreateApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApiKeyResponse
+ *   apiKey: { // ApiKey
+ *     id: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     expires: Number("long"),
+ *     deletes: Number("long"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApiKeyCommandInput - {@link CreateApiKeyCommandInput}
@@ -77,6 +87,8 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateApiKeyCommand extends $Command<

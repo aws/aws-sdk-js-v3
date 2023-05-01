@@ -48,6 +48,18 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  * };
  * const command = new ListDomainConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainConfigurationsResponse
+ *   domainConfigurations: [ // DomainConfigurations
+ *     { // DomainConfigurationSummary
+ *       domainConfigurationName: "STRING_VALUE",
+ *       domainConfigurationArn: "STRING_VALUE",
+ *       serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ *     },
+ *   ],
+ *   nextMarker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDomainConfigurationsCommandInput - {@link ListDomainConfigurationsCommandInput}
@@ -71,6 +83,8 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListDomainConfigurationsCommand extends $Command<

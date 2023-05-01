@@ -46,6 +46,14 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
  * };
  * const command = new ListPublishedSchemaArnsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPublishedSchemaArnsResponse
+ *   SchemaArns: [ // Arns
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPublishedSchemaArnsCommandInput - {@link ListPublishedSchemaArnsCommandInput}
@@ -79,6 +87,8 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListPublishedSchemaArnsCommand extends $Command<

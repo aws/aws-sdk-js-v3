@@ -42,6 +42,19 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Account
+ *   cloudwatchRoleArn: "STRING_VALUE",
+ *   throttleSettings: { // ThrottleSettings
+ *     burstLimit: Number("int"),
+ *     rateLimit: Number("double"),
+ *   },
+ *   features: [ // ListOfString
+ *     "STRING_VALUE",
+ *   ],
+ *   apiKeyVersion: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetAccountCommandInput - {@link GetAccountCommandInput}
@@ -62,6 +75,8 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetAccountCommand extends $Command<

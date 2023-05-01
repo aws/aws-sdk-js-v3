@@ -90,6 +90,9 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
@@ -104,6 +107,8 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  *                 <code>AddPermission</code> returns this error if the maximum number of permissions
  *             for the queue is reached.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class AddPermissionCommand extends $Command<

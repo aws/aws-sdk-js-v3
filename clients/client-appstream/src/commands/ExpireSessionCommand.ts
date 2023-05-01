@@ -44,6 +44,9 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * };
  * const command = new ExpireSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExpireSessionCommandInput - {@link ExpireSessionCommandInput}
@@ -52,6 +55,8 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * @see {@link ExpireSessionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class ExpireSessionCommand extends $Command<

@@ -44,6 +44,22 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * };
  * const command = new DescribePageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePageResult
+ *   PageArn: "STRING_VALUE", // required
+ *   EngagementArn: "STRING_VALUE", // required
+ *   ContactArn: "STRING_VALUE", // required
+ *   Sender: "STRING_VALUE", // required
+ *   Subject: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ *   PublicSubject: "STRING_VALUE",
+ *   PublicContent: "STRING_VALUE",
+ *   IncidentId: "STRING_VALUE",
+ *   SentTime: new Date("TIMESTAMP"),
+ *   ReadTime: new Date("TIMESTAMP"),
+ *   DeliveryTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribePageCommandInput - {@link DescribePageCommandInput}
@@ -71,6 +87,8 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class DescribePageCommand extends $Command<

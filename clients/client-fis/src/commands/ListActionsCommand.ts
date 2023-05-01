@@ -45,6 +45,25 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * };
  * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListActionsResponse
+ *   actions: [ // ActionSummaryList
+ *     { // ActionSummary
+ *       id: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       targets: { // ActionTargetMap
+ *         "<keys>": { // ActionTarget
+ *           resourceType: "STRING_VALUE",
+ *         },
+ *       },
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListActionsCommandInput - {@link ListActionsCommandInput}
@@ -56,6 +75,8 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class ListActionsCommand extends $Command<

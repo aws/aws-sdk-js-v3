@@ -55,6 +55,19 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * const input = {};
  * const command = new DescribeVpcPeeringAuthorizationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcPeeringAuthorizationsOutput
+ *   VpcPeeringAuthorizations: [ // VpcPeeringAuthorizationList
+ *     { // VpcPeeringAuthorization
+ *       GameLiftAwsAccountId: "STRING_VALUE",
+ *       PeerVpcAwsAccountId: "STRING_VALUE",
+ *       PeerVpcId: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       ExpirationTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVpcPeeringAuthorizationsCommandInput - {@link DescribeVpcPeeringAuthorizationsCommandInput}
@@ -74,6 +87,8 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeVpcPeeringAuthorizationsCommand extends $Command<

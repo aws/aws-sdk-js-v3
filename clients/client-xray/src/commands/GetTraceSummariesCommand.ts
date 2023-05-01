@@ -69,6 +69,165 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * };
  * const command = new GetTraceSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTraceSummariesResult
+ *   TraceSummaries: [ // TraceSummaryList
+ *     { // TraceSummary
+ *       Id: "STRING_VALUE",
+ *       Duration: Number("double"),
+ *       ResponseTime: Number("double"),
+ *       HasFault: true || false,
+ *       HasError: true || false,
+ *       HasThrottle: true || false,
+ *       IsPartial: true || false,
+ *       Http: { // Http
+ *         HttpURL: "STRING_VALUE",
+ *         HttpStatus: Number("int"),
+ *         HttpMethod: "STRING_VALUE",
+ *         UserAgent: "STRING_VALUE",
+ *         ClientIp: "STRING_VALUE",
+ *       },
+ *       Annotations: { // Annotations
+ *         "<keys>": [ // ValuesWithServiceIds
+ *           { // ValueWithServiceIds
+ *             AnnotationValue: { // AnnotationValue Union: only one key present
+ *               NumberValue: Number("double"),
+ *               BooleanValue: true || false,
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *             ServiceIds: [ // ServiceIds
+ *               { // ServiceId
+ *                 Name: "STRING_VALUE",
+ *                 Names: [ // ServiceNames
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 AccountId: "STRING_VALUE",
+ *                 Type: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       Users: [ // TraceUsers
+ *         { // TraceUser
+ *           UserName: "STRING_VALUE",
+ *           ServiceIds: [
+ *             {
+ *               Name: "STRING_VALUE",
+ *               Names: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               AccountId: "STRING_VALUE",
+ *               Type: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       ServiceIds: "<ServiceIds>",
+ *       ResourceARNs: [ // TraceResourceARNs
+ *         { // ResourceARNDetail
+ *           ARN: "STRING_VALUE",
+ *         },
+ *       ],
+ *       InstanceIds: [ // TraceInstanceIds
+ *         { // InstanceIdDetail
+ *           Id: "STRING_VALUE",
+ *         },
+ *       ],
+ *       AvailabilityZones: [ // TraceAvailabilityZones
+ *         { // AvailabilityZoneDetail
+ *           Name: "STRING_VALUE",
+ *         },
+ *       ],
+ *       EntryPoint: "<ServiceId>",
+ *       FaultRootCauses: [ // FaultRootCauses
+ *         { // FaultRootCause
+ *           Services: [ // FaultRootCauseServices
+ *             { // FaultRootCauseService
+ *               Name: "STRING_VALUE",
+ *               Names: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               Type: "STRING_VALUE",
+ *               AccountId: "STRING_VALUE",
+ *               EntityPath: [ // FaultRootCauseEntityPath
+ *                 { // FaultRootCauseEntity
+ *                   Name: "STRING_VALUE",
+ *                   Exceptions: [ // RootCauseExceptions
+ *                     { // RootCauseException
+ *                       Name: "STRING_VALUE",
+ *                       Message: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Remote: true || false,
+ *                 },
+ *               ],
+ *               Inferred: true || false,
+ *             },
+ *           ],
+ *           ClientImpacting: true || false,
+ *         },
+ *       ],
+ *       ErrorRootCauses: [ // ErrorRootCauses
+ *         { // ErrorRootCause
+ *           Services: [ // ErrorRootCauseServices
+ *             { // ErrorRootCauseService
+ *               Name: "STRING_VALUE",
+ *               Names: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               Type: "STRING_VALUE",
+ *               AccountId: "STRING_VALUE",
+ *               EntityPath: [ // ErrorRootCauseEntityPath
+ *                 { // ErrorRootCauseEntity
+ *                   Name: "STRING_VALUE",
+ *                   Exceptions: [
+ *                     {
+ *                       Name: "STRING_VALUE",
+ *                       Message: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Remote: true || false,
+ *                 },
+ *               ],
+ *               Inferred: true || false,
+ *             },
+ *           ],
+ *           ClientImpacting: true || false,
+ *         },
+ *       ],
+ *       ResponseTimeRootCauses: [ // ResponseTimeRootCauses
+ *         { // ResponseTimeRootCause
+ *           Services: [ // ResponseTimeRootCauseServices
+ *             { // ResponseTimeRootCauseService
+ *               Name: "STRING_VALUE",
+ *               Names: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               Type: "STRING_VALUE",
+ *               AccountId: "STRING_VALUE",
+ *               EntityPath: [ // ResponseTimeRootCauseEntityPath
+ *                 { // ResponseTimeRootCauseEntity
+ *                   Name: "STRING_VALUE",
+ *                   Coverage: Number("double"),
+ *                   Remote: true || false,
+ *                 },
+ *               ],
+ *               Inferred: true || false,
+ *             },
+ *           ],
+ *           ClientImpacting: true || false,
+ *         },
+ *       ],
+ *       Revision: Number("int"),
+ *       MatchedEventTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   ApproximateTime: new Date("TIMESTAMP"),
+ *   TracesProcessedCount: Number("long"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetTraceSummariesCommandInput - {@link GetTraceSummariesCommandInput}
@@ -83,6 +242,8 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetTraceSummariesCommand extends $Command<

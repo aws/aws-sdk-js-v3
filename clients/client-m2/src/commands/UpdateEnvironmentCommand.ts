@@ -49,6 +49,11 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEnvironmentResponse
+ *   environmentId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
@@ -78,6 +83,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class UpdateEnvironmentCommand extends $Command<

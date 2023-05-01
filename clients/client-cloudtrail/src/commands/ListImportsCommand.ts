@@ -48,6 +48,22 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsResponse
+ *   Imports: [ // ImportsList
+ *     { // ImportsListItem
+ *       ImportId: "STRING_VALUE",
+ *       ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",
+ *       Destinations: [ // ImportDestinations
+ *         "STRING_VALUE",
+ *       ],
+ *       CreatedTimestamp: new Date("TIMESTAMP"),
+ *       UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -73,6 +89,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

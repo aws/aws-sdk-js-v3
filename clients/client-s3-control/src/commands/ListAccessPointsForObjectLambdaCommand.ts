@@ -73,6 +73,21 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * };
  * const command = new ListAccessPointsForObjectLambdaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessPointsForObjectLambdaResult
+ *   ObjectLambdaAccessPointList: [ // ObjectLambdaAccessPointList
+ *     { // ObjectLambdaAccessPoint
+ *       Name: "STRING_VALUE", // required
+ *       ObjectLambdaAccessPointArn: "STRING_VALUE",
+ *       Alias: { // ObjectLambdaAccessPointAlias
+ *         Value: "STRING_VALUE",
+ *         Status: "PROVISIONING" || "READY",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAccessPointsForObjectLambdaCommandInput - {@link ListAccessPointsForObjectLambdaCommandInput}
@@ -81,6 +96,8 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * @see {@link ListAccessPointsForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListAccessPointsForObjectLambdaCommand extends $Command<

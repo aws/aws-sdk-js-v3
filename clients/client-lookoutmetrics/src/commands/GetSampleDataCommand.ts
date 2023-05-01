@@ -68,6 +68,18 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * };
  * const command = new GetSampleDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSampleDataResponse
+ *   HeaderValues: [ // HeaderValueList
+ *     "STRING_VALUE",
+ *   ],
+ *   SampleRows: [ // SampleRows
+ *     [ // SampleRow
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSampleDataCommandInput - {@link GetSampleDataCommandInput}
@@ -92,6 +104,8 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class GetSampleDataCommand extends $Command<

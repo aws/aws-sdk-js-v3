@@ -52,6 +52,22 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggingConfigurationResponse
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: "STRING_VALUE", // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         Type: "STRING_VALUE", // required
+ *         Data: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
@@ -66,6 +82,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class GetLoggingConfigurationCommand extends $Command<

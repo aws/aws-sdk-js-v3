@@ -62,6 +62,15 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * };
  * const command = new PutAppInstanceUserExpirationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAppInstanceUserExpirationSettingsResponse
+ *   AppInstanceUserArn: "STRING_VALUE",
+ *   ExpirationSettings: { // ExpirationSettings
+ *     ExpirationDays: Number("int"), // required
+ *     ExpirationCriterion: "CREATED_TIMESTAMP", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutAppInstanceUserExpirationSettingsCommandInput - {@link PutAppInstanceUserExpirationSettingsCommandInput}
@@ -92,6 +101,8 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class PutAppInstanceUserExpirationSettingsCommand extends $Command<

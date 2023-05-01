@@ -60,6 +60,23 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  * };
  * const command = new ListBotLocalesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotLocalesResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   botLocaleSummaries: [ // BotLocaleSummaryList
+ *     { // BotLocaleSummary
+ *       localeId: "STRING_VALUE",
+ *       localeName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBotLocalesCommandInput - {@link ListBotLocalesCommandInput}
@@ -83,6 +100,8 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotLocalesCommand extends $Command<

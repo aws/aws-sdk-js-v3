@@ -54,6 +54,19 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * };
  * const command = new ListRetainedMessagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRetainedMessagesResponse
+ *   retainedTopics: [ // RetainedMessageList
+ *     { // RetainedMessageSummary
+ *       topic: "STRING_VALUE",
+ *       payloadSize: Number("long"),
+ *       qos: Number("int"),
+ *       lastModifiedTime: Number("long"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRetainedMessagesCommandInput - {@link ListRetainedMessagesCommandInput}
@@ -80,6 +93,8 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class ListRetainedMessagesCommand extends $Command<

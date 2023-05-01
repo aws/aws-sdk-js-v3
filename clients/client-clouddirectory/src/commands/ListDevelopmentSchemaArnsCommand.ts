@@ -46,6 +46,14 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * };
  * const command = new ListDevelopmentSchemaArnsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevelopmentSchemaArnsResponse
+ *   SchemaArns: [ // Arns
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDevelopmentSchemaArnsCommandInput - {@link ListDevelopmentSchemaArnsCommandInput}
@@ -79,6 +87,8 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListDevelopmentSchemaArnsCommand extends $Command<

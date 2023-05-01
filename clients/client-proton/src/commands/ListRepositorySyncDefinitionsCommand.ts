@@ -52,6 +52,19 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * };
  * const command = new ListRepositorySyncDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRepositorySyncDefinitionsOutput
+ *   nextToken: "STRING_VALUE",
+ *   syncDefinitions: [ // RepositorySyncDefinitionList // required
+ *     { // RepositorySyncDefinition
+ *       target: "STRING_VALUE", // required
+ *       parent: "STRING_VALUE", // required
+ *       branch: "STRING_VALUE", // required
+ *       directory: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRepositorySyncDefinitionsCommandInput - {@link ListRepositorySyncDefinitionsCommandInput}
@@ -72,6 +85,8 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListRepositorySyncDefinitionsCommand extends $Command<

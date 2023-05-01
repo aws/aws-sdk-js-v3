@@ -60,6 +60,15 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * };
  * const command = new DescribeDraftAppVersionResourcesImportStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDraftAppVersionResourcesImportStatusResponse
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   statusChangeTime: new Date("TIMESTAMP"), // required
+ *   errorMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDraftAppVersionResourcesImportStatusCommandInput - {@link DescribeDraftAppVersionResourcesImportStatusCommandInput}
@@ -86,6 +95,8 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Command<

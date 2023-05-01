@@ -45,6 +45,43 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * };
  * const command = new DescribeStepCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStepOutput
+ *   Step: { // Step
+ *     Id: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Config: { // HadoopStepConfig
+ *       Jar: "STRING_VALUE",
+ *       Properties: { // StringMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       MainClass: "STRING_VALUE",
+ *       Args: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ActionOnFailure: "TERMINATE_JOB_FLOW" || "TERMINATE_CLUSTER" || "CANCEL_AND_WAIT" || "CONTINUE",
+ *     Status: { // StepStatus
+ *       State: "PENDING" || "CANCEL_PENDING" || "RUNNING" || "COMPLETED" || "CANCELLED" || "FAILED" || "INTERRUPTED",
+ *       StateChangeReason: { // StepStateChangeReason
+ *         Code: "NONE",
+ *         Message: "STRING_VALUE",
+ *       },
+ *       FailureDetails: { // FailureDetails
+ *         Reason: "STRING_VALUE",
+ *         Message: "STRING_VALUE",
+ *         LogFile: "STRING_VALUE",
+ *       },
+ *       Timeline: { // StepTimeline
+ *         CreationDateTime: new Date("TIMESTAMP"),
+ *         StartDateTime: new Date("TIMESTAMP"),
+ *         EndDateTime: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *     ExecutionRoleArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStepCommandInput - {@link DescribeStepCommandInput}
@@ -60,6 +97,8 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeStepCommand extends $Command<

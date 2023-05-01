@@ -62,6 +62,12 @@ export interface CreateSecurityConfigurationCommandOutput
  * };
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSecurityConfigurationResponse
+ *   Name: "STRING_VALUE",
+ *   CreatedTimestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
@@ -85,6 +91,8 @@ export interface CreateSecurityConfigurationCommandOutput
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateSecurityConfigurationCommand extends $Command<

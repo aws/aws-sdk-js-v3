@@ -49,6 +49,15 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * };
  * const command = new DescribeEntityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEntityResponse
+ *   EntityType: "STRING_VALUE",
+ *   EntityIdentifier: "STRING_VALUE",
+ *   EntityArn: "STRING_VALUE",
+ *   LastModifiedDate: "STRING_VALUE",
+ *   Details: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeEntityCommandInput - {@link DescribeEntityCommandInput}
@@ -80,6 +89,8 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class DescribeEntityCommand extends $Command<

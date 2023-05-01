@@ -81,6 +81,9 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * };
  * const command = new DeleteWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWebACLCommandInput - {@link DeleteWebACLCommandInput}
@@ -139,6 +142,8 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DeleteWebACLCommand extends $Command<

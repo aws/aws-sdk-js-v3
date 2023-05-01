@@ -74,6 +74,21 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * };
  * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBClusterSnapshotAttributeResult
+ *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ *     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ *       { // DBClusterSnapshotAttribute
+ *         AttributeName: "STRING_VALUE",
+ *         AttributeValues: [ // AttributeValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterSnapshotAttributeCommandInput - {@link ModifyDBClusterSnapshotAttributeCommandInput}
@@ -92,6 +107,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @throws {@link SharedSnapshotQuotaExceededFault} (client fault)
  *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify a DB cluster snapshot attribute
  * ```javascript

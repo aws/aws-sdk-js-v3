@@ -56,6 +56,9 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * };
  * const command = new DeleteIdentityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIdentityPolicyCommandInput - {@link DeleteIdentityPolicyCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * @see {@link DeleteIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DeleteIdentityPolicy
  * ```javascript

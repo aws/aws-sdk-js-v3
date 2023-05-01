@@ -73,6 +73,11 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * };
  * const command = new MeterUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MeterUsageResult
+ *   MeteringRecordId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param MeterUsageCommandInput - {@link MeterUsageCommandInput}
@@ -124,6 +129,8 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class MeterUsageCommand extends $Command<

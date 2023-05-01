@@ -57,6 +57,9 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetDataRetrievalPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetDataRetrievalPolicyCommandInput - {@link SetDataRetrievalPolicyCommandInput}
@@ -74,6 +77,8 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To set and then enact a data retrieval policy
  * ```javascript

@@ -52,6 +52,11 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * };
  * const command = new CreateConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectionAliasResult
+ *   AliasId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateConnectionAliasCommandInput - {@link CreateConnectionAliasCommandInput}
@@ -78,6 +83,8 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * @throws {@link ResourceLimitExceededException} (client fault)
  *  <p>Your resource limits have been exceeded.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateConnectionAliasCommand extends $Command<

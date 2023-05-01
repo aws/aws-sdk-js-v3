@@ -45,6 +45,19 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  * };
  * const command = new GetDataSetImportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataSetImportTaskResponse
+ *   taskId: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   summary: { // DataSetImportSummary
+ *     total: Number("int"), // required
+ *     succeeded: Number("int"), // required
+ *     failed: Number("int"), // required
+ *     pending: Number("int"), // required
+ *     inProgress: Number("int"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDataSetImportTaskCommandInput - {@link GetDataSetImportTaskCommandInput}
@@ -68,6 +81,8 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class GetDataSetImportTaskCommand extends $Command<

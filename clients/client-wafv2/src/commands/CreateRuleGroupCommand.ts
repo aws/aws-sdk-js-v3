@@ -802,6 +802,17 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleGroupResponse
+ *   Summary: { // RuleGroupSummary
+ *     Name: "STRING_VALUE",
+ *     Id: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     LockToken: "STRING_VALUE",
+ *     ARN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
@@ -877,6 +888,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *        for changes to propagate. Verify the resources that you are specifying in your request
  *        parameters and then retry the operation.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateRuleGroupCommand extends $Command<

@@ -51,6 +51,9 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteFunctionCommand extends $Command<

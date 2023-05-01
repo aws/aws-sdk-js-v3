@@ -58,6 +58,21 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateListenerResponse
+ *   Listener: { // Listener
+ *     ListenerArn: "STRING_VALUE",
+ *     PortRanges: [ // PortRanges
+ *       { // PortRange
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
+ *     Protocol: "TCP" || "UDP",
+ *     ClientAffinity: "NONE" || "SOURCE_IP",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
@@ -81,6 +96,8 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateListenerCommand extends $Command<

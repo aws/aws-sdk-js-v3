@@ -52,6 +52,16 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyDBParameterGroupResult
+ *   DBParameterGroup: { // DBParameterGroup
+ *     DBParameterGroupName: "STRING_VALUE",
+ *     DBParameterGroupFamily: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     DBParameterGroupArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyDBParameterGroupCommandInput - {@link CopyDBParameterGroupCommandInput}
@@ -72,6 +82,8 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *  <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To copy a DB parameter group
  * ```javascript

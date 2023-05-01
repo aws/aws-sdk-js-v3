@@ -53,6 +53,21 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * };
  * const command = new BatchDeletePartitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeletePartitionResponse
+ *   Errors: [ // PartitionErrors
+ *     { // PartitionError
+ *       PartitionValues: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       ErrorDetail: { // ErrorDetail
+ *         ErrorCode: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeletePartitionCommandInput - {@link BatchDeletePartitionCommandInput}
@@ -73,6 +88,8 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeletePartitionCommand extends $Command<

@@ -48,6 +48,19 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteUsageLimitResponse
+ *   usageLimit: { // UsageLimit
+ *     usageLimitId: "STRING_VALUE",
+ *     usageLimitArn: "STRING_VALUE",
+ *     resourceArn: "STRING_VALUE",
+ *     usageType: "STRING_VALUE",
+ *     amount: Number("long"),
+ *     period: "STRING_VALUE",
+ *     breachAction: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
@@ -68,6 +81,8 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class DeleteUsageLimitCommand extends $Command<

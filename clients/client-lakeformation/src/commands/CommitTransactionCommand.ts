@@ -44,6 +44,11 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * };
  * const command = new CommitTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CommitTransactionResponse
+ *   TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
+ * };
+ *
  * ```
  *
  * @param CommitTransactionCommandInput - {@link CommitTransactionCommandInput}
@@ -70,6 +75,8 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link TransactionCanceledException} (client fault)
  *  <p>Contains details about an error related to a transaction that was cancelled.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CommitTransactionCommand extends $Command<

@@ -47,6 +47,9 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * };
  * const command = new DeleteImageVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteImageVersionCommandInput - {@link DeleteImageVersionCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteImageVersionCommand extends $Command<

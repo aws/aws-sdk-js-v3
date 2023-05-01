@@ -56,6 +56,28 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * };
  * const command = new ListOpsItemRelatedItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOpsItemRelatedItemsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Summaries: [ // OpsItemRelatedItemSummaries
+ *     { // OpsItemRelatedItemSummary
+ *       OpsItemId: "STRING_VALUE",
+ *       AssociationId: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       AssociationType: "STRING_VALUE",
+ *       ResourceUri: "STRING_VALUE",
+ *       CreatedBy: { // OpsItemIdentity
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LastModifiedBy: {
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOpsItemRelatedItemsCommandInput - {@link ListOpsItemRelatedItemsCommandInput}
@@ -71,6 +93,8 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
  *    again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListOpsItemRelatedItemsCommand extends $Command<

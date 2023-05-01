@@ -45,6 +45,14 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * };
  * const command = new GetTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTokenResponse
+ *   AppId: "STRING_VALUE",
+ *   ChallengeCode: "STRING_VALUE",
+ *   SessionId: "STRING_VALUE",
+ *   Ttl: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetTokenCommandInput - {@link GetTokenCommandInput}
@@ -65,6 +73,8 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class GetTokenCommand extends $Command<

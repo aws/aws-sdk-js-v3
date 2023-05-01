@@ -46,6 +46,17 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * };
  * const command = new ListMultiplexProgramsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMultiplexProgramsResponse
+ *   MultiplexPrograms: [ // __listOfMultiplexProgramSummary
+ *     { // MultiplexProgramSummary
+ *       ChannelId: "STRING_VALUE",
+ *       ProgramName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMultiplexProgramsCommandInput - {@link ListMultiplexProgramsCommandInput}
@@ -75,6 +86,8 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListMultiplexProgramsCommand extends $Command<

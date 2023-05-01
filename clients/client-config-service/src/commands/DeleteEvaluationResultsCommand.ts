@@ -47,6 +47,9 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * };
  * const command = new DeleteEvaluationResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEvaluationResultsCommandInput - {@link DeleteEvaluationResultsCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteEvaluationResultsCommand extends $Command<

@@ -67,6 +67,22 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * };
  * const command = new DescribeHostReservationOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHostReservationOfferingsResult
+ *   NextToken: "STRING_VALUE",
+ *   OfferingSet: [ // HostOfferingSet
+ *     { // HostOffering
+ *       CurrencyCode: "USD",
+ *       Duration: Number("int"),
+ *       HourlyPrice: "STRING_VALUE",
+ *       InstanceFamily: "STRING_VALUE",
+ *       OfferingId: "STRING_VALUE",
+ *       PaymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
+ *       UpfrontPrice: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeHostReservationOfferingsCommandInput - {@link DescribeHostReservationOfferingsCommandInput}
@@ -75,6 +91,8 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * @see {@link DescribeHostReservationOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeHostReservationOfferingsCommand extends $Command<

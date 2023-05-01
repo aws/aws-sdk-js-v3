@@ -47,6 +47,20 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * };
  * const command = new ListV2LoggingLevelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListV2LoggingLevelsResponse
+ *   logTargetConfigurations: [ // LogTargetConfigurations
+ *     { // LogTargetConfiguration
+ *       logTarget: { // LogTarget
+ *         targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
+ *         targetName: "STRING_VALUE",
+ *       },
+ *       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListV2LoggingLevelsCommandInput - {@link ListV2LoggingLevelsCommandInput}
@@ -67,6 +81,8 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListV2LoggingLevelsCommand extends $Command<

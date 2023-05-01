@@ -44,6 +44,12 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * };
  * const command = new GetComponentPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComponentPolicyResponse
+ *   requestId: "STRING_VALUE",
+ *   policy: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetComponentPolicyCommandInput - {@link GetComponentPolicyCommandInput}
@@ -71,6 +77,8 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class GetComponentPolicyCommand extends $Command<

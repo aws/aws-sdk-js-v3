@@ -56,6 +56,9 @@ export interface RemoveThingFromBillingGroupCommandOutput
  * };
  * const command = new RemoveThingFromBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveThingFromBillingGroupCommandInput - {@link RemoveThingFromBillingGroupCommandInput}
@@ -76,6 +79,8 @@ export interface RemoveThingFromBillingGroupCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RemoveThingFromBillingGroupCommand extends $Command<

@@ -110,6 +110,11 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * };
  * const command = new UpdateRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRateBasedRuleResponse
+ *   ChangeToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateRateBasedRuleCommandInput - {@link UpdateRateBasedRuleCommandInput}
@@ -227,6 +232,8 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class UpdateRateBasedRuleCommand extends $Command<

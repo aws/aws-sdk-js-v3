@@ -55,6 +55,19 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * };
  * const command = new DescribeWorkspacesConnectionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspacesConnectionStatusResult
+ *   WorkspacesConnectionStatus: [ // WorkspaceConnectionStatusList
+ *     { // WorkspaceConnectionStatus
+ *       WorkspaceId: "STRING_VALUE",
+ *       ConnectionState: "CONNECTED" || "DISCONNECTED" || "UNKNOWN",
+ *       ConnectionStateCheckTimestamp: new Date("TIMESTAMP"),
+ *       LastKnownUserConnectionTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspacesConnectionStatusCommandInput - {@link DescribeWorkspacesConnectionStatusCommandInput}
@@ -66,6 +79,8 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspacesConnectionStatusCommand extends $Command<

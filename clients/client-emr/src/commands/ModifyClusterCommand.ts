@@ -46,6 +46,11 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyClusterOutput
+ *   StepConcurrencyLevel: Number("int"),
+ * };
+ *
  * ```
  *
  * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
@@ -61,6 +66,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ModifyClusterCommand extends $Command<

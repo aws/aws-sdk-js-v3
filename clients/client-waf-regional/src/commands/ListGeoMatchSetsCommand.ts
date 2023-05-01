@@ -53,6 +53,17 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  * };
  * const command = new ListGeoMatchSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGeoMatchSetsResponse
+ *   NextMarker: "STRING_VALUE",
+ *   GeoMatchSets: [ // GeoMatchSetSummaries
+ *     { // GeoMatchSetSummary
+ *       GeoMatchSetId: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListGeoMatchSetsCommandInput - {@link ListGeoMatchSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListGeoMatchSetsCommand extends $Command<

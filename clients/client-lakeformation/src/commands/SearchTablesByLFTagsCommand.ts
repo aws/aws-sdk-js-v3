@@ -54,6 +54,53 @@ export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsR
  * };
  * const command = new SearchTablesByLFTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchTablesByLFTagsResponse
+ *   NextToken: "STRING_VALUE",
+ *   TableList: [ // TableLFTagsList
+ *     { // TaggedTable
+ *       Table: { // TableResource
+ *         CatalogId: "STRING_VALUE",
+ *         DatabaseName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE",
+ *         TableWildcard: {},
+ *       },
+ *       LFTagOnDatabase: [ // LFTagsList
+ *         { // LFTagPair
+ *           CatalogId: "STRING_VALUE",
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // TagValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       LFTagsOnTable: [
+ *         {
+ *           CatalogId: "STRING_VALUE",
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       LFTagsOnColumns: [ // ColumnLFTagsList
+ *         { // ColumnLFTag
+ *           Name: "STRING_VALUE",
+ *           LFTags: [
+ *             {
+ *               CatalogId: "STRING_VALUE",
+ *               TagKey: "STRING_VALUE", // required
+ *               TagValues: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchTablesByLFTagsCommandInput - {@link SearchTablesByLFTagsCommandInput}
@@ -80,6 +127,8 @@ export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class SearchTablesByLFTagsCommand extends $Command<

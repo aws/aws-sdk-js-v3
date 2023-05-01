@@ -47,6 +47,26 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
  * };
  * const command = new ListLensReviewsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLensReviewsOutput
+ *   WorkloadId: "STRING_VALUE",
+ *   MilestoneNumber: Number("int"),
+ *   LensReviewSummaries: [ // LensReviewSummaries
+ *     { // LensReviewSummary
+ *       LensAlias: "STRING_VALUE",
+ *       LensArn: "STRING_VALUE",
+ *       LensVersion: "STRING_VALUE",
+ *       LensName: "STRING_VALUE",
+ *       LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
+ *       UpdatedAt: new Date("TIMESTAMP"),
+ *       RiskCounts: { // RiskCounts
+ *         "<keys>": Number("int"),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLensReviewsCommandInput - {@link ListLensReviewsCommandInput}
@@ -70,6 +90,8 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListLensReviewsCommand extends $Command<

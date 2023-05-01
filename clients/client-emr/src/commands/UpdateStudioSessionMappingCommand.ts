@@ -48,6 +48,9 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * };
  * const command = new UpdateStudioSessionMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStudioSessionMappingCommandInput - {@link UpdateStudioSessionMappingCommandInput}
@@ -63,6 +66,8 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class UpdateStudioSessionMappingCommand extends $Command<

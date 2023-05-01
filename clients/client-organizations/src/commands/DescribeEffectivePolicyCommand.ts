@@ -54,6 +54,16 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * };
  * const command = new DescribeEffectivePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEffectivePolicyResponse
+ *   EffectivePolicy: { // EffectivePolicy
+ *     PolicyContent: "STRING_VALUE",
+ *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ *     TargetId: "STRING_VALUE",
+ *     PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEffectivePolicyCommandInput - {@link DescribeEffectivePolicyCommandInput}
@@ -398,6 +408,8 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class DescribeEffectivePolicyCommand extends $Command<

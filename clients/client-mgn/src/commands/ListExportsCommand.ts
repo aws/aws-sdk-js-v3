@@ -50,6 +50,28 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExportsResponse
+ *   items: [ // ExportsList
+ *     { // ExportTask
+ *       exportID: "STRING_VALUE",
+ *       s3Bucket: "STRING_VALUE",
+ *       s3Key: "STRING_VALUE",
+ *       s3BucketOwner: "STRING_VALUE",
+ *       creationDateTime: "STRING_VALUE",
+ *       endDateTime: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       progressPercentage: Number("float"),
+ *       summary: { // ExportTaskSummary
+ *         serversCount: Number("long"),
+ *         applicationsCount: Number("long"),
+ *         wavesCount: Number("long"),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListExportsCommandInput - {@link ListExportsCommandInput}
@@ -61,6 +83,8 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListExportsCommand extends $Command<

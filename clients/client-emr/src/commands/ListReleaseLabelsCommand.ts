@@ -49,6 +49,14 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * };
  * const command = new ListReleaseLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReleaseLabelsOutput
+ *   ReleaseLabels: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListReleaseLabelsCommandInput - {@link ListReleaseLabelsCommandInput}
@@ -64,6 +72,8 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListReleaseLabelsCommand extends $Command<

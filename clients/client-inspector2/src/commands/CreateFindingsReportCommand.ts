@@ -168,6 +168,11 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * };
  * const command = new CreateFindingsReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFindingsReportResponse
+ *   reportId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateFindingsReportCommandInput - {@link CreateFindingsReportCommandInput}
@@ -192,6 +197,8 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class CreateFindingsReportCommand extends $Command<

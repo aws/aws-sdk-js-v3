@@ -55,6 +55,15 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * };
  * const command = new UpdateDocumentDefaultVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDocumentDefaultVersionResult
+ *   Description: { // DocumentDefaultVersionDescription
+ *     Name: "STRING_VALUE",
+ *     DefaultVersion: "STRING_VALUE",
+ *     DefaultVersionName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDocumentDefaultVersionCommandInput - {@link UpdateDocumentDefaultVersionCommandInput}
@@ -75,6 +84,8 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * @throws {@link InvalidDocumentVersion} (client fault)
  *  <p>The document version isn't valid or doesn't exist.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateDocumentDefaultVersionCommand extends $Command<

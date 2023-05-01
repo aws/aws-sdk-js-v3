@@ -53,6 +53,20 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * };
  * const command = new ListRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecommendationFeedbackResponse
+ *   RecommendationFeedbackSummaries: [ // RecommendationFeedbackSummaries
+ *     { // RecommendationFeedbackSummary
+ *       RecommendationId: "STRING_VALUE",
+ *       Reactions: [ // Reactions
+ *         "ThumbsUp" || "ThumbsDown",
+ *       ],
+ *       UserId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRecommendationFeedbackCommandInput - {@link ListRecommendationFeedbackCommandInput}
@@ -76,6 +90,8 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class ListRecommendationFeedbackCommand extends $Command<

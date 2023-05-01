@@ -55,6 +55,18 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResponse
+ *   nextToken: "STRING_VALUE",
+ *   items: [ // ProjectSummaries
+ *     { // ProjectSummary
+ *       name: "STRING_VALUE", // required
+ *       displayName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -83,6 +95,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

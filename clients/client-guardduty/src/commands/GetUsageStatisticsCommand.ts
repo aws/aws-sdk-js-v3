@@ -65,6 +65,58 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUsageStatisticsResponse
+ *   UsageStatistics: { // UsageStatistics
+ *     SumByAccount: [ // UsageAccountResultList
+ *       { // UsageAccountResult
+ *         AccountId: "STRING_VALUE",
+ *         Total: { // Total
+ *           Amount: "STRING_VALUE",
+ *           Unit: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     SumByDataSource: [ // UsageDataSourceResultList
+ *       { // UsageDataSourceResult
+ *         DataSource: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_LOGS" || "KUBERNETES_AUDIT_LOGS" || "EC2_MALWARE_SCAN",
+ *         Total: {
+ *           Amount: "STRING_VALUE",
+ *           Unit: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     SumByResource: [ // UsageResourceResultList
+ *       { // UsageResourceResult
+ *         Resource: "STRING_VALUE",
+ *         Total: {
+ *           Amount: "STRING_VALUE",
+ *           Unit: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     TopResources: [
+ *       {
+ *         Resource: "STRING_VALUE",
+ *         Total: {
+ *           Amount: "STRING_VALUE",
+ *           Unit: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     SumByFeature: [ // UsageFeatureResultList
+ *       { // UsageFeatureResult
+ *         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
+ *         Total: {
+ *           Amount: "STRING_VALUE",
+ *           Unit: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetUsageStatisticsCommandInput - {@link GetUsageStatisticsCommandInput}
@@ -79,6 +131,8 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetUsageStatisticsCommand extends $Command<

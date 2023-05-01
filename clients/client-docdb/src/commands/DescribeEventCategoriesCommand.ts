@@ -53,6 +53,18 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventCategoriesMessage
+ *   EventCategoriesMapList: [ // EventCategoriesMapList
+ *     { // EventCategoriesMap
+ *       SourceType: "STRING_VALUE",
+ *       EventCategories: [ // EventCategoriesList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
@@ -61,6 +73,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeEventCategoriesCommand extends $Command<

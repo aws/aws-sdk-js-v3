@@ -44,6 +44,9 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * };
  * const command = new DeleteSequenceStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSequenceStoreCommandInput - {@link DeleteSequenceStoreCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class DeleteSequenceStoreCommand extends $Command<

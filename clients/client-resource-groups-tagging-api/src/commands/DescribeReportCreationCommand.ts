@@ -48,6 +48,14 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * const input = {};
  * const command = new DescribeReportCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReportCreationOutput
+ *   Status: "STRING_VALUE",
+ *   S3Location: "STRING_VALUE",
+ *   StartDate: "STRING_VALUE",
+ *   ErrorMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeReportCreationCommandInput - {@link DescribeReportCreationCommandInput}
@@ -108,6 +116,8 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class DescribeReportCreationCommand extends $Command<

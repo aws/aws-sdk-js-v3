@@ -66,6 +66,12 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMonitorOutput
+ *   Arn: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
@@ -92,6 +98,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class CreateMonitorCommand extends $Command<

@@ -46,6 +46,17 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * };
  * const command = new GetTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTypeResponse
+ *   type: { // Type
+ *     name: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     definition: "STRING_VALUE",
+ *     format: "SDL" || "JSON",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTypeCommandInput - {@link GetTypeCommandInput}
@@ -71,6 +82,8 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommandOutput, AppSyncClientResolvedConfig> {

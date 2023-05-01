@@ -55,6 +55,20 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * };
  * const command = new GetCoipPoolUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoipPoolUsageResult
+ *   CoipPoolId: "STRING_VALUE",
+ *   CoipAddressUsages: [ // CoipAddressUsageSet
+ *     { // CoipAddressUsage
+ *       AllocationId: "STRING_VALUE",
+ *       AwsAccountId: "STRING_VALUE",
+ *       AwsService: "STRING_VALUE",
+ *       CoIp: "STRING_VALUE",
+ *     },
+ *   ],
+ *   LocalGatewayRouteTableId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCoipPoolUsageCommandInput - {@link GetCoipPoolUsageCommandInput}
@@ -63,6 +77,8 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * @see {@link GetCoipPoolUsageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetCoipPoolUsageCommand extends $Command<

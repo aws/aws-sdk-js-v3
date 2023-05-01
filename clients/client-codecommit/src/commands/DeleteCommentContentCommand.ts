@@ -44,6 +44,26 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * };
  * const command = new DeleteCommentContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCommentContentOutput
+ *   comment: { // Comment
+ *     commentId: "STRING_VALUE",
+ *     content: "STRING_VALUE",
+ *     inReplyTo: "STRING_VALUE",
+ *     creationDate: new Date("TIMESTAMP"),
+ *     lastModifiedDate: new Date("TIMESTAMP"),
+ *     authorArn: "STRING_VALUE",
+ *     deleted: true || false,
+ *     clientRequestToken: "STRING_VALUE",
+ *     callerReactions: [ // CallerReactions
+ *       "STRING_VALUE",
+ *     ],
+ *     reactionCounts: { // ReactionCountsMap
+ *       "<keys>": Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteCommentContentCommandInput - {@link DeleteCommentContentCommandInput}
@@ -65,6 +85,8 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * @throws {@link InvalidCommentIdException} (client fault)
  *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteCommentContentCommand extends $Command<

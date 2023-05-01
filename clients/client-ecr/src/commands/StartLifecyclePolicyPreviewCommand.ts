@@ -49,6 +49,14 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * };
  * const command = new StartLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartLifecyclePolicyPreviewResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   lifecyclePolicyText: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartLifecyclePolicyPreviewCommandInput - {@link StartLifecyclePolicyPreviewCommandInput}
@@ -76,6 +84,8 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class StartLifecyclePolicyPreviewCommand extends $Command<

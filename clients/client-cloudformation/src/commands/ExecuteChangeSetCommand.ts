@@ -57,6 +57,9 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * };
  * const command = new ExecuteChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExecuteChangeSetCommandInput - {@link ExecuteChangeSetCommandInput}
@@ -81,6 +84,8 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ExecuteChangeSetCommand extends $Command<

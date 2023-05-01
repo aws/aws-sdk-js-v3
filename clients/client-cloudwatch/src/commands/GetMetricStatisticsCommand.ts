@@ -107,6 +107,25 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * };
  * const command = new GetMetricStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricStatisticsOutput
+ *   Label: "STRING_VALUE",
+ *   Datapoints: [ // Datapoints
+ *     { // Datapoint
+ *       Timestamp: new Date("TIMESTAMP"),
+ *       SampleCount: Number("double"),
+ *       Average: Number("double"),
+ *       Sum: Number("double"),
+ *       Minimum: Number("double"),
+ *       Maximum: Number("double"),
+ *       Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *       ExtendedStatistics: { // DatapointValueMap
+ *         "<keys>": Number("double"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMetricStatisticsCommandInput - {@link GetMetricStatisticsCommandInput}
@@ -127,6 +146,8 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetMetricStatisticsCommand extends $Command<

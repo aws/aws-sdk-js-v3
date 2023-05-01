@@ -51,6 +51,16 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * };
  * const command = new CancelSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelSpotInstanceRequestsResult
+ *   CancelledSpotInstanceRequests: [ // CancelledSpotInstanceRequestList
+ *     { // CancelledSpotInstanceRequest
+ *       SpotInstanceRequestId: "STRING_VALUE",
+ *       State: "active" || "open" || "closed" || "cancelled" || "completed",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CancelSpotInstanceRequestsCommandInput - {@link CancelSpotInstanceRequestsCommandInput}
@@ -59,6 +69,8 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * @see {@link CancelSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To cancel Spot Instance requests
  * ```javascript

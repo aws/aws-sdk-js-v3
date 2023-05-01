@@ -64,6 +64,14 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * };
  * const command = new GetCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCredentialsResponse
+ *   dbUser: "STRING_VALUE",
+ *   dbPassword: "STRING_VALUE",
+ *   expiration: new Date("TIMESTAMP"),
+ *   nextRefreshTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetCredentialsCommandInput - {@link GetCredentialsCommandInput}
@@ -81,6 +89,8 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class GetCredentialsCommand extends $Command<

@@ -58,6 +58,29 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * };
  * const command = new StartRecoveryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRecoveryResponse
+ *   job: { // Job
+ *     jobID: "STRING_VALUE", // required
+ *     arn: "STRING_VALUE",
+ *     type: "STRING_VALUE",
+ *     initiatedBy: "STRING_VALUE",
+ *     creationDateTime: "STRING_VALUE",
+ *     endDateTime: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     participatingServers: [ // ParticipatingServers
+ *       { // ParticipatingServer
+ *         sourceServerID: "STRING_VALUE",
+ *         recoveryInstanceID: "STRING_VALUE",
+ *         launchStatus: "STRING_VALUE",
+ *       },
+ *     ],
+ *     tags: { // TagsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartRecoveryCommandInput - {@link StartRecoveryCommandInput}
@@ -81,6 +104,8 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class StartRecoveryCommand extends $Command<

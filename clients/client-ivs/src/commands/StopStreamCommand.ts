@@ -51,6 +51,9 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * };
  * const command = new StopStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopStreamCommandInput - {@link StopStreamCommandInput}
@@ -74,6 +77,8 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class StopStreamCommand extends $Command<

@@ -46,6 +46,11 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * };
  * const command = new UpdateEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEvaluationOutput
+ *   EvaluationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateEvaluationCommandInput - {@link UpdateEvaluationCommandInput}
@@ -63,6 +68,8 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateEvaluationCommand extends $Command<

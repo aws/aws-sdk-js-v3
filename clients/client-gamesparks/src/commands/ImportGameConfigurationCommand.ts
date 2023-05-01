@@ -52,6 +52,21 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * };
  * const command = new ImportGameConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportGameConfigurationResult
+ *   GameConfiguration: { // GameConfigurationDetails
+ *     Sections: { // Sections
+ *       "<keys>": { // Section
+ *         Name: "STRING_VALUE",
+ *         Size: Number("int"),
+ *         Attributes: "DOCUMENT_VALUE",
+ *       },
+ *     },
+ *     Created: new Date("TIMESTAMP"),
+ *     LastUpdated: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ImportGameConfigurationCommandInput - {@link ImportGameConfigurationCommandInput}
@@ -78,6 +93,8 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ImportGameConfigurationCommand extends $Command<

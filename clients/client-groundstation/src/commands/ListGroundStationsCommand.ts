@@ -46,6 +46,18 @@ export interface ListGroundStationsCommandOutput extends ListGroundStationsRespo
  * };
  * const command = new ListGroundStationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroundStationsResponse
+ *   nextToken: "STRING_VALUE",
+ *   groundStationList: [ // GroundStationList
+ *     { // GroundStationData
+ *       groundStationId: "STRING_VALUE",
+ *       groundStationName: "STRING_VALUE",
+ *       region: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListGroundStationsCommandInput - {@link ListGroundStationsCommandInput}
@@ -63,6 +75,8 @@ export interface ListGroundStationsCommandOutput extends ListGroundStationsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListGroundStationsCommand extends $Command<

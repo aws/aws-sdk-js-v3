@@ -53,6 +53,28 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * };
  * const command = new ListLicenseConversionTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLicenseConversionTasksResponse
+ *   LicenseConversionTasks: [ // LicenseConversionTasks
+ *     { // LicenseConversionTask
+ *       LicenseConversionTaskId: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *       SourceLicenseContext: { // LicenseConversionContext
+ *         UsageOperation: "STRING_VALUE",
+ *       },
+ *       DestinationLicenseContext: {
+ *         UsageOperation: "STRING_VALUE",
+ *       },
+ *       Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ *       StatusMessage: "STRING_VALUE",
+ *       StartTime: new Date("TIMESTAMP"),
+ *       LicenseConversionTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListLicenseConversionTasksCommandInput - {@link ListLicenseConversionTasksCommandInput}
@@ -77,6 +99,8 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseConversionTasksCommand extends $Command<

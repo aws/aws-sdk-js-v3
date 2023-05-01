@@ -46,6 +46,9 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVoiceConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVoiceConnectorCommandInput - {@link DeleteVoiceConnectorCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DeleteVoiceConnectorCommand extends $Command<

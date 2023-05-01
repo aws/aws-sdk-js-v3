@@ -59,6 +59,30 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * };
  * const command = new CreateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoggingConfigurationResponse
+ *   arn: "STRING_VALUE",
+ *   id: "STRING_VALUE",
+ *   createTime: new Date("TIMESTAMP"),
+ *   updateTime: new Date("TIMESTAMP"),
+ *   name: "STRING_VALUE",
+ *   destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ *     s3: { // S3DestinationConfiguration
+ *       bucketName: "STRING_VALUE", // required
+ *     },
+ *     cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
+ *       logGroupName: "STRING_VALUE", // required
+ *     },
+ *     firehose: { // FirehoseDestinationConfiguration
+ *       deliveryStreamName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   state: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
@@ -85,6 +109,8 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class CreateLoggingConfigurationCommand extends $Command<

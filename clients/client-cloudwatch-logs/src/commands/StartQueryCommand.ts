@@ -65,6 +65,11 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartQueryResponse
+ *   queryId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartQueryCommandInput - {@link StartQueryCommandInput}
@@ -92,6 +97,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class StartQueryCommand extends $Command<

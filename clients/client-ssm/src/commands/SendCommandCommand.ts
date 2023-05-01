@@ -95,6 +95,72 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * };
  * const command = new SendCommandCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendCommandResult
+ *   Command: { // Command
+ *     CommandId: "STRING_VALUE",
+ *     DocumentName: "STRING_VALUE",
+ *     DocumentVersion: "STRING_VALUE",
+ *     Comment: "STRING_VALUE",
+ *     ExpiresAfter: new Date("TIMESTAMP"),
+ *     Parameters: { // Parameters
+ *       "<keys>": [ // ParameterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     InstanceIds: [ // InstanceIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     Targets: [ // Targets
+ *       { // Target
+ *         Key: "STRING_VALUE",
+ *         Values: [ // TargetValues
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *     RequestedDateTime: new Date("TIMESTAMP"),
+ *     Status: "Pending" || "InProgress" || "Success" || "Cancelled" || "Failed" || "TimedOut" || "Cancelling",
+ *     StatusDetails: "STRING_VALUE",
+ *     OutputS3Region: "STRING_VALUE",
+ *     OutputS3BucketName: "STRING_VALUE",
+ *     OutputS3KeyPrefix: "STRING_VALUE",
+ *     MaxConcurrency: "STRING_VALUE",
+ *     MaxErrors: "STRING_VALUE",
+ *     TargetCount: Number("int"),
+ *     CompletedCount: Number("int"),
+ *     ErrorCount: Number("int"),
+ *     DeliveryTimedOutCount: Number("int"),
+ *     ServiceRole: "STRING_VALUE",
+ *     NotificationConfig: { // NotificationConfig
+ *       NotificationArn: "STRING_VALUE",
+ *       NotificationEvents: [ // NotificationEventList
+ *         "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ *       ],
+ *       NotificationType: "Command" || "Invocation",
+ *     },
+ *     CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ *       CloudWatchLogGroupName: "STRING_VALUE",
+ *       CloudWatchOutputEnabled: true || false,
+ *     },
+ *     TimeoutSeconds: Number("int"),
+ *     AlarmConfiguration: { // AlarmConfiguration
+ *       IgnorePollAlarmFailure: true || false,
+ *       Alarms: [ // AlarmList // required
+ *         { // Alarm
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     TriggeredAlarms: [ // AlarmStateInformationList
+ *       { // AlarmStateInformation
+ *         Name: "STRING_VALUE", // required
+ *         State: "UNKNOWN" || "ALARM", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param SendCommandCommandInput - {@link SendCommandCommandInput}
@@ -158,6 +224,8 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *  <p>The document doesn't support the platform type of the given managed node ID(s). For example,
  *    you sent an document for a Windows managed node to a Linux node.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class SendCommandCommand extends $Command<

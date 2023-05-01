@@ -44,6 +44,9 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  * };
  * const command = new DeleteServiceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteServiceProfileCommandInput - {@link DeleteServiceProfileCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DeleteServiceProfileCommand extends $Command<

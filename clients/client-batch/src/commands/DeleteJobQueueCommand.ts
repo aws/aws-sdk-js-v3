@@ -47,6 +47,9 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * };
  * const command = new DeleteJobQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteJobQueueCommandInput - {@link DeleteJobQueueCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To delete a job queue
  * ```javascript

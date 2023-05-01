@@ -75,6 +75,13 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * };
  * const command = new UpdateSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecretResponse
+ *   ARN: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateSecretCommandInput - {@link UpdateSecretCommandInput}
@@ -130,6 +137,8 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To update the description of a secret
  * ```javascript

@@ -44,6 +44,25 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * };
  * const command = new GetFuotaTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFuotaTaskResponse
+ *   Arn: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Status: "Pending" || "FuotaSession_Waiting" || "In_FuotaSession" || "FuotaDone" || "Delete_Waiting",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LoRaWAN: { // LoRaWANFuotaTaskGetInfo
+ *     RfRegion: "STRING_VALUE",
+ *     StartTime: new Date("TIMESTAMP"),
+ *   },
+ *   FirmwareUpdateImage: "STRING_VALUE",
+ *   FirmwareUpdateRole: "STRING_VALUE",
+ *   CreatedAt: new Date("TIMESTAMP"),
+ *   RedundancyPercent: Number("int"),
+ *   FragmentSizeBytes: Number("int"),
+ *   FragmentIntervalMS: Number("int"),
+ * };
+ *
  * ```
  *
  * @param GetFuotaTaskCommandInput - {@link GetFuotaTaskCommandInput}
@@ -67,6 +86,8 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetFuotaTaskCommand extends $Command<

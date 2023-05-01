@@ -56,6 +56,23 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
  * };
  * const command = new ListMonitoringSchedulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitoringSchedulesResponse
+ *   MonitoringScheduleSummaries: [ // MonitoringScheduleSummaryList // required
+ *     { // MonitoringScheduleSummary
+ *       MonitoringScheduleName: "STRING_VALUE", // required
+ *       MonitoringScheduleArn: "STRING_VALUE", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *       LastModifiedTime: new Date("TIMESTAMP"), // required
+ *       MonitoringScheduleStatus: "Pending" || "Failed" || "Scheduled" || "Stopped", // required
+ *       EndpointName: "STRING_VALUE",
+ *       MonitoringJobDefinitionName: "STRING_VALUE",
+ *       MonitoringType: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMonitoringSchedulesCommandInput - {@link ListMonitoringSchedulesCommandInput}
@@ -64,6 +81,8 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
  * @see {@link ListMonitoringSchedulesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListMonitoringSchedulesCommand extends $Command<

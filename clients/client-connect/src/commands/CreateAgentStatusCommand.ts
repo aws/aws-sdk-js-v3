@@ -52,6 +52,12 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  * };
  * const command = new CreateAgentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAgentStatusResponse
+ *   AgentStatusARN: "STRING_VALUE",
+ *   AgentStatusId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateAgentStatusCommandInput - {@link CreateAgentStatusCommandInput}
@@ -81,6 +87,8 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateAgentStatusCommand extends $Command<

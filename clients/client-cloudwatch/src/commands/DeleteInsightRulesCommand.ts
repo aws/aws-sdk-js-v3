@@ -49,6 +49,18 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * };
  * const command = new DeleteInsightRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInsightRulesOutput
+ *   Failures: [ // BatchFailures
+ *     { // PartialFailure
+ *       FailureResource: "STRING_VALUE",
+ *       ExceptionType: "STRING_VALUE",
+ *       FailureCode: "STRING_VALUE",
+ *       FailureDescription: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteInsightRulesCommandInput - {@link DeleteInsightRulesCommandInput}
@@ -63,6 +75,8 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DeleteInsightRulesCommand extends $Command<

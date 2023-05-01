@@ -50,6 +50,16 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  * };
  * const command = new GetPlayerConnectionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlayerConnectionStatusResult
+ *   Connections: [ // ConnectionList
+ *     { // Connection
+ *       Id: "STRING_VALUE",
+ *       Created: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPlayerConnectionStatusCommandInput - {@link GetPlayerConnectionStatusCommandInput}
@@ -73,6 +83,8 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class GetPlayerConnectionStatusCommand extends $Command<

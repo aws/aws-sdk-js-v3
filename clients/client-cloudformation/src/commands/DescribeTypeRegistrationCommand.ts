@@ -54,6 +54,14 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * };
  * const command = new DescribeTypeRegistrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTypeRegistrationOutput
+ *   ProgressStatus: "COMPLETE" || "IN_PROGRESS" || "FAILED",
+ *   Description: "STRING_VALUE",
+ *   TypeArn: "STRING_VALUE",
+ *   TypeVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeTypeRegistrationCommandInput - {@link DescribeTypeRegistrationCommandInput}
@@ -65,6 +73,8 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeTypeRegistrationCommand extends $Command<

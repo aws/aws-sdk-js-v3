@@ -58,6 +58,18 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventCategoriesMessage
+ *   EventCategoriesMapList: [ // EventCategoriesMapList
+ *     { // EventCategoriesMap
+ *       SourceType: "STRING_VALUE",
+ *       EventCategories: [ // EventCategoriesList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
@@ -66,6 +78,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe event categories
  * ```javascript

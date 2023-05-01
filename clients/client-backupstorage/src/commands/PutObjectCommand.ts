@@ -62,6 +62,14 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutObjectOutput
+ *   InlineChunkChecksum: "STRING_VALUE", // required
+ *   InlineChunkChecksumAlgorithm: "STRING_VALUE", // required
+ *   ObjectChecksum: "STRING_VALUE", // required
+ *   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param PutObjectCommandInput - {@link PutObjectCommandInput}
@@ -94,6 +102,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class PutObjectCommand extends $Command<

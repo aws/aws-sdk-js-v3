@@ -50,6 +50,12 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  * };
  * const command = new DeleteDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDataSetRefreshPropertiesResponse
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param DeleteDataSetRefreshPropertiesCommandInput - {@link DeleteDataSetRefreshPropertiesCommandInput}
@@ -82,6 +88,8 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteDataSetRefreshPropertiesCommand extends $Command<

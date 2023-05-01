@@ -46,6 +46,12 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopFlowResponse
+ *   flowArn: "STRING_VALUE",
+ *   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ * };
+ *
  * ```
  *
  * @param StopFlowCommandInput - {@link StopFlowCommandInput}
@@ -69,6 +75,8 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p> The requested operation is not supported for the current flow. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class StopFlowCommand extends $Command<

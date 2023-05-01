@@ -46,6 +46,18 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePoliciesResponse
+ *   NextToken: "STRING_VALUE",
+ *   Policies: [ // GetResourcePoliciesResponseEntries
+ *     { // GetResourcePoliciesResponseEntry
+ *       PolicyId: "STRING_VALUE",
+ *       PolicyHash: "STRING_VALUE",
+ *       Policy: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
@@ -61,6 +73,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  *  <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
  *    values and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetResourcePoliciesCommand extends $Command<

@@ -47,6 +47,9 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  * };
  * const command = new DeleteLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLabelCommandInput - {@link DeleteLabelCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteLabelCommand extends $Command<

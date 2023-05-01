@@ -76,6 +76,25 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * };
  * const command = new GroupResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GroupResourcesOutput
+ *   Succeeded: [ // ResourceArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Failed: [ // FailedResourceList
+ *     { // FailedResource
+ *       ResourceArn: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Pending: [ // PendingResourceList
+ *     { // PendingResource
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GroupResourcesCommandInput - {@link GroupResourcesCommandInput}
@@ -103,6 +122,8 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GroupResourcesCommand extends $Command<

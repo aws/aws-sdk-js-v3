@@ -46,6 +46,9 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  * };
  * const command = new DeleteThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteThingGroupCommandInput - {@link DeleteThingGroupCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteThingGroupCommand extends $Command<

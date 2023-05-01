@@ -46,6 +46,11 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * };
  * const command = new AcknowledgeJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcknowledgeJobOutput
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AcknowledgeJobCommandInput - {@link AcknowledgeJobCommandInput}
@@ -63,6 +68,8 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class AcknowledgeJobCommand extends $Command<

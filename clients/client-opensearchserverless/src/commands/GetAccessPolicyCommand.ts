@@ -50,6 +50,19 @@ export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, _
  * };
  * const command = new GetAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessPolicyResponse
+ *   accessPolicyDetail: { // AccessPolicyDetail
+ *     type: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     policyVersion: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     policy: "DOCUMENT_VALUE",
+ *     createdDate: Number("long"),
+ *     lastModifiedDate: Number("long"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccessPolicyCommandInput - {@link GetAccessPolicyCommandInput}
@@ -68,6 +81,8 @@ export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, _
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class GetAccessPolicyCommand extends $Command<

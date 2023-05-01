@@ -55,6 +55,28 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * };
  * const command = new ModifyDBProxyTargetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBProxyTargetGroupResponse
+ *   DBProxyTargetGroup: { // DBProxyTargetGroup
+ *     DBProxyName: "STRING_VALUE",
+ *     TargetGroupName: "STRING_VALUE",
+ *     TargetGroupArn: "STRING_VALUE",
+ *     IsDefault: true || false,
+ *     Status: "STRING_VALUE",
+ *     ConnectionPoolConfig: { // ConnectionPoolConfigurationInfo
+ *       MaxConnectionsPercent: Number("int"),
+ *       MaxIdleConnectionsPercent: Number("int"),
+ *       ConnectionBorrowTimeout: Number("int"),
+ *       SessionPinningFilters: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       InitQuery: "STRING_VALUE",
+ *     },
+ *     CreatedDate: new Date("TIMESTAMP"),
+ *     UpdatedDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBProxyTargetGroupCommandInput - {@link ModifyDBProxyTargetGroupCommandInput}
@@ -72,6 +94,8 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class ModifyDBProxyTargetGroupCommand extends $Command<

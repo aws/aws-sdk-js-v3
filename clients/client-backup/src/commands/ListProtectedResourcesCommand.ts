@@ -47,6 +47,19 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * };
  * const command = new ListProtectedResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProtectedResourcesOutput
+ *   Results: [ // ProtectedResourcesList
+ *     { // ProtectedResource
+ *       ResourceArn: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       LastBackupTime: new Date("TIMESTAMP"),
+ *       ResourceName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListProtectedResourcesCommandInput - {@link ListProtectedResourcesCommandInput}
@@ -62,6 +75,8 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListProtectedResourcesCommand extends $Command<

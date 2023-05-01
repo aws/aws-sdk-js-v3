@@ -50,6 +50,12 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  * };
  * const command = new UpdatePartnerStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PartnerIntegrationOutputMessage
+ *   DatabaseName: "STRING_VALUE",
+ *   PartnerName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdatePartnerStatusCommandInput - {@link UpdatePartnerStatusCommandInput}
@@ -68,6 +74,8 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
  *  <p>The partner integration is not authorized.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class UpdatePartnerStatusCommand extends $Command<

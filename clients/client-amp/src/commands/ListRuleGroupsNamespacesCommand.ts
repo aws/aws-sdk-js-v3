@@ -47,6 +47,26 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * };
  * const command = new ListRuleGroupsNamespacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRuleGroupsNamespacesResponse
+ *   ruleGroupsNamespaces: [ // RuleGroupsNamespaceSummaryList // required
+ *     { // RuleGroupsNamespaceSummary
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       status: { // RuleGroupsNamespaceStatus
+ *         statusCode: "STRING_VALUE", // required
+ *         statusReason: "STRING_VALUE",
+ *       },
+ *       createdAt: new Date("TIMESTAMP"), // required
+ *       modifiedAt: new Date("TIMESTAMP"), // required
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRuleGroupsNamespacesCommandInput - {@link ListRuleGroupsNamespacesCommandInput}
@@ -70,6 +90,8 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class ListRuleGroupsNamespacesCommand extends $Command<

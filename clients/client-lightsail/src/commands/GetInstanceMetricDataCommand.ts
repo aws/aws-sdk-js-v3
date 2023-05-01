@@ -56,6 +56,22 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  * };
  * const command = new GetInstanceMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstanceMetricDataResult
+ *   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "BurstCapacityTime" || "BurstCapacityPercentage" || "MetadataNoToken",
+ *   metricData: [ // MetricDatapointList
+ *     { // MetricDatapoint
+ *       average: Number("double"),
+ *       maximum: Number("double"),
+ *       minimum: Number("double"),
+ *       sampleCount: Number("double"),
+ *       sum: Number("double"),
+ *       timestamp: new Date("TIMESTAMP"),
+ *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetInstanceMetricDataCommandInput - {@link GetInstanceMetricDataCommandInput}
@@ -94,6 +110,8 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetInstanceMetricDataCommand extends $Command<

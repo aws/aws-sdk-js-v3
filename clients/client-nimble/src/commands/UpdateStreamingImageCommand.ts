@@ -53,6 +53,32 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
  * };
  * const command = new UpdateStreamingImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateStreamingImageResponse
+ *   streamingImage: { // StreamingImage
+ *     arn: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     ec2ImageId: "STRING_VALUE",
+ *     encryptionConfiguration: { // StreamingImageEncryptionConfiguration
+ *       keyArn: "STRING_VALUE",
+ *       keyType: "CUSTOMER_MANAGED_KEY", // required
+ *     },
+ *     eulaIds: [ // EulaIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     name: "STRING_VALUE",
+ *     owner: "STRING_VALUE",
+ *     platform: "STRING_VALUE",
+ *     state: "CREATE_IN_PROGRESS" || "READY" || "DELETE_IN_PROGRESS" || "DELETED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "CREATE_FAILED" || "DELETE_FAILED",
+ *     statusCode: "STREAMING_IMAGE_CREATE_IN_PROGRESS" || "STREAMING_IMAGE_READY" || "STREAMING_IMAGE_DELETE_IN_PROGRESS" || "STREAMING_IMAGE_DELETED" || "STREAMING_IMAGE_UPDATE_IN_PROGRESS" || "INTERNAL_ERROR" || "ACCESS_DENIED",
+ *     statusMessage: "STRING_VALUE",
+ *     streamingImageId: "STRING_VALUE",
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateStreamingImageCommandInput - {@link UpdateStreamingImageCommandInput}
@@ -85,6 +111,8 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class UpdateStreamingImageCommand extends $Command<

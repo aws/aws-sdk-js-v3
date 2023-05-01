@@ -44,6 +44,9 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * };
  * const command = new DeleteNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNetworkSettingsCommandInput - {@link DeleteNetworkSettingsCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteNetworkSettingsCommand extends $Command<

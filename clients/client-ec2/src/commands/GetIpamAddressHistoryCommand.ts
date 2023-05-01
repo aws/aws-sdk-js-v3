@@ -51,6 +51,26 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  * };
  * const command = new GetIpamAddressHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIpamAddressHistoryResult
+ *   HistoryRecords: [ // IpamAddressHistoryRecordSet
+ *     { // IpamAddressHistoryRecord
+ *       ResourceOwnerId: "STRING_VALUE",
+ *       ResourceRegion: "STRING_VALUE",
+ *       ResourceType: "eip" || "vpc" || "subnet" || "network-interface" || "instance",
+ *       ResourceId: "STRING_VALUE",
+ *       ResourceCidr: "STRING_VALUE",
+ *       ResourceName: "STRING_VALUE",
+ *       ResourceComplianceStatus: "compliant" || "noncompliant" || "unmanaged" || "ignored",
+ *       ResourceOverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
+ *       VpcId: "STRING_VALUE",
+ *       SampledStartTime: new Date("TIMESTAMP"),
+ *       SampledEndTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetIpamAddressHistoryCommandInput - {@link GetIpamAddressHistoryCommandInput}
@@ -59,6 +79,8 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  * @see {@link GetIpamAddressHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetIpamAddressHistoryCommand extends $Command<

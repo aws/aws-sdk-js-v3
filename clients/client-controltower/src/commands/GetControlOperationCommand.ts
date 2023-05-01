@@ -46,6 +46,17 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * };
  * const command = new GetControlOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetControlOperationOutput
+ *   controlOperation: { // ControlOperation
+ *     operationType: "STRING_VALUE",
+ *     startTime: new Date("TIMESTAMP"),
+ *     endTime: new Date("TIMESTAMP"),
+ *     status: "STRING_VALUE",
+ *     statusMessage: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetControlOperationCommandInput - {@link GetControlOperationCommandInput}
@@ -70,6 +81,8 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ControlTowerServiceException}
+ * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
 export class GetControlOperationCommand extends $Command<

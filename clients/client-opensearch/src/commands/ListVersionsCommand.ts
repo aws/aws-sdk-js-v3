@@ -46,6 +46,14 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * };
  * const command = new ListVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVersionsResponse
+ *   Versions: [ // VersionList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListVersionsCommandInput - {@link ListVersionsCommandInput}
@@ -66,6 +74,8 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListVersionsCommand extends $Command<

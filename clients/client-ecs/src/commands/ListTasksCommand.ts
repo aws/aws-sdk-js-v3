@@ -56,6 +56,14 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTasksResponse
+ *   taskArns: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTasksCommandInput - {@link ListTasksCommandInput}
@@ -83,6 +91,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list the tasks in a cluster
  * ```javascript

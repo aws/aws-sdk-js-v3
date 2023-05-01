@@ -49,6 +49,24 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * };
  * const command = new DescribeSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubnetGroupsResponse
+ *   NextToken: "STRING_VALUE",
+ *   SubnetGroups: [ // SubnetGroupList
+ *     { // SubnetGroup
+ *       SubnetGroupName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: "STRING_VALUE",
+ *           SubnetAvailabilityZone: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSubnetGroupsCommandInput - {@link DescribeSubnetGroupsCommandInput}
@@ -64,6 +82,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  *  <p>The requested subnet group name does not refer to an existing subnet
  *             group.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeSubnetGroupsCommand extends $Command<

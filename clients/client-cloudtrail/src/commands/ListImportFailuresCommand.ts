@@ -46,6 +46,20 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * };
  * const command = new ListImportFailuresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportFailuresResponse
+ *   Failures: [ // ImportFailureList
+ *     { // ImportFailureListItem
+ *       Location: "STRING_VALUE",
+ *       Status: "FAILED" || "RETRY" || "SUCCEEDED",
+ *       ErrorType: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImportFailuresCommandInput - {@link ListImportFailuresCommandInput}
@@ -64,6 +78,8 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListImportFailuresCommand extends $Command<

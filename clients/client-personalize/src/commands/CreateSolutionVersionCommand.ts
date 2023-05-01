@@ -118,6 +118,11 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * };
  * const command = new CreateSolutionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSolutionVersionResponse
+ *   solutionVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSolutionVersionCommandInput - {@link CreateSolutionVersionCommandInput}
@@ -144,6 +149,8 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateSolutionVersionCommand extends $Command<

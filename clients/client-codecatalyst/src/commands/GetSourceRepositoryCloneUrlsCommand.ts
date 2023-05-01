@@ -52,6 +52,11 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * };
  * const command = new GetSourceRepositoryCloneUrlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSourceRepositoryCloneUrlsResponse
+ *   https: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetSourceRepositoryCloneUrlsCommandInput - {@link GetSourceRepositoryCloneUrlsCommandInput}
@@ -80,6 +85,8 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetSourceRepositoryCloneUrlsCommand extends $Command<

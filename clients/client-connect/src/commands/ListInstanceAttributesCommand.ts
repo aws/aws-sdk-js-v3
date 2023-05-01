@@ -47,6 +47,17 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * };
  * const command = new ListInstanceAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstanceAttributesResponse
+ *   Attributes: [ // AttributesList
+ *     { // Attribute
+ *       AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInstanceAttributesCommandInput - {@link ListInstanceAttributesCommandInput}
@@ -70,6 +81,8 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListInstanceAttributesCommand extends $Command<

@@ -129,6 +129,60 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * };
  * const command = new GetSavingsPlansPurchaseRecommendationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSavingsPlansPurchaseRecommendationResponse
+ *   Metadata: { // SavingsPlansPurchaseRecommendationMetadata
+ *     RecommendationId: "STRING_VALUE",
+ *     GenerationTimestamp: "STRING_VALUE",
+ *     AdditionalMetadata: "STRING_VALUE",
+ *   },
+ *   SavingsPlansPurchaseRecommendation: { // SavingsPlansPurchaseRecommendation
+ *     AccountScope: "PAYER" || "LINKED",
+ *     SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP",
+ *     TermInYears: "ONE_YEAR" || "THREE_YEARS",
+ *     PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
+ *     LookbackPeriodInDays: "SEVEN_DAYS" || "THIRTY_DAYS" || "SIXTY_DAYS",
+ *     SavingsPlansPurchaseRecommendationDetails: [ // SavingsPlansPurchaseRecommendationDetailList
+ *       { // SavingsPlansPurchaseRecommendationDetail
+ *         SavingsPlansDetails: { // SavingsPlansDetails
+ *           Region: "STRING_VALUE",
+ *           InstanceFamily: "STRING_VALUE",
+ *           OfferingId: "STRING_VALUE",
+ *         },
+ *         AccountId: "STRING_VALUE",
+ *         UpfrontCost: "STRING_VALUE",
+ *         EstimatedROI: "STRING_VALUE",
+ *         CurrencyCode: "STRING_VALUE",
+ *         EstimatedSPCost: "STRING_VALUE",
+ *         EstimatedOnDemandCost: "STRING_VALUE",
+ *         EstimatedOnDemandCostWithCurrentCommitment: "STRING_VALUE",
+ *         EstimatedSavingsAmount: "STRING_VALUE",
+ *         EstimatedSavingsPercentage: "STRING_VALUE",
+ *         HourlyCommitmentToPurchase: "STRING_VALUE",
+ *         EstimatedAverageUtilization: "STRING_VALUE",
+ *         EstimatedMonthlySavingsAmount: "STRING_VALUE",
+ *         CurrentMinimumHourlyOnDemandSpend: "STRING_VALUE",
+ *         CurrentMaximumHourlyOnDemandSpend: "STRING_VALUE",
+ *         CurrentAverageHourlyOnDemandSpend: "STRING_VALUE",
+ *       },
+ *     ],
+ *     SavingsPlansPurchaseRecommendationSummary: { // SavingsPlansPurchaseRecommendationSummary
+ *       EstimatedROI: "STRING_VALUE",
+ *       CurrencyCode: "STRING_VALUE",
+ *       EstimatedTotalCost: "STRING_VALUE",
+ *       CurrentOnDemandSpend: "STRING_VALUE",
+ *       EstimatedSavingsAmount: "STRING_VALUE",
+ *       TotalRecommendationCount: "STRING_VALUE",
+ *       DailyCommitmentToPurchase: "STRING_VALUE",
+ *       HourlyCommitmentToPurchase: "STRING_VALUE",
+ *       EstimatedSavingsPercentage: "STRING_VALUE",
+ *       EstimatedMonthlySavingsAmount: "STRING_VALUE",
+ *       EstimatedOnDemandCostWithCurrentCommitment: "STRING_VALUE",
+ *     },
+ *   },
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSavingsPlansPurchaseRecommendationCommandInput - {@link GetSavingsPlansPurchaseRecommendationCommandInput}
@@ -143,6 +197,8 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<

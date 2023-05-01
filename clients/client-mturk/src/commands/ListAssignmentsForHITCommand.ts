@@ -75,6 +75,28 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * };
  * const command = new ListAssignmentsForHITCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssignmentsForHITResponse
+ *   NextToken: "STRING_VALUE",
+ *   NumResults: Number("int"),
+ *   Assignments: [ // AssignmentList
+ *     { // Assignment
+ *       AssignmentId: "STRING_VALUE",
+ *       WorkerId: "STRING_VALUE",
+ *       HITId: "STRING_VALUE",
+ *       AssignmentStatus: "STRING_VALUE",
+ *       AutoApprovalTime: new Date("TIMESTAMP"),
+ *       AcceptTime: new Date("TIMESTAMP"),
+ *       SubmitTime: new Date("TIMESTAMP"),
+ *       ApprovalTime: new Date("TIMESTAMP"),
+ *       RejectionTime: new Date("TIMESTAMP"),
+ *       Deadline: new Date("TIMESTAMP"),
+ *       Answer: "STRING_VALUE",
+ *       RequesterFeedback: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAssignmentsForHITCommandInput - {@link ListAssignmentsForHITCommandInput}
@@ -89,6 +111,8 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListAssignmentsForHITCommand extends $Command<

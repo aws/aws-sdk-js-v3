@@ -51,6 +51,134 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * };
  * const command = new DescribeImageScanFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImageScanFindingsResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   imageId: { // ImageIdentifier
+ *     imageDigest: "STRING_VALUE",
+ *     imageTag: "STRING_VALUE",
+ *   },
+ *   imageScanStatus: { // ImageScanStatus
+ *     status: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *   },
+ *   imageScanFindings: { // ImageScanFindings
+ *     imageScanCompletedAt: new Date("TIMESTAMP"),
+ *     vulnerabilitySourceUpdatedAt: new Date("TIMESTAMP"),
+ *     findingSeverityCounts: { // FindingSeverityCounts
+ *       "<keys>": Number("int"),
+ *     },
+ *     findings: [ // ImageScanFindingList
+ *       { // ImageScanFinding
+ *         name: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *         uri: "STRING_VALUE",
+ *         severity: "STRING_VALUE",
+ *         attributes: [ // AttributeList
+ *           { // Attribute
+ *             key: "STRING_VALUE", // required
+ *             value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     enhancedFindings: [ // EnhancedImageScanFindingList
+ *       { // EnhancedImageScanFinding
+ *         awsAccountId: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *         findingArn: "STRING_VALUE",
+ *         firstObservedAt: new Date("TIMESTAMP"),
+ *         lastObservedAt: new Date("TIMESTAMP"),
+ *         packageVulnerabilityDetails: { // PackageVulnerabilityDetails
+ *           cvss: [ // CvssScoreList
+ *             { // CvssScore
+ *               baseScore: Number("double"),
+ *               scoringVector: "STRING_VALUE",
+ *               source: "STRING_VALUE",
+ *               version: "STRING_VALUE",
+ *             },
+ *           ],
+ *           referenceUrls: [ // ReferenceUrlsList
+ *             "STRING_VALUE",
+ *           ],
+ *           relatedVulnerabilities: [ // RelatedVulnerabilitiesList
+ *             "STRING_VALUE",
+ *           ],
+ *           source: "STRING_VALUE",
+ *           sourceUrl: "STRING_VALUE",
+ *           vendorCreatedAt: new Date("TIMESTAMP"),
+ *           vendorSeverity: "STRING_VALUE",
+ *           vendorUpdatedAt: new Date("TIMESTAMP"),
+ *           vulnerabilityId: "STRING_VALUE",
+ *           vulnerablePackages: [ // VulnerablePackagesList
+ *             { // VulnerablePackage
+ *               arch: "STRING_VALUE",
+ *               epoch: Number("int"),
+ *               filePath: "STRING_VALUE",
+ *               name: "STRING_VALUE",
+ *               packageManager: "STRING_VALUE",
+ *               release: "STRING_VALUE",
+ *               sourceLayerHash: "STRING_VALUE",
+ *               version: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         remediation: { // Remediation
+ *           recommendation: { // Recommendation
+ *             url: "STRING_VALUE",
+ *             text: "STRING_VALUE",
+ *           },
+ *         },
+ *         resources: [ // ResourceList
+ *           { // Resource
+ *             details: { // ResourceDetails
+ *               awsEcrContainerImage: { // AwsEcrContainerImageDetails
+ *                 architecture: "STRING_VALUE",
+ *                 author: "STRING_VALUE",
+ *                 imageHash: "STRING_VALUE",
+ *                 imageTags: [ // ImageTagsList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 platform: "STRING_VALUE",
+ *                 pushedAt: new Date("TIMESTAMP"),
+ *                 registry: "STRING_VALUE",
+ *                 repositoryName: "STRING_VALUE",
+ *               },
+ *             },
+ *             id: "STRING_VALUE",
+ *             tags: { // Tags
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             type: "STRING_VALUE",
+ *           },
+ *         ],
+ *         score: Number("double"),
+ *         scoreDetails: { // ScoreDetails
+ *           cvss: { // CvssScoreDetails
+ *             adjustments: [ // CvssScoreAdjustmentList
+ *               { // CvssScoreAdjustment
+ *                 metric: "STRING_VALUE",
+ *                 reason: "STRING_VALUE",
+ *               },
+ *             ],
+ *             score: Number("double"),
+ *             scoreSource: "STRING_VALUE",
+ *             scoringVector: "STRING_VALUE",
+ *             version: "STRING_VALUE",
+ *           },
+ *         },
+ *         severity: "STRING_VALUE",
+ *         status: "STRING_VALUE",
+ *         title: "STRING_VALUE",
+ *         type: "STRING_VALUE",
+ *         updatedAt: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeImageScanFindingsCommandInput - {@link DescribeImageScanFindingsCommandInput}
@@ -80,6 +208,8 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DescribeImageScanFindingsCommand extends $Command<

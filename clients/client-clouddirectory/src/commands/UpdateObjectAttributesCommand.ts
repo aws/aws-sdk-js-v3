@@ -66,6 +66,11 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * };
  * const command = new UpdateObjectAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateObjectAttributesResponse
+ *   ObjectIdentifier: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateObjectAttributesCommandInput - {@link UpdateObjectAttributesCommandInput}
@@ -107,6 +112,8 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpdateObjectAttributesCommand extends $Command<

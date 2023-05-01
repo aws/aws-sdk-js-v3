@@ -46,6 +46,62 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  * };
  * const command = new GetSuiteRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSuiteRunResponse
+ *   suiteDefinitionId: "STRING_VALUE",
+ *   suiteDefinitionVersion: "STRING_VALUE",
+ *   suiteRunId: "STRING_VALUE",
+ *   suiteRunArn: "STRING_VALUE",
+ *   suiteRunConfiguration: { // SuiteRunConfiguration
+ *     primaryDevice: { // DeviceUnderTest
+ *       thingArn: "STRING_VALUE",
+ *       certificateArn: "STRING_VALUE",
+ *       deviceRoleArn: "STRING_VALUE",
+ *     },
+ *     selectedTestList: [ // SelectedTestList
+ *       "STRING_VALUE",
+ *     ],
+ *     parallelRun: true || false,
+ *   },
+ *   testResult: { // TestResult
+ *     groups: [ // GroupResultList
+ *       { // GroupResult
+ *         groupId: "STRING_VALUE",
+ *         groupName: "STRING_VALUE",
+ *         tests: [ // TestCaseRuns
+ *           { // TestCaseRun
+ *             testCaseRunId: "STRING_VALUE",
+ *             testCaseDefinitionId: "STRING_VALUE",
+ *             testCaseDefinitionName: "STRING_VALUE",
+ *             status: "PASS" || "FAIL" || "CANCELED" || "PENDING" || "RUNNING" || "STOPPING" || "STOPPED" || "PASS_WITH_WARNINGS" || "ERROR",
+ *             startTime: new Date("TIMESTAMP"),
+ *             endTime: new Date("TIMESTAMP"),
+ *             logUrl: "STRING_VALUE",
+ *             warnings: "STRING_VALUE",
+ *             failure: "STRING_VALUE",
+ *             testScenarios: [ // TestCaseScenariosList
+ *               { // TestCaseScenario
+ *                 testCaseScenarioId: "STRING_VALUE",
+ *                 testCaseScenarioType: "Advanced" || "Basic",
+ *                 status: "PASS" || "FAIL" || "CANCELED" || "PENDING" || "RUNNING" || "STOPPING" || "STOPPED" || "PASS_WITH_WARNINGS" || "ERROR",
+ *                 failure: "STRING_VALUE",
+ *                 systemMessage: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   status: "PASS" || "FAIL" || "CANCELED" || "PENDING" || "RUNNING" || "STOPPING" || "STOPPED" || "PASS_WITH_WARNINGS" || "ERROR",
+ *   errorReason: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSuiteRunCommandInput - {@link GetSuiteRunCommandInput}
@@ -63,6 +119,8 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class GetSuiteRunCommand extends $Command<

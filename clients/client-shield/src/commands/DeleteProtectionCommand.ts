@@ -44,6 +44,9 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  * };
  * const command = new DeleteProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteProtectionCommandInput - {@link DeleteProtectionCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DeleteProtectionCommand extends $Command<

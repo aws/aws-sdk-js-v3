@@ -57,6 +57,30 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  * };
  * const command = new GetComplianceDetailsByConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComplianceDetailsByConfigRuleResponse
+ *   EvaluationResults: [ // EvaluationResults
+ *     { // EvaluationResult
+ *       EvaluationResultIdentifier: { // EvaluationResultIdentifier
+ *         EvaluationResultQualifier: { // EvaluationResultQualifier
+ *           ConfigRuleName: "STRING_VALUE",
+ *           ResourceType: "STRING_VALUE",
+ *           ResourceId: "STRING_VALUE",
+ *           EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ *         },
+ *         OrderingTimestamp: new Date("TIMESTAMP"),
+ *         ResourceEvaluationId: "STRING_VALUE",
+ *       },
+ *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *       ResultRecordedTime: new Date("TIMESTAMP"),
+ *       ConfigRuleInvokedTime: new Date("TIMESTAMP"),
+ *       Annotation: "STRING_VALUE",
+ *       ResultToken: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetComplianceDetailsByConfigRuleCommandInput - {@link GetComplianceDetailsByConfigRuleCommandInput}
@@ -77,6 +101,8 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetComplianceDetailsByConfigRuleCommand extends $Command<

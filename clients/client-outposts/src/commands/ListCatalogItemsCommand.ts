@@ -57,6 +57,32 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * };
  * const command = new ListCatalogItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCatalogItemsOutput
+ *   CatalogItems: [ // CatalogItemListDefinition
+ *     { // CatalogItem
+ *       CatalogItemId: "STRING_VALUE",
+ *       ItemStatus: "AVAILABLE" || "DISCONTINUED",
+ *       EC2Capacities: [ // EC2CapacityListDefinition
+ *         { // EC2Capacity
+ *           Family: "STRING_VALUE",
+ *           MaxSize: "STRING_VALUE",
+ *           Quantity: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PowerKva: Number("float"),
+ *       WeightLbs: Number("int"),
+ *       SupportedUplinkGbps: [ // SupportedUplinkGbpsListDefinition
+ *         Number("int"),
+ *       ],
+ *       SupportedStorage: [ // SupportedStorageList
+ *         "EBS" || "S3",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCatalogItemsCommandInput - {@link ListCatalogItemsCommandInput}
@@ -74,6 +100,8 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class ListCatalogItemsCommand extends $Command<

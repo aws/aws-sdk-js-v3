@@ -44,6 +44,18 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * };
  * const command = new GetStreamKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStreamKeyResponse
+ *   streamKey: { // StreamKey
+ *     arn: "STRING_VALUE",
+ *     value: "STRING_VALUE",
+ *     channelArn: "STRING_VALUE",
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStreamKeyCommandInput - {@link GetStreamKeyCommandInput}
@@ -61,6 +73,8 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetStreamKeyCommand extends $Command<

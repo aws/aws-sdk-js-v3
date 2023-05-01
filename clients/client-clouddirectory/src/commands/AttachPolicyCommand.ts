@@ -51,6 +51,9 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
@@ -87,6 +90,8 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AttachPolicyCommand extends $Command<

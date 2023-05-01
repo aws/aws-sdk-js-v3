@@ -50,6 +50,9 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * };
  * const command = new DeleteHumanLoopCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHumanLoopCommandInput - {@link DeleteHumanLoopCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  *  <p>The
  *       request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link SageMakerA2IRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
  */
 export class DeleteHumanLoopCommand extends $Command<

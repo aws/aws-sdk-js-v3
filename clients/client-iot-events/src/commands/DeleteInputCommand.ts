@@ -44,6 +44,9 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DeleteInputCommand extends $Command<

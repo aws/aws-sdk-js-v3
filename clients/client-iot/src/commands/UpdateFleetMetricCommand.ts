@@ -59,6 +59,9 @@ export interface UpdateFleetMetricCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateFleetMetricCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFleetMetricCommandInput - {@link UpdateFleetMetricCommandInput}
@@ -99,6 +102,8 @@ export interface UpdateFleetMetricCommandOutput extends __MetadataBearer {}
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateFleetMetricCommand extends $Command<

@@ -113,6 +113,9 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetricDataCommandInput - {@link PutMetricDataCommandInput}
@@ -133,6 +136,8 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutMetricDataCommand extends $Command<

@@ -45,6 +45,11 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * };
  * const command = new StopSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopSessionResponse
+ *   Id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StopSessionCommandInput - {@link StopSessionCommandInput}
@@ -71,6 +76,8 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StopSessionCommand extends $Command<

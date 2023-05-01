@@ -47,6 +47,9 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * };
  * const command = new AssociateApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateApplicationsCommandInput - {@link AssociateApplicationsCommandInput}
@@ -67,6 +70,8 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class AssociateApplicationsCommand extends $Command<

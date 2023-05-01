@@ -48,6 +48,9 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  * };
  * const command = new CancelCommandCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelCommandCommandInput - {@link CancelCommandCommandInput}
@@ -85,6 +88,8 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  *             </li>
  *          </ul>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CancelCommandCommand extends $Command<

@@ -58,6 +58,9 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * };
  * const command = new SendTestEventNotificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendTestEventNotificationCommandInput - {@link SendTestEventNotificationCommandInput}
@@ -72,6 +75,8 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class SendTestEventNotificationCommand extends $Command<

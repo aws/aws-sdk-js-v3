@@ -47,6 +47,16 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * };
  * const command = new ListCidrLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCidrLocationsResponse
+ *   NextToken: "STRING_VALUE",
+ *   CidrLocations: [ // LocationSummaries
+ *     { // LocationSummary
+ *       LocationName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCidrLocationsCommandInput - {@link ListCidrLocationsCommandInput}
@@ -61,6 +71,8 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * @throws {@link NoSuchCidrCollectionException} (client fault)
  *  <p>The CIDR collection you specified, doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListCidrLocationsCommand extends $Command<

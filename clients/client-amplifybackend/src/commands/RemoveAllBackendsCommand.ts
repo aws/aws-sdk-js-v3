@@ -45,6 +45,15 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * };
  * const command = new RemoveAllBackendsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveAllBackendsResponse
+ *   AppId: "STRING_VALUE",
+ *   Error: "STRING_VALUE",
+ *   JobId: "STRING_VALUE",
+ *   Operation: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RemoveAllBackendsCommandInput - {@link RemoveAllBackendsCommandInput}
@@ -65,6 +74,8 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class RemoveAllBackendsCommand extends $Command<

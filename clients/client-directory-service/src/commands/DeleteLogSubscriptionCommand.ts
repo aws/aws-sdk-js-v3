@@ -44,6 +44,9 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  * };
  * const command = new DeleteLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLogSubscriptionCommandInput - {@link DeleteLogSubscriptionCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteLogSubscriptionCommand extends $Command<

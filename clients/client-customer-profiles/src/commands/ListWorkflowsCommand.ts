@@ -50,6 +50,21 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkflowsResponse
+ *   Items: [ // WorkflowList
+ *     { // ListWorkflowsItem
+ *       WorkflowType: "APPFLOW_INTEGRATION", // required
+ *       WorkflowId: "STRING_VALUE", // required
+ *       Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED", // required
+ *       StatusDescription: "STRING_VALUE", // required
+ *       CreatedAt: new Date("TIMESTAMP"), // required
+ *       LastUpdatedAt: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
@@ -73,6 +88,8 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListWorkflowsCommand extends $Command<

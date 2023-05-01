@@ -65,6 +65,12 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * };
  * const command = new UpdateConnectivityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectivityResponse
+ *   ClusterArn: "STRING_VALUE",
+ *   ClusterOperationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateConnectivityCommandInput - {@link UpdateConnectivityCommandInput}
@@ -91,6 +97,8 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateConnectivityCommand extends $Command<

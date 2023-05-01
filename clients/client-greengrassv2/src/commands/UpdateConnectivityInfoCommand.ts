@@ -58,6 +58,12 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * };
  * const command = new UpdateConnectivityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectivityInfoResponse
+ *   version: "STRING_VALUE",
+ *   message: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
@@ -73,6 +79,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class UpdateConnectivityInfoCommand extends $Command<

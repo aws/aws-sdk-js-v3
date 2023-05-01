@@ -51,6 +51,24 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  * };
  * const command = new ListResourceServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceServersResponse
+ *   ResourceServers: [ // ResourceServersListType // required
+ *     { // ResourceServerType
+ *       UserPoolId: "STRING_VALUE",
+ *       Identifier: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Scopes: [ // ResourceServerScopeListType
+ *         { // ResourceServerScopeType
+ *           ScopeName: "STRING_VALUE", // required
+ *           ScopeDescription: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListResourceServersCommandInput - {@link ListResourceServersCommandInput}
@@ -77,6 +95,8 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListResourceServersCommand extends $Command<

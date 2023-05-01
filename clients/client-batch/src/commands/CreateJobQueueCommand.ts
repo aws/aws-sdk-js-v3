@@ -61,6 +61,12 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateJobQueueResponse
+ *   jobQueueName: "STRING_VALUE", // required
+ *   jobQueueArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateJobQueueCommandInput - {@link CreateJobQueueCommandInput}
@@ -77,6 +83,8 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To create a job queue with a single compute environment
  * ```javascript

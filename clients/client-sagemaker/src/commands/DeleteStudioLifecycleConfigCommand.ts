@@ -44,6 +44,9 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStudioLifecycleConfigCommandInput - {@link DeleteStudioLifecycleConfigCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteStudioLifecycleConfigCommand extends $Command<

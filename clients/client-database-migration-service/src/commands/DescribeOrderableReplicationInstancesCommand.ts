@@ -59,6 +59,26 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * };
  * const command = new DescribeOrderableReplicationInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrderableReplicationInstancesResponse
+ *   OrderableReplicationInstances: [ // OrderableReplicationInstanceList
+ *     { // OrderableReplicationInstance
+ *       EngineVersion: "STRING_VALUE",
+ *       ReplicationInstanceClass: "STRING_VALUE",
+ *       StorageType: "STRING_VALUE",
+ *       MinAllocatedStorage: Number("int"),
+ *       MaxAllocatedStorage: Number("int"),
+ *       DefaultAllocatedStorage: Number("int"),
+ *       IncludedAllocatedStorage: Number("int"),
+ *       AvailabilityZones: [ // AvailabilityZonesList
+ *         "STRING_VALUE",
+ *       ],
+ *       ReleaseStatus: "beta" || "prod",
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeOrderableReplicationInstancesCommandInput - {@link DescribeOrderableReplicationInstancesCommandInput}
@@ -67,6 +87,8 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @see {@link DescribeOrderableReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe orderable replication instances
  * ```javascript

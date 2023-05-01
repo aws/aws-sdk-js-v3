@@ -43,6 +43,11 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  * const input = {};
  * const command = new GetRegistrationCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRegistrationCodeResponse
+ *   registrationCode: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetRegistrationCodeCommandInput - {@link GetRegistrationCodeCommandInput}
@@ -66,6 +71,8 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetRegistrationCodeCommand extends $Command<

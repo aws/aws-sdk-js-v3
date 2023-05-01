@@ -46,6 +46,11 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * };
  * const command = new PutResolverRulePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResolverRulePolicyResponse
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param PutResolverRulePolicyCommandInput - {@link PutResolverRulePolicyCommandInput}
@@ -69,6 +74,8 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class PutResolverRulePolicyCommand extends $Command<

@@ -45,6 +45,34 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * };
  * const command = new ListAssetModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssetModelsResponse
+ *   assetModelSummaries: [ // AssetModelSummaries // required
+ *     { // AssetModelSummary
+ *       id: "STRING_VALUE", // required
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE", // required
+ *       creationDate: new Date("TIMESTAMP"), // required
+ *       lastUpdateDate: new Date("TIMESTAMP"), // required
+ *       status: { // AssetModelStatus
+ *         state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
+ *         error: { // ErrorDetails
+ *           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ *           message: "STRING_VALUE", // required
+ *           details: [ // DetailedErrors
+ *             { // DetailedError
+ *               code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ *               message: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssetModelsCommandInput - {@link ListAssetModelsCommandInput}
@@ -66,6 +94,8 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListAssetModelsCommand extends $Command<

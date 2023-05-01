@@ -54,6 +54,13 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBillingGroupResponse
+ *   billingGroupName: "STRING_VALUE",
+ *   billingGroupArn: "STRING_VALUE",
+ *   billingGroupId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
@@ -74,6 +81,8 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateBillingGroupCommand extends $Command<

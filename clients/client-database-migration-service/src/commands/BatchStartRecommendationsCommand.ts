@@ -61,6 +61,17 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * };
  * const command = new BatchStartRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchStartRecommendationsResponse
+ *   ErrorEntries: [ // BatchStartRecommendationsErrorEntryList
+ *     { // BatchStartRecommendationsErrorEntry
+ *       DatabaseId: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *       Code: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchStartRecommendationsCommandInput - {@link BatchStartRecommendationsCommandInput}
@@ -79,6 +90,8 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class BatchStartRecommendationsCommand extends $Command<

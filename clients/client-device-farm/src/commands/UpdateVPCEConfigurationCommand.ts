@@ -48,6 +48,17 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * };
  * const command = new UpdateVPCEConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVPCEConfigurationResult
+ *   vpceConfiguration: { // VPCEConfiguration
+ *     arn: "STRING_VALUE",
+ *     vpceConfigurationName: "STRING_VALUE",
+ *     vpceServiceName: "STRING_VALUE",
+ *     serviceDnsName: "STRING_VALUE",
+ *     vpceConfigurationDescription: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVPCEConfigurationCommandInput - {@link UpdateVPCEConfigurationCommandInput}
@@ -69,6 +80,8 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateVPCEConfigurationCommand extends $Command<

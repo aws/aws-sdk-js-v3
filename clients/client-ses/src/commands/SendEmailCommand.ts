@@ -128,6 +128,11 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEmailResponse
+ *   MessageId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param SendEmailCommandInput - {@link SendEmailCommandInput}
@@ -157,6 +162,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *  <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SendEmail
  * ```javascript

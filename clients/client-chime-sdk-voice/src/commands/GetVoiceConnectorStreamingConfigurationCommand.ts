@@ -56,6 +56,23 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * };
  * const command = new GetVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorStreamingConfigurationResponse
+ *   StreamingConfiguration: { // StreamingConfiguration
+ *     DataRetentionInHours: Number("int"), // required
+ *     Disabled: true || false, // required
+ *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ *       { // StreamingNotificationTarget
+ *         NotificationTarget: "EventBridge" || "SNS" || "SQS",
+ *       },
+ *     ],
+ *     MediaInsightsConfiguration: { // MediaInsightsConfiguration
+ *       Disabled: true || false,
+ *       ConfigurationArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorStreamingConfigurationCommandInput - {@link GetVoiceConnectorStreamingConfigurationCommandInput}
@@ -85,6 +102,8 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<

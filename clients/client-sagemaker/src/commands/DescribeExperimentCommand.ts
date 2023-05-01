@@ -44,6 +44,40 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  * };
  * const command = new DescribeExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExperimentResponse
+ *   ExperimentName: "STRING_VALUE",
+ *   ExperimentArn: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   Source: { // ExperimentSource
+ *     SourceArn: "STRING_VALUE", // required
+ *     SourceType: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ *   CreatedBy: { // UserContext
+ *     UserProfileArn: "STRING_VALUE",
+ *     UserProfileName: "STRING_VALUE",
+ *     DomainId: "STRING_VALUE",
+ *     IamIdentity: { // IamIdentity
+ *       Arn: "STRING_VALUE",
+ *       PrincipalId: "STRING_VALUE",
+ *       SourceIdentity: "STRING_VALUE",
+ *     },
+ *   },
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   LastModifiedBy: {
+ *     UserProfileArn: "STRING_VALUE",
+ *     UserProfileName: "STRING_VALUE",
+ *     DomainId: "STRING_VALUE",
+ *     IamIdentity: {
+ *       Arn: "STRING_VALUE",
+ *       PrincipalId: "STRING_VALUE",
+ *       SourceIdentity: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeExperimentCommandInput - {@link DescribeExperimentCommandInput}
@@ -55,6 +89,8 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeExperimentCommand extends $Command<

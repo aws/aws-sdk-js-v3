@@ -90,6 +90,12 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * };
  * const command = new CreateLayoutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLayoutResponse
+ *   layoutId: "STRING_VALUE", // required
+ *   layoutArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateLayoutCommandInput - {@link CreateLayoutCommandInput}
@@ -124,6 +130,8 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class CreateLayoutCommand extends $Command<

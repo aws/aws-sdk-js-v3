@@ -48,6 +48,18 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExtensionsResult
+ *   Extensions: [ // ExtensionDetailsList
+ *     { // ExtensionDetails
+ *       Namespace: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
@@ -68,6 +80,8 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListExtensionsCommand extends $Command<

@@ -52,6 +52,17 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * };
  * const command = new GetExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExportResponse
+ *   name: "STRING_VALUE",
+ *   version: "STRING_VALUE",
+ *   resourceType: "STRING_VALUE",
+ *   exportType: "STRING_VALUE",
+ *   exportStatus: "STRING_VALUE",
+ *   failureReason: "STRING_VALUE",
+ *   url: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetExportCommandInput - {@link GetExportCommandInput}
@@ -75,6 +86,8 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetExportCommand extends $Command<

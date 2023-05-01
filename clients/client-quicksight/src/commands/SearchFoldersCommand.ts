@@ -53,6 +53,23 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * };
  * const command = new SearchFoldersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchFoldersResponse
+ *   Status: Number("int"),
+ *   FolderSummaryList: [ // FolderSummaryList
+ *     { // FolderSummary
+ *       Arn: "STRING_VALUE",
+ *       FolderId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       FolderType: "SHARED",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchFoldersCommandInput - {@link SearchFoldersCommandInput}
@@ -91,6 +108,8 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchFoldersCommand extends $Command<

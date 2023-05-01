@@ -57,6 +57,13 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * };
  * const command = new UpdateSipMediaApplicationCallCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSipMediaApplicationCallResponse
+ *   SipMediaApplicationCall: { // SipMediaApplicationCall
+ *     TransactionId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSipMediaApplicationCallCommandInput - {@link UpdateSipMediaApplicationCallCommandInput}
@@ -89,6 +96,8 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateSipMediaApplicationCallCommand extends $Command<

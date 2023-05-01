@@ -48,6 +48,140 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * };
  * const command = new DescribeAutoMLJobV2Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAutoMLJobV2Response
+ *   AutoMLJobName: "STRING_VALUE", // required
+ *   AutoMLJobArn: "STRING_VALUE", // required
+ *   AutoMLJobInputDataConfig: [ // AutoMLJobInputDataConfig // required
+ *     { // AutoMLJobChannel
+ *       ChannelType: "training" || "validation",
+ *       ContentType: "STRING_VALUE",
+ *       CompressionType: "None" || "Gzip",
+ *       DataSource: { // AutoMLDataSource
+ *         S3DataSource: { // AutoMLS3DataSource
+ *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *           S3Uri: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   OutputDataConfig: { // AutoMLOutputDataConfig
+ *     KmsKeyId: "STRING_VALUE",
+ *     S3OutputPath: "STRING_VALUE", // required
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   AutoMLJobObjective: { // AutoMLJobObjective
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ *   },
+ *   AutoMLProblemTypeConfig: { // AutoMLProblemTypeConfig Union: only one key present
+ *     ImageClassificationJobConfig: { // ImageClassificationJobConfig
+ *       CompletionCriteria: { // AutoMLJobCompletionCriteria
+ *         MaxCandidates: Number("int"),
+ *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       },
+ *     },
+ *     TextClassificationJobConfig: { // TextClassificationJobConfig
+ *       CompletionCriteria: {
+ *         MaxCandidates: Number("int"),
+ *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       },
+ *       ContentColumn: "STRING_VALUE",
+ *       TargetLabelColumn: "STRING_VALUE",
+ *     },
+ *   },
+ *   CreationTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"),
+ *   LastModifiedTime: new Date("TIMESTAMP"), // required
+ *   FailureReason: "STRING_VALUE",
+ *   PartialFailureReasons: [ // AutoMLPartialFailureReasons
+ *     { // AutoMLPartialFailureReason
+ *       PartialFailureMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ *   BestCandidate: { // AutoMLCandidate
+ *     CandidateName: "STRING_VALUE", // required
+ *     FinalAutoMLJobObjectiveMetric: { // FinalAutoMLJobObjectiveMetric
+ *       Type: "Maximize" || "Minimize",
+ *       MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ *       Value: Number("float"), // required
+ *       StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro",
+ *     },
+ *     ObjectiveStatus: "Succeeded" || "Pending" || "Failed", // required
+ *     CandidateSteps: [ // CandidateSteps // required
+ *       { // AutoMLCandidateStep
+ *         CandidateStepType: "AWS::SageMaker::TrainingJob" || "AWS::SageMaker::TransformJob" || "AWS::SageMaker::ProcessingJob", // required
+ *         CandidateStepArn: "STRING_VALUE", // required
+ *         CandidateStepName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     CandidateStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping", // required
+ *     InferenceContainers: [ // AutoMLContainerDefinitions
+ *       { // AutoMLContainerDefinition
+ *         Image: "STRING_VALUE", // required
+ *         ModelDataUrl: "STRING_VALUE", // required
+ *         Environment: { // EnvironmentMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     CreationTime: new Date("TIMESTAMP"), // required
+ *     EndTime: new Date("TIMESTAMP"),
+ *     LastModifiedTime: new Date("TIMESTAMP"), // required
+ *     FailureReason: "STRING_VALUE",
+ *     CandidateProperties: { // CandidateProperties
+ *       CandidateArtifactLocations: { // CandidateArtifactLocations
+ *         Explainability: "STRING_VALUE", // required
+ *         ModelInsights: "STRING_VALUE",
+ *       },
+ *       CandidateMetrics: [ // MetricDataList
+ *         { // MetricDatum
+ *           MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro",
+ *           Value: Number("float"),
+ *           Set: "Train" || "Validation" || "Test",
+ *           StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "LogLoss" || "InferenceLatency",
+ *         },
+ *       ],
+ *     },
+ *     InferenceContainerDefinitions: { // AutoMLInferenceContainerDefinitions
+ *       "<keys>": [
+ *         {
+ *           Image: "STRING_VALUE", // required
+ *           ModelDataUrl: "STRING_VALUE", // required
+ *           Environment: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   AutoMLJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping", // required
+ *   AutoMLJobSecondaryStatus: "Starting" || "AnalyzingData" || "FeatureEngineering" || "ModelTuning" || "MaxCandidatesReached" || "Failed" || "Stopped" || "MaxAutoMLJobRuntimeReached" || "Stopping" || "CandidateDefinitionsGenerated" || "GeneratingExplainabilityReport" || "Completed" || "ExplainabilityError" || "DeployingModel" || "ModelDeploymentError" || "GeneratingModelInsightsReport" || "ModelInsightsError" || "TrainingModels", // required
+ *   ModelDeployConfig: { // ModelDeployConfig
+ *     AutoGenerateEndpointName: true || false,
+ *     EndpointName: "STRING_VALUE",
+ *   },
+ *   ModelDeployResult: { // ModelDeployResult
+ *     EndpointName: "STRING_VALUE",
+ *   },
+ *   DataSplitConfig: { // AutoMLDataSplitConfig
+ *     ValidationFraction: Number("float"),
+ *   },
+ *   SecurityConfig: { // AutoMLSecurityConfig
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *     EnableInterContainerTrafficEncryption: true || false,
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAutoMLJobV2CommandInput - {@link DescribeAutoMLJobV2CommandInput}
@@ -59,6 +193,8 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeAutoMLJobV2Command extends $Command<

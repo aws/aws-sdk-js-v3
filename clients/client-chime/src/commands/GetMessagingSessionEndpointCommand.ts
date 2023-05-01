@@ -47,6 +47,13 @@ export interface GetMessagingSessionEndpointCommandOutput
  * const input = {};
  * const command = new GetMessagingSessionEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMessagingSessionEndpointResponse
+ *   Endpoint: { // MessagingSessionEndpoint
+ *     Url: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMessagingSessionEndpointCommandInput - {@link GetMessagingSessionEndpointCommandInput}
@@ -70,6 +77,8 @@ export interface GetMessagingSessionEndpointCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetMessagingSessionEndpointCommand extends $Command<

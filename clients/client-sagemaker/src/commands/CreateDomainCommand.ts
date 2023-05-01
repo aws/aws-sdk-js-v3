@@ -232,6 +232,12 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDomainResponse
+ *   DomainArn: "STRING_VALUE",
+ *   Url: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
@@ -247,6 +253,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateDomainCommand extends $Command<

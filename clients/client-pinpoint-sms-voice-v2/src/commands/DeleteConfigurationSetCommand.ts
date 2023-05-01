@@ -51,6 +51,35 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteConfigurationSetResult
+ *   ConfigurationSetArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   EventDestinations: [ // EventDestinationList
+ *     { // EventDestination
+ *       EventDestinationName: "STRING_VALUE", // required
+ *       Enabled: true || false, // required
+ *       MatchingEventTypes: [ // EventTypeList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *         IamRoleArn: "STRING_VALUE", // required
+ *         LogGroupArn: "STRING_VALUE", // required
+ *       },
+ *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *         IamRoleArn: "STRING_VALUE", // required
+ *         DeliveryStreamArn: "STRING_VALUE", // required
+ *       },
+ *       SnsDestination: { // SnsDestination
+ *         TopicArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   DefaultMessageType: "STRING_VALUE",
+ *   DefaultSenderId: "STRING_VALUE",
+ *   CreatedTimestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
@@ -77,6 +106,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteConfigurationSetCommand extends $Command<

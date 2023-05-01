@@ -54,6 +54,59 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationsResponse
+ *   recommendations: [ // RecommendationList // required
+ *     { // RecommendationData
+ *       recommendationId: "STRING_VALUE", // required
+ *       document: { // Document
+ *         contentReference: { // ContentReference
+ *           knowledgeBaseArn: "STRING_VALUE",
+ *           knowledgeBaseId: "STRING_VALUE",
+ *           contentArn: "STRING_VALUE",
+ *           contentId: "STRING_VALUE",
+ *         },
+ *         title: { // DocumentText
+ *           text: "STRING_VALUE",
+ *           highlights: [ // Highlights
+ *             { // Highlight
+ *               beginOffsetInclusive: Number("int"),
+ *               endOffsetExclusive: Number("int"),
+ *             },
+ *           ],
+ *         },
+ *         excerpt: {
+ *           text: "STRING_VALUE",
+ *           highlights: [
+ *             {
+ *               beginOffsetInclusive: Number("int"),
+ *               endOffsetExclusive: Number("int"),
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       relevanceScore: Number("double"),
+ *       relevanceLevel: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *     },
+ *   ],
+ *   triggers: [ // RecommendationTriggerList
+ *     { // RecommendationTrigger
+ *       id: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       source: "STRING_VALUE", // required
+ *       data: { // RecommendationTriggerData Union: only one key present
+ *         query: { // QueryRecommendationTriggerData
+ *           text: "STRING_VALUE",
+ *         },
+ *       },
+ *       recommendationIds: [ // RecommendationIdList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
@@ -71,6 +124,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class GetRecommendationsCommand extends $Command<

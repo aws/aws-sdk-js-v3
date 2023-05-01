@@ -47,6 +47,11 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * };
  * const command = new PublishSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishSchemaResponse
+ *   PublishedSchemaArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PublishSchemaCommandInput - {@link PublishSchemaCommandInput}
@@ -80,6 +85,8 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class PublishSchemaCommand extends $Command<

@@ -60,6 +60,12 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * };
  * const command = new StartExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartExecutionOutput
+ *   executionArn: "STRING_VALUE", // required
+ *   startDate: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param StartExecutionCommandInput - {@link StartExecutionCommandInput}
@@ -98,6 +104,8 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class StartExecutionCommand extends $Command<

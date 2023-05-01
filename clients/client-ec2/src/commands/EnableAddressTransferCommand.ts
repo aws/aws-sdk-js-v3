@@ -46,6 +46,18 @@ export interface EnableAddressTransferCommandOutput extends EnableAddressTransfe
  * };
  * const command = new EnableAddressTransferCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableAddressTransferResult
+ *   AddressTransfer: { // AddressTransfer
+ *     PublicIp: "STRING_VALUE",
+ *     AllocationId: "STRING_VALUE",
+ *     TransferAccountId: "STRING_VALUE",
+ *     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
+ *     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
+ *     AddressTransferStatus: "pending" || "disabled" || "accepted",
+ *   },
+ * };
+ *
  * ```
  *
  * @param EnableAddressTransferCommandInput - {@link EnableAddressTransferCommandInput}
@@ -54,6 +66,8 @@ export interface EnableAddressTransferCommandOutput extends EnableAddressTransfe
  * @see {@link EnableAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableAddressTransferCommand extends $Command<

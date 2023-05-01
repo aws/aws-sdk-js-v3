@@ -47,6 +47,21 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * };
  * const command = new DescribeSignalingChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSignalingChannelOutput
+ *   ChannelInfo: { // ChannelInfo
+ *     ChannelName: "STRING_VALUE",
+ *     ChannelARN: "STRING_VALUE",
+ *     ChannelType: "SINGLE_MASTER" || "FULL_MESH",
+ *     ChannelStatus: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     SingleMasterConfiguration: { // SingleMasterConfiguration
+ *       MessageTtlSeconds: Number("int"),
+ *     },
+ *     Version: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSignalingChannelCommandInput - {@link DescribeSignalingChannelCommandInput}
@@ -68,6 +83,8 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeSignalingChannelCommand extends $Command<

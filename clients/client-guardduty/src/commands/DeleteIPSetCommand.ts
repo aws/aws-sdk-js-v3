@@ -46,6 +46,9 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIPSetCommandInput - {@link DeleteIPSetCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DeleteIPSetCommand extends $Command<

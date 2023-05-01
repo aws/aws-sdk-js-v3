@@ -53,6 +53,9 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * };
  * const command = new DeleteEventDataStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEventDataStoreCommandInput - {@link DeleteEventDataStoreCommandInput}
@@ -106,6 +109,8 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DeleteEventDataStoreCommand extends $Command<

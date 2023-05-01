@@ -46,6 +46,28 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseOfferingResponse
+ *   Reservation: { // Reservation
+ *     CurrencyCode: "STRING_VALUE", // required
+ *     Duration: Number("int"), // required
+ *     DurationUnits: "MONTHS", // required
+ *     End: "STRING_VALUE", // required
+ *     OfferingArn: "STRING_VALUE", // required
+ *     OfferingDescription: "STRING_VALUE", // required
+ *     PricePerUnit: "STRING_VALUE", // required
+ *     PriceUnits: "HOURLY", // required
+ *     ReservationArn: "STRING_VALUE", // required
+ *     ReservationName: "STRING_VALUE", // required
+ *     ReservationState: "ACTIVE" || "EXPIRED" || "PROCESSING" || "CANCELED", // required
+ *     ResourceSpecification: { // ResourceSpecification
+ *       ReservedBitrate: Number("int"),
+ *       ResourceType: "Mbps_Outbound_Bandwidth", // required
+ *     },
+ *     Start: "STRING_VALUE", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
@@ -72,6 +94,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class PurchaseOfferingCommand extends $Command<

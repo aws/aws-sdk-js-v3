@@ -55,6 +55,9 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  * };
  * const command = new RemoveTagsFromCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsFromCertificateCommandInput - {@link RemoveTagsFromCertificateCommandInput}
@@ -83,6 +86,8 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because it exceeded a quota.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class RemoveTagsFromCertificateCommand extends $Command<

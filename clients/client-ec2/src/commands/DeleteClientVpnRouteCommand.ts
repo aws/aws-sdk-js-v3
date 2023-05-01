@@ -50,6 +50,14 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * };
  * const command = new DeleteClientVpnRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteClientVpnRouteResult
+ *   Status: { // ClientVpnRouteStatus
+ *     Code: "creating" || "active" || "failed" || "deleting",
+ *     Message: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteClientVpnRouteCommandInput - {@link DeleteClientVpnRouteCommandInput}
@@ -58,6 +66,8 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * @see {@link DeleteClientVpnRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteClientVpnRouteCommand extends $Command<

@@ -51,6 +51,18 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * };
  * const command = new CreateContainerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContainerOutput
+ *   Container: { // Container
+ *     Endpoint: "STRING_VALUE",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     ARN: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     AccessLoggingEnabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateContainerCommandInput - {@link CreateContainerCommandInput}
@@ -69,6 +81,8 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service limit has been exceeded.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class CreateContainerCommand extends $Command<

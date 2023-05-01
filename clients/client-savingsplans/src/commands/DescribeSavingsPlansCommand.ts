@@ -62,6 +62,37 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * };
  * const command = new DescribeSavingsPlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSavingsPlansResponse
+ *   savingsPlans: [ // SavingsPlanList
+ *     { // SavingsPlan
+ *       offeringId: "STRING_VALUE",
+ *       savingsPlanId: "STRING_VALUE",
+ *       savingsPlanArn: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       start: "STRING_VALUE",
+ *       end: "STRING_VALUE",
+ *       state: "STRING_VALUE",
+ *       region: "STRING_VALUE",
+ *       ec2InstanceFamily: "STRING_VALUE",
+ *       savingsPlanType: "STRING_VALUE",
+ *       paymentOption: "STRING_VALUE",
+ *       productTypes: [ // SavingsPlanProductTypeList
+ *         "STRING_VALUE",
+ *       ],
+ *       currency: "STRING_VALUE",
+ *       commitment: "STRING_VALUE",
+ *       upfrontPaymentAmount: "STRING_VALUE",
+ *       recurringPaymentAmount: "STRING_VALUE",
+ *       termDurationInSeconds: Number("long"),
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeSavingsPlansCommandInput - {@link DescribeSavingsPlansCommandInput}
@@ -76,6 +107,8 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class DescribeSavingsPlansCommand extends $Command<

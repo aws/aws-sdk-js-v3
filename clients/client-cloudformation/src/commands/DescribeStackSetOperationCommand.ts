@@ -46,6 +46,55 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  * };
  * const command = new DescribeStackSetOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStackSetOperationOutput
+ *   StackSetOperation: { // StackSetOperation
+ *     OperationId: "STRING_VALUE",
+ *     StackSetId: "STRING_VALUE",
+ *     Action: "CREATE" || "UPDATE" || "DELETE" || "DETECT_DRIFT",
+ *     Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "STOPPING" || "STOPPED" || "QUEUED",
+ *     OperationPreferences: { // StackSetOperationPreferences
+ *       RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *       RegionOrder: [ // RegionList
+ *         "STRING_VALUE",
+ *       ],
+ *       FailureToleranceCount: Number("int"),
+ *       FailureTolerancePercentage: Number("int"),
+ *       MaxConcurrentCount: Number("int"),
+ *       MaxConcurrentPercentage: Number("int"),
+ *     },
+ *     RetainStacks: true || false,
+ *     AdministrationRoleARN: "STRING_VALUE",
+ *     ExecutionRoleName: "STRING_VALUE",
+ *     CreationTimestamp: new Date("TIMESTAMP"),
+ *     EndTimestamp: new Date("TIMESTAMP"),
+ *     DeploymentTargets: { // DeploymentTargets
+ *       Accounts: [ // AccountList
+ *         "STRING_VALUE",
+ *       ],
+ *       AccountsUrl: "STRING_VALUE",
+ *       OrganizationalUnitIds: [ // OrganizationalUnitIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *     },
+ *     StackSetDriftDetectionDetails: { // StackSetDriftDetectionDetails
+ *       DriftStatus: "DRIFTED" || "IN_SYNC" || "NOT_CHECKED",
+ *       DriftDetectionStatus: "COMPLETED" || "FAILED" || "PARTIAL_SUCCESS" || "IN_PROGRESS" || "STOPPED",
+ *       LastDriftCheckTimestamp: new Date("TIMESTAMP"),
+ *       TotalStackInstancesCount: Number("int"),
+ *       DriftedStackInstancesCount: Number("int"),
+ *       InSyncStackInstancesCount: Number("int"),
+ *       InProgressStackInstancesCount: Number("int"),
+ *       FailedStackInstancesCount: Number("int"),
+ *     },
+ *     StatusReason: "STRING_VALUE",
+ *     StatusDetails: { // StackSetOperationStatusDetails
+ *       FailedStackInstancesCount: Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStackSetOperationCommandInput - {@link DescribeStackSetOperationCommandInput}
@@ -60,6 +109,8 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeStackSetOperationCommand extends $Command<

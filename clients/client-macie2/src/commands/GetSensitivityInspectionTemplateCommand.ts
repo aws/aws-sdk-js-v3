@@ -49,6 +49,29 @@ export interface GetSensitivityInspectionTemplateCommandOutput
  * };
  * const command = new GetSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSensitivityInspectionTemplateResponse
+ *   description: "STRING_VALUE",
+ *   excludes: { // SensitivityInspectionTemplateExcludes
+ *     managedDataIdentifierIds: [ // __listOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   includes: { // SensitivityInspectionTemplateIncludes
+ *     allowListIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     customDataIdentifierIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     managedDataIdentifierIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   name: "STRING_VALUE",
+ *   sensitivityInspectionTemplateId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSensitivityInspectionTemplateCommandInput - {@link GetSensitivityInspectionTemplateCommandInput}
@@ -72,6 +95,8 @@ export interface GetSensitivityInspectionTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetSensitivityInspectionTemplateCommand extends $Command<

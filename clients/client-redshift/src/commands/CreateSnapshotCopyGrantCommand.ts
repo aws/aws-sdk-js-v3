@@ -58,6 +58,20 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * };
  * const command = new CreateSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSnapshotCopyGrantResult
+ *   SnapshotCopyGrant: { // SnapshotCopyGrant
+ *     SnapshotCopyGrantName: "STRING_VALUE",
+ *     KmsKeyId: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSnapshotCopyGrantCommandInput - {@link CreateSnapshotCopyGrantCommandInput}
@@ -87,6 +101,8 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateSnapshotCopyGrantCommand extends $Command<

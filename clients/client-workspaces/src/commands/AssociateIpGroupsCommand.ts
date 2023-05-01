@@ -47,6 +47,9 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  * };
  * const command = new AssociateIpGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateIpGroupsCommandInput - {@link AssociateIpGroupsCommandInput}
@@ -73,6 +76,8 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class AssociateIpGroupsCommand extends $Command<

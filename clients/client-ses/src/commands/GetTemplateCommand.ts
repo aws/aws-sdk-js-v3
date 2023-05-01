@@ -46,6 +46,16 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateResponse
+ *   Template: { // Template
+ *     TemplateName: "STRING_VALUE", // required
+ *     SubjectPart: "STRING_VALUE",
+ *     TextPart: "STRING_VALUE",
+ *     HtmlPart: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
@@ -58,6 +68,8 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class GetTemplateCommand extends $Command<

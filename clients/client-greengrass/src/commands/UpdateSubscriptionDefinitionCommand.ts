@@ -50,6 +50,9 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * };
  * const command = new UpdateSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSubscriptionDefinitionCommandInput - {@link UpdateSubscriptionDefinitionCommandInput}
@@ -61,6 +64,8 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateSubscriptionDefinitionCommand extends $Command<

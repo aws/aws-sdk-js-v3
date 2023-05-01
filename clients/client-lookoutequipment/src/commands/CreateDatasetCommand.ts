@@ -58,6 +58,13 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetResponse
+ *   DatasetName: "STRING_VALUE",
+ *   DatasetArn: "STRING_VALUE",
+ *   Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
+ * };
+ *
  * ```
  *
  * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
@@ -88,6 +95,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class CreateDatasetCommand extends $Command<

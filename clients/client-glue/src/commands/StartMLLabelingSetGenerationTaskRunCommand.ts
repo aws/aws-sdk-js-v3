@@ -63,6 +63,11 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * };
  * const command = new StartMLLabelingSetGenerationTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMLLabelingSetGenerationTaskRunResponse
+ *   TaskRunId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartMLLabelingSetGenerationTaskRunCommandInput - {@link StartMLLabelingSetGenerationTaskRunCommandInput}
@@ -86,6 +91,8 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<

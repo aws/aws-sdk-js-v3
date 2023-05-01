@@ -49,6 +49,68 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * };
  * const command = new ListActionExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListActionExecutionsOutput
+ *   actionExecutionDetails: [ // ActionExecutionDetailList
+ *     { // ActionExecutionDetail
+ *       pipelineExecutionId: "STRING_VALUE",
+ *       actionExecutionId: "STRING_VALUE",
+ *       pipelineVersion: Number("int"),
+ *       stageName: "STRING_VALUE",
+ *       actionName: "STRING_VALUE",
+ *       startTime: new Date("TIMESTAMP"),
+ *       lastUpdateTime: new Date("TIMESTAMP"),
+ *       status: "STRING_VALUE",
+ *       input: { // ActionExecutionInput
+ *         actionTypeId: { // ActionTypeId
+ *           category: "STRING_VALUE", // required
+ *           owner: "STRING_VALUE", // required
+ *           provider: "STRING_VALUE", // required
+ *           version: "STRING_VALUE", // required
+ *         },
+ *         configuration: { // ActionConfigurationMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         resolvedConfiguration: { // ResolvedActionConfigurationMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         roleArn: "STRING_VALUE",
+ *         region: "STRING_VALUE",
+ *         inputArtifacts: [ // ArtifactDetailList
+ *           { // ArtifactDetail
+ *             name: "STRING_VALUE",
+ *             s3location: { // S3Location
+ *               bucket: "STRING_VALUE",
+ *               key: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         namespace: "STRING_VALUE",
+ *       },
+ *       output: { // ActionExecutionOutput
+ *         outputArtifacts: [
+ *           {
+ *             name: "STRING_VALUE",
+ *             s3location: {
+ *               bucket: "STRING_VALUE",
+ *               key: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         executionResult: { // ActionExecutionResult
+ *           externalExecutionId: "STRING_VALUE",
+ *           externalExecutionSummary: "STRING_VALUE",
+ *           externalExecutionUrl: "STRING_VALUE",
+ *         },
+ *         outputVariables: { // OutputVariablesMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListActionExecutionsCommandInput - {@link ListActionExecutionsCommandInput}
@@ -71,6 +133,8 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class ListActionExecutionsCommand extends $Command<

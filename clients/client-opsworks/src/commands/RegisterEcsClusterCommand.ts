@@ -55,6 +55,11 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * };
  * const command = new RegisterEcsClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterEcsClusterResult
+ *   EcsClusterArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterEcsClusterCommandInput - {@link RegisterEcsClusterCommandInput}
@@ -69,6 +74,8 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterEcsClusterCommand extends $Command<

@@ -71,6 +71,11 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * };
  * const command = new CreateHITTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHITTypeResponse
+ *   HITTypeId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateHITTypeCommandInput - {@link CreateHITTypeCommandInput}
@@ -85,6 +90,8 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateHITTypeCommand extends $Command<

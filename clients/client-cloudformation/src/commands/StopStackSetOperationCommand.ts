@@ -48,6 +48,9 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * };
  * const command = new StopStackSetOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopStackSetOperationCommandInput - {@link StopStackSetOperationCommandInput}
@@ -65,6 +68,8 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class StopStackSetOperationCommand extends $Command<

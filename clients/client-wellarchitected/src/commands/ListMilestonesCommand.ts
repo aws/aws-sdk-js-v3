@@ -46,6 +46,33 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  * };
  * const command = new ListMilestonesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMilestonesOutput
+ *   WorkloadId: "STRING_VALUE",
+ *   MilestoneSummaries: [ // MilestoneSummaries
+ *     { // MilestoneSummary
+ *       MilestoneNumber: Number("int"),
+ *       MilestoneName: "STRING_VALUE",
+ *       RecordedAt: new Date("TIMESTAMP"),
+ *       WorkloadSummary: { // WorkloadSummary
+ *         WorkloadId: "STRING_VALUE",
+ *         WorkloadArn: "STRING_VALUE",
+ *         WorkloadName: "STRING_VALUE",
+ *         Owner: "STRING_VALUE",
+ *         UpdatedAt: new Date("TIMESTAMP"),
+ *         Lenses: [ // WorkloadLenses
+ *           "STRING_VALUE",
+ *         ],
+ *         RiskCounts: { // RiskCounts
+ *           "<keys>": Number("int"),
+ *         },
+ *         ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMilestonesCommandInput - {@link ListMilestonesCommandInput}
@@ -69,6 +96,8 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListMilestonesCommand extends $Command<

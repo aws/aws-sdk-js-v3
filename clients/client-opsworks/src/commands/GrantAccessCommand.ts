@@ -48,6 +48,16 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * };
  * const command = new GrantAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GrantAccessResult
+ *   TemporaryCredential: { // TemporaryCredential
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     ValidForInMinutes: Number("int"),
+ *     InstanceId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GrantAccessCommandInput - {@link GrantAccessCommandInput}
@@ -62,6 +72,8 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class GrantAccessCommand extends $Command<

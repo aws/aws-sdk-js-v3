@@ -50,6 +50,18 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  * };
  * const command = new DetectKeyPhrasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectKeyPhrasesResponse
+ *   KeyPhrases: [ // ListOfKeyPhrases
+ *     { // KeyPhrase
+ *       Score: Number("float"),
+ *       Text: "STRING_VALUE",
+ *       BeginOffset: Number("int"),
+ *       EndOffset: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DetectKeyPhrasesCommandInput - {@link DetectKeyPhrasesCommandInput}
@@ -74,6 +86,8 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DetectKeyPhrasesCommand extends $Command<

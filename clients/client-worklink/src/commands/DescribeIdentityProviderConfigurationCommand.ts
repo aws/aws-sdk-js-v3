@@ -55,6 +55,13 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * };
  * const command = new DescribeIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIdentityProviderConfigurationResponse
+ *   IdentityProviderType: "STRING_VALUE",
+ *   ServiceProviderSamlMetadata: "STRING_VALUE",
+ *   IdentityProviderSamlMetadata: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityProviderConfigurationCommandInput - {@link DescribeIdentityProviderConfigurationCommandInput}
@@ -78,6 +85,8 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeIdentityProviderConfigurationCommand extends $Command<

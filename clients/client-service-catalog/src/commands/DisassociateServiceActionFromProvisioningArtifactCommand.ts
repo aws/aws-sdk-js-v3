@@ -56,6 +56,9 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  * };
  * const command = new DisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateServiceActionFromProvisioningArtifactCommandInput - {@link DisassociateServiceActionFromProvisioningArtifactCommandInput}
@@ -67,6 +70,8 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisassociateServiceActionFromProvisioningArtifactCommand extends $Command<

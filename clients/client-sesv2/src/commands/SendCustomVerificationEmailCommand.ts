@@ -59,6 +59,11 @@ export interface SendCustomVerificationEmailCommandOutput
  * };
  * const command = new SendCustomVerificationEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendCustomVerificationEmailResponse
+ *   MessageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendCustomVerificationEmailCommandInput - {@link SendCustomVerificationEmailCommandInput}
@@ -89,6 +94,8 @@ export interface SendCustomVerificationEmailCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class SendCustomVerificationEmailCommand extends $Command<

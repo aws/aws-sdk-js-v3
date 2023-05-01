@@ -64,6 +64,30 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * };
  * const command = new DescribeReservedDBInstancesOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReservedDBInstancesOfferingMessage
+ *   Marker: "STRING_VALUE",
+ *   ReservedDBInstancesOfferings: [ // ReservedDBInstancesOfferingList
+ *     { // ReservedDBInstancesOffering
+ *       ReservedDBInstancesOfferingId: "STRING_VALUE",
+ *       DBInstanceClass: "STRING_VALUE",
+ *       Duration: Number("int"),
+ *       FixedPrice: Number("double"),
+ *       UsagePrice: Number("double"),
+ *       CurrencyCode: "STRING_VALUE",
+ *       ProductDescription: "STRING_VALUE",
+ *       OfferingType: "STRING_VALUE",
+ *       MultiAZ: true || false,
+ *       RecurringCharges: [ // RecurringChargeList
+ *         { // RecurringCharge
+ *           RecurringChargeAmount: Number("double"),
+ *           RecurringChargeFrequency: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReservedDBInstancesOfferingsCommandInput - {@link DescribeReservedDBInstancesOfferingsCommandInput}
@@ -75,6 +99,8 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * @throws {@link ReservedDBInstancesOfferingNotFoundFault} (client fault)
  *  <p>Specified offering does not exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe reserved DB instance offerings
  * ```javascript

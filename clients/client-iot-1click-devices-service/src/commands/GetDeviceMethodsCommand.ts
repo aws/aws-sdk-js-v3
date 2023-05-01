@@ -48,6 +48,16 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * };
  * const command = new GetDeviceMethodsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceMethodsResponse
+ *   DeviceMethods: [ // __listOfDeviceMethod
+ *     { // DeviceMethod
+ *       DeviceType: "STRING_VALUE",
+ *       MethodName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDeviceMethodsCommandInput - {@link GetDeviceMethodsCommandInput}
@@ -62,6 +72,8 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class GetDeviceMethodsCommand extends $Command<

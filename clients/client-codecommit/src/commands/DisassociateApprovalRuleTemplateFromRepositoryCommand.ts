@@ -52,6 +52,9 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * };
  * const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateApprovalRuleTemplateFromRepositoryCommandInput - {@link DisassociateApprovalRuleTemplateFromRepositoryCommandInput}
@@ -103,6 +106,8 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Command<

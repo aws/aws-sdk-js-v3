@@ -98,6 +98,11 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServerResponse
+ *   ServerId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateServerCommandInput - {@link UpdateServerCommandInput}
@@ -133,6 +138,8 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateServerCommand extends $Command<

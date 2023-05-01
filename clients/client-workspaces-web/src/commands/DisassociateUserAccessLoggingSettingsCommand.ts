@@ -53,6 +53,9 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new DisassociateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateUserAccessLoggingSettingsCommandInput - {@link DisassociateUserAccessLoggingSettingsCommandInput}
@@ -76,6 +79,8 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateUserAccessLoggingSettingsCommand extends $Command<

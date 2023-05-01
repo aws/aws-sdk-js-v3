@@ -150,6 +150,12 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * };
  * const command = new UpdateDecoderManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDecoderManifestResponse
+ *   name: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateDecoderManifestCommandInput - {@link UpdateDecoderManifestCommandInput}
@@ -183,6 +189,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateDecoderManifestCommand extends $Command<

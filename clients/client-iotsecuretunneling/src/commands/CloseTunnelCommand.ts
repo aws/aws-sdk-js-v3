@@ -52,6 +52,9 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * };
  * const command = new CloseTunnelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CloseTunnelCommandInput - {@link CloseTunnelCommandInput}
@@ -63,6 +66,8 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class CloseTunnelCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteWorkspaceCommand extends $Command<

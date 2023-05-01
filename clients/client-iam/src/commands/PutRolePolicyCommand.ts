@@ -65,6 +65,9 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutRolePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRolePolicyCommandInput - {@link PutRolePolicyCommandInput}
@@ -95,6 +98,8 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To attach a permissions policy to an IAM role
  * ```javascript

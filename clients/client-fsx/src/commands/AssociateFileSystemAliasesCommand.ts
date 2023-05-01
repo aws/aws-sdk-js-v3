@@ -58,6 +58,16 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * };
  * const command = new AssociateFileSystemAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateFileSystemAliasesResponse
+ *   Aliases: [ // Aliases
+ *     { // Alias
+ *       Name: "STRING_VALUE",
+ *       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociateFileSystemAliasesCommandInput - {@link AssociateFileSystemAliasesCommandInput}
@@ -75,6 +85,8 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class AssociateFileSystemAliasesCommand extends $Command<

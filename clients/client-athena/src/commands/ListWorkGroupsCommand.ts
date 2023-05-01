@@ -45,6 +45,23 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  * };
  * const command = new ListWorkGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkGroupsOutput
+ *   WorkGroups: [ // WorkGroupsList
+ *     { // WorkGroupSummary
+ *       Name: "STRING_VALUE",
+ *       State: "ENABLED" || "DISABLED",
+ *       Description: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       EngineVersion: { // EngineVersion
+ *         SelectedEngineVersion: "STRING_VALUE",
+ *         EffectiveEngineVersion: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListWorkGroupsCommandInput - {@link ListWorkGroupsCommandInput}
@@ -61,6 +78,8 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListWorkGroupsCommand extends $Command<

@@ -67,6 +67,9 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * };
  * const command = new ResetUserPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
@@ -97,6 +100,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * @throws {@link UserDoesNotExistException} (client fault)
  *  <p>The user provided a username that does not exist in your directory.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ResetUserPasswordCommand extends $Command<

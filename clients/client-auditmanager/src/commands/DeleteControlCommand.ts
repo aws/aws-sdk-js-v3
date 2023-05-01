@@ -44,6 +44,9 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * };
  * const command = new DeleteControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteControlCommandInput - {@link DeleteControlCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeleteControlCommand extends $Command<

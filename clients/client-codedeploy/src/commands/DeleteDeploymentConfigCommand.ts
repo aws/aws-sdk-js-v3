@@ -48,6 +48,9 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDeploymentConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeploymentConfigCommandInput - {@link DeleteDeploymentConfigCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidOperationException} (client fault)
  *  <p>An invalid operation was detected.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteDeploymentConfigCommand extends $Command<

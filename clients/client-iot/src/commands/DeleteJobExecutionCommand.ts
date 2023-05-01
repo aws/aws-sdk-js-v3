@@ -49,6 +49,9 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteJobExecutionCommandInput - {@link DeleteJobExecutionCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteJobExecutionCommand extends $Command<

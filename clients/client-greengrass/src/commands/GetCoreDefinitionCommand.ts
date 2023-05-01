@@ -44,6 +44,20 @@ export interface GetCoreDefinitionCommandOutput extends GetCoreDefinitionRespons
  * };
  * const command = new GetCoreDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoreDefinitionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   LastUpdatedTimestamp: "STRING_VALUE",
+ *   LatestVersion: "STRING_VALUE",
+ *   LatestVersionArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCoreDefinitionCommandInput - {@link GetCoreDefinitionCommandInput}
@@ -55,6 +69,8 @@ export interface GetCoreDefinitionCommandOutput extends GetCoreDefinitionRespons
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetCoreDefinitionCommand extends $Command<

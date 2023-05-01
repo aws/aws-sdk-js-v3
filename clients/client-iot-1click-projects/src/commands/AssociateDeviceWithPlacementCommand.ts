@@ -56,6 +56,9 @@ export interface AssociateDeviceWithPlacementCommandOutput
  * };
  * const command = new AssociateDeviceWithPlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDeviceWithPlacementCommandInput - {@link AssociateDeviceWithPlacementCommandInput}
@@ -76,6 +79,8 @@ export interface AssociateDeviceWithPlacementCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class AssociateDeviceWithPlacementCommand extends $Command<

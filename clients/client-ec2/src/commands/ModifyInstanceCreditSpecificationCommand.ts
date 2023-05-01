@@ -60,6 +60,24 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * };
  * const command = new ModifyInstanceCreditSpecificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyInstanceCreditSpecificationResult
+ *   SuccessfulInstanceCreditSpecifications: [ // SuccessfulInstanceCreditSpecificationSet
+ *     { // SuccessfulInstanceCreditSpecificationItem
+ *       InstanceId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UnsuccessfulInstanceCreditSpecifications: [ // UnsuccessfulInstanceCreditSpecificationSet
+ *     { // UnsuccessfulInstanceCreditSpecificationItem
+ *       InstanceId: "STRING_VALUE",
+ *       Error: { // UnsuccessfulInstanceCreditSpecificationItemError
+ *         Code: "InvalidInstanceID.Malformed" || "InvalidInstanceID.NotFound" || "IncorrectInstanceState" || "InstanceCreditSpecification.NotSupported",
+ *         Message: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyInstanceCreditSpecificationCommandInput - {@link ModifyInstanceCreditSpecificationCommandInput}
@@ -68,6 +86,8 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * @see {@link ModifyInstanceCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command<

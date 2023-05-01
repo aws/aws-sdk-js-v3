@@ -49,6 +49,11 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * };
  * const command = new DeleteMLTransformCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMLTransformResponse
+ *   TransformId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteMLTransformCommandInput - {@link DeleteMLTransformCommandInput}
@@ -69,6 +74,8 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteMLTransformCommand extends $Command<

@@ -115,6 +115,26 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEventsResponse
+ *   EventsResponse: { // EventsResponse
+ *     Results: { // MapOfItemResponse
+ *       "<keys>": { // ItemResponse
+ *         EndpointItemResponse: { // EndpointItemResponse
+ *           Message: "STRING_VALUE",
+ *           StatusCode: Number("int"),
+ *         },
+ *         EventsItemResponse: { // MapOfEventItemResponse
+ *           "<keys>": { // EventItemResponse
+ *             Message: "STRING_VALUE",
+ *             StatusCode: Number("int"),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutEventsCommandInput - {@link PutEventsCommandInput}
@@ -144,6 +164,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class PutEventsCommand extends $Command<

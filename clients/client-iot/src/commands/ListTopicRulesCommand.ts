@@ -48,6 +48,20 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * };
  * const command = new ListTopicRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTopicRulesResponse
+ *   rules: [ // TopicRuleList
+ *     { // TopicRuleListItem
+ *       ruleArn: "STRING_VALUE",
+ *       ruleName: "STRING_VALUE",
+ *       topicPattern: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       ruleDisabled: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTopicRulesCommandInput - {@link ListTopicRulesCommandInput}
@@ -65,6 +79,8 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListTopicRulesCommand extends $Command<

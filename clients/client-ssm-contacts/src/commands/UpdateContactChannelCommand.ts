@@ -48,6 +48,9 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * };
  * const command = new UpdateContactChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactChannelCommandInput - {@link UpdateContactChannelCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class UpdateContactChannelCommand extends $Command<

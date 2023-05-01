@@ -148,6 +148,170 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * };
  * const command = new IndexFacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IndexFacesResponse
+ *   FaceRecords: [ // FaceRecordList
+ *     { // FaceRecord
+ *       Face: { // Face
+ *         FaceId: "STRING_VALUE",
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         ImageId: "STRING_VALUE",
+ *         ExternalImageId: "STRING_VALUE",
+ *         Confidence: Number("float"),
+ *         IndexFacesModelVersion: "STRING_VALUE",
+ *       },
+ *       FaceDetail: { // FaceDetail
+ *         BoundingBox: {
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         AgeRange: { // AgeRange
+ *           Low: Number("int"),
+ *           High: Number("int"),
+ *         },
+ *         Smile: { // Smile
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Eyeglasses: { // Eyeglasses
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Sunglasses: { // Sunglasses
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Gender: { // Gender
+ *           Value: "Male" || "Female",
+ *           Confidence: Number("float"),
+ *         },
+ *         Beard: { // Beard
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Mustache: { // Mustache
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         EyesOpen: { // EyeOpen
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         MouthOpen: { // MouthOpen
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Emotions: [ // Emotions
+ *           { // Emotion
+ *             Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ *             Confidence: Number("float"),
+ *           },
+ *         ],
+ *         Landmarks: [ // Landmarks
+ *           { // Landmark
+ *             Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *         Pose: { // Pose
+ *           Roll: Number("float"),
+ *           Yaw: Number("float"),
+ *           Pitch: Number("float"),
+ *         },
+ *         Quality: { // ImageQuality
+ *           Brightness: Number("float"),
+ *           Sharpness: Number("float"),
+ *         },
+ *         Confidence: Number("float"),
+ *       },
+ *     },
+ *   ],
+ *   OrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",
+ *   FaceModelVersion: "STRING_VALUE",
+ *   UnindexedFaces: [ // UnindexedFaces
+ *     { // UnindexedFace
+ *       Reasons: [ // Reasons
+ *         "EXCEEDS_MAX_FACES" || "EXTREME_POSE" || "LOW_BRIGHTNESS" || "LOW_SHARPNESS" || "LOW_CONFIDENCE" || "SMALL_BOUNDING_BOX" || "LOW_FACE_QUALITY",
+ *       ],
+ *       FaceDetail: {
+ *         BoundingBox: {
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         AgeRange: {
+ *           Low: Number("int"),
+ *           High: Number("int"),
+ *         },
+ *         Smile: {
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Eyeglasses: {
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Sunglasses: {
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Gender: {
+ *           Value: "Male" || "Female",
+ *           Confidence: Number("float"),
+ *         },
+ *         Beard: {
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Mustache: {
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         EyesOpen: {
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         MouthOpen: {
+ *           Value: true || false,
+ *           Confidence: Number("float"),
+ *         },
+ *         Emotions: [
+ *           {
+ *             Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ *             Confidence: Number("float"),
+ *           },
+ *         ],
+ *         Landmarks: [
+ *           {
+ *             Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *         Pose: {
+ *           Roll: Number("float"),
+ *           Yaw: Number("float"),
+ *           Pitch: Number("float"),
+ *         },
+ *         Quality: {
+ *           Brightness: Number("float"),
+ *           Sharpness: Number("float"),
+ *         },
+ *         Confidence: Number("float"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param IndexFacesCommandInput - {@link IndexFacesCommandInput}
@@ -193,6 +357,8 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To add a face to a collection
  * ```javascript

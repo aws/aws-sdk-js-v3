@@ -49,6 +49,12 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * };
  * const command = new InitializeClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitializeClusterResponse
+ *   State: "STRING_VALUE",
+ *   StateMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param InitializeClusterCommandInput - {@link InitializeClusterCommandInput}
@@ -75,6 +81,8 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class InitializeClusterCommand extends $Command<

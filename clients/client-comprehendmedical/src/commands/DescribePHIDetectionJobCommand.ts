@@ -49,6 +49,32 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  * };
  * const command = new DescribePHIDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePHIDetectionJobResponse
+ *   ComprehendMedicalAsyncJobProperties: { // ComprehendMedicalAsyncJobProperties
+ *     JobId: "STRING_VALUE",
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     Message: "STRING_VALUE",
+ *     SubmitTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *     ExpirationTime: new Date("TIMESTAMP"),
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Bucket: "STRING_VALUE", // required
+ *       S3Key: "STRING_VALUE",
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       S3Bucket: "STRING_VALUE", // required
+ *       S3Key: "STRING_VALUE",
+ *     },
+ *     LanguageCode: "en",
+ *     DataAccessRoleArn: "STRING_VALUE",
+ *     ManifestFilePath: "STRING_VALUE",
+ *     KMSKey: "STRING_VALUE",
+ *     ModelVersion: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePHIDetectionJobCommandInput - {@link DescribePHIDetectionJobCommandInput}
@@ -73,6 +99,8 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class DescribePHIDetectionJobCommand extends $Command<

@@ -120,6 +120,41 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * };
  * const command = new SearchRasterDataCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchRasterDataCollectionOutput
+ *   ApproximateResultCount: Number("int"), // required
+ *   NextToken: "STRING_VALUE",
+ *   Items: [ // ItemSourceList
+ *     { // ItemSource
+ *       Id: "STRING_VALUE", // required
+ *       Geometry: { // Geometry
+ *         Type: "STRING_VALUE", // required
+ *         Coordinates: [ // LinearRings // required
+ *           [ // LinearRing
+ *             [ // Position
+ *               Number("double"),
+ *             ],
+ *           ],
+ *         ],
+ *       },
+ *       Assets: { // AssetsMap
+ *         "<keys>": { // AssetValue
+ *           Href: "STRING_VALUE",
+ *         },
+ *       },
+ *       DateTime: new Date("TIMESTAMP"), // required
+ *       Properties: { // Properties
+ *         EoCloudCover: Number("float"),
+ *         ViewOffNadir: Number("float"),
+ *         ViewSunAzimuth: Number("float"),
+ *         ViewSunElevation: Number("float"),
+ *         Platform: "STRING_VALUE",
+ *         LandsatCloudCoverLand: Number("float"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchRasterDataCollectionCommandInput - {@link SearchRasterDataCollectionCommandInput}
@@ -143,6 +178,8 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class SearchRasterDataCollectionCommand extends $Command<

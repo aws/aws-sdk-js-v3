@@ -57,6 +57,20 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * };
  * const command = new ListCustomVerificationEmailTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomVerificationEmailTemplatesResponse
+ *   CustomVerificationEmailTemplates: [ // CustomVerificationEmailTemplates
+ *     { // CustomVerificationEmailTemplate
+ *       TemplateName: "STRING_VALUE",
+ *       FromEmailAddress: "STRING_VALUE",
+ *       TemplateSubject: "STRING_VALUE",
+ *       SuccessRedirectionURL: "STRING_VALUE",
+ *       FailureRedirectionURL: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCustomVerificationEmailTemplatesCommandInput - {@link ListCustomVerificationEmailTemplatesCommandInput}
@@ -65,6 +79,8 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * @see {@link ListCustomVerificationEmailTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class ListCustomVerificationEmailTemplatesCommand extends $Command<

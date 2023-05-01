@@ -126,6 +126,11 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * };
  * const command = new CreateProfileJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProfileJobResponse
+ *   Name: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateProfileJobCommandInput - {@link CreateProfileJobCommandInput}
@@ -149,6 +154,8 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateProfileJobCommand extends $Command<

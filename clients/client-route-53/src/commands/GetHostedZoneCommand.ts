@@ -46,6 +46,37 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * };
  * const command = new GetHostedZoneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHostedZoneResponse
+ *   HostedZone: { // HostedZone
+ *     Id: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     CallerReference: "STRING_VALUE", // required
+ *     Config: { // HostedZoneConfig
+ *       Comment: "STRING_VALUE",
+ *       PrivateZone: true || false,
+ *     },
+ *     ResourceRecordSetCount: Number("long"),
+ *     LinkedService: { // LinkedService
+ *       ServicePrincipal: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   },
+ *   DelegationSet: { // DelegationSet
+ *     Id: "STRING_VALUE",
+ *     CallerReference: "STRING_VALUE",
+ *     NameServers: [ // DelegationSetNameServers // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   VPCs: [ // VPCs
+ *     { // VPC
+ *       VPCRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-central-2" || "ap-east-1" || "me-south-1" || "us-gov-west-1" || "us-gov-east-1" || "us-iso-east-1" || "us-iso-west-1" || "us-isob-east-1" || "me-central-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-south-1" || "ap-south-2" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "ca-central-1" || "cn-north-1" || "af-south-1" || "eu-south-1" || "eu-south-2" || "ap-southeast-4",
+ *       VPCId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetHostedZoneCommandInput - {@link GetHostedZoneCommandInput}
@@ -60,6 +91,8 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  * @example To get information about a hosted zone
  * ```javascript

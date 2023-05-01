@@ -111,6 +111,11 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * };
  * const command = new CreateScalingPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScalingPlanResponse
+ *   ScalingPlanVersion: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param CreateScalingPlanCommandInput - {@link CreateScalingPlanCommandInput}
@@ -133,6 +138,8 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class CreateScalingPlanCommand extends $Command<

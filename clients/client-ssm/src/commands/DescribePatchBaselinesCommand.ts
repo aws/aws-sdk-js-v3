@@ -53,6 +53,20 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  * };
  * const command = new DescribePatchBaselinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePatchBaselinesResult
+ *   BaselineIdentities: [ // PatchBaselineIdentityList
+ *     { // PatchBaselineIdentity
+ *       BaselineId: "STRING_VALUE",
+ *       BaselineName: "STRING_VALUE",
+ *       OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ *       BaselineDescription: "STRING_VALUE",
+ *       DefaultBaseline: true || false,
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribePatchBaselinesCommandInput - {@link DescribePatchBaselinesCommandInput}
@@ -64,6 +78,8 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribePatchBaselinesCommand extends $Command<

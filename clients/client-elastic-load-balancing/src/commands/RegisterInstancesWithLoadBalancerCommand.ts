@@ -74,6 +74,15 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * };
  * const command = new RegisterInstancesWithLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterEndPointsOutput
+ *   Instances: [ // Instances
+ *     { // Instance
+ *       InstanceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RegisterInstancesWithLoadBalancerCommandInput - {@link RegisterInstancesWithLoadBalancerCommandInput}
@@ -88,6 +97,8 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * @throws {@link InvalidEndPointException} (client fault)
  *  <p>The specified endpoint is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To register instances with a load balancer
  * ```javascript

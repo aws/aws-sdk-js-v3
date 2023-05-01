@@ -51,6 +51,9 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteGroupCommand extends $Command<

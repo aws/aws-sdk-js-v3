@@ -55,6 +55,9 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationCommandInput - {@link PutConfigurationCommandInput}
@@ -73,6 +76,8 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class PutConfigurationCommand extends $Command<

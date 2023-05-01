@@ -62,6 +62,11 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * };
  * const command = new CopyWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyWorkspaceImageResult
+ *   ImageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CopyWorkspaceImageCommandInput - {@link CopyWorkspaceImageCommandInput}
@@ -91,6 +96,8 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CopyWorkspaceImageCommand extends $Command<

@@ -52,6 +52,23 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  * };
  * const command = new CreateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFirewallRuleGroupResponse
+ *   FirewallRuleGroup: { // FirewallRuleGroup
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     RuleCount: Number("int"),
+ *     Status: "COMPLETE" || "DELETING" || "UPDATING",
+ *     StatusMessage: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     CreatorRequestId: "STRING_VALUE",
+ *     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
+ *     CreationTime: "STRING_VALUE",
+ *     ModificationTime: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFirewallRuleGroupCommandInput - {@link CreateFirewallRuleGroupCommandInput}
@@ -76,6 +93,8 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class CreateFirewallRuleGroupCommand extends $Command<

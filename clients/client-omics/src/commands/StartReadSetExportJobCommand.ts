@@ -52,6 +52,15 @@ export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJo
  * };
  * const command = new StartReadSetExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReadSetExportJobResponse
+ *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   destination: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   creationTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param StartReadSetExportJobCommandInput - {@link StartReadSetExportJobCommandInput}
@@ -81,6 +90,8 @@ export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartReadSetExportJobCommand extends $Command<

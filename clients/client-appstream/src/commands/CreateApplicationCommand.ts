@@ -69,6 +69,36 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResult
+ *   Application: { // Application
+ *     Name: "STRING_VALUE",
+ *     DisplayName: "STRING_VALUE",
+ *     IconURL: "STRING_VALUE",
+ *     LaunchPath: "STRING_VALUE",
+ *     LaunchParameters: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     Metadata: { // Metadata
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     WorkingDirectory: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     AppBlockArn: "STRING_VALUE",
+ *     IconS3Location: { // S3Location
+ *       S3Bucket: "STRING_VALUE", // required
+ *       S3Key: "STRING_VALUE", // required
+ *     },
+ *     Platforms: [ // Platforms
+ *       "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ *     ],
+ *     InstanceFamilies: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     CreatedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -92,6 +122,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

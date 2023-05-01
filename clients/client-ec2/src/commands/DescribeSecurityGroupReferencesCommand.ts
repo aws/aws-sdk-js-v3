@@ -52,6 +52,17 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * };
  * const command = new DescribeSecurityGroupReferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSecurityGroupReferencesResult
+ *   SecurityGroupReferenceSet: [ // SecurityGroupReferences
+ *     { // SecurityGroupReference
+ *       GroupId: "STRING_VALUE",
+ *       ReferencingVpcId: "STRING_VALUE",
+ *       VpcPeeringConnectionId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSecurityGroupReferencesCommandInput - {@link DescribeSecurityGroupReferencesCommandInput}
@@ -60,6 +71,8 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * @see {@link DescribeSecurityGroupReferencesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe security group references
  * ```javascript

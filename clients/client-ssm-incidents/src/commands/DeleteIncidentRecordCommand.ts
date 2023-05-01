@@ -44,6 +44,9 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  * };
  * const command = new DeleteIncidentRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIncidentRecordCommandInput - {@link DeleteIncidentRecordCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteIncidentRecordCommand extends $Command<

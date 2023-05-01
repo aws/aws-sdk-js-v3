@@ -49,6 +49,16 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * };
  * const command = new WithdrawByoipCidrCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WithdrawByoipCidrResult
+ *   ByoipCidr: { // ByoipCidr
+ *     Cidr: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     StatusMessage: "STRING_VALUE",
+ *     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ *   },
+ * };
+ *
  * ```
  *
  * @param WithdrawByoipCidrCommandInput - {@link WithdrawByoipCidrCommandInput}
@@ -57,6 +67,8 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class WithdrawByoipCidrCommand extends $Command<

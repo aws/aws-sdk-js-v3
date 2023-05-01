@@ -188,6 +188,316 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  * };
  * const command = new StartSimulationJobBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSimulationJobBatchResponse
+ *   arn: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   clientRequestToken: "STRING_VALUE",
+ *   batchPolicy: { // BatchPolicy
+ *     timeoutInSeconds: Number("long"),
+ *     maxConcurrency: Number("int"),
+ *   },
+ *   failureCode: "STRING_VALUE",
+ *   failureReason: "STRING_VALUE",
+ *   failedRequests: [ // FailedCreateSimulationJobRequests
+ *     { // FailedCreateSimulationJobRequest
+ *       request: { // SimulationJobRequest
+ *         outputLocation: { // OutputLocation
+ *           s3Bucket: "STRING_VALUE",
+ *           s3Prefix: "STRING_VALUE",
+ *         },
+ *         loggingConfig: { // LoggingConfig
+ *           recordAllRosTopics: true || false,
+ *         },
+ *         maxJobDurationInSeconds: Number("long"), // required
+ *         iamRole: "STRING_VALUE",
+ *         failureBehavior: "STRING_VALUE",
+ *         useDefaultApplications: true || false,
+ *         robotApplications: [ // RobotApplicationConfigs
+ *           { // RobotApplicationConfig
+ *             application: "STRING_VALUE", // required
+ *             applicationVersion: "STRING_VALUE",
+ *             launchConfig: { // LaunchConfig
+ *               packageName: "STRING_VALUE",
+ *               launchFile: "STRING_VALUE",
+ *               environmentVariables: { // EnvironmentVariableMap
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               portForwardingConfig: { // PortForwardingConfig
+ *                 portMappings: [ // PortMappingList
+ *                   { // PortMapping
+ *                     jobPort: Number("int"), // required
+ *                     applicationPort: Number("int"), // required
+ *                     enableOnPublicIp: true || false,
+ *                   },
+ *                 ],
+ *               },
+ *               streamUI: true || false,
+ *               command: [ // CommandList
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             uploadConfigurations: [ // UploadConfigurations
+ *               { // UploadConfiguration
+ *                 name: "STRING_VALUE", // required
+ *                 path: "STRING_VALUE", // required
+ *                 uploadBehavior: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             useDefaultUploadConfigurations: true || false,
+ *             tools: [ // Tools
+ *               { // Tool
+ *                 streamUI: true || false,
+ *                 name: "STRING_VALUE", // required
+ *                 command: "STRING_VALUE", // required
+ *                 streamOutputToCloudWatch: true || false,
+ *                 exitBehavior: "STRING_VALUE",
+ *               },
+ *             ],
+ *             useDefaultTools: true || false,
+ *           },
+ *         ],
+ *         simulationApplications: [ // SimulationApplicationConfigs
+ *           { // SimulationApplicationConfig
+ *             application: "STRING_VALUE", // required
+ *             applicationVersion: "STRING_VALUE",
+ *             launchConfig: {
+ *               packageName: "STRING_VALUE",
+ *               launchFile: "STRING_VALUE",
+ *               environmentVariables: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               portForwardingConfig: {
+ *                 portMappings: [
+ *                   {
+ *                     jobPort: Number("int"), // required
+ *                     applicationPort: Number("int"), // required
+ *                     enableOnPublicIp: true || false,
+ *                   },
+ *                 ],
+ *               },
+ *               streamUI: true || false,
+ *               command: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             uploadConfigurations: [
+ *               {
+ *                 name: "STRING_VALUE", // required
+ *                 path: "STRING_VALUE", // required
+ *                 uploadBehavior: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             worldConfigs: [ // WorldConfigs
+ *               { // WorldConfig
+ *                 world: "STRING_VALUE",
+ *               },
+ *             ],
+ *             useDefaultUploadConfigurations: true || false,
+ *             tools: [
+ *               {
+ *                 streamUI: true || false,
+ *                 name: "STRING_VALUE", // required
+ *                 command: "STRING_VALUE", // required
+ *                 streamOutputToCloudWatch: true || false,
+ *                 exitBehavior: "STRING_VALUE",
+ *               },
+ *             ],
+ *             useDefaultTools: true || false,
+ *           },
+ *         ],
+ *         dataSources: [ // DataSourceConfigs
+ *           { // DataSourceConfig
+ *             name: "STRING_VALUE", // required
+ *             s3Bucket: "STRING_VALUE", // required
+ *             s3Keys: [ // S3KeysOrPrefixes // required
+ *               "STRING_VALUE",
+ *             ],
+ *             type: "STRING_VALUE",
+ *             destination: "STRING_VALUE",
+ *           },
+ *         ],
+ *         vpcConfig: { // VPCConfig
+ *           subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *           securityGroups: [ // SecurityGroups
+ *             "STRING_VALUE",
+ *           ],
+ *           assignPublicIp: true || false,
+ *         },
+ *         compute: { // Compute
+ *           simulationUnitLimit: Number("int"),
+ *           computeType: "STRING_VALUE",
+ *           gpuUnitLimit: Number("int"),
+ *         },
+ *         tags: { // TagMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       failureReason: "STRING_VALUE",
+ *       failureCode: "STRING_VALUE",
+ *       failedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   pendingRequests: [ // CreateSimulationJobRequests
+ *     {
+ *       outputLocation: {
+ *         s3Bucket: "STRING_VALUE",
+ *         s3Prefix: "STRING_VALUE",
+ *       },
+ *       loggingConfig: {
+ *         recordAllRosTopics: true || false,
+ *       },
+ *       maxJobDurationInSeconds: Number("long"), // required
+ *       iamRole: "STRING_VALUE",
+ *       failureBehavior: "STRING_VALUE",
+ *       useDefaultApplications: true || false,
+ *       robotApplications: [
+ *         {
+ *           application: "STRING_VALUE", // required
+ *           applicationVersion: "STRING_VALUE",
+ *           launchConfig: {
+ *             packageName: "STRING_VALUE",
+ *             launchFile: "STRING_VALUE",
+ *             environmentVariables: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             portForwardingConfig: {
+ *               portMappings: [
+ *                 {
+ *                   jobPort: Number("int"), // required
+ *                   applicationPort: Number("int"), // required
+ *                   enableOnPublicIp: true || false,
+ *                 },
+ *               ],
+ *             },
+ *             streamUI: true || false,
+ *             command: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           uploadConfigurations: [
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               path: "STRING_VALUE", // required
+ *               uploadBehavior: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *           useDefaultUploadConfigurations: true || false,
+ *           tools: [
+ *             {
+ *               streamUI: true || false,
+ *               name: "STRING_VALUE", // required
+ *               command: "STRING_VALUE", // required
+ *               streamOutputToCloudWatch: true || false,
+ *               exitBehavior: "STRING_VALUE",
+ *             },
+ *           ],
+ *           useDefaultTools: true || false,
+ *         },
+ *       ],
+ *       simulationApplications: [
+ *         {
+ *           application: "STRING_VALUE", // required
+ *           applicationVersion: "STRING_VALUE",
+ *           launchConfig: {
+ *             packageName: "STRING_VALUE",
+ *             launchFile: "STRING_VALUE",
+ *             environmentVariables: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             portForwardingConfig: {
+ *               portMappings: [
+ *                 {
+ *                   jobPort: Number("int"), // required
+ *                   applicationPort: Number("int"), // required
+ *                   enableOnPublicIp: true || false,
+ *                 },
+ *               ],
+ *             },
+ *             streamUI: true || false,
+ *             command: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           uploadConfigurations: [
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               path: "STRING_VALUE", // required
+ *               uploadBehavior: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *           worldConfigs: [
+ *             {
+ *               world: "STRING_VALUE",
+ *             },
+ *           ],
+ *           useDefaultUploadConfigurations: true || false,
+ *           tools: [
+ *             {
+ *               streamUI: true || false,
+ *               name: "STRING_VALUE", // required
+ *               command: "STRING_VALUE", // required
+ *               streamOutputToCloudWatch: true || false,
+ *               exitBehavior: "STRING_VALUE",
+ *             },
+ *           ],
+ *           useDefaultTools: true || false,
+ *         },
+ *       ],
+ *       dataSources: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           s3Bucket: "STRING_VALUE", // required
+ *           s3Keys: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           type: "STRING_VALUE",
+ *           destination: "STRING_VALUE",
+ *         },
+ *       ],
+ *       vpcConfig: {
+ *         subnets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         securityGroups: [
+ *           "STRING_VALUE",
+ *         ],
+ *         assignPublicIp: true || false,
+ *       },
+ *       compute: {
+ *         simulationUnitLimit: Number("int"),
+ *         computeType: "STRING_VALUE",
+ *         gpuUnitLimit: Number("int"),
+ *       },
+ *       tags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   createdRequests: [ // SimulationJobSummaries
+ *     { // SimulationJobSummary
+ *       arn: "STRING_VALUE",
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *       name: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       simulationApplicationNames: [ // SimulationApplicationNames
+ *         "STRING_VALUE",
+ *       ],
+ *       robotApplicationNames: [ // RobotApplicationNames
+ *         "STRING_VALUE",
+ *       ],
+ *       dataSourceNames: [ // DataSourceNames
+ *         "STRING_VALUE",
+ *       ],
+ *       computeType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   tags: "<TagMap>",
+ * };
+ *
  * ```
  *
  * @param StartSimulationJobBatchCommandInput - {@link StartSimulationJobBatchCommandInput}
@@ -214,6 +524,8 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class StartSimulationJobBatchCommand extends $Command<

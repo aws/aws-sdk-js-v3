@@ -50,6 +50,18 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExportsOutput
+ *   Exports: [ // Exports
+ *     { // Export
+ *       ExportingStackId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListExportsCommandInput - {@link ListExportsCommandInput}
@@ -58,6 +70,8 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * @see {@link ListExportsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListExportsCommand extends $Command<

@@ -65,6 +65,9 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * };
  * const command = new PutReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutReportDefinitionCommandInput - {@link PutReportDefinitionCommandInput}
@@ -85,6 +88,8 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link CostAndUsageReportServiceServiceException}
+ * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
  * @example To create a report named ExampleReport.
  * ```javascript

@@ -45,6 +45,15 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * };
  * const command = new GetMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMonitoringSubscriptionResult
+ *   MonitoringSubscription: { // MonitoringSubscription
+ *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
+ *       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMonitoringSubscriptionCommandInput - {@link GetMonitoringSubscriptionCommandInput}
@@ -65,6 +74,8 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetMonitoringSubscriptionCommand extends $Command<

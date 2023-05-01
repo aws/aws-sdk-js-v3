@@ -48,6 +48,58 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * };
  * const command = new GetNetworkResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkResourceResponse
+ *   networkResource: { // NetworkResource
+ *     networkResourceArn: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     type: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     statusReason: "STRING_VALUE",
+ *     vendor: "STRING_VALUE",
+ *     model: "STRING_VALUE",
+ *     serialNumber: "STRING_VALUE",
+ *     health: "STRING_VALUE",
+ *     networkArn: "STRING_VALUE",
+ *     networkSiteArn: "STRING_VALUE",
+ *     orderArn: "STRING_VALUE",
+ *     attributes: [ // NameValuePairs
+ *       { // NameValuePair
+ *         name: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     position: { // Position
+ *       latitude: Number("double"),
+ *       longitude: Number("double"),
+ *       elevation: Number("double"),
+ *       elevationUnit: "STRING_VALUE",
+ *       elevationReference: "STRING_VALUE",
+ *     },
+ *     createdAt: new Date("TIMESTAMP"),
+ *     returnInformation: { // ReturnInformation
+ *       shippingAddress: { // Address
+ *         city: "STRING_VALUE", // required
+ *         company: "STRING_VALUE",
+ *         country: "STRING_VALUE", // required
+ *         name: "STRING_VALUE", // required
+ *         phoneNumber: "STRING_VALUE",
+ *         postalCode: "STRING_VALUE", // required
+ *         stateOrProvince: "STRING_VALUE", // required
+ *         street1: "STRING_VALUE", // required
+ *         street2: "STRING_VALUE",
+ *         street3: "STRING_VALUE",
+ *       },
+ *       returnReason: "STRING_VALUE",
+ *       replacementOrderArn: "STRING_VALUE",
+ *       shippingLabel: "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkResourceCommandInput - {@link GetNetworkResourceCommandInput}
@@ -65,6 +117,8 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class GetNetworkResourceCommand extends $Command<

@@ -51,6 +51,26 @@ export interface ListRecordingConfigurationsCommandOutput
  * };
  * const command = new ListRecordingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecordingConfigurationsResponse
+ *   recordingConfigurations: [ // RecordingConfigurationList // required
+ *     { // RecordingConfigurationSummary
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE",
+ *       destinationConfiguration: { // DestinationConfiguration
+ *         s3: { // S3DestinationConfiguration
+ *           bucketName: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       state: "STRING_VALUE", // required
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRecordingConfigurationsCommandInput - {@link ListRecordingConfigurationsCommandInput}
@@ -68,6 +88,8 @@ export interface ListRecordingConfigurationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListRecordingConfigurationsCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * };
  * const command = new DeleteAccessTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccessTokenCommandInput - {@link DeleteAccessTokenCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class DeleteAccessTokenCommand extends $Command<

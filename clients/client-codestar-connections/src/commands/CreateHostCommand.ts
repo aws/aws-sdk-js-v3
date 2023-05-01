@@ -73,6 +73,17 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * };
  * const command = new CreateHostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHostOutput
+ *   HostArn: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateHostCommandInput - {@link CreateHostCommandInput}
@@ -84,6 +95,8 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Exceeded the maximum limit for connections.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class CreateHostCommand extends $Command<

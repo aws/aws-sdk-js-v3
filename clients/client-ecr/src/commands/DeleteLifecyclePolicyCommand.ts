@@ -45,6 +45,14 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * };
  * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteLifecyclePolicyResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   lifecyclePolicyText: "STRING_VALUE",
+ *   lastEvaluatedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
@@ -68,6 +76,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DeleteLifecyclePolicyCommand extends $Command<

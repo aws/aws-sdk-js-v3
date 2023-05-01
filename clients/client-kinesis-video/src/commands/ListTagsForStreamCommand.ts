@@ -48,6 +48,14 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * };
  * const command = new ListTagsForStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForStreamOutput
+ *   NextToken: "STRING_VALUE",
+ *   Tags: { // ResourceTags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForStreamCommandInput - {@link ListTagsForStreamCommandInput}
@@ -72,6 +80,8 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class ListTagsForStreamCommand extends $Command<

@@ -53,6 +53,23 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * };
  * const command = new RevokeCacheSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RevokeCacheSecurityGroupIngressResult
+ *   CacheSecurityGroup: { // CacheSecurityGroup
+ *     OwnerId: "STRING_VALUE",
+ *     CacheSecurityGroupName: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: "STRING_VALUE",
+ *         EC2SecurityGroupName: "STRING_VALUE",
+ *         EC2SecurityGroupOwnerId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ARN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param RevokeCacheSecurityGroupIngressCommandInput - {@link RevokeCacheSecurityGroupIngressCommandInput}
@@ -76,6 +93,8 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeCacheSecurityGroups
  * ```javascript

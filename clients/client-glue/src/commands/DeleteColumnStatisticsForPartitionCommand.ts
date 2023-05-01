@@ -59,6 +59,9 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * };
  * const command = new DeleteColumnStatisticsForPartitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteColumnStatisticsForPartitionCommandInput - {@link DeleteColumnStatisticsForPartitionCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteColumnStatisticsForPartitionCommand extends $Command<

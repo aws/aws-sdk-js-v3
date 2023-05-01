@@ -52,6 +52,14 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * };
  * const command = new AddProfileKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddProfileKeyResponse
+ *   KeyName: "STRING_VALUE",
+ *   Values: [ // requestValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddProfileKeyCommandInput - {@link AddProfileKeyCommandInput}
@@ -75,6 +83,8 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class AddProfileKeyCommand extends $Command<

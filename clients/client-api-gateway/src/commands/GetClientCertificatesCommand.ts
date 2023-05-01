@@ -45,6 +45,23 @@ export interface GetClientCertificatesCommandOutput extends ClientCertificates, 
  * };
  * const command = new GetClientCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClientCertificates
+ *   items: [ // ListOfClientCertificate
+ *     { // ClientCertificate
+ *       clientCertificateId: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       pemEncodedCertificate: "STRING_VALUE",
+ *       createdDate: new Date("TIMESTAMP"),
+ *       expirationDate: new Date("TIMESTAMP"),
+ *       tags: { // MapOfStringToString
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   position: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetClientCertificatesCommandInput - {@link GetClientCertificatesCommandInput}
@@ -65,6 +82,8 @@ export interface GetClientCertificatesCommandOutput extends ClientCertificates, 
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetClientCertificatesCommand extends $Command<

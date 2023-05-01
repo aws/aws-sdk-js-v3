@@ -58,6 +58,24 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  * };
  * const command = new UpdatePortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePortfolioOutput
+ *   PortfolioDetail: { // PortfolioDetail
+ *     Id: "STRING_VALUE",
+ *     ARN: "STRING_VALUE",
+ *     DisplayName: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     CreatedTime: new Date("TIMESTAMP"),
+ *     ProviderName: "STRING_VALUE",
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdatePortfolioCommandInput - {@link UpdatePortfolioCommandInput}
@@ -81,6 +99,8 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdatePortfolioCommand extends $Command<

@@ -213,6 +213,16 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * };
  * const command = new CreateQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQueryLoggingConfigResponse
+ *   QueryLoggingConfig: { // QueryLoggingConfig
+ *     Id: "STRING_VALUE", // required
+ *     HostedZoneId: "STRING_VALUE", // required
+ *     CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ *   },
+ *   Location: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateQueryLoggingConfigCommandInput - {@link CreateQueryLoggingConfigCommandInput}
@@ -265,6 +275,8 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *  <p>You can create only one query logging configuration for a hosted zone, and a query
  * 			logging configuration already exists for this hosted zone.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateQueryLoggingConfigCommand extends $Command<

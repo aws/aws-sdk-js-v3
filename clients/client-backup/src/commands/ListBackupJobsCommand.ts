@@ -56,6 +56,45 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * };
  * const command = new ListBackupJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupJobsOutput
+ *   BackupJobs: [ // BackupJobsList
+ *     { // BackupJob
+ *       AccountId: "STRING_VALUE",
+ *       BackupJobId: "STRING_VALUE",
+ *       BackupVaultName: "STRING_VALUE",
+ *       BackupVaultArn: "STRING_VALUE",
+ *       RecoveryPointArn: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       CompletionDate: new Date("TIMESTAMP"),
+ *       State: "CREATED" || "PENDING" || "RUNNING" || "ABORTING" || "ABORTED" || "COMPLETED" || "FAILED" || "EXPIRED" || "PARTIAL",
+ *       StatusMessage: "STRING_VALUE",
+ *       PercentDone: "STRING_VALUE",
+ *       BackupSizeInBytes: Number("long"),
+ *       IamRoleArn: "STRING_VALUE",
+ *       CreatedBy: { // RecoveryPointCreator
+ *         BackupPlanId: "STRING_VALUE",
+ *         BackupPlanArn: "STRING_VALUE",
+ *         BackupPlanVersion: "STRING_VALUE",
+ *         BackupRuleId: "STRING_VALUE",
+ *       },
+ *       ExpectedCompletionDate: new Date("TIMESTAMP"),
+ *       StartBy: new Date("TIMESTAMP"),
+ *       ResourceType: "STRING_VALUE",
+ *       BytesTransferred: Number("long"),
+ *       BackupOptions: { // BackupOptions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       BackupType: "STRING_VALUE",
+ *       ParentJobId: "STRING_VALUE",
+ *       IsParent: true || false,
+ *       ResourceName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBackupJobsCommandInput - {@link ListBackupJobsCommandInput}
@@ -71,6 +110,8 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupJobsCommand extends $Command<

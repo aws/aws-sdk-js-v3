@@ -47,6 +47,11 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  * };
  * const command = new UpgradePublishedSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpgradePublishedSchemaResponse
+ *   UpgradedSchemaArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpgradePublishedSchemaCommandInput - {@link UpgradePublishedSchemaCommandInput}
@@ -84,6 +89,8 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpgradePublishedSchemaCommand extends $Command<

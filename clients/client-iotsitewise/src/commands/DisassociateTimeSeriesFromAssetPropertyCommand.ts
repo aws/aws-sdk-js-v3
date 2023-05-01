@@ -51,6 +51,9 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  * };
  * const command = new DisassociateTimeSeriesFromAssetPropertyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateTimeSeriesFromAssetPropertyCommandInput - {@link DisassociateTimeSeriesFromAssetPropertyCommandInput}
@@ -79,6 +82,8 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<

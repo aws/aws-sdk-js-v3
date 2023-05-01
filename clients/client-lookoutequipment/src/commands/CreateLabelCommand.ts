@@ -53,6 +53,11 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * };
  * const command = new CreateLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLabelResponse
+ *   LabelId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLabelCommandInput - {@link CreateLabelCommandInput}
@@ -87,6 +92,8 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class CreateLabelCommand extends $Command<

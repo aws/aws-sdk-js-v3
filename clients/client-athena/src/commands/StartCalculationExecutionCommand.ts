@@ -51,6 +51,12 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
  * };
  * const command = new StartCalculationExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartCalculationExecutionResponse
+ *   CalculationExecutionId: "STRING_VALUE",
+ *   State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * };
+ *
  * ```
  *
  * @param StartCalculationExecutionCommandInput - {@link StartCalculationExecutionCommandInput}
@@ -70,6 +76,8 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StartCalculationExecutionCommand extends $Command<

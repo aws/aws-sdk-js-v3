@@ -59,6 +59,27 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  * };
  * const command = new CancelReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelReplicationTaskAssessmentRunResponse
+ *   ReplicationTaskAssessmentRun: { // ReplicationTaskAssessmentRun
+ *     ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ *     ReplicationTaskArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     ReplicationTaskAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ *     AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ *       IndividualAssessmentCount: Number("int"),
+ *       IndividualAssessmentCompletedCount: Number("int"),
+ *     },
+ *     LastFailureMessage: "STRING_VALUE",
+ *     ServiceAccessRoleArn: "STRING_VALUE",
+ *     ResultLocationBucket: "STRING_VALUE",
+ *     ResultLocationFolder: "STRING_VALUE",
+ *     ResultEncryptionMode: "STRING_VALUE",
+ *     ResultKmsKeyArn: "STRING_VALUE",
+ *     AssessmentRunName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CancelReplicationTaskAssessmentRunCommandInput - {@link CancelReplicationTaskAssessmentRunCommandInput}
@@ -77,6 +98,8 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class CancelReplicationTaskAssessmentRunCommand extends $Command<

@@ -51,6 +51,16 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * };
  * const command = new UpdateSystemTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSystemTemplateResponse
+ *   summary: { // SystemTemplateSummary
+ *     id: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     revisionNumber: Number("long"),
+ *     createdAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSystemTemplateCommandInput - {@link UpdateSystemTemplateCommandInput}
@@ -71,6 +81,8 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class UpdateSystemTemplateCommand extends $Command<

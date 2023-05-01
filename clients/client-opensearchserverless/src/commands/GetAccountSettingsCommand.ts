@@ -46,6 +46,16 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSettingsResponse
+ *   accountSettingsDetail: { // AccountSettingsDetail
+ *     capacityLimits: { // CapacityLimits
+ *       maxIndexingCapacityInOCU: Number("int"),
+ *       maxSearchCapacityInOCU: Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
@@ -61,6 +71,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class GetAccountSettingsCommand extends $Command<

@@ -55,6 +55,12 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  * };
  * const command = new MigrateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MigrateWorkspaceResult
+ *   SourceWorkspaceId: "STRING_VALUE",
+ *   TargetWorkspaceId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param MigrateWorkspaceCommandInput - {@link MigrateWorkspaceCommandInput}
@@ -81,6 +87,8 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class MigrateWorkspaceCommand extends $Command<

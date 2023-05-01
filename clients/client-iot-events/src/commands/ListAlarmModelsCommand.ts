@@ -46,6 +46,18 @@ export interface ListAlarmModelsCommandOutput extends ListAlarmModelsResponse, _
  * };
  * const command = new ListAlarmModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAlarmModelsResponse
+ *   alarmModelSummaries: [ // AlarmModelSummaries
+ *     { // AlarmModelSummary
+ *       creationTime: new Date("TIMESTAMP"),
+ *       alarmModelDescription: "STRING_VALUE",
+ *       alarmModelName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAlarmModelsCommandInput - {@link ListAlarmModelsCommandInput}
@@ -66,6 +78,8 @@ export interface ListAlarmModelsCommandOutput extends ListAlarmModelsResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListAlarmModelsCommand extends $Command<

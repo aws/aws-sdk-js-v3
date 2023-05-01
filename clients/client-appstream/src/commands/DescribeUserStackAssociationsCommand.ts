@@ -66,6 +66,19 @@ export interface DescribeUserStackAssociationsCommandOutput
  * };
  * const command = new DescribeUserStackAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserStackAssociationsResult
+ *   UserStackAssociations: [ // UserStackAssociationList
+ *     { // UserStackAssociation
+ *       StackName: "STRING_VALUE", // required
+ *       UserName: "STRING_VALUE", // required
+ *       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *       SendEmailNotification: true || false,
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeUserStackAssociationsCommandInput - {@link DescribeUserStackAssociationsCommandInput}
@@ -80,6 +93,8 @@ export interface DescribeUserStackAssociationsCommandOutput
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeUserStackAssociationsCommand extends $Command<

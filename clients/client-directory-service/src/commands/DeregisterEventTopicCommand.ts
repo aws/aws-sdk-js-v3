@@ -45,6 +45,9 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * };
  * const command = new DeregisterEventTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterEventTopicCommandInput - {@link DeregisterEventTopicCommandInput}
@@ -65,6 +68,8 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeregisterEventTopicCommand extends $Command<

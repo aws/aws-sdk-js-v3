@@ -53,6 +53,20 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApplicationResponse
+ *   ApplicationInfo: { // ApplicationInfo
+ *     ResourceGroupName: "STRING_VALUE",
+ *     LifeCycle: "STRING_VALUE",
+ *     OpsItemSNSTopicArn: "STRING_VALUE",
+ *     OpsCenterEnabled: true || false,
+ *     CWEMonitorEnabled: true || false,
+ *     Remarks: "STRING_VALUE",
+ *     AutoConfigEnabled: true || false,
+ *     DiscoveryType: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -70,6 +84,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

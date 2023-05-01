@@ -172,6 +172,13 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * };
  * const command = new SubmitJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubmitJobResponse
+ *   jobArn: "STRING_VALUE",
+ *   jobName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param SubmitJobCommandInput - {@link SubmitJobCommandInput}
@@ -188,6 +195,8 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To submit a job to a queue
  * ```javascript

@@ -47,6 +47,19 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * };
  * const command = new DescribeRuntimeVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRuntimeVersionsResponse
+ *   RuntimeVersions: [ // RuntimeVersionList
+ *     { // RuntimeVersion
+ *       VersionName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       ReleaseDate: new Date("TIMESTAMP"),
+ *       DeprecationDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeRuntimeVersionsCommandInput - {@link DescribeRuntimeVersionsCommandInput}
@@ -61,6 +74,8 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class DescribeRuntimeVersionsCommand extends $Command<

@@ -48,6 +48,9 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * };
  * const command = new UpdatePermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePermissionSetCommandInput - {@link UpdatePermissionSetCommandInput}
@@ -79,6 +82,8 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class UpdatePermissionSetCommand extends $Command<

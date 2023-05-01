@@ -53,6 +53,11 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * };
  * const command = new DeletePortfolioShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePortfolioShareOutput
+ *   PortfolioShareToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeletePortfolioShareCommandInput - {@link DeletePortfolioShareCommandInput}
@@ -74,6 +79,8 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeletePortfolioShareCommand extends $Command<

@@ -57,6 +57,19 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * };
  * const command = new GetBuiltinSlotTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBuiltinSlotTypesResponse
+ *   slotTypes: [ // BuiltinSlotTypeMetadataList
+ *     { // BuiltinSlotTypeMetadata
+ *       signature: "STRING_VALUE",
+ *       supportedLocales: [ // LocaleList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetBuiltinSlotTypesCommandInput - {@link GetBuiltinSlotTypesCommandInput}
@@ -76,6 +89,8 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBuiltinSlotTypesCommand extends $Command<

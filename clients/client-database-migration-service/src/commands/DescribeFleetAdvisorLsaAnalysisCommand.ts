@@ -55,6 +55,17 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * };
  * const command = new DescribeFleetAdvisorLsaAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetAdvisorLsaAnalysisResponse
+ *   Analysis: [ // FleetAdvisorLsaAnalysisResponseList
+ *     { // FleetAdvisorLsaAnalysisResponse
+ *       LsaAnalysisId: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeFleetAdvisorLsaAnalysisCommandInput - {@link DescribeFleetAdvisorLsaAnalysisCommandInput}
@@ -66,6 +77,8 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<

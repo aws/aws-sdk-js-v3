@@ -94,6 +94,17 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteStatementOutput
+ *   Id: "STRING_VALUE",
+ *   CreatedAt: new Date("TIMESTAMP"),
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   DbUser: "STRING_VALUE",
+ *   Database: "STRING_VALUE",
+ *   SecretArn: "STRING_VALUE",
+ *   WorkgroupName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
@@ -111,6 +122,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class ExecuteStatementCommand extends $Command<

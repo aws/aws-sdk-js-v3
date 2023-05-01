@@ -48,6 +48,9 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * };
  * const command = new DisassociateMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateMembersCommandInput - {@link DisassociateMembersCommandInput}
@@ -73,6 +76,8 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To disassociate member accounts from administrator account
  * ```javascript

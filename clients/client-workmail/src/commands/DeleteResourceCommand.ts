@@ -45,6 +45,9 @@ export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __M
  * };
  * const command = new DeleteResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __M
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteResourceCommand extends $Command<

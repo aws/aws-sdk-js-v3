@@ -46,6 +46,20 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AccountAttributeList
+ *   AccountAttributes: [ // AttributeList
+ *     { // AccountAttribute
+ *       AttributeName: "STRING_VALUE",
+ *       AttributeValues: [ // AttributeValueList
+ *         { // AttributeValueTarget
+ *           AttributeValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -54,6 +68,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

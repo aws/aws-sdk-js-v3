@@ -48,6 +48,21 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  * };
  * const command = new GetListsMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetListsMetadataResult
+ *   lists: [ // AllowDenyLists
+ *     { // AllowDenyList
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       variableType: "STRING_VALUE",
+ *       createdTime: "STRING_VALUE",
+ *       updatedTime: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetListsMetadataCommandInput - {@link GetListsMetadataCommandInput}
@@ -71,6 +86,8 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetListsMetadataCommand extends $Command<

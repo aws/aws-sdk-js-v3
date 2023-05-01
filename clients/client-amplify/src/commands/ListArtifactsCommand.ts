@@ -48,6 +48,17 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListArtifactsResult
+ *   artifacts: [ // Artifacts // required
+ *     { // Artifact
+ *       artifactFileName: "STRING_VALUE", // required
+ *       artifactId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
@@ -68,6 +79,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class ListArtifactsCommand extends $Command<

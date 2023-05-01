@@ -79,6 +79,47 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * };
  * const command = new UpdateAppVersionResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAppVersionResourceResponse
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   physicalResource: { // PhysicalResource
+ *     resourceName: "STRING_VALUE",
+ *     logicalResourceId: { // LogicalResourceId
+ *       identifier: "STRING_VALUE", // required
+ *       logicalStackName: "STRING_VALUE",
+ *       resourceGroupName: "STRING_VALUE",
+ *       terraformSourceName: "STRING_VALUE",
+ *       eksSourceName: "STRING_VALUE",
+ *     },
+ *     physicalResourceId: { // PhysicalResourceId
+ *       identifier: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       awsRegion: "STRING_VALUE",
+ *       awsAccountId: "STRING_VALUE",
+ *     },
+ *     resourceType: "STRING_VALUE", // required
+ *     appComponents: [ // AppComponentList
+ *       { // AppComponent
+ *         name: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         id: "STRING_VALUE",
+ *         additionalInfo: { // AdditionalInfoMap
+ *           "<keys>": [ // AdditionalInfoValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     additionalInfo: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     excluded: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAppVersionResourceCommandInput - {@link UpdateAppVersionResourceCommandInput}
@@ -115,6 +156,8 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class UpdateAppVersionResourceCommand extends $Command<

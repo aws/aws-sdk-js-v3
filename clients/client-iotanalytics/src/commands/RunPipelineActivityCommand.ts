@@ -109,6 +109,14 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  * };
  * const command = new RunPipelineActivityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RunPipelineActivityResponse
+ *   payloads: [ // MessagePayloads
+ *     "BLOB_VALUE",
+ *   ],
+ *   logResult: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RunPipelineActivityCommandInput - {@link RunPipelineActivityCommandInput}
@@ -129,6 +137,8 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class RunPipelineActivityCommand extends $Command<

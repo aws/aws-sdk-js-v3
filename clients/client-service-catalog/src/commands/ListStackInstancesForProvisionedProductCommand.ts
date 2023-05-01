@@ -56,6 +56,18 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * };
  * const command = new ListStackInstancesForProvisionedProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStackInstancesForProvisionedProductOutput
+ *   StackInstances: [ // StackInstances
+ *     { // StackInstance
+ *       Account: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       StackInstanceStatus: "CURRENT" || "OUTDATED" || "INOPERABLE",
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListStackInstancesForProvisionedProductCommandInput - {@link ListStackInstancesForProvisionedProductCommandInput}
@@ -70,6 +82,8 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListStackInstancesForProvisionedProductCommand extends $Command<

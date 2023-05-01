@@ -60,6 +60,9 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * };
  * const command = new DeleteObjectsOnCancelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteObjectsOnCancelCommandInput - {@link DeleteObjectsOnCancelCommandInput}
@@ -92,6 +95,8 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DeleteObjectsOnCancelCommand extends $Command<

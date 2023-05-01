@@ -47,6 +47,12 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * };
  * const command = new DescribePartnerEventSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePartnerEventSourceResponse
+ *   Arn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribePartnerEventSourceCommandInput - {@link DescribePartnerEventSourceCommandInput}
@@ -64,6 +70,8 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DescribePartnerEventSourceCommand extends $Command<

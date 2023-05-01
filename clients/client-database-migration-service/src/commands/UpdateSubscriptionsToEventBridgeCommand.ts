@@ -61,6 +61,11 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
  * };
  * const command = new UpdateSubscriptionsToEventBridgeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSubscriptionsToEventBridgeResponse
+ *   Result: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateSubscriptionsToEventBridgeCommandInput - {@link UpdateSubscriptionsToEventBridgeCommandInput}
@@ -76,6 +81,8 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class UpdateSubscriptionsToEventBridgeCommand extends $Command<

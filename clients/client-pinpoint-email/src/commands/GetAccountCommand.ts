@@ -43,6 +43,19 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountResponse
+ *   SendQuota: { // SendQuota
+ *     Max24HourSend: Number("double"),
+ *     MaxSendRate: Number("double"),
+ *     SentLast24Hours: Number("double"),
+ *   },
+ *   SendingEnabled: true || false,
+ *   DedicatedIpAutoWarmupEnabled: true || false,
+ *   EnforcementStatus: "STRING_VALUE",
+ *   ProductionAccessEnabled: true || false,
+ * };
+ *
  * ```
  *
  * @param GetAccountCommandInput - {@link GetAccountCommandInput}
@@ -57,6 +70,8 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetAccountCommand extends $Command<

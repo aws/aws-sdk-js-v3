@@ -49,6 +49,11 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * };
  * const command = new DeleteHsmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteHsmResponse
+ *   HsmId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteHsmCommandInput - {@link DeleteHsmCommandInput}
@@ -75,6 +80,8 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class DeleteHsmCommand extends $Command<

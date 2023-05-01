@@ -68,6 +68,26 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  * };
  * const command = new CreatePlayerSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePlayerSessionsOutput
+ *   PlayerSessions: [ // PlayerSessionList
+ *     { // PlayerSession
+ *       PlayerSessionId: "STRING_VALUE",
+ *       PlayerId: "STRING_VALUE",
+ *       GameSessionId: "STRING_VALUE",
+ *       FleetId: "STRING_VALUE",
+ *       FleetArn: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       TerminationTime: new Date("TIMESTAMP"),
+ *       Status: "RESERVED" || "ACTIVE" || "COMPLETED" || "TIMEDOUT",
+ *       IpAddress: "STRING_VALUE",
+ *       DnsName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       PlayerData: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreatePlayerSessionsCommandInput - {@link CreatePlayerSessionsCommandInput}
@@ -105,6 +125,8 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreatePlayerSessionsCommand extends $Command<

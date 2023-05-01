@@ -218,6 +218,16 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataSetResponse
+ *   Arn: "STRING_VALUE",
+ *   DataSetId: "STRING_VALUE",
+ *   IngestionArn: "STRING_VALUE",
+ *   IngestionId: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param UpdateDataSetCommandInput - {@link UpdateDataSetCommandInput}
@@ -256,6 +266,8 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateDataSetCommand extends $Command<

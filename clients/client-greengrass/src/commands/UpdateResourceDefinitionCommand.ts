@@ -45,6 +45,9 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * };
  * const command = new UpdateResourceDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceDefinitionCommandInput - {@link UpdateResourceDefinitionCommandInput}
@@ -56,6 +59,8 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateResourceDefinitionCommand extends $Command<

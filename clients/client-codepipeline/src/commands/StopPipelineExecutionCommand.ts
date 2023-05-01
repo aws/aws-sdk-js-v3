@@ -52,6 +52,11 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * };
  * const command = new StopPipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopPipelineExecutionOutput
+ *   pipelineExecutionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StopPipelineExecutionCommandInput - {@link StopPipelineExecutionCommandInput}
@@ -81,6 +86,8 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class StopPipelineExecutionCommand extends $Command<

@@ -46,6 +46,9 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * };
  * const command = new DisconnectParticipantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisconnectParticipantCommandInput - {@link DisconnectParticipantCommandInput}
@@ -66,6 +69,8 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class DisconnectParticipantCommand extends $Command<

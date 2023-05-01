@@ -54,6 +54,11 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * };
  * const command = new CreateIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIdentityProviderResponse
+ *   identityProviderArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateIdentityProviderCommandInput - {@link CreateIdentityProviderCommandInput}
@@ -83,6 +88,8 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateIdentityProviderCommand extends $Command<

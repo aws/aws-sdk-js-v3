@@ -59,6 +59,21 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePolicyResponse
+ *   Policy: { // Policy
+ *     PolicySummary: { // PolicySummary
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ *       AwsManaged: true || false,
+ *     },
+ *     Content: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
@@ -414,6 +429,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To create a service control policy
  * ```javascript

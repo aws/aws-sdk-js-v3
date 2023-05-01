@@ -56,6 +56,14 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * };
  * const command = new ListDeadLetterSourceQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeadLetterSourceQueuesResult
+ *   queueUrls: [ // QueueUrlList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDeadLetterSourceQueuesCommandInput - {@link ListDeadLetterSourceQueuesCommandInput}
@@ -67,6 +75,8 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ListDeadLetterSourceQueuesCommand extends $Command<

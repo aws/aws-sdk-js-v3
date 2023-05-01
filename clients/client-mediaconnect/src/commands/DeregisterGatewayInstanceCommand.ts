@@ -45,6 +45,12 @@ export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewa
  * };
  * const command = new DeregisterGatewayInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterGatewayInstanceResponse
+ *   GatewayInstanceArn: "STRING_VALUE",
+ *   InstanceState: "REGISTERING" || "ACTIVE" || "DEREGISTERING" || "DEREGISTERED" || "REGISTRATION_ERROR" || "DEREGISTRATION_ERROR",
+ * };
+ *
  * ```
  *
  * @param DeregisterGatewayInstanceCommandInput - {@link DeregisterGatewayInstanceCommandInput}
@@ -74,6 +80,8 @@ export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewa
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DeregisterGatewayInstanceCommand extends $Command<

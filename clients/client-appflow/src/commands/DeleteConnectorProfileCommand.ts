@@ -45,6 +45,9 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  * };
  * const command = new DeleteConnectorProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectorProfileCommandInput - {@link DeleteConnectorProfileCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  *  <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class DeleteConnectorProfileCommand extends $Command<

@@ -48,6 +48,24 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  * };
  * const command = new CreateRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRevisionResponse
+ *   Arn: "STRING_VALUE",
+ *   Comment: "STRING_VALUE",
+ *   CreatedAt: new Date("TIMESTAMP"),
+ *   DataSetId: "STRING_VALUE",
+ *   Finalized: true || false,
+ *   Id: "STRING_VALUE",
+ *   SourceId: "STRING_VALUE",
+ *   Tags: { // MapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   UpdatedAt: new Date("TIMESTAMP"),
+ *   RevocationComment: "STRING_VALUE",
+ *   Revoked: true || false,
+ *   RevokedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateRevisionCommandInput - {@link CreateRevisionCommandInput}
@@ -71,6 +89,8 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class CreateRevisionCommand extends $Command<

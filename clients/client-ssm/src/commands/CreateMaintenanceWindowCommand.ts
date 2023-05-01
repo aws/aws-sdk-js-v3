@@ -72,6 +72,11 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * };
  * const command = new CreateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMaintenanceWindowResult
+ *   WindowId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMaintenanceWindowCommandInput - {@link CreateMaintenanceWindowCommandInput}
@@ -93,6 +98,8 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateMaintenanceWindowCommand extends $Command<

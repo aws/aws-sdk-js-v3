@@ -53,6 +53,12 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  * };
  * const command = new RegisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterPatchBaselineForPatchGroupResult
+ *   BaselineId: "STRING_VALUE",
+ *   PatchGroup: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterPatchBaselineForPatchGroupCommandInput - {@link RegisterPatchBaselineForPatchGroupCommandInput}
@@ -83,6 +89,8 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class RegisterPatchBaselineForPatchGroupCommand extends $Command<

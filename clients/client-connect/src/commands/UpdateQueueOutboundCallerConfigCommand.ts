@@ -66,6 +66,9 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * };
  * const command = new UpdateQueueOutboundCallerConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateQueueOutboundCallerConfigCommandInput - {@link UpdateQueueOutboundCallerConfigCommandInput}
@@ -89,6 +92,8 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateQueueOutboundCallerConfigCommand extends $Command<

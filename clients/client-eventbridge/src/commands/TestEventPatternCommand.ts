@@ -49,6 +49,11 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * };
  * const command = new TestEventPatternCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestEventPatternResponse
+ *   Result: true || false,
+ * };
+ *
  * ```
  *
  * @param TestEventPatternCommandInput - {@link TestEventPatternCommandInput}
@@ -63,6 +68,8 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * @throws {@link InvalidEventPatternException} (client fault)
  *  <p>The event pattern is not valid.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class TestEventPatternCommand extends $Command<

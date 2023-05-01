@@ -123,6 +123,9 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketCorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketCorsCommandInput - {@link PutBucketCorsCommandInput}
@@ -131,6 +134,8 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To set cors configuration on a bucket.
  * ```javascript

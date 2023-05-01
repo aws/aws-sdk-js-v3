@@ -46,6 +46,16 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * };
  * const command = new ListAllowedNodeTypeUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAllowedNodeTypeUpdatesResponse
+ *   ScaleUpNodeTypes: [ // NodeTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   ScaleDownNodeTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAllowedNodeTypeUpdatesCommandInput - {@link ListAllowedNodeTypeUpdatesCommandInput}
@@ -66,6 +76,8 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class ListAllowedNodeTypeUpdatesCommand extends $Command<

@@ -133,6 +133,12 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * };
  * const command = new CreateDatasetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetGroupResponse
+ *   datasetGroupArn: "STRING_VALUE",
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * };
+ *
  * ```
  *
  * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
@@ -153,6 +159,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateDatasetGroupCommand extends $Command<

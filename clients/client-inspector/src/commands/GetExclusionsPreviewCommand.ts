@@ -50,6 +50,31 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * };
  * const command = new GetExclusionsPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExclusionsPreviewResponse
+ *   previewStatus: "STRING_VALUE", // required
+ *   exclusionPreviews: [ // ExclusionPreviewList
+ *     { // ExclusionPreview
+ *       title: "STRING_VALUE", // required
+ *       description: "STRING_VALUE", // required
+ *       recommendation: "STRING_VALUE", // required
+ *       scopes: [ // ScopeList // required
+ *         { // Scope
+ *           key: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       attributes: [ // AttributeList
+ *         { // Attribute
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetExclusionsPreviewCommandInput - {@link GetExclusionsPreviewCommandInput}
@@ -72,6 +97,8 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class GetExclusionsPreviewCommand extends $Command<

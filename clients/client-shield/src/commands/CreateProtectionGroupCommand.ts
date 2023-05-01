@@ -56,6 +56,9 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  * };
  * const command = new CreateProtectionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateProtectionGroupCommandInput - {@link CreateProtectionGroupCommandInput}
@@ -83,6 +86,8 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class CreateProtectionGroupCommand extends $Command<

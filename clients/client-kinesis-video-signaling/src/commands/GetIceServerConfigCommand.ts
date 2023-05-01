@@ -64,6 +64,20 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * };
  * const command = new GetIceServerConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIceServerConfigResponse
+ *   IceServerList: [ // IceServerList
+ *     { // IceServer
+ *       Uris: [ // Uris
+ *         "STRING_VALUE",
+ *       ],
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *       Ttl: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetIceServerConfigCommandInput - {@link GetIceServerConfigCommandInput}
@@ -93,6 +107,8 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  *             for 45 minutes. Client should reconnect to the channel to continue sending/receiving
  *             messages.</p>
  *
+ * @throws {@link KinesisVideoSignalingServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
  */
 export class GetIceServerConfigCommand extends $Command<

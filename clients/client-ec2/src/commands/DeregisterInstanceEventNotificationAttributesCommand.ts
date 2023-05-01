@@ -60,6 +60,16 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * };
  * const command = new DeregisterInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterInstanceEventNotificationAttributesResult
+ *   InstanceTagAttribute: { // InstanceTagNotificationAttribute
+ *     InstanceTagKeys: [ // InstanceTagKeySet
+ *       "STRING_VALUE",
+ *     ],
+ *     IncludeAllTagsOfInstance: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeregisterInstanceEventNotificationAttributesCommandInput - {@link DeregisterInstanceEventNotificationAttributesCommandInput}
@@ -68,6 +78,8 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * @see {@link DeregisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeregisterInstanceEventNotificationAttributesCommand extends $Command<

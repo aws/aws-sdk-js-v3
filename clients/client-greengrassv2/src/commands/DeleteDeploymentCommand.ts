@@ -48,6 +48,9 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeploymentCommandInput - {@link DeleteDeploymentCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class DeleteDeploymentCommand extends $Command<

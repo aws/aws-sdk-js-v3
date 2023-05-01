@@ -42,6 +42,11 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * const input = {};
  * const command = new GetHostedZoneCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHostedZoneCountResponse
+ *   HostedZoneCount: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param GetHostedZoneCountCommandInput - {@link GetHostedZoneCountCommandInput}
@@ -53,6 +58,8 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHostedZoneCountCommand extends $Command<

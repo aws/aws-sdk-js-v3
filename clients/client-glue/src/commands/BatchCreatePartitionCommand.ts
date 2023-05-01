@@ -114,6 +114,21 @@ export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionR
  * };
  * const command = new BatchCreatePartitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreatePartitionResponse
+ *   Errors: [ // PartitionErrors
+ *     { // PartitionError
+ *       PartitionValues: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       ErrorDetail: { // ErrorDetail
+ *         ErrorCode: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreatePartitionCommandInput - {@link BatchCreatePartitionCommandInput}
@@ -143,6 +158,8 @@ export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionR
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchCreatePartitionCommand extends $Command<

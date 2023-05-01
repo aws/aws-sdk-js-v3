@@ -79,6 +79,11 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * };
  * const command = new ChangeCidrCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ChangeCidrCollectionResponse
+ *   Id: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param ChangeCidrCollectionCommandInput - {@link ChangeCidrCollectionCommandInput}
@@ -109,6 +114,8 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * @throws {@link NoSuchCidrCollectionException} (client fault)
  *  <p>The CIDR collection you specified, doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ChangeCidrCollectionCommand extends $Command<

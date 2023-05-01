@@ -47,6 +47,20 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * };
  * const command = new ListRegexPatternSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegexPatternSetsResponse
+ *   NextMarker: "STRING_VALUE",
+ *   RegexPatternSets: [ // RegexPatternSetSummaries
+ *     { // RegexPatternSetSummary
+ *       Name: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       LockToken: "STRING_VALUE",
+ *       ARN: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRegexPatternSetsCommandInput - {@link ListRegexPatternSetsCommandInput}
@@ -83,6 +97,8 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListRegexPatternSetsCommand extends $Command<

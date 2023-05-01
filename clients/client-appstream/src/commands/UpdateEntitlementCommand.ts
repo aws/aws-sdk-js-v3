@@ -53,6 +53,24 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  * };
  * const command = new UpdateEntitlementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEntitlementResult
+ *   Entitlement: { // Entitlement
+ *     Name: "STRING_VALUE", // required
+ *     StackName: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     AppVisibility: "ALL" || "ASSOCIATED", // required
+ *     Attributes: [ // EntitlementAttributeList // required
+ *       { // EntitlementAttribute
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     CreatedTime: new Date("TIMESTAMP"),
+ *     LastModifiedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEntitlementCommandInput - {@link UpdateEntitlementCommandInput}
@@ -73,6 +91,8 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class UpdateEntitlementCommand extends $Command<

@@ -45,6 +45,11 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * };
  * const command = new UpdateTrialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrialResponse
+ *   TrialArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateTrialCommandInput - {@link UpdateTrialCommandInput}
@@ -60,6 +65,8 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateTrialCommand extends $Command<

@@ -43,6 +43,11 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInvitationsCountResponse
+ *   InvitationsCount: Number("int"),
+ * };
+ *
  * ```
  *
  * @param GetInvitationsCountCommandInput - {@link GetInvitationsCountCommandInput}
@@ -57,6 +62,8 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetInvitationsCountCommand extends $Command<

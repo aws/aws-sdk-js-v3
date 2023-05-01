@@ -50,6 +50,29 @@ export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetRespons
  * };
  * const command = new GetManagedRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetManagedRuleSetResponse
+ *   ManagedRuleSet: { // ManagedRuleSet
+ *     Name: "STRING_VALUE", // required
+ *     Id: "STRING_VALUE", // required
+ *     ARN: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     PublishedVersions: { // PublishedVersions
+ *       "<keys>": { // ManagedRuleSetVersion
+ *         AssociatedRuleGroupArn: "STRING_VALUE",
+ *         Capacity: Number("long"),
+ *         ForecastedLifetime: Number("int"),
+ *         PublishTimestamp: new Date("TIMESTAMP"),
+ *         LastUpdateTimestamp: new Date("TIMESTAMP"),
+ *         ExpiryTimestamp: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *     RecommendedVersion: "STRING_VALUE",
+ *     LabelNamespace: "STRING_VALUE",
+ *   },
+ *   LockToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetManagedRuleSetCommandInput - {@link GetManagedRuleSetCommandInput}
@@ -92,6 +115,8 @@ export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetRespons
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetManagedRuleSetCommand extends $Command<

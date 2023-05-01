@@ -79,6 +79,17 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * };
  * const command = new SendChannelMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendChannelMessageResponse
+ *   ChannelArn: "STRING_VALUE",
+ *   MessageId: "STRING_VALUE",
+ *   Status: { // ChannelMessageStatusStructure
+ *     Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
+ *     Detail: "STRING_VALUE",
+ *   },
+ *   SubChannelId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendChannelMessageCommandInput - {@link SendChannelMessageCommandInput}
@@ -109,6 +120,8 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class SendChannelMessageCommand extends $Command<

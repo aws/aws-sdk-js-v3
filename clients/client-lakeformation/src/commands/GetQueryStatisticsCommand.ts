@@ -44,6 +44,22 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * };
  * const command = new GetQueryStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueryStatisticsResponse
+ *   ExecutionStatistics: { // ExecutionStatistics
+ *     AverageExecutionTimeMillis: Number("long"),
+ *     DataScannedBytes: Number("long"),
+ *     WorkUnitsExecutedCount: Number("long"),
+ *   },
+ *   PlanningStatistics: { // PlanningStatistics
+ *     EstimatedDataToScanBytes: Number("long"),
+ *     PlanningTimeMillis: Number("long"),
+ *     QueueTimeMillis: Number("long"),
+ *     WorkUnitsGeneratedCount: Number("long"),
+ *   },
+ *   QuerySubmissionTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetQueryStatisticsCommandInput - {@link GetQueryStatisticsCommandInput}
@@ -70,6 +86,8 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * @throws {@link ThrottledException} (client fault)
  *  <p>Contains details about an error where the query request was throttled.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetQueryStatisticsCommand extends $Command<

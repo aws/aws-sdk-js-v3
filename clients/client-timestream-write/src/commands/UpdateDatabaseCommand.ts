@@ -50,6 +50,18 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDatabaseResponse
+ *   Database: { // Database
+ *     Arn: "STRING_VALUE",
+ *     DatabaseName: "STRING_VALUE",
+ *     TableCount: Number("long"),
+ *     KmsKeyId: "STRING_VALUE",
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     LastUpdatedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDatabaseCommandInput - {@link UpdateDatabaseCommandInput}
@@ -83,6 +95,8 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class UpdateDatabaseCommand extends $Command<

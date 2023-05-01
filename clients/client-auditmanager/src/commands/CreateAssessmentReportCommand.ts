@@ -47,6 +47,21 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * };
  * const command = new CreateAssessmentReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssessmentReportResponse
+ *   assessmentReport: { // AssessmentReport
+ *     id: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     awsAccountId: "STRING_VALUE",
+ *     assessmentId: "STRING_VALUE",
+ *     assessmentName: "STRING_VALUE",
+ *     author: "STRING_VALUE",
+ *     status: "COMPLETE" || "IN_PROGRESS" || "FAILED",
+ *     creationTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAssessmentReportCommandInput - {@link CreateAssessmentReportCommandInput}
@@ -69,6 +84,8 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class CreateAssessmentReportCommand extends $Command<

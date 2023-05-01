@@ -45,6 +45,9 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new VerifyEmailAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param VerifyEmailAddressCommandInput - {@link VerifyEmailAddressCommandInput}
@@ -53,6 +56,8 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example VerifyEmailAddress
  * ```javascript

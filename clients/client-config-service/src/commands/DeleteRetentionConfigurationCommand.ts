@@ -47,6 +47,9 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteRetentionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRetentionConfigurationCommandInput - {@link DeleteRetentionConfigurationCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * @throws {@link NoSuchRetentionConfigurationException} (client fault)
  *  <p>You have specified a retention configuration that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteRetentionConfigurationCommand extends $Command<

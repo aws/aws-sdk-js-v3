@@ -60,6 +60,9 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
@@ -90,6 +93,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class UpdateTemplateCommand extends $Command<

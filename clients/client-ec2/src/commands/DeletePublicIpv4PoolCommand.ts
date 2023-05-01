@@ -45,6 +45,11 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  * };
  * const command = new DeletePublicIpv4PoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePublicIpv4PoolResult
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param DeletePublicIpv4PoolCommandInput - {@link DeletePublicIpv4PoolCommandInput}
@@ -53,6 +58,8 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  * @see {@link DeletePublicIpv4PoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeletePublicIpv4PoolCommand extends $Command<

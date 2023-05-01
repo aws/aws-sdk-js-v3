@@ -52,6 +52,9 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * };
  * const command = new DisassociateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateWebACLCommandInput - {@link DisassociateWebACLCommandInput}
@@ -109,6 +112,8 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class DisassociateWebACLCommand extends $Command<

@@ -50,6 +50,11 @@ export interface DisassociateGatewayFromServerCommandOutput
  * };
  * const command = new DisassociateGatewayFromServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateGatewayFromServerOutput
+ *   GatewayArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateGatewayFromServerCommandInput - {@link DisassociateGatewayFromServerCommandInput}
@@ -74,6 +79,8 @@ export interface DisassociateGatewayFromServerCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class DisassociateGatewayFromServerCommand extends $Command<

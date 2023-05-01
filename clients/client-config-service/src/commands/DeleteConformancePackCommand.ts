@@ -47,6 +47,9 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteConformancePackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConformancePackCommandInput - {@link DeleteConformancePackCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteConformancePackCommand extends $Command<

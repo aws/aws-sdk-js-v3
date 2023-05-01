@@ -67,6 +67,32 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * };
  * const command = new UpdateServiceTemplateVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceTemplateVersionOutput
+ *   serviceTemplateVersion: { // ServiceTemplateVersion
+ *     templateName: "STRING_VALUE", // required
+ *     majorVersion: "STRING_VALUE", // required
+ *     minorVersion: "STRING_VALUE", // required
+ *     recommendedMinorVersion: "STRING_VALUE",
+ *     status: "STRING_VALUE", // required
+ *     statusMessage: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     arn: "STRING_VALUE", // required
+ *     createdAt: new Date("TIMESTAMP"), // required
+ *     lastModifiedAt: new Date("TIMESTAMP"), // required
+ *     compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateList // required
+ *       { // CompatibleEnvironmentTemplate
+ *         templateName: "STRING_VALUE", // required
+ *         majorVersion: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     schema: "STRING_VALUE",
+ *     supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateServiceTemplateVersionCommandInput - {@link UpdateServiceTemplateVersionCommandInput}
@@ -93,6 +119,8 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateServiceTemplateVersionCommand extends $Command<

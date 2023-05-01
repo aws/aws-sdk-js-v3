@@ -61,6 +61,11 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * };
  * const command = new CreateTrustStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrustStoreResponse
+ *   trustStoreArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateTrustStoreCommandInput - {@link CreateTrustStoreCommandInput}
@@ -87,6 +92,8 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateTrustStoreCommand extends $Command<

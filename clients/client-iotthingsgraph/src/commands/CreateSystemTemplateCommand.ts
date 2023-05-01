@@ -51,6 +51,16 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * };
  * const command = new CreateSystemTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSystemTemplateResponse
+ *   summary: { // SystemTemplateSummary
+ *     id: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     revisionNumber: Number("long"),
+ *     createdAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSystemTemplateCommandInput - {@link CreateSystemTemplateCommandInput}
@@ -71,6 +81,8 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class CreateSystemTemplateCommand extends $Command<

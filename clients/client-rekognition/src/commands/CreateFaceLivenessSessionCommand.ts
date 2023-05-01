@@ -58,6 +58,11 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * };
  * const command = new CreateFaceLivenessSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFaceLivenessSessionResponse
+ *   SessionId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateFaceLivenessSessionCommandInput - {@link CreateFaceLivenessSessionCommandInput}
@@ -83,6 +88,8 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class CreateFaceLivenessSessionCommand extends $Command<

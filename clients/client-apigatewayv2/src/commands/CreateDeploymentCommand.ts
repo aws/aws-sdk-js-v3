@@ -46,6 +46,16 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResponse
+ *   AutoDeployed: true || false,
+ *   CreatedDate: new Date("TIMESTAMP"),
+ *   DeploymentId: "STRING_VALUE",
+ *   DeploymentStatus: "STRING_VALUE",
+ *   DeploymentStatusMessage: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -66,6 +76,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

@@ -47,6 +47,16 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * };
  * const command = new ActivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivateKeySigningKeyResponse
+ *   ChangeInfo: { // ChangeInfo
+ *     Id: "STRING_VALUE", // required
+ *     Status: "PENDING" || "INSYNC", // required
+ *     SubmittedAt: new Date("TIMESTAMP"), // required
+ *     Comment: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ActivateKeySigningKeyCommandInput - {@link ActivateKeySigningKeyCommandInput}
@@ -77,6 +87,8 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * @throws {@link NoSuchKeySigningKey} (client fault)
  *  <p>The specified key-signing key (KSK) doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ActivateKeySigningKeyCommand extends $Command<

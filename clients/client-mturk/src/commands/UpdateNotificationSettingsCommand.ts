@@ -64,6 +64,9 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  * };
  * const command = new UpdateNotificationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNotificationSettingsCommandInput - {@link UpdateNotificationSettingsCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class UpdateNotificationSettingsCommand extends $Command<

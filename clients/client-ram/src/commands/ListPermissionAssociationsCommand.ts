@@ -53,6 +53,23 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * };
  * const command = new ListPermissionAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionAssociationsResponse
+ *   permissions: [ // AssociatedPermissionList
+ *     { // AssociatedPermission
+ *       arn: "STRING_VALUE",
+ *       permissionVersion: "STRING_VALUE",
+ *       defaultVersion: true || false,
+ *       resourceType: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ *       lastUpdatedTime: new Date("TIMESTAMP"),
+ *       resourceShareArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPermissionAssociationsCommandInput - {@link ListPermissionAssociationsCommandInput}
@@ -80,6 +97,8 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListPermissionAssociationsCommand extends $Command<

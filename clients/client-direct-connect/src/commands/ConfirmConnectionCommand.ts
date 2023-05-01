@@ -46,6 +46,11 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * };
  * const command = new ConfirmConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmConnectionResponse
+ *   connectionState: "ordering" || "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * };
+ *
  * ```
  *
  * @param ConfirmConnectionCommandInput - {@link ConfirmConnectionCommandInput}
@@ -60,6 +65,8 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmConnectionCommand extends $Command<

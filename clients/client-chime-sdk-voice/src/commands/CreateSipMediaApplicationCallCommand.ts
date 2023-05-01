@@ -63,6 +63,13 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * };
  * const command = new CreateSipMediaApplicationCallCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSipMediaApplicationCallResponse
+ *   SipMediaApplicationCall: { // SipMediaApplicationCall
+ *     TransactionId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSipMediaApplicationCallCommandInput - {@link CreateSipMediaApplicationCallCommandInput}
@@ -95,6 +102,8 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class CreateSipMediaApplicationCallCommand extends $Command<

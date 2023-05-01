@@ -166,6 +166,16 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * };
  * const command = new UpdateDeploymentGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDeploymentGroupOutput
+ *   hooksNotCleanedUp: [ // AutoScalingGroupList
+ *     { // AutoScalingGroup
+ *       name: "STRING_VALUE",
+ *       hook: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateDeploymentGroupCommandInput - {@link UpdateDeploymentGroupCommandInput}
@@ -298,6 +308,8 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * @throws {@link TriggerTargetsLimitExceededException} (client fault)
  *  <p>The maximum allowed number of triggers was exceeded.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class UpdateDeploymentGroupCommand extends $Command<

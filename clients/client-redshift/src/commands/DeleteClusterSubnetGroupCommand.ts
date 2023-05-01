@@ -44,6 +44,9 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteClusterSubnetGroupCommandInput - {@link DeleteClusterSubnetGroupCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * @throws {@link InvalidClusterSubnetStateFault} (client fault)
  *  <p>The state of the subnet is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteClusterSubnetGroupCommand extends $Command<

@@ -90,6 +90,12 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * };
  * const command = new GetPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlanResponse
+ *   PythonScript: "STRING_VALUE",
+ *   ScalaCode: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetPlanCommandInput - {@link GetPlanCommandInput}
@@ -107,6 +113,8 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommandOutput, GlueClientResolvedConfig> {

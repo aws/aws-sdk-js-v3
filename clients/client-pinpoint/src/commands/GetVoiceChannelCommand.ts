@@ -44,6 +44,22 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  * };
  * const command = new GetVoiceChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceChannelResponse
+ *   VoiceChannelResponse: { // VoiceChannelResponse
+ *     ApplicationId: "STRING_VALUE",
+ *     CreationDate: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     HasCredential: true || false,
+ *     Id: "STRING_VALUE",
+ *     IsArchived: true || false,
+ *     LastModifiedBy: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE",
+ *     Platform: "STRING_VALUE", // required
+ *     Version: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceChannelCommandInput - {@link GetVoiceChannelCommandInput}
@@ -73,6 +89,8 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetVoiceChannelCommand extends $Command<

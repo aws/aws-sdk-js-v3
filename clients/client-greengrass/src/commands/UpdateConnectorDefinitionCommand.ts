@@ -45,6 +45,9 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  * };
  * const command = new UpdateConnectorDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConnectorDefinitionCommandInput - {@link UpdateConnectorDefinitionCommandInput}
@@ -56,6 +59,8 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateConnectorDefinitionCommand extends $Command<

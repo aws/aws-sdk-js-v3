@@ -49,6 +49,28 @@ export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResul
  * };
  * const command = new GetBatchImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBatchImportJobsResult
+ *   batchImports: [ // BatchImportList
+ *     { // BatchImport
+ *       jobId: "STRING_VALUE",
+ *       status: "IN_PROGRESS_INITIALIZING" || "IN_PROGRESS" || "CANCEL_IN_PROGRESS" || "CANCELED" || "COMPLETE" || "FAILED",
+ *       failureReason: "STRING_VALUE",
+ *       startTime: "STRING_VALUE",
+ *       completionTime: "STRING_VALUE",
+ *       inputPath: "STRING_VALUE",
+ *       outputPath: "STRING_VALUE",
+ *       eventTypeName: "STRING_VALUE",
+ *       iamRoleArn: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       processedRecordsCount: Number("int"),
+ *       failedRecordsCount: Number("int"),
+ *       totalRecordsCount: Number("int"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetBatchImportJobsCommandInput - {@link GetBatchImportJobsCommandInput}
@@ -72,6 +94,8 @@ export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetBatchImportJobsCommand extends $Command<

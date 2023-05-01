@@ -45,6 +45,9 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * };
  * const command = new DeleteTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTopicRuleDestinationCommandInput - {@link DeleteTopicRuleDestinationCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteTopicRuleDestinationCommand extends $Command<

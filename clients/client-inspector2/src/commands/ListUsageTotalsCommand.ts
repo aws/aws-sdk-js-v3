@@ -48,6 +48,24 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * };
  * const command = new ListUsageTotalsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsageTotalsResponse
+ *   nextToken: "STRING_VALUE",
+ *   totals: [ // UsageTotalList
+ *     { // UsageTotal
+ *       accountId: "STRING_VALUE",
+ *       usage: [ // UsageList
+ *         { // Usage
+ *           type: "STRING_VALUE",
+ *           total: Number("double"),
+ *           estimatedMonthlyCost: Number("double"),
+ *           currency: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListUsageTotalsCommandInput - {@link ListUsageTotalsCommandInput}
@@ -69,6 +87,8 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListUsageTotalsCommand extends $Command<

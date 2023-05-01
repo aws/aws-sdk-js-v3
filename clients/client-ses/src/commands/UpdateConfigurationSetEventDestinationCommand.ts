@@ -87,6 +87,9 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
@@ -113,6 +116,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *  <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
  *             invalid. See the error message for details.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<

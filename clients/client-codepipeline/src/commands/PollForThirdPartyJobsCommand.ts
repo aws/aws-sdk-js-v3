@@ -56,6 +56,16 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * };
  * const command = new PollForThirdPartyJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PollForThirdPartyJobsOutput
+ *   jobs: [ // ThirdPartyJobList
+ *     { // ThirdPartyJob
+ *       clientId: "STRING_VALUE",
+ *       jobId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PollForThirdPartyJobsCommandInput - {@link PollForThirdPartyJobsCommandInput}
@@ -70,6 +80,8 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PollForThirdPartyJobsCommand extends $Command<

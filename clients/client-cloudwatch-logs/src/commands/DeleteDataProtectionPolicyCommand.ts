@@ -45,6 +45,9 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDataProtectionPolicyCommandInput - {@link DeleteDataProtectionPolicyCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DeleteDataProtectionPolicyCommand extends $Command<

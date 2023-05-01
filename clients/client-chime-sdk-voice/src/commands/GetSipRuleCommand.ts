@@ -45,6 +45,26 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * };
  * const command = new GetSipRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSipRuleResponse
+ *   SipRule: { // SipRule
+ *     SipRuleId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Disabled: true || false,
+ *     TriggerType: "ToPhoneNumber" || "RequestUriHostname",
+ *     TriggerValue: "STRING_VALUE",
+ *     TargetApplications: [ // SipRuleTargetApplicationList
+ *       { // SipRuleTargetApplication
+ *         SipMediaApplicationId: "STRING_VALUE",
+ *         Priority: Number("int"),
+ *         AwsRegion: "STRING_VALUE",
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSipRuleCommandInput - {@link GetSipRuleCommandInput}
@@ -74,6 +94,8 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetSipRuleCommand extends $Command<

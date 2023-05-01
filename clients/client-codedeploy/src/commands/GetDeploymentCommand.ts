@@ -50,6 +50,185 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentOutput
+ *   deploymentInfo: { // DeploymentInfo
+ *     applicationName: "STRING_VALUE",
+ *     deploymentGroupName: "STRING_VALUE",
+ *     deploymentConfigName: "STRING_VALUE",
+ *     deploymentId: "STRING_VALUE",
+ *     previousRevision: { // RevisionLocation
+ *       revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *       s3Location: { // S3Location
+ *         bucket: "STRING_VALUE",
+ *         key: "STRING_VALUE",
+ *         bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ *         version: "STRING_VALUE",
+ *         eTag: "STRING_VALUE",
+ *       },
+ *       gitHubLocation: { // GitHubLocation
+ *         repository: "STRING_VALUE",
+ *         commitId: "STRING_VALUE",
+ *       },
+ *       string: { // RawString
+ *         content: "STRING_VALUE",
+ *         sha256: "STRING_VALUE",
+ *       },
+ *       appSpecContent: { // AppSpecContent
+ *         content: "STRING_VALUE",
+ *         sha256: "STRING_VALUE",
+ *       },
+ *     },
+ *     revision: {
+ *       revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *       s3Location: {
+ *         bucket: "STRING_VALUE",
+ *         key: "STRING_VALUE",
+ *         bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ *         version: "STRING_VALUE",
+ *         eTag: "STRING_VALUE",
+ *       },
+ *       gitHubLocation: {
+ *         repository: "STRING_VALUE",
+ *         commitId: "STRING_VALUE",
+ *       },
+ *       string: {
+ *         content: "STRING_VALUE",
+ *         sha256: "STRING_VALUE",
+ *       },
+ *       appSpecContent: {
+ *         content: "STRING_VALUE",
+ *         sha256: "STRING_VALUE",
+ *       },
+ *     },
+ *     status: "Created" || "Queued" || "InProgress" || "Baking" || "Succeeded" || "Failed" || "Stopped" || "Ready",
+ *     errorInformation: { // ErrorInformation
+ *       code: "AGENT_ISSUE" || "ALARM_ACTIVE" || "APPLICATION_MISSING" || "AUTOSCALING_VALIDATION_ERROR" || "AUTO_SCALING_CONFIGURATION" || "AUTO_SCALING_IAM_ROLE_PERMISSIONS" || "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND" || "CUSTOMER_APPLICATION_UNHEALTHY" || "DEPLOYMENT_GROUP_MISSING" || "ECS_UPDATE_ERROR" || "ELASTIC_LOAD_BALANCING_INVALID" || "ELB_INVALID_INSTANCE" || "HEALTH_CONSTRAINTS" || "HEALTH_CONSTRAINTS_INVALID" || "HOOK_EXECUTION_FAILURE" || "IAM_ROLE_MISSING" || "IAM_ROLE_PERMISSIONS" || "INTERNAL_ERROR" || "INVALID_ECS_SERVICE" || "INVALID_LAMBDA_CONFIGURATION" || "INVALID_LAMBDA_FUNCTION" || "INVALID_REVISION" || "MANUAL_STOP" || "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION" || "MISSING_ELB_INFORMATION" || "MISSING_GITHUB_TOKEN" || "NO_EC2_SUBSCRIPTION" || "NO_INSTANCES" || "OVER_MAX_INSTANCES" || "RESOURCE_LIMIT_EXCEEDED" || "REVISION_MISSING" || "THROTTLED" || "TIMEOUT" || "CLOUDFORMATION_STACK_FAILURE",
+ *       message: "STRING_VALUE",
+ *     },
+ *     createTime: new Date("TIMESTAMP"),
+ *     startTime: new Date("TIMESTAMP"),
+ *     completeTime: new Date("TIMESTAMP"),
+ *     deploymentOverview: { // DeploymentOverview
+ *       Pending: Number("long"),
+ *       InProgress: Number("long"),
+ *       Succeeded: Number("long"),
+ *       Failed: Number("long"),
+ *       Skipped: Number("long"),
+ *       Ready: Number("long"),
+ *     },
+ *     description: "STRING_VALUE",
+ *     creator: "user" || "autoscaling" || "codeDeployRollback" || "CodeDeploy" || "CodeDeployAutoUpdate" || "CloudFormation" || "CloudFormationRollback",
+ *     ignoreApplicationStopFailures: true || false,
+ *     autoRollbackConfiguration: { // AutoRollbackConfiguration
+ *       enabled: true || false,
+ *       events: [ // AutoRollbackEventsList
+ *         "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
+ *       ],
+ *     },
+ *     updateOutdatedInstancesOnly: true || false,
+ *     rollbackInfo: { // RollbackInfo
+ *       rollbackDeploymentId: "STRING_VALUE",
+ *       rollbackTriggeringDeploymentId: "STRING_VALUE",
+ *       rollbackMessage: "STRING_VALUE",
+ *     },
+ *     deploymentStyle: { // DeploymentStyle
+ *       deploymentType: "IN_PLACE" || "BLUE_GREEN",
+ *       deploymentOption: "WITH_TRAFFIC_CONTROL" || "WITHOUT_TRAFFIC_CONTROL",
+ *     },
+ *     targetInstances: { // TargetInstances
+ *       tagFilters: [ // EC2TagFilterList
+ *         { // EC2TagFilter
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *         },
+ *       ],
+ *       autoScalingGroups: [ // AutoScalingGroupNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       ec2TagSet: { // EC2TagSet
+ *         ec2TagSetList: [ // EC2TagSetList
+ *           [
+ *             {
+ *               Key: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *               Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *             },
+ *           ],
+ *         ],
+ *       },
+ *     },
+ *     instanceTerminationWaitTimeStarted: true || false,
+ *     blueGreenDeploymentConfiguration: { // BlueGreenDeploymentConfiguration
+ *       terminateBlueInstancesOnDeploymentSuccess: { // BlueInstanceTerminationOption
+ *         action: "TERMINATE" || "KEEP_ALIVE",
+ *         terminationWaitTimeInMinutes: Number("int"),
+ *       },
+ *       deploymentReadyOption: { // DeploymentReadyOption
+ *         actionOnTimeout: "CONTINUE_DEPLOYMENT" || "STOP_DEPLOYMENT",
+ *         waitTimeInMinutes: Number("int"),
+ *       },
+ *       greenFleetProvisioningOption: { // GreenFleetProvisioningOption
+ *         action: "DISCOVER_EXISTING" || "COPY_AUTO_SCALING_GROUP",
+ *       },
+ *     },
+ *     loadBalancerInfo: { // LoadBalancerInfo
+ *       elbInfoList: [ // ELBInfoList
+ *         { // ELBInfo
+ *           name: "STRING_VALUE",
+ *         },
+ *       ],
+ *       targetGroupInfoList: [ // TargetGroupInfoList
+ *         { // TargetGroupInfo
+ *           name: "STRING_VALUE",
+ *         },
+ *       ],
+ *       targetGroupPairInfoList: [ // TargetGroupPairInfoList
+ *         { // TargetGroupPairInfo
+ *           targetGroups: [
+ *             {
+ *               name: "STRING_VALUE",
+ *             },
+ *           ],
+ *           prodTrafficRoute: { // TrafficRoute
+ *             listenerArns: [ // ListenerArnList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           testTrafficRoute: {
+ *             listenerArns: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     additionalDeploymentStatusInfo: "STRING_VALUE",
+ *     fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
+ *     deploymentStatusMessages: [ // DeploymentStatusMessageList
+ *       "STRING_VALUE",
+ *     ],
+ *     computePlatform: "Server" || "Lambda" || "ECS",
+ *     externalId: "STRING_VALUE",
+ *     relatedDeployments: { // RelatedDeployments
+ *       autoUpdateOutdatedInstancesRootDeploymentId: "STRING_VALUE",
+ *       autoUpdateOutdatedInstancesDeploymentIds: [ // DeploymentsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     overrideAlarmConfiguration: { // AlarmConfiguration
+ *       enabled: true || false,
+ *       ignorePollAlarmFailure: true || false,
+ *       alarms: [ // AlarmList
+ *         { // Alarm
+ *           name: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
@@ -68,6 +247,8 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * @throws {@link InvalidDeploymentIdException} (client fault)
  *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetDeploymentCommand extends $Command<

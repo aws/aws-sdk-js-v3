@@ -49,6 +49,9 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class DeleteConfigurationSetCommand extends $Command<

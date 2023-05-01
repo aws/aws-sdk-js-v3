@@ -55,6 +55,9 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * };
  * const command = new DeregisterScalableTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterScalableTargetCommandInput - {@link DeregisterScalableTargetCommandInput}
@@ -81,6 +84,8 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To deregister a scalable target
  * ```javascript

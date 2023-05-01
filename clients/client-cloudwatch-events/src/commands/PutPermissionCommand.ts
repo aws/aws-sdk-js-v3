@@ -72,6 +72,9 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
@@ -95,6 +98,8 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class PutPermissionCommand extends $Command<

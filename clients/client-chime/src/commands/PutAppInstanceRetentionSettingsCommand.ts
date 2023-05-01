@@ -54,6 +54,16 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * };
  * const command = new PutAppInstanceRetentionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAppInstanceRetentionSettingsResponse
+ *   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
+ *     ChannelRetentionSettings: { // ChannelRetentionSettings
+ *       RetentionDays: Number("int"),
+ *     },
+ *   },
+ *   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param PutAppInstanceRetentionSettingsCommandInput - {@link PutAppInstanceRetentionSettingsCommandInput}
@@ -87,6 +97,8 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutAppInstanceRetentionSettingsCommand extends $Command<

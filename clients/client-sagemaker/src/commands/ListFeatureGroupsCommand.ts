@@ -52,6 +52,23 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * };
  * const command = new ListFeatureGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFeatureGroupsResponse
+ *   FeatureGroupSummaries: [ // FeatureGroupSummaries // required
+ *     { // FeatureGroupSummary
+ *       FeatureGroupName: "STRING_VALUE", // required
+ *       FeatureGroupArn: "STRING_VALUE", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *       FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
+ *       OfflineStoreStatus: { // OfflineStoreStatus
+ *         Status: "Active" || "Blocked" || "Disabled", // required
+ *         BlockedReason: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param ListFeatureGroupsCommandInput - {@link ListFeatureGroupsCommandInput}
@@ -60,6 +77,8 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * @see {@link ListFeatureGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListFeatureGroupsCommand extends $Command<

@@ -119,6 +119,9 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * };
  * const command = new PutComplianceItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutComplianceItemsCommandInput - {@link PutComplianceItemsCommandInput}
@@ -150,6 +153,8 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * @throws {@link TotalSizeLimitExceededException} (client fault)
  *  <p>The size of inventory data has exceeded the total size limit for the resource.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutComplianceItemsCommand extends $Command<

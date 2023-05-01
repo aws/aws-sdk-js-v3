@@ -55,6 +55,25 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * };
  * const command = new ListServiceVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceVersionsResult
+ *   ServiceVersions: [ // ServiceVersionList // required
+ *     { // ServiceVersion
+ *       Version: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ServiceName: "KUBERNETES" || "EKS_ANYWHERE", // required
+ *   DependentServices: [ // DependentServiceList
+ *     { // DependentService
+ *       ServiceName: "KUBERNETES" || "EKS_ANYWHERE",
+ *       ServiceVersion: {
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListServiceVersionsCommandInput - {@link ListServiceVersionsCommandInput}
@@ -72,6 +91,8 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class ListServiceVersionsCommand extends $Command<

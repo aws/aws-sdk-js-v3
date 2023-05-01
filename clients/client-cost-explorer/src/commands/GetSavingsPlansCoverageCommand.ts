@@ -158,6 +158,28 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  * };
  * const command = new GetSavingsPlansCoverageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSavingsPlansCoverageResponse
+ *   SavingsPlansCoverages: [ // SavingsPlansCoverages // required
+ *     { // SavingsPlansCoverage
+ *       Attributes: { // Attributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Coverage: { // SavingsPlansCoverageData
+ *         SpendCoveredBySavingsPlans: "STRING_VALUE",
+ *         OnDemandCost: "STRING_VALUE",
+ *         TotalCost: "STRING_VALUE",
+ *         CoveragePercentage: "STRING_VALUE",
+ *       },
+ *       TimePeriod: { // DateInterval
+ *         Start: "STRING_VALUE", // required
+ *         End: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSavingsPlansCoverageCommandInput - {@link GetSavingsPlansCoverageCommandInput}
@@ -175,6 +197,8 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetSavingsPlansCoverageCommand extends $Command<

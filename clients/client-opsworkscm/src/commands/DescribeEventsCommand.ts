@@ -55,6 +55,19 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsResponse
+ *   ServerEvents: [ // ServerEvents
+ *     { // ServerEvent
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       ServerName: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *       LogUrl: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -75,6 +88,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

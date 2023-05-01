@@ -47,6 +47,23 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectionsResponse
+ *   Connections: [ // ConnectionResponseList
+ *     { // Connection
+ *       ConnectionArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       ConnectionState: "STRING_VALUE",
+ *       StateReason: "STRING_VALUE",
+ *       AuthorizationType: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *       LastAuthorizedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
@@ -58,6 +75,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListConnectionsCommand extends $Command<

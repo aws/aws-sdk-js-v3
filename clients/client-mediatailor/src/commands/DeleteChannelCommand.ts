@@ -44,6 +44,9 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
@@ -52,6 +55,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteChannelCommand extends $Command<

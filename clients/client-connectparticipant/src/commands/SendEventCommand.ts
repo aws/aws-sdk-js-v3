@@ -58,6 +58,12 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEventResponse
+ *   Id: "STRING_VALUE",
+ *   AbsoluteTime: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendEventCommandInput - {@link SendEventCommandInput}
@@ -78,6 +84,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class SendEventCommand extends $Command<

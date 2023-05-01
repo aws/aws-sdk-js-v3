@@ -55,6 +55,9 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  * };
  * const command = new UpdateTimelineEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTimelineEventCommandInput - {@link UpdateTimelineEventCommandInput}
@@ -83,6 +86,8 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateTimelineEventCommand extends $Command<

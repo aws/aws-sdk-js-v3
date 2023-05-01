@@ -76,6 +76,11 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * };
  * const command = new EvaluateExpressionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EvaluateExpressionOutput
+ *   evaluatedExpression: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param EvaluateExpressionCommandInput - {@link EvaluateExpressionCommandInput}
@@ -99,6 +104,8 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * @throws {@link TaskNotFoundException} (client fault)
  *  <p>The specified task was not found. </p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class EvaluateExpressionCommand extends $Command<

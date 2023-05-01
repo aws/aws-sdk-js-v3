@@ -79,6 +79,18 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * };
  * const command = new ListResourceTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceTagsResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextMarker: "STRING_VALUE",
+ *   Truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param ListResourceTagsCommandInput - {@link ListResourceTagsCommandInput}
@@ -103,6 +115,8 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list tags for a KMS key
  * ```javascript

@@ -53,6 +53,11 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * };
  * const command = new UpdateSceneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSceneResponse
+ *   updateDateTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param UpdateSceneCommandInput - {@link UpdateSceneCommandInput}
@@ -76,6 +81,8 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdateSceneCommand extends $Command<

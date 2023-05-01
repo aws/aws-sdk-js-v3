@@ -54,6 +54,32 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * };
  * const command = new DescribeSnapshotTierStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSnapshotTierStatusResult
+ *   SnapshotTierStatuses: [ // snapshotTierStatusSet
+ *     { // SnapshotTierStatus
+ *       SnapshotId: "STRING_VALUE",
+ *       VolumeId: "STRING_VALUE",
+ *       Status: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ *       OwnerId: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StorageTier: "archive" || "standard",
+ *       LastTieringStartTime: new Date("TIMESTAMP"),
+ *       LastTieringProgress: Number("int"),
+ *       LastTieringOperationStatus: "archival-in-progress" || "archival-completed" || "archival-failed" || "temporary-restore-in-progress" || "temporary-restore-completed" || "temporary-restore-failed" || "permanent-restore-in-progress" || "permanent-restore-completed" || "permanent-restore-failed",
+ *       LastTieringOperationStatusDetail: "STRING_VALUE",
+ *       ArchivalCompleteTime: new Date("TIMESTAMP"),
+ *       RestoreExpiryTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotTierStatusCommandInput - {@link DescribeSnapshotTierStatusCommandInput}
@@ -62,6 +88,8 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * @see {@link DescribeSnapshotTierStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeSnapshotTierStatusCommand extends $Command<

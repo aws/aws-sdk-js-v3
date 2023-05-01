@@ -58,6 +58,12 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * };
  * const command = new SendSerialConsoleSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendSerialConsoleSSHPublicKeyResponse
+ *   RequestId: "STRING_VALUE",
+ *   Success: true || false,
+ * };
+ *
  * ```
  *
  * @param SendSerialConsoleSSHPublicKeyCommandInput - {@link SendSerialConsoleSSHPublicKeyCommandInput}
@@ -105,6 +111,8 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
  *             To increase the limit on your request frequency, contact AWS Support.</p>
  *
+ * @throws {@link EC2InstanceConnectServiceException}
+ * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command<

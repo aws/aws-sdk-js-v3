@@ -46,6 +46,16 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * };
  * const command = new ListTagsForCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForCertificateResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForCertificateCommandInput - {@link ListTagsForCertificateCommandInput}
@@ -61,6 +71,8 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class ListTagsForCertificateCommand extends $Command<

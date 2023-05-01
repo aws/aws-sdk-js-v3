@@ -44,6 +44,9 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteScheduleCommand extends $Command<

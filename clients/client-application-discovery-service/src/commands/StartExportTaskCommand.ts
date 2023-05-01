@@ -69,6 +69,11 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartExportTaskResponse
+ *   exportId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartExportTaskCommandInput - {@link StartExportTaskCommandInput}
@@ -97,6 +102,8 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StartExportTaskCommand extends $Command<

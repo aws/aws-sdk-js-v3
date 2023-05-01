@@ -57,6 +57,20 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionByoipCidrResponse
+ *   ByoipCidr: { // ByoipCidr
+ *     Cidr: "STRING_VALUE",
+ *     State: "PENDING_PROVISIONING" || "READY" || "PENDING_ADVERTISING" || "ADVERTISING" || "PENDING_WITHDRAWING" || "PENDING_DEPROVISIONING" || "DEPROVISIONED" || "FAILED_PROVISION" || "FAILED_ADVERTISING" || "FAILED_WITHDRAW" || "FAILED_DEPROVISION",
+ *     Events: [ // ByoipCidrEvents
+ *       { // ByoipCidrEvent
+ *         Message: "STRING_VALUE",
+ *         Timestamp: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ProvisionByoipCidrCommandInput - {@link ProvisionByoipCidrCommandInput}
@@ -81,6 +95,8 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ProvisionByoipCidrCommand extends $Command<

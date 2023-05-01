@@ -45,6 +45,11 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * };
  * const command = new StopJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopJobRunResponse
+ *   RunId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StopJobRunCommandInput - {@link StopJobRunCommandInput}
@@ -59,6 +64,8 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class StopJobRunCommand extends $Command<

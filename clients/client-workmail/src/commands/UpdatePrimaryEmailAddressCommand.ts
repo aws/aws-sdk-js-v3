@@ -48,6 +48,9 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  * };
  * const command = new UpdatePrimaryEmailAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePrimaryEmailAddressCommandInput - {@link UpdatePrimaryEmailAddressCommandInput}
@@ -95,6 +98,8 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdatePrimaryEmailAddressCommand extends $Command<

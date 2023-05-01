@@ -61,6 +61,24 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  * };
  * const command = new ListSlotTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSlotTypesResponse
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ *   slotTypeSummaries: [ // SlotTypeSummaryList
+ *     { // SlotTypeSummary
+ *       slotTypeId: "STRING_VALUE",
+ *       slotTypeName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       parentSlotTypeSignature: "STRING_VALUE",
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       slotTypeCategory: "Custom" || "Extended" || "ExternalGrammar" || "Composite",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSlotTypesCommandInput - {@link ListSlotTypesCommandInput}
@@ -84,6 +102,8 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListSlotTypesCommand extends $Command<

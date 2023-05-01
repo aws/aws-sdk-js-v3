@@ -57,6 +57,12 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * };
  * const command = new StartSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSessionResponse
+ *   SessionId: "STRING_VALUE",
+ *   State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ * };
+ *
  * ```
  *
  * @param StartSessionCommandInput - {@link StartSessionCommandInput}
@@ -82,6 +88,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StartSessionCommand extends $Command<

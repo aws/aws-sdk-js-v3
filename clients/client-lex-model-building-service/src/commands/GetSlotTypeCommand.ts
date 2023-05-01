@@ -53,6 +53,33 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * };
  * const command = new GetSlotTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSlotTypeResponse
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   enumerationValues: [ // EnumerationValues
+ *     { // EnumerationValue
+ *       value: "STRING_VALUE", // required
+ *       synonyms: [ // SynonymList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   lastUpdatedDate: new Date("TIMESTAMP"),
+ *   createdDate: new Date("TIMESTAMP"),
+ *   version: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ *   valueSelectionStrategy: "STRING_VALUE",
+ *   parentSlotTypeSignature: "STRING_VALUE",
+ *   slotTypeConfigurations: [ // SlotTypeConfigurations
+ *     { // SlotTypeConfiguration
+ *       regexConfiguration: { // SlotTypeRegexConfiguration
+ *         pattern: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSlotTypeCommandInput - {@link GetSlotTypeCommandInput}
@@ -76,6 +103,8 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To get information about a slot type
  * ```javascript

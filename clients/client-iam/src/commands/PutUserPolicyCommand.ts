@@ -60,6 +60,9 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutUserPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutUserPolicyCommandInput - {@link PutUserPolicyCommandInput}
@@ -84,6 +87,8 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To attach a policy to an IAM user
  * ```javascript

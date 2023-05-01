@@ -47,6 +47,18 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * };
  * const command = new ListAssociatedGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedGroupsResponse
+ *   Groups: [ // GroupSummaryList
+ *     { // GroupSummary
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssociatedGroupsCommandInput - {@link ListAssociatedGroupsCommandInput}
@@ -64,6 +76,8 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class ListAssociatedGroupsCommand extends $Command<

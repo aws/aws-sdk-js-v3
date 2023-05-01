@@ -60,6 +60,11 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * };
  * const command = new SetTypeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetTypeConfigurationOutput
+ *   ConfigurationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SetTypeConfigurationCommandInput - {@link SetTypeConfigurationCommandInput}
@@ -74,6 +79,8 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class SetTypeConfigurationCommand extends $Command<

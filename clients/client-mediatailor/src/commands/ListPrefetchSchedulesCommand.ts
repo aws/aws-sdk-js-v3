@@ -47,6 +47,36 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * };
  * const command = new ListPrefetchSchedulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPrefetchSchedulesResponse
+ *   Items: [ // __listOfPrefetchSchedule
+ *     { // PrefetchSchedule
+ *       Arn: "STRING_VALUE", // required
+ *       Consumption: { // PrefetchConsumption
+ *         AvailMatchingCriteria: [ // __listOfAvailMatchingCriteria
+ *           { // AvailMatchingCriteria
+ *             DynamicVariable: "STRING_VALUE", // required
+ *             Operator: "EQUALS", // required
+ *           },
+ *         ],
+ *         EndTime: new Date("TIMESTAMP"), // required
+ *         StartTime: new Date("TIMESTAMP"),
+ *       },
+ *       Name: "STRING_VALUE", // required
+ *       PlaybackConfigurationName: "STRING_VALUE", // required
+ *       Retrieval: { // PrefetchRetrieval
+ *         DynamicVariables: { // __mapOf__string
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         EndTime: new Date("TIMESTAMP"), // required
+ *         StartTime: new Date("TIMESTAMP"),
+ *       },
+ *       StreamId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPrefetchSchedulesCommandInput - {@link ListPrefetchSchedulesCommandInput}
@@ -55,6 +85,8 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * @see {@link ListPrefetchSchedulesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ListPrefetchSchedulesCommand extends $Command<

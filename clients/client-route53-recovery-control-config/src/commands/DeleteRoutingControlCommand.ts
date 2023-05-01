@@ -48,6 +48,9 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * };
  * const command = new DeleteRoutingControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRoutingControlCommandInput - {@link DeleteRoutingControlCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DeleteRoutingControlCommand extends $Command<

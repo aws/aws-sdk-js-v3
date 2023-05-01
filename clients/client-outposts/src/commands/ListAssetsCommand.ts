@@ -55,6 +55,25 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * };
  * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssetsOutput
+ *   Assets: [ // AssetListDefinition
+ *     { // AssetInfo
+ *       AssetId: "STRING_VALUE",
+ *       RackId: "STRING_VALUE",
+ *       AssetType: "COMPUTE",
+ *       ComputeAttributes: { // ComputeAttributes
+ *         HostId: "STRING_VALUE",
+ *         State: "ACTIVE" || "ISOLATED" || "RETIRING",
+ *       },
+ *       AssetLocation: { // AssetLocation
+ *         RackElevation: Number("float"),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
@@ -75,6 +94,8 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class ListAssetsCommand extends $Command<

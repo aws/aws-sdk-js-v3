@@ -45,6 +45,21 @@ export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollec
  * };
  * const command = new ListGeofenceCollectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGeofenceCollectionsResponse
+ *   Entries: [ // ListGeofenceCollectionsResponseEntryList // required
+ *     { // ListGeofenceCollectionsResponseEntry
+ *       CollectionName: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE", // required
+ *       PricingPlan: "STRING_VALUE",
+ *       PricingPlanDataSource: "STRING_VALUE",
+ *       CreateTime: new Date("TIMESTAMP"), // required
+ *       UpdateTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListGeofenceCollectionsCommandInput - {@link ListGeofenceCollectionsCommandInput}
@@ -66,6 +81,8 @@ export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollec
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListGeofenceCollectionsCommand extends $Command<

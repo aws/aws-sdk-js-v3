@@ -50,6 +50,9 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupPolicyCommandInput - {@link DeleteGroupPolicyCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete a policy from an IAM group
  * ```javascript

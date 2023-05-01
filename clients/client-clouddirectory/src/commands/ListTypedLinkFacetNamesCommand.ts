@@ -47,6 +47,14 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  * };
  * const command = new ListTypedLinkFacetNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTypedLinkFacetNamesResponse
+ *   FacetNames: [ // TypedLinkNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTypedLinkFacetNamesCommandInput - {@link ListTypedLinkFacetNamesCommandInput}
@@ -80,6 +88,8 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListTypedLinkFacetNamesCommand extends $Command<

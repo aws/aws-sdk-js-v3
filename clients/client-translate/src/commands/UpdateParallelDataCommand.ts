@@ -51,6 +51,14 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  * };
  * const command = new UpdateParallelDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateParallelDataResponse
+ *   Name: "STRING_VALUE",
+ *   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ *   LatestUpdateAttemptStatus: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ *   LatestUpdateAttemptAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateParallelDataCommandInput - {@link UpdateParallelDataCommandInput}
@@ -90,6 +98,8 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class UpdateParallelDataCommand extends $Command<

@@ -45,6 +45,21 @@ export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTempl
  * };
  * const command = new ListNodeFromTemplateJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNodeFromTemplateJobsResponse
+ *   NodeFromTemplateJobs: [ // NodeFromTemplateJobList // required
+ *     { // NodeFromTemplateJob
+ *       JobId: "STRING_VALUE",
+ *       TemplateType: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       StatusMessage: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       NodeName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListNodeFromTemplateJobsCommandInput - {@link ListNodeFromTemplateJobsCommandInput}
@@ -65,6 +80,8 @@ export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTempl
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListNodeFromTemplateJobsCommand extends $Command<

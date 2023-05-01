@@ -48,6 +48,16 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  * };
  * const command = new GetReadinessCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReadinessCheckResponse
+ *   ReadinessCheckArn: "STRING_VALUE",
+ *   ReadinessCheckName: "STRING_VALUE",
+ *   ResourceSet: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetReadinessCheckCommandInput - {@link GetReadinessCheckCommandInput}
@@ -71,6 +81,8 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetReadinessCheckCommand extends $Command<

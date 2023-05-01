@@ -79,6 +79,14 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFleetsOutput
+ *   FleetIds: [ // FleetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
@@ -101,6 +109,8 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListFleetsCommand extends $Command<

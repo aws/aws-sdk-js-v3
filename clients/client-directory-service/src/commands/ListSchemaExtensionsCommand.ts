@@ -46,6 +46,22 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  * };
  * const command = new ListSchemaExtensionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemaExtensionsResult
+ *   SchemaExtensionsInfo: [ // SchemaExtensionsInfo
+ *     { // SchemaExtensionInfo
+ *       DirectoryId: "STRING_VALUE",
+ *       SchemaExtensionId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       SchemaExtensionStatus: "Initializing" || "CreatingSnapshot" || "UpdatingSchema" || "Replicating" || "CancelInProgress" || "RollbackInProgress" || "Cancelled" || "Failed" || "Completed",
+ *       SchemaExtensionStatusReason: "STRING_VALUE",
+ *       StartDateTime: new Date("TIMESTAMP"),
+ *       EndDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSchemaExtensionsCommandInput - {@link ListSchemaExtensionsCommandInput}
@@ -66,6 +82,8 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ListSchemaExtensionsCommand extends $Command<

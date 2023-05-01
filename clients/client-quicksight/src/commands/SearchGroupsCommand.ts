@@ -54,6 +54,21 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * };
  * const command = new SearchGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchGroupsResponse
+ *   GroupList: [ // GroupList
+ *     { // Group
+ *       Arn: "STRING_VALUE",
+ *       GroupName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       PrincipalId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param SearchGroupsCommandInput - {@link SearchGroupsCommandInput}
@@ -89,6 +104,8 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchGroupsCommand extends $Command<

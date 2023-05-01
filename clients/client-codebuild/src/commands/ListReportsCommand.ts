@@ -51,6 +51,14 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * };
  * const command = new ListReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReportsOutput
+ *   nextToken: "STRING_VALUE",
+ *   reports: [ // ReportArns
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReportsCommandInput - {@link ListReportsCommandInput}
@@ -62,6 +70,8 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListReportsCommand extends $Command<

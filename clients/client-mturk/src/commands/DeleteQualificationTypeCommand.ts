@@ -62,6 +62,9 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * };
  * const command = new DeleteQualificationTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteQualificationTypeCommandInput - {@link DeleteQualificationTypeCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class DeleteQualificationTypeCommand extends $Command<

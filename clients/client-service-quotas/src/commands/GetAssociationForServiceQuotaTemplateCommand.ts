@@ -51,6 +51,11 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  * const input = {};
  * const command = new GetAssociationForServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssociationForServiceQuotaTemplateResponse
+ *   ServiceQuotaTemplateAssociationStatus: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetAssociationForServiceQuotaTemplateCommandInput - {@link GetAssociationForServiceQuotaTemplateCommandInput}
@@ -85,6 +90,8 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class GetAssociationForServiceQuotaTemplateCommand extends $Command<

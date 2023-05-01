@@ -54,6 +54,27 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUsersResponse
+ *   Users: [ // UserList
+ *     { // User
+ *       Name: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       AccessString: "STRING_VALUE",
+ *       ACLNames: [ // ACLNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       Authentication: { // Authentication
+ *         Type: "password" || "no-password",
+ *         PasswordCount: Number("int"),
+ *       },
+ *       ARN: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
@@ -68,6 +89,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeUsersCommand extends $Command<

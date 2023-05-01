@@ -56,6 +56,31 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * };
  * const command = new DescribeStreamSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStreamSummaryOutput
+ *   StreamDescriptionSummary: { // StreamDescriptionSummary
+ *     StreamName: "STRING_VALUE", // required
+ *     StreamARN: "STRING_VALUE", // required
+ *     StreamStatus: "CREATING" || "DELETING" || "ACTIVE" || "UPDATING", // required
+ *     StreamModeDetails: { // StreamModeDetails
+ *       StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ *     },
+ *     RetentionPeriodHours: Number("int"), // required
+ *     StreamCreationTimestamp: new Date("TIMESTAMP"), // required
+ *     EnhancedMonitoring: [ // EnhancedMonitoringList // required
+ *       { // EnhancedMetrics
+ *         ShardLevelMetrics: [ // MetricsNameList
+ *           "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
+ *         ],
+ *       },
+ *     ],
+ *     EncryptionType: "NONE" || "KMS",
+ *     KeyId: "STRING_VALUE",
+ *     OpenShardCount: Number("int"), // required
+ *     ConsumerCount: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStreamSummaryCommandInput - {@link DescribeStreamSummaryCommandInput}
@@ -80,6 +105,8 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class DescribeStreamSummaryCommand extends $Command<

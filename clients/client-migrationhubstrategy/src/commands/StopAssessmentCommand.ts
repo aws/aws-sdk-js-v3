@@ -48,6 +48,9 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  * };
  * const command = new StopAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAssessmentCommandInput - {@link StopAssessmentCommandInput}
@@ -69,6 +72,8 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StopAssessmentCommand extends $Command<

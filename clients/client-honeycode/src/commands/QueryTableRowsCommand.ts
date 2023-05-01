@@ -58,6 +58,31 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  * };
  * const command = new QueryTableRowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryTableRowsResult
+ *   columnIds: [ // ResourceIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   rows: [ // TableRows // required
+ *     { // TableRow
+ *       rowId: "STRING_VALUE", // required
+ *       cells: [ // Cells // required
+ *         { // Cell
+ *           formula: "STRING_VALUE",
+ *           format: "STRING_VALUE",
+ *           rawValue: "STRING_VALUE",
+ *           formattedValue: "STRING_VALUE",
+ *           formattedValues: [ // FormattedValuesList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   workbookCursor: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param QueryTableRowsCommandInput - {@link QueryTableRowsCommandInput}
@@ -92,6 +117,8 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class QueryTableRowsCommand extends $Command<

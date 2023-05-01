@@ -88,6 +88,42 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * };
  * const command = new GetInsightRuleReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightRuleReportOutput
+ *   KeyLabels: [ // InsightRuleContributorKeyLabels
+ *     "STRING_VALUE",
+ *   ],
+ *   AggregationStatistic: "STRING_VALUE",
+ *   AggregateValue: Number("double"),
+ *   ApproximateUniqueCount: Number("long"),
+ *   Contributors: [ // InsightRuleContributors
+ *     { // InsightRuleContributor
+ *       Keys: [ // InsightRuleContributorKeys // required
+ *         "STRING_VALUE",
+ *       ],
+ *       ApproximateAggregateValue: Number("double"), // required
+ *       Datapoints: [ // InsightRuleContributorDatapoints // required
+ *         { // InsightRuleContributorDatapoint
+ *           Timestamp: new Date("TIMESTAMP"), // required
+ *           ApproximateValue: Number("double"), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MetricDatapoints: [ // InsightRuleMetricDatapoints
+ *     { // InsightRuleMetricDatapoint
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       UniqueContributors: Number("double"),
+ *       MaxContributorValue: Number("double"),
+ *       SampleCount: Number("double"),
+ *       Average: Number("double"),
+ *       Sum: Number("double"),
+ *       Minimum: Number("double"),
+ *       Maximum: Number("double"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetInsightRuleReportCommandInput - {@link GetInsightRuleReportCommandInput}
@@ -105,6 +141,8 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetInsightRuleReportCommand extends $Command<

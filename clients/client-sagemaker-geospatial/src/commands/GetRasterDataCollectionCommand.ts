@@ -48,6 +48,29 @@ export interface GetRasterDataCollectionCommandOutput extends GetRasterDataColle
  * };
  * const command = new GetRasterDataCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRasterDataCollectionOutput
+ *   Name: "STRING_VALUE", // required
+ *   Arn: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   DescriptionPageUrl: "STRING_VALUE", // required
+ *   SupportedFilters: [ // FilterList // required
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *       Minimum: Number("float"),
+ *       Maximum: Number("float"),
+ *     },
+ *   ],
+ *   ImageSourceBands: [ // ImageSourceBandList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRasterDataCollectionCommandInput - {@link GetRasterDataCollectionCommandInput}
@@ -71,6 +94,8 @@ export interface GetRasterDataCollectionCommandOutput extends GetRasterDataColle
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class GetRasterDataCollectionCommand extends $Command<

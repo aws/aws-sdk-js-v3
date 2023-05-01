@@ -77,6 +77,11 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * };
  * const command = new CreateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQuerySuggestionsBlockListResponse
+ *   Id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateQuerySuggestionsBlockListCommandInput - {@link CreateQuerySuggestionsBlockListCommandInput}
@@ -115,6 +120,8 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateQuerySuggestionsBlockListCommand extends $Command<

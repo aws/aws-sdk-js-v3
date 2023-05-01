@@ -54,6 +54,9 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * };
  * const command = new DeleteLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLicenseManagerReportGeneratorCommandInput - {@link DeleteLicenseManagerReportGeneratorCommandInput}
@@ -87,6 +90,8 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteLicenseManagerReportGeneratorCommand extends $Command<

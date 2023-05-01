@@ -64,6 +64,33 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * };
  * const command = new SearchContactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchContactsResponse
+ *   Contacts: [ // ContactDataList
+ *     { // ContactData
+ *       ContactArn: "STRING_VALUE",
+ *       DisplayName: "STRING_VALUE",
+ *       FirstName: "STRING_VALUE",
+ *       LastName: "STRING_VALUE",
+ *       PhoneNumber: "STRING_VALUE",
+ *       PhoneNumbers: [ // PhoneNumberList
+ *         { // PhoneNumber
+ *           Number: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       SipAddresses: [ // SipAddressList
+ *         { // SipAddress
+ *           Uri: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   TotalCount: Number("int"),
+ * };
+ *
  * ```
  *
  * @param SearchContactsCommandInput - {@link SearchContactsCommandInput}
@@ -72,6 +99,8 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * @see {@link SearchContactsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchContactsCommand extends $Command<

@@ -52,6 +52,16 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyDBParameterGroupResult
+ *   DBParameterGroup: { // DBParameterGroup
+ *     DBParameterGroupName: "STRING_VALUE",
+ *     DBParameterGroupFamily: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     DBParameterGroupArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyDBParameterGroupCommandInput - {@link CopyDBParameterGroupCommandInput}
@@ -71,6 +81,8 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CopyDBParameterGroupCommand extends $Command<

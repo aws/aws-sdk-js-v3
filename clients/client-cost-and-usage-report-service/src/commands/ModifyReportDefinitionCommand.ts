@@ -66,6 +66,9 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * };
  * const command = new ModifyReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyReportDefinitionCommandInput - {@link ModifyReportDefinitionCommandInput}
@@ -80,6 +83,8 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link CostAndUsageReportServiceServiceException}
+ * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
  */
 export class ModifyReportDefinitionCommand extends $Command<

@@ -57,6 +57,11 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * const input = {};
  * const command = new EnableSharingWithAwsOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableSharingWithAwsOrganizationResponse
+ *   returnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param EnableSharingWithAwsOrganizationCommandInput - {@link EnableSharingWithAwsOrganizationCommandInput}
@@ -75,6 +80,8 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class EnableSharingWithAwsOrganizationCommand extends $Command<

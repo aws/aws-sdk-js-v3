@@ -47,6 +47,24 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * };
  * const command = new ListApiDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApiDestinationsResponse
+ *   ApiDestinations: [ // ApiDestinationResponseList
+ *     { // ApiDestination
+ *       ApiDestinationArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       ApiDestinationState: "ACTIVE" || "INACTIVE",
+ *       ConnectionArn: "STRING_VALUE",
+ *       InvocationEndpoint: "STRING_VALUE",
+ *       HttpMethod: "POST" || "GET" || "HEAD" || "OPTIONS" || "PUT" || "PATCH" || "DELETE",
+ *       InvocationRateLimitPerSecond: Number("int"),
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApiDestinationsCommandInput - {@link ListApiDestinationsCommandInput}
@@ -58,6 +76,8 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListApiDestinationsCommand extends $Command<

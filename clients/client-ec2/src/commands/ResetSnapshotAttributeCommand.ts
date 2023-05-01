@@ -48,6 +48,9 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetSnapshotAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResetSnapshotAttributeCommandInput - {@link ResetSnapshotAttributeCommandInput}
@@ -56,6 +59,8 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ResetSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To reset a snapshot attribute
  * ```javascript

@@ -56,6 +56,28 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * };
  * const command = new ListStackInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStackInstancesOutput
+ *   Summaries: [ // StackInstanceSummaries
+ *     { // StackInstanceSummary
+ *       StackSetId: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       Account: "STRING_VALUE",
+ *       StackId: "STRING_VALUE",
+ *       Status: "CURRENT" || "OUTDATED" || "INOPERABLE",
+ *       StatusReason: "STRING_VALUE",
+ *       StackInstanceStatus: { // StackInstanceComprehensiveStatus
+ *         DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE",
+ *       },
+ *       OrganizationalUnitId: "STRING_VALUE",
+ *       DriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",
+ *       LastDriftCheckTimestamp: new Date("TIMESTAMP"),
+ *       LastOperationId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListStackInstancesCommandInput - {@link ListStackInstancesCommandInput}
@@ -67,6 +89,8 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackInstancesCommand extends $Command<

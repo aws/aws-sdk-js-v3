@@ -47,6 +47,20 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * };
  * const command = new ListProtectedQueriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProtectedQueriesOutput
+ *   nextToken: "STRING_VALUE",
+ *   protectedQueries: [ // ProtectedQuerySummaryList // required
+ *     { // ProtectedQuerySummary
+ *       id: "STRING_VALUE", // required
+ *       membershipId: "STRING_VALUE", // required
+ *       membershipArn: "STRING_VALUE", // required
+ *       createTime: new Date("TIMESTAMP"), // required
+ *       status: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProtectedQueriesCommandInput - {@link ListProtectedQueriesCommandInput}
@@ -70,6 +84,8 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListProtectedQueriesCommand extends $Command<

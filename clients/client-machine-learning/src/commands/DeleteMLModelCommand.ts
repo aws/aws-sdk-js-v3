@@ -49,6 +49,11 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * };
  * const command = new DeleteMLModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMLModelOutput
+ *   MLModelId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteMLModelCommandInput - {@link DeleteMLModelCommandInput}
@@ -66,6 +71,8 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteMLModelCommand extends $Command<

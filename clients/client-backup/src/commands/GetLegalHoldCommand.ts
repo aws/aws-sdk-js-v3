@@ -45,6 +45,31 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  * };
  * const command = new GetLegalHoldCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLegalHoldOutput
+ *   Title: "STRING_VALUE",
+ *   Status: "CREATING" || "ACTIVE" || "CANCELING" || "CANCELED",
+ *   Description: "STRING_VALUE",
+ *   CancelDescription: "STRING_VALUE",
+ *   LegalHoldId: "STRING_VALUE",
+ *   LegalHoldArn: "STRING_VALUE",
+ *   CreationDate: new Date("TIMESTAMP"),
+ *   CancellationDate: new Date("TIMESTAMP"),
+ *   RetainRecordUntil: new Date("TIMESTAMP"),
+ *   RecoveryPointSelection: { // RecoveryPointSelection
+ *     VaultNames: [ // VaultNames
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceIdentifiers: [ // ResourceIdentifiers
+ *       "STRING_VALUE",
+ *     ],
+ *     DateRange: { // DateRange
+ *       FromDate: new Date("TIMESTAMP"), // required
+ *       ToDate: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLegalHoldCommandInput - {@link GetLegalHoldCommandInput}
@@ -66,6 +91,8 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class GetLegalHoldCommand extends $Command<

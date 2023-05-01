@@ -59,6 +59,13 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  * };
  * const command = new GetUserPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserPolicyResponse
+ *   UserName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyDocument: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetUserPolicyCommandInput - {@link GetUserPolicyCommandInput}
@@ -75,6 +82,8 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetUserPolicyCommand extends $Command<

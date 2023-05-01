@@ -46,6 +46,9 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * };
  * const command = new DeleteAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAgentCommandInput - {@link DeleteAgentCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DeleteAgentCommand extends $Command<

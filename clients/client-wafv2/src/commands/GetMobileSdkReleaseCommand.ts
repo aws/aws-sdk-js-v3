@@ -48,6 +48,21 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  * };
  * const command = new GetMobileSdkReleaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMobileSdkReleaseResponse
+ *   MobileSdkRelease: { // MobileSdkRelease
+ *     ReleaseVersion: "STRING_VALUE",
+ *     Timestamp: new Date("TIMESTAMP"),
+ *     ReleaseNotes: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMobileSdkReleaseCommandInput - {@link GetMobileSdkReleaseCommandInput}
@@ -90,6 +105,8 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetMobileSdkReleaseCommand extends $Command<

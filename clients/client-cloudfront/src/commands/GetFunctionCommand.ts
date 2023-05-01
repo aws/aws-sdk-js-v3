@@ -48,6 +48,13 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
  * };
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFunctionResult
+ *   FunctionCode: "BLOB_VALUE",
+ *   ETag: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetFunctionCommandInput - {@link GetFunctionCommandInput}
@@ -62,6 +69,8 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetFunctionCommand extends $Command<

@@ -52,6 +52,9 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * };
  * const command = new AbortDocumentVersionUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AbortDocumentVersionUploadCommandInput - {@link AbortDocumentVersionUploadCommandInput}
@@ -83,6 +86,8 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class AbortDocumentVersionUploadCommand extends $Command<

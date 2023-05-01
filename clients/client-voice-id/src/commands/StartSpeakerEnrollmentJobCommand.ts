@@ -69,6 +69,43 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  * };
  * const command = new StartSpeakerEnrollmentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSpeakerEnrollmentJobResponse
+ *   Job: { // SpeakerEnrollmentJob
+ *     JobName: "STRING_VALUE",
+ *     JobId: "STRING_VALUE",
+ *     JobStatus: "STRING_VALUE",
+ *     DomainId: "STRING_VALUE",
+ *     DataAccessRoleArn: "STRING_VALUE",
+ *     EnrollmentConfig: { // EnrollmentConfig
+ *       ExistingEnrollmentAction: "STRING_VALUE",
+ *       FraudDetectionConfig: { // EnrollmentJobFraudDetectionConfig
+ *         FraudDetectionAction: "STRING_VALUE",
+ *         RiskThreshold: Number("int"),
+ *         WatchlistIds: [ // EnrollmentJobFraudDetectionConfigWatchlistIds
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Uri: "STRING_VALUE", // required
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       S3Uri: "STRING_VALUE", // required
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     EndedAt: new Date("TIMESTAMP"),
+ *     FailureDetails: { // FailureDetails
+ *       StatusCode: Number("int"),
+ *       Message: "STRING_VALUE",
+ *     },
+ *     JobProgress: { // JobProgress
+ *       PercentComplete: Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartSpeakerEnrollmentJobCommandInput - {@link StartSpeakerEnrollmentJobCommandInput}
@@ -105,6 +142,8 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class StartSpeakerEnrollmentJobCommand extends $Command<

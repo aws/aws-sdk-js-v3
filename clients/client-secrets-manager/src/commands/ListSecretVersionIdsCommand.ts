@@ -57,6 +57,26 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * };
  * const command = new ListSecretVersionIdsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecretVersionIdsResponse
+ *   Versions: [ // SecretVersionsListType
+ *     { // SecretVersionsListEntry
+ *       VersionId: "STRING_VALUE",
+ *       VersionStages: [ // SecretVersionStagesType
+ *         "STRING_VALUE",
+ *       ],
+ *       LastAccessedDate: new Date("TIMESTAMP"),
+ *       CreatedDate: new Date("TIMESTAMP"),
+ *       KmsKeyIds: [ // KmsKeyIdListType
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   ARN: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSecretVersionIdsCommandInput - {@link ListSecretVersionIdsCommandInput}
@@ -77,6 +97,8 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To list all of the secret versions associated with a secret
  * ```javascript

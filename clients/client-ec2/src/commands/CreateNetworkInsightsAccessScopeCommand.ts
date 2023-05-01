@@ -163,6 +163,124 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  * };
  * const command = new CreateNetworkInsightsAccessScopeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkInsightsAccessScopeResult
+ *   NetworkInsightsAccessScope: { // NetworkInsightsAccessScope
+ *     NetworkInsightsAccessScopeId: "STRING_VALUE",
+ *     NetworkInsightsAccessScopeArn: "STRING_VALUE",
+ *     CreatedDate: new Date("TIMESTAMP"),
+ *     UpdatedDate: new Date("TIMESTAMP"),
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   NetworkInsightsAccessScopeContent: { // NetworkInsightsAccessScopeContent
+ *     NetworkInsightsAccessScopeId: "STRING_VALUE",
+ *     MatchPaths: [ // AccessScopePathList
+ *       { // AccessScopePath
+ *         Source: { // PathStatement
+ *           PacketHeaderStatement: { // PacketHeaderStatement
+ *             SourceAddresses: [ // ValueStringList
+ *               "STRING_VALUE",
+ *             ],
+ *             DestinationAddresses: [
+ *               "STRING_VALUE",
+ *             ],
+ *             SourcePorts: [
+ *               "STRING_VALUE",
+ *             ],
+ *             DestinationPorts: [
+ *               "STRING_VALUE",
+ *             ],
+ *             SourcePrefixLists: [
+ *               "STRING_VALUE",
+ *             ],
+ *             DestinationPrefixLists: "<ValueStringList>",
+ *             Protocols: [ // ProtocolList
+ *               "tcp" || "udp",
+ *             ],
+ *           },
+ *           ResourceStatement: { // ResourceStatement
+ *             Resources: "<ValueStringList>",
+ *             ResourceTypes: "<ValueStringList>",
+ *           },
+ *         },
+ *         Destination: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: "<ValueStringList>",
+ *             DestinationAddresses: "<ValueStringList>",
+ *             SourcePorts: "<ValueStringList>",
+ *             DestinationPorts: "<ValueStringList>",
+ *             SourcePrefixLists: "<ValueStringList>",
+ *             DestinationPrefixLists: "<ValueStringList>",
+ *             Protocols: [
+ *               "tcp" || "udp",
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: "<ValueStringList>",
+ *             ResourceTypes: "<ValueStringList>",
+ *           },
+ *         },
+ *         ThroughResources: [ // ThroughResourcesStatementList
+ *           { // ThroughResourcesStatement
+ *             ResourceStatement: {
+ *               Resources: "<ValueStringList>",
+ *               ResourceTypes: "<ValueStringList>",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     ExcludePaths: [
+ *       {
+ *         Source: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: "<ValueStringList>",
+ *             DestinationAddresses: "<ValueStringList>",
+ *             SourcePorts: "<ValueStringList>",
+ *             DestinationPorts: "<ValueStringList>",
+ *             SourcePrefixLists: "<ValueStringList>",
+ *             DestinationPrefixLists: "<ValueStringList>",
+ *             Protocols: [
+ *               "tcp" || "udp",
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: "<ValueStringList>",
+ *             ResourceTypes: "<ValueStringList>",
+ *           },
+ *         },
+ *         Destination: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: "<ValueStringList>",
+ *             DestinationAddresses: "<ValueStringList>",
+ *             SourcePorts: "<ValueStringList>",
+ *             DestinationPorts: "<ValueStringList>",
+ *             SourcePrefixLists: "<ValueStringList>",
+ *             DestinationPrefixLists: "<ValueStringList>",
+ *             Protocols: [
+ *               "tcp" || "udp",
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: "<ValueStringList>",
+ *             ResourceTypes: "<ValueStringList>",
+ *           },
+ *         },
+ *         ThroughResources: [
+ *           {
+ *             ResourceStatement: "<ResourceStatement>",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateNetworkInsightsAccessScopeCommandInput - {@link CreateNetworkInsightsAccessScopeCommandInput}
@@ -171,6 +289,8 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  * @see {@link CreateNetworkInsightsAccessScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateNetworkInsightsAccessScopeCommand extends $Command<

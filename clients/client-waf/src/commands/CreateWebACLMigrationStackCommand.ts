@@ -53,6 +53,11 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * };
  * const command = new CreateWebACLMigrationStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWebACLMigrationStackResponse
+ *   S3ObjectUrl: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateWebACLMigrationStackCommandInput - {@link CreateWebACLMigrationStackCommandInput}
@@ -163,6 +168,8 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class CreateWebACLMigrationStackCommand extends $Command<

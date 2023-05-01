@@ -62,6 +62,11 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTaskContactResponse
+ *   ContactId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartTaskContactCommandInput - {@link StartTaskContactCommandInput}
@@ -88,6 +93,8 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartTaskContactCommand extends $Command<

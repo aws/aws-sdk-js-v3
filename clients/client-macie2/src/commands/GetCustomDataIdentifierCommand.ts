@@ -44,6 +44,33 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * };
  * const command = new GetCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomDataIdentifierResponse
+ *   arn: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   deleted: true || false,
+ *   description: "STRING_VALUE",
+ *   id: "STRING_VALUE",
+ *   ignoreWords: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   keywords: [
+ *     "STRING_VALUE",
+ *   ],
+ *   maximumMatchDistance: Number("int"),
+ *   name: "STRING_VALUE",
+ *   regex: "STRING_VALUE",
+ *   severityLevels: [ // SeverityLevelList
+ *     { // SeverityLevel
+ *       occurrencesThreshold: Number("long"), // required
+ *       severity: "LOW" || "MEDIUM" || "HIGH", // required
+ *     },
+ *   ],
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCustomDataIdentifierCommandInput - {@link GetCustomDataIdentifierCommandInput}
@@ -73,6 +100,8 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetCustomDataIdentifierCommand extends $Command<

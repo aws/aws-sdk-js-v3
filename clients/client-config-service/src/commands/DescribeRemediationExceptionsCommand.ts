@@ -64,6 +64,20 @@ export interface DescribeRemediationExceptionsCommandOutput
  * };
  * const command = new DescribeRemediationExceptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRemediationExceptionsResponse
+ *   RemediationExceptions: [ // RemediationExceptions
+ *     { // RemediationException
+ *       ConfigRuleName: "STRING_VALUE", // required
+ *       ResourceType: "STRING_VALUE", // required
+ *       ResourceId: "STRING_VALUE", // required
+ *       Message: "STRING_VALUE",
+ *       ExpirationTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeRemediationExceptionsCommandInput - {@link DescribeRemediationExceptionsCommandInput}
@@ -81,6 +95,8 @@ export interface DescribeRemediationExceptionsCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeRemediationExceptionsCommand extends $Command<

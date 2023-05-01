@@ -52,6 +52,17 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  * };
  * const command = new BatchResetAlarmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchResetAlarmResponse
+ *   errorEntries: [ // BatchAlarmActionErrorEntries
+ *     { // BatchAlarmActionErrorEntry
+ *       requestId: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchResetAlarmCommandInput - {@link BatchResetAlarmCommandInput}
@@ -72,6 +83,8 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchResetAlarmCommand extends $Command<

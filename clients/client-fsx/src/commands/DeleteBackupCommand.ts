@@ -52,6 +52,12 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBackupResponse
+ *   BackupId: "STRING_VALUE",
+ *   Lifecycle: "AVAILABLE" || "CREATING" || "TRANSFERRING" || "DELETED" || "FAILED" || "PENDING" || "COPYING",
+ * };
+ *
  * ```
  *
  * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
@@ -85,6 +91,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  * @example To delete a backup
  * ```javascript

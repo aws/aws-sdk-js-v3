@@ -52,6 +52,46 @@ export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBeare
  * };
  * const command = new GetAlarmsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAlarmsResult
+ *   alarms: [ // AlarmsList
+ *     { // Alarm
+ *       name: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       location: { // ResourceLocation
+ *         availabilityZone: "STRING_VALUE",
+ *         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ *       },
+ *       resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ *       supportCode: "STRING_VALUE",
+ *       monitoredResourceInfo: { // MonitoredResourceInfo
+ *         arn: "STRING_VALUE",
+ *         name: "STRING_VALUE",
+ *         resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ *       },
+ *       comparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold",
+ *       evaluationPeriods: Number("int"),
+ *       period: Number("int"),
+ *       threshold: Number("double"),
+ *       datapointsToAlarm: Number("int"),
+ *       treatMissingData: "breaching" || "notBreaching" || "ignore" || "missing",
+ *       statistic: "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
+ *       metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "ClientTLSNegotiationErrorCount" || "HealthyHostCount" || "UnhealthyHostCount" || "HTTPCode_LB_4XX_Count" || "HTTPCode_LB_5XX_Count" || "HTTPCode_Instance_2XX_Count" || "HTTPCode_Instance_3XX_Count" || "HTTPCode_Instance_4XX_Count" || "HTTPCode_Instance_5XX_Count" || "InstanceResponseTime" || "RejectedConnectionCount" || "RequestCount" || "DatabaseConnections" || "DiskQueueDepth" || "FreeStorageSpace" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "BurstCapacityTime" || "BurstCapacityPercentage",
+ *       state: "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *       contactProtocols: [ // ContactProtocolsList
+ *         "Email" || "SMS",
+ *       ],
+ *       notificationTriggers: [ // NotificationTriggerList
+ *         "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ *       ],
+ *       notificationEnabled: true || false,
+ *     },
+ *   ],
+ *   nextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetAlarmsCommandInput - {@link GetAlarmsCommandInput}
@@ -86,6 +126,8 @@ export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBeare
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetAlarmsCommand extends $Command<

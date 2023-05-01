@@ -56,6 +56,9 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsCommandInput - {@link AddTagsCommandInput}
@@ -145,6 +148,8 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class AddTagsCommand extends $Command<

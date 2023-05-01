@@ -60,6 +60,11 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * };
  * const command = new ModifySecurityGroupRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifySecurityGroupRulesResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifySecurityGroupRulesCommandInput - {@link ModifySecurityGroupRulesCommandInput}
@@ -68,6 +73,8 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * @see {@link ModifySecurityGroupRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifySecurityGroupRulesCommand extends $Command<

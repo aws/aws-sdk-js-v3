@@ -45,6 +45,9 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEventBusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEventBusCommandInput - {@link DeleteEventBusCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeleteEventBusCommand extends $Command<

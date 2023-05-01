@@ -55,6 +55,21 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * };
  * const command = new ListBillingGroupCostReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBillingGroupCostReportsOutput
+ *   BillingGroupCostReports: [ // BillingGroupCostReportList
+ *     { // BillingGroupCostReportElement
+ *       Arn: "STRING_VALUE",
+ *       AWSCost: "STRING_VALUE",
+ *       ProformaCost: "STRING_VALUE",
+ *       Margin: "STRING_VALUE",
+ *       MarginPercentage: "STRING_VALUE",
+ *       Currency: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBillingGroupCostReportsCommandInput - {@link ListBillingGroupCostReportsCommandInput}
@@ -82,6 +97,8 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListBillingGroupCostReportsCommand extends $Command<

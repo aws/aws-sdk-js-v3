@@ -49,6 +49,67 @@ export interface GetAppValidationConfigurationCommandOutput
  * };
  * const command = new GetAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppValidationConfigurationResponse
+ *   appValidationConfigurations: [ // AppValidationConfigurations
+ *     { // AppValidationConfiguration
+ *       validationId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       appValidationStrategy: "SSM",
+ *       ssmValidationParameters: { // SSMValidationParameters
+ *         source: { // Source
+ *           s3Location: { // S3Location
+ *             bucket: "STRING_VALUE",
+ *             key: "STRING_VALUE",
+ *           },
+ *         },
+ *         instanceId: "STRING_VALUE",
+ *         scriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
+ *         command: "STRING_VALUE",
+ *         executionTimeoutSeconds: Number("int"),
+ *         outputS3BucketName: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   serverGroupValidationConfigurations: [ // ServerGroupValidationConfigurations
+ *     { // ServerGroupValidationConfiguration
+ *       serverGroupId: "STRING_VALUE",
+ *       serverValidationConfigurations: [ // ServerValidationConfigurations
+ *         { // ServerValidationConfiguration
+ *           server: { // Server
+ *             serverId: "STRING_VALUE",
+ *             serverType: "VIRTUAL_MACHINE",
+ *             vmServer: { // VmServer
+ *               vmServerAddress: { // VmServerAddress
+ *                 vmManagerId: "STRING_VALUE",
+ *                 vmId: "STRING_VALUE",
+ *               },
+ *               vmName: "STRING_VALUE",
+ *               vmManagerName: "STRING_VALUE",
+ *               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ *               vmPath: "STRING_VALUE",
+ *             },
+ *             replicationJobId: "STRING_VALUE",
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           validationId: "STRING_VALUE",
+ *           name: "STRING_VALUE",
+ *           serverValidationStrategy: "USERDATA",
+ *           userDataValidationParameters: { // UserDataValidationParameters
+ *             source: {
+ *               s3Location: {
+ *                 bucket: "STRING_VALUE",
+ *                 key: "STRING_VALUE",
+ *               },
+ *             },
+ *             scriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAppValidationConfigurationCommandInput - {@link GetAppValidationConfigurationCommandInput}
@@ -73,6 +134,8 @@ export interface GetAppValidationConfigurationCommandOutput
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class GetAppValidationConfigurationCommand extends $Command<

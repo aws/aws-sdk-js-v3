@@ -53,6 +53,15 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateOrganizationConfigurationResponse
+ *   autoEnable: { // AutoEnable
+ *     ec2: true || false, // required
+ *     ecr: true || false, // required
+ *     lambda: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
@@ -74,6 +83,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<

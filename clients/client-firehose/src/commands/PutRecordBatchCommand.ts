@@ -99,6 +99,19 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * };
  * const command = new PutRecordBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRecordBatchOutput
+ *   FailedPutCount: Number("int"), // required
+ *   Encrypted: true || false,
+ *   RequestResponses: [ // PutRecordBatchResponseEntryList // required
+ *     { // PutRecordBatchResponseEntry
+ *       RecordId: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutRecordBatchCommandInput - {@link PutRecordBatchCommandInput}
@@ -126,6 +139,8 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
  *          Limits</a>.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class PutRecordBatchCommand extends $Command<

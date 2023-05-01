@@ -54,6 +54,31 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * };
  * const command = new ListRasterDataCollectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRasterDataCollectionsOutput
+ *   RasterDataCollectionSummaries: [ // DataCollectionsList // required
+ *     { // RasterDataCollectionMetadata
+ *       Name: "STRING_VALUE", // required
+ *       Arn: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE", // required
+ *       DescriptionPageUrl: "STRING_VALUE",
+ *       SupportedFilters: [ // FilterList // required
+ *         { // Filter
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE", // required
+ *           Minimum: Number("float"),
+ *           Maximum: Number("float"),
+ *         },
+ *       ],
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRasterDataCollectionsCommandInput - {@link ListRasterDataCollectionsCommandInput}
@@ -77,6 +102,8 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class ListRasterDataCollectionsCommand extends $Command<

@@ -83,6 +83,14 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * };
  * const command = new GetParametersForImportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetParametersForImportResponse
+ *   KeyId: "STRING_VALUE",
+ *   ImportToken: "BLOB_VALUE",
+ *   PublicKey: "BLOB_VALUE",
+ *   ParametersValidTo: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetParametersForImportCommandInput - {@link GetParametersForImportCommandInput}
@@ -129,6 +137,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To retrieve the public key and import token for a KMS key
  * ```javascript

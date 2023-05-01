@@ -50,6 +50,27 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * };
  * const command = new ListOriginAccessControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOriginAccessControlsResult
+ *   OriginAccessControlList: { // OriginAccessControlList
+ *     Marker: "STRING_VALUE", // required
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // OriginAccessControlSummaryList
+ *       { // OriginAccessControlSummary
+ *         Id: "STRING_VALUE", // required
+ *         Description: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         SigningProtocol: "sigv4", // required
+ *         SigningBehavior: "never" || "always" || "no-override", // required
+ *         OriginAccessControlOriginType: "s3" || "mediastore", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListOriginAccessControlsCommandInput - {@link ListOriginAccessControlsCommandInput}
@@ -61,6 +82,8 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListOriginAccessControlsCommand extends $Command<

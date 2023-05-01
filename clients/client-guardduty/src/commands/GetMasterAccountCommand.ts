@@ -47,6 +47,16 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * };
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMasterAccountResponse
+ *   Master: { // Master
+ *     AccountId: "STRING_VALUE",
+ *     InvitationId: "STRING_VALUE",
+ *     RelationshipStatus: "STRING_VALUE",
+ *     InvitedAt: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMasterAccountCommandInput - {@link GetMasterAccountCommandInput}
@@ -61,6 +71,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetMasterAccountCommand extends $Command<

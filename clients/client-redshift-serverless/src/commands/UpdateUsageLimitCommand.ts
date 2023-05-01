@@ -50,6 +50,19 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  * };
  * const command = new UpdateUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUsageLimitResponse
+ *   usageLimit: { // UsageLimit
+ *     usageLimitId: "STRING_VALUE",
+ *     usageLimitArn: "STRING_VALUE",
+ *     resourceArn: "STRING_VALUE",
+ *     usageType: "STRING_VALUE",
+ *     amount: Number("long"),
+ *     period: "STRING_VALUE",
+ *     breachAction: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateUsageLimitCommandInput - {@link UpdateUsageLimitCommandInput}
@@ -70,6 +83,8 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class UpdateUsageLimitCommand extends $Command<

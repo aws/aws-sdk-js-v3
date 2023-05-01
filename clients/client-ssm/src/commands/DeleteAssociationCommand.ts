@@ -52,6 +52,9 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * };
  * const command = new DeleteAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
@@ -92,6 +95,8 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteAssociationCommand extends $Command<

@@ -65,6 +65,11 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointResult
+ *   EndpointArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
@@ -94,6 +99,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this data.</p>
  *
+ * @throws {@link S3OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
  */
 export class CreateEndpointCommand extends $Command<

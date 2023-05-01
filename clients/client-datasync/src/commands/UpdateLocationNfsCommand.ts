@@ -55,6 +55,9 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * };
  * const command = new UpdateLocationNfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLocationNfsCommandInput - {@link UpdateLocationNfsCommandInput}
@@ -70,6 +73,8 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateLocationNfsCommand extends $Command<

@@ -51,6 +51,20 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  * };
  * const command = new ListReadSetActivationJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReadSetActivationJobsResponse
+ *   nextToken: "STRING_VALUE",
+ *   activationJobs: [ // ActivateReadSetJobList
+ *     { // ActivateReadSetJobItem
+ *       id: "STRING_VALUE", // required
+ *       sequenceStoreId: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       creationTime: new Date("TIMESTAMP"), // required
+ *       completionTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReadSetActivationJobsCommandInput - {@link ListReadSetActivationJobsCommandInput}
@@ -77,6 +91,8 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListReadSetActivationJobsCommand extends $Command<

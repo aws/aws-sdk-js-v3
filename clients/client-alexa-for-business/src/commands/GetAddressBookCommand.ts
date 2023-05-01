@@ -44,6 +44,15 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * };
  * const command = new GetAddressBookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAddressBookResponse
+ *   AddressBook: { // AddressBook
+ *     AddressBookArn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAddressBookCommandInput - {@link GetAddressBookCommandInput}
@@ -55,6 +64,8 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetAddressBookCommand extends $Command<

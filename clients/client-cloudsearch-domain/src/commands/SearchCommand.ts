@@ -69,6 +69,57 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchResponse
+ *   status: { // SearchStatus
+ *     timems: Number("long"),
+ *     rid: "STRING_VALUE",
+ *   },
+ *   hits: { // Hits
+ *     found: Number("long"),
+ *     start: Number("long"),
+ *     cursor: "STRING_VALUE",
+ *     hit: [ // HitList
+ *       { // Hit
+ *         id: "STRING_VALUE",
+ *         fields: { // Fields
+ *           "<keys>": [ // FieldValue
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         exprs: { // Exprs
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         highlights: { // Highlights
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   facets: { // Facets
+ *     "<keys>": { // BucketInfo
+ *       buckets: [ // BucketList
+ *         { // Bucket
+ *           value: "STRING_VALUE",
+ *           count: Number("long"),
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   stats: { // Stats
+ *     "<keys>": { // FieldStats
+ *       min: "STRING_VALUE",
+ *       max: "STRING_VALUE",
+ *       count: Number("long"),
+ *       missing: Number("long"),
+ *       sum: Number("double"),
+ *       sumOfSquares: Number("double"),
+ *       mean: "STRING_VALUE",
+ *       stddev: Number("double"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param SearchCommandInput - {@link SearchCommandInput}
@@ -80,6 +131,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @throws {@link SearchException} (client fault)
  *  <p>Information about any problems encountered while processing a search request.</p>
  *
+ * @throws {@link CloudSearchDomainServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
 export class SearchCommand extends $Command<

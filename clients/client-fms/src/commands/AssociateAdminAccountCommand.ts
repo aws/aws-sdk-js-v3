@@ -45,6 +45,9 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateAdminAccountCommandInput - {@link AssociateAdminAccountCommandInput}
@@ -76,6 +79,8 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class AssociateAdminAccountCommand extends $Command<

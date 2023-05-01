@@ -59,6 +59,9 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  * const input = {};
  * const command = new EnableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableAWSOrganizationsAccessCommandInput - {@link EnableAWSOrganizationsAccessCommandInput}
@@ -77,6 +80,8 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class EnableAWSOrganizationsAccessCommand extends $Command<

@@ -57,6 +57,25 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
  * };
  * const command = new ListEnvironmentAccountConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnvironmentAccountConnectionsOutput
+ *   environmentAccountConnections: [ // EnvironmentAccountConnectionSummaryList // required
+ *     { // EnvironmentAccountConnectionSummary
+ *       id: "STRING_VALUE", // required
+ *       arn: "STRING_VALUE", // required
+ *       managementAccountId: "STRING_VALUE", // required
+ *       environmentAccountId: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       environmentName: "STRING_VALUE", // required
+ *       requestedAt: new Date("TIMESTAMP"), // required
+ *       lastModifiedAt: new Date("TIMESTAMP"), // required
+ *       status: "STRING_VALUE", // required
+ *       componentRoleArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentAccountConnectionsCommandInput - {@link ListEnvironmentAccountConnectionsCommandInput}
@@ -77,6 +96,8 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListEnvironmentAccountConnectionsCommand extends $Command<

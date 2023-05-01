@@ -47,6 +47,9 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBSubnetStateFault} (client fault)
  *  <p>The DB subnet is not in the <i>available</i> state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<

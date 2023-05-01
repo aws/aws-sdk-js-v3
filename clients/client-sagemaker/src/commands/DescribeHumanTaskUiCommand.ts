@@ -44,6 +44,18 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
  * };
  * const command = new DescribeHumanTaskUiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHumanTaskUiResponse
+ *   HumanTaskUiArn: "STRING_VALUE", // required
+ *   HumanTaskUiName: "STRING_VALUE", // required
+ *   HumanTaskUiStatus: "Active" || "Deleting",
+ *   CreationTime: new Date("TIMESTAMP"), // required
+ *   UiTemplate: { // UiTemplateInfo
+ *     Url: "STRING_VALUE",
+ *     ContentSha256: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeHumanTaskUiCommandInput - {@link DescribeHumanTaskUiCommandInput}
@@ -55,6 +67,8 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeHumanTaskUiCommand extends $Command<

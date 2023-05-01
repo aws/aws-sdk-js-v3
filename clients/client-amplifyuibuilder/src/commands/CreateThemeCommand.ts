@@ -70,6 +70,39 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * };
  * const command = new CreateThemeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateThemeResponse
+ *   entity: { // Theme
+ *     appId: "STRING_VALUE", // required
+ *     environmentName: "STRING_VALUE", // required
+ *     id: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     createdAt: new Date("TIMESTAMP"), // required
+ *     modifiedAt: new Date("TIMESTAMP"),
+ *     values: [ // ThemeValuesList // required
+ *       { // ThemeValues
+ *         key: "STRING_VALUE",
+ *         value: { // ThemeValue
+ *           value: "STRING_VALUE",
+ *           children: [
+ *             {
+ *               key: "STRING_VALUE",
+ *               value: {
+ *                 value: "STRING_VALUE",
+ *                 children: "<ThemeValuesList>",
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     overrides: "<ThemeValuesList>",
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateThemeCommandInput - {@link CreateThemeCommandInput}
@@ -91,6 +124,8 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
  *       maximum number of service resources or operations for your Amazon Web Services account. </p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class CreateThemeCommand extends $Command<

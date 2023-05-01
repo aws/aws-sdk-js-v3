@@ -49,6 +49,11 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMessageResponse
+ *   id: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
@@ -72,6 +77,8 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class DeleteMessageCommand extends $Command<

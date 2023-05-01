@@ -48,6 +48,9 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  * };
  * const command = new StopQueryExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopQueryExecutionCommandInput - {@link StopQueryExecutionCommandInput}
@@ -64,6 +67,8 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StopQueryExecutionCommand extends $Command<

@@ -46,6 +46,23 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * };
  * const command = new DescribeStandardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStandardsResponse
+ *   Standards: [ // Standards
+ *     { // Standard
+ *       StandardsArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       EnabledByDefault: true || false,
+ *       StandardsManagedBy: { // StandardsManagedBy
+ *         Company: "STRING_VALUE",
+ *         Product: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeStandardsCommandInput - {@link DescribeStandardsCommandInput}
@@ -64,6 +81,8 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
  *          input parameter.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get available Security Hub standards
  * ```javascript

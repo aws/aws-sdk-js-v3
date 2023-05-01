@@ -72,6 +72,33 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * };
  * const command = new CreateCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCommitOutput
+ *   commitId: "STRING_VALUE",
+ *   treeId: "STRING_VALUE",
+ *   filesAdded: [ // FilesMetadata
+ *     { // FileMetadata
+ *       absolutePath: "STRING_VALUE",
+ *       blobId: "STRING_VALUE",
+ *       fileMode: "STRING_VALUE",
+ *     },
+ *   ],
+ *   filesUpdated: [
+ *     {
+ *       absolutePath: "STRING_VALUE",
+ *       blobId: "STRING_VALUE",
+ *       fileMode: "STRING_VALUE",
+ *     },
+ *   ],
+ *   filesDeleted: [
+ *     {
+ *       absolutePath: "STRING_VALUE",
+ *       blobId: "STRING_VALUE",
+ *       fileMode: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateCommitCommandInput - {@link CreateCommitCommandInput}
@@ -219,6 +246,8 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * @throws {@link SourceFileOrContentRequiredException} (client fault)
  *  <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreateCommitCommand extends $Command<

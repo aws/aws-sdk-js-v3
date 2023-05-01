@@ -56,6 +56,13 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   applicationArn: "STRING_VALUE", // required
+ *   applicationId: "STRING_VALUE", // required
+ *   applicationVersion: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -82,6 +89,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

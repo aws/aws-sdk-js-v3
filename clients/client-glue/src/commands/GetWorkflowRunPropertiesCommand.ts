@@ -45,6 +45,13 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  * };
  * const command = new GetWorkflowRunPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkflowRunPropertiesResponse
+ *   RunProperties: { // WorkflowRunProperties
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWorkflowRunPropertiesCommandInput - {@link GetWorkflowRunPropertiesCommandInput}
@@ -65,6 +72,8 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetWorkflowRunPropertiesCommand extends $Command<

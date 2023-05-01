@@ -47,6 +47,41 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * };
  * const command = new DescribeModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeModelResponse
+ *   ModelDescription: { // ModelDescription
+ *     ModelVersion: "STRING_VALUE",
+ *     ModelArn: "STRING_VALUE",
+ *     CreationTimestamp: new Date("TIMESTAMP"),
+ *     Description: "STRING_VALUE",
+ *     Status: "TRAINING" || "TRAINED" || "TRAINING_FAILED" || "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING" || "DELETING",
+ *     StatusMessage: "STRING_VALUE",
+ *     Performance: { // ModelPerformance
+ *       F1Score: Number("float"),
+ *       Recall: Number("float"),
+ *       Precision: Number("float"),
+ *     },
+ *     OutputConfig: { // OutputConfig
+ *       S3Location: { // S3Location
+ *         Bucket: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE",
+ *       },
+ *     },
+ *     EvaluationManifest: { // OutputS3Object
+ *       Bucket: "STRING_VALUE", // required
+ *       Key: "STRING_VALUE", // required
+ *     },
+ *     EvaluationResult: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Key: "STRING_VALUE", // required
+ *     },
+ *     EvaluationEndTimestamp: new Date("TIMESTAMP"),
+ *     KmsKeyId: "STRING_VALUE",
+ *     MinInferenceUnits: Number("int"),
+ *     MaxInferenceUnits: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
@@ -74,6 +109,8 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DescribeModelCommand extends $Command<

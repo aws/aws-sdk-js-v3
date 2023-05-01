@@ -57,6 +57,31 @@ export interface CreateTransitGatewayPeeringCommandOutput
  * };
  * const command = new CreateTransitGatewayPeeringCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTransitGatewayPeeringResponse
+ *   TransitGatewayPeering: { // TransitGatewayPeering
+ *     Peering: { // Peering
+ *       CoreNetworkId: "STRING_VALUE",
+ *       CoreNetworkArn: "STRING_VALUE",
+ *       PeeringId: "STRING_VALUE",
+ *       OwnerAccountId: "STRING_VALUE",
+ *       PeeringType: "TRANSIT_GATEWAY",
+ *       State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ *       EdgeLocation: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *     },
+ *     TransitGatewayArn: "STRING_VALUE",
+ *     TransitGatewayPeeringAttachmentId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateTransitGatewayPeeringCommandInput - {@link CreateTransitGatewayPeeringCommandInput}
@@ -84,6 +109,8 @@ export interface CreateTransitGatewayPeeringCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateTransitGatewayPeeringCommand extends $Command<

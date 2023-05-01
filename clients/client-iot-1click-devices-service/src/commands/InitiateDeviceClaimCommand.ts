@@ -52,6 +52,11 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  * };
  * const command = new InitiateDeviceClaimCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitiateDeviceClaimResponse
+ *   State: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param InitiateDeviceClaimCommandInput - {@link InitiateDeviceClaimCommandInput}
@@ -68,6 +73,8 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class InitiateDeviceClaimCommand extends $Command<

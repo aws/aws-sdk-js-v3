@@ -66,6 +66,14 @@ export interface UpdateDataSourcePermissionsCommandOutput
  * };
  * const command = new UpdateDataSourcePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataSourcePermissionsResponse
+ *   DataSourceArn: "STRING_VALUE",
+ *   DataSourceId: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param UpdateDataSourcePermissionsCommandInput - {@link UpdateDataSourcePermissionsCommandInput}
@@ -95,6 +103,8 @@ export interface UpdateDataSourcePermissionsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateDataSourcePermissionsCommand extends $Command<

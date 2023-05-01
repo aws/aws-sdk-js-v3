@@ -100,6 +100,11 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * };
  * const command = new UpdateSecurityGroupRuleDescriptionsEgressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecurityGroupRuleDescriptionsEgressResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateSecurityGroupRuleDescriptionsEgressCommandInput - {@link UpdateSecurityGroupRuleDescriptionsEgressCommandInput}
@@ -108,6 +113,8 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * @see {@link UpdateSecurityGroupRuleDescriptionsEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To update an outbound security group rule description
  * ```javascript

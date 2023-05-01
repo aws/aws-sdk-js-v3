@@ -57,6 +57,18 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
  * };
  * const command = new EnableTransitGatewayRouteTablePropagationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableTransitGatewayRouteTablePropagationResult
+ *   Propagation: { // TransitGatewayPropagation
+ *     TransitGatewayAttachmentId: "STRING_VALUE",
+ *     ResourceId: "STRING_VALUE",
+ *     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ *     TransitGatewayRouteTableId: "STRING_VALUE",
+ *     State: "enabling" || "enabled" || "disabling" || "disabled",
+ *     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param EnableTransitGatewayRouteTablePropagationCommandInput - {@link EnableTransitGatewayRouteTablePropagationCommandInput}
@@ -65,6 +77,8 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<

@@ -59,6 +59,20 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
  * };
  * const command = new CreateCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCloudFrontOriginAccessIdentityResult
+ *   CloudFrontOriginAccessIdentity: { // CloudFrontOriginAccessIdentity
+ *     Id: "STRING_VALUE", // required
+ *     S3CanonicalUserId: "STRING_VALUE", // required
+ *     CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ *       CallerReference: "STRING_VALUE", // required
+ *       Comment: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Location: "STRING_VALUE",
+ *   ETag: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCloudFrontOriginAccessIdentityCommandInput - {@link CreateCloudFrontOriginAccessIdentityCommandInput}
@@ -89,6 +103,8 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
  *  <p>Processing your request would cause you to exceed the maximum number of origin access
  * 			identities allowed.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<

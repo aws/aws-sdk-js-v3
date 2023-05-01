@@ -50,6 +50,12 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * };
  * const command = new CreateTestGridUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTestGridUrlResult
+ *   url: "STRING_VALUE",
+ *   expires: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateTestGridUrlCommandInput - {@link CreateTestGridUrlCommandInput}
@@ -68,6 +74,8 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class CreateTestGridUrlCommand extends $Command<

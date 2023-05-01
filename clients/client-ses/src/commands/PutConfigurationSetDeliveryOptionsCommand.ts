@@ -55,6 +55,9 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetDeliveryOptionsCommandInput - {@link PutConfigurationSetDeliveryOptionsCommandInput}
@@ -69,6 +72,8 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * @throws {@link InvalidDeliveryOptionsException} (client fault)
  *  <p>Indicates that provided delivery option is invalid.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command<

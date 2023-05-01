@@ -76,6 +76,34 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * };
  * const command = new DescribeDimensionKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDimensionKeysResponse
+ *   AlignedStartTime: new Date("TIMESTAMP"),
+ *   AlignedEndTime: new Date("TIMESTAMP"),
+ *   PartitionKeys: [ // ResponsePartitionKeyList
+ *     { // ResponsePartitionKey
+ *       Dimensions: { // DimensionMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   Keys: [ // DimensionKeyDescriptionList
+ *     { // DimensionKeyDescription
+ *       Dimensions: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Total: Number("double"),
+ *       AdditionalMetrics: { // AdditionalMetricsMap
+ *         "<keys>": Number("double"),
+ *       },
+ *       Partitions: [ // MetricValuesList
+ *         Number("double"),
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDimensionKeysCommandInput - {@link DescribeDimensionKeysCommandInput}
@@ -93,6 +121,8 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class DescribeDimensionKeysCommand extends $Command<

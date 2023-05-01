@@ -45,6 +45,13 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
  * };
  * const command = new GetContactAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContactAttributesResponse
+ *   Attributes: { // Attributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetContactAttributesCommandInput - {@link GetContactAttributesCommandInput}
@@ -62,6 +69,8 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetContactAttributesCommand extends $Command<

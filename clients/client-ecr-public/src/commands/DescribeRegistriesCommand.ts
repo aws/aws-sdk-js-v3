@@ -45,6 +45,27 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * };
  * const command = new DescribeRegistriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRegistriesResponse
+ *   registries: [ // RegistryList // required
+ *     { // Registry
+ *       registryId: "STRING_VALUE", // required
+ *       registryArn: "STRING_VALUE", // required
+ *       registryUri: "STRING_VALUE", // required
+ *       verified: true || false, // required
+ *       aliases: [ // RegistryAliasList // required
+ *         { // RegistryAlias
+ *           name: "STRING_VALUE", // required
+ *           status: "ACTIVE" || "PENDING" || "REJECTED", // required
+ *           primaryRegistryAlias: true || false, // required
+ *           defaultRegistryAlias: true || false, // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeRegistriesCommandInput - {@link DescribeRegistriesCommandInput}
@@ -63,6 +84,8 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DescribeRegistriesCommand extends $Command<

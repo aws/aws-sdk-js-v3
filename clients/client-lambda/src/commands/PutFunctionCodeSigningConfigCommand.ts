@@ -51,6 +51,12 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  * };
  * const command = new PutFunctionCodeSigningConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutFunctionCodeSigningConfigResponse
+ *   CodeSigningConfigArn: "STRING_VALUE", // required
+ *   FunctionName: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param PutFunctionCodeSigningConfigCommandInput - {@link PutFunctionCodeSigningConfigCommandInput}
@@ -77,6 +83,8 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class PutFunctionCodeSigningConfigCommand extends $Command<

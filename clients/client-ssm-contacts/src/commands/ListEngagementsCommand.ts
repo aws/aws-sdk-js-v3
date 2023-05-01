@@ -50,6 +50,21 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * };
  * const command = new ListEngagementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEngagementsResult
+ *   NextToken: "STRING_VALUE",
+ *   Engagements: [ // EngagementsList // required
+ *     { // Engagement
+ *       EngagementArn: "STRING_VALUE", // required
+ *       ContactArn: "STRING_VALUE", // required
+ *       Sender: "STRING_VALUE", // required
+ *       IncidentId: "STRING_VALUE",
+ *       StartTime: new Date("TIMESTAMP"),
+ *       StopTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListEngagementsCommandInput - {@link ListEngagementsCommandInput}
@@ -71,6 +86,8 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListEngagementsCommand extends $Command<

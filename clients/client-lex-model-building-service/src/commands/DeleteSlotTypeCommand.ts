@@ -64,6 +64,9 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSlotTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSlotTypeCommandInput - {@link DeleteSlotTypeCommandInput}
@@ -109,6 +112,8 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  *           <i>string</i> } }</code>
  *          </p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteSlotTypeCommand extends $Command<

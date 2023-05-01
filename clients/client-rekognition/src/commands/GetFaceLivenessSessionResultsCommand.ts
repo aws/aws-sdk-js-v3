@@ -58,6 +58,43 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * };
  * const command = new GetFaceLivenessSessionResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFaceLivenessSessionResultsResponse
+ *   SessionId: "STRING_VALUE", // required
+ *   Status: "CREATED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "EXPIRED", // required
+ *   Confidence: Number("float"),
+ *   ReferenceImage: { // AuditImage
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *     BoundingBox: { // BoundingBox
+ *       Width: Number("float"),
+ *       Height: Number("float"),
+ *       Left: Number("float"),
+ *       Top: Number("float"),
+ *     },
+ *   },
+ *   AuditImages: [ // AuditImages
+ *     {
+ *       Bytes: "BLOB_VALUE",
+ *       S3Object: {
+ *         Bucket: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *       BoundingBox: {
+ *         Width: Number("float"),
+ *         Height: Number("float"),
+ *         Left: Number("float"),
+ *         Top: Number("float"),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetFaceLivenessSessionResultsCommandInput - {@link GetFaceLivenessSessionResultsCommandInput}
@@ -86,6 +123,8 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class GetFaceLivenessSessionResultsCommand extends $Command<

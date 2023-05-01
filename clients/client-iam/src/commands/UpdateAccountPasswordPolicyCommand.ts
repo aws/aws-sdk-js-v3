@@ -62,6 +62,9 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccountPasswordPolicyCommandInput - {@link UpdateAccountPasswordPolicyCommandInput}
@@ -86,6 +89,8 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To set or change the current account password policy
  * ```javascript

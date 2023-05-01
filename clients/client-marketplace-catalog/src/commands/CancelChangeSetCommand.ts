@@ -52,6 +52,12 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * };
  * const command = new CancelChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelChangeSetResponse
+ *   ChangeSetId: "STRING_VALUE",
+ *   ChangeSetArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CancelChangeSetCommandInput - {@link CancelChangeSetCommandInput}
@@ -83,6 +89,8 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class CancelChangeSetCommand extends $Command<

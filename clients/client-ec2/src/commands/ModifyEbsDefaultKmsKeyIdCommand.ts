@@ -52,6 +52,11 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
  * };
  * const command = new ModifyEbsDefaultKmsKeyIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyEbsDefaultKmsKeyIdResult
+ *   KmsKeyId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ModifyEbsDefaultKmsKeyIdCommandInput - {@link ModifyEbsDefaultKmsKeyIdCommandInput}
@@ -60,6 +65,8 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
  * @see {@link ModifyEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<

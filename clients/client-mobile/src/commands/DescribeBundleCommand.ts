@@ -46,6 +46,20 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * };
  * const command = new DescribeBundleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBundleResult
+ *   details: { // BundleDetails
+ *     bundleId: "STRING_VALUE",
+ *     title: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *     iconUrl: "STRING_VALUE",
+ *     availablePlatforms: [ // Platforms
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeBundleCommandInput - {@link DescribeBundleCommandInput}
@@ -88,6 +102,8 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class DescribeBundleCommand extends $Command<

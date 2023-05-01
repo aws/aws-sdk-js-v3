@@ -49,6 +49,9 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopTransformJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopTransformJobCommandInput - {@link StopTransformJobCommandInput}
@@ -60,6 +63,8 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopTransformJobCommand extends $Command<

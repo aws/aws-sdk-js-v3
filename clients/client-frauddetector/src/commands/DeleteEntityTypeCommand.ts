@@ -46,6 +46,9 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  * };
  * const command = new DeleteEntityTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEntityTypeCommandInput - {@link DeleteEntityTypeCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteEntityTypeCommand extends $Command<

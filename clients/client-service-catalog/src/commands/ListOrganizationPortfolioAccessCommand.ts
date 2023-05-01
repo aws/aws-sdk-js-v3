@@ -56,6 +56,17 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * };
  * const command = new ListOrganizationPortfolioAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationPortfolioAccessOutput
+ *   OrganizationNodes: [ // OrganizationNodes
+ *     { // OrganizationNode
+ *       Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListOrganizationPortfolioAccessCommandInput - {@link ListOrganizationPortfolioAccessCommandInput}
@@ -73,6 +84,8 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListOrganizationPortfolioAccessCommand extends $Command<

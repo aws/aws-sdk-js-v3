@@ -48,6 +48,18 @@ export interface ListTablesCommandOutput extends ListTablesResult, __MetadataBea
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTablesResult
+ *   tables: [ // Tables // required
+ *     { // Table
+ *       tableId: "STRING_VALUE",
+ *       tableName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   workbookCursor: Number("long"),
+ * };
+ *
  * ```
  *
  * @param ListTablesCommandInput - {@link ListTablesCommandInput}
@@ -82,6 +94,8 @@ export interface ListTablesCommandOutput extends ListTablesResult, __MetadataBea
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class ListTablesCommand extends $Command<

@@ -63,6 +63,17 @@ export interface DescribeSubscribersForNotificationCommandOutput
  * };
  * const command = new DescribeSubscribersForNotificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubscribersForNotificationResponse
+ *   Subscribers: [ // Subscribers
+ *     { // Subscriber
+ *       SubscriptionType: "STRING_VALUE", // required
+ *       Address: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeSubscribersForNotificationCommandInput - {@link DescribeSubscribersForNotificationCommandInput}
@@ -94,6 +105,8 @@ export interface DescribeSubscribersForNotificationCommandOutput
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeSubscribersForNotificationCommand extends $Command<

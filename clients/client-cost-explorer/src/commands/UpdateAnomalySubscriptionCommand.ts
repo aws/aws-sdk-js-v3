@@ -124,6 +124,11 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * };
  * const command = new UpdateAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAnomalySubscriptionResponse
+ *   SubscriptionArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param UpdateAnomalySubscriptionCommandInput - {@link UpdateAnomalySubscriptionCommandInput}
@@ -141,6 +146,8 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * @throws {@link UnknownSubscriptionException} (client fault)
  *  <p>The cost anomaly subscription does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class UpdateAnomalySubscriptionCommand extends $Command<

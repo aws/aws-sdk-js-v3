@@ -50,6 +50,9 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddRoleToDBInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddRoleToDBInstanceCommandInput - {@link AddRoleToDBInstanceCommandInput}
@@ -71,6 +74,8 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB instance
  * ```javascript

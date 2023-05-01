@@ -50,6 +50,17 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * };
  * const command = new DescribeLogPatternCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLogPatternResponse
+ *   ResourceGroupName: "STRING_VALUE",
+ *   LogPattern: { // LogPattern
+ *     PatternSetName: "STRING_VALUE",
+ *     PatternName: "STRING_VALUE",
+ *     Pattern: "STRING_VALUE",
+ *     Rank: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLogPatternCommandInput - {@link DescribeLogPatternCommandInput}
@@ -67,6 +78,8 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeLogPatternCommand extends $Command<

@@ -61,6 +61,15 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * };
  * const command = new CreateAttendeeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAttendeeResponse
+ *   Attendee: { // Attendee
+ *     ExternalUserId: "STRING_VALUE",
+ *     AttendeeId: "STRING_VALUE",
+ *     JoinToken: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAttendeeCommandInput - {@link CreateAttendeeCommandInput}
@@ -93,6 +102,8 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateAttendeeCommand extends $Command<

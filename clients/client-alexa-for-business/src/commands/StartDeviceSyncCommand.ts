@@ -69,6 +69,9 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * };
  * const command = new StartDeviceSyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartDeviceSyncCommandInput - {@link StartDeviceSyncCommandInput}
@@ -80,6 +83,8 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * @throws {@link DeviceNotRegisteredException} (client fault)
  *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class StartDeviceSyncCommand extends $Command<

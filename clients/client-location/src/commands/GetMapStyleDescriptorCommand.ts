@@ -52,6 +52,13 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  * };
  * const command = new GetMapStyleDescriptorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMapStyleDescriptorResponse
+ *   Blob: "BLOB_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   CacheControl: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetMapStyleDescriptorCommandInput - {@link GetMapStyleDescriptorCommandInput}
@@ -76,6 +83,8 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetMapStyleDescriptorCommand extends $Command<

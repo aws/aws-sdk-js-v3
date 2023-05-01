@@ -47,6 +47,9 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  * };
  * const command = new DeleteOTAUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOTAUpdateCommandInput - {@link DeleteOTAUpdateCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteOTAUpdateCommand extends $Command<

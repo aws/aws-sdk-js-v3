@@ -48,6 +48,9 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutNotificationChannelCommandInput - {@link PutNotificationChannelCommandInput}
@@ -70,6 +73,8 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutNotificationChannelCommand extends $Command<

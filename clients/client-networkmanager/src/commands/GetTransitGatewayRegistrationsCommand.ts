@@ -55,6 +55,21 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * };
  * const command = new GetTransitGatewayRegistrationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayRegistrationsResponse
+ *   TransitGatewayRegistrations: [ // TransitGatewayRegistrationList
+ *     { // TransitGatewayRegistration
+ *       GlobalNetworkId: "STRING_VALUE",
+ *       TransitGatewayArn: "STRING_VALUE",
+ *       State: { // TransitGatewayRegistrationStateReason
+ *         Code: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED" || "FAILED",
+ *         Message: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayRegistrationsCommandInput - {@link GetTransitGatewayRegistrationsCommandInput}
@@ -78,6 +93,8 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetTransitGatewayRegistrationsCommand extends $Command<

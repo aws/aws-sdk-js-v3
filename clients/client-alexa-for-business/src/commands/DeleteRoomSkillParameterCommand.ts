@@ -46,6 +46,9 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * };
  * const command = new DeleteRoomSkillParameterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRoomSkillParameterCommandInput - {@link DeleteRoomSkillParameterCommandInput}
@@ -57,6 +60,8 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is a concurrent modification of resources.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteRoomSkillParameterCommand extends $Command<

@@ -45,6 +45,11 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * };
  * const command = new DisableUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableUserResponse
+ *   userId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisableUserCommandInput - {@link DisableUserCommandInput}
@@ -72,6 +77,8 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class DisableUserCommand extends $Command<

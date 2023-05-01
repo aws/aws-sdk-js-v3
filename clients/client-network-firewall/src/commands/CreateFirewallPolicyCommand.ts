@@ -104,6 +104,32 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  * };
  * const command = new CreateFirewallPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFirewallPolicyResponse
+ *   UpdateToken: "STRING_VALUE", // required
+ *   FirewallPolicyResponse: { // FirewallPolicyResponse
+ *     FirewallPolicyName: "STRING_VALUE", // required
+ *     FirewallPolicyArn: "STRING_VALUE", // required
+ *     FirewallPolicyId: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     FirewallPolicyStatus: "ACTIVE" || "DELETING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ConsumedStatelessRuleCapacity: Number("int"),
+ *     ConsumedStatefulRuleCapacity: Number("int"),
+ *     NumberOfAssociations: Number("int"),
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       KeyId: "STRING_VALUE",
+ *       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *     },
+ *     LastModifiedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFirewallPolicyCommandInput - {@link CreateFirewallPolicyCommandInput}
@@ -142,6 +168,8 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class CreateFirewallPolicyCommand extends $Command<

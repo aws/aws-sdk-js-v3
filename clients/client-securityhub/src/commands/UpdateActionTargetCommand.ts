@@ -46,6 +46,9 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  * };
  * const command = new UpdateActionTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateActionTargetCommandInput - {@link UpdateActionTargetCommandInput}
@@ -67,6 +70,8 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To update the name and description of a custom action target
  * ```javascript

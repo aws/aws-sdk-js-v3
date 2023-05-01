@@ -45,6 +45,42 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * };
  * const command = new GetDataSetDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataSetDetailsResponse
+ *   dataSetName: "STRING_VALUE", // required
+ *   dataSetOrg: { // DatasetDetailOrgAttributes Union: only one key present
+ *     vsam: { // VsamDetailAttributes
+ *       encoding: "STRING_VALUE",
+ *       recordFormat: "STRING_VALUE",
+ *       compressed: true || false,
+ *       cacheAtStartup: true || false,
+ *       primaryKey: { // PrimaryKey
+ *         name: "STRING_VALUE",
+ *         offset: Number("int"), // required
+ *         length: Number("int"), // required
+ *       },
+ *       alternateKeys: [ // AlternateKeyList
+ *         { // AlternateKey
+ *           name: "STRING_VALUE",
+ *           offset: Number("int"), // required
+ *           length: Number("int"), // required
+ *           allowDuplicates: true || false,
+ *         },
+ *       ],
+ *     },
+ *     gdg: { // GdgDetailAttributes
+ *       limit: Number("int"),
+ *       rollDisposition: "STRING_VALUE",
+ *     },
+ *   },
+ *   recordLength: Number("int"),
+ *   location: "STRING_VALUE",
+ *   blocksize: Number("int"),
+ *   creationTime: new Date("TIMESTAMP"),
+ *   lastUpdatedTime: new Date("TIMESTAMP"),
+ *   lastReferencedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetDataSetDetailsCommandInput - {@link GetDataSetDetailsCommandInput}
@@ -68,6 +104,8 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class GetDataSetDetailsCommand extends $Command<

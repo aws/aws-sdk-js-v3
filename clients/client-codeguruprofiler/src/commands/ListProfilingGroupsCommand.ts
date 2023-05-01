@@ -52,6 +52,37 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * };
  * const command = new ListProfilingGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfilingGroupsResponse
+ *   profilingGroupNames: [ // ProfilingGroupNames // required
+ *     "STRING_VALUE",
+ *   ],
+ *   profilingGroups: [ // ProfilingGroupDescriptions
+ *     { // ProfilingGroupDescription
+ *       name: "STRING_VALUE",
+ *       agentOrchestrationConfig: { // AgentOrchestrationConfig
+ *         profilingEnabled: true || false, // required
+ *       },
+ *       arn: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       updatedAt: new Date("TIMESTAMP"),
+ *       profilingStatus: { // ProfilingStatus
+ *         latestAgentProfileReportedAt: new Date("TIMESTAMP"),
+ *         latestAggregatedProfile: { // AggregatedProfileTime
+ *           start: new Date("TIMESTAMP"),
+ *           period: "STRING_VALUE",
+ *         },
+ *         latestAgentOrchestratedAt: new Date("TIMESTAMP"),
+ *       },
+ *       computePlatform: "STRING_VALUE",
+ *       tags: { // TagsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListProfilingGroupsCommandInput - {@link ListProfilingGroupsCommandInput}
@@ -66,6 +97,8 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ListProfilingGroupsCommand extends $Command<

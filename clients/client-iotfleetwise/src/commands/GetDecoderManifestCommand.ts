@@ -44,6 +44,17 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * };
  * const command = new GetDecoderManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDecoderManifestResponse
+ *   name: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   modelManifestArn: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   creationTime: new Date("TIMESTAMP"), // required
+ *   lastModificationTime: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param GetDecoderManifestCommandInput - {@link GetDecoderManifestCommandInput}
@@ -67,6 +78,8 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetDecoderManifestCommand extends $Command<

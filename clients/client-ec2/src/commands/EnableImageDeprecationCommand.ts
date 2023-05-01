@@ -47,6 +47,11 @@ export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecat
  * };
  * const command = new EnableImageDeprecationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableImageDeprecationResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param EnableImageDeprecationCommandInput - {@link EnableImageDeprecationCommandInput}
@@ -55,6 +60,8 @@ export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecat
  * @see {@link EnableImageDeprecationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableImageDeprecationCommand extends $Command<

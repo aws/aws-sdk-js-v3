@@ -44,6 +44,11 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * };
  * const command = new CancelContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ContactIdResponse
+ *   contactId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CancelContactCommandInput - {@link CancelContactCommandInput}
@@ -61,6 +66,8 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class CancelContactCommand extends $Command<

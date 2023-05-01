@@ -97,6 +97,12 @@ export interface GetMediaForFragmentListCommandOutput
  * };
  * const command = new GetMediaForFragmentListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMediaForFragmentListOutput
+ *   ContentType: "STRING_VALUE",
+ *   Payload: "STREAMING_BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetMediaForFragmentListCommandInput - {@link GetMediaForFragmentListCommandInput}
@@ -128,6 +134,8 @@ export interface GetMediaForFragmentListCommandOutput
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetMediaForFragmentListCommand extends $Command<

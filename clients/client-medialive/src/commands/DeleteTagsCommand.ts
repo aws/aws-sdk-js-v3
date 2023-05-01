@@ -47,6 +47,9 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  Placeholder documentation for NotFoundException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<

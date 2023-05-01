@@ -51,6 +51,23 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * };
  * const command = new UpdateVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVoiceConnectorGroupResponse
+ *   VoiceConnectorGroup: { // VoiceConnectorGroup
+ *     VoiceConnectorGroupId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     VoiceConnectorItems: [ // VoiceConnectorItemList
+ *       { // VoiceConnectorItem
+ *         VoiceConnectorId: "STRING_VALUE", // required
+ *         Priority: Number("int"), // required
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     VoiceConnectorGroupArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVoiceConnectorGroupCommandInput - {@link UpdateVoiceConnectorGroupCommandInput}
@@ -83,6 +100,8 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateVoiceConnectorGroupCommand extends $Command<

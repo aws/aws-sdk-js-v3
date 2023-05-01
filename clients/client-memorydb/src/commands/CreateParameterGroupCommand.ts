@@ -55,6 +55,16 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * };
  * const command = new CreateParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParameterGroupResponse
+ *   ParameterGroup: { // ParameterGroup
+ *     Name: "STRING_VALUE",
+ *     Family: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     ARN: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateParameterGroupCommandInput - {@link CreateParameterGroupCommandInput}
@@ -84,6 +94,8 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CreateParameterGroupCommand extends $Command<

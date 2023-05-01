@@ -58,6 +58,9 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * };
  * const command = new UpdateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserDefinedFunctionCommandInput - {@link UpdateUserDefinedFunctionCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateUserDefinedFunctionCommand extends $Command<

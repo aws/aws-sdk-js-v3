@@ -46,6 +46,12 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * };
  * const command = new GetPullRequestOverrideStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPullRequestOverrideStateOutput
+ *   overridden: true || false,
+ *   overrider: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetPullRequestOverrideStateCommandInput - {@link GetPullRequestOverrideStateCommandInput}
@@ -84,6 +90,8 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * @throws {@link RevisionIdRequiredException} (client fault)
  *  <p>A revision ID is required, but was not provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetPullRequestOverrideStateCommand extends $Command<

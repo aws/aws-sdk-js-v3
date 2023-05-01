@@ -46,6 +46,9 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * };
  * const command = new DeprecateFlowTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeprecateFlowTemplateCommandInput - {@link DeprecateFlowTemplateCommandInput}
@@ -66,6 +69,8 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeprecateFlowTemplateCommand extends $Command<

@@ -86,6 +86,11 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceResponse
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
@@ -105,6 +110,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example UpdateService Example
  * ```javascript

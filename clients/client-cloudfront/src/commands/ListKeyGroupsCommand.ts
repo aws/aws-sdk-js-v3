@@ -50,6 +50,30 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * };
  * const command = new ListKeyGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeyGroupsResult
+ *   KeyGroupList: { // KeyGroupList
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // KeyGroupSummaryList
+ *       { // KeyGroupSummary
+ *         KeyGroup: { // KeyGroup
+ *           Id: "STRING_VALUE", // required
+ *           LastModifiedTime: new Date("TIMESTAMP"), // required
+ *           KeyGroupConfig: { // KeyGroupConfig
+ *             Name: "STRING_VALUE", // required
+ *             Items: [ // PublicKeyIdList // required
+ *               "STRING_VALUE",
+ *             ],
+ *             Comment: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListKeyGroupsCommandInput - {@link ListKeyGroupsCommandInput}
@@ -61,6 +85,8 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListKeyGroupsCommand extends $Command<

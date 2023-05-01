@@ -65,6 +65,24 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * };
  * const command = new BatchCreateAttendeeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreateAttendeeResponse
+ *   Attendees: [ // AttendeeList
+ *     { // Attendee
+ *       ExternalUserId: "STRING_VALUE",
+ *       AttendeeId: "STRING_VALUE",
+ *       JoinToken: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Errors: [ // BatchCreateAttendeeErrorList
+ *     { // CreateAttendeeError
+ *       ExternalUserId: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreateAttendeeCommandInput - {@link BatchCreateAttendeeCommandInput}
@@ -97,6 +115,8 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class BatchCreateAttendeeCommand extends $Command<

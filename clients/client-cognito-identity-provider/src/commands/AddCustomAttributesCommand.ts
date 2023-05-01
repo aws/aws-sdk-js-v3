@@ -66,6 +66,9 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * };
  * const command = new AddCustomAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddCustomAttributesCommandInput - {@link AddCustomAttributesCommandInput}
@@ -96,6 +99,8 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  *  <p>This exception is thrown when you're trying to modify a user pool while a user import
  *             job is in progress for that pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AddCustomAttributesCommand extends $Command<

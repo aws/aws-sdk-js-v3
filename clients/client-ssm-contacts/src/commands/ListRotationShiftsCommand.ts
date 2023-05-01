@@ -48,6 +48,26 @@ export interface ListRotationShiftsCommandOutput extends ListRotationShiftsResul
  * };
  * const command = new ListRotationShiftsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRotationShiftsResult
+ *   RotationShifts: [ // RotationShifts
+ *     { // RotationShift
+ *       ContactIds: [ // SsmContactsArnList
+ *         "STRING_VALUE",
+ *       ],
+ *       StartTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"), // required
+ *       Type: "REGULAR" || "OVERRIDDEN",
+ *       ShiftDetails: { // ShiftDetails
+ *         OverriddenContactIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRotationShiftsCommandInput - {@link ListRotationShiftsCommandInput}
@@ -75,6 +95,8 @@ export interface ListRotationShiftsCommandOutput extends ListRotationShiftsResul
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListRotationShiftsCommand extends $Command<

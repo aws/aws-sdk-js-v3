@@ -69,6 +69,72 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * };
  * const command = new GetDocumentTextDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDocumentTextDetectionResponse
+ *   DocumentMetadata: { // DocumentMetadata
+ *     Pages: Number("int"),
+ *   },
+ *   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "PARTIAL_SUCCESS",
+ *   NextToken: "STRING_VALUE",
+ *   Blocks: [ // BlockList
+ *     { // Block
+ *       BlockType: "KEY_VALUE_SET" || "PAGE" || "LINE" || "WORD" || "TABLE" || "CELL" || "SELECTION_ELEMENT" || "MERGED_CELL" || "TITLE" || "QUERY" || "QUERY_RESULT" || "SIGNATURE" || "TABLE_TITLE" || "TABLE_FOOTER",
+ *       Confidence: Number("float"),
+ *       Text: "STRING_VALUE",
+ *       TextType: "HANDWRITING" || "PRINTED",
+ *       RowIndex: Number("int"),
+ *       ColumnIndex: Number("int"),
+ *       RowSpan: Number("int"),
+ *       ColumnSpan: Number("int"),
+ *       Geometry: { // Geometry
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *       },
+ *       Id: "STRING_VALUE",
+ *       Relationships: [ // RelationshipList
+ *         { // Relationship
+ *           Type: "VALUE" || "CHILD" || "COMPLEX_FEATURES" || "MERGED_CELL" || "TITLE" || "ANSWER" || "TABLE" || "TABLE_TITLE" || "TABLE_FOOTER",
+ *           Ids: [ // IdList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       EntityTypes: [ // EntityTypes
+ *         "KEY" || "VALUE" || "COLUMN_HEADER" || "TABLE_TITLE" || "TABLE_FOOTER" || "TABLE_SECTION_TITLE" || "TABLE_SUMMARY" || "STRUCTURED_TABLE" || "SEMI_STRUCTURED_TABLE",
+ *       ],
+ *       SelectionStatus: "SELECTED" || "NOT_SELECTED",
+ *       Page: Number("int"),
+ *       Query: { // Query
+ *         Text: "STRING_VALUE", // required
+ *         Alias: "STRING_VALUE",
+ *         Pages: [ // QueryPages
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   Warnings: [ // Warnings
+ *     { // Warning
+ *       ErrorCode: "STRING_VALUE",
+ *       Pages: [ // Pages
+ *         Number("int"),
+ *       ],
+ *     },
+ *   ],
+ *   StatusMessage: "STRING_VALUE",
+ *   DetectDocumentTextModelVersion: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDocumentTextDetectionCommandInput - {@link GetDocumentTextDetectionCommandInput}
@@ -111,6 +177,8 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class GetDocumentTextDetectionCommand extends $Command<

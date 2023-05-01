@@ -49,6 +49,11 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * };
  * const command = new CreateBlueprintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBlueprintResponse
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateBlueprintCommandInput - {@link CreateBlueprintCommandInput}
@@ -72,6 +77,8 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateBlueprintCommand extends $Command<

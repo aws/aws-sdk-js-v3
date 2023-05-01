@@ -59,6 +59,19 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupsMessage
+ *   Marker: "STRING_VALUE",
+ *   DBClusterParameterGroups: [ // DBClusterParameterGroupList
+ *     { // DBClusterParameterGroup
+ *       DBClusterParameterGroupName: "STRING_VALUE",
+ *       DBParameterGroupFamily: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       DBClusterParameterGroupArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
@@ -71,6 +84,8 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *  <p>
  *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command<

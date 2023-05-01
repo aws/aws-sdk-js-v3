@@ -50,6 +50,9 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * };
  * const command = new DeleteSlackWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSlackWorkspaceConfigurationCommandInput - {@link DeleteSlackWorkspaceConfigurationCommandInput}
@@ -100,6 +103,8 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class DeleteSlackWorkspaceConfigurationCommand extends $Command<

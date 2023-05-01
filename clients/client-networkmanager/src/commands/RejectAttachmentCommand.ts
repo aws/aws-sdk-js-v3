@@ -44,6 +44,40 @@ export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse,
  * };
  * const command = new RejectAttachmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RejectAttachmentResponse
+ *   Attachment: { // Attachment
+ *     CoreNetworkId: "STRING_VALUE",
+ *     CoreNetworkArn: "STRING_VALUE",
+ *     AttachmentId: "STRING_VALUE",
+ *     OwnerAccountId: "STRING_VALUE",
+ *     AttachmentType: "CONNECT" || "SITE_TO_SITE_VPN" || "VPC" || "TRANSIT_GATEWAY_ROUTE_TABLE",
+ *     State: "REJECTED" || "PENDING_ATTACHMENT_ACCEPTANCE" || "CREATING" || "FAILED" || "AVAILABLE" || "UPDATING" || "PENDING_NETWORK_UPDATE" || "PENDING_TAG_ACCEPTANCE" || "DELETING",
+ *     EdgeLocation: "STRING_VALUE",
+ *     ResourceArn: "STRING_VALUE",
+ *     AttachmentPolicyRuleNumber: Number("int"),
+ *     SegmentName: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ProposedSegmentChange: { // ProposedSegmentChange
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       AttachmentPolicyRuleNumber: Number("int"),
+ *       SegmentName: "STRING_VALUE",
+ *     },
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     UpdatedAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param RejectAttachmentCommandInput - {@link RejectAttachmentCommandInput}
@@ -71,6 +105,8 @@ export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class RejectAttachmentCommand extends $Command<

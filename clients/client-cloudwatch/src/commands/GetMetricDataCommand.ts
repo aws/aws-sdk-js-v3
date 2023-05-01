@@ -123,6 +123,36 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * };
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricDataOutput
+ *   MetricDataResults: [ // MetricDataResults
+ *     { // MetricDataResult
+ *       Id: "STRING_VALUE",
+ *       Label: "STRING_VALUE",
+ *       Timestamps: [ // Timestamps
+ *         new Date("TIMESTAMP"),
+ *       ],
+ *       Values: [ // DatapointValues
+ *         Number("double"),
+ *       ],
+ *       StatusCode: "Complete" || "InternalError" || "PartialData" || "Forbidden",
+ *       Messages: [ // MetricDataResultMessages
+ *         { // MessageData
+ *           Code: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Messages: [
+ *     {
+ *       Code: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
@@ -134,6 +164,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The next token specified is invalid.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetMetricDataCommand extends $Command<

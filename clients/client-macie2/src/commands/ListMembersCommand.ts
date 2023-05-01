@@ -46,6 +46,26 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersResponse
+ *   members: [ // __listOfMember
+ *     { // Member
+ *       accountId: "STRING_VALUE",
+ *       administratorAccountId: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       email: "STRING_VALUE",
+ *       invitedAt: new Date("TIMESTAMP"),
+ *       masterAccountId: "STRING_VALUE",
+ *       relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       updatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -75,6 +95,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

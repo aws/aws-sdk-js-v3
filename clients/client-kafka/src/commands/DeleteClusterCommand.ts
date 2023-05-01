@@ -45,6 +45,12 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteClusterResponse
+ *   ClusterArn: "STRING_VALUE",
+ *   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
+ * };
+ *
  * ```
  *
  * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
@@ -65,6 +71,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class DeleteClusterCommand extends $Command<

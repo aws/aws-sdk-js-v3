@@ -51,6 +51,48 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServicesResponse
+ *   ServiceSummaryList: [ // ServiceSummaries
+ *     { // ServiceSummary
+ *       ServiceId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       OwnerAccountId: "STRING_VALUE",
+ *       CreatedByAccountId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       EnvironmentId: "STRING_VALUE",
+ *       ApplicationId: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       EndpointType: "STRING_VALUE",
+ *       UrlEndpoint: { // UrlEndpointSummary
+ *         Url: "STRING_VALUE",
+ *         HealthUrl: "STRING_VALUE",
+ *       },
+ *       LambdaEndpoint: { // LambdaEndpointSummary
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       State: "STRING_VALUE",
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Error: { // ErrorResponse
+ *         Code: "STRING_VALUE",
+ *         Message: "STRING_VALUE",
+ *         AccountId: "STRING_VALUE",
+ *         ResourceIdentifier: "STRING_VALUE",
+ *         ResourceType: "STRING_VALUE",
+ *         AdditionalDetails: { // AdditionalDetails
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -81,6 +123,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class ListServicesCommand extends $Command<

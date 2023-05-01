@@ -45,6 +45,17 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * };
  * const command = new ListProvisionedCapacityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProvisionedCapacityOutput
+ *   ProvisionedCapacityList: [ // ProvisionedCapacityList
+ *     { // ProvisionedCapacityDescription
+ *       CapacityId: "STRING_VALUE",
+ *       StartDate: "STRING_VALUE",
+ *       ExpirationDate: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProvisionedCapacityCommandInput - {@link ListProvisionedCapacityCommandInput}
@@ -62,6 +73,8 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list the provisioned capacity units for an account
  * ```javascript

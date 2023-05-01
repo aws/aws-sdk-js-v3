@@ -42,6 +42,17 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * const input = {};
  * const command = new GetServiceSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceSettingsResponse
+ *   S3BucketArn: "STRING_VALUE",
+ *   SnsTopicArn: "STRING_VALUE",
+ *   OrganizationConfiguration: { // OrganizationConfiguration
+ *     EnableIntegration: true || false, // required
+ *   },
+ *   EnableCrossAccountsDiscovery: true || false,
+ *   LicenseManagerResourceShareArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetServiceSettingsCommandInput - {@link GetServiceSettingsCommandInput}
@@ -63,6 +74,8 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetServiceSettingsCommand extends $Command<

@@ -48,6 +48,11 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * };
  * const command = new AssociateTeamMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTeamMemberResult
+ *   clientRequestToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateTeamMemberCommandInput - {@link AssociateTeamMemberCommandInput}
@@ -78,6 +83,8 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class AssociateTeamMemberCommand extends $Command<

@@ -45,6 +45,12 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  * };
  * const command = new DeleteRecipeVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRecipeVersionResponse
+ *   Name: "STRING_VALUE", // required
+ *   RecipeVersion: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteRecipeVersionCommandInput - {@link DeleteRecipeVersionCommandInput}
@@ -62,6 +68,8 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteRecipeVersionCommand extends $Command<

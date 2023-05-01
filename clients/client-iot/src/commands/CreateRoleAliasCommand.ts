@@ -53,6 +53,12 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * };
  * const command = new CreateRoleAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoleAliasResponse
+ *   roleAlias: "STRING_VALUE",
+ *   roleAliasArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateRoleAliasCommandInput - {@link CreateRoleAliasCommandInput}
@@ -82,6 +88,8 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateRoleAliasCommand extends $Command<

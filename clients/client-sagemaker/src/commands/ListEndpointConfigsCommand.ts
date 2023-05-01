@@ -50,6 +50,18 @@ export interface ListEndpointConfigsCommandOutput extends ListEndpointConfigsOut
  * };
  * const command = new ListEndpointConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEndpointConfigsOutput
+ *   EndpointConfigs: [ // EndpointConfigSummaryList // required
+ *     { // EndpointConfigSummary
+ *       EndpointConfigName: "STRING_VALUE", // required
+ *       EndpointConfigArn: "STRING_VALUE", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEndpointConfigsCommandInput - {@link ListEndpointConfigsCommandInput}
@@ -58,6 +70,8 @@ export interface ListEndpointConfigsCommandOutput extends ListEndpointConfigsOut
  * @see {@link ListEndpointConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEndpointConfigsCommand extends $Command<

@@ -73,6 +73,15 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * };
  * const command = new GetFindingsStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFindingsStatisticsResponse
+ *   FindingStatistics: { // FindingStatistics
+ *     CountBySeverity: { // CountBySeverity
+ *       "<keys>": Number("int"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFindingsStatisticsCommandInput - {@link GetFindingsStatisticsCommandInput}
@@ -87,6 +96,8 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetFindingsStatisticsCommand extends $Command<

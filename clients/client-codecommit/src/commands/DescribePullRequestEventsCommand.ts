@@ -48,6 +48,57 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * };
  * const command = new DescribePullRequestEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePullRequestEventsOutput
+ *   pullRequestEvents: [ // PullRequestEventList // required
+ *     { // PullRequestEvent
+ *       pullRequestId: "STRING_VALUE",
+ *       eventDate: new Date("TIMESTAMP"),
+ *       pullRequestEventType: "STRING_VALUE",
+ *       actorArn: "STRING_VALUE",
+ *       pullRequestCreatedEventMetadata: { // PullRequestCreatedEventMetadata
+ *         repositoryName: "STRING_VALUE",
+ *         sourceCommitId: "STRING_VALUE",
+ *         destinationCommitId: "STRING_VALUE",
+ *         mergeBase: "STRING_VALUE",
+ *       },
+ *       pullRequestStatusChangedEventMetadata: { // PullRequestStatusChangedEventMetadata
+ *         pullRequestStatus: "STRING_VALUE",
+ *       },
+ *       pullRequestSourceReferenceUpdatedEventMetadata: { // PullRequestSourceReferenceUpdatedEventMetadata
+ *         repositoryName: "STRING_VALUE",
+ *         beforeCommitId: "STRING_VALUE",
+ *         afterCommitId: "STRING_VALUE",
+ *         mergeBase: "STRING_VALUE",
+ *       },
+ *       pullRequestMergedStateChangedEventMetadata: { // PullRequestMergedStateChangedEventMetadata
+ *         repositoryName: "STRING_VALUE",
+ *         destinationReference: "STRING_VALUE",
+ *         mergeMetadata: { // MergeMetadata
+ *           isMerged: true || false,
+ *           mergedBy: "STRING_VALUE",
+ *           mergeCommitId: "STRING_VALUE",
+ *           mergeOption: "STRING_VALUE",
+ *         },
+ *       },
+ *       approvalRuleEventMetadata: { // ApprovalRuleEventMetadata
+ *         approvalRuleName: "STRING_VALUE",
+ *         approvalRuleId: "STRING_VALUE",
+ *         approvalRuleContent: "STRING_VALUE",
+ *       },
+ *       approvalStateChangedEventMetadata: { // ApprovalStateChangedEventMetadata
+ *         revisionId: "STRING_VALUE",
+ *         approvalStatus: "STRING_VALUE",
+ *       },
+ *       approvalRuleOverriddenEventMetadata: { // ApprovalRuleOverriddenEventMetadata
+ *         revisionId: "STRING_VALUE",
+ *         overrideStatus: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribePullRequestEventsCommandInput - {@link DescribePullRequestEventsCommandInput}
@@ -96,6 +147,8 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * @throws {@link PullRequestIdRequiredException} (client fault)
  *  <p>A pull request ID is required, but none was provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DescribePullRequestEventsCommand extends $Command<

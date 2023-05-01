@@ -82,6 +82,15 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendMessageResult
+ *   MD5OfMessageBody: "STRING_VALUE",
+ *   MD5OfMessageAttributes: "STRING_VALUE",
+ *   MD5OfMessageSystemAttributes: "STRING_VALUE",
+ *   MessageId: "STRING_VALUE",
+ *   SequenceNumber: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendMessageCommandInput - {@link SendMessageCommandInput}
@@ -96,6 +105,8 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>Error code 400. Unsupported operation.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class SendMessageCommand extends $Command<

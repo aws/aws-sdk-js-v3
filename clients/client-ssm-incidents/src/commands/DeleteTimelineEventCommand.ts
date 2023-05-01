@@ -45,6 +45,9 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  * };
  * const command = new DeleteTimelineEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTimelineEventCommandInput - {@link DeleteTimelineEventCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteTimelineEventCommand extends $Command<

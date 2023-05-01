@@ -47,6 +47,17 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAttributesResponse
+ *   Attributes: [ // AccountAttributes
+ *     { // AccountAttribute
+ *       Name: "STRING_VALUE",
+ *       Maximum: Number("int"),
+ *       Used: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -55,6 +66,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

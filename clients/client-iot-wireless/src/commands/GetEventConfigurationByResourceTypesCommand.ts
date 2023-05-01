@@ -50,6 +50,35 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
  * const input = {};
  * const command = new GetEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEventConfigurationByResourceTypesResponse
+ *   DeviceRegistrationState: { // DeviceRegistrationStateResourceTypeEventConfiguration
+ *     Sidewalk: { // SidewalkResourceTypeEventConfiguration
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Proximity: { // ProximityResourceTypeEventConfiguration
+ *     Sidewalk: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Join: { // JoinResourceTypeEventConfiguration
+ *     LoRaWAN: { // LoRaWANJoinResourceTypeEventConfiguration
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   ConnectionStatus: { // ConnectionStatusResourceTypeEventConfiguration
+ *     LoRaWAN: { // LoRaWANConnectionStatusResourceTypeEventConfiguration
+ *       WirelessGatewayEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   MessageDeliveryStatus: { // MessageDeliveryStatusResourceTypeEventConfiguration
+ *     Sidewalk: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEventConfigurationByResourceTypesCommandInput - {@link GetEventConfigurationByResourceTypesCommandInput}
@@ -67,6 +96,8 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because it exceeded the allowed API request rate.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetEventConfigurationByResourceTypesCommand extends $Command<

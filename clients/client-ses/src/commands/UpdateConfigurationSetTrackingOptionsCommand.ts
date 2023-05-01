@@ -60,6 +60,9 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  * };
  * const command = new UpdateConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConfigurationSetTrackingOptionsCommandInput - {@link UpdateConfigurationSetTrackingOptionsCommandInput}
@@ -87,6 +90,8 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link TrackingOptionsDoesNotExistException} (client fault)
  *  <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<

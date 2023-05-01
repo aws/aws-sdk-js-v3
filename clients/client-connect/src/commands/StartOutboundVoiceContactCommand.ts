@@ -75,6 +75,11 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * };
  * const command = new StartOutboundVoiceContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartOutboundVoiceContactResponse
+ *   ContactId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartOutboundVoiceContactCommandInput - {@link StartOutboundVoiceContactCommandInput}
@@ -104,6 +109,8 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartOutboundVoiceContactCommand extends $Command<

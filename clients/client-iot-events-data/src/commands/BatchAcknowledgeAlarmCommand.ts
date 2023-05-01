@@ -52,6 +52,17 @@ export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlar
  * };
  * const command = new BatchAcknowledgeAlarmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAcknowledgeAlarmResponse
+ *   errorEntries: [ // BatchAlarmActionErrorEntries
+ *     { // BatchAlarmActionErrorEntry
+ *       requestId: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAcknowledgeAlarmCommandInput - {@link BatchAcknowledgeAlarmCommandInput}
@@ -72,6 +83,8 @@ export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlar
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchAcknowledgeAlarmCommand extends $Command<

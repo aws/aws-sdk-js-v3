@@ -49,6 +49,9 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagMFADeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagMFADeviceCommandInput - {@link UntagMFADeviceCommandInput}
@@ -73,6 +76,8 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UntagMFADeviceCommand extends $Command<

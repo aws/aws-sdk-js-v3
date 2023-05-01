@@ -59,6 +59,17 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNamespaceResponse
+ *   Arn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   CapacityRegion: "STRING_VALUE",
+ *   CreationStatus: "CREATED" || "CREATING" || "DELETING" || "RETRYABLE_FAILURE" || "NON_RETRYABLE_FAILURE",
+ *   IdentityStore: "QUICKSIGHT",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param CreateNamespaceCommandInput - {@link CreateNamespaceCommandInput}
@@ -100,6 +111,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateNamespaceCommand extends $Command<

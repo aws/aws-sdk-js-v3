@@ -47,6 +47,23 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * };
  * const command = new PreviewAgentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PreviewAgentsResponse
+ *   agentPreviews: [ // AgentPreviewList // required
+ *     { // AgentPreview
+ *       hostname: "STRING_VALUE",
+ *       agentId: "STRING_VALUE", // required
+ *       autoScalingGroup: "STRING_VALUE",
+ *       agentHealth: "STRING_VALUE",
+ *       agentVersion: "STRING_VALUE",
+ *       operatingSystem: "STRING_VALUE",
+ *       kernelVersion: "STRING_VALUE",
+ *       ipv4Address: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PreviewAgentsCommandInput - {@link PreviewAgentsCommandInput}
@@ -73,6 +90,8 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Preview agents
  * ```javascript

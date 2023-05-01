@@ -49,6 +49,14 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * };
  * const command = new ListReportGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReportGroupsOutput
+ *   nextToken: "STRING_VALUE",
+ *   reportGroups: [ // ReportGroupArns
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReportGroupsCommandInput - {@link ListReportGroupsCommandInput}
@@ -60,6 +68,8 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListReportGroupsCommand extends $Command<

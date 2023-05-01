@@ -45,6 +45,27 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * };
  * const command = new GetEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEmailTemplateResponse
+ *   EmailTemplateResponse: { // EmailTemplateResponse
+ *     Arn: "STRING_VALUE",
+ *     CreationDate: "STRING_VALUE", // required
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     HtmlPart: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE", // required
+ *     RecommenderId: "STRING_VALUE",
+ *     Subject: "STRING_VALUE",
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     TemplateName: "STRING_VALUE", // required
+ *     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
+ *     TextPart: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEmailTemplateCommandInput - {@link GetEmailTemplateCommandInput}
@@ -74,6 +95,8 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetEmailTemplateCommand extends $Command<

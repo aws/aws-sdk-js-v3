@@ -47,6 +47,11 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * };
  * const command = new TestRenderTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestRenderTemplateResponse
+ *   RenderedTemplate: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param TestRenderTemplateCommandInput - {@link TestRenderTemplateCommandInput}
@@ -68,6 +73,8 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class TestRenderTemplateCommand extends $Command<

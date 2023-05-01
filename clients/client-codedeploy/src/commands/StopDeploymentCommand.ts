@@ -45,6 +45,12 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * };
  * const command = new StopDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDeploymentOutput
+ *   status: "Pending" || "Succeeded",
+ *   statusMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StopDeploymentCommandInput - {@link StopDeploymentCommandInput}
@@ -72,6 +78,8 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
  *  <p>A call was submitted that is not supported for the specified deployment type.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class StopDeploymentCommand extends $Command<

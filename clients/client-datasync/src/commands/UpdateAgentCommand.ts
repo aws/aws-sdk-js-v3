@@ -45,6 +45,9 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * };
  * const command = new UpdateAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAgentCommandInput - {@link UpdateAgentCommandInput}
@@ -60,6 +63,8 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateAgentCommand extends $Command<

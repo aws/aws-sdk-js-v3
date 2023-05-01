@@ -47,6 +47,9 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteInstanceOnboardingJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInstanceOnboardingJobCommandInput - {@link DeleteInstanceOnboardingJobCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class DeleteInstanceOnboardingJobCommand extends $Command<

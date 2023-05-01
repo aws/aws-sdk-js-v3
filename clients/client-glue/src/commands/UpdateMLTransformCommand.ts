@@ -65,6 +65,11 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * };
  * const command = new UpdateMLTransformCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMLTransformResponse
+ *   TransformId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateMLTransformCommandInput - {@link UpdateMLTransformCommandInput}
@@ -88,6 +93,8 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateMLTransformCommand extends $Command<

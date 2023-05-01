@@ -55,6 +55,15 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEmailTemplateResponse
+ *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ *     Arn: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEmailTemplateCommandInput - {@link CreateEmailTemplateCommandInput}
@@ -78,6 +87,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateEmailTemplateCommand extends $Command<

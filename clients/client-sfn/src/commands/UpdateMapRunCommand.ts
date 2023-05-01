@@ -47,6 +47,9 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * };
  * const command = new UpdateMapRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateMapRunCommandInput - {@link UpdateMapRunCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class UpdateMapRunCommand extends $Command<

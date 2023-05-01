@@ -74,6 +74,27 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * };
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReplicationTaskAssessmentRunResponse
+ *   ReplicationTaskAssessmentRun: { // ReplicationTaskAssessmentRun
+ *     ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ *     ReplicationTaskArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     ReplicationTaskAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ *     AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ *       IndividualAssessmentCount: Number("int"),
+ *       IndividualAssessmentCompletedCount: Number("int"),
+ *     },
+ *     LastFailureMessage: "STRING_VALUE",
+ *     ServiceAccessRoleArn: "STRING_VALUE",
+ *     ResultLocationBucket: "STRING_VALUE",
+ *     ResultLocationFolder: "STRING_VALUE",
+ *     ResultEncryptionMode: "STRING_VALUE",
+ *     ResultKmsKeyArn: "STRING_VALUE",
+ *     AssessmentRunName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartReplicationTaskAssessmentRunCommandInput - {@link StartReplicationTaskAssessmentRunCommandInput}
@@ -120,6 +141,8 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
  *             found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class StartReplicationTaskAssessmentRunCommand extends $Command<

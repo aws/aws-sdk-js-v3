@@ -152,6 +152,12 @@ export interface CreateCostCategoryDefinitionCommandOutput
  * };
  * const command = new CreateCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCostCategoryDefinitionResponse
+ *   CostCategoryArn: "STRING_VALUE",
+ *   EffectiveStart: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCostCategoryDefinitionCommandInput - {@link CreateCostCategoryDefinitionCommandInput}
@@ -167,6 +173,8 @@ export interface CreateCostCategoryDefinitionCommandOutput
  *  <p> You've reached the limit on the number of resources you can create, or exceeded the
  *             size of an individual resource. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class CreateCostCategoryDefinitionCommand extends $Command<

@@ -55,6 +55,14 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * };
  * const command = new SendApiAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendApiAssetResponse
+ *   Body: "STRING_VALUE",
+ *   ResponseHeaders: { // MapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param SendApiAssetCommandInput - {@link SendApiAssetCommandInput}
@@ -78,6 +86,8 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class SendApiAssetCommand extends $Command<

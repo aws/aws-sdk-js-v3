@@ -86,6 +86,9 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * };
  * const command = new UpdateLayoutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLayoutCommandInput - {@link UpdateLayoutCommandInput}
@@ -120,6 +123,8 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class UpdateLayoutCommand extends $Command<

@@ -51,6 +51,31 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * };
  * const command = new DescribeMetricFiltersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMetricFiltersResponse
+ *   metricFilters: [ // MetricFilters
+ *     { // MetricFilter
+ *       filterName: "STRING_VALUE",
+ *       filterPattern: "STRING_VALUE",
+ *       metricTransformations: [ // MetricTransformations
+ *         { // MetricTransformation
+ *           metricName: "STRING_VALUE", // required
+ *           metricNamespace: "STRING_VALUE", // required
+ *           metricValue: "STRING_VALUE", // required
+ *           defaultValue: Number("double"),
+ *           dimensions: { // Dimensions
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *         },
+ *       ],
+ *       creationTime: Number("long"),
+ *       logGroupName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeMetricFiltersCommandInput - {@link DescribeMetricFiltersCommandInput}
@@ -68,6 +93,8 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeMetricFiltersCommand extends $Command<

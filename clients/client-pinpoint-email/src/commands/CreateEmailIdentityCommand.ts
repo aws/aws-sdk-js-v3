@@ -63,6 +63,19 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * };
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEmailIdentityResponse
+ *   IdentityType: "STRING_VALUE",
+ *   VerifiedForSendingStatus: true || false,
+ *   DkimAttributes: { // DkimAttributes
+ *     SigningEnabled: true || false,
+ *     Status: "STRING_VALUE",
+ *     Tokens: [ // DnsTokenList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEmailIdentityCommandInput - {@link CreateEmailIdentityCommandInput}
@@ -83,6 +96,8 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateEmailIdentityCommand extends $Command<

@@ -52,6 +52,9 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * };
  * const command = new DisassociateProductFromPortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateProductFromPortfolioCommandInput - {@link DisassociateProductFromPortfolioCommandInput}
@@ -69,6 +72,8 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisassociateProductFromPortfolioCommand extends $Command<

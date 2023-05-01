@@ -57,6 +57,12 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  * };
  * const command = new CreateTimelineEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTimelineEventOutput
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   eventId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateTimelineEventCommandInput - {@link CreateTimelineEventCommandInput}
@@ -85,6 +91,8 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class CreateTimelineEventCommand extends $Command<

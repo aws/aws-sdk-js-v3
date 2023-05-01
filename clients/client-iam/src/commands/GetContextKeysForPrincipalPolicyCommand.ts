@@ -65,6 +65,13 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  * };
  * const command = new GetContextKeysForPrincipalPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContextKeysForPolicyResponse
+ *   ContextKeyNames: [ // ContextKeyNamesResultListType
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetContextKeysForPrincipalPolicyCommandInput - {@link GetContextKeysForPrincipalPolicyCommandInput}
@@ -81,6 +88,8 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetContextKeysForPrincipalPolicyCommand extends $Command<

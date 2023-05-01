@@ -53,6 +53,16 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceResponse
+ *   deviceArn: "STRING_VALUE", // required
+ *   deviceName: "STRING_VALUE", // required
+ *   providerName: "STRING_VALUE", // required
+ *   deviceType: "STRING_VALUE", // required
+ *   deviceStatus: "STRING_VALUE", // required
+ *   deviceCapabilities: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
@@ -77,6 +87,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class GetDeviceCommand extends $Command<

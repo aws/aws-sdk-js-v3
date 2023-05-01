@@ -77,6 +77,14 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * };
  * const command = new DescribeApplicableIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeApplicableIndividualAssessmentsResponse
+ *   IndividualAssessmentNames: [ // IndividualAssessmentNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeApplicableIndividualAssessmentsCommandInput - {@link DescribeApplicableIndividualAssessmentsCommandInput}
@@ -95,6 +103,8 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeApplicableIndividualAssessmentsCommand extends $Command<

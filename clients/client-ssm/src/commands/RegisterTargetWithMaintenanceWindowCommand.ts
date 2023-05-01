@@ -66,6 +66,11 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  * };
  * const command = new RegisterTargetWithMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTargetWithMaintenanceWindowResult
+ *   WindowTargetId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterTargetWithMaintenanceWindowCommandInput - {@link RegisterTargetWithMaintenanceWindowCommandInput}
@@ -93,6 +98,8 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class RegisterTargetWithMaintenanceWindowCommand extends $Command<

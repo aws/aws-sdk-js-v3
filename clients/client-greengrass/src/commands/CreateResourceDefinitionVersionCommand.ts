@@ -95,6 +95,14 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * };
  * const command = new CreateResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourceDefinitionVersionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateResourceDefinitionVersionCommandInput - {@link CreateResourceDefinitionVersionCommandInput}
@@ -106,6 +114,8 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateResourceDefinitionVersionCommand extends $Command<

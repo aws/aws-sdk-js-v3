@@ -49,6 +49,22 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * };
  * const command = new GetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserPoolMfaConfigResponse
+ *   SmsMfaConfiguration: { // SmsMfaConfigType
+ *     SmsAuthenticationMessage: "STRING_VALUE",
+ *     SmsConfiguration: { // SmsConfigurationType
+ *       SnsCallerArn: "STRING_VALUE", // required
+ *       ExternalId: "STRING_VALUE",
+ *       SnsRegion: "STRING_VALUE",
+ *     },
+ *   },
+ *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
+ *     Enabled: true || false,
+ *   },
+ *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * };
+ *
  * ```
  *
  * @param GetUserPoolMfaConfigCommandInput - {@link GetUserPoolMfaConfigCommandInput}
@@ -75,6 +91,8 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetUserPoolMfaConfigCommand extends $Command<

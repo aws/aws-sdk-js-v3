@@ -82,6 +82,11 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * };
  * const command = new AssociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateInstanceStorageConfigResponse
+ *   AssociationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateInstanceStorageConfigCommandInput - {@link AssociateInstanceStorageConfigCommandInput}
@@ -108,6 +113,8 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateInstanceStorageConfigCommand extends $Command<

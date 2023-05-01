@@ -180,6 +180,11 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * };
  * const command = new CreateLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLifecyclePolicyResponse
+ *   PolicyId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLifecyclePolicyCommandInput - {@link CreateLifecyclePolicyCommandInput}
@@ -198,6 +203,8 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request failed because a limit was exceeded.</p>
  *
+ * @throws {@link DLMServiceException}
+ * <p>Base exception class for all service exceptions from DLM service.</p>
  *
  */
 export class CreateLifecyclePolicyCommand extends $Command<

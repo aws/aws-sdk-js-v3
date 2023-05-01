@@ -59,6 +59,27 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * };
  * const command = new DeleteReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteReplicationTaskAssessmentRunResponse
+ *   ReplicationTaskAssessmentRun: { // ReplicationTaskAssessmentRun
+ *     ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ *     ReplicationTaskArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     ReplicationTaskAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ *     AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ *       IndividualAssessmentCount: Number("int"),
+ *       IndividualAssessmentCompletedCount: Number("int"),
+ *     },
+ *     LastFailureMessage: "STRING_VALUE",
+ *     ServiceAccessRoleArn: "STRING_VALUE",
+ *     ResultLocationBucket: "STRING_VALUE",
+ *     ResultLocationFolder: "STRING_VALUE",
+ *     ResultEncryptionMode: "STRING_VALUE",
+ *     ResultKmsKeyArn: "STRING_VALUE",
+ *     AssessmentRunName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteReplicationTaskAssessmentRunCommandInput - {@link DeleteReplicationTaskAssessmentRunCommandInput}
@@ -77,6 +98,8 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DeleteReplicationTaskAssessmentRunCommand extends $Command<

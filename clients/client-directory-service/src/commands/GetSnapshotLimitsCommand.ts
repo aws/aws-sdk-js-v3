@@ -44,6 +44,15 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * };
  * const command = new GetSnapshotLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotLimitsResult
+ *   SnapshotLimits: { // SnapshotLimits
+ *     ManualSnapshotsLimit: Number("int"),
+ *     ManualSnapshotsCurrentCount: Number("int"),
+ *     ManualSnapshotsLimitReached: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSnapshotLimitsCommandInput - {@link GetSnapshotLimitsCommandInput}
@@ -61,6 +70,8 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class GetSnapshotLimitsCommand extends $Command<

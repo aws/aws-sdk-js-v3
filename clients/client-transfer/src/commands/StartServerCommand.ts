@@ -50,6 +50,9 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartServerCommandInput - {@link StartServerCommandInput}
@@ -74,6 +77,8 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class StartServerCommand extends $Command<

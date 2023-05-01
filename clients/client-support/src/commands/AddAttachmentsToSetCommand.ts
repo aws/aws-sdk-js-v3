@@ -67,6 +67,12 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * };
  * const command = new AddAttachmentsToSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddAttachmentsToSetResponse
+ *   attachmentSetId: "STRING_VALUE",
+ *   expiryTime: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AddAttachmentsToSetCommandInput - {@link AddAttachmentsToSetCommandInput}
@@ -93,6 +99,8 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class AddAttachmentsToSetCommand extends $Command<

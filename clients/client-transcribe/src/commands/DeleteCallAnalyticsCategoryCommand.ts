@@ -48,6 +48,9 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  * };
  * const command = new DeleteCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCallAnalyticsCategoryCommandInput - {@link DeleteCallAnalyticsCategoryCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteCallAnalyticsCategoryCommand extends $Command<

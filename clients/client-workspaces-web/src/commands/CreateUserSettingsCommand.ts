@@ -63,6 +63,11 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserSettingsResponse
+ *   userSettingsArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateUserSettingsCommandInput - {@link CreateUserSettingsCommandInput}
@@ -89,6 +94,8 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateUserSettingsCommand extends $Command<

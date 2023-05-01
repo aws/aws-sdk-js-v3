@@ -52,6 +52,24 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  * };
  * const command = new ListAutomaticTapeCreationPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAutomaticTapeCreationPoliciesOutput
+ *   AutomaticTapeCreationPolicyInfos: [ // AutomaticTapeCreationPolicyInfos
+ *     { // AutomaticTapeCreationPolicyInfo
+ *       AutomaticTapeCreationRules: [ // AutomaticTapeCreationRules
+ *         { // AutomaticTapeCreationRule
+ *           TapeBarcodePrefix: "STRING_VALUE", // required
+ *           PoolId: "STRING_VALUE", // required
+ *           TapeSizeInBytes: Number("long"), // required
+ *           MinimumNumTapes: Number("int"), // required
+ *           Worm: true || false,
+ *         },
+ *       ],
+ *       GatewayARN: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAutomaticTapeCreationPoliciesCommandInput - {@link ListAutomaticTapeCreationPoliciesCommandInput}
@@ -68,6 +86,8 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListAutomaticTapeCreationPoliciesCommand extends $Command<

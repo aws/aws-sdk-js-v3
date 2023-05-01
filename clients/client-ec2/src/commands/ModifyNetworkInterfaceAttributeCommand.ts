@@ -69,6 +69,9 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyNetworkInterfaceAttributeCommandInput - {@link ModifyNetworkInterfaceAttributeCommandInput}
@@ -77,6 +80,8 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * @see {@link ModifyNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To modify the attachment attribute of a network interface
  * ```javascript

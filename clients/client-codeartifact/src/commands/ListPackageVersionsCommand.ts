@@ -58,6 +58,29 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * };
  * const command = new ListPackageVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackageVersionsResult
+ *   defaultDisplayVersion: "STRING_VALUE",
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE",
+ *   versions: [ // PackageVersionSummaryList
+ *     { // PackageVersionSummary
+ *       version: "STRING_VALUE", // required
+ *       revision: "STRING_VALUE",
+ *       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted", // required
+ *       origin: { // PackageVersionOrigin
+ *         domainEntryPoint: { // DomainEntryPoint
+ *           repositoryName: "STRING_VALUE",
+ *           externalConnectionName: "STRING_VALUE",
+ *         },
+ *         originType: "INTERNAL" || "EXTERNAL" || "UNKNOWN",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPackageVersionsCommandInput - {@link ListPackageVersionsCommandInput}
@@ -89,6 +112,8 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class ListPackageVersionsCommand extends $Command<

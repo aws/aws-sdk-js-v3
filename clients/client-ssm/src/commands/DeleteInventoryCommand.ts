@@ -48,6 +48,23 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * };
  * const command = new DeleteInventoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInventoryResult
+ *   DeletionId: "STRING_VALUE",
+ *   TypeName: "STRING_VALUE",
+ *   DeletionSummary: { // InventoryDeletionSummary
+ *     TotalCount: Number("int"),
+ *     RemainingCount: Number("int"),
+ *     SummaryItems: [ // InventoryDeletionSummaryItems
+ *       { // InventoryDeletionSummaryItem
+ *         Version: "STRING_VALUE",
+ *         Count: Number("int"),
+ *         RemainingCount: Number("int"),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteInventoryCommandInput - {@link DeleteInventoryCommandInput}
@@ -72,6 +89,8 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * @throws {@link InvalidTypeNameException} (client fault)
  *  <p>The parameter type name isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteInventoryCommand extends $Command<

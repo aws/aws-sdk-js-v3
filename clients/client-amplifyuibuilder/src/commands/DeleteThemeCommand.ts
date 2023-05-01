@@ -46,6 +46,9 @@ export interface DeleteThemeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteThemeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteThemeCommandInput - {@link DeleteThemeCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteThemeCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource does not exist, or access was denied.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class DeleteThemeCommand extends $Command<

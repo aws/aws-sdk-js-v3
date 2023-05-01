@@ -69,6 +69,9 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * };
  * const command = new ModifyMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyMountTargetSecurityGroupsCommandInput - {@link ModifyMountTargetSecurityGroupsCommandInput}
@@ -100,6 +103,8 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  *  <p>Returned if one of the specified security groups doesn't exist in the subnet's
  *             virtual private cloud (VPC).</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To modify the security groups associated with a mount target for a file system
  * ```javascript

@@ -44,6 +44,37 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  * };
  * const command = new DescribePortalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePortalResponse
+ *   portalId: "STRING_VALUE", // required
+ *   portalArn: "STRING_VALUE", // required
+ *   portalName: "STRING_VALUE", // required
+ *   portalDescription: "STRING_VALUE",
+ *   portalClientId: "STRING_VALUE", // required
+ *   portalStartUrl: "STRING_VALUE", // required
+ *   portalContactEmail: "STRING_VALUE", // required
+ *   portalStatus: { // PortalStatus
+ *     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ *     error: { // MonitorErrorDetails
+ *       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
+ *       message: "STRING_VALUE",
+ *     },
+ *   },
+ *   portalCreationDate: new Date("TIMESTAMP"), // required
+ *   portalLastUpdateDate: new Date("TIMESTAMP"), // required
+ *   portalLogoImageLocation: { // ImageLocation
+ *     id: "STRING_VALUE", // required
+ *     url: "STRING_VALUE", // required
+ *   },
+ *   roleArn: "STRING_VALUE",
+ *   portalAuthMode: "IAM" || "SSO",
+ *   notificationSenderEmail: "STRING_VALUE",
+ *   alarms: { // Alarms
+ *     alarmRoleArn: "STRING_VALUE", // required
+ *     notificationLambdaArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePortalCommandInput - {@link DescribePortalCommandInput}
@@ -68,6 +99,8 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribePortalCommand extends $Command<

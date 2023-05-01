@@ -52,6 +52,12 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAuthorizerResponse
+ *   authorizerName: "STRING_VALUE",
+ *   authorizerArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
@@ -81,6 +87,8 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateAuthorizerCommand extends $Command<

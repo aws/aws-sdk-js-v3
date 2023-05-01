@@ -78,6 +78,9 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
@@ -108,6 +111,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class DeletePolicyCommand extends $Command<

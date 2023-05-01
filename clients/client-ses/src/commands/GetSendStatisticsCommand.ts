@@ -45,6 +45,19 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * const input = {};
  * const command = new GetSendStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSendStatisticsResponse
+ *   SendDataPoints: [ // SendDataPointList
+ *     { // SendDataPoint
+ *       Timestamp: new Date("TIMESTAMP"),
+ *       DeliveryAttempts: Number("long"),
+ *       Bounces: Number("long"),
+ *       Complaints: Number("long"),
+ *       Rejects: Number("long"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSendStatisticsCommandInput - {@link GetSendStatisticsCommandInput}
@@ -53,6 +66,8 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * @see {@link GetSendStatisticsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetSendStatistics
  * ```javascript

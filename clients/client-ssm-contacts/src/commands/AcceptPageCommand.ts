@@ -49,6 +49,9 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * };
  * const command = new AcceptPageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AcceptPageCommandInput - {@link AcceptPageCommandInput}
@@ -73,6 +76,8 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class AcceptPageCommand extends $Command<

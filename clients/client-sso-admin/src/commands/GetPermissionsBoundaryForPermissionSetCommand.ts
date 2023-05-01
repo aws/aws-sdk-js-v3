@@ -54,6 +54,17 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * };
  * const command = new GetPermissionsBoundaryForPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPermissionsBoundaryForPermissionSetResponse
+ *   PermissionsBoundary: { // PermissionsBoundary
+ *     CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
+ *       Name: "STRING_VALUE", // required
+ *       Path: "STRING_VALUE",
+ *     },
+ *     ManagedPolicyArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPermissionsBoundaryForPermissionSetCommandInput - {@link GetPermissionsBoundaryForPermissionSetCommandInput}
@@ -79,6 +90,8 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<

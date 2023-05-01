@@ -45,6 +45,12 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * const input = {};
  * const command = new GetServiceRoleForAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceRoleForAccountResponse
+ *   associatedAt: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetServiceRoleForAccountCommandInput - {@link GetServiceRoleForAccountCommandInput}
@@ -56,6 +62,8 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @throws {@link InternalServerException} (server fault)
  *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetServiceRoleForAccountCommand extends $Command<

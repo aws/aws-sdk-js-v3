@@ -94,6 +94,12 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * };
  * const command = new CreateFlywheelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFlywheelResponse
+ *   FlywheelArn: "STRING_VALUE",
+ *   ActiveModelArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateFlywheelCommandInput - {@link CreateFlywheelCommandInput}
@@ -142,6 +148,8 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateFlywheelCommand extends $Command<

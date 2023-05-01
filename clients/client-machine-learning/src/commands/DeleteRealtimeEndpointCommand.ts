@@ -44,6 +44,17 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * };
  * const command = new DeleteRealtimeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRealtimeEndpointOutput
+ *   MLModelId: "STRING_VALUE",
+ *   RealtimeEndpointInfo: { // RealtimeEndpointInfo
+ *     PeakRequestsPerSecond: Number("int"),
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     EndpointUrl: "STRING_VALUE",
+ *     EndpointStatus: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteRealtimeEndpointCommandInput - {@link DeleteRealtimeEndpointCommandInput}
@@ -61,6 +72,8 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteRealtimeEndpointCommand extends $Command<

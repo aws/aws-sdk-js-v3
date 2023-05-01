@@ -43,6 +43,14 @@ export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdmin
  * const input = {};
  * const command = new GetDelegatedAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDelegatedAdminAccountResponse
+ *   delegatedAdmin: { // DelegatedAdmin
+ *     accountId: "STRING_VALUE",
+ *     relationshipStatus: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDelegatedAdminAccountCommandInput - {@link GetDelegatedAdminAccountCommandInput}
@@ -67,6 +75,8 @@ export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdmin
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class GetDelegatedAdminAccountCommand extends $Command<

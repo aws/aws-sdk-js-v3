@@ -44,6 +44,23 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
  * };
  * const command = new GetBaiduChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBaiduChannelResponse
+ *   BaiduChannelResponse: { // BaiduChannelResponse
+ *     ApplicationId: "STRING_VALUE",
+ *     CreationDate: "STRING_VALUE",
+ *     Credential: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *     HasCredential: true || false,
+ *     Id: "STRING_VALUE",
+ *     IsArchived: true || false,
+ *     LastModifiedBy: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE",
+ *     Platform: "STRING_VALUE", // required
+ *     Version: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBaiduChannelCommandInput - {@link GetBaiduChannelCommandInput}
@@ -73,6 +90,8 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetBaiduChannelCommand extends $Command<

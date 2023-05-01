@@ -82,6 +82,16 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  * };
  * const command = new UpdateBackendAPICommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBackendAPIResponse
+ *   AppId: "STRING_VALUE",
+ *   BackendEnvironmentName: "STRING_VALUE",
+ *   Error: "STRING_VALUE",
+ *   JobId: "STRING_VALUE",
+ *   Operation: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateBackendAPICommandInput - {@link UpdateBackendAPICommandInput}
@@ -102,6 +112,8 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class UpdateBackendAPICommand extends $Command<

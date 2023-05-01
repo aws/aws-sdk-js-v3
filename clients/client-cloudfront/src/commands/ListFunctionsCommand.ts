@@ -53,6 +53,31 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFunctionsResult
+ *   FunctionList: { // FunctionList
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // FunctionSummaryList
+ *       { // FunctionSummary
+ *         Name: "STRING_VALUE", // required
+ *         Status: "STRING_VALUE",
+ *         FunctionConfig: { // FunctionConfig
+ *           Comment: "STRING_VALUE", // required
+ *           Runtime: "cloudfront-js-1.0", // required
+ *         },
+ *         FunctionMetadata: { // FunctionMetadata
+ *           FunctionARN: "STRING_VALUE", // required
+ *           Stage: "DEVELOPMENT" || "LIVE",
+ *           CreatedTime: new Date("TIMESTAMP"),
+ *           LastModifiedTime: new Date("TIMESTAMP"), // required
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
@@ -67,6 +92,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListFunctionsCommand extends $Command<

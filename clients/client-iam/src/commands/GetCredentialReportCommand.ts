@@ -44,6 +44,13 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  * const input = {};
  * const command = new GetCredentialReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCredentialReportResponse
+ *   Content: "BLOB_VALUE",
+ *   ReportFormat: "text/csv",
+ *   GeneratedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetCredentialReportCommandInput - {@link GetCredentialReportCommandInput}
@@ -69,6 +76,8 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetCredentialReportCommand extends $Command<

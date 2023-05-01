@@ -50,6 +50,19 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * };
  * const command = new DescribeAgentVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAgentVersionsResult
+ *   AgentVersions: [ // AgentVersions
+ *     { // AgentVersion
+ *       Version: "STRING_VALUE",
+ *       ConfigurationManager: { // StackConfigurationManager
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAgentVersionsCommandInput - {@link DescribeAgentVersionsCommandInput}
@@ -64,6 +77,8 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeAgentVersionsCommand extends $Command<

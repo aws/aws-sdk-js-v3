@@ -54,6 +54,16 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * };
  * const command = new BacktrackDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterBacktrack
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   BacktrackIdentifier: "STRING_VALUE",
+ *   BacktrackTo: new Date("TIMESTAMP"),
+ *   BacktrackedFrom: new Date("TIMESTAMP"),
+ *   BacktrackRequestCreationTime: new Date("TIMESTAMP"),
+ *   Status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param BacktrackDBClusterCommandInput - {@link BacktrackDBClusterCommandInput}
@@ -69,6 +79,8 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class BacktrackDBClusterCommand extends $Command<

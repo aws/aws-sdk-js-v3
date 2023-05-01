@@ -45,6 +45,13 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * };
  * const command = new DescribeAddonConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAddonConfigurationResponse
+ *   addonName: "STRING_VALUE",
+ *   addonVersion: "STRING_VALUE",
+ *   configurationSchema: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAddonConfigurationCommandInput - {@link DescribeAddonConfigurationCommandInput}
@@ -66,6 +73,8 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class DescribeAddonConfigurationCommand extends $Command<

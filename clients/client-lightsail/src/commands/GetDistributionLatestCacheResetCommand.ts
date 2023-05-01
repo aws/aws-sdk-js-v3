@@ -50,6 +50,12 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * };
  * const command = new GetDistributionLatestCacheResetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDistributionLatestCacheResetResult
+ *   status: "STRING_VALUE",
+ *   createTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetDistributionLatestCacheResetCommandInput - {@link GetDistributionLatestCacheResetCommandInput}
@@ -84,6 +90,8 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetDistributionLatestCacheResetCommand extends $Command<

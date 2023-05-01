@@ -44,6 +44,12 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFlowResponse
+ *   FlowArn: "STRING_VALUE",
+ *   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
+ * };
+ *
  * ```
  *
  * @param DeleteFlowCommandInput - {@link DeleteFlowCommandInput}
@@ -70,6 +76,8 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DeleteFlowCommand extends $Command<

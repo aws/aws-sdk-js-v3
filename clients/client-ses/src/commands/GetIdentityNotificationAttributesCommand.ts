@@ -59,6 +59,21 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * };
  * const command = new GetIdentityNotificationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityNotificationAttributesResponse
+ *   NotificationAttributes: { // NotificationAttributes // required
+ *     "<keys>": { // IdentityNotificationAttributes
+ *       BounceTopic: "STRING_VALUE", // required
+ *       ComplaintTopic: "STRING_VALUE", // required
+ *       DeliveryTopic: "STRING_VALUE", // required
+ *       ForwardingEnabled: true || false, // required
+ *       HeadersInBounceNotificationsEnabled: true || false,
+ *       HeadersInComplaintNotificationsEnabled: true || false,
+ *       HeadersInDeliveryNotificationsEnabled: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityNotificationAttributesCommandInput - {@link GetIdentityNotificationAttributesCommandInput}
@@ -67,6 +82,8 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityNotificationAttributes
  * ```javascript

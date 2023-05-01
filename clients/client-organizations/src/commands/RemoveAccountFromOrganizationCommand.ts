@@ -84,6 +84,9 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * };
  * const command = new RemoveAccountFromOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveAccountFromOrganizationCommandInput - {@link RemoveAccountFromOrganizationCommandInput}
@@ -429,6 +432,8 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To remove an account from an organization as the master account
  * ```javascript

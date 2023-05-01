@@ -49,6 +49,15 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  * };
  * const command = new GetInstanceOnboardingJobStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstanceOnboardingJobStatusResponse
+ *   connectInstanceOnboardingJobStatus: { // InstanceOnboardingJobStatus
+ *     connectInstanceId: "STRING_VALUE", // required
+ *     status: "STRING_VALUE", // required
+ *     failureCode: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInstanceOnboardingJobStatusCommandInput - {@link GetInstanceOnboardingJobStatusCommandInput}
@@ -69,6 +78,8 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class GetInstanceOnboardingJobStatusCommand extends $Command<

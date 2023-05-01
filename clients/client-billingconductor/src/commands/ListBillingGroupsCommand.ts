@@ -59,6 +59,27 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * };
  * const command = new ListBillingGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBillingGroupsOutput
+ *   BillingGroups: [ // BillingGroupList
+ *     { // BillingGroupListElement
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       PrimaryAccountId: "STRING_VALUE",
+ *       ComputationPreference: { // ComputationPreference
+ *         PricingPlanArn: "STRING_VALUE", // required
+ *       },
+ *       Size: Number("long"),
+ *       CreationTime: Number("long"),
+ *       LastModifiedTime: Number("long"),
+ *       Status: "STRING_VALUE",
+ *       StatusReason: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
@@ -86,6 +107,8 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListBillingGroupsCommand extends $Command<

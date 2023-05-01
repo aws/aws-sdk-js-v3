@@ -100,6 +100,11 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * };
  * const command = new StartLabelDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartLabelDetectionResponse
+ *   JobId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartLabelDetectionCommandInput - {@link StartLabelDetectionCommandInput}
@@ -141,6 +146,8 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartLabelDetectionCommand extends $Command<

@@ -233,6 +233,27 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * };
  * const command = new PutPipelineDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutPipelineDefinitionOutput
+ *   validationErrors: [ // ValidationErrors
+ *     { // ValidationError
+ *       id: "STRING_VALUE",
+ *       errors: [ // validationMessages
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   validationWarnings: [ // ValidationWarnings
+ *     { // ValidationWarning
+ *       id: "STRING_VALUE",
+ *       warnings: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   errored: true || false, // required
+ * };
+ *
  * ```
  *
  * @param PutPipelineDefinitionCommandInput - {@link PutPipelineDefinitionCommandInput}
@@ -253,6 +274,8 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class PutPipelineDefinitionCommand extends $Command<

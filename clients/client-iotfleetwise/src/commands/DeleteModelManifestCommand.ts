@@ -48,6 +48,12 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  * };
  * const command = new DeleteModelManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteModelManifestResponse
+ *   name: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteModelManifestCommandInput - {@link DeleteModelManifestCommandInput}
@@ -72,6 +78,8 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteModelManifestCommand extends $Command<

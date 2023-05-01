@@ -53,6 +53,12 @@ export interface GetContactReachabilityStatusCommandOutput
  * };
  * const command = new GetContactReachabilityStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContactReachabilityStatusResponse
+ *   domainName: "STRING_VALUE",
+ *   status: "PENDING" || "DONE" || "EXPIRED",
+ * };
+ *
  * ```
  *
  * @param GetContactReachabilityStatusCommandInput - {@link GetContactReachabilityStatusCommandInput}
@@ -74,6 +80,8 @@ export interface GetContactReachabilityStatusCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class GetContactReachabilityStatusCommand extends $Command<

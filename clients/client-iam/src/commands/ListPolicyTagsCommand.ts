@@ -48,6 +48,18 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  * };
  * const command = new ListPolicyTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPolicyTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPolicyTagsCommandInput - {@link ListPolicyTagsCommandInput}
@@ -68,6 +80,8 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListPolicyTagsCommand extends $Command<

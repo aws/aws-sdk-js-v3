@@ -54,6 +54,36 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * };
  * const command = new DescribePackageVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePackageVersionResult
+ *   packageVersion: { // PackageVersionDescription
+ *     format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ *     namespace: "STRING_VALUE",
+ *     packageName: "STRING_VALUE",
+ *     displayName: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *     summary: "STRING_VALUE",
+ *     homePage: "STRING_VALUE",
+ *     sourceCodeRepository: "STRING_VALUE",
+ *     publishedTime: new Date("TIMESTAMP"),
+ *     licenses: [ // LicenseInfoList
+ *       { // LicenseInfo
+ *         name: "STRING_VALUE",
+ *         url: "STRING_VALUE",
+ *       },
+ *     ],
+ *     revision: "STRING_VALUE",
+ *     status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ *     origin: { // PackageVersionOrigin
+ *       domainEntryPoint: { // DomainEntryPoint
+ *         repositoryName: "STRING_VALUE",
+ *         externalConnectionName: "STRING_VALUE",
+ *       },
+ *       originType: "INTERNAL" || "EXTERNAL" || "UNKNOWN",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePackageVersionCommandInput - {@link DescribePackageVersionCommandInput}
@@ -90,6 +120,8 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DescribePackageVersionCommand extends $Command<

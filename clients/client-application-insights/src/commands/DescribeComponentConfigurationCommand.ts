@@ -54,6 +54,13 @@ export interface DescribeComponentConfigurationCommandOutput
  * };
  * const command = new DescribeComponentConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeComponentConfigurationResponse
+ *   Monitor: true || false,
+ *   Tier: "STRING_VALUE",
+ *   ComponentConfiguration: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeComponentConfigurationCommandInput - {@link DescribeComponentConfigurationCommandInput}
@@ -71,6 +78,8 @@ export interface DescribeComponentConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeComponentConfigurationCommand extends $Command<

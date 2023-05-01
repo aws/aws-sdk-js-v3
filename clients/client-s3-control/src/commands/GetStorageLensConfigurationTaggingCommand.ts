@@ -63,6 +63,16 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  * };
  * const command = new GetStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStorageLensConfigurationTaggingResult
+ *   Tags: [ // StorageLensTags
+ *     { // StorageLensTag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetStorageLensConfigurationTaggingCommandInput - {@link GetStorageLensConfigurationTaggingCommandInput}
@@ -71,6 +81,8 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  * @see {@link GetStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetStorageLensConfigurationTaggingCommand extends $Command<

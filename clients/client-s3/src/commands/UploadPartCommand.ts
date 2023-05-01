@@ -195,6 +195,21 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * };
  * const command = new UploadPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadPartOutput
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   ETag: "STRING_VALUE",
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ *   RequestCharged: "requester",
+ * };
+ *
  * ```
  *
  * @param UploadPartCommandInput - {@link UploadPartCommandInput}
@@ -203,6 +218,8 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To upload a part
  * ```javascript

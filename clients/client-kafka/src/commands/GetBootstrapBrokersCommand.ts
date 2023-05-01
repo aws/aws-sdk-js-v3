@@ -44,6 +44,20 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * };
  * const command = new GetBootstrapBrokersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBootstrapBrokersResponse
+ *   BootstrapBrokerString: "STRING_VALUE",
+ *   BootstrapBrokerStringTls: "STRING_VALUE",
+ *   BootstrapBrokerStringSaslScram: "STRING_VALUE",
+ *   BootstrapBrokerStringSaslIam: "STRING_VALUE",
+ *   BootstrapBrokerStringPublicTls: "STRING_VALUE",
+ *   BootstrapBrokerStringPublicSaslScram: "STRING_VALUE",
+ *   BootstrapBrokerStringPublicSaslIam: "STRING_VALUE",
+ *   BootstrapBrokerStringVpcConnectivityTls: "STRING_VALUE",
+ *   BootstrapBrokerStringVpcConnectivitySaslScram: "STRING_VALUE",
+ *   BootstrapBrokerStringVpcConnectivitySaslIam: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetBootstrapBrokersCommandInput - {@link GetBootstrapBrokersCommandInput}
@@ -67,6 +81,8 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class GetBootstrapBrokersCommand extends $Command<

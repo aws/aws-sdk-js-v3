@@ -67,6 +67,11 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * };
  * const command = new CreateApplicationPresignedUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationPresignedUrlResponse
+ *   AuthorizedUrl: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateApplicationPresignedUrlCommandInput - {@link CreateApplicationPresignedUrlCommandInput}
@@ -84,6 +89,8 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class CreateApplicationPresignedUrlCommand extends $Command<

@@ -50,6 +50,11 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  * };
  * const command = new StopModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopModelResponse
+ *   Status: "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING",
+ * };
+ *
  * ```
  *
  * @param StopModelCommandInput - {@link StopModelCommandInput}
@@ -77,6 +82,8 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class StopModelCommand extends $Command<

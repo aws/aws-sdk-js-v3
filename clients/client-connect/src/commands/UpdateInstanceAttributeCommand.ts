@@ -47,6 +47,9 @@ export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new UpdateInstanceAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateInstanceAttributeCommandInput - {@link UpdateInstanceAttributeCommandInput}
@@ -70,6 +73,8 @@ export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateInstanceAttributeCommand extends $Command<

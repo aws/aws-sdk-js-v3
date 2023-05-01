@@ -108,6 +108,25 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * };
  * const command = new AddLFTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddLFTagsToResourceResponse
+ *   Failures: [ // LFTagErrors
+ *     { // LFTagError
+ *       LFTag: { // LFTagPair
+ *         CatalogId: "STRING_VALUE",
+ *         TagKey: "STRING_VALUE", // required
+ *         TagValues: [ // TagValueList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Error: { // ErrorDetail
+ *         ErrorCode: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddLFTagsToResourceCommandInput - {@link AddLFTagsToResourceCommandInput}
@@ -134,6 +153,8 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class AddLFTagsToResourceCommand extends $Command<

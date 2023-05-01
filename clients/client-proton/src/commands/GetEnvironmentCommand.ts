@@ -44,6 +44,36 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEnvironmentOutput
+ *   environment: { // Environment
+ *     name: "STRING_VALUE", // required
+ *     description: "STRING_VALUE",
+ *     createdAt: new Date("TIMESTAMP"), // required
+ *     lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
+ *     lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ *     arn: "STRING_VALUE", // required
+ *     templateName: "STRING_VALUE", // required
+ *     templateMajorVersion: "STRING_VALUE", // required
+ *     templateMinorVersion: "STRING_VALUE", // required
+ *     deploymentStatus: "STRING_VALUE", // required
+ *     deploymentStatusMessage: "STRING_VALUE",
+ *     protonServiceRoleArn: "STRING_VALUE",
+ *     environmentAccountConnectionId: "STRING_VALUE",
+ *     environmentAccountId: "STRING_VALUE",
+ *     spec: "STRING_VALUE",
+ *     provisioning: "STRING_VALUE",
+ *     provisioningRepository: { // RepositoryBranch
+ *       arn: "STRING_VALUE", // required
+ *       provider: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       branch: "STRING_VALUE", // required
+ *     },
+ *     componentRoleArn: "STRING_VALUE",
+ *     codebuildRoleArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
@@ -67,6 +97,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetEnvironmentCommand extends $Command<

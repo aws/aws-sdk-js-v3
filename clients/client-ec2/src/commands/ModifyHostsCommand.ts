@@ -59,6 +59,22 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * };
  * const command = new ModifyHostsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyHostsResult
+ *   Successful: [ // ResponseHostIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Unsuccessful: [ // UnsuccessfulItemList
+ *     { // UnsuccessfulItem
+ *       Error: { // UnsuccessfulItemError
+ *         Code: "STRING_VALUE",
+ *         Message: "STRING_VALUE",
+ *       },
+ *       ResourceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyHostsCommandInput - {@link ModifyHostsCommandInput}
@@ -67,6 +83,8 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * @see {@link ModifyHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyHostsCommand extends $Command<

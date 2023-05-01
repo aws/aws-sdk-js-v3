@@ -49,6 +49,22 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  * };
  * const command = new CreatePublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePublicKeyResult
+ *   PublicKey: { // PublicKey
+ *     Id: "STRING_VALUE", // required
+ *     CreatedTime: new Date("TIMESTAMP"), // required
+ *     PublicKeyConfig: { // PublicKeyConfig
+ *       CallerReference: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       EncodedKey: "STRING_VALUE", // required
+ *       Comment: "STRING_VALUE",
+ *     },
+ *   },
+ *   Location: "STRING_VALUE",
+ *   ETag: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreatePublicKeyCommandInput - {@link CreatePublicKeyCommandInput}
@@ -67,6 +83,8 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  *  <p>The maximum number of public keys for field-level encryption have been created. To
  * 			create a new public key, delete one of the existing keys.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreatePublicKeyCommand extends $Command<

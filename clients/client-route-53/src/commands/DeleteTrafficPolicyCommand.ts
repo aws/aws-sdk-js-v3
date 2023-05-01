@@ -61,6 +61,9 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * };
  * const command = new DeleteTrafficPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTrafficPolicyCommandInput - {@link DeleteTrafficPolicyCommandInput}
@@ -83,6 +86,8 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  *  <p>One or more traffic policy instances were created by using the specified traffic
  * 			policy.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteTrafficPolicyCommand extends $Command<

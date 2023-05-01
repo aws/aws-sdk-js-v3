@@ -57,6 +57,17 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * };
  * const command = new ConfigureHealthCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureHealthCheckOutput
+ *   HealthCheck: { // HealthCheck
+ *     Target: "STRING_VALUE", // required
+ *     Interval: Number("int"), // required
+ *     Timeout: Number("int"), // required
+ *     UnhealthyThreshold: Number("int"), // required
+ *     HealthyThreshold: Number("int"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param ConfigureHealthCheckCommandInput - {@link ConfigureHealthCheckCommandInput}
@@ -68,6 +79,8 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To specify the health check settings for your backend EC2 instances
  * ```javascript

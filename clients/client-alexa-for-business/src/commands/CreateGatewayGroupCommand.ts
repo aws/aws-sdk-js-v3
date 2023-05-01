@@ -52,6 +52,11 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * };
  * const command = new CreateGatewayGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGatewayGroupResponse
+ *   GatewayGroupArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateGatewayGroupCommandInput - {@link CreateGatewayGroupCommandInput}
@@ -66,6 +71,8 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateGatewayGroupCommand extends $Command<

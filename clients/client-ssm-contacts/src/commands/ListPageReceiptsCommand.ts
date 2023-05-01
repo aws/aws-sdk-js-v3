@@ -46,6 +46,19 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  * };
  * const command = new ListPageReceiptsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPageReceiptsResult
+ *   NextToken: "STRING_VALUE",
+ *   Receipts: [ // ReceiptsList
+ *     { // Receipt
+ *       ContactChannelArn: "STRING_VALUE",
+ *       ReceiptType: "DELIVERED" || "ERROR" || "READ" || "SENT" || "STOP", // required
+ *       ReceiptInfo: "STRING_VALUE",
+ *       ReceiptTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPageReceiptsCommandInput - {@link ListPageReceiptsCommandInput}
@@ -70,6 +83,8 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListPageReceiptsCommand extends $Command<

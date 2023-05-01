@@ -57,6 +57,14 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * };
  * const command = new GetRateBasedRuleManagedKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRateBasedRuleManagedKeysResponse
+ *   ManagedKeys: [ // ManagedKeys
+ *     "STRING_VALUE",
+ *   ],
+ *   NextMarker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetRateBasedRuleManagedKeysCommandInput - {@link GetRateBasedRuleManagedKeysCommandInput}
@@ -114,6 +122,8 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetRateBasedRuleManagedKeysCommand extends $Command<

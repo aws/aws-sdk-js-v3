@@ -44,6 +44,17 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * const input = {};
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourcePolicyResponse
+ *   ResourcePolicy: { // ResourcePolicy
+ *     ResourcePolicySummary: { // ResourcePolicySummary
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *     },
+ *     Content: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
@@ -277,6 +288,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<

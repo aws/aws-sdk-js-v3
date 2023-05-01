@@ -57,6 +57,9 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  * };
  * const command = new UpdateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStreamCommandInput - {@link UpdateStreamCommandInput}
@@ -103,6 +106,8 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateStreamCommand extends $Command<

@@ -45,6 +45,19 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * };
  * const command = new GetTrustStoreCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrustStoreCertificateResponse
+ *   trustStoreArn: "STRING_VALUE",
+ *   certificate: { // Certificate
+ *     thumbprint: "STRING_VALUE",
+ *     subject: "STRING_VALUE",
+ *     issuer: "STRING_VALUE",
+ *     notValidBefore: new Date("TIMESTAMP"),
+ *     notValidAfter: new Date("TIMESTAMP"),
+ *     body: "BLOB_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTrustStoreCertificateCommandInput - {@link GetTrustStoreCertificateCommandInput}
@@ -68,6 +81,8 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetTrustStoreCertificateCommand extends $Command<

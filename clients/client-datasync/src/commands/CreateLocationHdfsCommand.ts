@@ -71,6 +71,11 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * };
  * const command = new CreateLocationHdfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationHdfsResponse
+ *   LocationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLocationHdfsCommandInput - {@link CreateLocationHdfsCommandInput}
@@ -86,6 +91,8 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationHdfsCommand extends $Command<

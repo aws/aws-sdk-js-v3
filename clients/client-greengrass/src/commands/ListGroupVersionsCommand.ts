@@ -46,6 +46,19 @@ export interface ListGroupVersionsCommandOutput extends ListGroupVersionsRespons
  * };
  * const command = new ListGroupVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupVersionsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Versions: [ // __listOfVersionInformation
+ *     { // VersionInformation
+ *       Arn: "STRING_VALUE",
+ *       CreationTimestamp: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListGroupVersionsCommandInput - {@link ListGroupVersionsCommandInput}
@@ -57,6 +70,8 @@ export interface ListGroupVersionsCommandOutput extends ListGroupVersionsRespons
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListGroupVersionsCommand extends $Command<

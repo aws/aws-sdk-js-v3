@@ -48,6 +48,9 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachInternetGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachInternetGatewayCommandInput - {@link DetachInternetGatewayCommandInput}
@@ -56,6 +59,8 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link DetachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To detach an Internet gateway from a VPC
  * ```javascript

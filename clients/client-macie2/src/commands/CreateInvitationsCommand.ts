@@ -48,6 +48,17 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * };
  * const command = new CreateInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInvitationsResponse
+ *   unprocessedAccounts: [ // __listOfUnprocessedAccount
+ *     { // UnprocessedAccount
+ *       accountId: "STRING_VALUE",
+ *       errorCode: "ClientError" || "InternalError",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateInvitationsCommandInput - {@link CreateInvitationsCommandInput}
@@ -77,6 +88,8 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateInvitationsCommand extends $Command<

@@ -60,6 +60,9 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * };
  * const command = new VerifyUserAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param VerifyUserAttributeCommandInput - {@link VerifyUserAttributeCommandInput}
@@ -116,6 +119,8 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class VerifyUserAttributeCommand extends $Command<

@@ -111,6 +111,14 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateJobTemplateResponse
+ *   id: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateJobTemplateCommandInput - {@link CreateJobTemplateCommandInput}
@@ -128,6 +136,8 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class CreateJobTemplateCommand extends $Command<

@@ -54,6 +54,27 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  * };
  * const command = new BatchGetNamedQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetNamedQueryOutput
+ *   NamedQueries: [ // NamedQueryList
+ *     { // NamedQuery
+ *       Name: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       Database: "STRING_VALUE", // required
+ *       QueryString: "STRING_VALUE", // required
+ *       NamedQueryId: "STRING_VALUE",
+ *       WorkGroup: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UnprocessedNamedQueryIds: [ // UnprocessedNamedQueryIdList
+ *     { // UnprocessedNamedQueryId
+ *       NamedQueryId: "STRING_VALUE",
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetNamedQueryCommandInput - {@link BatchGetNamedQueryCommandInput}
@@ -70,6 +91,8 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class BatchGetNamedQueryCommand extends $Command<

@@ -60,6 +60,45 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  * };
  * const command = new GetAccuracyMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccuracyMetricsResponse
+ *   PredictorEvaluationResults: [ // PredictorEvaluationResults
+ *     { // EvaluationResult
+ *       AlgorithmArn: "STRING_VALUE",
+ *       TestWindows: [ // TestWindows
+ *         { // WindowSummary
+ *           TestWindowStart: new Date("TIMESTAMP"),
+ *           TestWindowEnd: new Date("TIMESTAMP"),
+ *           ItemCount: Number("int"),
+ *           EvaluationType: "SUMMARY" || "COMPUTED",
+ *           Metrics: { // Metrics
+ *             RMSE: Number("double"),
+ *             WeightedQuantileLosses: [ // WeightedQuantileLosses
+ *               { // WeightedQuantileLoss
+ *                 Quantile: Number("double"),
+ *                 LossValue: Number("double"),
+ *               },
+ *             ],
+ *             ErrorMetrics: [ // ErrorMetrics
+ *               { // ErrorMetric
+ *                 ForecastType: "STRING_VALUE",
+ *                 WAPE: Number("double"),
+ *                 RMSE: Number("double"),
+ *                 MASE: Number("double"),
+ *                 MAPE: Number("double"),
+ *               },
+ *             ],
+ *             AverageWeightedQuantileLoss: Number("double"),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IsAutoPredictor: true || false,
+ *   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
+ *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ * };
+ *
  * ```
  *
  * @param GetAccuracyMetricsCommandInput - {@link GetAccuracyMetricsCommandInput}
@@ -79,6 +118,8 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class GetAccuracyMetricsCommand extends $Command<

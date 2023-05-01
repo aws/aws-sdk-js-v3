@@ -50,6 +50,13 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * };
  * const command = new DeleteFacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFacesResponse
+ *   DeletedFaces: [ // FaceIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteFacesCommandInput - {@link DeleteFacesCommandInput}
@@ -78,6 +85,8 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To delete a face
  * ```javascript

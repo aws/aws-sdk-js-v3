@@ -53,6 +53,22 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * };
  * const command = new ListModelCardExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelCardExportJobsResponse
+ *   ModelCardExportJobSummaries: [ // ModelCardExportJobSummaryList // required
+ *     { // ModelCardExportJobSummary
+ *       ModelCardExportJobName: "STRING_VALUE", // required
+ *       ModelCardExportJobArn: "STRING_VALUE", // required
+ *       Status: "InProgress" || "Completed" || "Failed", // required
+ *       ModelCardName: "STRING_VALUE", // required
+ *       ModelCardVersion: Number("int"), // required
+ *       CreatedAt: new Date("TIMESTAMP"), // required
+ *       LastModifiedAt: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListModelCardExportJobsCommandInput - {@link ListModelCardExportJobsCommandInput}
@@ -61,6 +77,8 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * @see {@link ListModelCardExportJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelCardExportJobsCommand extends $Command<

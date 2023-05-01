@@ -50,6 +50,30 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * };
  * const command = new GetCommandInvocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCommandInvocationResult
+ *   CommandId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   Comment: "STRING_VALUE",
+ *   DocumentName: "STRING_VALUE",
+ *   DocumentVersion: "STRING_VALUE",
+ *   PluginName: "STRING_VALUE",
+ *   ResponseCode: Number("int"),
+ *   ExecutionStartDateTime: "STRING_VALUE",
+ *   ExecutionElapsedTime: "STRING_VALUE",
+ *   ExecutionEndDateTime: "STRING_VALUE",
+ *   Status: "Pending" || "InProgress" || "Delayed" || "Success" || "Cancelled" || "TimedOut" || "Failed" || "Cancelling",
+ *   StatusDetails: "STRING_VALUE",
+ *   StandardOutputContent: "STRING_VALUE",
+ *   StandardOutputUrl: "STRING_VALUE",
+ *   StandardErrorContent: "STRING_VALUE",
+ *   StandardErrorUrl: "STRING_VALUE",
+ *   CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ *     CloudWatchLogGroupName: "STRING_VALUE",
+ *     CloudWatchOutputEnabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCommandInvocationCommandInput - {@link GetCommandInvocationCommandInput}
@@ -91,6 +115,8 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  *  <p>The command ID and managed node ID you specified didn't match any invocations. Verify the
  *    command ID and the managed node ID and try again. </p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetCommandInvocationCommand extends $Command<

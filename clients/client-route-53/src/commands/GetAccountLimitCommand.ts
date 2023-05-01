@@ -52,6 +52,15 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * };
  * const command = new GetAccountLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountLimitResponse
+ *   Limit: { // AccountLimit
+ *     Type: "MAX_HEALTH_CHECKS_BY_OWNER" || "MAX_HOSTED_ZONES_BY_OWNER" || "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER" || "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER" || "MAX_TRAFFIC_POLICIES_BY_OWNER", // required
+ *     Value: Number("long"), // required
+ *   },
+ *   Count: Number("long"), // required
+ * };
+ *
  * ```
  *
  * @param GetAccountLimitCommandInput - {@link GetAccountLimitCommandInput}
@@ -63,6 +72,8 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetAccountLimitCommand extends $Command<

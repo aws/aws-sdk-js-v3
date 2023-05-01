@@ -64,6 +64,28 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * };
  * const command = new DescribeRecommendationExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecommendationExportJobsResponse
+ *   recommendationExportJobs: [ // RecommendationExportJobs
+ *     { // RecommendationExportJob
+ *       jobId: "STRING_VALUE",
+ *       destination: { // ExportDestination
+ *         s3: { // S3Destination
+ *           bucket: "STRING_VALUE",
+ *           key: "STRING_VALUE",
+ *           metadataKey: "STRING_VALUE",
+ *         },
+ *       },
+ *       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService",
+ *       status: "Queued" || "InProgress" || "Complete" || "Failed",
+ *       creationTimestamp: new Date("TIMESTAMP"),
+ *       lastUpdatedTimestamp: new Date("TIMESTAMP"),
+ *       failureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeRecommendationExportJobsCommandInput - {@link DescribeRecommendationExportJobsCommandInput}
@@ -97,6 +119,8 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class DescribeRecommendationExportJobsCommand extends $Command<

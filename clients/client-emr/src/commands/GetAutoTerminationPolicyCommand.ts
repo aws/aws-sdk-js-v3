@@ -44,6 +44,13 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * };
  * const command = new GetAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAutoTerminationPolicyOutput
+ *   AutoTerminationPolicy: { // AutoTerminationPolicy
+ *     IdleTimeout: Number("long"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAutoTerminationPolicyCommandInput - {@link GetAutoTerminationPolicyCommandInput}
@@ -52,6 +59,8 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * @see {@link GetAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class GetAutoTerminationPolicyCommand extends $Command<

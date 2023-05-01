@@ -57,6 +57,30 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * };
  * const command = new DescribeCanariesLastRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCanariesLastRunResponse
+ *   CanariesLastRun: [ // CanariesLastRun
+ *     { // CanaryLastRun
+ *       CanaryName: "STRING_VALUE",
+ *       LastRun: { // CanaryRun
+ *         Id: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *         Status: { // CanaryRunStatus
+ *           State: "STRING_VALUE",
+ *           StateReason: "STRING_VALUE",
+ *           StateReasonCode: "STRING_VALUE",
+ *         },
+ *         Timeline: { // CanaryRunTimeline
+ *           Started: new Date("TIMESTAMP"),
+ *           Completed: new Date("TIMESTAMP"),
+ *         },
+ *         ArtifactS3Location: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeCanariesLastRunCommandInput - {@link DescribeCanariesLastRunCommandInput}
@@ -71,6 +95,8 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class DescribeCanariesLastRunCommand extends $Command<

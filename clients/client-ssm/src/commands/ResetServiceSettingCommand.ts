@@ -58,6 +58,18 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * };
  * const command = new ResetServiceSettingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetServiceSettingResult
+ *   ServiceSetting: { // ServiceSetting
+ *     SettingId: "STRING_VALUE",
+ *     SettingValue: "STRING_VALUE",
+ *     LastModifiedDate: new Date("TIMESTAMP"),
+ *     LastModifiedUser: "STRING_VALUE",
+ *     ARN: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResetServiceSettingCommandInput - {@link ResetServiceSettingCommandInput}
@@ -76,6 +88,8 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ResetServiceSettingCommand extends $Command<

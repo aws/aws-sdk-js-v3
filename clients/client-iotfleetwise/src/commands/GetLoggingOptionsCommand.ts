@@ -42,6 +42,14 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggingOptionsResponse
+ *   cloudWatchLogDelivery: { // CloudWatchLogDeliveryOptions
+ *     logType: "STRING_VALUE", // required
+ *     logGroupName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLoggingOptionsCommandInput - {@link GetLoggingOptionsCommandInput}
@@ -59,6 +67,8 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetLoggingOptionsCommand extends $Command<

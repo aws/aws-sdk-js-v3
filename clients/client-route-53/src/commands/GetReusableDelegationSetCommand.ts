@@ -46,6 +46,17 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * };
  * const command = new GetReusableDelegationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReusableDelegationSetResponse
+ *   DelegationSet: { // DelegationSet
+ *     Id: "STRING_VALUE",
+ *     CallerReference: "STRING_VALUE",
+ *     NameServers: [ // DelegationSetNameServers // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetReusableDelegationSetCommandInput - {@link GetReusableDelegationSetCommandInput}
@@ -63,6 +74,8 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * @throws {@link NoSuchDelegationSet} (client fault)
  *  <p>A reusable delegation set with the specified ID does not exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetReusableDelegationSetCommand extends $Command<

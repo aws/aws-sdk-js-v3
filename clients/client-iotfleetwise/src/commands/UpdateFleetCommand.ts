@@ -49,6 +49,12 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * };
  * const command = new UpdateFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFleetResponse
+ *   id: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateFleetCommandInput - {@link UpdateFleetCommandInput}
@@ -76,6 +82,8 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateFleetCommand extends $Command<

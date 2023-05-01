@@ -77,6 +77,12 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  * };
  * const command = new TransferDomainToAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TransferDomainToAnotherAwsAccountResponse
+ *   OperationId: "STRING_VALUE",
+ *   Password: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param TransferDomainToAnotherAwsAccountCommandInput - {@link TransferDomainToAnotherAwsAccountCommandInput}
@@ -101,6 +107,8 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class TransferDomainToAnotherAwsAccountCommand extends $Command<

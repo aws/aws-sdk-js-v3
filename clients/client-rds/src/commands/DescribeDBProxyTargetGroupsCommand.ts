@@ -57,6 +57,31 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * };
  * const command = new DescribeDBProxyTargetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBProxyTargetGroupsResponse
+ *   TargetGroups: [ // TargetGroupList
+ *     { // DBProxyTargetGroup
+ *       DBProxyName: "STRING_VALUE",
+ *       TargetGroupName: "STRING_VALUE",
+ *       TargetGroupArn: "STRING_VALUE",
+ *       IsDefault: true || false,
+ *       Status: "STRING_VALUE",
+ *       ConnectionPoolConfig: { // ConnectionPoolConfigurationInfo
+ *         MaxConnectionsPercent: Number("int"),
+ *         MaxIdleConnectionsPercent: Number("int"),
+ *         ConnectionBorrowTimeout: Number("int"),
+ *         SessionPinningFilters: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *         InitQuery: "STRING_VALUE",
+ *       },
+ *       CreatedDate: new Date("TIMESTAMP"),
+ *       UpdatedDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDBProxyTargetGroupsCommandInput - {@link DescribeDBProxyTargetGroupsCommandInput}
@@ -74,6 +99,8 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DescribeDBProxyTargetGroupsCommand extends $Command<

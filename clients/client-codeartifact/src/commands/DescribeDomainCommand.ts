@@ -49,6 +49,21 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainResult
+ *   domain: { // DomainDescription
+ *     name: "STRING_VALUE",
+ *     owner: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     status: "Active" || "Deleted",
+ *     createdTime: new Date("TIMESTAMP"),
+ *     encryptionKey: "STRING_VALUE",
+ *     repositoryCount: Number("int"),
+ *     assetSizeBytes: Number("long"),
+ *     s3BucketArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
@@ -80,6 +95,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DescribeDomainCommand extends $Command<

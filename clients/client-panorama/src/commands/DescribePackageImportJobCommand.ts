@@ -44,6 +44,50 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  * };
  * const command = new DescribePackageImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePackageImportJobResponse
+ *   JobId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   JobType: "STRING_VALUE", // required
+ *   InputConfig: { // PackageImportJobInputConfig
+ *     PackageVersionInputConfig: { // PackageVersionInputConfig
+ *       S3Location: { // S3Location
+ *         Region: "STRING_VALUE",
+ *         BucketName: "STRING_VALUE", // required
+ *         ObjectKey: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   OutputConfig: { // PackageImportJobOutputConfig
+ *     PackageVersionOutputConfig: { // PackageVersionOutputConfig
+ *       PackageName: "STRING_VALUE", // required
+ *       PackageVersion: "STRING_VALUE", // required
+ *       MarkLatest: true || false,
+ *     },
+ *   },
+ *   Output: { // PackageImportJobOutput
+ *     PackageId: "STRING_VALUE", // required
+ *     PackageVersion: "STRING_VALUE", // required
+ *     PatchVersion: "STRING_VALUE", // required
+ *     OutputS3Location: { // OutPutS3Location
+ *       BucketName: "STRING_VALUE", // required
+ *       ObjectKey: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   CreatedTime: new Date("TIMESTAMP"), // required
+ *   LastUpdatedTime: new Date("TIMESTAMP"), // required
+ *   Status: "STRING_VALUE", // required
+ *   StatusMessage: "STRING_VALUE", // required
+ *   JobTags: [ // JobTagsList
+ *     { // JobResourceTags
+ *       ResourceType: "STRING_VALUE", // required
+ *       Tags: { // TagMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribePackageImportJobCommandInput - {@link DescribePackageImportJobCommandInput}
@@ -64,6 +108,8 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribePackageImportJobCommand extends $Command<

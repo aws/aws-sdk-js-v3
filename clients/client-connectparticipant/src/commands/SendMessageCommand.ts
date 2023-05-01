@@ -58,6 +58,12 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendMessageResponse
+ *   Id: "STRING_VALUE",
+ *   AbsoluteTime: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendMessageCommandInput - {@link SendMessageCommandInput}
@@ -78,6 +84,8 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class SendMessageCommand extends $Command<

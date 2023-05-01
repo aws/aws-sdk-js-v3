@@ -50,6 +50,20 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * };
  * const command = new DescribeSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSpotDatafeedSubscriptionResult
+ *   SpotDatafeedSubscription: { // SpotDatafeedSubscription
+ *     Bucket: "STRING_VALUE",
+ *     Fault: { // SpotInstanceStateFault
+ *       Code: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *     },
+ *     OwnerId: "STRING_VALUE",
+ *     Prefix: "STRING_VALUE",
+ *     State: "Active" || "Inactive",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSpotDatafeedSubscriptionCommandInput - {@link DescribeSpotDatafeedSubscriptionCommandInput}
@@ -58,6 +72,8 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * @see {@link DescribeSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the datafeed for your AWS account
  * ```javascript

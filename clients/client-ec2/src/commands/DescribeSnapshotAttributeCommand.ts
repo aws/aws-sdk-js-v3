@@ -48,6 +48,23 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * };
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSnapshotAttributeResult
+ *   CreateVolumePermissions: [ // CreateVolumePermissionList
+ *     { // CreateVolumePermission
+ *       Group: "all",
+ *       UserId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ProductCodes: [ // ProductCodeList
+ *     { // ProductCode
+ *       ProductCodeId: "STRING_VALUE",
+ *       ProductCodeType: "devpay" || "marketplace",
+ *     },
+ *   ],
+ *   SnapshotId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotAttributeCommandInput - {@link DescribeSnapshotAttributeCommandInput}
@@ -56,6 +73,8 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * @see {@link DescribeSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe snapshot attributes
  * ```javascript

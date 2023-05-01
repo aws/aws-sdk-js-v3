@@ -50,6 +50,19 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
  * };
  * const command = new ListSignalCatalogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSignalCatalogsResponse
+ *   summaries: [ // signalCatalogSummaries
+ *     { // SignalCatalogSummary
+ *       name: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastModificationTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSignalCatalogsCommandInput - {@link ListSignalCatalogsCommandInput}
@@ -70,6 +83,8 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListSignalCatalogsCommand extends $Command<

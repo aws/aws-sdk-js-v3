@@ -48,6 +48,23 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * };
  * const command = new DescribeReleaseLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReleaseLabelOutput
+ *   ReleaseLabel: "STRING_VALUE",
+ *   Applications: [ // SimplifiedApplicationList
+ *     { // SimplifiedApplication
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   AvailableOSReleases: [ // OSReleaseList
+ *     { // OSRelease
+ *       Label: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReleaseLabelCommandInput - {@link DescribeReleaseLabelCommandInput}
@@ -63,6 +80,8 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeReleaseLabelCommand extends $Command<

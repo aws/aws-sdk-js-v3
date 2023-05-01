@@ -65,6 +65,12 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScriptResponse
+ *   PythonScript: "STRING_VALUE",
+ *   ScalaCode: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
@@ -82,6 +88,8 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateScriptCommand extends $Command<

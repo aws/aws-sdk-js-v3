@@ -45,6 +45,12 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * };
  * const command = new CancelQuantumTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelQuantumTaskResponse
+ *   quantumTaskArn: "STRING_VALUE", // required
+ *   cancellationStatus: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CancelQuantumTaskCommandInput - {@link CancelQuantumTaskCommandInput}
@@ -72,6 +78,8 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CancelQuantumTaskCommand extends $Command<

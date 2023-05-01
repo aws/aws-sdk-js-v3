@@ -82,6 +82,11 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * };
  * const command = new CreateTriggerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTriggerResponse
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateTriggerCommandInput - {@link CreateTriggerCommandInput}
@@ -114,6 +119,8 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateTriggerCommand extends $Command<

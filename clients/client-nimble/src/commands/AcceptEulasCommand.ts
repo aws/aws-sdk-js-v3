@@ -48,6 +48,19 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  * };
  * const command = new AcceptEulasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptEulasResponse
+ *   eulaAcceptances: [ // EulaAcceptanceList
+ *     { // EulaAcceptance
+ *       acceptedAt: new Date("TIMESTAMP"),
+ *       acceptedBy: "STRING_VALUE",
+ *       accepteeId: "STRING_VALUE",
+ *       eulaAcceptanceId: "STRING_VALUE",
+ *       eulaId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AcceptEulasCommandInput - {@link AcceptEulasCommandInput}
@@ -80,6 +93,8 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class AcceptEulasCommand extends $Command<

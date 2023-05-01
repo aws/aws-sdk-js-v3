@@ -46,6 +46,19 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInvitationsResponse
+ *   Invitations: [ // Invitations
+ *     { // Invitation
+ *       AccountId: "STRING_VALUE",
+ *       InvitationId: "STRING_VALUE",
+ *       RelationshipStatus: "STRING_VALUE",
+ *       InvitedAt: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
@@ -60,6 +73,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListInvitationsCommand extends $Command<

@@ -50,6 +50,13 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * };
  * const command = new ListTagsLogGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsLogGroupResponse
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsLogGroupCommandInput - {@link ListTagsLogGroupCommandInput}
@@ -64,6 +71,8 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class ListTagsLogGroupCommand extends $Command<

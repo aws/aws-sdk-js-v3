@@ -48,6 +48,12 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * };
  * const command = new CreateCliTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCliTokenResponse
+ *   CliToken: "STRING_VALUE",
+ *   WebServerHostname: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateCliTokenCommandInput - {@link CreateCliTokenCommandInput}
@@ -59,6 +65,8 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>ResourceNotFoundException: The resource is not available.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class CreateCliTokenCommand extends $Command<

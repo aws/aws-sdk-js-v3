@@ -823,6 +823,11 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWebACLResponse
+ *   NextLockToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateWebACLCommandInput - {@link UpdateWebACLCommandInput}
@@ -913,6 +918,8 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *        for changes to propagate. Verify the resources that you are specifying in your request
  *        parameters and then retry the operation.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class UpdateWebACLCommand extends $Command<

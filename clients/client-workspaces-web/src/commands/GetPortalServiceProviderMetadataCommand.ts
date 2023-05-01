@@ -49,6 +49,12 @@ export interface GetPortalServiceProviderMetadataCommandOutput
  * };
  * const command = new GetPortalServiceProviderMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPortalServiceProviderMetadataResponse
+ *   portalArn: "STRING_VALUE", // required
+ *   serviceProviderSamlMetadata: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetPortalServiceProviderMetadataCommandInput - {@link GetPortalServiceProviderMetadataCommandInput}
@@ -72,6 +78,8 @@ export interface GetPortalServiceProviderMetadataCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetPortalServiceProviderMetadataCommand extends $Command<

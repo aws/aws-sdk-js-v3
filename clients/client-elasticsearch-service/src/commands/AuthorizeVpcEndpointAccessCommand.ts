@@ -49,6 +49,14 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeVpcEndpointAccessResponse
+ *   AuthorizedPrincipal: { // AuthorizedPrincipal
+ *     PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
+ *     Principal: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param AuthorizeVpcEndpointAccessCommandInput - {@link AuthorizeVpcEndpointAccessCommandInput}
@@ -75,6 +83,8 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class AuthorizeVpcEndpointAccessCommand extends $Command<

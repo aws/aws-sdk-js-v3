@@ -46,6 +46,13 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * };
  * const command = new GetBackendAPIModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBackendAPIModelsResponse
+ *   Models: "STRING_VALUE",
+ *   Status: "LATEST" || "STALE",
+ *   ModelIntrospectionSchema: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetBackendAPIModelsCommandInput - {@link GetBackendAPIModelsCommandInput}
@@ -66,6 +73,8 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class GetBackendAPIModelsCommand extends $Command<

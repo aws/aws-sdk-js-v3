@@ -100,6 +100,35 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyLoadBalancerAttributesOutput
+ *   LoadBalancerName: "STRING_VALUE",
+ *   LoadBalancerAttributes: { // LoadBalancerAttributes
+ *     CrossZoneLoadBalancing: { // CrossZoneLoadBalancing
+ *       Enabled: true || false, // required
+ *     },
+ *     AccessLog: { // AccessLog
+ *       Enabled: true || false, // required
+ *       S3BucketName: "STRING_VALUE",
+ *       EmitInterval: Number("int"),
+ *       S3BucketPrefix: "STRING_VALUE",
+ *     },
+ *     ConnectionDraining: { // ConnectionDraining
+ *       Enabled: true || false, // required
+ *       Timeout: Number("int"),
+ *     },
+ *     ConnectionSettings: { // ConnectionSettings
+ *       IdleTimeout: Number("int"), // required
+ *     },
+ *     AdditionalAttributes: [ // AdditionalAttributes
+ *       { // AdditionalAttribute
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
@@ -117,6 +146,8 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @throws {@link LoadBalancerAttributeNotFoundException} (client fault)
  *  <p>The specified load balancer attribute does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To enable cross-zone load balancing
  * ```javascript

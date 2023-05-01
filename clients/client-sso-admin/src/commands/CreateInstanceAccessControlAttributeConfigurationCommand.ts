@@ -71,6 +71,9 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
  * };
  * const command = new CreateInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateInstanceAccessControlAttributeConfigurationCommandInput - {@link CreateInstanceAccessControlAttributeConfigurationCommandInput}
@@ -102,6 +105,8 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class CreateInstanceAccessControlAttributeConfigurationCommand extends $Command<

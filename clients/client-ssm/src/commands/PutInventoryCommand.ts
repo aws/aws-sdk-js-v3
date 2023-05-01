@@ -62,6 +62,11 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * };
  * const command = new PutInventoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutInventoryResult
+ *   Message: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutInventoryCommandInput - {@link PutInventoryCommandInput}
@@ -128,6 +133,8 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  *  <p>Inventory item type schema version has to match supported versions in the service. Check
  *    output of GetInventorySchema to see the available schema version for each type.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutInventoryCommand extends $Command<

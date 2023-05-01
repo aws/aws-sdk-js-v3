@@ -64,6 +64,26 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * };
  * const command = new ListCustomRoutingPortMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomRoutingPortMappingsResponse
+ *   PortMappings: [ // PortMappings
+ *     { // PortMapping
+ *       AcceleratorPort: Number("int"),
+ *       EndpointGroupArn: "STRING_VALUE",
+ *       EndpointId: "STRING_VALUE",
+ *       DestinationSocketAddress: { // SocketAddress
+ *         IpAddress: "STRING_VALUE",
+ *         Port: Number("int"),
+ *       },
+ *       Protocols: [ // CustomRoutingProtocols
+ *         "TCP" || "UDP",
+ *       ],
+ *       DestinationTrafficState: "ALLOW" || "DENY",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCustomRoutingPortMappingsCommandInput - {@link ListCustomRoutingPortMappingsCommandInput}
@@ -87,6 +107,8 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingPortMappingsCommand extends $Command<

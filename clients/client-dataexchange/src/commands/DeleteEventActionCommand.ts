@@ -44,6 +44,9 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEventActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEventActionCommandInput - {@link DeleteEventActionCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class DeleteEventActionCommand extends $Command<

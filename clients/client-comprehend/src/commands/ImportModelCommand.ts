@@ -59,6 +59,11 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  * };
  * const command = new ImportModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportModelResponse
+ *   ModelArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ImportModelCommandInput - {@link ImportModelCommandInput}
@@ -100,6 +105,8 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ImportModelCommand extends $Command<

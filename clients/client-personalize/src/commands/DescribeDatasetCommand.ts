@@ -45,6 +45,20 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetResponse
+ *   dataset: { // Dataset
+ *     name: "STRING_VALUE",
+ *     datasetArn: "STRING_VALUE",
+ *     datasetGroupArn: "STRING_VALUE",
+ *     datasetType: "STRING_VALUE",
+ *     schemaArn: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     creationDateTime: new Date("TIMESTAMP"),
+ *     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -59,6 +73,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

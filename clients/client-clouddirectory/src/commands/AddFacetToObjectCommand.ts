@@ -67,6 +67,9 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  * };
  * const command = new AddFacetToObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddFacetToObjectCommandInput - {@link AddFacetToObjectCommandInput}
@@ -104,6 +107,8 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AddFacetToObjectCommand extends $Command<

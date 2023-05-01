@@ -51,6 +51,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDashboardResponse
+ *   dashboardId: "STRING_VALUE", // required
+ *   dashboardArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateDashboardCommandInput - {@link CreateDashboardCommandInput}
@@ -81,6 +87,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateDashboardCommand extends $Command<

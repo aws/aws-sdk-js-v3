@@ -52,6 +52,23 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * };
  * const command = new AssociateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateNatGatewayAddressResult
+ *   NatGatewayId: "STRING_VALUE",
+ *   NatGatewayAddresses: [ // NatGatewayAddressList
+ *     { // NatGatewayAddress
+ *       AllocationId: "STRING_VALUE",
+ *       NetworkInterfaceId: "STRING_VALUE",
+ *       PrivateIp: "STRING_VALUE",
+ *       PublicIp: "STRING_VALUE",
+ *       AssociationId: "STRING_VALUE",
+ *       IsPrimary: true || false,
+ *       FailureMessage: "STRING_VALUE",
+ *       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociateNatGatewayAddressCommandInput - {@link AssociateNatGatewayAddressCommandInput}
@@ -60,6 +77,8 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * @see {@link AssociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateNatGatewayAddressCommand extends $Command<

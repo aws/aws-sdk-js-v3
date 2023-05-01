@@ -86,6 +86,39 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListObjectsOutput
+ *   IsTruncated: true || false,
+ *   Marker: "STRING_VALUE",
+ *   NextMarker: "STRING_VALUE",
+ *   Contents: [ // ObjectList
+ *     { // Object
+ *       Key: "STRING_VALUE",
+ *       LastModified: new Date("TIMESTAMP"),
+ *       ETag: "STRING_VALUE",
+ *       ChecksumAlgorithm: [ // ChecksumAlgorithmList
+ *         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *       ],
+ *       Size: Number("long"),
+ *       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *       Owner: { // Owner
+ *         DisplayName: "STRING_VALUE",
+ *         ID: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE",
+ *   Prefix: "STRING_VALUE",
+ *   Delimiter: "STRING_VALUE",
+ *   MaxKeys: Number("int"),
+ *   CommonPrefixes: [ // CommonPrefixList
+ *     { // CommonPrefix
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EncodingType: "url",
+ * };
+ *
  * ```
  *
  * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
@@ -97,6 +130,8 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @throws {@link NoSuchBucket} (client fault)
  *  <p>The specified bucket does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To list objects in a bucket
  * ```javascript

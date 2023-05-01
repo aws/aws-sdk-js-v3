@@ -44,6 +44,23 @@ export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRule
  * };
  * const command = new DeleteFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFirewallRuleGroupResponse
+ *   FirewallRuleGroup: { // FirewallRuleGroup
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     RuleCount: Number("int"),
+ *     Status: "COMPLETE" || "DELETING" || "UPDATING",
+ *     StatusMessage: "STRING_VALUE",
+ *     OwnerId: "STRING_VALUE",
+ *     CreatorRequestId: "STRING_VALUE",
+ *     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
+ *     CreationTime: "STRING_VALUE",
+ *     ModificationTime: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteFirewallRuleGroupCommandInput - {@link DeleteFirewallRuleGroupCommandInput}
@@ -73,6 +90,8 @@ export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DeleteFirewallRuleGroupCommand extends $Command<

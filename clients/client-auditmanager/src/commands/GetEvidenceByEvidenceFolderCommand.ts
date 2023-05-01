@@ -53,6 +53,38 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  * };
  * const command = new GetEvidenceByEvidenceFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEvidenceByEvidenceFolderResponse
+ *   evidence: [ // EvidenceList
+ *     { // Evidence
+ *       dataSource: "STRING_VALUE",
+ *       evidenceAwsAccountId: "STRING_VALUE",
+ *       time: new Date("TIMESTAMP"),
+ *       eventSource: "STRING_VALUE",
+ *       eventName: "STRING_VALUE",
+ *       evidenceByType: "STRING_VALUE",
+ *       resourcesIncluded: [ // Resources
+ *         { // Resource
+ *           arn: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *           complianceCheck: "STRING_VALUE",
+ *         },
+ *       ],
+ *       attributes: { // EvidenceAttributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       iamId: "STRING_VALUE",
+ *       complianceCheck: "STRING_VALUE",
+ *       awsOrganization: "STRING_VALUE",
+ *       awsAccountId: "STRING_VALUE",
+ *       evidenceFolderId: "STRING_VALUE",
+ *       id: "STRING_VALUE",
+ *       assessmentReportSelection: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetEvidenceByEvidenceFolderCommandInput - {@link GetEvidenceByEvidenceFolderCommandInput}
@@ -75,6 +107,8 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetEvidenceByEvidenceFolderCommand extends $Command<

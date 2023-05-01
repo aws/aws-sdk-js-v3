@@ -63,6 +63,9 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetQueueAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetQueueAttributesCommandInput - {@link SetQueueAttributesCommandInput}
@@ -74,6 +77,8 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidAttributeName} (client fault)
  *  <p>The specified attribute doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class SetQueueAttributesCommand extends $Command<

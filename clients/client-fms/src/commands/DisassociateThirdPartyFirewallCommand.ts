@@ -49,6 +49,11 @@ export interface DisassociateThirdPartyFirewallCommandOutput
  * };
  * const command = new DisassociateThirdPartyFirewallCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateThirdPartyFirewallResponse
+ *   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
+ * };
+ *
  * ```
  *
  * @param DisassociateThirdPartyFirewallCommandInput - {@link DisassociateThirdPartyFirewallCommandInput}
@@ -74,6 +79,8 @@ export interface DisassociateThirdPartyFirewallCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DisassociateThirdPartyFirewallCommand extends $Command<

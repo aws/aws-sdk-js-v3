@@ -50,6 +50,22 @@ export interface DescribeThingRegistrationTaskCommandOutput
  * };
  * const command = new DescribeThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeThingRegistrationTaskResponse
+ *   taskId: "STRING_VALUE",
+ *   creationDate: new Date("TIMESTAMP"),
+ *   lastModifiedDate: new Date("TIMESTAMP"),
+ *   templateBody: "STRING_VALUE",
+ *   inputFileBucket: "STRING_VALUE",
+ *   inputFileKey: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE",
+ *   status: "InProgress" || "Completed" || "Failed" || "Cancelled" || "Cancelling",
+ *   message: "STRING_VALUE",
+ *   successCount: Number("int"),
+ *   failureCount: Number("int"),
+ *   percentageProgress: Number("int"),
+ * };
+ *
  * ```
  *
  * @param DescribeThingRegistrationTaskCommandInput - {@link DescribeThingRegistrationTaskCommandInput}
@@ -73,6 +89,8 @@ export interface DescribeThingRegistrationTaskCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeThingRegistrationTaskCommand extends $Command<

@@ -47,6 +47,13 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * };
  * const command = new PutBackupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BackupPolicyDescription
+ *   BackupPolicy: { // BackupPolicy
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutBackupPolicyCommandInput - {@link PutBackupPolicyCommandInput}
@@ -72,6 +79,8 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class PutBackupPolicyCommand extends $Command<

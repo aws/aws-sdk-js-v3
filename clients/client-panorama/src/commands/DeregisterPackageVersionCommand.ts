@@ -48,6 +48,9 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * };
  * const command = new DeregisterPackageVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterPackageVersionCommandInput - {@link DeregisterPackageVersionCommandInput}
@@ -71,6 +74,8 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DeregisterPackageVersionCommand extends $Command<

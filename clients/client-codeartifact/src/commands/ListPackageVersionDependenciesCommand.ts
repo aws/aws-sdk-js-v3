@@ -62,6 +62,24 @@ export interface ListPackageVersionDependenciesCommandOutput
  * };
  * const command = new ListPackageVersionDependenciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackageVersionDependenciesResult
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE",
+ *   version: "STRING_VALUE",
+ *   versionRevision: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   dependencies: [ // PackageDependencyList
+ *     { // PackageDependency
+ *       namespace: "STRING_VALUE",
+ *       package: "STRING_VALUE",
+ *       dependencyType: "STRING_VALUE",
+ *       versionRequirement: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPackageVersionDependenciesCommandInput - {@link ListPackageVersionDependenciesCommandInput}
@@ -93,6 +111,8 @@ export interface ListPackageVersionDependenciesCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class ListPackageVersionDependenciesCommand extends $Command<

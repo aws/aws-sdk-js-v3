@@ -46,6 +46,9 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * };
  * const command = new DeleteWebhookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteWebhookCommand extends $Command<

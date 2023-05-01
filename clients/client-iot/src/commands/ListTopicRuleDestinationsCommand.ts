@@ -46,6 +46,33 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
  * };
  * const command = new ListTopicRuleDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTopicRuleDestinationsResponse
+ *   destinationSummaries: [ // TopicRuleDestinationSummaries
+ *     { // TopicRuleDestinationSummary
+ *       arn: "STRING_VALUE",
+ *       status: "ENABLED" || "IN_PROGRESS" || "DISABLED" || "ERROR" || "DELETING",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *       statusReason: "STRING_VALUE",
+ *       httpUrlSummary: { // HttpUrlDestinationSummary
+ *         confirmationUrl: "STRING_VALUE",
+ *       },
+ *       vpcDestinationSummary: { // VpcDestinationSummary
+ *         subnetIds: [ // SubnetIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         securityGroups: [ // SecurityGroupList
+ *           "STRING_VALUE",
+ *         ],
+ *         vpcId: "STRING_VALUE",
+ *         roleArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTopicRuleDestinationsCommandInput - {@link ListTopicRuleDestinationsCommandInput}
@@ -66,6 +93,8 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListTopicRuleDestinationsCommand extends $Command<

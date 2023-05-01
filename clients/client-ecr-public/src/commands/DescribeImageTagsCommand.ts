@@ -47,6 +47,24 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  * };
  * const command = new DescribeImageTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImageTagsResponse
+ *   imageTagDetails: [ // ImageTagDetailList
+ *     { // ImageTagDetail
+ *       imageTag: "STRING_VALUE",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       imageDetail: { // ReferencedImageDetail
+ *         imageDigest: "STRING_VALUE",
+ *         imageSizeInBytes: Number("long"),
+ *         imagePushedAt: new Date("TIMESTAMP"),
+ *         imageManifestMediaType: "STRING_VALUE",
+ *         artifactMediaType: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeImageTagsCommandInput - {@link DescribeImageTagsCommandInput}
@@ -69,6 +87,8 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DescribeImageTagsCommand extends $Command<

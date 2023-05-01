@@ -46,6 +46,18 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  * };
  * const command = new ListPromptsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPromptsResponse
+ *   PromptSummaryList: [ // PromptSummaryList
+ *     { // PromptSummary
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPromptsCommandInput - {@link ListPromptsCommandInput}
@@ -69,6 +81,8 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListPromptsCommand extends $Command<

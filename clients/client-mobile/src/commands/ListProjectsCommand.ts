@@ -47,6 +47,17 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResult
+ *   projects: [ // ProjectSummaries
+ *     { // ProjectSummary
+ *       name: "STRING_VALUE",
+ *       projectId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -84,6 +95,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

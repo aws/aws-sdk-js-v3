@@ -83,6 +83,13 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * };
  * const command = new UpdateProjectVisibilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProjectVisibilityOutput
+ *   projectArn: "STRING_VALUE",
+ *   publicProjectAlias: "STRING_VALUE",
+ *   projectVisibility: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateProjectVisibilityCommandInput - {@link UpdateProjectVisibilityCommandInput}
@@ -97,6 +104,8 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class UpdateProjectVisibilityCommand extends $Command<

@@ -50,6 +50,43 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  * };
  * const command = new GetTemplateStepCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateStepResponse
+ *   id: "STRING_VALUE",
+ *   stepGroupId: "STRING_VALUE",
+ *   templateId: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   stepActionType: "STRING_VALUE",
+ *   creationTime: "STRING_VALUE",
+ *   previous: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   next: [
+ *     "STRING_VALUE",
+ *   ],
+ *   outputs: [ // StepOutputList
+ *     { // StepOutput
+ *       name: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       required: true || false,
+ *     },
+ *   ],
+ *   stepAutomationConfiguration: { // StepAutomationConfiguration
+ *     scriptLocationS3Bucket: "STRING_VALUE",
+ *     scriptLocationS3Key: { // PlatformScriptKey
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     command: { // PlatformCommand
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     runEnvironment: "STRING_VALUE",
+ *     targetType: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTemplateStepCommandInput - {@link GetTemplateStepCommandInput}
@@ -73,6 +110,8 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class GetTemplateStepCommand extends $Command<

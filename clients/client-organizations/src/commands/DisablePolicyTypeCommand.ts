@@ -55,6 +55,21 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  * };
  * const command = new DisablePolicyTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisablePolicyTypeResponse
+ *   Root: { // Root
+ *     Id: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     PolicyTypes: [ // PolicyTypes
+ *       { // PolicyTypeSummary
+ *         Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ *         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisablePolicyTypeCommandInput - {@link DisablePolicyTypeCommandInput}
@@ -407,6 +422,8 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To disable a policy type in a root
  * ```javascript

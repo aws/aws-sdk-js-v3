@@ -47,6 +47,31 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * };
  * const command = new UpdateProfilingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProfilingGroupResponse
+ *   profilingGroup: { // ProfilingGroupDescription
+ *     name: "STRING_VALUE",
+ *     agentOrchestrationConfig: { // AgentOrchestrationConfig
+ *       profilingEnabled: true || false, // required
+ *     },
+ *     arn: "STRING_VALUE",
+ *     createdAt: new Date("TIMESTAMP"),
+ *     updatedAt: new Date("TIMESTAMP"),
+ *     profilingStatus: { // ProfilingStatus
+ *       latestAgentProfileReportedAt: new Date("TIMESTAMP"),
+ *       latestAggregatedProfile: { // AggregatedProfileTime
+ *         start: new Date("TIMESTAMP"),
+ *         period: "STRING_VALUE",
+ *       },
+ *       latestAgentOrchestratedAt: new Date("TIMESTAMP"),
+ *     },
+ *     computePlatform: "STRING_VALUE",
+ *     tags: { // TagsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProfilingGroupCommandInput - {@link UpdateProfilingGroupCommandInput}
@@ -73,6 +98,8 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class UpdateProfilingGroupCommand extends $Command<

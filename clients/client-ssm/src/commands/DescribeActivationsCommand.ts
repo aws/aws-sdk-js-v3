@@ -56,6 +56,30 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * };
  * const command = new DescribeActivationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeActivationsResult
+ *   ActivationList: [ // ActivationList
+ *     { // Activation
+ *       ActivationId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       DefaultInstanceName: "STRING_VALUE",
+ *       IamRole: "STRING_VALUE",
+ *       RegistrationLimit: Number("int"),
+ *       RegistrationsCount: Number("int"),
+ *       ExpirationDate: new Date("TIMESTAMP"),
+ *       Expired: true || false,
+ *       CreatedDate: new Date("TIMESTAMP"),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeActivationsCommandInput - {@link DescribeActivationsCommandInput}
@@ -73,6 +97,8 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeActivationsCommand extends $Command<

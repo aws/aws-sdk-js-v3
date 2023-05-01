@@ -51,6 +51,14 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSessionResponse
+ *   botName: "STRING_VALUE",
+ *   botAlias: "STRING_VALUE",
+ *   userId: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
@@ -78,6 +86,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
  *
+ * @throws {@link LexRuntimeServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
  */
 export class DeleteSessionCommand extends $Command<

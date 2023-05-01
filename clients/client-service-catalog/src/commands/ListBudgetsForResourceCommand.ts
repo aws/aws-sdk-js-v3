@@ -47,6 +47,16 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * };
  * const command = new ListBudgetsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBudgetsForResourceOutput
+ *   Budgets: [ // Budgets
+ *     { // BudgetDetail
+ *       BudgetName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListBudgetsForResourceCommandInput - {@link ListBudgetsForResourceCommandInput}
@@ -61,6 +71,8 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListBudgetsForResourceCommand extends $Command<

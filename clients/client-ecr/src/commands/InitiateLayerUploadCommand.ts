@@ -52,6 +52,12 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * };
  * const command = new InitiateLayerUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitiateLayerUploadResponse
+ *   uploadId: "STRING_VALUE",
+ *   partSize: Number("long"),
+ * };
+ *
  * ```
  *
  * @param InitiateLayerUploadCommandInput - {@link InitiateLayerUploadCommandInput}
@@ -74,6 +80,8 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class InitiateLayerUploadCommand extends $Command<

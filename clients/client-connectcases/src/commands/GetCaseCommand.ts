@@ -51,6 +51,25 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * };
  * const command = new GetCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCaseResponse
+ *   fields: [ // FieldValueList // required
+ *     { // FieldValue
+ *       id: "STRING_VALUE", // required
+ *       value: { // FieldValueUnion Union: only one key present
+ *         stringValue: "STRING_VALUE",
+ *         doubleValue: Number("double"),
+ *         booleanValue: true || false,
+ *       },
+ *     },
+ *   ],
+ *   templateId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCaseCommandInput - {@link GetCaseCommandInput}
@@ -76,6 +95,8 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class GetCaseCommand extends $Command<

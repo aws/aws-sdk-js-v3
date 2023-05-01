@@ -46,6 +46,17 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExportsOutput
+ *   ExportSummaries: [ // ExportSummaries
+ *     { // ExportSummary
+ *       ExportArn: "STRING_VALUE",
+ *       ExportStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListExportsCommandInput - {@link ListExportsCommandInput}
@@ -70,6 +81,8 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListExportsCommand extends $Command<

@@ -62,6 +62,11 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportCertificateResponse
+ *   CertificateId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
@@ -83,6 +88,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ImportCertificateCommand extends $Command<

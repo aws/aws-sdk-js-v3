@@ -49,6 +49,22 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * };
  * const command = new GetCapacityReservationUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCapacityReservationUsageResult
+ *   NextToken: "STRING_VALUE",
+ *   CapacityReservationId: "STRING_VALUE",
+ *   InstanceType: "STRING_VALUE",
+ *   TotalInstanceCount: Number("int"),
+ *   AvailableInstanceCount: Number("int"),
+ *   State: "active" || "expired" || "cancelled" || "pending" || "failed",
+ *   InstanceUsages: [ // InstanceUsageSet
+ *     { // InstanceUsage
+ *       AccountId: "STRING_VALUE",
+ *       UsedInstanceCount: Number("int"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCapacityReservationUsageCommandInput - {@link GetCapacityReservationUsageCommandInput}
@@ -57,6 +73,8 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * @see {@link GetCapacityReservationUsageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetCapacityReservationUsageCommand extends $Command<

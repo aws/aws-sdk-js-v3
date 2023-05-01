@@ -52,6 +52,20 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * };
  * const command = new StartImageScanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartImageScanResponse
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE",
+ *   imageId: { // ImageIdentifier
+ *     imageDigest: "STRING_VALUE",
+ *     imageTag: "STRING_VALUE",
+ *   },
+ *   imageScanStatus: { // ImageScanStatus
+ *     status: "STRING_VALUE",
+ *     description: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartImageScanCommandInput - {@link StartImageScanCommandInput}
@@ -85,6 +99,8 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class StartImageScanCommand extends $Command<

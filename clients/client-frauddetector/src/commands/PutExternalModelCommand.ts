@@ -69,6 +69,9 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * };
  * const command = new PutExternalModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutExternalModelCommandInput - {@link PutExternalModelCommandInput}
@@ -92,6 +95,8 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutExternalModelCommand extends $Command<

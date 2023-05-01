@@ -45,6 +45,25 @@ export interface UpdateVpcLinkCommandOutput extends UpdateVpcLinkResponse, __Met
  * };
  * const command = new UpdateVpcLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVpcLinkResponse
+ *   CreatedDate: new Date("TIMESTAMP"),
+ *   Name: "STRING_VALUE",
+ *   SecurityGroupIds: [ // SecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetIds: [ // SubnetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   VpcLinkId: "STRING_VALUE",
+ *   VpcLinkStatus: "STRING_VALUE",
+ *   VpcLinkStatusMessage: "STRING_VALUE",
+ *   VpcLinkVersion: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateVpcLinkCommandInput - {@link UpdateVpcLinkCommandInput}
@@ -62,6 +81,8 @@ export interface UpdateVpcLinkCommandOutput extends UpdateVpcLinkResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateVpcLinkCommand extends $Command<

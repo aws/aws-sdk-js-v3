@@ -44,6 +44,19 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
  * };
  * const command = new DisassociateSubnetCidrBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateSubnetCidrBlockResult
+ *   Ipv6CidrBlockAssociation: { // SubnetIpv6CidrBlockAssociation
+ *     AssociationId: "STRING_VALUE",
+ *     Ipv6CidrBlock: "STRING_VALUE",
+ *     Ipv6CidrBlockState: { // SubnetCidrBlockState
+ *       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ *       StatusMessage: "STRING_VALUE",
+ *     },
+ *   },
+ *   SubnetId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateSubnetCidrBlockCommandInput - {@link DisassociateSubnetCidrBlockCommandInput}
@@ -52,6 +65,8 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
  * @see {@link DisassociateSubnetCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisassociateSubnetCidrBlockCommand extends $Command<

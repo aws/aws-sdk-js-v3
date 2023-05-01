@@ -48,6 +48,9 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAttendeeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAttendeeCommandInput - {@link DeleteAttendeeCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class DeleteAttendeeCommand extends $Command<

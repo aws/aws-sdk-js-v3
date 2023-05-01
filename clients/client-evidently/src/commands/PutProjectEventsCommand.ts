@@ -52,6 +52,18 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * };
  * const command = new PutProjectEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutProjectEventsResponse
+ *   failedEventCount: Number("int"),
+ *   eventResults: [ // PutProjectEventsResultEntryList
+ *     { // PutProjectEventsResultEntry
+ *       eventId: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutProjectEventsCommandInput - {@link PutProjectEventsCommandInput}
@@ -72,6 +84,8 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class PutProjectEventsCommand extends $Command<

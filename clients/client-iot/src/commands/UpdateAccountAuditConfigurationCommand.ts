@@ -64,6 +64,9 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * };
  * const command = new UpdateAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccountAuditConfigurationCommandInput - {@link UpdateAccountAuditConfigurationCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateAccountAuditConfigurationCommand extends $Command<

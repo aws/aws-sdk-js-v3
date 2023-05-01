@@ -48,6 +48,29 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  * };
  * const command = new DescribeSuggestersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSuggestersResponse
+ *   Suggesters: [ // SuggesterStatusList // required
+ *     { // SuggesterStatus
+ *       Options: { // Suggester
+ *         SuggesterName: "STRING_VALUE", // required
+ *         DocumentSuggesterOptions: { // DocumentSuggesterOptions
+ *           SourceField: "STRING_VALUE", // required
+ *           FuzzyMatching: "STRING_VALUE",
+ *           SortExpression: "STRING_VALUE",
+ *         },
+ *       },
+ *       Status: { // OptionStatus
+ *         CreationDate: new Date("TIMESTAMP"), // required
+ *         UpdateDate: new Date("TIMESTAMP"), // required
+ *         UpdateVersion: Number("int"),
+ *         State: "STRING_VALUE", // required
+ *         PendingDeletion: true || false,
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSuggestersCommandInput - {@link DescribeSuggestersCommandInput}
@@ -66,6 +89,8 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeSuggestersCommand extends $Command<

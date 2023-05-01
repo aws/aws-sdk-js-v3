@@ -47,6 +47,24 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * };
  * const command = new GetLoadBalancerTlsPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoadBalancerTlsPoliciesResult
+ *   tlsPolicies: [ // LoadBalancerTlsPolicyList
+ *     { // LoadBalancerTlsPolicy
+ *       name: "STRING_VALUE",
+ *       isDefault: true || false,
+ *       description: "STRING_VALUE",
+ *       protocols: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       ciphers: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetLoadBalancerTlsPoliciesCommandInput - {@link GetLoadBalancerTlsPoliciesCommandInput}
@@ -79,6 +97,8 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetLoadBalancerTlsPoliciesCommand extends $Command<

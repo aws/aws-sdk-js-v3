@@ -87,6 +87,9 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * };
  * const command = new UpdateLinkAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLinkAttributesCommandInput - {@link UpdateLinkAttributesCommandInput}
@@ -124,6 +127,8 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpdateLinkAttributesCommand extends $Command<

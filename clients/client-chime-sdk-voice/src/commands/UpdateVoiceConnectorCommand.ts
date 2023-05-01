@@ -46,6 +46,20 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * };
  * const command = new UpdateVoiceConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVoiceConnectorResponse
+ *   VoiceConnector: { // VoiceConnector
+ *     VoiceConnectorId: "STRING_VALUE",
+ *     AwsRegion: "us-east-1" || "us-west-2" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "ap-northeast-2" || "ap-northeast-1" || "ap-southeast-1" || "ap-southeast-2",
+ *     Name: "STRING_VALUE",
+ *     OutboundHostName: "STRING_VALUE",
+ *     RequireEncryption: true || false,
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     VoiceConnectorArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVoiceConnectorCommandInput - {@link UpdateVoiceConnectorCommandInput}
@@ -75,6 +89,8 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateVoiceConnectorCommand extends $Command<

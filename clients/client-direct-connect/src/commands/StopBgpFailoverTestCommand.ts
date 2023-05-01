@@ -44,6 +44,22 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * };
  * const command = new StopBgpFailoverTestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopBgpFailoverTestResponse
+ *   virtualInterfaceTest: { // VirtualInterfaceTestHistory
+ *     testId: "STRING_VALUE",
+ *     virtualInterfaceId: "STRING_VALUE",
+ *     bgpPeers: [ // BGPPeerIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     status: "STRING_VALUE",
+ *     ownerAccount: "STRING_VALUE",
+ *     testDurationInMinutes: Number("int"),
+ *     startTime: new Date("TIMESTAMP"),
+ *     endTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopBgpFailoverTestCommandInput - {@link StopBgpFailoverTestCommandInput}
@@ -58,6 +74,8 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class StopBgpFailoverTestCommand extends $Command<

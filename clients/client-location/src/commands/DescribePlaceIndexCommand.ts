@@ -44,6 +44,23 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  * };
  * const command = new DescribePlaceIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePlaceIndexResponse
+ *   IndexName: "STRING_VALUE", // required
+ *   IndexArn: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   CreateTime: new Date("TIMESTAMP"), // required
+ *   UpdateTime: new Date("TIMESTAMP"), // required
+ *   DataSource: "STRING_VALUE", // required
+ *   DataSourceConfiguration: { // DataSourceConfiguration
+ *     IntendedUse: "STRING_VALUE",
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePlaceIndexCommandInput - {@link DescribePlaceIndexCommandInput}
@@ -68,6 +85,8 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DescribePlaceIndexCommand extends $Command<

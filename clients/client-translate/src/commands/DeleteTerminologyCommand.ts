@@ -44,6 +44,9 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTerminologyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTerminologyCommandInput - {@link DeleteTerminologyCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class DeleteTerminologyCommand extends $Command<

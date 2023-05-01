@@ -45,6 +45,14 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * };
  * const command = new DeleteEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEmailTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEmailTemplateCommandInput - {@link DeleteEmailTemplateCommandInput}
@@ -74,6 +82,8 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteEmailTemplateCommand extends $Command<

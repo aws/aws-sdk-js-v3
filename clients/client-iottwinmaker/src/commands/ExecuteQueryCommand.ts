@@ -48,6 +48,24 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteQueryResponse
+ *   columnDescriptions: [ // ColumnDescriptions
+ *     { // ColumnDescription
+ *       name: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *     },
+ *   ],
+ *   rows: [ // Rows
+ *     { // Row
+ *       rowData: [ // RowData
+ *         "DOCUMENT_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExecuteQueryCommandInput - {@link ExecuteQueryCommandInput}
@@ -74,6 +92,8 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ExecuteQueryCommand extends $Command<

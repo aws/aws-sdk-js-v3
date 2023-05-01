@@ -55,6 +55,28 @@ export interface BatchDetectDominantLanguageCommandOutput
  * };
  * const command = new BatchDetectDominantLanguageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDetectDominantLanguageResponse
+ *   ResultList: [ // ListOfDetectDominantLanguageResult // required
+ *     { // BatchDetectDominantLanguageItemResult
+ *       Index: Number("int"),
+ *       Languages: [ // ListOfDominantLanguages
+ *         { // DominantLanguage
+ *           LanguageCode: "STRING_VALUE",
+ *           Score: Number("float"),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ErrorList: [ // BatchItemErrorList // required
+ *     { // BatchItemError
+ *       Index: Number("int"),
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDetectDominantLanguageCommandInput - {@link BatchDetectDominantLanguageCommandInput}
@@ -76,6 +98,8 @@ export interface BatchDetectDominantLanguageCommandOutput
  * @throws {@link TextSizeLimitExceededException} (client fault)
  *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class BatchDetectDominantLanguageCommand extends $Command<

@@ -47,6 +47,11 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * };
  * const command = new StartSchemaCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSchemaCreationResponse
+ *   status: "PROCESSING" || "ACTIVE" || "DELETING" || "FAILED" || "SUCCESS" || "NOT_APPLICABLE",
+ * };
+ *
  * ```
  *
  * @param StartSchemaCreationCommandInput - {@link StartSchemaCreationCommandInput}
@@ -72,6 +77,8 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class StartSchemaCreationCommand extends $Command<

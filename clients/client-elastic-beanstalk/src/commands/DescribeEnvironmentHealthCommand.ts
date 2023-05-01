@@ -50,6 +50,48 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * };
  * const command = new DescribeEnvironmentHealthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentHealthResult
+ *   EnvironmentName: "STRING_VALUE",
+ *   HealthStatus: "STRING_VALUE",
+ *   Status: "Green" || "Yellow" || "Red" || "Grey",
+ *   Color: "STRING_VALUE",
+ *   Causes: [ // Causes
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplicationMetrics: { // ApplicationMetrics
+ *     Duration: Number("int"),
+ *     RequestCount: Number("int"),
+ *     StatusCodes: { // StatusCodes
+ *       Status2xx: Number("int"),
+ *       Status3xx: Number("int"),
+ *       Status4xx: Number("int"),
+ *       Status5xx: Number("int"),
+ *     },
+ *     Latency: { // Latency
+ *       P999: Number("double"),
+ *       P99: Number("double"),
+ *       P95: Number("double"),
+ *       P90: Number("double"),
+ *       P85: Number("double"),
+ *       P75: Number("double"),
+ *       P50: Number("double"),
+ *       P10: Number("double"),
+ *     },
+ *   },
+ *   InstancesHealth: { // InstanceHealthSummary
+ *     NoData: Number("int"),
+ *     Unknown: Number("int"),
+ *     Pending: Number("int"),
+ *     Ok: Number("int"),
+ *     Info: Number("int"),
+ *     Warning: Number("int"),
+ *     Degraded: Number("int"),
+ *     Severe: Number("int"),
+ *   },
+ *   RefreshedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentHealthCommandInput - {@link DescribeEnvironmentHealthCommandInput}
@@ -65,6 +107,8 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  *  <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view environment health
  * ```javascript

@@ -50,6 +50,17 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  * };
  * const command = new ListTLSInspectionConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTLSInspectionConfigurationsResponse
+ *   NextToken: "STRING_VALUE",
+ *   TLSInspectionConfigurations: [ // TLSInspectionConfigurations
+ *     { // TLSInspectionConfigurationMetadata
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTLSInspectionConfigurationsCommandInput - {@link ListTLSInspectionConfigurationsCommandInput}
@@ -81,6 +92,8 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class ListTLSInspectionConfigurationsCommand extends $Command<

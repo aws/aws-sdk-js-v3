@@ -54,6 +54,9 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
@@ -74,6 +77,8 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateTagsCommand extends $Command<

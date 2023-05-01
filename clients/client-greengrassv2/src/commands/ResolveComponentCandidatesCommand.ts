@@ -72,6 +72,20 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * };
  * const command = new ResolveComponentCandidatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResolveComponentCandidatesResponse
+ *   resolvedComponentVersions: [ // ResolvedComponentVersionsList
+ *     { // ResolvedComponentVersion
+ *       arn: "STRING_VALUE",
+ *       componentName: "STRING_VALUE",
+ *       componentVersion: "STRING_VALUE",
+ *       recipe: "BLOB_VALUE",
+ *       vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
+ *       message: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ResolveComponentCandidatesCommandInput - {@link ResolveComponentCandidatesCommandInput}
@@ -101,6 +115,8 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ResolveComponentCandidatesCommand extends $Command<

@@ -72,6 +72,14 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * };
  * const command = new ListMLTransformsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMLTransformsResponse
+ *   TransformIds: [ // TransformIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMLTransformsCommandInput - {@link ListMLTransformsCommandInput}
@@ -92,6 +100,8 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListMLTransformsCommand extends $Command<

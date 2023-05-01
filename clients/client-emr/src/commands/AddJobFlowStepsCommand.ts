@@ -82,6 +82,13 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  * };
  * const command = new AddJobFlowStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddJobFlowStepsOutput
+ *   StepIds: [ // StepIdsList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddJobFlowStepsCommandInput - {@link AddJobFlowStepsCommandInput}
@@ -94,6 +101,8 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class AddJobFlowStepsCommand extends $Command<

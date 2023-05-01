@@ -54,6 +54,25 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * };
  * const command = new DescribeFleetHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetHistoryResult
+ *   HistoryRecords: [ // HistoryRecordSet
+ *     { // HistoryRecordEntry
+ *       EventInformation: { // EventInformation
+ *         EventDescription: "STRING_VALUE",
+ *         EventSubType: "STRING_VALUE",
+ *         InstanceId: "STRING_VALUE",
+ *       },
+ *       EventType: "instance-change" || "fleet-change" || "service-error",
+ *       Timestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   LastEvaluatedTime: new Date("TIMESTAMP"),
+ *   NextToken: "STRING_VALUE",
+ *   FleetId: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeFleetHistoryCommandInput - {@link DescribeFleetHistoryCommandInput}
@@ -62,6 +81,8 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * @see {@link DescribeFleetHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFleetHistoryCommand extends $Command<

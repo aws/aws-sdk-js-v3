@@ -48,6 +48,9 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * };
  * const command = new StopSimulationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopSimulationCommandInput - {@link StopSimulationCommandInput}
@@ -71,6 +74,8 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StopSimulationCommand extends $Command<

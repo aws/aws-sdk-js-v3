@@ -45,6 +45,9 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
@@ -65,6 +68,8 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class DisassociateResourceCommand extends $Command<

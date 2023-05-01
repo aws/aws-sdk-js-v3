@@ -49,6 +49,20 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * };
  * const command = new ListSpacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSpacesResponse
+ *   Spaces: [ // SpaceList
+ *     { // SpaceDetails
+ *       DomainId: "STRING_VALUE",
+ *       SpaceName: "STRING_VALUE",
+ *       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSpacesCommandInput - {@link ListSpacesCommandInput}
@@ -57,6 +71,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @see {@link ListSpacesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListSpacesCommand extends $Command<

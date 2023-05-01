@@ -55,6 +55,9 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * };
  * const command = new HeadBucketCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param HeadBucketCommandInput - {@link HeadBucketCommandInput}
@@ -66,6 +69,8 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFound} (client fault)
  *  <p>The specified content does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To determine if bucket exists
  * ```javascript

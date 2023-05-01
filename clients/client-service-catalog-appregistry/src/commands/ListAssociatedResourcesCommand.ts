@@ -70,6 +70,21 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * };
  * const command = new ListAssociatedResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedResourcesResponse
+ *   resources: [ // Resources
+ *     { // ResourceInfo
+ *       name: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE",
+ *       resourceDetails: { // ResourceDetails
+ *         tagValue: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssociatedResourcesCommandInput - {@link ListAssociatedResourcesCommandInput}
@@ -87,6 +102,8 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class ListAssociatedResourcesCommand extends $Command<

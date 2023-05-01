@@ -44,6 +44,9 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * };
  * const command = new DeleteNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNetworkProfileCommandInput - {@link DeleteNetworkProfileCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource in the request is already in use.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteNetworkProfileCommand extends $Command<

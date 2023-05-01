@@ -57,6 +57,20 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * };
  * const command = new CreateComputerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateComputerResult
+ *   Computer: { // Computer
+ *     ComputerId: "STRING_VALUE",
+ *     ComputerName: "STRING_VALUE",
+ *     ComputerAttributes: [ // Attributes
+ *       { // Attribute
+ *         Name: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateComputerCommandInput - {@link CreateComputerCommandInput}
@@ -89,6 +103,8 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateComputerCommand extends $Command<

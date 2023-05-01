@@ -45,6 +45,36 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * };
  * const command = new ListFlowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFlowsResponse
+ *   flows: [ // FlowList
+ *     { // FlowDefinition
+ *       flowArn: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       flowName: "STRING_VALUE",
+ *       flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ *       sourceConnectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
+ *       sourceConnectorLabel: "STRING_VALUE",
+ *       destinationConnectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
+ *       destinationConnectorLabel: "STRING_VALUE",
+ *       triggerType: "Scheduled" || "Event" || "OnDemand",
+ *       createdAt: new Date("TIMESTAMP"),
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *       createdBy: "STRING_VALUE",
+ *       lastUpdatedBy: "STRING_VALUE",
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       lastRunExecutionDetails: { // ExecutionDetails
+ *         mostRecentExecutionMessage: "STRING_VALUE",
+ *         mostRecentExecutionTime: new Date("TIMESTAMP"),
+ *         mostRecentExecutionStatus: "InProgress" || "Successful" || "Error",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListFlowsCommandInput - {@link ListFlowsCommandInput}
@@ -60,6 +90,8 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class ListFlowsCommand extends $Command<

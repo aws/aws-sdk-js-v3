@@ -68,6 +68,11 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIPSetResponse
+ *   NextLockToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
@@ -125,6 +130,8 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class UpdateIPSetCommand extends $Command<

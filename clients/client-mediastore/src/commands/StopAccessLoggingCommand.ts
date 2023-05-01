@@ -44,6 +44,9 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * };
  * const command = new StopAccessLoggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAccessLoggingCommandInput - {@link StopAccessLoggingCommandInput}
@@ -62,6 +65,8 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class StopAccessLoggingCommand extends $Command<

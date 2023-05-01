@@ -70,6 +70,11 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * };
  * const command = new CreateNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNotificationRuleResult
+ *   Arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateNotificationRuleCommandInput - {@link CreateNotificationRuleCommandInput}
@@ -101,6 +106,8 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class CreateNotificationRuleCommand extends $Command<

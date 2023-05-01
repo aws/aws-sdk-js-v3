@@ -57,6 +57,11 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * };
  * const command = new CreateImageVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageVersionResponse
+ *   ImageVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateImageVersionCommandInput - {@link CreateImageVersionCommandInput}
@@ -75,6 +80,8 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateImageVersionCommand extends $Command<

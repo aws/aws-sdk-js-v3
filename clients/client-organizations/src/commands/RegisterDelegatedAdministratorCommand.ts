@@ -56,6 +56,9 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * };
  * const command = new RegisterDelegatedAdministratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterDelegatedAdministratorCommandInput - {@link RegisterDelegatedAdministratorCommandInput}
@@ -403,6 +406,8 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class RegisterDelegatedAdministratorCommand extends $Command<

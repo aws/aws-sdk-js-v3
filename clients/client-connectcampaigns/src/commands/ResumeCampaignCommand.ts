@@ -44,6 +44,9 @@ export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResumeCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResumeCampaignCommandInput - {@link ResumeCampaignCommandInput}
@@ -73,6 +76,8 @@ export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class ResumeCampaignCommand extends $Command<

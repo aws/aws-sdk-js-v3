@@ -53,6 +53,12 @@ export interface SetDefaultPermissionVersionCommandOutput
  * };
  * const command = new SetDefaultPermissionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetDefaultPermissionVersionResponse
+ *   returnValue: true || false,
+ *   clientToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SetDefaultPermissionVersionCommandInput - {@link SetDefaultPermissionVersionCommandInput}
@@ -86,6 +92,8 @@ export interface SetDefaultPermissionVersionCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class SetDefaultPermissionVersionCommand extends $Command<

@@ -52,6 +52,17 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  * };
  * const command = new BatchDeleteTableRowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteTableRowsResult
+ *   workbookCursor: Number("long"), // required
+ *   failedBatchItems: [ // FailedBatchItems
+ *     { // FailedBatchItem
+ *       id: "STRING_VALUE", // required
+ *       errorMessage: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteTableRowsCommandInput - {@link BatchDeleteTableRowsCommandInput}
@@ -86,6 +97,8 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class BatchDeleteTableRowsCommand extends $Command<

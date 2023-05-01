@@ -52,6 +52,32 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * };
  * const command = new ListMetricValuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMetricValuesResponse
+ *   metricDatumList: [ // MetricDatumList
+ *     { // MetricDatum
+ *       timestamp: new Date("TIMESTAMP"),
+ *       value: { // MetricValue
+ *         count: Number("long"),
+ *         cidrs: [ // Cidrs
+ *           "STRING_VALUE",
+ *         ],
+ *         ports: [ // Ports
+ *           Number("int"),
+ *         ],
+ *         number: Number("double"),
+ *         numbers: [ // NumberList
+ *           Number("double"),
+ *         ],
+ *         strings: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMetricValuesCommandInput - {@link ListMetricValuesCommandInput}
@@ -72,6 +98,8 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListMetricValuesCommand extends $Command<

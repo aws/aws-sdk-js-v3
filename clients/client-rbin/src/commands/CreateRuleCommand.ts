@@ -68,6 +68,37 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleResponse
+ *   Identifier: "STRING_VALUE",
+ *   RetentionPeriod: { // RetentionPeriod
+ *     RetentionPeriodValue: Number("int"), // required
+ *     RetentionPeriodUnit: "DAYS", // required
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ *   ResourceTags: [ // ResourceTags
+ *     { // ResourceTag
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Status: "pending" || "available",
+ *   LockConfiguration: { // LockConfiguration
+ *     UnlockDelay: { // UnlockDelay
+ *       UnlockDelayValue: Number("int"), // required
+ *       UnlockDelayUnit: "DAYS", // required
+ *     },
+ *   },
+ *   LockState: "locked" || "pending_unlock" || "unlocked",
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -85,6 +116,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class CreateRuleCommand extends $Command<

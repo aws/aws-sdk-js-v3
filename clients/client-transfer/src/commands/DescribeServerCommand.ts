@@ -48,6 +48,75 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * };
  * const command = new DescribeServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServerResponse
+ *   Server: { // DescribedServer
+ *     Arn: "STRING_VALUE", // required
+ *     Certificate: "STRING_VALUE",
+ *     ProtocolDetails: { // ProtocolDetails
+ *       PassiveIp: "STRING_VALUE",
+ *       TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
+ *       SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
+ *       As2Transports: [ // As2Transports
+ *         "HTTP",
+ *       ],
+ *     },
+ *     Domain: "S3" || "EFS",
+ *     EndpointDetails: { // EndpointDetails
+ *       AddressAllocationIds: [ // AddressAllocationIds
+ *         "STRING_VALUE",
+ *       ],
+ *       SubnetIds: [ // SubnetIds
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcEndpointId: "STRING_VALUE",
+ *       VpcId: "STRING_VALUE",
+ *       SecurityGroupIds: [ // SecurityGroupIds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
+ *     HostKeyFingerprint: "STRING_VALUE",
+ *     IdentityProviderDetails: { // IdentityProviderDetails
+ *       Url: "STRING_VALUE",
+ *       InvocationRole: "STRING_VALUE",
+ *       DirectoryId: "STRING_VALUE",
+ *       Function: "STRING_VALUE",
+ *     },
+ *     IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
+ *     LoggingRole: "STRING_VALUE",
+ *     PostAuthenticationLoginBanner: "STRING_VALUE",
+ *     PreAuthenticationLoginBanner: "STRING_VALUE",
+ *     Protocols: [ // Protocols
+ *       "SFTP" || "FTP" || "FTPS" || "AS2",
+ *     ],
+ *     SecurityPolicyName: "STRING_VALUE",
+ *     ServerId: "STRING_VALUE",
+ *     State: "OFFLINE" || "ONLINE" || "STARTING" || "STOPPING" || "START_FAILED" || "STOP_FAILED",
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     UserCount: Number("int"),
+ *     WorkflowDetails: { // WorkflowDetails
+ *       OnUpload: [ // OnUploadWorkflowDetails
+ *         { // WorkflowDetail
+ *           WorkflowId: "STRING_VALUE", // required
+ *           ExecutionRole: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       OnPartialUpload: [ // OnPartialUploadWorkflowDetails
+ *         {
+ *           WorkflowId: "STRING_VALUE", // required
+ *           ExecutionRole: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeServerCommandInput - {@link DescribeServerCommandInput}
@@ -69,6 +138,8 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeServerCommand extends $Command<

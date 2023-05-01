@@ -171,6 +171,14 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * };
  * const command = new CreateClusterV2Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterV2Response
+ *   ClusterArn: "STRING_VALUE",
+ *   ClusterName: "STRING_VALUE",
+ *   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
+ *   ClusterType: "PROVISIONED" || "SERVERLESS",
+ * };
+ *
  * ```
  *
  * @param CreateClusterV2CommandInput - {@link CreateClusterV2CommandInput}
@@ -200,6 +208,8 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class CreateClusterV2Command extends $Command<

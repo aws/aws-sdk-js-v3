@@ -48,6 +48,21 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * };
  * const command = new ListUserGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserGroupsResponse
+ *   GroupList: [ // GroupList
+ *     { // Group
+ *       Arn: "STRING_VALUE",
+ *       GroupName: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       PrincipalId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Status: Number("int"),
+ * };
+ *
  * ```
  *
  * @param ListUserGroupsCommandInput - {@link ListUserGroupsCommandInput}
@@ -80,6 +95,8 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListUserGroupsCommand extends $Command<

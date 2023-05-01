@@ -70,6 +70,9 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * };
  * const command = new UpdateInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateInstanceAccessControlAttributeConfigurationCommandInput - {@link UpdateInstanceAccessControlAttributeConfigurationCommandInput}
@@ -101,6 +104,8 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $Command<

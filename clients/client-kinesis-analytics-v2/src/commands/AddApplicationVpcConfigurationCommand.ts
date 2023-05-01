@@ -74,6 +74,22 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * };
  * const command = new AddApplicationVpcConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationVpcConfigurationResponse
+ *   ApplicationARN: "STRING_VALUE",
+ *   ApplicationVersionId: Number("long"),
+ *   VpcConfigurationDescription: { // VpcConfigurationDescription
+ *     VpcConfigurationId: "STRING_VALUE", // required
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddApplicationVpcConfigurationCommandInput - {@link AddApplicationVpcConfigurationCommandInput}
@@ -99,6 +115,8 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationVpcConfigurationCommand extends $Command<

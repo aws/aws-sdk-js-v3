@@ -90,6 +90,9 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * };
  * const command = new SubscribeToDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SubscribeToDatasetCommandInput - {@link SubscribeToDatasetCommandInput}
@@ -120,6 +123,8 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class SubscribeToDatasetCommand extends $Command<

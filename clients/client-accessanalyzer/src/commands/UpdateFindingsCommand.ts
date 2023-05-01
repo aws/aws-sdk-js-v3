@@ -50,6 +50,9 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class UpdateFindingsCommand extends $Command<

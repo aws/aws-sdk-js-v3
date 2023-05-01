@@ -63,6 +63,67 @@ export interface DescribeBudgetActionHistoriesCommandOutput
  * };
  * const command = new DescribeBudgetActionHistoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBudgetActionHistoriesResponse
+ *   ActionHistories: [ // ActionHistories // required
+ *     { // ActionHistory
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       Status: "STRING_VALUE", // required
+ *       EventType: "STRING_VALUE", // required
+ *       ActionHistoryDetails: { // ActionHistoryDetails
+ *         Message: "STRING_VALUE", // required
+ *         Action: { // Action
+ *           ActionId: "STRING_VALUE", // required
+ *           BudgetName: "STRING_VALUE", // required
+ *           NotificationType: "STRING_VALUE", // required
+ *           ActionType: "STRING_VALUE", // required
+ *           ActionThreshold: { // ActionThreshold
+ *             ActionThresholdValue: Number("double"), // required
+ *             ActionThresholdType: "STRING_VALUE", // required
+ *           },
+ *           Definition: { // Definition
+ *             IamActionDefinition: { // IamActionDefinition
+ *               PolicyArn: "STRING_VALUE", // required
+ *               Roles: [ // Roles
+ *                 "STRING_VALUE",
+ *               ],
+ *               Groups: [ // Groups
+ *                 "STRING_VALUE",
+ *               ],
+ *               Users: [ // Users
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             ScpActionDefinition: { // ScpActionDefinition
+ *               PolicyId: "STRING_VALUE", // required
+ *               TargetIds: [ // TargetIds // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             SsmActionDefinition: { // SsmActionDefinition
+ *               ActionSubType: "STRING_VALUE", // required
+ *               Region: "STRING_VALUE", // required
+ *               InstanceIds: [ // InstanceIds // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           },
+ *           ExecutionRoleArn: "STRING_VALUE", // required
+ *           ApprovalModel: "STRING_VALUE", // required
+ *           Status: "STRING_VALUE", // required
+ *           Subscribers: [ // Subscribers // required
+ *             { // Subscriber
+ *               SubscriptionType: "STRING_VALUE", // required
+ *               Address: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeBudgetActionHistoriesCommandInput - {@link DescribeBudgetActionHistoriesCommandInput}
@@ -91,6 +152,8 @@ export interface DescribeBudgetActionHistoriesCommandOutput
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeBudgetActionHistoriesCommand extends $Command<

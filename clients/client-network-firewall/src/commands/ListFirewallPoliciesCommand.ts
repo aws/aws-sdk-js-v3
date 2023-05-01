@@ -47,6 +47,17 @@ export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesR
  * };
  * const command = new ListFirewallPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFirewallPoliciesResponse
+ *   NextToken: "STRING_VALUE",
+ *   FirewallPolicies: [ // FirewallPolicies
+ *     { // FirewallPolicyMetadata
+ *       Name: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFirewallPoliciesCommandInput - {@link ListFirewallPoliciesCommandInput}
@@ -78,6 +89,8 @@ export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class ListFirewallPoliciesCommand extends $Command<

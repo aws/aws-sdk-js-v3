@@ -52,6 +52,11 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * };
  * const command = new DescribeDetectorModelAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDetectorModelAnalysisResponse
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDetectorModelAnalysisCommandInput - {@link DescribeDetectorModelAnalysisCommandInput}
@@ -75,6 +80,8 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DescribeDetectorModelAnalysisCommand extends $Command<

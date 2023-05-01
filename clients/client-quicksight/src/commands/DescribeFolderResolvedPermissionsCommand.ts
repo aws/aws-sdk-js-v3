@@ -53,6 +53,22 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * };
  * const command = new DescribeFolderResolvedPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFolderResolvedPermissionsResponse
+ *   Status: Number("int"),
+ *   FolderId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // ActionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeFolderResolvedPermissionsCommandInput - {@link DescribeFolderResolvedPermissionsCommandInput}
@@ -85,6 +101,8 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeFolderResolvedPermissionsCommand extends $Command<

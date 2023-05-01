@@ -46,6 +46,25 @@ export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefini
  * };
  * const command = new GetLoggerDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggerDefinitionVersionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Definition: { // LoggerDefinitionVersion
+ *     Loggers: [ // __listOfLogger
+ *       { // Logger
+ *         Component: "GreengrassSystem" || "Lambda", // required
+ *         Id: "STRING_VALUE", // required
+ *         Level: "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL", // required
+ *         Space: Number("int"),
+ *         Type: "FileSystem" || "AWSCloudWatch", // required
+ *       },
+ *     ],
+ *   },
+ *   Id: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetLoggerDefinitionVersionCommandInput - {@link GetLoggerDefinitionVersionCommandInput}
@@ -57,6 +76,8 @@ export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefini
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetLoggerDefinitionVersionCommand extends $Command<

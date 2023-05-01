@@ -52,6 +52,14 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * };
  * const command = new DescribeInterconnectLoaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInterconnectLoaResponse
+ *   loa: { // Loa
+ *     loaContent: "BLOB_VALUE",
+ *     loaContentType: "application/pdf",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeInterconnectLoaCommandInput - {@link DescribeInterconnectLoaCommandInput}
@@ -66,6 +74,8 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeInterconnectLoaCommand extends $Command<

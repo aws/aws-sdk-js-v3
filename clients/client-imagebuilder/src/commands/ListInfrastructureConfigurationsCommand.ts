@@ -58,6 +58,31 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * };
  * const command = new ListInfrastructureConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInfrastructureConfigurationsResponse
+ *   requestId: "STRING_VALUE",
+ *   infrastructureConfigurationSummaryList: [ // InfrastructureConfigurationSummaryList
+ *     { // InfrastructureConfigurationSummary
+ *       arn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       dateCreated: "STRING_VALUE",
+ *       dateUpdated: "STRING_VALUE",
+ *       resourceTags: { // ResourceTagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       instanceTypes: [ // InstanceTypeList
+ *         "STRING_VALUE",
+ *       ],
+ *       instanceProfileName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListInfrastructureConfigurationsCommandInput - {@link ListInfrastructureConfigurationsCommandInput}
@@ -90,6 +115,8 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListInfrastructureConfigurationsCommand extends $Command<

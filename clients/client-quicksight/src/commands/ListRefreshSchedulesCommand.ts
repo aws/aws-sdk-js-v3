@@ -45,6 +45,29 @@ export interface ListRefreshSchedulesCommandOutput extends ListRefreshSchedulesR
  * };
  * const command = new ListRefreshSchedulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRefreshSchedulesResponse
+ *   RefreshSchedules: [ // RefreshSchedules
+ *     { // RefreshSchedule
+ *       ScheduleId: "STRING_VALUE", // required
+ *       ScheduleFrequency: { // RefreshFrequency
+ *         Interval: "MINUTE15" || "MINUTE30" || "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY", // required
+ *         RefreshOnDay: { // ScheduleRefreshOnEntity
+ *           DayOfWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *           DayOfMonth: "STRING_VALUE",
+ *         },
+ *         Timezone: "STRING_VALUE",
+ *         TimeOfTheDay: "STRING_VALUE",
+ *       },
+ *       StartAfterDateTime: new Date("TIMESTAMP"),
+ *       RefreshType: "INCREMENTAL_REFRESH" || "FULL_REFRESH", // required
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRefreshSchedulesCommandInput - {@link ListRefreshSchedulesCommandInput}
@@ -74,6 +97,8 @@ export interface ListRefreshSchedulesCommandOutput extends ListRefreshSchedulesR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListRefreshSchedulesCommand extends $Command<

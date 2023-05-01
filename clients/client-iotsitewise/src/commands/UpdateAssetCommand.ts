@@ -48,6 +48,23 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * };
  * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAssetResponse
+ *   assetStatus: { // AssetStatus
+ *     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ *     error: { // ErrorDetails
+ *       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ *       message: "STRING_VALUE", // required
+ *       details: [ // DetailedErrors
+ *         { // DetailedError
+ *           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ *           message: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAssetCommandInput - {@link UpdateAssetCommandInput}
@@ -79,6 +96,8 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class UpdateAssetCommand extends $Command<

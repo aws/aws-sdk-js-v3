@@ -65,6 +65,11 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * };
  * const command = new CreateConferenceProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConferenceProviderResponse
+ *   ConferenceProviderArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateConferenceProviderCommandInput - {@link CreateConferenceProviderCommandInput}
@@ -76,6 +81,8 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * @throws {@link AlreadyExistsException} (client fault)
  *  <p>The resource being created already exists.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateConferenceProviderCommand extends $Command<

@@ -48,6 +48,40 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * };
  * const command = new BatchGetReportGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetReportGroupsOutput
+ *   reportGroups: [ // ReportGroups
+ *     { // ReportGroup
+ *       arn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *       exportConfig: { // ReportExportConfig
+ *         exportConfigType: "STRING_VALUE",
+ *         s3Destination: { // S3ReportExportConfig
+ *           bucket: "STRING_VALUE",
+ *           bucketOwner: "STRING_VALUE",
+ *           path: "STRING_VALUE",
+ *           packaging: "STRING_VALUE",
+ *           encryptionKey: "STRING_VALUE",
+ *           encryptionDisabled: true || false,
+ *         },
+ *       },
+ *       created: new Date("TIMESTAMP"),
+ *       lastModified: new Date("TIMESTAMP"),
+ *       tags: [ // TagList
+ *         { // Tag
+ *           key: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   reportGroupsNotFound: [ // ReportGroupArns
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetReportGroupsCommandInput - {@link BatchGetReportGroupsCommandInput}
@@ -59,6 +93,8 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class BatchGetReportGroupsCommand extends $Command<

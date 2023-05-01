@@ -44,6 +44,9 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSnapshotCopyGrantCommandInput - {@link DeleteSnapshotCopyGrantCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteSnapshotCopyGrantCommand extends $Command<

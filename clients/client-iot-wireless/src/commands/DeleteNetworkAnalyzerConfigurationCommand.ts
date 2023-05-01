@@ -52,6 +52,9 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
  * };
  * const command = new DeleteNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNetworkAnalyzerConfigurationCommandInput - {@link DeleteNetworkAnalyzerConfigurationCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DeleteNetworkAnalyzerConfigurationCommand extends $Command<

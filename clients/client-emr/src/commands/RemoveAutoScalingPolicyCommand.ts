@@ -46,6 +46,9 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * };
  * const command = new RemoveAutoScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveAutoScalingPolicyCommandInput - {@link RemoveAutoScalingPolicyCommandInput}
@@ -54,6 +57,8 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * @see {@link RemoveAutoScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RemoveAutoScalingPolicyCommand extends $Command<

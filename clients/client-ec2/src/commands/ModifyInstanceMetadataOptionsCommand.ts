@@ -58,6 +58,19 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * };
  * const command = new ModifyInstanceMetadataOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyInstanceMetadataOptionsResult
+ *   InstanceId: "STRING_VALUE",
+ *   InstanceMetadataOptions: { // InstanceMetadataOptionsResponse
+ *     State: "pending" || "applied",
+ *     HttpTokens: "optional" || "required",
+ *     HttpPutResponseHopLimit: Number("int"),
+ *     HttpEndpoint: "disabled" || "enabled",
+ *     HttpProtocolIpv6: "disabled" || "enabled",
+ *     InstanceMetadataTags: "disabled" || "enabled",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyInstanceMetadataOptionsCommandInput - {@link ModifyInstanceMetadataOptionsCommandInput}
@@ -66,6 +79,8 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * @see {@link ModifyInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceMetadataOptionsCommand extends $Command<

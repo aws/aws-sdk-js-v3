@@ -57,6 +57,25 @@ export interface GetApplicationComponentStrategiesCommandOutput
  * };
  * const command = new GetApplicationComponentStrategiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationComponentStrategiesResponse
+ *   applicationComponentStrategies: [ // ApplicationComponentStrategies
+ *     { // ApplicationComponentStrategy
+ *       recommendation: { // RecommendationSet
+ *         transformationTool: { // TransformationTool
+ *           name: "STRING_VALUE",
+ *           description: "STRING_VALUE",
+ *           tranformationToolInstallationLink: "STRING_VALUE",
+ *         },
+ *         targetDestination: "STRING_VALUE",
+ *         strategy: "STRING_VALUE",
+ *       },
+ *       status: "STRING_VALUE",
+ *       isPreferred: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetApplicationComponentStrategiesCommandInput - {@link GetApplicationComponentStrategiesCommandInput}
@@ -74,6 +93,8 @@ export interface GetApplicationComponentStrategiesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p> The request was denied due to request throttling. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetApplicationComponentStrategiesCommand extends $Command<

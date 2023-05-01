@@ -45,6 +45,13 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  * };
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTargetGroupResponse
+ *   id: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteTargetGroupCommandInput - {@link DeleteTargetGroupCommandInput}
@@ -70,6 +77,8 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteTargetGroupCommand extends $Command<

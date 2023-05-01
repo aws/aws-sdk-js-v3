@@ -57,6 +57,18 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * };
  * const command = new PutSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSchemaVersionMetadataResponse
+ *   SchemaArn: "STRING_VALUE",
+ *   SchemaName: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE",
+ *   LatestVersion: true || false,
+ *   VersionNumber: Number("long"),
+ *   SchemaVersionId: "STRING_VALUE",
+ *   MetadataKey: "STRING_VALUE",
+ *   MetadataValue: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutSchemaVersionMetadataCommandInput - {@link PutSchemaVersionMetadataCommandInput}
@@ -80,6 +92,8 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class PutSchemaVersionMetadataCommand extends $Command<

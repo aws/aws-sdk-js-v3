@@ -52,6 +52,9 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  * };
  * const command = new CancelCertificateTransferCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelCertificateTransferCommandInput - {@link CancelCertificateTransferCommandInput}
@@ -82,6 +85,8 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelCertificateTransferCommand extends $Command<

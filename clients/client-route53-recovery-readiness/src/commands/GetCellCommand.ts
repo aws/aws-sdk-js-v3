@@ -48,6 +48,21 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * };
  * const command = new GetCellCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCellResponse
+ *   CellArn: "STRING_VALUE",
+ *   CellName: "STRING_VALUE",
+ *   Cells: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   ParentReadinessScopes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCellCommandInput - {@link GetCellCommandInput}
@@ -71,6 +86,8 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetCellCommand extends $Command<

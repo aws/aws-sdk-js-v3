@@ -44,6 +44,9 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  * };
  * const command = new DeleteGraphqlApiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGraphqlApiCommandInput - {@link DeleteGraphqlApiCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteGraphqlApiCommand extends $Command<

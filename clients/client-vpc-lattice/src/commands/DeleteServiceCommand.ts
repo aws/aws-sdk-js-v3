@@ -48,6 +48,14 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteServiceResponse
+ *   id: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
@@ -76,6 +84,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteServiceCommand extends $Command<

@@ -46,6 +46,28 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * };
  * const command = new ListSolFunctionInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSolFunctionInstancesOutput
+ *   nextToken: "STRING_VALUE",
+ *   functionInstances: [ // ListSolFunctionInstanceResources
+ *     { // ListSolFunctionInstanceInfo
+ *       id: "STRING_VALUE", // required
+ *       arn: "STRING_VALUE", // required
+ *       nsInstanceId: "STRING_VALUE", // required
+ *       vnfPkgId: "STRING_VALUE", // required
+ *       vnfPkgName: "STRING_VALUE",
+ *       instantiationState: "INSTANTIATED" || "NOT_INSTANTIATED", // required
+ *       instantiatedVnfInfo: { // GetSolInstantiatedVnfInfo
+ *         vnfState: "STARTED" || "STOPPED",
+ *       },
+ *       metadata: { // ListSolFunctionInstanceMetadata
+ *         createdAt: new Date("TIMESTAMP"), // required
+ *         lastModified: new Date("TIMESTAMP"), // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSolFunctionInstancesCommandInput - {@link ListSolFunctionInstancesCommandInput}
@@ -66,6 +88,8 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListSolFunctionInstancesCommand extends $Command<

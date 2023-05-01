@@ -52,6 +52,11 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * };
  * const command = new RegisterVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterVolumeResult
+ *   VolumeId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterVolumeCommandInput - {@link RegisterVolumeCommandInput}
@@ -66,6 +71,8 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterVolumeCommand extends $Command<

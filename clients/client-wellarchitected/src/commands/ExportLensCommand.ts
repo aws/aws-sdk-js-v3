@@ -60,6 +60,11 @@ export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBea
  * };
  * const command = new ExportLensCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportLensOutput
+ *   LensJSON: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExportLensCommandInput - {@link ExportLensCommandInput}
@@ -83,6 +88,8 @@ export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ExportLensCommand extends $Command<

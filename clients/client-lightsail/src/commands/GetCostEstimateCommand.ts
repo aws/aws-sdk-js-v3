@@ -46,6 +46,35 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  * };
  * const command = new GetCostEstimateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCostEstimateResult
+ *   resourcesBudgetEstimate: [ // ResourcesBudgetEstimate
+ *     { // ResourceBudgetEstimate
+ *       resourceName: "STRING_VALUE",
+ *       resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ *       costEstimates: [ // CostEstimates
+ *         { // CostEstimate
+ *           usageType: "STRING_VALUE",
+ *           resultsByTime: [ // EstimatesByTime
+ *             { // EstimateByTime
+ *               usageCost: Number("double"),
+ *               pricingUnit: "GB" || "Hrs" || "GB-Mo" || "Bundles" || "Queries",
+ *               unit: Number("double"),
+ *               currency: "USD",
+ *               timePeriod: { // TimePeriod
+ *                 start: new Date("TIMESTAMP"),
+ *                 end: new Date("TIMESTAMP"),
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       startTime: new Date("TIMESTAMP"),
+ *       endTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCostEstimateCommandInput - {@link GetCostEstimateCommandInput}
@@ -77,6 +106,8 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetCostEstimateCommand extends $Command<

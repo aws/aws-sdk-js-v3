@@ -88,6 +88,11 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppResult
+ *   AppId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateAppCommandInput - {@link CreateAppCommandInput}
@@ -102,6 +107,8 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateAppCommand extends $Command<

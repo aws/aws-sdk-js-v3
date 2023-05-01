@@ -45,6 +45,48 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * };
  * const command = new ListDatastoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatastoresResponse
+ *   datastoreSummaries: [ // DatastoreSummaries
+ *     { // DatastoreSummary
+ *       datastoreName: "STRING_VALUE",
+ *       datastoreStorage: { // DatastoreStorageSummary
+ *         serviceManagedS3: {},
+ *         customerManagedS3: { // CustomerManagedDatastoreS3StorageSummary
+ *           bucket: "STRING_VALUE",
+ *           keyPrefix: "STRING_VALUE",
+ *           roleArn: "STRING_VALUE",
+ *         },
+ *         iotSiteWiseMultiLayerStorage: { // DatastoreIotSiteWiseMultiLayerStorageSummary
+ *           customerManagedS3Storage: { // IotSiteWiseCustomerManagedDatastoreS3StorageSummary
+ *             bucket: "STRING_VALUE",
+ *             keyPrefix: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       status: "STRING_VALUE",
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdateTime: new Date("TIMESTAMP"),
+ *       lastMessageArrivalTime: new Date("TIMESTAMP"),
+ *       fileFormatType: "STRING_VALUE",
+ *       datastorePartitions: { // DatastorePartitions
+ *         partitions: [ // Partitions
+ *           { // DatastorePartition
+ *             attributePartition: { // Partition
+ *               attributeName: "STRING_VALUE", // required
+ *             },
+ *             timestampPartition: { // TimestampPartition
+ *               attributeName: "STRING_VALUE", // required
+ *               timestampFormat: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatastoresCommandInput - {@link ListDatastoresCommandInput}
@@ -65,6 +107,8 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class ListDatastoresCommand extends $Command<

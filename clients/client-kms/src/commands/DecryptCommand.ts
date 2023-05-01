@@ -139,6 +139,13 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DecryptResponse
+ *   KeyId: "STRING_VALUE",
+ *   Plaintext: "BLOB_VALUE",
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * };
+ *
  * ```
  *
  * @param DecryptCommandInput - {@link DecryptCommandInput}
@@ -222,6 +229,8 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To decrypt data
  * ```javascript

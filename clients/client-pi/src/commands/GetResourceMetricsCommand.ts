@@ -72,6 +72,30 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * };
  * const command = new GetResourceMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceMetricsResponse
+ *   AlignedStartTime: new Date("TIMESTAMP"),
+ *   AlignedEndTime: new Date("TIMESTAMP"),
+ *   Identifier: "STRING_VALUE",
+ *   MetricList: [ // MetricKeyDataPointsList
+ *     { // MetricKeyDataPoints
+ *       Key: { // ResponseResourceMetricKey
+ *         Metric: "STRING_VALUE", // required
+ *         Dimensions: { // DimensionMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       DataPoints: [ // DataPointsList
+ *         { // DataPoint
+ *           Timestamp: new Date("TIMESTAMP"), // required
+ *           Value: Number("double"), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetResourceMetricsCommandInput - {@link GetResourceMetricsCommandInput}
@@ -89,6 +113,8 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class GetResourceMetricsCommand extends $Command<

@@ -46,6 +46,25 @@ export interface ListImportErrorsCommandOutput extends ListImportErrorsResponse,
  * };
  * const command = new ListImportErrorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportErrorsResponse
+ *   items: [ // ImportErrors
+ *     { // ImportTaskError
+ *       errorDateTime: "STRING_VALUE",
+ *       errorType: "STRING_VALUE",
+ *       errorData: { // ImportErrorData
+ *         sourceServerID: "STRING_VALUE",
+ *         applicationID: "STRING_VALUE",
+ *         waveID: "STRING_VALUE",
+ *         ec2LaunchTemplateID: "STRING_VALUE",
+ *         rowNumber: Number("long"),
+ *         rawError: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImportErrorsCommandInput - {@link ListImportErrorsCommandInput}
@@ -60,6 +79,8 @@ export interface ListImportErrorsCommandOutput extends ListImportErrorsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListImportErrorsCommand extends $Command<

@@ -45,6 +45,13 @@ export interface DescribeAppVersionTemplateCommandOutput extends DescribeAppVers
  * };
  * const command = new DescribeAppVersionTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppVersionTemplateResponse
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   appTemplateBody: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DescribeAppVersionTemplateCommandInput - {@link DescribeAppVersionTemplateCommandInput}
@@ -71,6 +78,8 @@ export interface DescribeAppVersionTemplateCommandOutput extends DescribeAppVers
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeAppVersionTemplateCommand extends $Command<

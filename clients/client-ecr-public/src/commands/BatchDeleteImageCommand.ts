@@ -57,6 +57,26 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * };
  * const command = new BatchDeleteImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteImageResponse
+ *   imageIds: [ // ImageIdentifierList
+ *     { // ImageIdentifier
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ *   failures: [ // ImageFailureList
+ *     { // ImageFailure
+ *       imageId: {
+ *         imageDigest: "STRING_VALUE",
+ *         imageTag: "STRING_VALUE",
+ *       },
+ *       failureCode: "InvalidImageDigest" || "InvalidImageTag" || "ImageTagDoesNotMatchDigest" || "ImageNotFound" || "MissingDigestAndTag" || "ImageReferencedByManifestList" || "KmsError",
+ *       failureReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteImageCommandInput - {@link BatchDeleteImageCommandInput}
@@ -79,6 +99,8 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class BatchDeleteImageCommand extends $Command<

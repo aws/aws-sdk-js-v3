@@ -55,6 +55,27 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * };
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNamespaceResponse
+ *   namespace: { // Namespace
+ *     namespaceArn: "STRING_VALUE",
+ *     namespaceId: "STRING_VALUE",
+ *     namespaceName: "STRING_VALUE",
+ *     adminUsername: "STRING_VALUE",
+ *     dbName: "STRING_VALUE",
+ *     kmsKeyId: "STRING_VALUE",
+ *     defaultIamRoleArn: "STRING_VALUE",
+ *     iamRoles: [ // IamRoleArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     logExports: [ // LogExportList
+ *       "STRING_VALUE",
+ *     ],
+ *     status: "STRING_VALUE",
+ *     creationDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
@@ -75,6 +96,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class DeleteNamespaceCommand extends $Command<

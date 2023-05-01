@@ -45,6 +45,9 @@ export interface UpdateDiscoveryJobCommandOutput extends UpdateDiscoveryJobRespo
  * };
  * const command = new UpdateDiscoveryJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDiscoveryJobCommandInput - {@link UpdateDiscoveryJobCommandInput}
@@ -60,6 +63,8 @@ export interface UpdateDiscoveryJobCommandOutput extends UpdateDiscoveryJobRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateDiscoveryJobCommand extends $Command<

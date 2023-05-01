@@ -48,6 +48,27 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * };
  * const command = new ModifyDBProxyEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBProxyEndpointResponse
+ *   DBProxyEndpoint: { // DBProxyEndpoint
+ *     DBProxyEndpointName: "STRING_VALUE",
+ *     DBProxyEndpointArn: "STRING_VALUE",
+ *     DBProxyName: "STRING_VALUE",
+ *     Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting",
+ *     VpcId: "STRING_VALUE",
+ *     VpcSecurityGroupIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     VpcSubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Endpoint: "STRING_VALUE",
+ *     CreatedDate: new Date("TIMESTAMP"),
+ *     TargetRole: "READ_WRITE" || "READ_ONLY",
+ *     IsDefault: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBProxyEndpointCommandInput - {@link ModifyDBProxyEndpointCommandInput}
@@ -68,6 +89,8 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class ModifyDBProxyEndpointCommand extends $Command<

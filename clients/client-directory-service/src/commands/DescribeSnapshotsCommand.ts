@@ -55,6 +55,21 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSnapshotsResult
+ *   Snapshots: [ // Snapshots
+ *     { // Snapshot
+ *       DirectoryId: "STRING_VALUE",
+ *       SnapshotId: "STRING_VALUE",
+ *       Type: "Auto" || "Manual",
+ *       Name: "STRING_VALUE",
+ *       Status: "Creating" || "Completed" || "Failed",
+ *       StartTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
@@ -78,6 +93,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeSnapshotsCommand extends $Command<

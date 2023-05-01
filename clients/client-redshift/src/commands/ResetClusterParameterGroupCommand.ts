@@ -62,6 +62,12 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * };
  * const command = new ResetClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterParameterGroupNameMessage
+ *   ParameterGroupName: "STRING_VALUE",
+ *   ParameterGroupStatus: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ResetClusterParameterGroupCommandInput - {@link ResetClusterParameterGroupCommandInput}
@@ -78,6 +84,8 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  *             progress that involves the parameter group. Wait a few moments and try the operation
  *             again.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ResetClusterParameterGroupCommand extends $Command<

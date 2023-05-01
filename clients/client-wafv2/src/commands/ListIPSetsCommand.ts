@@ -47,6 +47,20 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIPSetsResponse
+ *   NextMarker: "STRING_VALUE",
+ *   IPSets: [ // IPSetSummaries
+ *     { // IPSetSummary
+ *       Name: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       LockToken: "STRING_VALUE",
+ *       ARN: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
@@ -83,6 +97,8 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListIPSetsCommand extends $Command<

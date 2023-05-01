@@ -50,6 +50,19 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePoliciesResponse
+ *   GetResourcePoliciesResponseList: [ // GetResourcePoliciesResponseList
+ *     { // GluePolicy
+ *       PolicyInJson: "STRING_VALUE",
+ *       PolicyHash: "STRING_VALUE",
+ *       CreateTime: new Date("TIMESTAMP"),
+ *       UpdateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
@@ -70,6 +83,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetResourcePoliciesCommand extends $Command<

@@ -81,6 +81,11 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupNameMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterParameterGroupCommandInput - {@link ModifyDBClusterParameterGroupCommandInput}
@@ -96,6 +101,8 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
  *  <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ModifyDBClusterParameterGroupCommand extends $Command<

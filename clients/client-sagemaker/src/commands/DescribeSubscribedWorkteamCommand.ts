@@ -45,6 +45,17 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * };
  * const command = new DescribeSubscribedWorkteamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubscribedWorkteamResponse
+ *   SubscribedWorkteam: { // SubscribedWorkteam
+ *     WorkteamArn: "STRING_VALUE", // required
+ *     MarketplaceTitle: "STRING_VALUE",
+ *     SellerName: "STRING_VALUE",
+ *     MarketplaceDescription: "STRING_VALUE",
+ *     ListingId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSubscribedWorkteamCommandInput - {@link DescribeSubscribedWorkteamCommandInput}
@@ -53,6 +64,8 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * @see {@link DescribeSubscribedWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeSubscribedWorkteamCommand extends $Command<

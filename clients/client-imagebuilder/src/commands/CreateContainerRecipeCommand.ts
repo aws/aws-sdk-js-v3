@@ -96,6 +96,13 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * };
  * const command = new CreateContainerRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContainerRecipeResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   containerRecipeArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateContainerRecipeCommandInput - {@link CreateContainerRecipeCommandInput}
@@ -144,6 +151,8 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateContainerRecipeCommand extends $Command<

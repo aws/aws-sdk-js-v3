@@ -45,6 +45,9 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStreamKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamKeyCommandInput - {@link DeleteStreamKeyCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class DeleteStreamKeyCommand extends $Command<

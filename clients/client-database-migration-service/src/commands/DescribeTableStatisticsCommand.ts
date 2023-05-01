@@ -62,6 +62,39 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * };
  * const command = new DescribeTableStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTableStatisticsResponse
+ *   ReplicationTaskArn: "STRING_VALUE",
+ *   TableStatistics: [ // TableStatisticsList
+ *     { // TableStatistics
+ *       SchemaName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       Inserts: Number("long"),
+ *       Deletes: Number("long"),
+ *       Updates: Number("long"),
+ *       Ddls: Number("long"),
+ *       AppliedInserts: Number("long"),
+ *       AppliedDeletes: Number("long"),
+ *       AppliedUpdates: Number("long"),
+ *       AppliedDdls: Number("long"),
+ *       FullLoadRows: Number("long"),
+ *       FullLoadCondtnlChkFailedRows: Number("long"),
+ *       FullLoadErrorRows: Number("long"),
+ *       FullLoadStartTime: new Date("TIMESTAMP"),
+ *       FullLoadEndTime: new Date("TIMESTAMP"),
+ *       FullLoadReloaded: true || false,
+ *       LastUpdateTime: new Date("TIMESTAMP"),
+ *       TableState: "STRING_VALUE",
+ *       ValidationPendingRecords: Number("long"),
+ *       ValidationFailedRecords: Number("long"),
+ *       ValidationSuspendedRecords: Number("long"),
+ *       ValidationState: "STRING_VALUE",
+ *       ValidationStateDetails: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeTableStatisticsCommandInput - {@link DescribeTableStatisticsCommandInput}
@@ -76,6 +109,8 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe table statistics
  * ```javascript

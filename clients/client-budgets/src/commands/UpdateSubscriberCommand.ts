@@ -64,6 +64,9 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * };
  * const command = new UpdateSubscriberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSubscriberCommandInput - {@link UpdateSubscriberCommandInput}
@@ -92,6 +95,8 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class UpdateSubscriberCommand extends $Command<

@@ -50,6 +50,20 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * };
  * const command = new GetStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStatisticsResponse
+ *   statistics: { // Statistics
+ *     count: Number("int"),
+ *     average: Number("double"),
+ *     sum: Number("double"),
+ *     minimum: Number("double"),
+ *     maximum: Number("double"),
+ *     sumOfSquares: Number("double"),
+ *     variance: Number("double"),
+ *     stdDeviation: Number("double"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStatisticsCommandInput - {@link GetStatisticsCommandInput}
@@ -85,6 +99,8 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetStatisticsCommand extends $Command<

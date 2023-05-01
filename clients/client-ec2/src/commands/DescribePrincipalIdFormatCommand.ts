@@ -66,6 +66,23 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * };
  * const command = new DescribePrincipalIdFormatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePrincipalIdFormatResult
+ *   Principals: [ // PrincipalIdFormatList
+ *     { // PrincipalIdFormat
+ *       Arn: "STRING_VALUE",
+ *       Statuses: [ // IdFormatList
+ *         { // IdFormat
+ *           Deadline: new Date("TIMESTAMP"),
+ *           Resource: "STRING_VALUE",
+ *           UseLongIds: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribePrincipalIdFormatCommandInput - {@link DescribePrincipalIdFormatCommandInput}
@@ -74,6 +91,8 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * @see {@link DescribePrincipalIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribePrincipalIdFormatCommand extends $Command<

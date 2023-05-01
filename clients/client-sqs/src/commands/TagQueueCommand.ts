@@ -72,6 +72,9 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagQueueCommandInput - {@link TagQueueCommandInput}
@@ -80,6 +83,8 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * @see {@link TagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueCommandOutput, SQSClientResolvedConfig> {

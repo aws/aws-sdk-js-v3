@@ -48,6 +48,17 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  * };
  * const command = new ListResourceDelegatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceDelegatesResponse
+ *   Delegates: [ // ResourceDelegates
+ *     { // Delegate
+ *       Id: "STRING_VALUE", // required
+ *       Type: "GROUP" || "USER", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListResourceDelegatesCommandInput - {@link ListResourceDelegatesCommandInput}
@@ -75,6 +86,8 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListResourceDelegatesCommand extends $Command<

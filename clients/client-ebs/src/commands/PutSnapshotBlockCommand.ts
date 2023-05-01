@@ -66,6 +66,12 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * };
  * const command = new PutSnapshotBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSnapshotBlockResponse
+ *   Checksum: "STRING_VALUE",
+ *   ChecksumAlgorithm: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutSnapshotBlockCommandInput - {@link PutSnapshotBlockCommandInput}
@@ -93,6 +99,8 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class PutSnapshotBlockCommand extends $Command<

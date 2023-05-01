@@ -51,6 +51,9 @@ export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDevicesCommandInput - {@link UpdateDevicesCommandInput}
@@ -59,6 +62,8 @@ export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateDevicesCommand extends $Command<

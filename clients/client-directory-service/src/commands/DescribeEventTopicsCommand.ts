@@ -50,6 +50,19 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * };
  * const command = new DescribeEventTopicsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventTopicsResult
+ *   EventTopics: [ // EventTopics
+ *     { // EventTopic
+ *       DirectoryId: "STRING_VALUE",
+ *       TopicName: "STRING_VALUE",
+ *       TopicArn: "STRING_VALUE",
+ *       CreatedDateTime: new Date("TIMESTAMP"),
+ *       Status: "Registered" || "Topic not found" || "Failed" || "Deleted",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventTopicsCommandInput - {@link DescribeEventTopicsCommandInput}
@@ -70,6 +83,8 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeEventTopicsCommand extends $Command<

@@ -52,6 +52,18 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  * };
  * const command = new DescribeKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeKinesisStreamingDestinationOutput
+ *   TableName: "STRING_VALUE",
+ *   KinesisDataStreamDestinations: [ // KinesisDataStreamDestinations
+ *     { // KinesisDataStreamDestination
+ *       StreamArn: "STRING_VALUE",
+ *       DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED",
+ *       DestinationStatusDescription: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeKinesisStreamingDestinationCommandInput - {@link DescribeKinesisStreamingDestinationCommandInput}
@@ -69,6 +81,8 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeKinesisStreamingDestinationCommand extends $Command<

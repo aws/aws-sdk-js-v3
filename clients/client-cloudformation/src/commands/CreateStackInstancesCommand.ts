@@ -83,6 +83,11 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * };
  * const command = new CreateStackInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStackInstancesOutput
+ *   OperationId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateStackInstancesCommandInput - {@link CreateStackInstancesCommandInput}
@@ -113,6 +118,8 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateStackInstancesCommand extends $Command<

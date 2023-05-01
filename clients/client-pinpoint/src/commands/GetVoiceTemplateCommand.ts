@@ -45,6 +45,26 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  * };
  * const command = new GetVoiceTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceTemplateResponse
+ *   VoiceTemplateResponse: { // VoiceTemplateResponse
+ *     Arn: "STRING_VALUE",
+ *     Body: "STRING_VALUE",
+ *     CreationDate: "STRING_VALUE", // required
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     LanguageCode: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE", // required
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     TemplateName: "STRING_VALUE", // required
+ *     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
+ *     Version: "STRING_VALUE",
+ *     VoiceId: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceTemplateCommandInput - {@link GetVoiceTemplateCommandInput}
@@ -74,6 +94,8 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetVoiceTemplateCommand extends $Command<

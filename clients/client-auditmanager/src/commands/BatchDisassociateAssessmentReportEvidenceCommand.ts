@@ -58,6 +58,20 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * };
  * const command = new BatchDisassociateAssessmentReportEvidenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateAssessmentReportEvidenceResponse
+ *   evidenceIds: [ // EvidenceIds
+ *     "STRING_VALUE",
+ *   ],
+ *   errors: [ // AssessmentReportEvidenceErrors
+ *     { // AssessmentReportEvidenceError
+ *       evidenceId: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateAssessmentReportEvidenceCommandInput - {@link BatchDisassociateAssessmentReportEvidenceCommandInput}
@@ -80,6 +94,8 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<

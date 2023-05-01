@@ -51,6 +51,17 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountLimitsOutput
+ *   Limits: [ // Limits
+ *     { // Limit
+ *       Name: "STRING_VALUE",
+ *       Max: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextMarker: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
@@ -59,6 +70,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  */
 export class DescribeAccountLimitsCommand extends $Command<

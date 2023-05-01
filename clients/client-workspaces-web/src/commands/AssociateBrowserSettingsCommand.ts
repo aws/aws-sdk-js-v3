@@ -45,6 +45,12 @@ export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserS
  * };
  * const command = new AssociateBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateBrowserSettingsResponse
+ *   portalArn: "STRING_VALUE", // required
+ *   browserSettingsArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param AssociateBrowserSettingsCommandInput - {@link AssociateBrowserSettingsCommandInput}
@@ -71,6 +77,8 @@ export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserS
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateBrowserSettingsCommand extends $Command<

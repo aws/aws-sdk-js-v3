@@ -51,6 +51,19 @@ export interface ListConnectorDefinitionVersionsCommandOutput
  * };
  * const command = new ListConnectorDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectorDefinitionVersionsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Versions: [ // __listOfVersionInformation
+ *     { // VersionInformation
+ *       Arn: "STRING_VALUE",
+ *       CreationTimestamp: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListConnectorDefinitionVersionsCommandInput - {@link ListConnectorDefinitionVersionsCommandInput}
@@ -62,6 +75,8 @@ export interface ListConnectorDefinitionVersionsCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListConnectorDefinitionVersionsCommand extends $Command<

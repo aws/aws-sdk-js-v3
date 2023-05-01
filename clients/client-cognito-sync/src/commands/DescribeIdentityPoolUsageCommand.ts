@@ -92,6 +92,16 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  * };
  * const command = new DescribeIdentityPoolUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIdentityPoolUsageResponse
+ *   IdentityPoolUsage: { // IdentityPoolUsage
+ *     IdentityPoolId: "STRING_VALUE",
+ *     SyncSessionsCount: Number("long"),
+ *     DataStorage: Number("long"),
+ *     LastModifiedDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityPoolUsageCommandInput - {@link DescribeIdentityPoolUsageCommandInput}
@@ -120,6 +130,8 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class DescribeIdentityPoolUsageCommand extends $Command<

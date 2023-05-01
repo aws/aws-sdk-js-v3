@@ -47,6 +47,9 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteSolFunctionPackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSolFunctionPackageCommandInput - {@link DeleteSolFunctionPackageCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class DeleteSolFunctionPackageCommand extends $Command<

@@ -48,6 +48,30 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExportTasksResponse
+ *   exportTasks: [ // ExportTasks
+ *     { // ExportTask
+ *       taskId: "STRING_VALUE",
+ *       taskName: "STRING_VALUE",
+ *       logGroupName: "STRING_VALUE",
+ *       from: Number("long"),
+ *       to: Number("long"),
+ *       destination: "STRING_VALUE",
+ *       destinationPrefix: "STRING_VALUE",
+ *       status: { // ExportTaskStatus
+ *         code: "CANCELLED" || "COMPLETED" || "FAILED" || "PENDING" || "PENDING_CANCEL" || "RUNNING",
+ *         message: "STRING_VALUE",
+ *       },
+ *       executionInfo: { // ExportTaskExecutionInfo
+ *         creationTime: Number("long"),
+ *         completionTime: Number("long"),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
@@ -62,6 +86,8 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeExportTasksCommand extends $Command<

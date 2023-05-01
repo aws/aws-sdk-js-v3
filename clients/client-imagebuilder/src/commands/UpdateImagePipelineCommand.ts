@@ -76,6 +76,13 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  * };
  * const command = new UpdateImagePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateImagePipelineResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   imagePipelineArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateImagePipelineCommandInput - {@link UpdateImagePipelineCommandInput}
@@ -113,6 +120,8 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class UpdateImagePipelineCommand extends $Command<

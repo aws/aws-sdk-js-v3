@@ -62,6 +62,9 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * };
  * const command = new StopMatchmakingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopMatchmakingCommandInput - {@link StopMatchmakingCommandInput}
@@ -84,6 +87,8 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class StopMatchmakingCommand extends $Command<

@@ -59,6 +59,14 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * };
  * const command = new ListAssessmentTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentTemplatesResponse
+ *   assessmentTemplateArns: [ // ListReturnedArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssessmentTemplatesCommandInput - {@link ListAssessmentTemplatesCommandInput}
@@ -81,6 +89,8 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List assessment templates
  * ```javascript

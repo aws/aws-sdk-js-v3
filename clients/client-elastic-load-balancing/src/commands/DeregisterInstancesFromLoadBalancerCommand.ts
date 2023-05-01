@@ -61,6 +61,15 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * };
  * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterEndPointsOutput
+ *   Instances: [ // Instances
+ *     { // Instance
+ *       InstanceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeregisterInstancesFromLoadBalancerCommandInput - {@link DeregisterInstancesFromLoadBalancerCommandInput}
@@ -75,6 +84,8 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @throws {@link InvalidEndPointException} (client fault)
  *  <p>The specified endpoint is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To deregister instances from a load balancer
  * ```javascript

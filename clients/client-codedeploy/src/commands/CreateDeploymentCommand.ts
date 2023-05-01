@@ -110,6 +110,11 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentOutput
+ *   deploymentId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -241,6 +246,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>An API function was called too frequently.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

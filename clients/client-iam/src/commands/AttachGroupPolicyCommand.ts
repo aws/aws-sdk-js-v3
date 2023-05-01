@@ -52,6 +52,9 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachGroupPolicyCommandInput - {@link AttachGroupPolicyCommandInput}
@@ -80,6 +83,8 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To attach a managed policy to an IAM group
  * ```javascript

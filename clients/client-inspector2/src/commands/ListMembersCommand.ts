@@ -47,6 +47,19 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersResponse
+ *   members: [ // MemberList
+ *     { // Member
+ *       accountId: "STRING_VALUE",
+ *       relationshipStatus: "STRING_VALUE",
+ *       delegatedAdminAccountId: "STRING_VALUE",
+ *       updatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -68,6 +81,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

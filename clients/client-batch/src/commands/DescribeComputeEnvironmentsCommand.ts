@@ -56,6 +56,74 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * };
  * const command = new DescribeComputeEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeComputeEnvironmentsResponse
+ *   computeEnvironments: [ // ComputeEnvironmentDetailList
+ *     { // ComputeEnvironmentDetail
+ *       computeEnvironmentName: "STRING_VALUE", // required
+ *       computeEnvironmentArn: "STRING_VALUE", // required
+ *       unmanagedvCpus: Number("int"),
+ *       ecsClusterArn: "STRING_VALUE",
+ *       tags: { // TagrisTagsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       type: "MANAGED" || "UNMANAGED",
+ *       state: "ENABLED" || "DISABLED",
+ *       status: "CREATING" || "UPDATING" || "DELETING" || "DELETED" || "VALID" || "INVALID",
+ *       statusReason: "STRING_VALUE",
+ *       computeResources: { // ComputeResource
+ *         type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
+ *         allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *         minvCpus: Number("int"),
+ *         maxvCpus: Number("int"), // required
+ *         desiredvCpus: Number("int"),
+ *         instanceTypes: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *         imageId: "STRING_VALUE",
+ *         subnets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         securityGroupIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ec2KeyPair: "STRING_VALUE",
+ *         instanceRole: "STRING_VALUE",
+ *         tags: { // TagsMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         placementGroup: "STRING_VALUE",
+ *         bidPercentage: Number("int"),
+ *         spotIamFleetRole: "STRING_VALUE",
+ *         launchTemplate: { // LaunchTemplateSpecification
+ *           launchTemplateId: "STRING_VALUE",
+ *           launchTemplateName: "STRING_VALUE",
+ *           version: "STRING_VALUE",
+ *         },
+ *         ec2Configuration: [ // Ec2ConfigurationList
+ *           { // Ec2Configuration
+ *             imageType: "STRING_VALUE", // required
+ *             imageIdOverride: "STRING_VALUE",
+ *             imageKubernetesVersion: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       serviceRole: "STRING_VALUE",
+ *       updatePolicy: { // UpdatePolicy
+ *         terminateJobsOnUpdate: true || false,
+ *         jobExecutionTimeoutMinutes: Number("long"),
+ *       },
+ *       eksConfiguration: { // EksConfiguration
+ *         eksClusterArn: "STRING_VALUE", // required
+ *         kubernetesNamespace: "STRING_VALUE", // required
+ *       },
+ *       containerOrchestrationType: "ECS" || "EKS",
+ *       uuid: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeComputeEnvironmentsCommandInput - {@link DescribeComputeEnvironmentsCommandInput}
@@ -72,6 +140,8 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To describe a compute environment
  * ```javascript

@@ -51,6 +51,21 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  * };
  * const command = new CreateServiceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceActionOutput
+ *   ServiceActionDetail: { // ServiceActionDetail
+ *     ServiceActionSummary: { // ServiceActionSummary
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       DefinitionType: "SSM_AUTOMATION",
+ *     },
+ *     Definition: { // ServiceActionDefinitionMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServiceActionCommandInput - {@link CreateServiceActionCommandInput}
@@ -66,6 +81,8 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
  *          resource use or increase your service limits and retry the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreateServiceActionCommand extends $Command<

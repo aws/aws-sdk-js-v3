@@ -46,6 +46,9 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLogStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLogStreamCommandInput - {@link DeleteLogStreamCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DeleteLogStreamCommand extends $Command<

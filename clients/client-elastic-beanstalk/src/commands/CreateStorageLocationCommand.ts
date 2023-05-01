@@ -46,6 +46,11 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * const input = {};
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStorageLocationResultMessage
+ *   S3Bucket: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateStorageLocationCommandInput - {@link CreateStorageLocationCommandInput}
@@ -64,6 +69,8 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To create a new environment for an application
  * ```javascript

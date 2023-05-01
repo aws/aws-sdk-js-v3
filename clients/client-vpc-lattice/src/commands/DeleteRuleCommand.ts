@@ -51,6 +51,9 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteRuleCommand extends $Command<

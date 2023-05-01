@@ -44,6 +44,9 @@ export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEdgeDeploymentPlanCommandInput - {@link DeleteEdgeDeploymentPlanCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer 
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteEdgeDeploymentPlanCommand extends $Command<

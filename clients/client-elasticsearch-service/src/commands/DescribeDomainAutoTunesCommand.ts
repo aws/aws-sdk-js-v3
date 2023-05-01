@@ -50,6 +50,24 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * };
  * const command = new DescribeDomainAutoTunesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainAutoTunesResponse
+ *   AutoTunes: [ // AutoTuneList
+ *     { // AutoTune
+ *       AutoTuneType: "SCHEDULED_ACTION",
+ *       AutoTuneDetails: { // AutoTuneDetails
+ *         ScheduledAutoTuneDetails: { // ScheduledAutoTuneDetails
+ *           Date: new Date("TIMESTAMP"),
+ *           ActionType: "JVM_HEAP_SIZE_TUNING" || "JVM_YOUNG_GEN_TUNING",
+ *           Action: "STRING_VALUE",
+ *           Severity: "LOW" || "MEDIUM" || "HIGH",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
@@ -70,6 +88,8 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribeDomainAutoTunesCommand extends $Command<

@@ -46,6 +46,14 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
  * };
  * const command = new ListScramSecretsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListScramSecretsResponse
+ *   NextToken: "STRING_VALUE",
+ *   SecretArnList: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListScramSecretsCommandInput - {@link ListScramSecretsCommandInput}
@@ -75,6 +83,8 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListScramSecretsCommand extends $Command<

@@ -60,6 +60,9 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * };
  * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetIdentityHeadersInNotificationsEnabledCommandInput - {@link SetIdentityHeadersInNotificationsEnabledCommandInput}
@@ -68,6 +71,8 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * @see {@link SetIdentityHeadersInNotificationsEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetIdentityHeadersInNotificationsEnabled
  * ```javascript

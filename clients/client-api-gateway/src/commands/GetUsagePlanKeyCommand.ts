@@ -45,6 +45,14 @@ export interface GetUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBe
  * };
  * const command = new GetUsagePlanKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UsagePlanKey
+ *   id: "STRING_VALUE",
+ *   type: "STRING_VALUE",
+ *   value: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetUsagePlanKeyCommandInput - {@link GetUsagePlanKeyCommandInput}
@@ -65,6 +73,8 @@ export interface GetUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBe
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetUsagePlanKeyCommand extends $Command<

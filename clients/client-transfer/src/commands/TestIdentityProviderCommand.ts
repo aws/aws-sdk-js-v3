@@ -90,6 +90,14 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * };
  * const command = new TestIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestIdentityProviderResponse
+ *   Response: "STRING_VALUE",
+ *   StatusCode: Number("int"), // required
+ *   Message: "STRING_VALUE",
+ *   Url: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param TestIdentityProviderCommandInput - {@link TestIdentityProviderCommandInput}
@@ -111,6 +119,8 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class TestIdentityProviderCommand extends $Command<

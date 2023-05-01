@@ -52,6 +52,24 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * };
  * const command = new ListLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLabelsResponse
+ *   NextToken: "STRING_VALUE",
+ *   LabelSummaries: [ // LabelSummaries
+ *     { // LabelSummary
+ *       LabelGroupName: "STRING_VALUE",
+ *       LabelId: "STRING_VALUE",
+ *       LabelGroupArn: "STRING_VALUE",
+ *       StartTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *       Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL",
+ *       FaultCode: "STRING_VALUE",
+ *       Equipment: "STRING_VALUE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListLabelsCommandInput - {@link ListLabelsCommandInput}
@@ -75,6 +93,8 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListLabelsCommand extends $Command<

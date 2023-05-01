@@ -89,6 +89,9 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  * };
  * const command = new UpdateRoutingControlStatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoutingControlStatesCommandInput - {@link UpdateRoutingControlStatesCommandInput}
@@ -121,6 +124,8 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  * @throws {@link ValidationException} (client fault)
  *  <p>There was a validation error on the request.</p>
  *
+ * @throws {@link Route53RecoveryClusterServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
  */
 export class UpdateRoutingControlStatesCommand extends $Command<

@@ -52,6 +52,17 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * };
  * const command = new ConfigureAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureAgentResponse
+ *   configuration: { // AgentConfiguration
+ *     shouldProfile: true || false, // required
+ *     periodInSeconds: Number("int"), // required
+ *     agentParameters: { // AgentParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ConfigureAgentCommandInput - {@link ConfigureAgentCommandInput}
@@ -72,6 +83,8 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ConfigureAgentCommand extends $Command<

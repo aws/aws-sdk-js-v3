@@ -47,6 +47,11 @@ export interface ReplaceVpnTunnelCommandOutput extends ReplaceVpnTunnelResult, _
  * };
  * const command = new ReplaceVpnTunnelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplaceVpnTunnelResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ReplaceVpnTunnelCommandInput - {@link ReplaceVpnTunnelCommandInput}
@@ -55,6 +60,8 @@ export interface ReplaceVpnTunnelCommandOutput extends ReplaceVpnTunnelResult, _
  * @see {@link ReplaceVpnTunnelCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ReplaceVpnTunnelCommand extends $Command<

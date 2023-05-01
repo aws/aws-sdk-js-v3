@@ -58,6 +58,9 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteQueueCommandInput - {@link DeleteQueueCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class DeleteQueueCommand extends $Command<

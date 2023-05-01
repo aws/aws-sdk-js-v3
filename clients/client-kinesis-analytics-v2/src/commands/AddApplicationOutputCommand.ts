@@ -76,6 +76,33 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * };
  * const command = new AddApplicationOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationOutputResponse
+ *   ApplicationARN: "STRING_VALUE",
+ *   ApplicationVersionId: Number("long"),
+ *   OutputDescriptions: [ // OutputDescriptions
+ *     { // OutputDescription
+ *       OutputId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       KinesisStreamsOutputDescription: { // KinesisStreamsOutputDescription
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE",
+ *       },
+ *       KinesisFirehoseOutputDescription: { // KinesisFirehoseOutputDescription
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE",
+ *       },
+ *       LambdaOutputDescription: { // LambdaOutputDescription
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE",
+ *       },
+ *       DestinationSchema: { // DestinationSchema
+ *         RecordFormatType: "JSON" || "CSV", // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddApplicationOutputCommandInput - {@link AddApplicationOutputCommandInput}
@@ -101,6 +128,8 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationOutputCommand extends $Command<

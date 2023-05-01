@@ -47,6 +47,19 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * };
  * const command = new BatchDeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteConnectionResponse
+ *   Succeeded: [ // NameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Errors: { // ErrorByName
+ *     "<keys>": { // ErrorDetail
+ *       ErrorCode: "STRING_VALUE",
+ *       ErrorMessage: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param BatchDeleteConnectionCommandInput - {@link BatchDeleteConnectionCommandInput}
@@ -61,6 +74,8 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeleteConnectionCommand extends $Command<

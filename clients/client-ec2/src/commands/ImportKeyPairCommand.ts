@@ -62,6 +62,19 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * };
  * const command = new ImportKeyPairCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportKeyPairResult
+ *   KeyFingerprint: "STRING_VALUE",
+ *   KeyName: "STRING_VALUE",
+ *   KeyPairId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ImportKeyPairCommandInput - {@link ImportKeyPairCommandInput}
@@ -70,6 +83,8 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * @see {@link ImportKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ImportKeyPairCommand extends $Command<

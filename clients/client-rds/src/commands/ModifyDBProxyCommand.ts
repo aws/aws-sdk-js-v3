@@ -62,6 +62,40 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * };
  * const command = new ModifyDBProxyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBProxyResponse
+ *   DBProxy: { // DBProxy
+ *     DBProxyName: "STRING_VALUE",
+ *     DBProxyArn: "STRING_VALUE",
+ *     Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting" || "suspended" || "suspending" || "reactivating",
+ *     EngineFamily: "STRING_VALUE",
+ *     VpcId: "STRING_VALUE",
+ *     VpcSecurityGroupIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     VpcSubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Auth: [ // UserAuthConfigInfoList
+ *       { // UserAuthConfigInfo
+ *         Description: "STRING_VALUE",
+ *         UserName: "STRING_VALUE",
+ *         AuthScheme: "SECRETS",
+ *         SecretArn: "STRING_VALUE",
+ *         IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
+ *         ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ *       },
+ *     ],
+ *     RoleArn: "STRING_VALUE",
+ *     Endpoint: "STRING_VALUE",
+ *     RequireTLS: true || false,
+ *     IdleClientTimeout: Number("int"),
+ *     DebugLogging: true || false,
+ *     CreatedDate: new Date("TIMESTAMP"),
+ *     UpdatedDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBProxyCommandInput - {@link ModifyDBProxyCommandInput}
@@ -79,6 +113,8 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class ModifyDBProxyCommand extends $Command<

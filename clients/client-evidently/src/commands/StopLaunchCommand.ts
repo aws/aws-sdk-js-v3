@@ -51,6 +51,11 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * };
  * const command = new StopLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopLaunchResponse
+ *   endedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StopLaunchCommandInput - {@link StopLaunchCommandInput}
@@ -71,6 +76,8 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class StopLaunchCommand extends $Command<

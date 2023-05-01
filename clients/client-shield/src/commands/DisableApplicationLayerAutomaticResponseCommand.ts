@@ -54,6 +54,9 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  * };
  * const command = new DisableApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableApplicationLayerAutomaticResponseCommandInput - {@link DisableApplicationLayerAutomaticResponseCommandInput}
@@ -78,6 +81,8 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DisableApplicationLayerAutomaticResponseCommand extends $Command<

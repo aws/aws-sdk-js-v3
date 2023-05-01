@@ -48,6 +48,33 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  * };
  * const command = new DescribeAppBlocksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppBlocksResult
+ *   AppBlocks: [ // AppBlocks
+ *     { // AppBlock
+ *       Name: "STRING_VALUE", // required
+ *       Arn: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       DisplayName: "STRING_VALUE",
+ *       SourceS3Location: { // S3Location
+ *         S3Bucket: "STRING_VALUE", // required
+ *         S3Key: "STRING_VALUE", // required
+ *       },
+ *       SetupScriptDetails: { // ScriptDetails
+ *         ScriptS3Location: {
+ *           S3Bucket: "STRING_VALUE", // required
+ *           S3Key: "STRING_VALUE", // required
+ *         },
+ *         ExecutablePath: "STRING_VALUE", // required
+ *         ExecutableParameters: "STRING_VALUE",
+ *         TimeoutInSeconds: Number("int"), // required
+ *       },
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAppBlocksCommandInput - {@link DescribeAppBlocksCommandInput}
@@ -62,6 +89,8 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeAppBlocksCommand extends $Command<

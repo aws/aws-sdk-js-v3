@@ -46,6 +46,13 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * };
  * const command = new GetEndpointAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEndpointAttributesResponse
+ *   Attributes: { // MapStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEndpointAttributesCommandInput - {@link GetEndpointAttributesCommandInput}
@@ -67,6 +74,8 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class GetEndpointAttributesCommand extends $Command<

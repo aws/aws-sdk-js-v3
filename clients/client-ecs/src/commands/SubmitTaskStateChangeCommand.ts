@@ -87,6 +87,11 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * };
  * const command = new SubmitTaskStateChangeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubmitTaskStateChangeResponse
+ *   acknowledgment: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SubmitTaskStateChangeCommandInput - {@link SubmitTaskStateChangeCommandInput}
@@ -110,6 +115,8 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class SubmitTaskStateChangeCommand extends $Command<

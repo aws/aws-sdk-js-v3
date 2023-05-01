@@ -53,6 +53,9 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  * };
  * const command = new UpdatePlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePlacementCommandInput - {@link UpdatePlacementCommandInput}
@@ -73,6 +76,8 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class UpdatePlacementCommand extends $Command<

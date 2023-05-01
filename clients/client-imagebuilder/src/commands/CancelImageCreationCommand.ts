@@ -46,6 +46,13 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * };
  * const command = new CancelImageCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelImageCreationResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   imageBuildVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CancelImageCreationCommandInput - {@link CancelImageCreationCommandInput}
@@ -83,6 +90,8 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CancelImageCreationCommand extends $Command<

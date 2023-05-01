@@ -60,6 +60,9 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -71,6 +74,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Add tags to resource
  * ```javascript

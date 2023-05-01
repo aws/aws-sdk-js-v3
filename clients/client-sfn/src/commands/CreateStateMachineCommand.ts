@@ -90,6 +90,12 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * };
  * const command = new CreateStateMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStateMachineOutput
+ *   stateMachineArn: "STRING_VALUE", // required
+ *   creationDate: new Date("TIMESTAMP"), // required
+ * };
+ *
  * ```
  *
  * @param CreateStateMachineCommandInput - {@link CreateStateMachineCommandInput}
@@ -132,6 +138,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       Step Functions Developer Guide.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class CreateStateMachineCommand extends $Command<

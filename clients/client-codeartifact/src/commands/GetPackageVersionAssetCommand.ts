@@ -65,6 +65,14 @@ export interface GetPackageVersionAssetCommandOutput
  * };
  * const command = new GetPackageVersionAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPackageVersionAssetResult
+ *   asset: "STREAMING_BLOB_VALUE",
+ *   assetName: "STRING_VALUE",
+ *   packageVersion: "STRING_VALUE",
+ *   packageVersionRevision: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetPackageVersionAssetCommandInput - {@link GetPackageVersionAssetCommandInput}
@@ -101,6 +109,8 @@ export interface GetPackageVersionAssetCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetPackageVersionAssetCommand extends $Command<

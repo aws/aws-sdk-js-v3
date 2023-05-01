@@ -46,6 +46,89 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
  * };
  * const command = new GetAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssetResponse
+ *   Arn: "STRING_VALUE",
+ *   AssetDetails: { // AssetDetails
+ *     S3SnapshotAsset: { // S3SnapshotAsset
+ *       Size: Number("double"), // required
+ *     },
+ *     RedshiftDataShareAsset: { // RedshiftDataShareAsset
+ *       Arn: "STRING_VALUE", // required
+ *     },
+ *     ApiGatewayApiAsset: { // ApiGatewayApiAsset
+ *       ApiDescription: "STRING_VALUE",
+ *       ApiEndpoint: "STRING_VALUE",
+ *       ApiId: "STRING_VALUE",
+ *       ApiKey: "STRING_VALUE",
+ *       ApiName: "STRING_VALUE",
+ *       ApiSpecificationDownloadUrl: "STRING_VALUE",
+ *       ApiSpecificationDownloadUrlExpiresAt: new Date("TIMESTAMP"),
+ *       ProtocolType: "STRING_VALUE",
+ *       Stage: "STRING_VALUE",
+ *     },
+ *     S3DataAccessAsset: { // S3DataAccessAsset
+ *       Bucket: "STRING_VALUE", // required
+ *       KeyPrefixes: [ // ListOf__string
+ *         "STRING_VALUE",
+ *       ],
+ *       Keys: [
+ *         "STRING_VALUE",
+ *       ],
+ *       S3AccessPointAlias: "STRING_VALUE",
+ *       S3AccessPointArn: "STRING_VALUE",
+ *       KmsKeysToGrant: [ // ListOfKmsKeysToGrant
+ *         { // KmsKeyToGrant
+ *           KmsKeyArn: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     LakeFormationDataPermissionAsset: { // LakeFormationDataPermissionAsset
+ *       LakeFormationDataPermissionDetails: { // LakeFormationDataPermissionDetails
+ *         LFTagPolicy: { // LFTagPolicyDetails
+ *           CatalogId: "STRING_VALUE", // required
+ *           ResourceType: "STRING_VALUE", // required
+ *           ResourceDetails: { // LFResourceDetails
+ *             Database: { // DatabaseLFTagPolicy
+ *               Expression: [ // ListOfLFTags // required
+ *                 { // LFTag
+ *                   TagKey: "STRING_VALUE", // required
+ *                   TagValues: [ // ListOfLFTagValues // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                 },
+ *               ],
+ *             },
+ *             Table: { // TableLFTagPolicy
+ *               Expression: [ // required
+ *                 {
+ *                   TagKey: "STRING_VALUE", // required
+ *                   TagValues: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
+ *       LakeFormationDataPermissionType: "STRING_VALUE", // required
+ *       Permissions: [ // ListOfLFPermissions // required
+ *         "STRING_VALUE",
+ *       ],
+ *       RoleArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   AssetType: "STRING_VALUE",
+ *   CreatedAt: new Date("TIMESTAMP"),
+ *   DataSetId: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE",
+ *   SourceId: "STRING_VALUE",
+ *   UpdatedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetAssetCommandInput - {@link GetAssetCommandInput}
@@ -66,6 +149,8 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class GetAssetCommand extends $Command<

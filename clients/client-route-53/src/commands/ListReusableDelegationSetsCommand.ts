@@ -46,6 +46,23 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  * };
  * const command = new ListReusableDelegationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReusableDelegationSetsResponse
+ *   DelegationSets: [ // DelegationSets // required
+ *     { // DelegationSet
+ *       Id: "STRING_VALUE",
+ *       CallerReference: "STRING_VALUE",
+ *       NameServers: [ // DelegationSetNameServers // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE", // required
+ *   IsTruncated: true || false, // required
+ *   NextMarker: "STRING_VALUE",
+ *   MaxItems: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param ListReusableDelegationSetsCommandInput - {@link ListReusableDelegationSetsCommandInput}
@@ -57,6 +74,8 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListReusableDelegationSetsCommand extends $Command<

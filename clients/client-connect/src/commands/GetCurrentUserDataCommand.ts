@@ -65,6 +65,75 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * };
  * const command = new GetCurrentUserDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCurrentUserDataResponse
+ *   NextToken: "STRING_VALUE",
+ *   UserDataList: [ // UserDataList
+ *     { // UserData
+ *       User: { // UserReference
+ *         Id: "STRING_VALUE",
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       RoutingProfile: { // RoutingProfileReference
+ *         Id: "STRING_VALUE",
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       HierarchyPath: { // HierarchyPathReference
+ *         LevelOne: { // HierarchyGroupSummaryReference
+ *           Id: "STRING_VALUE",
+ *           Arn: "STRING_VALUE",
+ *         },
+ *         LevelTwo: {
+ *           Id: "STRING_VALUE",
+ *           Arn: "STRING_VALUE",
+ *         },
+ *         LevelThree: {
+ *           Id: "STRING_VALUE",
+ *           Arn: "STRING_VALUE",
+ *         },
+ *         LevelFour: {
+ *           Id: "STRING_VALUE",
+ *           Arn: "STRING_VALUE",
+ *         },
+ *         LevelFive: {
+ *           Id: "STRING_VALUE",
+ *           Arn: "STRING_VALUE",
+ *         },
+ *       },
+ *       Status: { // AgentStatusReference
+ *         StatusStartTimestamp: new Date("TIMESTAMP"),
+ *         StatusArn: "STRING_VALUE",
+ *         StatusName: "STRING_VALUE",
+ *       },
+ *       AvailableSlotsByChannel: { // ChannelToCountMap
+ *         "<keys>": Number("int"),
+ *       },
+ *       MaxSlotsByChannel: {
+ *         "<keys>": Number("int"),
+ *       },
+ *       ActiveSlotsByChannel: {
+ *         "<keys>": Number("int"),
+ *       },
+ *       Contacts: [ // AgentContactReferenceList
+ *         { // AgentContactReference
+ *           ContactId: "STRING_VALUE",
+ *           Channel: "VOICE" || "CHAT" || "TASK",
+ *           InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR",
+ *           AgentContactState: "INCOMING" || "PENDING" || "CONNECTING" || "CONNECTED" || "CONNECTED_ONHOLD" || "MISSED" || "ERROR" || "ENDED" || "REJECTED",
+ *           StateStartTimestamp: new Date("TIMESTAMP"),
+ *           ConnectedToAgentTimestamp: new Date("TIMESTAMP"),
+ *           Queue: { // QueueReference
+ *             Id: "STRING_VALUE",
+ *             Arn: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       NextStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ApproximateTotalCount: Number("long"),
+ * };
+ *
  * ```
  *
  * @param GetCurrentUserDataCommandInput - {@link GetCurrentUserDataCommandInput}
@@ -88,6 +157,8 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetCurrentUserDataCommand extends $Command<

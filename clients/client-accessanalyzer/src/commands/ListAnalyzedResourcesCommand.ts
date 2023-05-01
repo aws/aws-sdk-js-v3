@@ -48,6 +48,18 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * };
  * const command = new ListAnalyzedResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnalyzedResourcesResponse
+ *   analyzedResources: [ // AnalyzedResourcesList // required
+ *     { // AnalyzedResourceSummary
+ *       resourceArn: "STRING_VALUE", // required
+ *       resourceOwnerAccount: "STRING_VALUE", // required
+ *       resourceType: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAnalyzedResourcesCommandInput - {@link ListAnalyzedResourcesCommandInput}
@@ -71,6 +83,8 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListAnalyzedResourcesCommand extends $Command<

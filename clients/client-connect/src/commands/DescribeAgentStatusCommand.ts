@@ -46,6 +46,22 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * };
  * const command = new DescribeAgentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAgentStatusResponse
+ *   AgentStatus: { // AgentStatus
+ *     AgentStatusARN: "STRING_VALUE",
+ *     AgentStatusId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Type: "ROUTABLE" || "CUSTOM" || "OFFLINE",
+ *     DisplayOrder: Number("int"),
+ *     State: "ENABLED" || "DISABLED",
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAgentStatusCommandInput - {@link DescribeAgentStatusCommandInput}
@@ -69,6 +85,8 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeAgentStatusCommand extends $Command<

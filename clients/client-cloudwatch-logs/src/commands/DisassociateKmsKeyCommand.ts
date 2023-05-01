@@ -49,6 +49,9 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateKmsKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateKmsKeyCommandInput - {@link DisassociateKmsKeyCommandInput}
@@ -69,6 +72,8 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DisassociateKmsKeyCommand extends $Command<

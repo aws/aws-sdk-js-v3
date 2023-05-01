@@ -47,6 +47,26 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemasOutput
+ *   schemaSummaries: [ // SchemaSummaryList // required
+ *     { // SchemaSummary
+ *       name: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       creatorAccountId: "STRING_VALUE", // required
+ *       createTime: new Date("TIMESTAMP"), // required
+ *       updateTime: new Date("TIMESTAMP"), // required
+ *       collaborationId: "STRING_VALUE", // required
+ *       collaborationArn: "STRING_VALUE", // required
+ *       analysisRuleTypes: [ // AnalysisRuleTypeList // required
+ *         "AGGREGATION" || "LIST",
+ *       ],
+ *       analysisMethod: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
@@ -70,6 +90,8 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListSchemasCommand extends $Command<

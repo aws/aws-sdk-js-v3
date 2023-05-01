@@ -49,6 +49,9 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeletePartnerEventSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePartnerEventSourceCommandInput - {@link DeletePartnerEventSourceCommandInput}
@@ -66,6 +69,8 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * @throws {@link OperationDisabledException} (client fault)
  *  <p>The operation you are attempting is not available in this region.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DeletePartnerEventSourceCommand extends $Command<

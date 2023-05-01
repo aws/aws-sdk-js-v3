@@ -56,6 +56,23 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * };
  * const command = new PutAuditEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAuditEventsResponse
+ *   successful: [ // AuditEventResultEntries // required
+ *     { // AuditEventResultEntry
+ *       id: "STRING_VALUE", // required
+ *       eventID: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   failed: [ // ResultErrorEntries // required
+ *     { // ResultErrorEntry
+ *       id: "STRING_VALUE", // required
+ *       errorCode: "STRING_VALUE", // required
+ *       errorMessage: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutAuditEventsCommandInput - {@link PutAuditEventsCommandInput}
@@ -83,6 +100,8 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation requested is not supported in this region or account.</p>
  *
+ * @throws {@link CloudTrailDataServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrailData service.</p>
  *
  */
 export class PutAuditEventsCommand extends $Command<

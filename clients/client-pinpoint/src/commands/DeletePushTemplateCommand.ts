@@ -45,6 +45,14 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  * };
  * const command = new DeletePushTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePushTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: "STRING_VALUE",
+ *     RequestID: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeletePushTemplateCommandInput - {@link DeletePushTemplateCommandInput}
@@ -74,6 +82,8 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeletePushTemplateCommand extends $Command<

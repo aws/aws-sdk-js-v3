@@ -46,6 +46,9 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * };
  * const command = new EnableMacieCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableMacieCommandInput - {@link EnableMacieCommandInput}
@@ -75,6 +78,8 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class EnableMacieCommand extends $Command<

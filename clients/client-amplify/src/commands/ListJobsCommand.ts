@@ -47,6 +47,24 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsResult
+ *   jobSummaries: [ // JobSummaries // required
+ *     { // JobSummary
+ *       jobArn: "STRING_VALUE", // required
+ *       jobId: "STRING_VALUE", // required
+ *       commitId: "STRING_VALUE", // required
+ *       commitMessage: "STRING_VALUE", // required
+ *       commitTime: new Date("TIMESTAMP"), // required
+ *       startTime: new Date("TIMESTAMP"), // required
+ *       status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
+ *       endTime: new Date("TIMESTAMP"),
+ *       jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -67,6 +85,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class ListJobsCommand extends $Command<

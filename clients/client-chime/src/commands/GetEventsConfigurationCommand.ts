@@ -49,6 +49,15 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  * };
  * const command = new GetEventsConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEventsConfigurationResponse
+ *   EventsConfiguration: { // EventsConfiguration
+ *     BotId: "STRING_VALUE",
+ *     OutboundEventsHTTPSEndpoint: "STRING_VALUE",
+ *     LambdaFunctionArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEventsConfigurationCommandInput - {@link GetEventsConfigurationCommandInput}
@@ -78,6 +87,8 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetEventsConfigurationCommand extends $Command<

@@ -47,6 +47,17 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
  * };
  * const command = new ListEmailTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEmailTemplatesResponse
+ *   TemplatesMetadata: [ // EmailTemplateMetadataList
+ *     { // EmailTemplateMetadata
+ *       TemplateName: "STRING_VALUE",
+ *       CreatedTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEmailTemplatesCommandInput - {@link ListEmailTemplatesCommandInput}
@@ -61,6 +72,8 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListEmailTemplatesCommand extends $Command<

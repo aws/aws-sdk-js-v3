@@ -49,6 +49,11 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * };
  * const command = new RetrieveDomainAuthCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RetrieveDomainAuthCodeResponse
+ *   AuthCode: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RetrieveDomainAuthCodeCommandInput - {@link RetrieveDomainAuthCodeCommandInput}
@@ -66,6 +71,8 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class RetrieveDomainAuthCodeCommand extends $Command<

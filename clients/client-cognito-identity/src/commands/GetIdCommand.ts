@@ -50,6 +50,11 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * };
  * const command = new GetIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdResponse
+ *   IdentityId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetIdCommandInput - {@link GetIdCommandInput}
@@ -85,6 +90,8 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput, CognitoIdentityClientResolvedConfig> {

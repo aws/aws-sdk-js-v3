@@ -46,6 +46,19 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResult, __Metad
  * };
  * const command = new ListSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSnapshotsResult
+ *   Snapshots: [ // SnapshotSummaryList
+ *     { // SnapshotSummary
+ *       Id: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Created: new Date("TIMESTAMP"),
+ *       LastUpdated: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSnapshotsCommandInput - {@link ListSnapshotsCommandInput}
@@ -69,6 +82,8 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListSnapshotsCommand extends $Command<

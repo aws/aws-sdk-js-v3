@@ -49,6 +49,23 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * };
  * const command = new GetSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotsResponse
+ *   SnapShotTimeFilter: { // TimeRange
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
+ *   SnapshotsDataHeader: [ // SnapshotsDataHeaderFields
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotsData: [ // SnapshotsDataRecords
+ *     [ // SnapshotsDataRecord
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSnapshotsCommandInput - {@link GetSnapshotsCommandInput}
@@ -73,6 +90,8 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
  *             resource and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class GetSnapshotsCommand extends $Command<

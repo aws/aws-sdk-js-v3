@@ -64,6 +64,31 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * };
  * const command = new CreateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFunctionUrlConfigResponse
+ *   FunctionUrl: "STRING_VALUE", // required
+ *   FunctionArn: "STRING_VALUE", // required
+ *   AuthType: "NONE" || "AWS_IAM", // required
+ *   Cors: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // HeadersList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [ // AllowMethodsList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [ // AllowOriginsList
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   CreationTime: "STRING_VALUE", // required
+ *   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
+ * };
+ *
  * ```
  *
  * @param CreateFunctionUrlConfigCommandInput - {@link CreateFunctionUrlConfigCommandInput}
@@ -87,6 +112,8 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class CreateFunctionUrlConfigCommand extends $Command<

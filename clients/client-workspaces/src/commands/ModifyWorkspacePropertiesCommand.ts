@@ -62,6 +62,9 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * };
  * const command = new ModifyWorkspacePropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyWorkspacePropertiesCommandInput - {@link ModifyWorkspacePropertiesCommandInput}
@@ -93,6 +96,8 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
  *             Configuration and Service Components for WorkSpaces </a>.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyWorkspacePropertiesCommand extends $Command<

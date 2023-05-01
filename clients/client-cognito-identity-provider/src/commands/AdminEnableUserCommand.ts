@@ -55,6 +55,9 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * };
  * const command = new AdminEnableUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminEnableUserCommandInput - {@link AdminEnableUserCommandInput}
@@ -84,6 +87,8 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminEnableUserCommand extends $Command<

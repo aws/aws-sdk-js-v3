@@ -47,6 +47,13 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * };
  * const command = new ListTagsForVaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForVaultOutput
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForVaultCommandInput - {@link ListTagsForVaultCommandInput}
@@ -68,6 +75,8 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list the tags for a vault
  * ```javascript

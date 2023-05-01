@@ -48,6 +48,9 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  * };
  * const command = new StopEarthObservationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopEarthObservationJobCommandInput - {@link StopEarthObservationJobCommandInput}
@@ -74,6 +77,8 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class StopEarthObservationJobCommand extends $Command<

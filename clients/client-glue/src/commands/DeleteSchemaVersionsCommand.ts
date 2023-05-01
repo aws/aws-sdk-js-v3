@@ -52,6 +52,19 @@ export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsR
  * };
  * const command = new DeleteSchemaVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSchemaVersionsResponse
+ *   SchemaVersionErrors: [ // SchemaVersionErrorList
+ *     { // SchemaVersionErrorItem
+ *       VersionNumber: Number("long"),
+ *       ErrorDetails: { // ErrorDetails
+ *         ErrorCode: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteSchemaVersionsCommandInput - {@link DeleteSchemaVersionsCommandInput}
@@ -72,6 +85,8 @@ export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsR
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteSchemaVersionsCommand extends $Command<

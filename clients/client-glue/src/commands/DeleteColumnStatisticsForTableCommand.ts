@@ -53,6 +53,9 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * };
  * const command = new DeleteColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteColumnStatisticsForTableCommandInput - {@link DeleteColumnStatisticsForTableCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteColumnStatisticsForTableCommand extends $Command<

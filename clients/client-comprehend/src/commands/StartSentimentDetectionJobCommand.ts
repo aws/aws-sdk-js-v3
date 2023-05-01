@@ -79,6 +79,13 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  * };
  * const command = new StartSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSentimentDetectionJobResponse
+ *   JobId: "STRING_VALUE",
+ *   JobArn: "STRING_VALUE",
+ *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * };
+ *
  * ```
  *
  * @param StartSentimentDetectionJobCommandInput - {@link StartSentimentDetectionJobCommandInput}
@@ -109,6 +116,8 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartSentimentDetectionJobCommand extends $Command<

@@ -44,6 +44,29 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  * };
  * const command = new GetEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEvaluationOutput
+ *   EvaluationId: "STRING_VALUE",
+ *   MLModelId: "STRING_VALUE",
+ *   EvaluationDataSourceId: "STRING_VALUE",
+ *   InputDataLocationS3: "STRING_VALUE",
+ *   CreatedByIamUser: "STRING_VALUE",
+ *   CreatedAt: new Date("TIMESTAMP"),
+ *   LastUpdatedAt: new Date("TIMESTAMP"),
+ *   Name: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   PerformanceMetrics: { // PerformanceMetrics
+ *     Properties: { // PerformanceMetricsProperties
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   LogUri: "STRING_VALUE",
+ *   Message: "STRING_VALUE",
+ *   ComputeTime: Number("long"),
+ *   FinishedAt: new Date("TIMESTAMP"),
+ *   StartedAt: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param GetEvaluationCommandInput - {@link GetEvaluationCommandInput}
@@ -61,6 +84,8 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class GetEvaluationCommand extends $Command<

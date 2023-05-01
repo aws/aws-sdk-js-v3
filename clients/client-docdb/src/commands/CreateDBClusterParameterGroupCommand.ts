@@ -75,6 +75,16 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterParameterGroupResult
+ *   DBClusterParameterGroup: { // DBClusterParameterGroup
+ *     DBClusterParameterGroupName: "STRING_VALUE",
+ *     DBParameterGroupFamily: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     DBClusterParameterGroupArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterParameterGroupCommandInput - {@link CreateDBClusterParameterGroupCommandInput}
@@ -89,6 +99,8 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>This request would cause you to exceed the allowed number of parameter groups.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<

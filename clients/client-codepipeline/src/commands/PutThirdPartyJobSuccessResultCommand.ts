@@ -61,6 +61,9 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * };
  * const command = new PutThirdPartyJobSuccessResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutThirdPartyJobSuccessResultCommandInput - {@link PutThirdPartyJobSuccessResultCommandInput}
@@ -81,6 +84,8 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PutThirdPartyJobSuccessResultCommand extends $Command<

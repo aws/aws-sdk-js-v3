@@ -46,6 +46,9 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteExtensionCommandInput - {@link DeleteExtensionCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class DeleteExtensionCommand extends $Command<

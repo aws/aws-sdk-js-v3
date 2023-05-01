@@ -68,6 +68,13 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * };
  * const command = new StartSimulationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSimulationOutput
+ *   Arn: "STRING_VALUE",
+ *   ExecutionId: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param StartSimulationCommandInput - {@link StartSimulationCommandInput}
@@ -91,6 +98,8 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StartSimulationCommand extends $Command<

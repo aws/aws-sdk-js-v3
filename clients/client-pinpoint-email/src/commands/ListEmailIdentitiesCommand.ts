@@ -47,6 +47,18 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * };
  * const command = new ListEmailIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEmailIdentitiesResponse
+ *   EmailIdentities: [ // IdentityInfoList
+ *     { // IdentityInfo
+ *       IdentityType: "STRING_VALUE",
+ *       IdentityName: "STRING_VALUE",
+ *       SendingEnabled: true || false,
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEmailIdentitiesCommandInput - {@link ListEmailIdentitiesCommandInput}
@@ -61,6 +73,8 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class ListEmailIdentitiesCommand extends $Command<

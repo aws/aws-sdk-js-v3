@@ -42,6 +42,17 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * const input = {};
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigurationResponse
+ *   ecrConfiguration: { // EcrConfigurationState
+ *     rescanDurationState: { // EcrRescanDurationState
+ *       rescanDuration: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       updatedAt: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
@@ -59,6 +70,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class GetConfigurationCommand extends $Command<

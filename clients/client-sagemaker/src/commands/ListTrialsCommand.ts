@@ -55,6 +55,24 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * };
  * const command = new ListTrialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrialsResponse
+ *   TrialSummaries: [ // TrialSummaries
+ *     { // TrialSummary
+ *       TrialArn: "STRING_VALUE",
+ *       TrialName: "STRING_VALUE",
+ *       DisplayName: "STRING_VALUE",
+ *       TrialSource: { // TrialSource
+ *         SourceArn: "STRING_VALUE", // required
+ *         SourceType: "STRING_VALUE",
+ *       },
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTrialsCommandInput - {@link ListTrialsCommandInput}
@@ -66,6 +84,8 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListTrialsCommand extends $Command<

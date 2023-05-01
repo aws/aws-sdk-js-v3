@@ -58,6 +58,24 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * };
  * const command = new ListAuditMitigationActionsExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAuditMitigationActionsExecutionsResponse
+ *   actionsExecutions: [ // AuditMitigationActionExecutionMetadataList
+ *     { // AuditMitigationActionExecutionMetadata
+ *       taskId: "STRING_VALUE",
+ *       findingId: "STRING_VALUE",
+ *       actionName: "STRING_VALUE",
+ *       actionId: "STRING_VALUE",
+ *       status: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED" || "SKIPPED" || "PENDING",
+ *       startTime: new Date("TIMESTAMP"),
+ *       endTime: new Date("TIMESTAMP"),
+ *       errorCode: "STRING_VALUE",
+ *       message: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAuditMitigationActionsExecutionsCommandInput - {@link ListAuditMitigationActionsExecutionsCommandInput}
@@ -75,6 +93,8 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListAuditMitigationActionsExecutionsCommand extends $Command<

@@ -51,6 +51,20 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * };
  * const command = new ListModelCardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelCardsResponse
+ *   ModelCardSummaries: [ // ModelCardSummaryList // required
+ *     { // ModelCardSummary
+ *       ModelCardName: "STRING_VALUE", // required
+ *       ModelCardArn: "STRING_VALUE", // required
+ *       ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListModelCardsCommandInput - {@link ListModelCardsCommandInput}
@@ -59,6 +73,8 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * @see {@link ListModelCardsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelCardsCommand extends $Command<

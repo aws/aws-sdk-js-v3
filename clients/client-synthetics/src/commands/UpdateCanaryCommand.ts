@@ -97,6 +97,9 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCanaryCommandInput - {@link UpdateCanaryCommandInput}
@@ -120,6 +123,8 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class UpdateCanaryCommand extends $Command<

@@ -44,6 +44,9 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * };
  * const command = new DeleteUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUploadCommandInput - {@link DeleteUploadCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To delete a specific upload
  * ```javascript

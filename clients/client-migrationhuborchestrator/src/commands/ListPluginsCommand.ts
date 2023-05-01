@@ -49,6 +49,21 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * };
  * const command = new ListPluginsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPluginsResponse
+ *   nextToken: "STRING_VALUE",
+ *   plugins: [ // PluginSummaries
+ *     { // PluginSummary
+ *       pluginId: "STRING_VALUE",
+ *       hostname: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       ipAddress: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *       registeredTime: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPluginsCommandInput - {@link ListPluginsCommandInput}
@@ -66,6 +81,8 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListPluginsCommand extends $Command<

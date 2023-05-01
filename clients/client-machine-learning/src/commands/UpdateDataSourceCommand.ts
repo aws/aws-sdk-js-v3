@@ -46,6 +46,11 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataSourceOutput
+ *   DataSourceId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
@@ -63,6 +68,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateDataSourceCommand extends $Command<

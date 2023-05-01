@@ -44,6 +44,9 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * };
  * const command = new TerminateAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TerminateAppCommandInput - {@link TerminateAppCommandInput}
@@ -68,6 +71,8 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class TerminateAppCommand extends $Command<

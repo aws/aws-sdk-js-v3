@@ -43,6 +43,12 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * const input = {};
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountResult
+ *   DedicatedTenancySupport: "ENABLED" || "DISABLED",
+ *   DedicatedTenancyManagementCidrRange: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
@@ -54,6 +60,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user is not authorized to access a resource.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeAccountCommand extends $Command<

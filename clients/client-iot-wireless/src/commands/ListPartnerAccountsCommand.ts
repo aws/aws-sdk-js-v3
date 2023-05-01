@@ -49,6 +49,18 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * };
  * const command = new ListPartnerAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartnerAccountsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Sidewalk: [ // SidewalkAccountList
+ *     { // SidewalkAccountInfoWithFingerprint
+ *       AmazonId: "STRING_VALUE",
+ *       Fingerprint: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPartnerAccountsCommandInput - {@link ListPartnerAccountsCommandInput}
@@ -69,6 +81,8 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListPartnerAccountsCommand extends $Command<

@@ -75,6 +75,9 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreatePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreatePermissionCommandInput - {@link CreatePermissionCommandInput}
@@ -104,6 +107,8 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class CreatePermissionCommand extends $Command<

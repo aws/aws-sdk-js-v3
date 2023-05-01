@@ -86,6 +86,12 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  * };
  * const command = new CreateUnreferencedMergeCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUnreferencedMergeCommitOutput
+ *   commitId: "STRING_VALUE",
+ *   treeId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateUnreferencedMergeCommitCommandInput - {@link CreateUnreferencedMergeCommitCommandInput}
@@ -215,6 +221,8 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreateUnreferencedMergeCommitCommand extends $Command<

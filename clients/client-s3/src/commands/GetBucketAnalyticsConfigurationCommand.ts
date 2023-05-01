@@ -79,6 +79,42 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
  * };
  * const command = new GetBucketAnalyticsConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketAnalyticsConfigurationOutput
+ *   AnalyticsConfiguration: { // AnalyticsConfiguration
+ *     Id: "STRING_VALUE", // required
+ *     Filter: { // AnalyticsFilter Union: only one key present
+ *       Prefix: "STRING_VALUE",
+ *       Tag: { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       And: { // AnalyticsAndOperator
+ *         Prefix: "STRING_VALUE",
+ *         Tags: [ // TagSet
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     StorageClassAnalysis: { // StorageClassAnalysis
+ *       DataExport: { // StorageClassAnalysisDataExport
+ *         OutputSchemaVersion: "V_1", // required
+ *         Destination: { // AnalyticsExportDestination
+ *           S3BucketDestination: { // AnalyticsS3BucketDestination
+ *             Format: "CSV", // required
+ *             BucketAccountId: "STRING_VALUE",
+ *             Bucket: "STRING_VALUE", // required
+ *             Prefix: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBucketAnalyticsConfigurationCommandInput - {@link GetBucketAnalyticsConfigurationCommandInput}
@@ -87,6 +123,8 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
  * @see {@link GetBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketAnalyticsConfigurationCommand extends $Command<

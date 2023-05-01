@@ -54,6 +54,20 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * };
  * const command = new DescribeServiceErrorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceErrorsResult
+ *   ServiceErrors: [ // ServiceErrors
+ *     { // ServiceError
+ *       ServiceErrorId: "STRING_VALUE",
+ *       StackId: "STRING_VALUE",
+ *       InstanceId: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Message: "STRING_VALUE",
+ *       CreatedAt: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeServiceErrorsCommandInput - {@link DescribeServiceErrorsCommandInput}
@@ -68,6 +82,8 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeServiceErrorsCommand extends $Command<

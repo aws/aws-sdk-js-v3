@@ -44,6 +44,9 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DeleteDestinationCommand extends $Command<

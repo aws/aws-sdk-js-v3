@@ -50,6 +50,21 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Environment
+ *   ApplicationId: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ *   Monitors: [ // MonitorList
+ *     { // Monitor
+ *       AlarmArn: "STRING_VALUE", // required
+ *       AlarmRoleArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
@@ -67,6 +82,8 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To retrieve environment details
  * ```javascript

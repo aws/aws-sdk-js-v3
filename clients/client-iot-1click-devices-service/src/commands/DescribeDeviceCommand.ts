@@ -49,6 +49,23 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeviceResponse
+ *   DeviceDescription: { // DeviceDescription
+ *     Arn: "STRING_VALUE",
+ *     Attributes: { // DeviceAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     DeviceId: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     RemainingLife: Number("double"),
+ *     Type: "STRING_VALUE",
+ *     Tags: { // __mapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
@@ -63,6 +80,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class DescribeDeviceCommand extends $Command<

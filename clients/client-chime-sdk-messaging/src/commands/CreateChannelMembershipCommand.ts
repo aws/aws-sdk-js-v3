@@ -89,6 +89,16 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * };
  * const command = new CreateChannelMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelMembershipResponse
+ *   ChannelArn: "STRING_VALUE",
+ *   Member: { // Identity
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *   },
+ *   SubChannelId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateChannelMembershipCommandInput - {@link CreateChannelMembershipCommandInput}
@@ -125,6 +135,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class CreateChannelMembershipCommand extends $Command<

@@ -57,6 +57,9 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveTagsFromStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsFromStreamCommandInput - {@link RemoveTagsFromStreamCommandInput}
@@ -85,6 +88,8 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class RemoveTagsFromStreamCommand extends $Command<

@@ -46,6 +46,19 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * };
  * const command = new ListServiceActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceActionsOutput
+ *   ServiceActionSummaries: [ // ServiceActionSummaries
+ *     { // ServiceActionSummary
+ *       Id: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       DefinitionType: "SSM_AUTOMATION",
+ *     },
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListServiceActionsCommandInput - {@link ListServiceActionsCommandInput}
@@ -57,6 +70,8 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListServiceActionsCommand extends $Command<

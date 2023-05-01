@@ -91,6 +91,9 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
@@ -129,6 +132,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To delete an alias
  * ```javascript

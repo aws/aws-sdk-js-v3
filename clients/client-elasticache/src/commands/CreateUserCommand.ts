@@ -63,6 +63,24 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // User
+ *   UserId: "STRING_VALUE",
+ *   UserName: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   MinimumEngineVersion: "STRING_VALUE",
+ *   AccessString: "STRING_VALUE",
+ *   UserGroupIds: [ // UserGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Authentication: { // Authentication
+ *     Type: "password" || "no-password" || "iam",
+ *     PasswordCount: Number("int"),
+ *   },
+ *   ARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -92,6 +110,8 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link UserQuotaExceededFault} (client fault)
  *  <p>The quota of users has been exceeded.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

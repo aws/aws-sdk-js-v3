@@ -107,6 +107,9 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
@@ -149,6 +152,8 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To update an alias
  * ```javascript

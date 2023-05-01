@@ -48,6 +48,9 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteOriginAccessControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOriginAccessControlCommandInput - {@link DeleteOriginAccessControlCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteOriginAccessControlCommand extends $Command<

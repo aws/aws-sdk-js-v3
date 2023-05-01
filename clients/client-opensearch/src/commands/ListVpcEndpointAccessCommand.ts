@@ -46,6 +46,17 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * };
  * const command = new ListVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcEndpointAccessResponse
+ *   AuthorizedPrincipalList: [ // AuthorizedPrincipalList // required
+ *     { // AuthorizedPrincipal
+ *       PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
+ *       Principal: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
@@ -66,6 +77,8 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist..</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListVpcEndpointAccessCommand extends $Command<

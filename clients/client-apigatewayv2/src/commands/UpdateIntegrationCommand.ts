@@ -72,6 +72,40 @@ export interface UpdateIntegrationCommandOutput extends UpdateIntegrationResult,
  * };
  * const command = new UpdateIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIntegrationResult
+ *   ApiGatewayManaged: true || false,
+ *   ConnectionId: "STRING_VALUE",
+ *   ConnectionType: "STRING_VALUE",
+ *   ContentHandlingStrategy: "STRING_VALUE",
+ *   CredentialsArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   IntegrationId: "STRING_VALUE",
+ *   IntegrationMethod: "STRING_VALUE",
+ *   IntegrationResponseSelectionExpression: "STRING_VALUE",
+ *   IntegrationSubtype: "STRING_VALUE",
+ *   IntegrationType: "STRING_VALUE",
+ *   IntegrationUri: "STRING_VALUE",
+ *   PassthroughBehavior: "STRING_VALUE",
+ *   PayloadFormatVersion: "STRING_VALUE",
+ *   RequestParameters: { // IntegrationParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RequestTemplates: { // TemplateMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseParameters: { // ResponseParameters
+ *     "<keys>": {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   TemplateSelectionExpression: "STRING_VALUE",
+ *   TimeoutInMillis: Number("int"),
+ *   TlsConfig: { // TlsConfig
+ *     ServerNameToVerify: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateIntegrationCommandInput - {@link UpdateIntegrationCommandInput}
@@ -92,6 +126,8 @@ export interface UpdateIntegrationCommandOutput extends UpdateIntegrationResult,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateIntegrationCommand extends $Command<

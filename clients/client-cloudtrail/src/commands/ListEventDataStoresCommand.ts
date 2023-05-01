@@ -46,6 +46,50 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * };
  * const command = new ListEventDataStoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventDataStoresResponse
+ *   EventDataStores: [ // EventDataStores
+ *     { // EventDataStore
+ *       EventDataStoreArn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       TerminationProtectionEnabled: true || false,
+ *       Status: "CREATED" || "ENABLED" || "PENDING_DELETION",
+ *       AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *         { // AdvancedEventSelector
+ *           Name: "STRING_VALUE",
+ *           FieldSelectors: [ // AdvancedFieldSelectors // required
+ *             { // AdvancedFieldSelector
+ *               Field: "STRING_VALUE", // required
+ *               Equals: [ // Operator
+ *                 "STRING_VALUE",
+ *               ],
+ *               StartsWith: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               EndsWith: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NotEquals: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NotStartsWith: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NotEndsWith: "<Operator>",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       MultiRegionEnabled: true || false,
+ *       OrganizationEnabled: true || false,
+ *       RetentionPeriod: Number("int"),
+ *       CreatedTimestamp: new Date("TIMESTAMP"),
+ *       UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEventDataStoresCommandInput - {@link ListEventDataStoresCommandInput}
@@ -71,6 +115,8 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListEventDataStoresCommand extends $Command<

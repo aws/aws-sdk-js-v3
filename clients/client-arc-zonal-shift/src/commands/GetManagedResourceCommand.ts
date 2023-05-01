@@ -46,6 +46,26 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * };
  * const command = new GetManagedResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetManagedResourceResponse
+ *   arn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   appliedWeights: { // AppliedWeights // required
+ *     "<keys>": Number("float"),
+ *   },
+ *   zonalShifts: [ // ZonalShiftsInResource // required
+ *     { // ZonalShiftInResource
+ *       appliedStatus: "APPLIED" || "NOT_APPLIED", // required
+ *       zonalShiftId: "STRING_VALUE", // required
+ *       resourceIdentifier: "STRING_VALUE", // required
+ *       awayFrom: "STRING_VALUE", // required
+ *       expiryTime: new Date("TIMESTAMP"), // required
+ *       startTime: new Date("TIMESTAMP"), // required
+ *       comment: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetManagedResourceCommandInput - {@link GetManagedResourceCommandInput}
@@ -69,6 +89,8 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class GetManagedResourceCommand extends $Command<

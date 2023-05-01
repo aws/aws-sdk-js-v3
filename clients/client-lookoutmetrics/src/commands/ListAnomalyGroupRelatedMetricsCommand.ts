@@ -54,6 +54,19 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * };
  * const command = new ListAnomalyGroupRelatedMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnomalyGroupRelatedMetricsResponse
+ *   InterMetricImpactList: [ // InterMetricImpactList
+ *     { // InterMetricImpactDetails
+ *       MetricName: "STRING_VALUE",
+ *       AnomalyGroupId: "STRING_VALUE",
+ *       RelationshipType: "STRING_VALUE",
+ *       ContributionPercentage: Number("double"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAnomalyGroupRelatedMetricsCommandInput - {@link ListAnomalyGroupRelatedMetricsCommandInput}
@@ -78,6 +91,8 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListAnomalyGroupRelatedMetricsCommand extends $Command<

@@ -51,6 +51,11 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  * };
  * const command = new GetSigningCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSigningCertificateResponse
+ *   Certificate: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetSigningCertificateCommandInput - {@link GetSigningCertificateCommandInput}
@@ -70,6 +75,8 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetSigningCertificateCommand extends $Command<

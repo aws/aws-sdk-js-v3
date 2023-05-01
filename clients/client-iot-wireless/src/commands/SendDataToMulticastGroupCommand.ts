@@ -50,6 +50,11 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * };
  * const command = new SendDataToMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendDataToMulticastGroupResponse
+ *   MessageId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SendDataToMulticastGroupCommandInput - {@link SendDataToMulticastGroupCommandInput}
@@ -76,6 +81,8 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class SendDataToMulticastGroupCommand extends $Command<

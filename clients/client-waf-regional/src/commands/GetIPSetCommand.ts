@@ -52,6 +52,20 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIPSetResponse
+ *   IPSet: { // IPSet
+ *     IPSetId: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     IPSetDescriptors: [ // IPSetDescriptors // required
+ *       { // IPSetDescriptor
+ *         Type: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIPSetCommandInput - {@link GetIPSetCommandInput}
@@ -69,6 +83,8 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To get an IP set
  * ```javascript

@@ -47,6 +47,23 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * };
  * const command = new ListAlarmModelVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAlarmModelVersionsResponse
+ *   alarmModelVersionSummaries: [ // AlarmModelVersionSummaries
+ *     { // AlarmModelVersionSummary
+ *       alarmModelName: "STRING_VALUE",
+ *       alarmModelArn: "STRING_VALUE",
+ *       alarmModelVersion: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE",
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdateTime: new Date("TIMESTAMP"),
+ *       status: "STRING_VALUE",
+ *       statusMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAlarmModelVersionsCommandInput - {@link ListAlarmModelVersionsCommandInput}
@@ -70,6 +87,8 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListAlarmModelVersionsCommand extends $Command<

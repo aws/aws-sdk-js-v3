@@ -45,6 +45,26 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateResponse
+ *   templateId: "STRING_VALUE", // required
+ *   templateArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   layoutConfiguration: { // LayoutConfiguration
+ *     defaultLayout: "STRING_VALUE",
+ *   },
+ *   requiredFields: [ // RequiredFieldList
+ *     { // RequiredField
+ *       fieldId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   status: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
@@ -70,6 +90,8 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class GetTemplateCommand extends $Command<

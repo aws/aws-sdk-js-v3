@@ -51,6 +51,11 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * const input = {};
  * const command = new DeregisterAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterAccountResponse
+ *   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
+ * };
+ *
  * ```
  *
  * @param DeregisterAccountCommandInput - {@link DeregisterAccountCommandInput}
@@ -73,6 +78,8 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeregisterAccountCommand extends $Command<

@@ -46,6 +46,19 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * };
  * const command = new GetWorkUnitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkUnitsResponse
+ *   NextToken: "STRING_VALUE",
+ *   QueryId: "STRING_VALUE", // required
+ *   WorkUnitRanges: [ // WorkUnitRangeList // required
+ *     { // WorkUnitRange
+ *       WorkUnitIdMax: Number("long"), // required
+ *       WorkUnitIdMin: Number("long"), // required
+ *       WorkUnitToken: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetWorkUnitsCommandInput - {@link GetWorkUnitsCommandInput}
@@ -69,6 +82,8 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * @throws {@link WorkUnitsNotReadyYetException} (client fault)
  *  <p>Contains details about an error related to work units not being ready.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetWorkUnitsCommand extends $Command<

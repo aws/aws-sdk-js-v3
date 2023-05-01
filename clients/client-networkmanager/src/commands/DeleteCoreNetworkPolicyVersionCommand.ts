@@ -50,6 +50,26 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  * };
  * const command = new DeleteCoreNetworkPolicyVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCoreNetworkPolicyVersionResponse
+ *   CoreNetworkPolicy: { // CoreNetworkPolicy
+ *     CoreNetworkId: "STRING_VALUE",
+ *     PolicyVersionId: Number("int"),
+ *     Alias: "LIVE" || "LATEST",
+ *     Description: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     ChangeSetState: "PENDING_GENERATION" || "FAILED_GENERATION" || "READY_TO_EXECUTE" || "EXECUTING" || "EXECUTION_SUCCEEDED" || "OUT_OF_DATE",
+ *     PolicyErrors: [ // CoreNetworkPolicyErrorList
+ *       { // CoreNetworkPolicyError
+ *         ErrorCode: "STRING_VALUE", // required
+ *         Message: "STRING_VALUE", // required
+ *         Path: "STRING_VALUE",
+ *       },
+ *     ],
+ *     PolicyDocument: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteCoreNetworkPolicyVersionCommandInput - {@link DeleteCoreNetworkPolicyVersionCommandInput}
@@ -77,6 +97,8 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DeleteCoreNetworkPolicyVersionCommand extends $Command<

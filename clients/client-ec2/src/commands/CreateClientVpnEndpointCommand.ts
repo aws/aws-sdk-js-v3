@@ -101,6 +101,16 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * };
  * const command = new CreateClientVpnEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClientVpnEndpointResult
+ *   ClientVpnEndpointId: "STRING_VALUE",
+ *   Status: { // ClientVpnEndpointStatus
+ *     Code: "pending-associate" || "available" || "deleting" || "deleted",
+ *     Message: "STRING_VALUE",
+ *   },
+ *   DnsName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateClientVpnEndpointCommandInput - {@link CreateClientVpnEndpointCommandInput}
@@ -109,6 +119,8 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * @see {@link CreateClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateClientVpnEndpointCommand extends $Command<

@@ -55,6 +55,19 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * };
  * const command = new ListEventTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventTypesResult
+ *   EventTypes: [ // EventTypeBatch
+ *     { // EventTypeSummary
+ *       EventTypeId: "STRING_VALUE",
+ *       ServiceName: "STRING_VALUE",
+ *       EventTypeName: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListEventTypesCommandInput - {@link ListEventTypesCommandInput}
@@ -69,6 +82,8 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class ListEventTypesCommand extends $Command<

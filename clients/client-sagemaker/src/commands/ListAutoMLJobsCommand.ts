@@ -53,6 +53,28 @@ export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __M
  * };
  * const command = new ListAutoMLJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAutoMLJobsResponse
+ *   AutoMLJobSummaries: [ // AutoMLJobSummaries // required
+ *     { // AutoMLJobSummary
+ *       AutoMLJobName: "STRING_VALUE", // required
+ *       AutoMLJobArn: "STRING_VALUE", // required
+ *       AutoMLJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping", // required
+ *       AutoMLJobSecondaryStatus: "Starting" || "AnalyzingData" || "FeatureEngineering" || "ModelTuning" || "MaxCandidatesReached" || "Failed" || "Stopped" || "MaxAutoMLJobRuntimeReached" || "Stopping" || "CandidateDefinitionsGenerated" || "GeneratingExplainabilityReport" || "Completed" || "ExplainabilityError" || "DeployingModel" || "ModelDeploymentError" || "GeneratingModelInsightsReport" || "ModelInsightsError" || "TrainingModels", // required
+ *       CreationTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"), // required
+ *       FailureReason: "STRING_VALUE",
+ *       PartialFailureReasons: [ // AutoMLPartialFailureReasons
+ *         { // AutoMLPartialFailureReason
+ *           PartialFailureMessage: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAutoMLJobsCommandInput - {@link ListAutoMLJobsCommandInput}
@@ -61,6 +83,8 @@ export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __M
  * @see {@link ListAutoMLJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListAutoMLJobsCommand extends $Command<

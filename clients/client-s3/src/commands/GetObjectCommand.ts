@@ -235,6 +235,48 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectOutput
+ *   Body: "STREAMING_BLOB_VALUE",
+ *   DeleteMarker: true || false,
+ *   AcceptRanges: "STRING_VALUE",
+ *   Expiration: "STRING_VALUE",
+ *   Restore: "STRING_VALUE",
+ *   LastModified: new Date("TIMESTAMP"),
+ *   ContentLength: Number("long"),
+ *   ETag: "STRING_VALUE",
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   MissingMeta: Number("int"),
+ *   VersionId: "STRING_VALUE",
+ *   CacheControl: "STRING_VALUE",
+ *   ContentDisposition: "STRING_VALUE",
+ *   ContentEncoding: "STRING_VALUE",
+ *   ContentLanguage: "STRING_VALUE",
+ *   ContentRange: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   Expires: new Date("TIMESTAMP"),
+ *   WebsiteRedirectLocation: "STRING_VALUE",
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   Metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *   RequestCharged: "requester",
+ *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA",
+ *   PartsCount: Number("int"),
+ *   TagCount: Number("int"),
+ *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
+ *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ * };
+ *
  * ```
  *
  * @param GetObjectCommandInput - {@link GetObjectCommandInput}
@@ -249,6 +291,8 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve an object
  * ```javascript

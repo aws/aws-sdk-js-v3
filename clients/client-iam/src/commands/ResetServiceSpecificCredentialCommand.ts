@@ -57,6 +57,19 @@ export interface ResetServiceSpecificCredentialCommandOutput
  * };
  * const command = new ResetServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetServiceSpecificCredentialResponse
+ *   ServiceSpecificCredential: { // ServiceSpecificCredential
+ *     CreateDate: new Date("TIMESTAMP"), // required
+ *     ServiceName: "STRING_VALUE", // required
+ *     ServiceUserName: "STRING_VALUE", // required
+ *     ServicePassword: "STRING_VALUE", // required
+ *     ServiceSpecificCredentialId: "STRING_VALUE", // required
+ *     UserName: "STRING_VALUE", // required
+ *     Status: "Active" || "Inactive", // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResetServiceSpecificCredentialCommandInput - {@link ResetServiceSpecificCredentialCommandInput}
@@ -69,6 +82,8 @@ export interface ResetServiceSpecificCredentialCommandOutput
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ResetServiceSpecificCredentialCommand extends $Command<

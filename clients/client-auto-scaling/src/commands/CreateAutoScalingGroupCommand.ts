@@ -213,6 +213,9 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateAutoScalingGroupCommandInput - {@link CreateAutoScalingGroupCommandInput}
@@ -237,6 +240,8 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To create an Auto Scaling group
  * ```javascript

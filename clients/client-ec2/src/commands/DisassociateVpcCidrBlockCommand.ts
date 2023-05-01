@@ -49,6 +49,29 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  * };
  * const command = new DisassociateVpcCidrBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateVpcCidrBlockResult
+ *   Ipv6CidrBlockAssociation: { // VpcIpv6CidrBlockAssociation
+ *     AssociationId: "STRING_VALUE",
+ *     Ipv6CidrBlock: "STRING_VALUE",
+ *     Ipv6CidrBlockState: { // VpcCidrBlockState
+ *       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ *       StatusMessage: "STRING_VALUE",
+ *     },
+ *     NetworkBorderGroup: "STRING_VALUE",
+ *     Ipv6Pool: "STRING_VALUE",
+ *   },
+ *   CidrBlockAssociation: { // VpcCidrBlockAssociation
+ *     AssociationId: "STRING_VALUE",
+ *     CidrBlock: "STRING_VALUE",
+ *     CidrBlockState: {
+ *       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ *       StatusMessage: "STRING_VALUE",
+ *     },
+ *   },
+ *   VpcId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateVpcCidrBlockCommandInput - {@link DisassociateVpcCidrBlockCommandInput}
@@ -57,6 +80,8 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  * @see {@link DisassociateVpcCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisassociateVpcCidrBlockCommand extends $Command<

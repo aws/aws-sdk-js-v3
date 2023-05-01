@@ -389,6 +389,11 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  * };
  * const command = new RequestSpotFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RequestSpotFleetResponse
+ *   SpotFleetRequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RequestSpotFleetCommandInput - {@link RequestSpotFleetCommandInput}
@@ -397,6 +402,8 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  * @see {@link RequestSpotFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To request a Spot fleet in the subnet with the lowest price
  * ```javascript

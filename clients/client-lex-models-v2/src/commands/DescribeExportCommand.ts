@@ -44,6 +44,35 @@ export interface DescribeExportCommandOutput extends DescribeExportResponse, __M
  * };
  * const command = new DescribeExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExportResponse
+ *   exportId: "STRING_VALUE",
+ *   resourceSpecification: { // ExportResourceSpecification
+ *     botExportSpecification: { // BotExportSpecification
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *     },
+ *     botLocaleExportSpecification: { // BotLocaleExportSpecification
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *     },
+ *     customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   fileFormat: "LexJson" || "TSV",
+ *   exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
+ *   failureReasons: [ // FailureReasons
+ *     "STRING_VALUE",
+ *   ],
+ *   downloadUrl: "STRING_VALUE",
+ *   creationDateTime: new Date("TIMESTAMP"),
+ *   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param DescribeExportCommandInput - {@link DescribeExportCommandInput}
@@ -68,6 +97,8 @@ export interface DescribeExportCommandOutput extends DescribeExportResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeExportCommand extends $Command<

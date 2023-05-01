@@ -51,6 +51,21 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * };
  * const command = new GetDetectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDetectorsResult
+ *   detectors: [ // DetectorList
+ *     { // Detector
+ *       detectorId: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       eventTypeName: "STRING_VALUE",
+ *       lastUpdatedTime: "STRING_VALUE",
+ *       createdTime: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDetectorsCommandInput - {@link GetDetectorsCommandInput}
@@ -74,6 +89,8 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetDetectorsCommand extends $Command<

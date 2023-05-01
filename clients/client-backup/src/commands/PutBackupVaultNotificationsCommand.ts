@@ -51,6 +51,9 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * };
  * const command = new PutBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBackupVaultNotificationsCommandInput - {@link PutBackupVaultNotificationsCommandInput}
@@ -72,6 +75,8 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class PutBackupVaultNotificationsCommand extends $Command<

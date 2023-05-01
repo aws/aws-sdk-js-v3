@@ -59,6 +59,9 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * };
  * const command = new UpdateModelVersionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateModelVersionStatusCommandInput - {@link UpdateModelVersionStatusCommandInput}
@@ -85,6 +88,8 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateModelVersionStatusCommand extends $Command<

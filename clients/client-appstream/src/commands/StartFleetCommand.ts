@@ -44,6 +44,9 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * };
  * const command = new StartFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartFleetCommandInput - {@link StartFleetCommandInput}
@@ -76,6 +79,8 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class StartFleetCommand extends $Command<

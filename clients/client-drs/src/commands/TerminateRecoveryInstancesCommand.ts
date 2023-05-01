@@ -50,6 +50,29 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * };
  * const command = new TerminateRecoveryInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TerminateRecoveryInstancesResponse
+ *   job: { // Job
+ *     jobID: "STRING_VALUE", // required
+ *     arn: "STRING_VALUE",
+ *     type: "STRING_VALUE",
+ *     initiatedBy: "STRING_VALUE",
+ *     creationDateTime: "STRING_VALUE",
+ *     endDateTime: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     participatingServers: [ // ParticipatingServers
+ *       { // ParticipatingServer
+ *         sourceServerID: "STRING_VALUE",
+ *         recoveryInstanceID: "STRING_VALUE",
+ *         launchStatus: "STRING_VALUE",
+ *       },
+ *     ],
+ *     tags: { // TagsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param TerminateRecoveryInstancesCommandInput - {@link TerminateRecoveryInstancesCommandInput}
@@ -73,6 +96,8 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class TerminateRecoveryInstancesCommand extends $Command<

@@ -47,6 +47,11 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  * };
  * const command = new GetCodeBindingSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCodeBindingSourceResponse
+ *   Body: "BLOB_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCodeBindingSourceCommandInput - {@link GetCodeBindingSourceCommandInput}
@@ -67,6 +72,8 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class GetCodeBindingSourceCommand extends $Command<

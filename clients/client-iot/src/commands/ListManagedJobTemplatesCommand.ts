@@ -46,6 +46,22 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * };
  * const command = new ListManagedJobTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedJobTemplatesResponse
+ *   managedJobTemplates: [ // ManagedJobTemplatesSummaryList
+ *     { // ManagedJobTemplateSummary
+ *       templateArn: "STRING_VALUE",
+ *       templateName: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       environments: [ // Environments
+ *         "STRING_VALUE",
+ *       ],
+ *       templateVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListManagedJobTemplatesCommandInput - {@link ListManagedJobTemplatesCommandInput}
@@ -67,6 +83,8 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListManagedJobTemplatesCommand extends $Command<

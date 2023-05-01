@@ -57,6 +57,29 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSiteResponse
+ *   Site: { // Site
+ *     SiteId: "STRING_VALUE",
+ *     SiteArn: "STRING_VALUE",
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Location: { // Location
+ *       Address: "STRING_VALUE",
+ *       Latitude: "STRING_VALUE",
+ *       Longitude: "STRING_VALUE",
+ *     },
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
@@ -84,6 +107,8 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class UpdateSiteCommand extends $Command<

@@ -99,6 +99,9 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * };
  * const command = new DisableAWSServiceAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableAWSServiceAccessCommandInput - {@link DisableAWSServiceAccessCommandInput}
@@ -437,6 +440,8 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class DisableAWSServiceAccessCommand extends $Command<

@@ -44,6 +44,9 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResumeResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResumeResourceCommandInput - {@link ResumeResourceCommandInput}
@@ -66,6 +69,8 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ResumeResourceCommand extends $Command<

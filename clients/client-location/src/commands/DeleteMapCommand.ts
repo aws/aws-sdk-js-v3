@@ -48,6 +48,9 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * };
  * const command = new DeleteMapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMapCommandInput - {@link DeleteMapCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DeleteMapCommand extends $Command<

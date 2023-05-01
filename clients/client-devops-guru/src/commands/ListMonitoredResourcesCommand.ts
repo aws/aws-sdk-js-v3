@@ -53,6 +53,34 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * };
  * const command = new ListMonitoredResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitoredResourcesResponse
+ *   MonitoredResourceIdentifiers: [ // MonitoredResourceIdentifiers // required
+ *     { // MonitoredResourceIdentifier
+ *       MonitoredResourceName: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       ResourcePermission: "FULL_PERMISSION" || "MISSING_PERMISSION",
+ *       LastUpdated: new Date("TIMESTAMP"),
+ *       ResourceCollection: { // ResourceCollection
+ *         CloudFormation: { // CloudFormationCollection
+ *           StackNames: [ // StackNames
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Tags: [ // TagCollections
+ *           { // TagCollection
+ *             AppBoundaryKey: "STRING_VALUE", // required
+ *             TagValues: [ // TagValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMonitoredResourcesCommandInput - {@link ListMonitoredResourcesCommandInput}
@@ -74,6 +102,8 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListMonitoredResourcesCommand extends $Command<

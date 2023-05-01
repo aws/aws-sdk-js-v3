@@ -46,6 +46,12 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  * };
  * const command = new GetLayerVersionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLayerVersionPolicyResponse
+ *   Policy: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetLayerVersionPolicyCommandInput - {@link GetLayerVersionPolicyCommandInput}
@@ -66,6 +72,8 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetLayerVersionPolicyCommand extends $Command<

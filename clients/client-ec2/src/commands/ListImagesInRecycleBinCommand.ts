@@ -51,6 +51,20 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * };
  * const command = new ListImagesInRecycleBinCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagesInRecycleBinResult
+ *   Images: [ // ImageRecycleBinInfoList
+ *     { // ImageRecycleBinInfo
+ *       ImageId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       RecycleBinEnterTime: new Date("TIMESTAMP"),
+ *       RecycleBinExitTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImagesInRecycleBinCommandInput - {@link ListImagesInRecycleBinCommandInput}
@@ -59,6 +73,8 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * @see {@link ListImagesInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ListImagesInRecycleBinCommand extends $Command<

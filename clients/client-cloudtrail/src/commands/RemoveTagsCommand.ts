@@ -50,6 +50,9 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
@@ -129,6 +132,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class RemoveTagsCommand extends $Command<

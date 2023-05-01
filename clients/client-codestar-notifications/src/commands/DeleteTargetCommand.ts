@@ -49,6 +49,9 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * };
  * const command = new DeleteTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTargetCommandInput - {@link DeleteTargetCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class DeleteTargetCommand extends $Command<

@@ -61,6 +61,14 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * };
  * const command = new ImportFirewallDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportFirewallDomainsResponse
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
+ *   StatusMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ImportFirewallDomainsCommandInput - {@link ImportFirewallDomainsCommandInput}
@@ -93,6 +101,8 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ImportFirewallDomainsCommand extends $Command<

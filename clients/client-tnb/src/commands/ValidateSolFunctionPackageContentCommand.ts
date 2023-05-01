@@ -52,6 +52,25 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * };
  * const command = new ValidateSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidateSolFunctionPackageContentOutput
+ *   id: "STRING_VALUE", // required
+ *   vnfdId: "STRING_VALUE", // required
+ *   vnfProductName: "STRING_VALUE", // required
+ *   vnfProvider: "STRING_VALUE", // required
+ *   vnfdVersion: "STRING_VALUE", // required
+ *   metadata: { // ValidateSolFunctionPackageContentMetadata
+ *     vnfd: { // FunctionArtifactMeta
+ *       overrides: [ // OverrideList
+ *         { // ToscaOverride
+ *           name: "STRING_VALUE",
+ *           defaultValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ValidateSolFunctionPackageContentCommandInput - {@link ValidateSolFunctionPackageContentCommandInput}
@@ -75,6 +94,8 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ValidateSolFunctionPackageContentCommand extends $Command<

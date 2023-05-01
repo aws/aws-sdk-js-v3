@@ -44,6 +44,12 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteComponentResponse
+ *   requestId: "STRING_VALUE",
+ *   componentBuildVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

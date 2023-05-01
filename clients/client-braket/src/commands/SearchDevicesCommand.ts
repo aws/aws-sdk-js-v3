@@ -53,6 +53,20 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * };
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchDevicesResponse
+ *   devices: [ // DeviceSummaryList // required
+ *     { // DeviceSummary
+ *       deviceArn: "STRING_VALUE", // required
+ *       deviceName: "STRING_VALUE", // required
+ *       providerName: "STRING_VALUE", // required
+ *       deviceType: "STRING_VALUE", // required
+ *       deviceStatus: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param SearchDevicesCommandInput - {@link SearchDevicesCommandInput}
@@ -74,6 +88,8 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class SearchDevicesCommand extends $Command<

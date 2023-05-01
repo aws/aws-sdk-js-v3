@@ -64,6 +64,11 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * };
  * const command = new GetRandomPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRandomPasswordResponse
+ *   RandomPassword: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetRandomPasswordCommandInput - {@link GetRandomPasswordCommandInput}
@@ -96,6 +101,8 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  *             </li>
  *          </ul>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To generate a random password
  * ```javascript

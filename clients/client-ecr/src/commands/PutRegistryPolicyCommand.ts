@@ -46,6 +46,12 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * };
  * const command = new PutRegistryPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRegistryPolicyResponse
+ *   registryId: "STRING_VALUE",
+ *   policyText: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutRegistryPolicyCommandInput - {@link PutRegistryPolicyCommandInput}
@@ -64,6 +70,8 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutRegistryPolicyCommand extends $Command<

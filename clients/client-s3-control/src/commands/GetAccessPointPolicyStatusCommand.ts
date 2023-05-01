@@ -48,6 +48,13 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  * };
  * const command = new GetAccessPointPolicyStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessPointPolicyStatusResult
+ *   PolicyStatus: { // PolicyStatus
+ *     IsPublic: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccessPointPolicyStatusCommandInput - {@link GetAccessPointPolicyStatusCommandInput}
@@ -56,6 +63,8 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  * @see {@link GetAccessPointPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetAccessPointPolicyStatusCommand extends $Command<

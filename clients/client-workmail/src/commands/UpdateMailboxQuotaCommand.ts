@@ -47,6 +47,9 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  * };
  * const command = new UpdateMailboxQuotaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateMailboxQuotaCommandInput - {@link UpdateMailboxQuotaCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateMailboxQuotaCommand extends $Command<

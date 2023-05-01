@@ -59,6 +59,17 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * };
  * const command = new DescribeRetentionConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRetentionConfigurationsResponse
+ *   RetentionConfigurations: [ // RetentionConfigurationList
+ *     { // RetentionConfiguration
+ *       Name: "STRING_VALUE", // required
+ *       RetentionPeriodInDays: Number("int"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeRetentionConfigurationsCommandInput - {@link DescribeRetentionConfigurationsCommandInput}
@@ -79,6 +90,8 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * @throws {@link NoSuchRetentionConfigurationException} (client fault)
  *  <p>You have specified a retention configuration that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeRetentionConfigurationsCommand extends $Command<

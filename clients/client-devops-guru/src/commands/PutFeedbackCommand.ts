@@ -47,6 +47,9 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * };
  * const command = new PutFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutFeedbackCommandInput - {@link PutFeedbackCommandInput}
@@ -77,6 +80,8 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class PutFeedbackCommand extends $Command<

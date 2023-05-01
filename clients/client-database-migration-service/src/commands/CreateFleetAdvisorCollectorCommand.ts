@@ -53,6 +53,15 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * };
  * const command = new CreateFleetAdvisorCollectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFleetAdvisorCollectorResponse
+ *   CollectorReferencedId: "STRING_VALUE",
+ *   CollectorName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ServiceAccessRoleArn: "STRING_VALUE",
+ *   S3BucketName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateFleetAdvisorCollectorCommandInput - {@link CreateFleetAdvisorCollectorCommandInput}
@@ -78,6 +87,8 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
  *             found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class CreateFleetAdvisorCollectorCommand extends $Command<

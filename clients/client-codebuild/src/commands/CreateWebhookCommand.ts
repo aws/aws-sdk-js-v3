@@ -65,6 +65,27 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWebhookOutput
+ *   webhook: { // Webhook
+ *     url: "STRING_VALUE",
+ *     payloadUrl: "STRING_VALUE",
+ *     secret: "STRING_VALUE",
+ *     branchFilter: "STRING_VALUE",
+ *     filterGroups: [ // FilterGroups
+ *       [ // FilterGroup
+ *         { // WebhookFilter
+ *           type: "STRING_VALUE", // required
+ *           pattern: "STRING_VALUE", // required
+ *           excludeMatchedPattern: true || false,
+ *         },
+ *       ],
+ *     ],
+ *     buildType: "STRING_VALUE",
+ *     lastModifiedSecret: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWebhookCommandInput - {@link CreateWebhookCommandInput}
@@ -86,6 +107,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class CreateWebhookCommand extends $Command<

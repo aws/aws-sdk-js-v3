@@ -53,6 +53,13 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * };
  * const command = new StartAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAppOutput
+ *   Name: "STRING_VALUE",
+ *   Domain: "STRING_VALUE",
+ *   Simulation: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param StartAppCommandInput - {@link StartAppCommandInput}
@@ -76,6 +83,8 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StartAppCommand extends $Command<

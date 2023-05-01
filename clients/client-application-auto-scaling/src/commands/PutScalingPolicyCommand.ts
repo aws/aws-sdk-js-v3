@@ -133,6 +133,17 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutScalingPolicyResponse
+ *   PolicyARN: "STRING_VALUE", // required
+ *   Alarms: [ // Alarms
+ *     { // Alarm
+ *       AlarmName: "STRING_VALUE", // required
+ *       AlarmARN: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
@@ -168,6 +179,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To apply a target tracking scaling policy with a predefined metric specification
  * ```javascript

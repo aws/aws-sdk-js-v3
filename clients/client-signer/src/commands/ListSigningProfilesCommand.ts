@@ -57,6 +57,35 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * };
  * const command = new ListSigningProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSigningProfilesResponse
+ *   profiles: [ // SigningProfiles
+ *     { // SigningProfile
+ *       profileName: "STRING_VALUE",
+ *       profileVersion: "STRING_VALUE",
+ *       profileVersionArn: "STRING_VALUE",
+ *       signingMaterial: { // SigningMaterial
+ *         certificateArn: "STRING_VALUE", // required
+ *       },
+ *       signatureValidityPeriod: { // SignatureValidityPeriod
+ *         value: Number("int"),
+ *         type: "STRING_VALUE",
+ *       },
+ *       platformId: "STRING_VALUE",
+ *       platformDisplayName: "STRING_VALUE",
+ *       signingParameters: { // SigningParameters
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       status: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSigningProfilesCommandInput - {@link ListSigningProfilesCommandInput}
@@ -75,6 +104,8 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class ListSigningProfilesCommand extends $Command<

@@ -108,6 +108,72 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePipelineOutput
+ *   pipeline: { // PipelineDeclaration
+ *     name: "STRING_VALUE", // required
+ *     roleArn: "STRING_VALUE", // required
+ *     artifactStore: { // ArtifactStore
+ *       type: "STRING_VALUE", // required
+ *       location: "STRING_VALUE", // required
+ *       encryptionKey: { // EncryptionKey
+ *         id: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     artifactStores: { // ArtifactStoreMap
+ *       "<keys>": {
+ *         type: "STRING_VALUE", // required
+ *         location: "STRING_VALUE", // required
+ *         encryptionKey: {
+ *           id: "STRING_VALUE", // required
+ *           type: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *     stages: [ // PipelineStageDeclarationList // required
+ *       { // StageDeclaration
+ *         name: "STRING_VALUE", // required
+ *         blockers: [ // StageBlockerDeclarationList
+ *           { // BlockerDeclaration
+ *             name: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         actions: [ // StageActionDeclarationList // required
+ *           { // ActionDeclaration
+ *             name: "STRING_VALUE", // required
+ *             actionTypeId: { // ActionTypeId
+ *               category: "STRING_VALUE", // required
+ *               owner: "STRING_VALUE", // required
+ *               provider: "STRING_VALUE", // required
+ *               version: "STRING_VALUE", // required
+ *             },
+ *             runOrder: Number("int"),
+ *             configuration: { // ActionConfigurationMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             outputArtifacts: [ // OutputArtifactList
+ *               { // OutputArtifact
+ *                 name: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             inputArtifacts: [ // InputArtifactList
+ *               { // InputArtifact
+ *                 name: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             roleArn: "STRING_VALUE",
+ *             region: "STRING_VALUE",
+ *             namespace: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     version: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
@@ -135,6 +201,8 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class UpdatePipelineCommand extends $Command<

@@ -58,6 +58,65 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationsResponse
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   profileStartTime: new Date("TIMESTAMP"), // required
+ *   profileEndTime: new Date("TIMESTAMP"), // required
+ *   recommendations: [ // Recommendations // required
+ *     { // Recommendation
+ *       allMatchesCount: Number("int"), // required
+ *       allMatchesSum: Number("double"), // required
+ *       pattern: { // Pattern
+ *         id: "STRING_VALUE",
+ *         name: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *         resolutionSteps: "STRING_VALUE",
+ *         targetFrames: [ // TargetFrames
+ *           [ // TargetFrame
+ *             "STRING_VALUE",
+ *           ],
+ *         ],
+ *         thresholdPercent: Number("double"),
+ *         countersToAggregate: [ // Strings
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       topMatches: [ // Matches // required
+ *         { // Match
+ *           targetFramesIndex: Number("int"),
+ *           frameAddress: "STRING_VALUE",
+ *           thresholdBreachValue: Number("double"),
+ *         },
+ *       ],
+ *       startTime: new Date("TIMESTAMP"), // required
+ *       endTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   anomalies: [ // Anomalies // required
+ *     { // Anomaly
+ *       metric: { // Metric
+ *         frameName: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         threadStates: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       reason: "STRING_VALUE", // required
+ *       instances: [ // AnomalyInstances // required
+ *         { // AnomalyInstance
+ *           id: "STRING_VALUE", // required
+ *           startTime: new Date("TIMESTAMP"), // required
+ *           endTime: new Date("TIMESTAMP"),
+ *           userFeedback: { // UserFeedback
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
@@ -78,6 +137,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class GetRecommendationsCommand extends $Command<

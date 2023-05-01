@@ -50,6 +50,19 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDatasetResponse
+ *   Dataset: { // Dataset
+ *     IdentityId: "STRING_VALUE",
+ *     DatasetName: "STRING_VALUE",
+ *     CreationDate: new Date("TIMESTAMP"),
+ *     LastModifiedDate: new Date("TIMESTAMP"),
+ *     LastModifiedBy: "STRING_VALUE",
+ *     DataStorage: Number("long"),
+ *     NumRecords: Number("long"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
@@ -82,6 +95,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class DeleteDatasetCommand extends $Command<

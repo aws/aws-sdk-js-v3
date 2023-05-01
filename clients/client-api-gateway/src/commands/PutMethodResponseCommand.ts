@@ -53,6 +53,17 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  * };
  * const command = new PutMethodResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MethodResponse
+ *   statusCode: "STRING_VALUE",
+ *   responseParameters: { // MapOfStringToBoolean
+ *     "<keys>": true || false,
+ *   },
+ *   responseModels: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutMethodResponseCommandInput - {@link PutMethodResponseCommandInput}
@@ -79,6 +90,8 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class PutMethodResponseCommand extends $Command<

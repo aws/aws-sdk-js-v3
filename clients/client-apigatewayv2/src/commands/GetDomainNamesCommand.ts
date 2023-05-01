@@ -45,6 +45,41 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * };
  * const command = new GetDomainNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDomainNamesResponse
+ *   Items: [ // __listOfDomainName
+ *     { // DomainName
+ *       ApiMappingSelectionExpression: "STRING_VALUE",
+ *       DomainName: "STRING_VALUE", // required
+ *       DomainNameConfigurations: [ // DomainNameConfigurations
+ *         { // DomainNameConfiguration
+ *           ApiGatewayDomainName: "STRING_VALUE",
+ *           CertificateArn: "STRING_VALUE",
+ *           CertificateName: "STRING_VALUE",
+ *           CertificateUploadDate: new Date("TIMESTAMP"),
+ *           DomainNameStatus: "STRING_VALUE",
+ *           DomainNameStatusMessage: "STRING_VALUE",
+ *           EndpointType: "STRING_VALUE",
+ *           HostedZoneId: "STRING_VALUE",
+ *           SecurityPolicy: "STRING_VALUE",
+ *           OwnershipVerificationCertificateArn: "STRING_VALUE",
+ *         },
+ *       ],
+ *       MutualTlsAuthentication: { // MutualTlsAuthentication
+ *         TruststoreUri: "STRING_VALUE",
+ *         TruststoreVersion: "STRING_VALUE",
+ *         TruststoreWarnings: [ // __listOf__string
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDomainNamesCommandInput - {@link GetDomainNamesCommandInput}
@@ -62,6 +97,8 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetDomainNamesCommand extends $Command<

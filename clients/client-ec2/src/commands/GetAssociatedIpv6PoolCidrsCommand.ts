@@ -47,6 +47,17 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * };
  * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssociatedIpv6PoolCidrsResult
+ *   Ipv6CidrAssociations: [ // Ipv6CidrAssociationSet
+ *     { // Ipv6CidrAssociation
+ *       Ipv6Cidr: "STRING_VALUE",
+ *       AssociatedResource: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetAssociatedIpv6PoolCidrsCommandInput - {@link GetAssociatedIpv6PoolCidrsCommandInput}
@@ -55,6 +66,8 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetAssociatedIpv6PoolCidrsCommand extends $Command<

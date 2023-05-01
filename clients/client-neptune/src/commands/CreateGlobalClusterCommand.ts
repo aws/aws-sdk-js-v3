@@ -57,6 +57,29 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGlobalClusterResult
+ *   GlobalCluster: { // GlobalCluster
+ *     GlobalClusterIdentifier: "STRING_VALUE",
+ *     GlobalClusterResourceId: "STRING_VALUE",
+ *     GlobalClusterArn: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     Engine: "STRING_VALUE",
+ *     EngineVersion: "STRING_VALUE",
+ *     StorageEncrypted: true || false,
+ *     DeletionProtection: true || false,
+ *     GlobalClusterMembers: [ // GlobalClusterMemberList
+ *       { // GlobalClusterMember
+ *         DBClusterArn: "STRING_VALUE",
+ *         Readers: [ // ReadersArnList
+ *           "STRING_VALUE",
+ *         ],
+ *         IsWriter: true || false,
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGlobalClusterCommandInput - {@link CreateGlobalClusterCommandInput}
@@ -78,6 +101,8 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The DB cluster is not in a valid state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CreateGlobalClusterCommand extends $Command<

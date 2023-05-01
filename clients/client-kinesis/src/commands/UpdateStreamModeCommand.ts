@@ -50,6 +50,9 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateStreamModeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStreamModeCommandInput - {@link UpdateStreamModeCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class UpdateStreamModeCommand extends $Command<

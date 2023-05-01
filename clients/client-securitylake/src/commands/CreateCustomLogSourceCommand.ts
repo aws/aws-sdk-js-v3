@@ -52,6 +52,15 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  * };
  * const command = new CreateCustomLogSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomLogSourceResponse
+ *   customDataLocation: "STRING_VALUE", // required
+ *   glueCrawlerName: "STRING_VALUE", // required
+ *   glueTableName: "STRING_VALUE", // required
+ *   glueDatabaseName: "STRING_VALUE", // required
+ *   logProviderAccessRoleArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateCustomLogSourceCommandInput - {@link CreateCustomLogSourceCommandInput}
@@ -88,6 +97,8 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateCustomLogSourceCommand extends $Command<

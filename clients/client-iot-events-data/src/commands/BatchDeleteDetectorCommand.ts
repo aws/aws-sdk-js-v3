@@ -50,6 +50,17 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * };
  * const command = new BatchDeleteDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteDetectorResponse
+ *   batchDeleteDetectorErrorEntries: [ // BatchDeleteDetectorErrorEntries
+ *     { // BatchDeleteDetectorErrorEntry
+ *       messageId: "STRING_VALUE",
+ *       errorCode: "STRING_VALUE",
+ *       errorMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteDetectorCommandInput - {@link BatchDeleteDetectorCommandInput}
@@ -70,6 +81,8 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchDeleteDetectorCommand extends $Command<

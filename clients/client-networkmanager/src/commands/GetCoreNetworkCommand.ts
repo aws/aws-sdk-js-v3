@@ -44,6 +44,44 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * };
  * const command = new GetCoreNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoreNetworkResponse
+ *   CoreNetwork: { // CoreNetwork
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     CoreNetworkId: "STRING_VALUE",
+ *     CoreNetworkArn: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     State: "CREATING" || "UPDATING" || "AVAILABLE" || "DELETING",
+ *     Segments: [ // CoreNetworkSegmentList
+ *       { // CoreNetworkSegment
+ *         Name: "STRING_VALUE",
+ *         EdgeLocations: [ // ExternalRegionCodeList
+ *           "STRING_VALUE",
+ *         ],
+ *         SharedSegments: [ // ConstrainedStringList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *     Edges: [ // CoreNetworkEdgeList
+ *       { // CoreNetworkEdge
+ *         EdgeLocation: "STRING_VALUE",
+ *         Asn: Number("long"),
+ *         InsideCidrBlocks: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCoreNetworkCommandInput - {@link GetCoreNetworkCommandInput}
@@ -67,6 +105,8 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetCoreNetworkCommand extends $Command<

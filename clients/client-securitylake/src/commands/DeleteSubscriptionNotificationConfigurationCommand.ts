@@ -54,6 +54,9 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * };
  * const command = new DeleteSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSubscriptionNotificationConfigurationCommandInput - {@link DeleteSubscriptionNotificationConfigurationCommandInput}
@@ -90,6 +93,8 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteSubscriptionNotificationConfigurationCommand extends $Command<

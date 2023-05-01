@@ -49,6 +49,63 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * };
  * const command = new DisassociateLicenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateLicenseResponse
+ *   workspace: { // WorkspaceDescription
+ *     accountAccessType: "STRING_VALUE",
+ *     created: new Date("TIMESTAMP"), // required
+ *     dataSources: [ // DataSourceTypesList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     description: "STRING_VALUE",
+ *     endpoint: "STRING_VALUE", // required
+ *     grafanaVersion: "STRING_VALUE", // required
+ *     id: "STRING_VALUE", // required
+ *     modified: new Date("TIMESTAMP"), // required
+ *     name: "STRING_VALUE",
+ *     organizationRoleName: "STRING_VALUE",
+ *     notificationDestinations: [ // NotificationDestinationsList
+ *       "STRING_VALUE",
+ *     ],
+ *     organizationalUnits: [ // OrganizationalUnitList
+ *       "STRING_VALUE",
+ *     ],
+ *     permissionType: "STRING_VALUE",
+ *     stackSetName: "STRING_VALUE",
+ *     status: "STRING_VALUE", // required
+ *     workspaceRoleArn: "STRING_VALUE",
+ *     licenseType: "STRING_VALUE",
+ *     freeTrialConsumed: true || false,
+ *     licenseExpiration: new Date("TIMESTAMP"),
+ *     freeTrialExpiration: new Date("TIMESTAMP"),
+ *     authentication: { // AuthenticationSummary
+ *       providers: [ // AuthenticationProviders // required
+ *         "STRING_VALUE",
+ *       ],
+ *       samlConfigurationStatus: "STRING_VALUE",
+ *     },
+ *     tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     vpcConfiguration: { // VpcConfiguration
+ *       securityGroupIds: [ // SecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnetIds: [ // SubnetIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     networkAccessControl: { // NetworkAccessConfiguration
+ *       prefixListIds: [ // PrefixListIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       vpceIds: [ // VpceIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateLicenseCommandInput - {@link DisassociateLicenseCommandInput}
@@ -72,6 +129,8 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class DisassociateLicenseCommand extends $Command<

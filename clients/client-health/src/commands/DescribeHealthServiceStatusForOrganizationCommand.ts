@@ -50,6 +50,11 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * const input = {};
  * const command = new DescribeHealthServiceStatusForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHealthServiceStatusForOrganizationResponse
+ *   healthServiceAccessStatusForOrganization: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeHealthServiceStatusForOrganizationCommandInput - {@link DescribeHealthServiceStatusForOrganizationCommandInput}
@@ -58,6 +63,8 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<

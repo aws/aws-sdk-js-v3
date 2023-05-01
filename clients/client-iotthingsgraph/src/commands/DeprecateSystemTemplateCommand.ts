@@ -46,6 +46,9 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * };
  * const command = new DeprecateSystemTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeprecateSystemTemplateCommandInput - {@link DeprecateSystemTemplateCommandInput}
@@ -66,6 +69,8 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeprecateSystemTemplateCommand extends $Command<

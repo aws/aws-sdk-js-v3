@@ -48,6 +48,24 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkProfileResponse
+ *   NetworkProfile: { // NetworkProfile
+ *     NetworkProfileArn: "STRING_VALUE",
+ *     NetworkProfileName: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Ssid: "STRING_VALUE",
+ *     SecurityType: "STRING_VALUE",
+ *     EapMethod: "STRING_VALUE",
+ *     CurrentPassword: "STRING_VALUE",
+ *     NextPassword: "STRING_VALUE",
+ *     CertificateAuthorityArn: "STRING_VALUE",
+ *     TrustAnchors: [ // TrustAnchorList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
@@ -62,6 +80,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetNetworkProfileCommand extends $Command<

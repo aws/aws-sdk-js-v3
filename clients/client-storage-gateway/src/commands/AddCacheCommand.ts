@@ -51,6 +51,11 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * };
  * const command = new AddCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddCacheOutput
+ *   GatewayARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AddCacheCommandInput - {@link AddCacheCommandInput}
@@ -67,6 +72,8 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To add a cache
  * ```javascript

@@ -44,6 +44,14 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  * };
  * const command = new GetInstanceStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstanceStateResult
+ *   state: { // InstanceState
+ *     code: Number("int"),
+ *     name: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInstanceStateCommandInput - {@link GetInstanceStateCommandInput}
@@ -82,6 +90,8 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetInstanceStateCommand extends $Command<

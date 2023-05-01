@@ -52,6 +52,15 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * };
  * const command = new RegisterContainerImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterContainerImageResult
+ *   containerImage: { // ContainerImage
+ *     image: "STRING_VALUE",
+ *     digest: "STRING_VALUE",
+ *     createdAt: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param RegisterContainerImageCommandInput - {@link RegisterContainerImageCommandInput}
@@ -83,6 +92,8 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class RegisterContainerImageCommand extends $Command<

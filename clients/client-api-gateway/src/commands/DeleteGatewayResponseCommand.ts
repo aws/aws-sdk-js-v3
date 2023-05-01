@@ -45,6 +45,9 @@ export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteGatewayResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGatewayResponseCommandInput - {@link DeleteGatewayResponseCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteGatewayResponseCommand extends $Command<

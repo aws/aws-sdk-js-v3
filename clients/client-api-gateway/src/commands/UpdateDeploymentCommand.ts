@@ -53,6 +53,21 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
  * };
  * const command = new UpdateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployment
+ *   id: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   createdDate: new Date("TIMESTAMP"),
+ *   apiSummary: { // PathToMapOfMethodSnapshot
+ *     "<keys>": { // MapOfMethodSnapshot
+ *       "<keys>": { // MethodSnapshot
+ *         authorizationType: "STRING_VALUE",
+ *         apiKeyRequired: true || false,
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDeploymentCommandInput - {@link UpdateDeploymentCommandInput}
@@ -82,6 +97,8 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateDeploymentCommand extends $Command<

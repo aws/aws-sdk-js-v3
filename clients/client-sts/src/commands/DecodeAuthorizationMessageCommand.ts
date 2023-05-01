@@ -80,6 +80,11 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * };
  * const command = new DecodeAuthorizationMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DecodeAuthorizationMessageResponse
+ *   DecodedMessage: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DecodeAuthorizationMessageCommandInput - {@link DecodeAuthorizationMessageCommandInput}
@@ -93,6 +98,8 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *             was invalid. This can happen if the token contains invalid characters, such as
  *             linebreaks. </p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To decode information about an authorization status of a request
  * ```javascript

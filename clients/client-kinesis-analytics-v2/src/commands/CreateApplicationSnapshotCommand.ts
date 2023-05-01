@@ -49,6 +49,9 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  * };
  * const command = new CreateApplicationSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateApplicationSnapshotCommandInput - {@link CreateApplicationSnapshotCommandInput}
@@ -79,6 +82,8 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class CreateApplicationSnapshotCommand extends $Command<

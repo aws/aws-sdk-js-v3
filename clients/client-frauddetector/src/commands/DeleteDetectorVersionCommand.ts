@@ -46,6 +46,9 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * };
  * const command = new DeleteDetectorVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDetectorVersionCommandInput - {@link DeleteDetectorVersionCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteDetectorVersionCommand extends $Command<

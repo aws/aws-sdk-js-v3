@@ -48,6 +48,14 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAliasesResponse
+ *   Aliases: [ // Aliases
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
@@ -75,6 +83,8 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListAliasesCommand extends $Command<

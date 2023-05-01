@@ -55,6 +55,17 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * };
  * const command = new ListNotificationRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNotificationRulesResult
+ *   NextToken: "STRING_VALUE",
+ *   NotificationRules: [ // NotificationRuleBatch
+ *     { // NotificationRuleSummary
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListNotificationRulesCommandInput - {@link ListNotificationRulesCommandInput}
@@ -69,6 +80,8 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class ListNotificationRulesCommand extends $Command<

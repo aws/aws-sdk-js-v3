@@ -47,6 +47,17 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * };
  * const command = new UpdateEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEnvironmentMembershipResult
+ *   membership: { // EnvironmentMember
+ *     permissions: "owner" || "read-write" || "read-only", // required
+ *     userId: "STRING_VALUE", // required
+ *     userArn: "STRING_VALUE", // required
+ *     environmentId: "STRING_VALUE", // required
+ *     lastAccess: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEnvironmentMembershipCommandInput - {@link UpdateEnvironmentMembershipCommandInput}
@@ -76,6 +87,8 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example UpdateEnvironmentMembership
  * ```javascript

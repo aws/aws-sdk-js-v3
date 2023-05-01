@@ -77,6 +77,13 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * };
  * const command = new SendProjectSessionActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendProjectSessionActionResponse
+ *   Result: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   ActionId: Number("int"),
+ * };
+ *
  * ```
  *
  * @param SendProjectSessionActionCommandInput - {@link SendProjectSessionActionCommandInput}
@@ -94,6 +101,8 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class SendProjectSessionActionCommand extends $Command<

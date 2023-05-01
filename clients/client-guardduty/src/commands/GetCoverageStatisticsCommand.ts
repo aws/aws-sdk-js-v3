@@ -65,6 +65,18 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  * };
  * const command = new GetCoverageStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoverageStatisticsResponse
+ *   CoverageStatistics: { // CoverageStatistics
+ *     CountByResourceType: { // CountByResourceType
+ *       "<keys>": Number("long"),
+ *     },
+ *     CountByCoverageStatus: { // CountByCoverageStatus
+ *       "<keys>": Number("long"),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCoverageStatisticsCommandInput - {@link GetCoverageStatisticsCommandInput}
@@ -79,6 +91,8 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetCoverageStatisticsCommand extends $Command<

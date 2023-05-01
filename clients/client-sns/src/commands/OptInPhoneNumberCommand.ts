@@ -46,6 +46,9 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * };
  * const command = new OptInPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param OptInPhoneNumberCommandInput - {@link OptInPhoneNumberCommandInput}
@@ -67,6 +70,8 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class OptInPhoneNumberCommand extends $Command<

@@ -45,6 +45,12 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * };
  * const command = new DeleteAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAssociationResponse
+ *   SourceArn: "STRING_VALUE",
+ *   DestinationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
@@ -56,6 +62,8 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteAssociationCommand extends $Command<

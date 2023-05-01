@@ -50,6 +50,9 @@ export interface StartInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartInstanceCommandInput - {@link StartInstanceCommandInput}
@@ -64,6 +67,8 @@ export interface StartInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class StartInstanceCommand extends $Command<

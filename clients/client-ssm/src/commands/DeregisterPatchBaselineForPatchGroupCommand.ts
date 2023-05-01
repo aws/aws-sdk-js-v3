@@ -53,6 +53,12 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * };
  * const command = new DeregisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterPatchBaselineForPatchGroupResult
+ *   BaselineId: "STRING_VALUE",
+ *   PatchGroup: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DeregisterPatchBaselineForPatchGroupCommandInput - {@link DeregisterPatchBaselineForPatchGroupCommandInput}
@@ -67,6 +73,8 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * @throws {@link InvalidResourceId} (client fault)
  *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<

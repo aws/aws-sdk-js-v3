@@ -54,6 +54,9 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * };
  * const command = new VerifySMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param VerifySMSSandboxPhoneNumberCommandInput - {@link VerifySMSSandboxPhoneNumberCommandInput}
@@ -82,6 +85,8 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * @throws {@link VerificationException} (client fault)
  *  <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class VerifySMSSandboxPhoneNumberCommand extends $Command<

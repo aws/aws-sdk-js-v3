@@ -50,6 +50,35 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * };
  * const command = new ListWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkspacesResponse
+ *   workspaces: [ // WorkspaceList // required
+ *     { // WorkspaceSummary
+ *       created: new Date("TIMESTAMP"), // required
+ *       description: "STRING_VALUE",
+ *       endpoint: "STRING_VALUE", // required
+ *       grafanaVersion: "STRING_VALUE", // required
+ *       id: "STRING_VALUE", // required
+ *       modified: new Date("TIMESTAMP"), // required
+ *       name: "STRING_VALUE",
+ *       notificationDestinations: [ // NotificationDestinationsList
+ *         "STRING_VALUE",
+ *       ],
+ *       status: "STRING_VALUE", // required
+ *       authentication: { // AuthenticationSummary
+ *         providers: [ // AuthenticationProviders // required
+ *           "STRING_VALUE",
+ *         ],
+ *         samlConfigurationStatus: "STRING_VALUE",
+ *       },
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListWorkspacesCommandInput - {@link ListWorkspacesCommandInput}
@@ -67,6 +96,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling. Retry the request.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class ListWorkspacesCommand extends $Command<

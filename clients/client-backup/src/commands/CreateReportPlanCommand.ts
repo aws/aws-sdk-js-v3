@@ -75,6 +75,13 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * };
  * const command = new CreateReportPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReportPlanOutput
+ *   ReportPlanName: "STRING_VALUE",
+ *   ReportPlanArn: "STRING_VALUE",
+ *   CreationTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param CreateReportPlanCommandInput - {@link CreateReportPlanCommandInput}
@@ -100,6 +107,8 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateReportPlanCommand extends $Command<

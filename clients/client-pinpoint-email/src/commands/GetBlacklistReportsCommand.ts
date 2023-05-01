@@ -46,6 +46,19 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  * };
  * const command = new GetBlacklistReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBlacklistReportsResponse
+ *   BlacklistReport: { // BlacklistReport // required
+ *     "<keys>": [ // BlacklistEntries
+ *       { // BlacklistEntry
+ *         RblName: "STRING_VALUE",
+ *         ListingTime: new Date("TIMESTAMP"),
+ *         Description: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBlacklistReportsCommandInput - {@link GetBlacklistReportsCommandInput}
@@ -63,6 +76,8 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetBlacklistReportsCommand extends $Command<

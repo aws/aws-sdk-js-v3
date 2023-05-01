@@ -49,6 +49,37 @@ export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationD
  * };
  * const command = new GetApplicationDateRangeKpiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationDateRangeKpiResponse
+ *   ApplicationDateRangeKpiResponse: { // ApplicationDateRangeKpiResponse
+ *     ApplicationId: "STRING_VALUE", // required
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *     KpiName: "STRING_VALUE", // required
+ *     KpiResult: { // BaseKpiResult
+ *       Rows: [ // ListOfResultRow // required
+ *         { // ResultRow
+ *           GroupedBys: [ // ListOfResultRowValue // required
+ *             { // ResultRowValue
+ *               Key: "STRING_VALUE", // required
+ *               Type: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *           Values: [ // required
+ *             {
+ *               Key: "STRING_VALUE", // required
+ *               Type: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     NextToken: "STRING_VALUE",
+ *     StartTime: new Date("TIMESTAMP"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApplicationDateRangeKpiCommandInput - {@link GetApplicationDateRangeKpiCommandInput}
@@ -78,6 +109,8 @@ export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationD
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetApplicationDateRangeKpiCommand extends $Command<

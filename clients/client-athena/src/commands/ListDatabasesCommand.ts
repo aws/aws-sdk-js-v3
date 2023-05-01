@@ -46,6 +46,20 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatabasesOutput
+ *   DatabaseList: [ // DatabaseList
+ *     { // Database
+ *       Name: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       Parameters: { // ParametersMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
@@ -70,6 +84,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  *                 Lambda
  *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListDatabasesCommand extends $Command<

@@ -46,6 +46,9 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  * };
  * const command = new DisableSsoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableSsoCommandInput - {@link DisableSsoCommandInput}
@@ -69,6 +72,8 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DisableSsoCommand extends $Command<

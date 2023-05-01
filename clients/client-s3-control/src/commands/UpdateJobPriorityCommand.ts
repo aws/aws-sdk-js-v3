@@ -71,6 +71,12 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  * };
  * const command = new UpdateJobPriorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateJobPriorityResult
+ *   JobId: "STRING_VALUE", // required
+ *   Priority: Number("int"), // required
+ * };
+ *
  * ```
  *
  * @param UpdateJobPriorityCommandInput - {@link UpdateJobPriorityCommandInput}
@@ -91,6 +97,8 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class UpdateJobPriorityCommand extends $Command<

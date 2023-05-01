@@ -49,6 +49,9 @@ export interface DeletePlaybackConfigurationCommandOutput
  * };
  * const command = new DeletePlaybackConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePlaybackConfigurationCommandInput - {@link DeletePlaybackConfigurationCommandInput}
@@ -57,6 +60,8 @@ export interface DeletePlaybackConfigurationCommandOutput
  * @see {@link DeletePlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeletePlaybackConfigurationCommand extends $Command<

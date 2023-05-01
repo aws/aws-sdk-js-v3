@@ -62,6 +62,28 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * };
  * const command = new BatchDisassociateResourcesFromCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateResourcesFromCustomLineItemOutput
+ *   SuccessfullyDisassociatedResources: [ // DisassociateResourcesResponseList
+ *     { // DisassociateResourceResponseElement
+ *       Arn: "STRING_VALUE",
+ *       Error: { // AssociateResourceError
+ *         Message: "STRING_VALUE",
+ *         Reason: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   FailedDisassociatedResources: [
+ *     {
+ *       Arn: "STRING_VALUE",
+ *       Error: {
+ *         Message: "STRING_VALUE",
+ *         Reason: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateResourcesFromCustomLineItemCommandInput - {@link BatchDisassociateResourcesFromCustomLineItemCommandInput}
@@ -93,6 +115,8 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Command<

@@ -51,6 +51,36 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * };
  * const command = new PutRestApiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestApi
+ *   id: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   createdDate: new Date("TIMESTAMP"),
+ *   version: "STRING_VALUE",
+ *   warnings: [ // ListOfString
+ *     "STRING_VALUE",
+ *   ],
+ *   binaryMediaTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   minimumCompressionSize: Number("int"),
+ *   apiKeySource: "HEADER" || "AUTHORIZER",
+ *   endpointConfiguration: { // EndpointConfiguration
+ *     types: [ // ListOfEndpointType
+ *       "REGIONAL" || "EDGE" || "PRIVATE",
+ *     ],
+ *     vpcEndpointIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   policy: "STRING_VALUE",
+ *   tags: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   disableExecuteApiEndpoint: true || false,
+ * };
+ *
  * ```
  *
  * @param PutRestApiCommandInput - {@link PutRestApiCommandInput}
@@ -77,6 +107,8 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class PutRestApiCommand extends $Command<

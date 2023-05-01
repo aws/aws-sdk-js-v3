@@ -45,6 +45,21 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * };
  * const command = new ListStagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStagesResponse
+ *   stages: [ // StageSummaryList // required
+ *     { // StageSummary
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE",
+ *       activeSessionId: "STRING_VALUE",
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListStagesCommandInput - {@link ListStagesCommandInput}
@@ -62,6 +77,8 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class ListStagesCommand extends $Command<

@@ -48,6 +48,21 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployment
+ *   id: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   createdDate: new Date("TIMESTAMP"),
+ *   apiSummary: { // PathToMapOfMethodSnapshot
+ *     "<keys>": { // MapOfMethodSnapshot
+ *       "<keys>": { // MethodSnapshot
+ *         authorizationType: "STRING_VALUE",
+ *         apiKeyRequired: true || false,
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
@@ -71,6 +86,8 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetDeploymentCommand extends $Command<

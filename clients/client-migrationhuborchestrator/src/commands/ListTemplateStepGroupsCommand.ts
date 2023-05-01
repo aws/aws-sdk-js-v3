@@ -50,6 +50,23 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  * };
  * const command = new ListTemplateStepGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplateStepGroupsResponse
+ *   nextToken: "STRING_VALUE",
+ *   templateStepGroupSummary: [ // TemplateStepGroupSummaryList // required
+ *     { // TemplateStepGroupSummary
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       previous: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       next: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTemplateStepGroupsCommandInput - {@link ListTemplateStepGroupsCommandInput}
@@ -70,6 +87,8 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListTemplateStepGroupsCommand extends $Command<

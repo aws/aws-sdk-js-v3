@@ -47,6 +47,26 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployments
+ *   Items: [ // DeploymentList
+ *     { // DeploymentSummary
+ *       DeploymentNumber: Number("int"),
+ *       ConfigurationName: "STRING_VALUE",
+ *       ConfigurationVersion: "STRING_VALUE",
+ *       DeploymentDurationInMinutes: Number("int"),
+ *       GrowthType: "LINEAR" || "EXPONENTIAL",
+ *       GrowthFactor: Number("float"),
+ *       FinalBakeTimeInMinutes: Number("int"),
+ *       State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ *       PercentageComplete: Number("float"),
+ *       StartedAt: new Date("TIMESTAMP"),
+ *       CompletedAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -64,6 +84,8 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available deployments
  * ```javascript

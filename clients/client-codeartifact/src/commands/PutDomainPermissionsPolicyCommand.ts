@@ -54,6 +54,15 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * };
  * const command = new PutDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDomainPermissionsPolicyResult
+ *   policy: { // ResourcePolicy
+ *     resourceArn: "STRING_VALUE",
+ *     revision: "STRING_VALUE",
+ *     document: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutDomainPermissionsPolicyCommandInput - {@link PutDomainPermissionsPolicyCommandInput}
@@ -95,6 +104,8 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class PutDomainPermissionsPolicyCommand extends $Command<

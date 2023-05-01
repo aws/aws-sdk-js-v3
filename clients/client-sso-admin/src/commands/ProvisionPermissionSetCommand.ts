@@ -48,6 +48,18 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * };
  * const command = new ProvisionPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionPermissionSetResponse
+ *   PermissionSetProvisioningStatus: { // PermissionSetProvisioningStatus
+ *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ *     RequestId: "STRING_VALUE",
+ *     AccountId: "STRING_VALUE",
+ *     PermissionSetArn: "STRING_VALUE",
+ *     FailureReason: "STRING_VALUE",
+ *     CreatedDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ProvisionPermissionSetCommandInput - {@link ProvisionPermissionSetCommandInput}
@@ -79,6 +91,8 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ProvisionPermissionSetCommand extends $Command<

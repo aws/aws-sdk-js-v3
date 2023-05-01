@@ -54,6 +54,11 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * };
  * const command = new CreateLocationFsxLustreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationFsxLustreResponse
+ *   LocationArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLocationFsxLustreCommandInput - {@link CreateLocationFsxLustreCommandInput}
@@ -69,6 +74,8 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationFsxLustreCommand extends $Command<

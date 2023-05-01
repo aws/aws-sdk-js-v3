@@ -47,6 +47,11 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  * };
  * const command = new DisassociateFileSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateFileSystemOutput
+ *   FileSystemAssociationARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DisassociateFileSystemCommandInput - {@link DisassociateFileSystemCommandInput}
@@ -63,6 +68,8 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DisassociateFileSystemCommand extends $Command<

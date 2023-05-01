@@ -50,6 +50,12 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * };
  * const command = new RegisterRobotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterRobotResponse
+ *   fleet: "STRING_VALUE",
+ *   robot: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param RegisterRobotCommandInput - {@link RegisterRobotCommandInput}
@@ -75,6 +81,8 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class RegisterRobotCommand extends $Command<

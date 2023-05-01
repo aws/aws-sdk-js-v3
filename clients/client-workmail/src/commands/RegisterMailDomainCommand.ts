@@ -47,6 +47,9 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * };
  * const command = new RegisterMailDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterMailDomainCommandInput - {@link RegisterMailDomainCommandInput}
@@ -72,6 +75,8 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class RegisterMailDomainCommand extends $Command<

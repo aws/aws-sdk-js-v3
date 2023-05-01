@@ -55,6 +55,23 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * };
  * const command = new CreateWorldExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorldExportJobResponse
+ *   arn: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   failureCode: "STRING_VALUE",
+ *   clientRequestToken: "STRING_VALUE",
+ *   outputLocation: { // OutputLocation
+ *     s3Bucket: "STRING_VALUE",
+ *     s3Prefix: "STRING_VALUE",
+ *   },
+ *   iamRole: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorldExportJobCommandInput - {@link CreateWorldExportJobCommandInput}
@@ -83,6 +100,8 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateWorldExportJobCommand extends $Command<

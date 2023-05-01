@@ -53,6 +53,29 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyResponse
+ *   Policy: { // Policy
+ *     PolicyName: "STRING_VALUE",
+ *     PolicyId: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     Path: "STRING_VALUE",
+ *     DefaultVersionId: "STRING_VALUE",
+ *     AttachmentCount: Number("int"),
+ *     PermissionsBoundaryUsageCount: Number("int"),
+ *     IsAttachable: true || false,
+ *     Description: "STRING_VALUE",
+ *     CreateDate: new Date("TIMESTAMP"),
+ *     UpdateDate: new Date("TIMESTAMP"),
+ *     Tags: [ // tagListType
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
@@ -73,6 +96,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyCommandOutput, IAMClientResolvedConfig> {

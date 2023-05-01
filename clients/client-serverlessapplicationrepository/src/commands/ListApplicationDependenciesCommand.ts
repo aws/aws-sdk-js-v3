@@ -56,6 +56,17 @@ export interface ListApplicationDependenciesCommandOutput
  * };
  * const command = new ListApplicationDependenciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationDependenciesResponse
+ *   Dependencies: [ // __listOfApplicationDependencySummary
+ *     { // ApplicationDependencySummary
+ *       ApplicationId: "STRING_VALUE", // required
+ *       SemanticVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListApplicationDependenciesCommandInput - {@link ListApplicationDependenciesCommandInput}
@@ -79,6 +90,8 @@ export interface ListApplicationDependenciesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class ListApplicationDependenciesCommand extends $Command<

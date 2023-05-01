@@ -53,6 +53,21 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * };
  * const command = new DescribeDBSnapshotAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBSnapshotAttributesResult
+ *   DBSnapshotAttributesResult: { // DBSnapshotAttributesResult
+ *     DBSnapshotIdentifier: "STRING_VALUE",
+ *     DBSnapshotAttributes: [ // DBSnapshotAttributeList
+ *       { // DBSnapshotAttribute
+ *         AttributeName: "STRING_VALUE",
+ *         AttributeValues: [ // AttributeValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDBSnapshotAttributesCommandInput - {@link DescribeDBSnapshotAttributesCommandInput}
@@ -65,6 +80,8 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the attribute names and values for a DB snapshot
  * ```javascript

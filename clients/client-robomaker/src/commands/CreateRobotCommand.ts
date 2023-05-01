@@ -54,6 +54,18 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * };
  * const command = new CreateRobotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRobotResponse
+ *   arn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   createdAt: new Date("TIMESTAMP"),
+ *   greengrassGroupId: "STRING_VALUE",
+ *   architecture: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRobotCommandInput - {@link CreateRobotCommandInput}
@@ -79,6 +91,8 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateRobotCommand extends $Command<

@@ -52,6 +52,9 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOrganizationConfigRuleCommandInput - {@link DeleteOrganizationConfigRuleCommandInput}
@@ -110,6 +113,8 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteOrganizationConfigRuleCommand extends $Command<

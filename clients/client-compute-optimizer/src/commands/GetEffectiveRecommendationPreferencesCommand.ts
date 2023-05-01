@@ -58,6 +58,14 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * };
  * const command = new GetEffectiveRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEffectiveRecommendationPreferencesResponse
+ *   enhancedInfrastructureMetrics: "Active" || "Inactive",
+ *   externalMetricsPreference: { // ExternalMetricsPreference
+ *     source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEffectiveRecommendationPreferencesCommandInput - {@link GetEffectiveRecommendationPreferencesCommandInput}
@@ -91,6 +99,8 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetEffectiveRecommendationPreferencesCommand extends $Command<

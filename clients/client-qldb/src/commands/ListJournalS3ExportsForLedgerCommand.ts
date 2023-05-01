@@ -56,6 +56,31 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * };
  * const command = new ListJournalS3ExportsForLedgerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJournalS3ExportsForLedgerResponse
+ *   JournalS3Exports: [ // JournalS3ExportList
+ *     { // JournalS3ExportDescription
+ *       LedgerName: "STRING_VALUE", // required
+ *       ExportId: "STRING_VALUE", // required
+ *       ExportCreationTime: new Date("TIMESTAMP"), // required
+ *       Status: "IN_PROGRESS" || "COMPLETED" || "CANCELLED", // required
+ *       InclusiveStartTime: new Date("TIMESTAMP"), // required
+ *       ExclusiveEndTime: new Date("TIMESTAMP"), // required
+ *       S3ExportConfiguration: { // S3ExportConfiguration
+ *         Bucket: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE", // required
+ *         EncryptionConfiguration: { // S3EncryptionConfiguration
+ *           ObjectEncryptionType: "SSE_KMS" || "SSE_S3" || "NO_ENCRYPTION", // required
+ *           KmsKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       RoleArn: "STRING_VALUE", // required
+ *       OutputFormat: "ION_BINARY" || "ION_TEXT" || "JSON",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListJournalS3ExportsForLedgerCommandInput - {@link ListJournalS3ExportsForLedgerCommandInput}
@@ -64,6 +89,8 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * @see {@link ListJournalS3ExportsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class ListJournalS3ExportsForLedgerCommand extends $Command<

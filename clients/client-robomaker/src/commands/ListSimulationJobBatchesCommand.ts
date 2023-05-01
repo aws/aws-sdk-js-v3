@@ -54,6 +54,22 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  * };
  * const command = new ListSimulationJobBatchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSimulationJobBatchesResponse
+ *   simulationJobBatchSummaries: [ // SimulationJobBatchSummaries
+ *     { // SimulationJobBatchSummary
+ *       arn: "STRING_VALUE",
+ *       lastUpdatedAt: new Date("TIMESTAMP"),
+ *       createdAt: new Date("TIMESTAMP"),
+ *       status: "STRING_VALUE",
+ *       failedRequestCount: Number("int"),
+ *       pendingRequestCount: Number("int"),
+ *       createdRequestCount: Number("int"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSimulationJobBatchesCommandInput - {@link ListSimulationJobBatchesCommandInput}
@@ -69,6 +85,8 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
  *          returned message provides an explanation of the error value.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListSimulationJobBatchesCommand extends $Command<

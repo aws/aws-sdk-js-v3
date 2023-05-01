@@ -89,6 +89,15 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * };
  * const command = new ForgotPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ForgotPasswordResponse
+ *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ *     Destination: "STRING_VALUE",
+ *     DeliveryMedium: "SMS" || "EMAIL",
+ *     AttributeName: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param ForgotPasswordCommandInput - {@link ForgotPasswordCommandInput}
@@ -154,6 +163,8 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ForgotPasswordCommand extends $Command<

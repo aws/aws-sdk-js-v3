@@ -46,6 +46,18 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * };
  * const command = new ListTeamMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTeamMembersResult
+ *   teamMembers: [ // TeamMemberResult // required
+ *     { // TeamMember
+ *       userArn: "STRING_VALUE", // required
+ *       projectRole: "STRING_VALUE", // required
+ *       remoteAccessAllowed: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListTeamMembersCommandInput - {@link ListTeamMembersCommandInput}
@@ -63,6 +75,8 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListTeamMembersCommand extends $Command<

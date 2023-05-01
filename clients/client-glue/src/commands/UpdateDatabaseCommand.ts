@@ -71,6 +71,9 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDatabaseCommandInput - {@link UpdateDatabaseCommandInput}
@@ -97,6 +100,8 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateDatabaseCommand extends $Command<

@@ -44,6 +44,32 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * };
  * const command = new CancelResizeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResizeProgressMessage
+ *   TargetNodeType: "STRING_VALUE",
+ *   TargetNumberOfNodes: Number("int"),
+ *   TargetClusterType: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   ImportTablesCompleted: [ // ImportTablesCompleted
+ *     "STRING_VALUE",
+ *   ],
+ *   ImportTablesInProgress: [ // ImportTablesInProgress
+ *     "STRING_VALUE",
+ *   ],
+ *   ImportTablesNotStarted: [ // ImportTablesNotStarted
+ *     "STRING_VALUE",
+ *   ],
+ *   AvgResizeRateInMegaBytesPerSecond: Number("double"),
+ *   TotalResizeDataInMegaBytes: Number("long"),
+ *   ProgressInMegaBytes: Number("long"),
+ *   ElapsedTimeInSeconds: Number("long"),
+ *   EstimatedTimeToCompletionInSeconds: Number("long"),
+ *   ResizeType: "STRING_VALUE",
+ *   Message: "STRING_VALUE",
+ *   TargetEncryptionType: "STRING_VALUE",
+ *   DataTransferProgressPercent: Number("double"),
+ * };
+ *
  * ```
  *
  * @param CancelResizeCommandInput - {@link CancelResizeCommandInput}
@@ -65,6 +91,8 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CancelResizeCommand extends $Command<

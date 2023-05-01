@@ -56,6 +56,17 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * };
  * const command = new ListCustomerManagedPolicyReferencesInPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomerManagedPolicyReferencesInPermissionSetResponse
+ *   CustomerManagedPolicyReferences: [ // CustomerManagedPolicyReferenceList
+ *     { // CustomerManagedPolicyReference
+ *       Name: "STRING_VALUE", // required
+ *       Path: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListCustomerManagedPolicyReferencesInPermissionSetCommandInput - {@link ListCustomerManagedPolicyReferencesInPermissionSetCommandInput}
@@ -81,6 +92,8 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $Command<

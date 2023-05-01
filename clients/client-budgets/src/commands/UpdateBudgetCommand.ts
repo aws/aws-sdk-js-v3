@@ -103,6 +103,9 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * };
  * const command = new UpdateBudgetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateBudgetCommandInput - {@link UpdateBudgetCommandInput}
@@ -128,6 +131,8 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class UpdateBudgetCommand extends $Command<

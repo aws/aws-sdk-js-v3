@@ -44,6 +44,9 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCodeRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCodeRepositoryCommandInput - {@link DeleteCodeRepositoryCommandInput}
@@ -52,6 +55,8 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteCodeRepositoryCommand extends $Command<

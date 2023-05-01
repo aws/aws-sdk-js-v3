@@ -46,6 +46,27 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsOutput
+ *   ImportSummaryList: [ // ImportSummaryList
+ *     { // ImportSummary
+ *       ImportArn: "STRING_VALUE",
+ *       ImportStatus: "IN_PROGRESS" || "COMPLETED" || "CANCELLING" || "CANCELLED" || "FAILED",
+ *       TableArn: "STRING_VALUE",
+ *       S3BucketSource: { // S3BucketSource
+ *         S3BucketOwner: "STRING_VALUE",
+ *         S3Bucket: "STRING_VALUE", // required
+ *         S3KeyPrefix: "STRING_VALUE",
+ *       },
+ *       CloudWatchLogGroupArn: "STRING_VALUE",
+ *       InputFormat: "DYNAMODB_JSON" || "ION" || "CSV",
+ *       StartTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -67,6 +88,8 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

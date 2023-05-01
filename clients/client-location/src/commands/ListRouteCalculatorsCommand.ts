@@ -45,6 +45,21 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * };
  * const command = new ListRouteCalculatorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRouteCalculatorsResponse
+ *   Entries: [ // ListRouteCalculatorsResponseEntryList // required
+ *     { // ListRouteCalculatorsResponseEntry
+ *       CalculatorName: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE", // required
+ *       DataSource: "STRING_VALUE", // required
+ *       PricingPlan: "STRING_VALUE",
+ *       CreateTime: new Date("TIMESTAMP"), // required
+ *       UpdateTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRouteCalculatorsCommandInput - {@link ListRouteCalculatorsCommandInput}
@@ -66,6 +81,8 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListRouteCalculatorsCommand extends $Command<

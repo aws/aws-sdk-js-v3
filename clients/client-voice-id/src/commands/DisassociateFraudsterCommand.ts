@@ -53,6 +53,18 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * };
  * const command = new DisassociateFraudsterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateFraudsterResponse
+ *   Fraudster: { // Fraudster
+ *     DomainId: "STRING_VALUE",
+ *     GeneratedFraudsterId: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     WatchlistIds: [ // ResponseWatchlistIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateFraudsterCommandInput - {@link DisassociateFraudsterCommandInput}
@@ -86,6 +98,8 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DisassociateFraudsterCommand extends $Command<

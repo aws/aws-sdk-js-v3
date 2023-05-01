@@ -66,6 +66,18 @@ export interface ListConformancePackComplianceScoresCommandOutput
  * };
  * const command = new ListConformancePackComplianceScoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConformancePackComplianceScoresResponse
+ *   NextToken: "STRING_VALUE",
+ *   ConformancePackComplianceScores: [ // ConformancePackComplianceScores // required
+ *     { // ConformancePackComplianceScore
+ *       Score: "STRING_VALUE",
+ *       ConformancePackName: "STRING_VALUE",
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListConformancePackComplianceScoresCommandInput - {@link ListConformancePackComplianceScoresCommandInput}
@@ -86,6 +98,8 @@ export interface ListConformancePackComplianceScoresCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class ListConformancePackComplianceScoresCommand extends $Command<

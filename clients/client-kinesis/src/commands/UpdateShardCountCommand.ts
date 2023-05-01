@@ -94,6 +94,14 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * };
  * const command = new UpdateShardCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateShardCountOutput
+ *   StreamName: "STRING_VALUE",
+ *   CurrentShardCount: Number("int"),
+ *   TargetShardCount: Number("int"),
+ *   StreamARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateShardCountCommandInput - {@link UpdateShardCountCommandInput}
@@ -127,6 +135,8 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  *             capacity mode. This API is only supported for data streams with the provisioned capacity
  *             mode. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class UpdateShardCountCommand extends $Command<

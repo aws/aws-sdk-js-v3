@@ -52,6 +52,30 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigurationSetEventDestinationsResponse
+ *   EventDestinations: [ // EventDestinations
+ *     { // EventDestination
+ *       CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *         IamRoleArn: "STRING_VALUE",
+ *         LogGroupArn: "STRING_VALUE",
+ *       },
+ *       Enabled: true || false,
+ *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *         DeliveryStreamArn: "STRING_VALUE",
+ *         IamRoleArn: "STRING_VALUE",
+ *       },
+ *       MatchingEventTypes: [ // EventTypes
+ *         "STRING_VALUE",
+ *       ],
+ *       Name: "STRING_VALUE",
+ *       SnsDestination: { // SnsDestination
+ *         TopicArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetConfigurationSetEventDestinationsCommandInput - {@link GetConfigurationSetEventDestinationsCommandInput}
@@ -72,6 +96,8 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
  *
+ * @throws {@link PinpointSMSVoiceServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command<

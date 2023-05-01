@@ -48,6 +48,22 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  * };
  * const command = new ListRotationOverridesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRotationOverridesResult
+ *   RotationOverrides: [ // RotationOverrides
+ *     { // RotationOverride
+ *       RotationOverrideId: "STRING_VALUE", // required
+ *       NewContactIds: [ // SsmContactsArnList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       StartTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"), // required
+ *       CreateTime: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRotationOverridesCommandInput - {@link ListRotationOverridesCommandInput}
@@ -72,6 +88,8 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListRotationOverridesCommand extends $Command<

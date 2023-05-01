@@ -47,6 +47,47 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
  * };
  * const command = new ReimportApiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReimportApiResponse
+ *   ApiEndpoint: "STRING_VALUE",
+ *   ApiGatewayManaged: true || false,
+ *   ApiId: "STRING_VALUE",
+ *   ApiKeySelectionExpression: "STRING_VALUE",
+ *   CorsConfiguration: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // CorsHeaderList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [ // CorsMethodList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [ // CorsOriginList
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   CreatedDate: new Date("TIMESTAMP"),
+ *   Description: "STRING_VALUE",
+ *   DisableSchemaValidation: true || false,
+ *   DisableExecuteApiEndpoint: true || false,
+ *   ImportInfo: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   Name: "STRING_VALUE",
+ *   ProtocolType: "STRING_VALUE",
+ *   RouteSelectionExpression: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Version: "STRING_VALUE",
+ *   Warnings: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ReimportApiCommandInput - {@link ReimportApiCommandInput}
@@ -67,6 +108,8 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class ReimportApiCommand extends $Command<

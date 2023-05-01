@@ -45,6 +45,9 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * };
  * const command = new CheckInLicenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CheckInLicenseCommandInput - {@link CheckInLicenseCommandInput}
@@ -78,6 +81,8 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CheckInLicenseCommand extends $Command<

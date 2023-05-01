@@ -53,6 +53,22 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesResponse
+ *   Rules: [ // RuleSummaryList
+ *     { // RuleSummary
+ *       Identifier: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       RetentionPeriod: { // RetentionPeriod
+ *         RetentionPeriodValue: Number("int"), // required
+ *         RetentionPeriodUnit: "DAYS", // required
+ *       },
+ *       LockState: "locked" || "pending_unlock" || "unlocked",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -67,6 +83,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

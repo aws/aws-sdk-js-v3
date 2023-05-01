@@ -49,6 +49,28 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * };
  * const command = new ListRecommendersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecommendersResponse
+ *   recommenders: [ // Recommenders
+ *     { // RecommenderSummary
+ *       name: "STRING_VALUE",
+ *       recommenderArn: "STRING_VALUE",
+ *       datasetGroupArn: "STRING_VALUE",
+ *       recipeArn: "STRING_VALUE",
+ *       recommenderConfig: { // RecommenderConfig
+ *         itemExplorationConfig: { // HyperParameters
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         minRecommendationRequestsPerSecond: Number("int"),
+ *       },
+ *       status: "STRING_VALUE",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListRecommendersCommandInput - {@link ListRecommendersCommandInput}
@@ -63,6 +85,8 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListRecommendersCommand extends $Command<

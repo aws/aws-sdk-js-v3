@@ -67,6 +67,15 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * };
  * const command = new ListKeyPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeyPoliciesResponse
+ *   PolicyNames: [ // PolicyNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextMarker: "STRING_VALUE",
+ *   Truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param ListKeyPoliciesCommandInput - {@link ListKeyPoliciesCommandInput}
@@ -109,6 +118,8 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list key policies for a KMS key
  * ```javascript

@@ -44,6 +44,11 @@ export interface CancelFindingsReportCommandOutput extends CancelFindingsReportR
  * };
  * const command = new CancelFindingsReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelFindingsReportResponse
+ *   reportId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CancelFindingsReportCommandInput - {@link CancelFindingsReportCommandInput}
@@ -68,6 +73,8 @@ export interface CancelFindingsReportCommandOutput extends CancelFindingsReportR
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class CancelFindingsReportCommand extends $Command<

@@ -66,6 +66,38 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * };
  * const command = new ModifyVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVerifiedAccessTrustProviderResult
+ *   VerifiedAccessTrustProvider: { // VerifiedAccessTrustProvider
+ *     VerifiedAccessTrustProviderId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     TrustProviderType: "user" || "device",
+ *     UserTrustProviderType: "iam-identity-center" || "oidc",
+ *     DeviceTrustProviderType: "jamf" || "crowdstrike",
+ *     OidcOptions: { // OidcOptions
+ *       Issuer: "STRING_VALUE",
+ *       AuthorizationEndpoint: "STRING_VALUE",
+ *       TokenEndpoint: "STRING_VALUE",
+ *       UserInfoEndpoint: "STRING_VALUE",
+ *       ClientId: "STRING_VALUE",
+ *       ClientSecret: "STRING_VALUE",
+ *       Scope: "STRING_VALUE",
+ *     },
+ *     DeviceOptions: { // DeviceOptions
+ *       TenantId: "STRING_VALUE",
+ *     },
+ *     PolicyReferenceName: "STRING_VALUE",
+ *     CreationTime: "STRING_VALUE",
+ *     LastUpdatedTime: "STRING_VALUE",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyVerifiedAccessTrustProviderCommandInput - {@link ModifyVerifiedAccessTrustProviderCommandInput}
@@ -74,6 +106,8 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * @see {@link ModifyVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVerifiedAccessTrustProviderCommand extends $Command<

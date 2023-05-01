@@ -44,6 +44,35 @@ export interface DescribeMultiplexCommandOutput extends DescribeMultiplexRespons
  * };
  * const command = new DescribeMultiplexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMultiplexResponse
+ *   Arn: "STRING_VALUE",
+ *   AvailabilityZones: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   Destinations: [ // __listOfMultiplexOutputDestination
+ *     { // MultiplexOutputDestination
+ *       MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
+ *         EntitlementArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   Id: "STRING_VALUE",
+ *   MultiplexSettings: { // MultiplexSettings
+ *     MaximumVideoBufferDelayMilliseconds: Number("int"),
+ *     TransportStreamBitrate: Number("int"), // required
+ *     TransportStreamId: Number("int"), // required
+ *     TransportStreamReservedBitrate: Number("int"),
+ *   },
+ *   Name: "STRING_VALUE",
+ *   PipelinesRunningCount: Number("int"),
+ *   ProgramCount: Number("int"),
+ *   State: "CREATING" || "CREATE_FAILED" || "IDLE" || "STARTING" || "RUNNING" || "RECOVERING" || "STOPPING" || "DELETING" || "DELETED",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMultiplexCommandInput - {@link DescribeMultiplexCommandInput}
@@ -73,6 +102,8 @@ export interface DescribeMultiplexCommandOutput extends DescribeMultiplexRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DescribeMultiplexCommand extends $Command<

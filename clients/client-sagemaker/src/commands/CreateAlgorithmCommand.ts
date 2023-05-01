@@ -242,6 +242,11 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  * };
  * const command = new CreateAlgorithmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAlgorithmOutput
+ *   AlgorithmArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateAlgorithmCommandInput - {@link CreateAlgorithmCommandInput}
@@ -250,6 +255,8 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  * @see {@link CreateAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateAlgorithmCommand extends $Command<

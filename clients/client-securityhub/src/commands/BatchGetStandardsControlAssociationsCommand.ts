@@ -59,6 +59,38 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  * };
  * const command = new BatchGetStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetStandardsControlAssociationsResponse
+ *   StandardsControlAssociationDetails: [ // StandardsControlAssociationDetails // required
+ *     { // StandardsControlAssociationDetail
+ *       StandardsArn: "STRING_VALUE", // required
+ *       SecurityControlId: "STRING_VALUE", // required
+ *       SecurityControlArn: "STRING_VALUE", // required
+ *       AssociationStatus: "ENABLED" || "DISABLED", // required
+ *       RelatedRequirements: [ // RelatedRequirementsList
+ *         "STRING_VALUE",
+ *       ],
+ *       UpdatedAt: new Date("TIMESTAMP"),
+ *       UpdatedReason: "STRING_VALUE",
+ *       StandardsControlTitle: "STRING_VALUE",
+ *       StandardsControlDescription: "STRING_VALUE",
+ *       StandardsControlArns: [ // StandardsControlArnList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   UnprocessedAssociations: [ // UnprocessedStandardsControlAssociations
+ *     { // UnprocessedStandardsControlAssociation
+ *       StandardsControlAssociationId: { // StandardsControlAssociationId
+ *         SecurityControlId: "STRING_VALUE", // required
+ *         StandardsArn: "STRING_VALUE", // required
+ *       },
+ *       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ *       ErrorReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetStandardsControlAssociationsCommandInput - {@link BatchGetStandardsControlAssociationsCommandInput}
@@ -81,6 +113,8 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  */
 export class BatchGetStandardsControlAssociationsCommand extends $Command<

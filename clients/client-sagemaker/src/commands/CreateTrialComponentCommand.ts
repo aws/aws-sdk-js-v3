@@ -90,6 +90,11 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * };
  * const command = new CreateTrialComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrialComponentResponse
+ *   TrialComponentArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateTrialComponentCommandInput - {@link CreateTrialComponentCommandInput}
@@ -102,6 +107,8 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateTrialComponentCommand extends $Command<

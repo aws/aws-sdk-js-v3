@@ -51,6 +51,18 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResponse
+ *   Projects: [ // ProjectMetadataList
+ *     { // ProjectMetadata
+ *       ProjectArn: "STRING_VALUE",
+ *       ProjectName: "STRING_VALUE",
+ *       CreationTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -78,6 +90,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

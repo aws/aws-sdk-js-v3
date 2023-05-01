@@ -47,6 +47,9 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAppInstanceAdminCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAppInstanceAdminCommandInput - {@link DeleteAppInstanceAdminCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class DeleteAppInstanceAdminCommand extends $Command<

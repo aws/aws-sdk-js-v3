@@ -50,6 +50,11 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMemberResponse
+ *   arn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
@@ -79,6 +84,8 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateMemberCommand extends $Command<

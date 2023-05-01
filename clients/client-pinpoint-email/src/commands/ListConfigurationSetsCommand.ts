@@ -51,6 +51,14 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationSetsResponse
+ *   ConfigurationSets: [ // ConfigurationSetNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
@@ -65,6 +73,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class ListConfigurationSetsCommand extends $Command<

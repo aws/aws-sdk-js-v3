@@ -51,6 +51,9 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * };
  * const command = new DeletePresetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePresetCommandInput - {@link DeletePresetCommandInput}
@@ -74,6 +77,8 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class DeletePresetCommand extends $Command<

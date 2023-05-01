@@ -49,6 +49,19 @@ export interface DescribeAccountSubscriptionCommandOutput
  * };
  * const command = new DescribeAccountSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountSubscriptionResponse
+ *   AccountInfo: { // AccountInfo
+ *     AccountName: "STRING_VALUE",
+ *     Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q",
+ *     NotificationEmail: "STRING_VALUE",
+ *     AuthenticationType: "STRING_VALUE",
+ *     AccountSubscriptionStatus: "STRING_VALUE",
+ *   },
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeAccountSubscriptionCommandInput - {@link DescribeAccountSubscriptionCommandInput}
@@ -78,6 +91,8 @@ export interface DescribeAccountSubscriptionCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeAccountSubscriptionCommand extends $Command<

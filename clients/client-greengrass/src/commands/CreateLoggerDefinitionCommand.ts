@@ -59,6 +59,17 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * };
  * const command = new CreateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoggerDefinitionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   LastUpdatedTimestamp: "STRING_VALUE",
+ *   LatestVersion: "STRING_VALUE",
+ *   LatestVersionArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateLoggerDefinitionCommandInput - {@link CreateLoggerDefinitionCommandInput}
@@ -70,6 +81,8 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateLoggerDefinitionCommand extends $Command<

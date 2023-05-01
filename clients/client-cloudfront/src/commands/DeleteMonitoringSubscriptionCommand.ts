@@ -50,6 +50,9 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * };
  * const command = new DeleteMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMonitoringSubscriptionCommandInput - {@link DeleteMonitoringSubscriptionCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteMonitoringSubscriptionCommand extends $Command<

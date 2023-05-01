@@ -54,6 +54,9 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
@@ -71,6 +74,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class StopApplicationCommand extends $Command<

@@ -45,6 +45,46 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  * };
  * const command = new ListStreamingDistributionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamingDistributionsResult
+ *   StreamingDistributionList: { // StreamingDistributionList
+ *     Marker: "STRING_VALUE", // required
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // StreamingDistributionSummaryList
+ *       { // StreamingDistributionSummary
+ *         Id: "STRING_VALUE", // required
+ *         ARN: "STRING_VALUE", // required
+ *         Status: "STRING_VALUE", // required
+ *         LastModifiedTime: new Date("TIMESTAMP"), // required
+ *         DomainName: "STRING_VALUE", // required
+ *         S3Origin: { // S3Origin
+ *           DomainName: "STRING_VALUE", // required
+ *           OriginAccessIdentity: "STRING_VALUE", // required
+ *         },
+ *         Aliases: { // Aliases
+ *           Quantity: Number("int"), // required
+ *           Items: [ // AliasList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         TrustedSigners: { // TrustedSigners
+ *           Enabled: true || false, // required
+ *           Quantity: Number("int"), // required
+ *           Items: [ // AwsAccountNumberList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Comment: "STRING_VALUE", // required
+ *         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All", // required
+ *         Enabled: true || false, // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListStreamingDistributionsCommandInput - {@link ListStreamingDistributionsCommandInput}
@@ -56,6 +96,8 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListStreamingDistributionsCommand extends $Command<

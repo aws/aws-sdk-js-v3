@@ -59,6 +59,19 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * };
  * const command = new TestRepositoryTriggersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestRepositoryTriggersOutput
+ *   successfulExecutions: [ // RepositoryTriggerNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   failedExecutions: [ // RepositoryTriggerExecutionFailureList
+ *     { // RepositoryTriggerExecutionFailure
+ *       trigger: "STRING_VALUE",
+ *       failureMessage: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param TestRepositoryTriggersCommandInput - {@link TestRepositoryTriggersCommandInput}
@@ -140,6 +153,8 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * @throws {@link RepositoryTriggersListRequiredException} (client fault)
  *  <p>The list of triggers for the repository is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class TestRepositoryTriggersCommand extends $Command<

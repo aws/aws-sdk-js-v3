@@ -56,6 +56,45 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * };
  * const command = new CreateClusterSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterSecurityGroupResult
+ *   ClusterSecurityGroup: { // ClusterSecurityGroup
+ *     ClusterSecurityGroupName: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: "STRING_VALUE",
+ *         EC2SecurityGroupName: "STRING_VALUE",
+ *         EC2SecurityGroupOwnerId: "STRING_VALUE",
+ *         Tags: [ // TagList
+ *           { // Tag
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     IPRanges: [ // IPRangeList
+ *       { // IPRange
+ *         Status: "STRING_VALUE",
+ *         CIDRIP: "STRING_VALUE",
+ *         Tags: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Tags: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterSecurityGroupCommandInput - {@link CreateClusterSecurityGroupCommandInput}
@@ -80,6 +119,8 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateClusterSecurityGroupCommand extends $Command<

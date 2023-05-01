@@ -49,6 +49,9 @@ export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachGroupPolicyCommandInput - {@link DetachGroupPolicyCommandInput}
@@ -73,6 +76,8 @@ export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DetachGroupPolicyCommand extends $Command<

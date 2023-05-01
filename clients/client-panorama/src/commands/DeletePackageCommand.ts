@@ -49,6 +49,9 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * };
  * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
@@ -72,6 +75,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DeletePackageCommand extends $Command<

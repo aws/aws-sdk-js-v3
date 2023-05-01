@@ -51,6 +51,9 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
  * };
  * const command = new UpdateDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDatalakeExceptionsExpiryCommandInput - {@link UpdateDatalakeExceptionsExpiryCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class UpdateDatalakeExceptionsExpiryCommand extends $Command<

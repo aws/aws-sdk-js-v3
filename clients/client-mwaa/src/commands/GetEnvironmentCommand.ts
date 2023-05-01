@@ -44,6 +44,85 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEnvironmentOutput
+ *   Environment: { // Environment
+ *     Name: "STRING_VALUE",
+ *     Status: "STRING_VALUE",
+ *     Arn: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     WebserverUrl: "STRING_VALUE",
+ *     ExecutionRoleArn: "STRING_VALUE",
+ *     ServiceRoleArn: "STRING_VALUE",
+ *     KmsKey: "STRING_VALUE",
+ *     AirflowVersion: "STRING_VALUE",
+ *     SourceBucketArn: "STRING_VALUE",
+ *     DagS3Path: "STRING_VALUE",
+ *     PluginsS3Path: "STRING_VALUE",
+ *     PluginsS3ObjectVersion: "STRING_VALUE",
+ *     RequirementsS3Path: "STRING_VALUE",
+ *     RequirementsS3ObjectVersion: "STRING_VALUE",
+ *     StartupScriptS3Path: "STRING_VALUE",
+ *     StartupScriptS3ObjectVersion: "STRING_VALUE",
+ *     AirflowConfigurationOptions: { // AirflowConfigurationOptions
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     EnvironmentClass: "STRING_VALUE",
+ *     MaxWorkers: Number("int"),
+ *     NetworkConfiguration: { // NetworkConfiguration
+ *       SubnetIds: [ // SubnetList
+ *         "STRING_VALUE",
+ *       ],
+ *       SecurityGroupIds: [ // SecurityGroupList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     LoggingConfiguration: { // LoggingConfiguration
+ *       DagProcessingLogs: { // ModuleLoggingConfiguration
+ *         Enabled: true || false,
+ *         LogLevel: "STRING_VALUE",
+ *         CloudWatchLogGroupArn: "STRING_VALUE",
+ *       },
+ *       SchedulerLogs: {
+ *         Enabled: true || false,
+ *         LogLevel: "STRING_VALUE",
+ *         CloudWatchLogGroupArn: "STRING_VALUE",
+ *       },
+ *       WebserverLogs: {
+ *         Enabled: true || false,
+ *         LogLevel: "STRING_VALUE",
+ *         CloudWatchLogGroupArn: "STRING_VALUE",
+ *       },
+ *       WorkerLogs: {
+ *         Enabled: true || false,
+ *         LogLevel: "STRING_VALUE",
+ *         CloudWatchLogGroupArn: "STRING_VALUE",
+ *       },
+ *       TaskLogs: {
+ *         Enabled: true || false,
+ *         LogLevel: "STRING_VALUE",
+ *         CloudWatchLogGroupArn: "STRING_VALUE",
+ *       },
+ *     },
+ *     LastUpdate: { // LastUpdate
+ *       Status: "STRING_VALUE",
+ *       CreatedAt: new Date("TIMESTAMP"),
+ *       Error: { // UpdateError
+ *         ErrorCode: "STRING_VALUE",
+ *         ErrorMessage: "STRING_VALUE",
+ *       },
+ *       Source: "STRING_VALUE",
+ *     },
+ *     WeeklyMaintenanceWindowStart: "STRING_VALUE",
+ *     Tags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     WebserverAccessMode: "STRING_VALUE",
+ *     MinWorkers: Number("int"),
+ *     Schedulers: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
@@ -61,6 +140,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class GetEnvironmentCommand extends $Command<

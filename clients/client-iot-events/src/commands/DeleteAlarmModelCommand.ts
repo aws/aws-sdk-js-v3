@@ -45,6 +45,9 @@ export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse,
  * };
  * const command = new DeleteAlarmModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAlarmModelCommandInput - {@link DeleteAlarmModelCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DeleteAlarmModelCommand extends $Command<

@@ -58,6 +58,17 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
  * };
  * const command = new DeregisterTransitGatewayMulticastGroupSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterTransitGatewayMulticastGroupSourcesResult
+ *   DeregisteredMulticastGroupSources: { // TransitGatewayMulticastDeregisteredGroupSources
+ *     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *     DeregisteredNetworkInterfaceIds: [ // ValueStringList
+ *       "STRING_VALUE",
+ *     ],
+ *     GroupIpAddress: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeregisterTransitGatewayMulticastGroupSourcesCommandInput - {@link DeregisterTransitGatewayMulticastGroupSourcesCommandInput}
@@ -66,6 +77,8 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
  * @see {@link DeregisterTransitGatewayMulticastGroupSourcesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Command<

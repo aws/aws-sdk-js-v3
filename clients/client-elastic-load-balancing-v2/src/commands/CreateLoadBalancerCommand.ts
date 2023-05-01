@@ -95,6 +95,46 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoadBalancerOutput
+ *   LoadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
+ *       LoadBalancerArn: "STRING_VALUE",
+ *       DNSName: "STRING_VALUE",
+ *       CanonicalHostedZoneId: "STRING_VALUE",
+ *       CreatedTime: new Date("TIMESTAMP"),
+ *       LoadBalancerName: "STRING_VALUE",
+ *       Scheme: "internet-facing" || "internal",
+ *       VpcId: "STRING_VALUE",
+ *       State: { // LoadBalancerState
+ *         Code: "active" || "provisioning" || "active_impaired" || "failed",
+ *         Reason: "STRING_VALUE",
+ *       },
+ *       Type: "application" || "network" || "gateway",
+ *       AvailabilityZones: [ // AvailabilityZones
+ *         { // AvailabilityZone
+ *           ZoneName: "STRING_VALUE",
+ *           SubnetId: "STRING_VALUE",
+ *           OutpostId: "STRING_VALUE",
+ *           LoadBalancerAddresses: [ // LoadBalancerAddresses
+ *             { // LoadBalancerAddress
+ *               IpAddress: "STRING_VALUE",
+ *               AllocationId: "STRING_VALUE",
+ *               PrivateIPv4Address: "STRING_VALUE",
+ *               IPv6Address: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       SecurityGroups: [ // SecurityGroups
+ *         "STRING_VALUE",
+ *       ],
+ *       IpAddressType: "ipv4" || "dualstack",
+ *       CustomerOwnedIpv4Pool: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
@@ -143,6 +183,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You've reached the limit on the number of tags per load balancer.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To create an Internet-facing load balancer
  * ```javascript

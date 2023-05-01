@@ -44,6 +44,11 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  * };
  * const command = new TestWirelessDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestWirelessDeviceResponse
+ *   Result: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param TestWirelessDeviceCommandInput - {@link TestWirelessDeviceCommandInput}
@@ -64,6 +69,8 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class TestWirelessDeviceCommand extends $Command<

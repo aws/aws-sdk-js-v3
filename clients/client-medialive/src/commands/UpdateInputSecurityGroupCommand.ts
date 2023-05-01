@@ -52,6 +52,26 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * };
  * const command = new UpdateInputSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateInputSecurityGroupResponse
+ *   SecurityGroup: { // InputSecurityGroup
+ *     Arn: "STRING_VALUE",
+ *     Id: "STRING_VALUE",
+ *     Inputs: [ // __listOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *     State: "IDLE" || "IN_USE" || "UPDATING" || "DELETED",
+ *     Tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     WhitelistRules: [ // __listOfInputWhitelistRule
+ *       { // InputWhitelistRule
+ *         Cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateInputSecurityGroupCommandInput - {@link UpdateInputSecurityGroupCommandInput}
@@ -81,6 +101,8 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * @throws {@link NotFoundException} (client fault)
  *  Placeholder documentation for NotFoundException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class UpdateInputSecurityGroupCommand extends $Command<

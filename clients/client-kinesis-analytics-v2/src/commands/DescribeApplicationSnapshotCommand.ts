@@ -51,6 +51,16 @@ export interface DescribeApplicationSnapshotCommandOutput
  * };
  * const command = new DescribeApplicationSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeApplicationSnapshotResponse
+ *   SnapshotDetails: { // SnapshotDetails
+ *     SnapshotName: "STRING_VALUE", // required
+ *     SnapshotStatus: "CREATING" || "READY" || "DELETING" || "FAILED", // required
+ *     ApplicationVersionId: Number("long"), // required
+ *     SnapshotCreationTimestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeApplicationSnapshotCommandInput - {@link DescribeApplicationSnapshotCommandInput}
@@ -69,6 +79,8 @@ export interface DescribeApplicationSnapshotCommandOutput
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DescribeApplicationSnapshotCommand extends $Command<

@@ -102,6 +102,38 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * };
  * const command = new SearchUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchUsersResponse
+ *   Users: [ // UserSearchSummaryList
+ *     { // UserSearchSummary
+ *       Arn: "STRING_VALUE",
+ *       DirectoryUserId: "STRING_VALUE",
+ *       HierarchyGroupId: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       IdentityInfo: { // UserIdentityInfoLite
+ *         FirstName: "STRING_VALUE",
+ *         LastName: "STRING_VALUE",
+ *       },
+ *       PhoneConfig: { // UserPhoneConfig
+ *         PhoneType: "SOFT_PHONE" || "DESK_PHONE", // required
+ *         AutoAccept: true || false,
+ *         AfterContactWorkTimeLimit: Number("int"),
+ *         DeskPhoneNumber: "STRING_VALUE",
+ *       },
+ *       RoutingProfileId: "STRING_VALUE",
+ *       SecurityProfileIds: [ // SecurityProfileIds
+ *         "STRING_VALUE",
+ *       ],
+ *       Tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Username: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   ApproximateTotalCount: Number("long"),
+ * };
+ *
  * ```
  *
  * @param SearchUsersCommandInput - {@link SearchUsersCommandInput}
@@ -125,6 +157,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchUsersCommand extends $Command<

@@ -50,6 +50,26 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
  * };
  * const command = new GetServiceInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceInstanceOutput
+ *   serviceInstance: { // ServiceInstance
+ *     name: "STRING_VALUE", // required
+ *     arn: "STRING_VALUE", // required
+ *     createdAt: new Date("TIMESTAMP"), // required
+ *     lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
+ *     lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ *     serviceName: "STRING_VALUE", // required
+ *     environmentName: "STRING_VALUE", // required
+ *     templateName: "STRING_VALUE", // required
+ *     templateMajorVersion: "STRING_VALUE", // required
+ *     templateMinorVersion: "STRING_VALUE", // required
+ *     deploymentStatus: "STRING_VALUE", // required
+ *     deploymentStatusMessage: "STRING_VALUE",
+ *     spec: "STRING_VALUE",
+ *     lastClientRequestToken: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetServiceInstanceCommandInput - {@link GetServiceInstanceCommandInput}
@@ -73,6 +93,8 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetServiceInstanceCommand extends $Command<

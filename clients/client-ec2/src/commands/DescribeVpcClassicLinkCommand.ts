@@ -58,6 +58,22 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * };
  * const command = new DescribeVpcClassicLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcClassicLinkResult
+ *   Vpcs: [ // VpcClassicLinkList
+ *     { // VpcClassicLink
+ *       ClassicLinkEnabled: true || false,
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       VpcId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVpcClassicLinkCommandInput - {@link DescribeVpcClassicLinkCommandInput}
@@ -66,6 +82,8 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * @see {@link DescribeVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcClassicLinkCommand extends $Command<

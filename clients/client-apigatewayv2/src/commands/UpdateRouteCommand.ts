@@ -64,6 +64,31 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  * };
  * const command = new UpdateRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRouteResult
+ *   ApiGatewayManaged: true || false,
+ *   ApiKeyRequired: true || false,
+ *   AuthorizationScopes: [ // AuthorizationScopes
+ *     "STRING_VALUE",
+ *   ],
+ *   AuthorizationType: "STRING_VALUE",
+ *   AuthorizerId: "STRING_VALUE",
+ *   ModelSelectionExpression: "STRING_VALUE",
+ *   OperationName: "STRING_VALUE",
+ *   RequestModels: { // RouteModels
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RequestParameters: { // RouteParameters
+ *     "<keys>": { // ParameterConstraints
+ *       Required: true || false,
+ *     },
+ *   },
+ *   RouteId: "STRING_VALUE",
+ *   RouteKey: "STRING_VALUE",
+ *   RouteResponseSelectionExpression: "STRING_VALUE",
+ *   Target: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
@@ -84,6 +109,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateRouteCommand extends $Command<

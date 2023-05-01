@@ -47,6 +47,13 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * };
  * const command = new TagProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagProjectResult
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param TagProjectCommandInput - {@link TagProjectCommandInput}
@@ -68,6 +75,8 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class TagProjectCommand extends $Command<

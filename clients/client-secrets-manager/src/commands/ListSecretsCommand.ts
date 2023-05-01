@@ -69,6 +69,45 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * };
  * const command = new ListSecretsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecretsResponse
+ *   SecretList: [ // SecretListType
+ *     { // SecretListEntry
+ *       ARN: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *       RotationEnabled: true || false,
+ *       RotationLambdaARN: "STRING_VALUE",
+ *       RotationRules: { // RotationRulesType
+ *         AutomaticallyAfterDays: Number("long"),
+ *         Duration: "STRING_VALUE",
+ *         ScheduleExpression: "STRING_VALUE",
+ *       },
+ *       LastRotatedDate: new Date("TIMESTAMP"),
+ *       LastChangedDate: new Date("TIMESTAMP"),
+ *       LastAccessedDate: new Date("TIMESTAMP"),
+ *       DeletedDate: new Date("TIMESTAMP"),
+ *       NextRotationDate: new Date("TIMESTAMP"),
+ *       Tags: [ // TagListType
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SecretVersionsToStages: { // SecretVersionsToStagesMapType
+ *         "<keys>": [ // SecretVersionStagesType
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       OwningService: "STRING_VALUE",
+ *       CreatedDate: new Date("TIMESTAMP"),
+ *       PrimaryRegion: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListSecretsCommandInput - {@link ListSecretsCommandInput}
@@ -86,6 +125,8 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The parameter name or value is invalid.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To list the secrets in your account
  * ```javascript

@@ -62,6 +62,19 @@ export interface GetAggregateDiscoveredResourceCountsCommandOutput
  * };
  * const command = new GetAggregateDiscoveredResourceCountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAggregateDiscoveredResourceCountsResponse
+ *   TotalDiscoveredResources: Number("long"), // required
+ *   GroupByKey: "STRING_VALUE",
+ *   GroupedResourceCounts: [ // GroupedResourceCountList
+ *     { // GroupedResourceCount
+ *       GroupName: "STRING_VALUE", // required
+ *       ResourceCount: Number("long"), // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetAggregateDiscoveredResourceCountsCommandInput - {@link GetAggregateDiscoveredResourceCountsCommandInput}
@@ -86,6 +99,8 @@ export interface GetAggregateDiscoveredResourceCountsCommandOutput
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetAggregateDiscoveredResourceCountsCommand extends $Command<

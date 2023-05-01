@@ -44,6 +44,18 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * };
  * const command = new GetInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightsByAssessmentResponse
+ *   insights: { // InsightsByAssessment
+ *     noncompliantEvidenceCount: Number("int"),
+ *     compliantEvidenceCount: Number("int"),
+ *     inconclusiveEvidenceCount: Number("int"),
+ *     assessmentControlsCountByNoncompliantEvidence: Number("int"),
+ *     totalAssessmentControlsCount: Number("int"),
+ *     lastUpdated: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInsightsByAssessmentCommandInput - {@link GetInsightsByAssessmentCommandInput}
@@ -66,6 +78,8 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetInsightsByAssessmentCommand extends $Command<

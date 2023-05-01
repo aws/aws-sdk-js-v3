@@ -51,6 +51,9 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * };
  * const command = new DeleteHostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHostCommandInput - {@link DeleteHostCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class DeleteHostCommand extends $Command<

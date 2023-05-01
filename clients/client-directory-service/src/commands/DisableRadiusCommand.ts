@@ -45,6 +45,9 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  * };
  * const command = new DisableRadiusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableRadiusCommandInput - {@link DisableRadiusCommandInput}
@@ -62,6 +65,8 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DisableRadiusCommand extends $Command<

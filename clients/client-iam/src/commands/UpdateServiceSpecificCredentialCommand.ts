@@ -52,6 +52,9 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * };
  * const command = new UpdateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateServiceSpecificCredentialCommandInput - {@link UpdateServiceSpecificCredentialCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateServiceSpecificCredentialCommand extends $Command<

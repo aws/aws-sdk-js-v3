@@ -68,6 +68,13 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageResponse
+ *   requestId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   imageBuildVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateImageCommandInput - {@link CreateImageCommandInput}
@@ -110,6 +117,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateImageCommand extends $Command<

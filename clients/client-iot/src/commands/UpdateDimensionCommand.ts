@@ -53,6 +53,18 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * };
  * const command = new UpdateDimensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDimensionResponse
+ *   name: "STRING_VALUE",
+ *   arn: "STRING_VALUE",
+ *   type: "TOPIC_FILTER",
+ *   stringValues: [ // DimensionStringValues
+ *     "STRING_VALUE",
+ *   ],
+ *   creationDate: new Date("TIMESTAMP"),
+ *   lastModifiedDate: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateDimensionCommandInput - {@link UpdateDimensionCommandInput}
@@ -73,6 +85,8 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateDimensionCommand extends $Command<

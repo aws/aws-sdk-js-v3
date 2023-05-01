@@ -48,6 +48,26 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * };
  * const command = new GetServerStrategiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServerStrategiesResponse
+ *   serverStrategies: [ // ServerStrategies
+ *     { // ServerStrategy
+ *       recommendation: { // RecommendationSet
+ *         transformationTool: { // TransformationTool
+ *           name: "STRING_VALUE",
+ *           description: "STRING_VALUE",
+ *           tranformationToolInstallationLink: "STRING_VALUE",
+ *         },
+ *         targetDestination: "STRING_VALUE",
+ *         strategy: "STRING_VALUE",
+ *       },
+ *       status: "STRING_VALUE",
+ *       numberOfApplicationComponents: Number("int"),
+ *       isPreferred: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetServerStrategiesCommandInput - {@link GetServerStrategiesCommandInput}
@@ -72,6 +92,8 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetServerStrategiesCommand extends $Command<

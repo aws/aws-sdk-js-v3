@@ -53,6 +53,16 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * };
  * const command = new AddAttributesToFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddAttributesToFindingsResponse
+ *   failedItems: { // FailedItems // required
+ *     "<keys>": { // FailedItemDetails
+ *       failureCode: "STRING_VALUE", // required
+ *       retryable: true || false, // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddAttributesToFindingsCommandInput - {@link AddAttributesToFindingsCommandInput}
@@ -78,6 +88,8 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Add attributes to findings
  * ```javascript

@@ -55,6 +55,22 @@ export interface GetLoadBalancerMetricDataCommandOutput extends GetLoadBalancerM
  * };
  * const command = new GetLoadBalancerMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoadBalancerMetricDataResult
+ *   metricName: "ClientTLSNegotiationErrorCount" || "HealthyHostCount" || "UnhealthyHostCount" || "HTTPCode_LB_4XX_Count" || "HTTPCode_LB_5XX_Count" || "HTTPCode_Instance_2XX_Count" || "HTTPCode_Instance_3XX_Count" || "HTTPCode_Instance_4XX_Count" || "HTTPCode_Instance_5XX_Count" || "InstanceResponseTime" || "RejectedConnectionCount" || "RequestCount",
+ *   metricData: [ // MetricDatapointList
+ *     { // MetricDatapoint
+ *       average: Number("double"),
+ *       maximum: Number("double"),
+ *       minimum: Number("double"),
+ *       sampleCount: Number("double"),
+ *       sum: Number("double"),
+ *       timestamp: new Date("TIMESTAMP"),
+ *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetLoadBalancerMetricDataCommandInput - {@link GetLoadBalancerMetricDataCommandInput}
@@ -93,6 +109,8 @@ export interface GetLoadBalancerMetricDataCommandOutput extends GetLoadBalancerM
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetLoadBalancerMetricDataCommand extends $Command<

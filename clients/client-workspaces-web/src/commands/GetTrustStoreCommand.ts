@@ -44,6 +44,16 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * };
  * const command = new GetTrustStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrustStoreResponse
+ *   trustStore: { // TrustStore
+ *     associatedPortalArns: [ // ArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     trustStoreArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTrustStoreCommandInput - {@link GetTrustStoreCommandInput}
@@ -67,6 +77,8 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetTrustStoreCommand extends $Command<

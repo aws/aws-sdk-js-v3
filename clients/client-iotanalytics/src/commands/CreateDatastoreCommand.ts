@@ -94,6 +94,16 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatastoreResponse
+ *   datastoreName: "STRING_VALUE",
+ *   datastoreArn: "STRING_VALUE",
+ *   retentionPeriod: { // RetentionPeriod
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDatastoreCommandInput - {@link CreateDatastoreCommandInput}
@@ -120,6 +130,8 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CreateDatastoreCommand extends $Command<

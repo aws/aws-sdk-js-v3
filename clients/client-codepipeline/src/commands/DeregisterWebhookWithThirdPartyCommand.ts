@@ -51,6 +51,9 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  * };
  * const command = new DeregisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterWebhookWithThirdPartyCommandInput - {@link DeregisterWebhookWithThirdPartyCommandInput}
@@ -66,6 +69,8 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  *  <p>The specified webhook was entered in an invalid format or cannot be
  *             found.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class DeregisterWebhookWithThirdPartyCommand extends $Command<

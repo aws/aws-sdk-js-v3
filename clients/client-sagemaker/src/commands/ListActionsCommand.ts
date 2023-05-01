@@ -51,6 +51,26 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * };
  * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListActionsResponse
+ *   ActionSummaries: [ // ActionSummaries
+ *     { // ActionSummary
+ *       ActionArn: "STRING_VALUE",
+ *       ActionName: "STRING_VALUE",
+ *       Source: { // ActionSource
+ *         SourceUri: "STRING_VALUE", // required
+ *         SourceType: "STRING_VALUE",
+ *         SourceId: "STRING_VALUE",
+ *       },
+ *       ActionType: "STRING_VALUE",
+ *       Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListActionsCommandInput - {@link ListActionsCommandInput}
@@ -62,6 +82,8 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListActionsCommand extends $Command<

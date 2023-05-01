@@ -54,6 +54,9 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>A specified resource is in use.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To delete a load balancer
  * ```javascript

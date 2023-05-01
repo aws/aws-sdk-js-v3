@@ -69,6 +69,11 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  * };
  * const command = new AddStorageSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddStorageSystemResponse
+ *   StorageSystemArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param AddStorageSystemCommandInput - {@link AddStorageSystemCommandInput}
@@ -84,6 +89,8 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class AddStorageSystemCommand extends $Command<

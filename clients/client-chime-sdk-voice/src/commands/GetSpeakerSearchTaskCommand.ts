@@ -45,6 +45,32 @@ export interface GetSpeakerSearchTaskCommandOutput extends GetSpeakerSearchTaskR
  * };
  * const command = new GetSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSpeakerSearchTaskResponse
+ *   SpeakerSearchTask: { // SpeakerSearchTask
+ *     SpeakerSearchTaskId: "STRING_VALUE",
+ *     SpeakerSearchTaskStatus: "STRING_VALUE",
+ *     CallDetails: { // CallDetails
+ *       VoiceConnectorId: "STRING_VALUE",
+ *       TransactionId: "STRING_VALUE",
+ *       IsCaller: true || false,
+ *     },
+ *     SpeakerSearchDetails: { // SpeakerSearchDetails
+ *       Results: [ // SpeakerSearchResultList
+ *         { // SpeakerSearchResult
+ *           ConfidenceScore: Number("float"),
+ *           VoiceProfileId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       VoiceprintGenerationStatus: "STRING_VALUE",
+ *     },
+ *     CreatedTimestamp: new Date("TIMESTAMP"),
+ *     UpdatedTimestamp: new Date("TIMESTAMP"),
+ *     StartedTimestamp: new Date("TIMESTAMP"),
+ *     StatusMessage: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSpeakerSearchTaskCommandInput - {@link GetSpeakerSearchTaskCommandInput}
@@ -80,6 +106,8 @@ export interface GetSpeakerSearchTaskCommandOutput extends GetSpeakerSearchTaskR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetSpeakerSearchTaskCommand extends $Command<

@@ -51,6 +51,11 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  * };
  * const command = new ReleaseIpamPoolAllocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReleaseIpamPoolAllocationResult
+ *   Success: true || false,
+ * };
+ *
  * ```
  *
  * @param ReleaseIpamPoolAllocationCommandInput - {@link ReleaseIpamPoolAllocationCommandInput}
@@ -59,6 +64,8 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  * @see {@link ReleaseIpamPoolAllocationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ReleaseIpamPoolAllocationCommand extends $Command<

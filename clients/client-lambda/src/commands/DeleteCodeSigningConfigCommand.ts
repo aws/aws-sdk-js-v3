@@ -45,6 +45,9 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * };
  * const command = new DeleteCodeSigningConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCodeSigningConfigCommandInput - {@link DeleteCodeSigningConfigCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class DeleteCodeSigningConfigCommand extends $Command<

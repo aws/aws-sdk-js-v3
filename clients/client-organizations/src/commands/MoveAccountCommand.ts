@@ -48,6 +48,9 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new MoveAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param MoveAccountCommandInput - {@link MoveAccountCommandInput}
@@ -202,6 +205,8 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To move an OU or account to another OU or the root
  * ```javascript

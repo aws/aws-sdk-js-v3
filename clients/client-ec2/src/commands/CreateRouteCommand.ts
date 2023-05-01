@@ -79,6 +79,11 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * };
  * const command = new CreateRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRouteResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
@@ -87,6 +92,8 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a route
  * ```javascript

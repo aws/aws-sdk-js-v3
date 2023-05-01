@@ -59,6 +59,17 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  * };
  * const command = new DescribeAcceleratorOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAcceleratorOfferingsResponse
+ *   acceleratorTypeOfferings: [ // AcceleratorTypeOfferingList
+ *     { // AcceleratorTypeOffering
+ *       acceleratorType: "STRING_VALUE",
+ *       locationType: "region" || "availability-zone" || "availability-zone-id",
+ *       location: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAcceleratorOfferingsCommandInput - {@link DescribeAcceleratorOfferingsCommandInput}
@@ -82,6 +93,8 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class DescribeAcceleratorOfferingsCommand extends $Command<

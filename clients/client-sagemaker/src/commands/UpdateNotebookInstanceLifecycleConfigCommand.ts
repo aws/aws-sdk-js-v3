@@ -62,6 +62,9 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  * };
  * const command = new UpdateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNotebookInstanceLifecycleConfigCommandInput - {@link UpdateNotebookInstanceLifecycleConfigCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<

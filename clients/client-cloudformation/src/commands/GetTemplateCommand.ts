@@ -52,6 +52,14 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateOutput
+ *   TemplateBody: "STRING_VALUE",
+ *   StagesAvailable: [ // StageList
+ *     "Original" || "Processed",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
@@ -64,6 +72,8 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
  *          use the <code>ListChangeSets</code> operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class GetTemplateCommand extends $Command<

@@ -53,6 +53,9 @@ export interface CancelDataQualityRulesetEvaluationRunCommandOutput
  * };
  * const command = new CancelDataQualityRulesetEvaluationRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelDataQualityRulesetEvaluationRunCommandInput - {@link CancelDataQualityRulesetEvaluationRunCommandInput}
@@ -73,6 +76,8 @@ export interface CancelDataQualityRulesetEvaluationRunCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CancelDataQualityRulesetEvaluationRunCommand extends $Command<

@@ -66,6 +66,34 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  * };
  * const command = new GrantFlowEntitlementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GrantFlowEntitlementsResponse
+ *   Entitlements: [ // __listOfEntitlement
+ *     { // Entitlement
+ *       DataTransferSubscriberFeePercent: Number("int"),
+ *       Description: "STRING_VALUE",
+ *       Encryption: { // Encryption
+ *         Algorithm: "aes128" || "aes192" || "aes256",
+ *         ConstantInitializationVector: "STRING_VALUE",
+ *         DeviceId: "STRING_VALUE",
+ *         KeyType: "speke" || "static-key" || "srt-password",
+ *         Region: "STRING_VALUE",
+ *         ResourceId: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE", // required
+ *         SecretArn: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       EntitlementArn: "STRING_VALUE", // required
+ *       EntitlementStatus: "ENABLED" || "DISABLED",
+ *       Name: "STRING_VALUE", // required
+ *       Subscribers: [ // __listOf__string // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   FlowArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GrantFlowEntitlementsCommandInput - {@link GrantFlowEntitlementsCommandInput}
@@ -95,6 +123,8 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class GrantFlowEntitlementsCommand extends $Command<

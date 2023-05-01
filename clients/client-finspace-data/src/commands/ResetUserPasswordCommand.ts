@@ -49,6 +49,12 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * };
  * const command = new ResetUserPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetUserPasswordResponse
+ *   userId: "STRING_VALUE",
+ *   temporaryPassword: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
@@ -76,6 +82,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class ResetUserPasswordCommand extends $Command<

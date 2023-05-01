@@ -47,6 +47,22 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * };
  * const command = new ListDatasetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetGroupsResponse
+ *   datasetGroups: [ // DatasetGroups
+ *     { // DatasetGroupSummary
+ *       name: "STRING_VALUE",
+ *       datasetGroupArn: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *       creationDateTime: new Date("TIMESTAMP"),
+ *       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ *       failureReason: "STRING_VALUE",
+ *       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDatasetGroupsCommandInput - {@link ListDatasetGroupsCommandInput}
@@ -58,6 +74,8 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListDatasetGroupsCommand extends $Command<

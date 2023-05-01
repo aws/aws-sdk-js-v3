@@ -56,6 +56,20 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * };
  * const command = new DescribeFleetInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetInstancesResult
+ *   ActiveInstances: [ // ActiveInstanceSet
+ *     { // ActiveInstance
+ *       InstanceId: "STRING_VALUE",
+ *       InstanceType: "STRING_VALUE",
+ *       SpotInstanceRequestId: "STRING_VALUE",
+ *       InstanceHealth: "healthy" || "unhealthy",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   FleetId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeFleetInstancesCommandInput - {@link DescribeFleetInstancesCommandInput}
@@ -64,6 +78,8 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * @see {@link DescribeFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFleetInstancesCommand extends $Command<

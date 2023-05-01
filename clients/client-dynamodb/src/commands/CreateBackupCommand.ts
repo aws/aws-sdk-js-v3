@@ -74,6 +74,19 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackupOutput
+ *   BackupDetails: { // BackupDetails
+ *     BackupArn: "STRING_VALUE", // required
+ *     BackupName: "STRING_VALUE", // required
+ *     BackupSizeBytes: Number("long"),
+ *     BackupStatus: "CREATING" || "DELETED" || "AVAILABLE", // required
+ *     BackupType: "USER" || "SYSTEM" || "AWS_BACKUP", // required
+ *     BackupCreationDateTime: new Date("TIMESTAMP"), // required
+ *     BackupExpiryDateTime: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
@@ -115,6 +128,8 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class CreateBackupCommand extends $Command<

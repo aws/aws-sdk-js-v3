@@ -57,6 +57,61 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * };
  * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcEndpointsResult
+ *   VpcEndpoints: [ // VpcEndpointSet
+ *     { // VpcEndpoint
+ *       VpcEndpointId: "STRING_VALUE",
+ *       VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer",
+ *       VpcId: "STRING_VALUE",
+ *       ServiceName: "STRING_VALUE",
+ *       State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
+ *       PolicyDocument: "STRING_VALUE",
+ *       RouteTableIds: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       SubnetIds: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Groups: [ // GroupIdentifierSet
+ *         { // SecurityGroupIdentifier
+ *           GroupId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *         },
+ *       ],
+ *       IpAddressType: "ipv4" || "dualstack" || "ipv6",
+ *       DnsOptions: { // DnsOptions
+ *         DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
+ *         PrivateDnsOnlyForInboundResolverEndpoint: true || false,
+ *       },
+ *       PrivateDnsEnabled: true || false,
+ *       RequesterManaged: true || false,
+ *       NetworkInterfaceIds: [
+ *         "STRING_VALUE",
+ *       ],
+ *       DnsEntries: [ // DnsEntrySet
+ *         { // DnsEntry
+ *           DnsName: "STRING_VALUE",
+ *           HostedZoneId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       CreationTimestamp: new Date("TIMESTAMP"),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       OwnerId: "STRING_VALUE",
+ *       LastError: { // LastError
+ *         Message: "STRING_VALUE",
+ *         Code: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeVpcEndpointsCommandInput - {@link DescribeVpcEndpointsCommandInput}
@@ -65,6 +120,8 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @see {@link DescribeVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcEndpointsCommand extends $Command<

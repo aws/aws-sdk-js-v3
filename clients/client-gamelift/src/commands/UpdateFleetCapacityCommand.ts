@@ -92,6 +92,13 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * };
  * const command = new UpdateFleetCapacityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFleetCapacityOutput
+ *   FleetId: "STRING_VALUE",
+ *   FleetArn: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateFleetCapacityCommandInput - {@link UpdateFleetCapacityCommandInput}
@@ -132,6 +139,8 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateFleetCapacityCommand extends $Command<

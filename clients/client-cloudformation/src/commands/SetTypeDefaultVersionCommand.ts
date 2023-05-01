@@ -48,6 +48,9 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * };
  * const command = new SetTypeDefaultVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetTypeDefaultVersionCommandInput - {@link SetTypeDefaultVersionCommandInput}
@@ -62,6 +65,8 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class SetTypeDefaultVersionCommand extends $Command<

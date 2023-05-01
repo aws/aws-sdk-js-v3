@@ -45,6 +45,26 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOfferingsResponse
+ *   NextToken: "STRING_VALUE",
+ *   Offerings: [ // __listOfOffering
+ *     { // Offering
+ *       CurrencyCode: "STRING_VALUE", // required
+ *       Duration: Number("int"), // required
+ *       DurationUnits: "MONTHS", // required
+ *       OfferingArn: "STRING_VALUE", // required
+ *       OfferingDescription: "STRING_VALUE", // required
+ *       PricePerUnit: "STRING_VALUE", // required
+ *       PriceUnits: "HOURLY", // required
+ *       ResourceSpecification: { // ResourceSpecification
+ *         ReservedBitrate: Number("int"),
+ *         ResourceType: "Mbps_Outbound_Bandwidth", // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
@@ -65,6 +85,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListOfferingsCommand extends $Command<

@@ -85,6 +85,30 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * };
  * const command = new DetectCustomLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectCustomLabelsResponse
+ *   CustomLabels: [ // CustomLabels
+ *     { // CustomLabel
+ *       Name: "STRING_VALUE",
+ *       Confidence: Number("float"),
+ *       Geometry: { // Geometry
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DetectCustomLabelsCommandInput - {@link DetectCustomLabelsCommandInput}
@@ -135,6 +159,8 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DetectCustomLabelsCommand extends $Command<

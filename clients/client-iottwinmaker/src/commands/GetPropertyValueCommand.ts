@@ -104,6 +104,65 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * };
  * const command = new GetPropertyValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPropertyValueResponse
+ *   propertyValues: { // PropertyLatestValueMap
+ *     "<keys>": { // PropertyLatestValue
+ *       propertyReference: { // EntityPropertyReference
+ *         componentName: "STRING_VALUE",
+ *         externalIdProperty: { // ExternalIdProperty
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         entityId: "STRING_VALUE",
+ *         propertyName: "STRING_VALUE", // required
+ *       },
+ *       propertyValue: { // DataValue
+ *         booleanValue: true || false,
+ *         doubleValue: Number("double"),
+ *         integerValue: Number("int"),
+ *         longValue: Number("long"),
+ *         stringValue: "STRING_VALUE",
+ *         listValue: [ // DataValueList
+ *           {
+ *             booleanValue: true || false,
+ *             doubleValue: Number("double"),
+ *             integerValue: Number("int"),
+ *             longValue: Number("long"),
+ *             stringValue: "STRING_VALUE",
+ *             listValue: [
+ *               "<DataValue>",
+ *             ],
+ *             mapValue: { // DataValueMap
+ *               "<keys>": "<DataValue>",
+ *             },
+ *             relationshipValue: { // RelationshipValue
+ *               targetEntityId: "STRING_VALUE",
+ *               targetComponentName: "STRING_VALUE",
+ *             },
+ *             expression: "STRING_VALUE",
+ *           },
+ *         ],
+ *         mapValue: {
+ *           "<keys>": "<DataValue>",
+ *         },
+ *         relationshipValue: {
+ *           targetEntityId: "STRING_VALUE",
+ *           targetComponentName: "STRING_VALUE",
+ *         },
+ *         expression: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   tabularPropertyValues: [ // TabularPropertyValues
+ *     [ // TabularPropertyValue
+ *       { // PropertyTableValue
+ *         "<keys>": "<DataValue>",
+ *       },
+ *     ],
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPropertyValueCommandInput - {@link GetPropertyValueCommandInput}
@@ -133,6 +192,8 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class GetPropertyValueCommand extends $Command<

@@ -46,6 +46,11 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  * };
  * const command = new PutClusterPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutClusterPolicyResponse
+ *   CurrentVersion: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutClusterPolicyCommandInput - {@link PutClusterPolicyCommandInput}
@@ -63,6 +68,8 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class PutClusterPolicyCommand extends $Command<

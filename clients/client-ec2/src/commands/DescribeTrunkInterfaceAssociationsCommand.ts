@@ -69,6 +69,27 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
  * };
  * const command = new DescribeTrunkInterfaceAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrunkInterfaceAssociationsResult
+ *   InterfaceAssociations: [ // TrunkInterfaceAssociationList
+ *     { // TrunkInterfaceAssociation
+ *       AssociationId: "STRING_VALUE",
+ *       BranchInterfaceId: "STRING_VALUE",
+ *       TrunkInterfaceId: "STRING_VALUE",
+ *       InterfaceProtocol: "VLAN" || "GRE",
+ *       VlanId: Number("int"),
+ *       GreKey: Number("int"),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeTrunkInterfaceAssociationsCommandInput - {@link DescribeTrunkInterfaceAssociationsCommandInput}
@@ -77,6 +98,8 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
  * @see {@link DescribeTrunkInterfaceAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTrunkInterfaceAssociationsCommand extends $Command<

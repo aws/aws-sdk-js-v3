@@ -56,6 +56,16 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * };
  * const command = new GetCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomVerificationEmailTemplateResponse
+ *   TemplateName: "STRING_VALUE",
+ *   FromEmailAddress: "STRING_VALUE",
+ *   TemplateSubject: "STRING_VALUE",
+ *   TemplateContent: "STRING_VALUE",
+ *   SuccessRedirectionURL: "STRING_VALUE",
+ *   FailureRedirectionURL: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetCustomVerificationEmailTemplateCommandInput - {@link GetCustomVerificationEmailTemplateCommandInput}
@@ -68,6 +78,8 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  *  <p>Indicates that a custom verification email template with the name you specified does
  *             not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<

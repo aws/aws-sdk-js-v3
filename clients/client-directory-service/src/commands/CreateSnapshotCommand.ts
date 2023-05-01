@@ -48,6 +48,11 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSnapshotResult
+ *   SnapshotId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -73,6 +78,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
  *             for a directory.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateSnapshotCommand extends $Command<

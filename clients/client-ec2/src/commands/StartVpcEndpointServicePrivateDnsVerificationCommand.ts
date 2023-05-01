@@ -57,6 +57,11 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * };
  * const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartVpcEndpointServicePrivateDnsVerificationResult
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param StartVpcEndpointServicePrivateDnsVerificationCommandInput - {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput}
@@ -65,6 +70,8 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Command<

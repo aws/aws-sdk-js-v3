@@ -46,6 +46,9 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteArchiveRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteArchiveRuleCommandInput - {@link DeleteArchiveRuleCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class DeleteArchiveRuleCommand extends $Command<

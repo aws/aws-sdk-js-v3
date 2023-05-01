@@ -49,6 +49,11 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * };
  * const command = new CancelJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelJournalKinesisStreamResponse
+ *   StreamId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CancelJournalKinesisStreamCommandInput - {@link CancelJournalKinesisStreamCommandInput}
@@ -66,6 +71,8 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class CancelJournalKinesisStreamCommand extends $Command<

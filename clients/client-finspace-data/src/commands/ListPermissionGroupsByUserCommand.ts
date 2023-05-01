@@ -50,6 +50,18 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
  * };
  * const command = new ListPermissionGroupsByUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionGroupsByUserResponse
+ *   permissionGroups: [ // PermissionGroupByUserList
+ *     { // PermissionGroupByUser
+ *       permissionGroupId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       membershipStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPermissionGroupsByUserCommandInput - {@link ListPermissionGroupsByUserCommandInput}
@@ -74,6 +86,8 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class ListPermissionGroupsByUserCommand extends $Command<

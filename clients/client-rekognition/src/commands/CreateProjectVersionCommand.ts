@@ -109,6 +109,11 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * };
  * const command = new CreateProjectVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectVersionResponse
+ *   ProjectVersionArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateProjectVersionCommandInput - {@link CreateProjectVersionCommandInput}
@@ -150,6 +155,8 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class CreateProjectVersionCommand extends $Command<

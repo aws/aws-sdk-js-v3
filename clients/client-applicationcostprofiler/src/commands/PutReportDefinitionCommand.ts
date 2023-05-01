@@ -55,6 +55,11 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * };
  * const command = new PutReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutReportDefinitionResult
+ *   reportId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param PutReportDefinitionCommandInput - {@link PutReportDefinitionCommandInput}
@@ -78,6 +83,8 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class PutReportDefinitionCommand extends $Command<

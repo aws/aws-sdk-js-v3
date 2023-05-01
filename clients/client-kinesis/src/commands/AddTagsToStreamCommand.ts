@@ -58,6 +58,9 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToStreamCommandInput - {@link AddTagsToStreamCommandInput}
@@ -86,6 +89,8 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class AddTagsToStreamCommand extends $Command<

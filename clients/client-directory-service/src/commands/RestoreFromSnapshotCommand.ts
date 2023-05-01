@@ -49,6 +49,9 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
@@ -69,6 +72,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RestoreFromSnapshotCommand extends $Command<

@@ -45,6 +45,15 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  * const input = {};
  * const command = new DescribeEventSourcesConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventSourcesConfigResponse
+ *   EventSources: { // EventSourcesConfig
+ *     AmazonCodeGuruProfiler: { // AmazonCodeGuruProfilerIntegration
+ *       Status: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEventSourcesConfigCommandInput - {@link DescribeEventSourcesConfigCommandInput}
@@ -69,6 +78,8 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeEventSourcesConfigCommand extends $Command<

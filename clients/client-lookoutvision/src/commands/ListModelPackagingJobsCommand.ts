@@ -54,6 +54,24 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * };
  * const command = new ListModelPackagingJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelPackagingJobsResponse
+ *   ModelPackagingJobs: [ // ModelPackagingJobsList
+ *     { // ModelPackagingJobMetadata
+ *       JobName: "STRING_VALUE",
+ *       ProjectName: "STRING_VALUE",
+ *       ModelVersion: "STRING_VALUE",
+ *       ModelPackagingJobDescription: "STRING_VALUE",
+ *       ModelPackagingMethod: "STRING_VALUE",
+ *       Status: "CREATED" || "RUNNING" || "SUCCEEDED" || "FAILED",
+ *       StatusMessage: "STRING_VALUE",
+ *       CreationTimestamp: new Date("TIMESTAMP"),
+ *       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListModelPackagingJobsCommandInput - {@link ListModelPackagingJobsCommandInput}
@@ -78,6 +96,8 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class ListModelPackagingJobsCommand extends $Command<

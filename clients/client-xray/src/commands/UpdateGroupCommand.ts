@@ -50,6 +50,19 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupResult
+ *   Group: { // Group
+ *     GroupName: "STRING_VALUE",
+ *     GroupARN: "STRING_VALUE",
+ *     FilterExpression: "STRING_VALUE",
+ *     InsightsConfiguration: { // InsightsConfiguration
+ *       InsightsEnabled: true || false,
+ *       NotificationsEnabled: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -64,6 +77,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

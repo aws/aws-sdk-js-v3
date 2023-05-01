@@ -45,6 +45,9 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  * };
  * const command = new DeleteMitigationActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMitigationActionCommandInput - {@link DeleteMitigationActionCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteMitigationActionCommand extends $Command<

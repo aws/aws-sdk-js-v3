@@ -56,6 +56,18 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * };
  * const command = new ListDataIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataIntegrationAssociationsResponse
+ *   DataIntegrationAssociations: [ // DataIntegrationAssociationsList
+ *     { // DataIntegrationAssociationSummary
+ *       DataIntegrationAssociationArn: "STRING_VALUE",
+ *       DataIntegrationArn: "STRING_VALUE",
+ *       ClientId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDataIntegrationAssociationsCommandInput - {@link ListDataIntegrationAssociationsCommandInput}
@@ -79,6 +91,8 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class ListDataIntegrationAssociationsCommand extends $Command<

@@ -75,6 +75,30 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  * };
  * const command = new DescribeTrustedAdvisorCheckSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrustedAdvisorCheckSummariesResponse
+ *   summaries: [ // TrustedAdvisorCheckSummaryList // required
+ *     { // TrustedAdvisorCheckSummary
+ *       checkId: "STRING_VALUE", // required
+ *       timestamp: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       hasFlaggedResources: true || false,
+ *       resourcesSummary: { // TrustedAdvisorResourcesSummary
+ *         resourcesProcessed: Number("long"), // required
+ *         resourcesFlagged: Number("long"), // required
+ *         resourcesIgnored: Number("long"), // required
+ *         resourcesSuppressed: Number("long"), // required
+ *       },
+ *       categorySpecificSummary: { // TrustedAdvisorCategorySpecificSummary
+ *         costOptimizing: { // TrustedAdvisorCostOptimizingSummary
+ *           estimatedMonthlySavings: Number("double"), // required
+ *           estimatedPercentMonthlySavings: Number("double"), // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTrustedAdvisorCheckSummariesCommandInput - {@link DescribeTrustedAdvisorCheckSummariesCommandInput}
@@ -86,6 +110,8 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<

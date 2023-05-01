@@ -68,6 +68,28 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProfileDetailResponse
+ *   profile: { // ProfileDetail
+ *     profileId: "STRING_VALUE",
+ *     profileArn: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     requireInstanceProperties: true || false,
+ *     enabled: true || false,
+ *     createdBy: "STRING_VALUE",
+ *     sessionPolicy: "STRING_VALUE",
+ *     roleArns: [ // RoleArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     managedPolicyArns: [ // ManagedPolicyList
+ *       "STRING_VALUE",
+ *     ],
+ *     createdAt: new Date("TIMESTAMP"),
+ *     updatedAt: new Date("TIMESTAMP"),
+ *     durationSeconds: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
@@ -82,6 +104,8 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class CreateProfileCommand extends $Command<

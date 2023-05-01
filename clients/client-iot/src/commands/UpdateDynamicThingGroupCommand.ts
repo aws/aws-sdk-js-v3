@@ -58,6 +58,11 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * };
  * const command = new UpdateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDynamicThingGroupResponse
+ *   version: Number("long"),
+ * };
+ *
  * ```
  *
  * @param UpdateDynamicThingGroupCommandInput - {@link UpdateDynamicThingGroupCommandInput}
@@ -86,6 +91,8 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateDynamicThingGroupCommand extends $Command<

@@ -46,6 +46,11 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  * };
  * const command = new DeleteEntityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEntityResponse
+ *   state: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteEntityCommandInput - {@link DeleteEntityCommandInput}
@@ -69,6 +74,8 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteEntityCommand extends $Command<

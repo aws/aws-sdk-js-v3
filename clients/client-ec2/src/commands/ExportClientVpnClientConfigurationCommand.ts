@@ -55,6 +55,11 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  * };
  * const command = new ExportClientVpnClientConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportClientVpnClientConfigurationResult
+ *   ClientConfiguration: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ExportClientVpnClientConfigurationCommandInput - {@link ExportClientVpnClientConfigurationCommandInput}
@@ -63,6 +68,8 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  * @see {@link ExportClientVpnClientConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ExportClientVpnClientConfigurationCommand extends $Command<

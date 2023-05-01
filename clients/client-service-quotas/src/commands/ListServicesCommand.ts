@@ -45,6 +45,17 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServicesResponse
+ *   NextToken: "STRING_VALUE",
+ *   Services: [ // ServiceInfoListDefinition
+ *     { // ServiceInfo
+ *       ServiceCode: "STRING_VALUE",
+ *       ServiceName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -69,6 +80,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class ListServicesCommand extends $Command<

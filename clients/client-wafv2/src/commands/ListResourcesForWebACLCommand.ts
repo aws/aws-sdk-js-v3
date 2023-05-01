@@ -47,6 +47,13 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesForWebACLResponse
+ *   ResourceArns: [ // ResourceArns
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
@@ -89,6 +96,8 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListResourcesForWebACLCommand extends $Command<

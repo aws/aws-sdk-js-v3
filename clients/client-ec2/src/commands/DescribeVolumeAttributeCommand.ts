@@ -49,6 +49,20 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * };
  * const command = new DescribeVolumeAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVolumeAttributeResult
+ *   AutoEnableIO: { // AttributeBooleanValue
+ *     Value: true || false,
+ *   },
+ *   ProductCodes: [ // ProductCodeList
+ *     { // ProductCode
+ *       ProductCodeId: "STRING_VALUE",
+ *       ProductCodeType: "devpay" || "marketplace",
+ *     },
+ *   ],
+ *   VolumeId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeVolumeAttributeCommandInput - {@link DescribeVolumeAttributeCommandInput}
@@ -57,6 +71,8 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * @see {@link DescribeVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a volume attribute
  * ```javascript

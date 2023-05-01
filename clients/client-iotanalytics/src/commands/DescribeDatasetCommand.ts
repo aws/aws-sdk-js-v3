@@ -44,6 +44,102 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetResponse
+ *   dataset: { // Dataset
+ *     name: "STRING_VALUE",
+ *     arn: "STRING_VALUE",
+ *     actions: [ // DatasetActions
+ *       { // DatasetAction
+ *         actionName: "STRING_VALUE",
+ *         queryAction: { // SqlQueryDatasetAction
+ *           sqlQuery: "STRING_VALUE", // required
+ *           filters: [ // QueryFilters
+ *             { // QueryFilter
+ *               deltaTime: { // DeltaTime
+ *                 offsetSeconds: Number("int"), // required
+ *                 timeExpression: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *         containerAction: { // ContainerDatasetAction
+ *           image: "STRING_VALUE", // required
+ *           executionRoleArn: "STRING_VALUE", // required
+ *           resourceConfiguration: { // ResourceConfiguration
+ *             computeType: "STRING_VALUE", // required
+ *             volumeSizeInGB: Number("int"), // required
+ *           },
+ *           variables: [ // Variables
+ *             { // Variable
+ *               name: "STRING_VALUE", // required
+ *               stringValue: "STRING_VALUE",
+ *               doubleValue: Number("double"),
+ *               datasetContentVersionValue: { // DatasetContentVersionValue
+ *                 datasetName: "STRING_VALUE", // required
+ *               },
+ *               outputFileUriValue: { // OutputFileUriValue
+ *                 fileName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     triggers: [ // DatasetTriggers
+ *       { // DatasetTrigger
+ *         schedule: { // Schedule
+ *           expression: "STRING_VALUE",
+ *         },
+ *         dataset: { // TriggeringDataset
+ *           name: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *     contentDeliveryRules: [ // DatasetContentDeliveryRules
+ *       { // DatasetContentDeliveryRule
+ *         entryName: "STRING_VALUE",
+ *         destination: { // DatasetContentDeliveryDestination
+ *           iotEventsDestinationConfiguration: { // IotEventsDestinationConfiguration
+ *             inputName: "STRING_VALUE", // required
+ *             roleArn: "STRING_VALUE", // required
+ *           },
+ *           s3DestinationConfiguration: { // S3DestinationConfiguration
+ *             bucket: "STRING_VALUE", // required
+ *             key: "STRING_VALUE", // required
+ *             glueConfiguration: { // GlueConfiguration
+ *               tableName: "STRING_VALUE", // required
+ *               databaseName: "STRING_VALUE", // required
+ *             },
+ *             roleArn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     status: "STRING_VALUE",
+ *     creationTime: new Date("TIMESTAMP"),
+ *     lastUpdateTime: new Date("TIMESTAMP"),
+ *     retentionPeriod: { // RetentionPeriod
+ *       unlimited: true || false,
+ *       numberOfDays: Number("int"),
+ *     },
+ *     versioningConfiguration: { // VersioningConfiguration
+ *       unlimited: true || false,
+ *       maxVersions: Number("int"),
+ *     },
+ *     lateDataRules: [ // LateDataRules
+ *       { // LateDataRule
+ *         ruleName: "STRING_VALUE",
+ *         ruleConfiguration: { // LateDataRuleConfiguration
+ *           deltaTimeSessionWindowConfiguration: { // DeltaTimeSessionWindowConfiguration
+ *             timeoutInMinutes: Number("int"), // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -67,6 +163,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

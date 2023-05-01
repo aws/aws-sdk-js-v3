@@ -70,6 +70,11 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  * };
  * const command = new UpdateAlertCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAlertResponse
+ *   AlertArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateAlertCommandInput - {@link UpdateAlertCommandInput}
@@ -94,6 +99,8 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class UpdateAlertCommand extends $Command<

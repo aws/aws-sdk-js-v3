@@ -51,6 +51,21 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicesOutput
+ *   devices: [ // DeviceSummaryList
+ *     { // DeviceSummary
+ *       managedDeviceId: "STRING_VALUE",
+ *       managedDeviceArn: "STRING_VALUE",
+ *       associatedWithJob: "STRING_VALUE",
+ *       tags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -71,6 +86,8 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class ListDevicesCommand extends $Command<

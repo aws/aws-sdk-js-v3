@@ -52,6 +52,16 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyDBClusterParameterGroupResult
+ *   DBClusterParameterGroup: { // DBClusterParameterGroup
+ *     DBClusterParameterGroupName: "STRING_VALUE",
+ *     DBParameterGroupFamily: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     DBClusterParameterGroupArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyDBClusterParameterGroupCommandInput - {@link CopyDBClusterParameterGroupCommandInput}
@@ -70,6 +80,8 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>This request would cause you to exceed the allowed number of parameter groups.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CopyDBClusterParameterGroupCommand extends $Command<

@@ -51,6 +51,11 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * };
  * const command = new StartContactStreamingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartContactStreamingResponse
+ *   StreamingId: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param StartContactStreamingCommandInput - {@link StartContactStreamingCommandInput}
@@ -74,6 +79,8 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartContactStreamingCommand extends $Command<

@@ -59,6 +59,19 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  * };
  * const command = new GetUICustomizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUICustomizationResponse
+ *   UICustomization: { // UICustomizationType
+ *     UserPoolId: "STRING_VALUE",
+ *     ClientId: "STRING_VALUE",
+ *     ImageUrl: "STRING_VALUE",
+ *     CSS: "STRING_VALUE",
+ *     CSSVersion: "STRING_VALUE",
+ *     LastModifiedDate: new Date("TIMESTAMP"),
+ *     CreationDate: new Date("TIMESTAMP"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetUICustomizationCommandInput - {@link GetUICustomizationCommandInput}
@@ -85,6 +98,8 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetUICustomizationCommand extends $Command<

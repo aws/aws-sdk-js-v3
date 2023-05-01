@@ -50,6 +50,11 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGatewaySoftwareNowOutput
+ *   GatewayArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateGatewaySoftwareNowCommandInput - {@link UpdateGatewaySoftwareNowCommandInput}
@@ -71,6 +76,8 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class UpdateGatewaySoftwareNowCommand extends $Command<

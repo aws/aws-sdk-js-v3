@@ -46,6 +46,23 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * };
  * const command = new UpdateGlobalNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGlobalNetworkResponse
+ *   GlobalNetwork: { // GlobalNetwork
+ *     GlobalNetworkId: "STRING_VALUE",
+ *     GlobalNetworkArn: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     CreatedAt: new Date("TIMESTAMP"),
+ *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGlobalNetworkCommandInput - {@link UpdateGlobalNetworkCommandInput}
@@ -73,6 +90,8 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class UpdateGlobalNetworkCommand extends $Command<

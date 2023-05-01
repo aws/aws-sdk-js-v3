@@ -59,6 +59,18 @@ export interface ListMediaInsightsPipelineConfigurationsCommandOutput
  * };
  * const command = new ListMediaInsightsPipelineConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMediaInsightsPipelineConfigurationsResponse
+ *   MediaInsightsPipelineConfigurations: [ // MediaInsightsPipelineConfigurationSummaryList
+ *     { // MediaInsightsPipelineConfigurationSummary
+ *       MediaInsightsPipelineConfigurationName: "STRING_VALUE",
+ *       MediaInsightsPipelineConfigurationId: "STRING_VALUE",
+ *       MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMediaInsightsPipelineConfigurationsCommandInput - {@link ListMediaInsightsPipelineConfigurationsCommandInput}
@@ -88,6 +100,8 @@ export interface ListMediaInsightsPipelineConfigurationsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class ListMediaInsightsPipelineConfigurationsCommand extends $Command<

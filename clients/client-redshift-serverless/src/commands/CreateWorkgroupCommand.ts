@@ -71,6 +71,52 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * };
  * const command = new CreateWorkgroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkgroupResponse
+ *   workgroup: { // Workgroup
+ *     workgroupId: "STRING_VALUE",
+ *     workgroupArn: "STRING_VALUE",
+ *     workgroupName: "STRING_VALUE",
+ *     namespaceName: "STRING_VALUE",
+ *     baseCapacity: Number("int"),
+ *     enhancedVpcRouting: true || false,
+ *     configParameters: [ // ConfigParameterList
+ *       { // ConfigParameter
+ *         parameterKey: "STRING_VALUE",
+ *         parameterValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *     securityGroupIds: [ // SecurityGroupIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // SubnetIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     status: "STRING_VALUE",
+ *     endpoint: { // Endpoint
+ *       address: "STRING_VALUE",
+ *       port: Number("int"),
+ *       vpcEndpoints: [ // VpcEndpointList
+ *         { // VpcEndpoint
+ *           vpcEndpointId: "STRING_VALUE",
+ *           vpcId: "STRING_VALUE",
+ *           networkInterfaces: [ // NetworkInterfaceList
+ *             { // NetworkInterface
+ *               networkInterfaceId: "STRING_VALUE",
+ *               subnetId: "STRING_VALUE",
+ *               privateIpAddress: "STRING_VALUE",
+ *               availabilityZone: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     publiclyAccessible: true || false,
+ *     creationDate: new Date("TIMESTAMP"),
+ *     port: Number("int"),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorkgroupCommandInput - {@link CreateWorkgroupCommandInput}
@@ -97,6 +143,8 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class CreateWorkgroupCommand extends $Command<

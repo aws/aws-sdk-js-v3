@@ -115,6 +115,12 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * };
  * const command = new CreateDecoderManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDecoderManifestResponse
+ *   name: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateDecoderManifestCommandInput - {@link CreateDecoderManifestCommandInput}
@@ -148,6 +154,8 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class CreateDecoderManifestCommand extends $Command<

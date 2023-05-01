@@ -71,6 +71,12 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * };
  * const command = new AssociateSoftwareTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateSoftwareTokenResponse
+ *   SecretCode: "STRING_VALUE",
+ *   Session: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AssociateSoftwareTokenCommandInput - {@link AssociateSoftwareTokenCommandInput}
@@ -104,6 +110,8 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *  <p>This exception is thrown when the software token time-based one-time password (TOTP)
  *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AssociateSoftwareTokenCommand extends $Command<

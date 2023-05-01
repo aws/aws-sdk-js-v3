@@ -46,6 +46,16 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * };
  * const command = new UpdateConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConfigurationResponse
+ *   Arn: "STRING_VALUE",
+ *   LatestRevision: { // ConfigurationRevision
+ *     CreationTime: new Date("TIMESTAMP"), // required
+ *     Description: "STRING_VALUE",
+ *     Revision: Number("long"), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateConfigurationCommandInput - {@link UpdateConfigurationCommandInput}
@@ -72,6 +82,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateConfigurationCommand extends $Command<

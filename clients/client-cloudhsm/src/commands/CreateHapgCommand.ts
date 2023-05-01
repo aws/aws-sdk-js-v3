@@ -55,6 +55,11 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * };
  * const command = new CreateHapgCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHapgResponse
+ *   HapgArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateHapgCommandInput - {@link CreateHapgCommandInput}
@@ -72,6 +77,8 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class CreateHapgCommand extends $Command<

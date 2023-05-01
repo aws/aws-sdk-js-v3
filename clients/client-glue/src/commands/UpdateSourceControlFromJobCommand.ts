@@ -53,6 +53,11 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
  * };
  * const command = new UpdateSourceControlFromJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSourceControlFromJobResponse
+ *   JobName: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateSourceControlFromJobCommandInput - {@link UpdateSourceControlFromJobCommandInput}
@@ -82,6 +87,8 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
  * @throws {@link ValidationException} (client fault)
  *  <p>A value could not be validated.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateSourceControlFromJobCommand extends $Command<

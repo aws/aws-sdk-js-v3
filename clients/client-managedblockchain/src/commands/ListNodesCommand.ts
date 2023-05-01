@@ -53,6 +53,21 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  * };
  * const command = new ListNodesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNodesOutput
+ *   Nodes: [ // NodeSummaryList
+ *     { // NodeSummary
+ *       Id: "STRING_VALUE",
+ *       Status: "CREATING" || "AVAILABLE" || "UNHEALTHY" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "INACCESSIBLE_ENCRYPTION_KEY",
+ *       CreationDate: new Date("TIMESTAMP"),
+ *       AvailabilityZone: "STRING_VALUE",
+ *       InstanceType: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListNodesCommandInput - {@link ListNodesCommandInput}
@@ -76,6 +91,8 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListNodesCommand extends $Command<

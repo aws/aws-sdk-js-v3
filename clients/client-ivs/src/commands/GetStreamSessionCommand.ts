@@ -45,6 +45,72 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * };
  * const command = new GetStreamSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStreamSessionResponse
+ *   streamSession: { // StreamSession
+ *     streamId: "STRING_VALUE",
+ *     startTime: new Date("TIMESTAMP"),
+ *     endTime: new Date("TIMESTAMP"),
+ *     channel: { // Channel
+ *       arn: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       latencyMode: "STRING_VALUE",
+ *       type: "BASIC" || "STANDARD",
+ *       recordingConfigurationArn: "STRING_VALUE",
+ *       ingestEndpoint: "STRING_VALUE",
+ *       playbackUrl: "STRING_VALUE",
+ *       authorized: true || false,
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       insecureIngest: true || false,
+ *     },
+ *     ingestConfiguration: { // IngestConfiguration
+ *       video: { // VideoConfiguration
+ *         avcProfile: "STRING_VALUE",
+ *         avcLevel: "STRING_VALUE",
+ *         codec: "STRING_VALUE",
+ *         encoder: "STRING_VALUE",
+ *         targetBitrate: Number("long"),
+ *         targetFramerate: Number("long"),
+ *         videoHeight: Number("long"),
+ *         videoWidth: Number("long"),
+ *       },
+ *       audio: { // AudioConfiguration
+ *         codec: "STRING_VALUE",
+ *         targetBitrate: Number("long"),
+ *         sampleRate: Number("long"),
+ *         channels: Number("long"),
+ *       },
+ *     },
+ *     recordingConfiguration: { // RecordingConfiguration
+ *       arn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE",
+ *       destinationConfiguration: { // DestinationConfiguration
+ *         s3: { // S3DestinationConfiguration
+ *           bucketName: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       state: "STRING_VALUE", // required
+ *       tags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       thumbnailConfiguration: { // ThumbnailConfiguration
+ *         recordingMode: "STRING_VALUE",
+ *         targetIntervalSeconds: Number("long"),
+ *       },
+ *       recordingReconnectWindowSeconds: Number("int"),
+ *     },
+ *     truncatedEvents: [ // StreamEvents
+ *       { // StreamEvent
+ *         name: "STRING_VALUE",
+ *         type: "STRING_VALUE",
+ *         eventTime: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStreamSessionCommandInput - {@link GetStreamSessionCommandInput}
@@ -62,6 +128,8 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetStreamSessionCommand extends $Command<

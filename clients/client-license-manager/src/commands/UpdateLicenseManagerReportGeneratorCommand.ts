@@ -68,6 +68,9 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * };
  * const command = new UpdateLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLicenseManagerReportGeneratorCommandInput - {@link UpdateLicenseManagerReportGeneratorCommandInput}
@@ -101,6 +104,8 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class UpdateLicenseManagerReportGeneratorCommand extends $Command<

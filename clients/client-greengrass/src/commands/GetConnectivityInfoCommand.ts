@@ -44,6 +44,19 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * };
  * const command = new GetConnectivityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectivityInfoResponse
+ *   ConnectivityInfo: [ // __listOfConnectivityInfo
+ *     { // ConnectivityInfo
+ *       HostAddress: "STRING_VALUE",
+ *       Id: "STRING_VALUE",
+ *       Metadata: "STRING_VALUE",
+ *       PortNumber: Number("int"),
+ *     },
+ *   ],
+ *   Message: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetConnectivityInfoCommandInput - {@link GetConnectivityInfoCommandInput}
@@ -58,6 +71,8 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetConnectivityInfoCommand extends $Command<

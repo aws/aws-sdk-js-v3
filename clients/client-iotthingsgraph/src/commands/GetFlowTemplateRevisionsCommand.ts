@@ -49,6 +49,19 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * };
  * const command = new GetFlowTemplateRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFlowTemplateRevisionsResponse
+ *   summaries: [ // FlowTemplateSummaries
+ *     { // FlowTemplateSummary
+ *       id: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *       revisionNumber: Number("long"),
+ *       createdAt: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetFlowTemplateRevisionsCommandInput - {@link GetFlowTemplateRevisionsCommandInput}
@@ -69,6 +82,8 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetFlowTemplateRevisionsCommand extends $Command<

@@ -96,6 +96,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -141,6 +144,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TagException} (client fault)
  *  <p>The request was rejected because one or more tags are not valid.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To tag a KMS key
  * ```javascript

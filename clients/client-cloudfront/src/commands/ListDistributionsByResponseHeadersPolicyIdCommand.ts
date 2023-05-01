@@ -61,6 +61,20 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * };
  * const command = new ListDistributionsByResponseHeadersPolicyIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionsByResponseHeadersPolicyIdResult
+ *   DistributionIdList: { // DistributionIdList
+ *     Marker: "STRING_VALUE", // required
+ *     NextMarker: "STRING_VALUE",
+ *     MaxItems: Number("int"), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number("int"), // required
+ *     Items: [ // DistributionIdListSummary
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDistributionsByResponseHeadersPolicyIdCommandInput - {@link ListDistributionsByResponseHeadersPolicyIdCommandInput}
@@ -78,6 +92,8 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
  *  <p>The response headers policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<

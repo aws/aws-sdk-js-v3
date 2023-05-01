@@ -127,6 +127,12 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * };
  * const command = new CreateIntegrationWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIntegrationWorkflowResponse
+ *   WorkflowId: "STRING_VALUE", // required
+ *   Message: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateIntegrationWorkflowCommandInput - {@link CreateIntegrationWorkflowCommandInput}
@@ -150,6 +156,8 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class CreateIntegrationWorkflowCommand extends $Command<

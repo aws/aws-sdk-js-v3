@@ -58,6 +58,16 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * };
  * const command = new GetRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRevisionResponse
+ *   Proof: { // ValueHolder
+ *     IonText: "STRING_VALUE",
+ *   },
+ *   Revision: {
+ *     IonText: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRevisionCommandInput - {@link GetRevisionCommandInput}
@@ -75,6 +85,8 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class GetRevisionCommand extends $Command<

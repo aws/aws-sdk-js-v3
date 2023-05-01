@@ -93,6 +93,14 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  * };
  * const command = new CreateFunctionDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFunctionDefinitionVersionResponse
+ *   Arn: "STRING_VALUE",
+ *   CreationTimestamp: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateFunctionDefinitionVersionCommandInput - {@link CreateFunctionDefinitionVersionCommandInput}
@@ -104,6 +112,8 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateFunctionDefinitionVersionCommand extends $Command<

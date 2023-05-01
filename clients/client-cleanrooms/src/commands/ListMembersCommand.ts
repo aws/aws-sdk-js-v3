@@ -46,6 +46,25 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersOutput
+ *   nextToken: "STRING_VALUE",
+ *   memberSummaries: [ // MemberSummaryList // required
+ *     { // MemberSummary
+ *       accountId: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       displayName: "STRING_VALUE", // required
+ *       abilities: [ // MemberAbilities // required
+ *         "STRING_VALUE",
+ *       ],
+ *       createTime: new Date("TIMESTAMP"), // required
+ *       updateTime: new Date("TIMESTAMP"), // required
+ *       membershipId: "STRING_VALUE",
+ *       membershipArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -69,6 +88,8 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

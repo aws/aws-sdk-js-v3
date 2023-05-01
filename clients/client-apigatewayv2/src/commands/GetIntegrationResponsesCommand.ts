@@ -47,6 +47,25 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  * };
  * const command = new GetIntegrationResponsesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntegrationResponsesResponse
+ *   Items: [ // __listOfIntegrationResponse
+ *     { // IntegrationResponse
+ *       ContentHandlingStrategy: "STRING_VALUE",
+ *       IntegrationResponseId: "STRING_VALUE",
+ *       IntegrationResponseKey: "STRING_VALUE", // required
+ *       ResponseParameters: { // IntegrationParameters
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ResponseTemplates: { // TemplateMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       TemplateSelectionExpression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetIntegrationResponsesCommandInput - {@link GetIntegrationResponsesCommandInput}
@@ -64,6 +83,8 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetIntegrationResponsesCommand extends $Command<

@@ -60,6 +60,17 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * };
  * const command = new DescribeNodeAssociationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNodeAssociationStatusResponse
+ *   NodeAssociationStatus: "STRING_VALUE",
+ *   EngineAttributes: [ // EngineAttributes
+ *     { // EngineAttribute
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeNodeAssociationStatusCommandInput - {@link DescribeNodeAssociationStatusCommandInput}
@@ -76,6 +87,8 @@ export interface DescribeNodeAssociationStatusCommandOutput
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeNodeAssociationStatusCommand extends $Command<

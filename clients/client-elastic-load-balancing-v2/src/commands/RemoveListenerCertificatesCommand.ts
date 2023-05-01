@@ -55,6 +55,9 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * };
  * const command = new RemoveListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveListenerCertificatesCommandInput - {@link RemoveListenerCertificatesCommandInput}
@@ -69,6 +72,8 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This operation is not allowed.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class RemoveListenerCertificatesCommand extends $Command<

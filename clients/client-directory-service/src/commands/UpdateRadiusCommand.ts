@@ -57,6 +57,9 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * };
  * const command = new UpdateRadiusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRadiusCommandInput - {@link UpdateRadiusCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateRadiusCommand extends $Command<

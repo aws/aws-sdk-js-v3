@@ -50,6 +50,18 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentityProvidersResponse
+ *   nextToken: "STRING_VALUE",
+ *   identityProviders: [ // IdentityProviderList
+ *     { // IdentityProviderSummary
+ *       identityProviderArn: "STRING_VALUE",
+ *       identityProviderName: "STRING_VALUE",
+ *       identityProviderType: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
@@ -70,6 +82,8 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListIdentityProvidersCommand extends $Command<

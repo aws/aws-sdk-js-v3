@@ -46,6 +46,11 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  * };
  * const command = new GetDashboardForJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDashboardForJobRunResponse
+ *   url: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param GetDashboardForJobRunCommandInput - {@link GetDashboardForJobRunCommandInput}
@@ -64,6 +69,8 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class GetDashboardForJobRunCommand extends $Command<

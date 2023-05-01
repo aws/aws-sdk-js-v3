@@ -93,6 +93,11 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * };
  * const command = new UpdateNFSFileShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateNFSFileShareOutput
+ *   FileShareARN: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param UpdateNFSFileShareCommandInput - {@link UpdateNFSFileShareCommandInput}
@@ -109,6 +114,8 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class UpdateNFSFileShareCommand extends $Command<

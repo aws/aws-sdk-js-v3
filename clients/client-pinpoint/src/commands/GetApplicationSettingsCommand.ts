@@ -44,6 +44,30 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * };
  * const command = new GetApplicationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationSettingsResponse
+ *   ApplicationSettingsResource: { // ApplicationSettingsResource
+ *     ApplicationId: "STRING_VALUE", // required
+ *     CampaignHook: { // CampaignHook
+ *       LambdaFunctionName: "STRING_VALUE",
+ *       Mode: "DELIVERY" || "FILTER",
+ *       WebUrl: "STRING_VALUE",
+ *     },
+ *     LastModifiedDate: "STRING_VALUE",
+ *     Limits: { // CampaignLimits
+ *       Daily: Number("int"),
+ *       MaximumDuration: Number("int"),
+ *       MessagesPerSecond: Number("int"),
+ *       Total: Number("int"),
+ *       Session: Number("int"),
+ *     },
+ *     QuietTime: { // QuietTime
+ *       End: "STRING_VALUE",
+ *       Start: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApplicationSettingsCommandInput - {@link GetApplicationSettingsCommandInput}
@@ -73,6 +97,8 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetApplicationSettingsCommand extends $Command<

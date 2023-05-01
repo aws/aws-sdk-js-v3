@@ -53,6 +53,9 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * };
  * const command = new RevokeTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokeTokenCommandInput - {@link RevokeTokenCommandInput}
@@ -86,6 +89,8 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * @throws {@link UnsupportedTokenTypeException} (client fault)
  *  <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class RevokeTokenCommand extends $Command<

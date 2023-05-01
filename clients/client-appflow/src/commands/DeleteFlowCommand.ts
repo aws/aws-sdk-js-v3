@@ -46,6 +46,9 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFlowCommandInput - {@link DeleteFlowCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  *  <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class DeleteFlowCommand extends $Command<

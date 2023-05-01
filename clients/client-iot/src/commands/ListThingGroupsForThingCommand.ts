@@ -47,6 +47,17 @@ export interface ListThingGroupsForThingCommandOutput extends ListThingGroupsFor
  * };
  * const command = new ListThingGroupsForThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingGroupsForThingResponse
+ *   thingGroups: [ // ThingGroupNameAndArnList
+ *     { // GroupNameAndArn
+ *       groupName: "STRING_VALUE",
+ *       groupArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListThingGroupsForThingCommandInput - {@link ListThingGroupsForThingCommandInput}
@@ -67,6 +78,8 @@ export interface ListThingGroupsForThingCommandOutput extends ListThingGroupsFor
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingGroupsForThingCommand extends $Command<

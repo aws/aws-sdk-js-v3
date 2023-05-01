@@ -54,6 +54,11 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * };
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQuantumTaskResponse
+ *   quantumTaskArn: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param CreateQuantumTaskCommandInput - {@link CreateQuantumTaskCommandInput}
@@ -84,6 +89,8 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CreateQuantumTaskCommand extends $Command<

@@ -47,6 +47,9 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  * };
  * const command = new UpdateDeletionProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeletionProtectionCommandInput - {@link UpdateDeletionProtectionCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateDeletionProtectionCommand extends $Command<

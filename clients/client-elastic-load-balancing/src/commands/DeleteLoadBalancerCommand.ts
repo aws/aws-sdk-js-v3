@@ -51,6 +51,9 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To delete a load balancer
  * ```javascript

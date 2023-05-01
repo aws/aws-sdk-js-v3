@@ -49,6 +49,9 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetadataFlagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetadataFlagCommandInput - {@link PutMetadataFlagCommandInput}
@@ -63,6 +66,8 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You don't have permission to perform this operation.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class PutMetadataFlagCommand extends $Command<

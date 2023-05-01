@@ -87,6 +87,11 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * };
  * const command = new CloneStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CloneStackResult
+ *   StackId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CloneStackCommandInput - {@link CloneStackCommandInput}
@@ -101,6 +106,8 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CloneStackCommand extends $Command<

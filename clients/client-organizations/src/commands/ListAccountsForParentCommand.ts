@@ -64,6 +64,22 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * };
  * const command = new ListAccountsForParentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountsForParentResponse
+ *   Accounts: [ // Accounts
+ *     { // Account
+ *       Id: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       Email: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ *       JoinedMethod: "INVITED" || "CREATED",
+ *       JoinedTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAccountsForParentCommandInput - {@link ListAccountsForParentCommandInput}
@@ -201,6 +217,8 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the accounts in a root or OU
  * ```javascript

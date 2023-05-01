@@ -76,6 +76,11 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * };
  * const command = new CreateForecastExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateForecastExportJobResponse
+ *   ForecastExportJobArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateForecastExportJobCommandInput - {@link CreateForecastExportJobCommandInput}
@@ -101,6 +106,8 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateForecastExportJobCommand extends $Command<

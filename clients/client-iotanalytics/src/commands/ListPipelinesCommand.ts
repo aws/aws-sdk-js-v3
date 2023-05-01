@@ -45,6 +45,25 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelinesResponse
+ *   pipelineSummaries: [ // PipelineSummaries
+ *     { // PipelineSummary
+ *       pipelineName: "STRING_VALUE",
+ *       reprocessingSummaries: [ // ReprocessingSummaries
+ *         { // ReprocessingSummary
+ *           id: "STRING_VALUE",
+ *           status: "STRING_VALUE",
+ *           creationTime: new Date("TIMESTAMP"),
+ *         },
+ *       ],
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdateTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
@@ -65,6 +84,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class ListPipelinesCommand extends $Command<

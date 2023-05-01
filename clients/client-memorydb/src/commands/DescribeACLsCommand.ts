@@ -46,6 +46,33 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * };
  * const command = new DescribeACLsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeACLsResponse
+ *   ACLs: [ // ACLList
+ *     { // ACL
+ *       Name: "STRING_VALUE",
+ *       Status: "STRING_VALUE",
+ *       UserNames: [ // UserNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       PendingChanges: { // ACLPendingChanges
+ *         UserNamesToRemove: [
+ *           "STRING_VALUE",
+ *         ],
+ *         UserNamesToAdd: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Clusters: [ // ACLClusterNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       ARN: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeACLsCommandInput - {@link DescribeACLsCommandInput}
@@ -60,6 +87,8 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeACLsCommand extends $Command<

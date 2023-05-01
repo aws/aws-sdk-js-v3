@@ -54,6 +54,31 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * };
  * const command = new ListAppAssessmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppAssessmentsResponse
+ *   nextToken: "STRING_VALUE",
+ *   assessmentSummaries: [ // AppAssessmentSummaryList // required
+ *     { // AppAssessmentSummary
+ *       appArn: "STRING_VALUE",
+ *       appVersion: "STRING_VALUE",
+ *       assessmentStatus: "STRING_VALUE", // required
+ *       invoker: "STRING_VALUE",
+ *       startTime: new Date("TIMESTAMP"),
+ *       endTime: new Date("TIMESTAMP"),
+ *       message: "STRING_VALUE",
+ *       assessmentName: "STRING_VALUE",
+ *       assessmentArn: "STRING_VALUE", // required
+ *       complianceStatus: "STRING_VALUE",
+ *       cost: { // Cost
+ *         amount: Number("double"), // required
+ *         currency: "STRING_VALUE", // required
+ *         frequency: "STRING_VALUE", // required
+ *       },
+ *       resiliencyScore: Number("double"),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAppAssessmentsCommandInput - {@link ListAppAssessmentsCommandInput}
@@ -80,6 +105,8 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppAssessmentsCommand extends $Command<

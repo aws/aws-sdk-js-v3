@@ -51,6 +51,16 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  * };
  * const command = new UpdateRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRouteResponse
+ *   RouteId: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   ServiceId: "STRING_VALUE",
+ *   ApplicationId: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   LastUpdatedTime: new Date("TIMESTAMP"),
+ * };
+ *
  * ```
  *
  * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
@@ -75,6 +85,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class UpdateRouteCommand extends $Command<

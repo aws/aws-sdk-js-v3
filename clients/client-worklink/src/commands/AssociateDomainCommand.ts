@@ -49,6 +49,9 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  * };
  * const command = new AssociateDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDomainCommandInput - {@link AssociateDomainCommandInput}
@@ -75,6 +78,8 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class AssociateDomainCommand extends $Command<

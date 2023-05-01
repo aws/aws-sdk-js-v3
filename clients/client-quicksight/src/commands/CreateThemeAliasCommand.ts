@@ -47,6 +47,17 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
  * };
  * const command = new CreateThemeAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateThemeAliasResponse
+ *   ThemeAlias: { // ThemeAlias
+ *     Arn: "STRING_VALUE",
+ *     AliasName: "STRING_VALUE",
+ *     ThemeVersionNumber: Number("long"),
+ *   },
+ *   Status: Number("int"),
+ *   RequestId: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateThemeAliasCommandInput - {@link CreateThemeAliasCommandInput}
@@ -82,6 +93,8 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateThemeAliasCommand extends $Command<

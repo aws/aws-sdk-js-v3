@@ -52,6 +52,27 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  * };
  * const command = new DefineSuggesterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DefineSuggesterResponse
+ *   Suggester: { // SuggesterStatus
+ *     Options: { // Suggester
+ *       SuggesterName: "STRING_VALUE", // required
+ *       DocumentSuggesterOptions: { // DocumentSuggesterOptions
+ *         SourceField: "STRING_VALUE", // required
+ *         FuzzyMatching: "STRING_VALUE",
+ *         SortExpression: "STRING_VALUE",
+ *       },
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date("TIMESTAMP"), // required
+ *       UpdateDate: new Date("TIMESTAMP"), // required
+ *       UpdateVersion: Number("int"),
+ *       State: "STRING_VALUE", // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DefineSuggesterCommandInput - {@link DefineSuggesterCommandInput}
@@ -79,6 +100,8 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DefineSuggesterCommand extends $Command<

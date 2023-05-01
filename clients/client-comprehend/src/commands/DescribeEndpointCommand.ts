@@ -46,6 +46,24 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * };
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointResponse
+ *   EndpointProperties: { // EndpointProperties
+ *     EndpointArn: "STRING_VALUE",
+ *     Status: "CREATING" || "DELETING" || "FAILED" || "IN_SERVICE" || "UPDATING",
+ *     Message: "STRING_VALUE",
+ *     ModelArn: "STRING_VALUE",
+ *     DesiredModelArn: "STRING_VALUE",
+ *     DesiredInferenceUnits: Number("int"),
+ *     CurrentInferenceUnits: Number("int"),
+ *     CreationTime: new Date("TIMESTAMP"),
+ *     LastModifiedTime: new Date("TIMESTAMP"),
+ *     DataAccessRoleArn: "STRING_VALUE",
+ *     DesiredDataAccessRoleArn: "STRING_VALUE",
+ *     FlywheelArn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
@@ -66,6 +84,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeEndpointCommand extends $Command<

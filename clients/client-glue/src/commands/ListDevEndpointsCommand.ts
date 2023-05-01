@@ -53,6 +53,14 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * };
  * const command = new ListDevEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevEndpointsResponse
+ *   DevEndpointNames: [ // DevEndpointNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDevEndpointsCommandInput - {@link ListDevEndpointsCommandInput}
@@ -73,6 +81,8 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListDevEndpointsCommand extends $Command<

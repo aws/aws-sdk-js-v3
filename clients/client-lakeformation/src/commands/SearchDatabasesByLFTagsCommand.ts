@@ -54,6 +54,28 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * };
  * const command = new SearchDatabasesByLFTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchDatabasesByLFTagsResponse
+ *   NextToken: "STRING_VALUE",
+ *   DatabaseList: [ // DatabaseLFTagsList
+ *     { // TaggedDatabase
+ *       Database: { // DatabaseResource
+ *         CatalogId: "STRING_VALUE",
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       LFTags: [ // LFTagsList
+ *         { // LFTagPair
+ *           CatalogId: "STRING_VALUE",
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // TagValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchDatabasesByLFTagsCommandInput - {@link SearchDatabasesByLFTagsCommandInput}
@@ -80,6 +102,8 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class SearchDatabasesByLFTagsCommand extends $Command<

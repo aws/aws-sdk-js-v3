@@ -70,6 +70,20 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * };
  * const command = new AddEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddEndpointsResponse
+ *   EndpointDescriptions: [ // EndpointDescriptions
+ *     { // EndpointDescription
+ *       EndpointId: "STRING_VALUE",
+ *       Weight: Number("int"),
+ *       HealthState: "INITIAL" || "HEALTHY" || "UNHEALTHY",
+ *       HealthReason: "STRING_VALUE",
+ *       ClientIPPreservationEnabled: true || false,
+ *     },
+ *   ],
+ *   EndpointGroupArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param AddEndpointsCommandInput - {@link AddEndpointsCommandInput}
@@ -96,6 +110,8 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * @throws {@link TransactionInProgressException} (client fault)
  *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class AddEndpointsCommand extends $Command<

@@ -45,6 +45,11 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * };
  * const command = new DeleteSyncJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSyncJobResponse
+ *   state: "STRING_VALUE", // required
+ * };
+ *
  * ```
  *
  * @param DeleteSyncJobCommandInput - {@link DeleteSyncJobCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteSyncJobCommand extends $Command<

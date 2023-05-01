@@ -45,6 +45,24 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  * };
  * const command = new DescribeHostKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHostKeyResponse
+ *   HostKey: { // DescribedHostKey
+ *     Arn: "STRING_VALUE", // required
+ *     HostKeyId: "STRING_VALUE",
+ *     HostKeyFingerprint: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     DateImported: new Date("TIMESTAMP"),
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeHostKeyCommandInput - {@link DescribeHostKeyCommandInput}
@@ -66,6 +84,8 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeHostKeyCommand extends $Command<

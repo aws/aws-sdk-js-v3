@@ -55,6 +55,9 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * };
  * const command = new UpdateInstanceCustomHealthStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateInstanceCustomHealthStatusCommandInput - {@link UpdateInstanceCustomHealthStatusCommandInput}
@@ -79,6 +82,8 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example UpdateInstanceCustomHealthStatus Example
  * ```javascript

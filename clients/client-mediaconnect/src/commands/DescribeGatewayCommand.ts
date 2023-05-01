@@ -44,6 +44,31 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * };
  * const command = new DescribeGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGatewayResponse
+ *   Gateway: { // Gateway
+ *     EgressCidrBlocks: [ // __listOf__string // required
+ *       "STRING_VALUE",
+ *     ],
+ *     GatewayArn: "STRING_VALUE", // required
+ *     GatewayMessages: [ // __listOfMessageDetail
+ *       { // MessageDetail
+ *         Code: "STRING_VALUE", // required
+ *         Message: "STRING_VALUE", // required
+ *         ResourceName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     GatewayState: "CREATING" || "ACTIVE" || "UPDATING" || "ERROR" || "DELETING" || "DELETED",
+ *     Name: "STRING_VALUE", // required
+ *     Networks: [ // __listOfGatewayNetwork // required
+ *       { // GatewayNetwork
+ *         CidrBlock: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeGatewayCommandInput - {@link DescribeGatewayCommandInput}
@@ -73,6 +98,8 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DescribeGatewayCommand extends $Command<

@@ -79,6 +79,11 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProfileResponse
+ *   ProfileArn: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
@@ -96,6 +101,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateProfileCommand extends $Command<

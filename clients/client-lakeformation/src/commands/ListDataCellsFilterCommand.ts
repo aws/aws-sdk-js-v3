@@ -51,6 +51,32 @@ export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterRes
  * };
  * const command = new ListDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataCellsFilterResponse
+ *   DataCellsFilters: [ // DataCellsFilterList
+ *     { // DataCellsFilter
+ *       TableCatalogId: "STRING_VALUE", // required
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       RowFilter: { // RowFilter
+ *         FilterExpression: "STRING_VALUE",
+ *         AllRowsWildcard: {},
+ *       },
+ *       ColumnNames: [ // ColumnNames
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnWildcard: { // ColumnWildcard
+ *         ExcludedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       VersionId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListDataCellsFilterCommandInput - {@link ListDataCellsFilterCommandInput}
@@ -71,6 +97,8 @@ export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListDataCellsFilterCommand extends $Command<

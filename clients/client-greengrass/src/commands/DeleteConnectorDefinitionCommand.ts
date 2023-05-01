@@ -44,6 +44,9 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * };
  * const command = new DeleteConnectorDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectorDefinitionCommandInput - {@link DeleteConnectorDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteConnectorDefinitionCommand extends $Command<

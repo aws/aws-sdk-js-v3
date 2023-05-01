@@ -54,6 +54,32 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * };
  * const command = new ListAppImageConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppImageConfigsResponse
+ *   NextToken: "STRING_VALUE",
+ *   AppImageConfigs: [ // AppImageConfigList
+ *     { // AppImageConfigDetails
+ *       AppImageConfigArn: "STRING_VALUE",
+ *       AppImageConfigName: "STRING_VALUE",
+ *       CreationTime: new Date("TIMESTAMP"),
+ *       LastModifiedTime: new Date("TIMESTAMP"),
+ *       KernelGatewayImageConfig: { // KernelGatewayImageConfig
+ *         KernelSpecs: [ // KernelSpecs // required
+ *           { // KernelSpec
+ *             Name: "STRING_VALUE", // required
+ *             DisplayName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         FileSystemConfig: { // FileSystemConfig
+ *           MountPath: "STRING_VALUE",
+ *           DefaultUid: Number("int"),
+ *           DefaultGid: Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAppImageConfigsCommandInput - {@link ListAppImageConfigsCommandInput}
@@ -62,6 +88,8 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * @see {@link ListAppImageConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListAppImageConfigsCommand extends $Command<

@@ -52,6 +52,9 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  * };
  * const command = new DeleteEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEmailMonitoringConfigurationCommandInput - {@link DeleteEmailMonitoringConfigurationCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteEmailMonitoringConfigurationCommand extends $Command<

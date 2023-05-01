@@ -48,6 +48,26 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  * };
  * const command = new ListStageDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStageDevicesResponse
+ *   DeviceDeploymentSummaries: [ // DeviceDeploymentSummaries // required
+ *     { // DeviceDeploymentSummary
+ *       EdgeDeploymentPlanArn: "STRING_VALUE", // required
+ *       EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *       StageName: "STRING_VALUE", // required
+ *       DeployedStageName: "STRING_VALUE",
+ *       DeviceFleetName: "STRING_VALUE",
+ *       DeviceName: "STRING_VALUE", // required
+ *       DeviceArn: "STRING_VALUE", // required
+ *       DeviceDeploymentStatus: "READYTODEPLOY" || "INPROGRESS" || "DEPLOYED" || "FAILED" || "STOPPING" || "STOPPED",
+ *       DeviceDeploymentStatusMessage: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       DeploymentStartTime: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListStageDevicesCommandInput - {@link ListStageDevicesCommandInput}
@@ -56,6 +76,8 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  * @see {@link ListStageDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListStageDevicesCommand extends $Command<

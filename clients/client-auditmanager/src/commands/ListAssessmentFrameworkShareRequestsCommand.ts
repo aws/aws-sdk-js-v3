@@ -54,6 +54,30 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  * };
  * const command = new ListAssessmentFrameworkShareRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentFrameworkShareRequestsResponse
+ *   assessmentFrameworkShareRequests: [ // AssessmentFrameworkShareRequestList
+ *     { // AssessmentFrameworkShareRequest
+ *       id: "STRING_VALUE",
+ *       frameworkId: "STRING_VALUE",
+ *       frameworkName: "STRING_VALUE",
+ *       frameworkDescription: "STRING_VALUE",
+ *       status: "ACTIVE" || "REPLICATING" || "SHARED" || "EXPIRING" || "FAILED" || "EXPIRED" || "DECLINED" || "REVOKED",
+ *       sourceAccount: "STRING_VALUE",
+ *       destinationAccount: "STRING_VALUE",
+ *       destinationRegion: "STRING_VALUE",
+ *       expirationTime: new Date("TIMESTAMP"),
+ *       creationTime: new Date("TIMESTAMP"),
+ *       lastUpdated: new Date("TIMESTAMP"),
+ *       comment: "STRING_VALUE",
+ *       standardControlsCount: Number("int"),
+ *       customControlsCount: Number("int"),
+ *       complianceType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListAssessmentFrameworkShareRequestsCommandInput - {@link ListAssessmentFrameworkShareRequestsCommandInput}
@@ -73,6 +97,8 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListAssessmentFrameworkShareRequestsCommand extends $Command<

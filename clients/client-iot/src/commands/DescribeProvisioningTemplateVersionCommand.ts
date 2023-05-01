@@ -54,6 +54,14 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
  * };
  * const command = new DescribeProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProvisioningTemplateVersionResponse
+ *   versionId: Number("int"),
+ *   creationDate: new Date("TIMESTAMP"),
+ *   templateBody: "STRING_VALUE",
+ *   isDefaultVersion: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeProvisioningTemplateVersionCommandInput - {@link DescribeProvisioningTemplateVersionCommandInput}
@@ -77,6 +85,8 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeProvisioningTemplateVersionCommand extends $Command<

@@ -53,6 +53,9 @@ export interface AssociateProductWithPortfolioCommandOutput
  * };
  * const command = new AssociateProductWithPortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateProductWithPortfolioCommandInput - {@link AssociateProductWithPortfolioCommandInput}
@@ -71,6 +74,8 @@ export interface AssociateProductWithPortfolioCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class AssociateProductWithPortfolioCommand extends $Command<

@@ -54,6 +54,16 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  * };
  * const command = new DescribeWorkingStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkingStorageOutput
+ *   GatewayARN: "STRING_VALUE",
+ *   DiskIds: [ // DiskIds
+ *     "STRING_VALUE",
+ *   ],
+ *   WorkingStorageUsedInBytes: Number("long"),
+ *   WorkingStorageAllocatedInBytes: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DescribeWorkingStorageCommandInput - {@link DescribeWorkingStorageCommandInput}
@@ -70,6 +80,8 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe the working storage of a gateway [Depreciated]
  * ```javascript

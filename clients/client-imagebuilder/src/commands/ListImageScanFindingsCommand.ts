@@ -53,6 +53,84 @@ export interface ListImageScanFindingsCommandOutput extends ListImageScanFinding
  * };
  * const command = new ListImageScanFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImageScanFindingsResponse
+ *   requestId: "STRING_VALUE",
+ *   findings: [ // ImageScanFindingsList
+ *     { // ImageScanFinding
+ *       awsAccountId: "STRING_VALUE",
+ *       imageBuildVersionArn: "STRING_VALUE",
+ *       imagePipelineArn: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       title: "STRING_VALUE",
+ *       remediation: { // Remediation
+ *         recommendation: { // RemediationRecommendation
+ *           text: "STRING_VALUE",
+ *           url: "STRING_VALUE",
+ *         },
+ *       },
+ *       severity: "STRING_VALUE",
+ *       firstObservedAt: new Date("TIMESTAMP"),
+ *       updatedAt: new Date("TIMESTAMP"),
+ *       inspectorScore: Number("double"),
+ *       inspectorScoreDetails: { // InspectorScoreDetails
+ *         adjustedCvss: { // CvssScoreDetails
+ *           scoreSource: "STRING_VALUE",
+ *           cvssSource: "STRING_VALUE",
+ *           version: "STRING_VALUE",
+ *           score: Number("double"),
+ *           scoringVector: "STRING_VALUE",
+ *           adjustments: [ // CvssScoreAdjustmentList
+ *             { // CvssScoreAdjustment
+ *               metric: "STRING_VALUE",
+ *               reason: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       packageVulnerabilityDetails: { // PackageVulnerabilityDetails
+ *         vulnerabilityId: "STRING_VALUE", // required
+ *         vulnerablePackages: [ // VulnerablePackageList
+ *           { // VulnerablePackage
+ *             name: "STRING_VALUE",
+ *             version: "STRING_VALUE",
+ *             sourceLayerHash: "STRING_VALUE",
+ *             epoch: Number("int"),
+ *             release: "STRING_VALUE",
+ *             arch: "STRING_VALUE",
+ *             packageManager: "STRING_VALUE",
+ *             filePath: "STRING_VALUE",
+ *             fixedInVersion: "STRING_VALUE",
+ *             remediation: "STRING_VALUE",
+ *           },
+ *         ],
+ *         source: "STRING_VALUE",
+ *         cvss: [ // CvssScoreList
+ *           { // CvssScore
+ *             baseScore: Number("double"),
+ *             scoringVector: "STRING_VALUE",
+ *             version: "STRING_VALUE",
+ *             source: "STRING_VALUE",
+ *           },
+ *         ],
+ *         relatedVulnerabilities: [ // VulnerabilityIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         sourceUrl: "STRING_VALUE",
+ *         vendorSeverity: "STRING_VALUE",
+ *         vendorCreatedAt: new Date("TIMESTAMP"),
+ *         vendorUpdatedAt: new Date("TIMESTAMP"),
+ *         referenceUrls: [ // NonEmptyStringList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       fixAvailable: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListImageScanFindingsCommandInput - {@link ListImageScanFindingsCommandInput}
@@ -85,6 +163,8 @@ export interface ListImageScanFindingsCommandOutput extends ListImageScanFinding
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImageScanFindingsCommand extends $Command<

@@ -50,6 +50,39 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  * };
  * const command = new GetProposalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProposalOutput
+ *   Proposal: { // Proposal
+ *     ProposalId: "STRING_VALUE",
+ *     NetworkId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Actions: { // ProposalActions
+ *       Invitations: [ // InviteActionList
+ *         { // InviteAction
+ *           Principal: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Removals: [ // RemoveActionList
+ *         { // RemoveAction
+ *           MemberId: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     ProposedByMemberId: "STRING_VALUE",
+ *     ProposedByMemberName: "STRING_VALUE",
+ *     Status: "IN_PROGRESS" || "APPROVED" || "REJECTED" || "EXPIRED" || "ACTION_FAILED",
+ *     CreationDate: new Date("TIMESTAMP"),
+ *     ExpirationDate: new Date("TIMESTAMP"),
+ *     YesVoteCount: Number("int"),
+ *     NoVoteCount: Number("int"),
+ *     OutstandingVoteCount: Number("int"),
+ *     Tags: { // OutputTagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Arn: "STRING_VALUE",
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetProposalCommandInput - {@link GetProposalCommandInput}
@@ -76,6 +109,8 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class GetProposalCommand extends $Command<

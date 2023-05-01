@@ -51,6 +51,9 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * };
  * const command = new StartMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartMulticastGroupSessionCommandInput - {@link StartMulticastGroupSessionCommandInput}
@@ -77,6 +80,8 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class StartMulticastGroupSessionCommand extends $Command<

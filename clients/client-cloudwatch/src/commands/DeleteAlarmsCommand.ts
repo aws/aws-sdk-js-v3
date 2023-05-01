@@ -63,6 +63,9 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAlarmsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAlarmsCommandInput - {@link DeleteAlarmsCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DeleteAlarmsCommand extends $Command<

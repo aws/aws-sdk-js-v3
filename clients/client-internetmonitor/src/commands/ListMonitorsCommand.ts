@@ -46,6 +46,19 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitorsOutput
+ *   Monitors: [ // MonitorList // required
+ *     { // Monitor
+ *       MonitorName: "STRING_VALUE", // required
+ *       MonitorArn: "STRING_VALUE", // required
+ *       Status: "STRING_VALUE", // required
+ *       ProcessingStatus: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
@@ -66,6 +79,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class ListMonitorsCommand extends $Command<

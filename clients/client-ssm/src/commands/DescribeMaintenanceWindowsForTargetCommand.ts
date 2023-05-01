@@ -63,6 +63,17 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowsForTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMaintenanceWindowsForTargetResult
+ *   WindowIdentities: [ // MaintenanceWindowsForTargetList
+ *     { // MaintenanceWindowIdentityForTarget
+ *       WindowId: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowsForTargetCommandInput - {@link DescribeMaintenanceWindowsForTargetCommandInput}
@@ -74,6 +85,8 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowsForTargetCommand extends $Command<

@@ -48,6 +48,16 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * };
  * const command = new DescribeUploadBufferCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUploadBufferOutput
+ *   GatewayARN: "STRING_VALUE",
+ *   DiskIds: [ // DiskIds
+ *     "STRING_VALUE",
+ *   ],
+ *   UploadBufferUsedInBytes: Number("long"),
+ *   UploadBufferAllocatedInBytes: Number("long"),
+ * };
+ *
  * ```
  *
  * @param DescribeUploadBufferCommandInput - {@link DescribeUploadBufferCommandInput}
@@ -64,6 +74,8 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe upload buffer of gateway
  * ```javascript

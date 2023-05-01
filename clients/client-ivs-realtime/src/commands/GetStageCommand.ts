@@ -44,6 +44,18 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStageResponse
+ *   stage: { // Stage
+ *     arn: "STRING_VALUE", // required
+ *     name: "STRING_VALUE",
+ *     activeSessionId: "STRING_VALUE",
+ *     tags: { // Tags
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStageCommandInput - {@link GetStageCommandInput}
@@ -61,6 +73,8 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class GetStageCommand extends $Command<
