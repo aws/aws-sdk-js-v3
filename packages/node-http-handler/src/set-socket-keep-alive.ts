@@ -1,10 +1,8 @@
 import { ClientRequest } from "http";
 
-const DEFAULT_INITIAL_DELAY = 300 * 1000;
-
 export interface SocketKeepAliveOptions {
     keepAlive: boolean;
-    initialDelayInMSecs?: number;
+    keepAliveMsecs?: number;
 }
 
 export const setSocketKeepAlive = (
@@ -18,7 +16,7 @@ export const setSocketKeepAlive = (
     request.on("socket", (socket) => {
         socket.setKeepAlive(
             socketKeepAlive.keepAlive,
-            socketKeepAlive.initialDelayInMSecs || DEFAULT_INITIAL_DELAY
+            socketKeepAlive.keepAliveMsecs || 0
         );
     });
 };

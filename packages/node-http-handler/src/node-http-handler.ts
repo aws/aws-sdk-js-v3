@@ -47,7 +47,6 @@ export interface NodeHttpHandlerOptions {
 
   httpAgent?: hAgent;
   httpsAgent?: hsAgent;
-  socketKeepAlive?: SocketKeepAliveOptions;
 }
 
 interface ResolvedNodeHttpHandlerConfig {
@@ -56,7 +55,6 @@ interface ResolvedNodeHttpHandlerConfig {
   socketTimeout?: number;
   httpAgent: hAgent;
   httpsAgent: hsAgent;
-  socketKeepAlive: SocketKeepAliveOptions;
 }
 
 export const DEFAULT_REQUEST_TIMEOUT = 0;
@@ -83,7 +81,7 @@ export class NodeHttpHandler implements HttpHandler {
   }
 
   private resolveDefaultConfig(options?: NodeHttpHandlerOptions | void): ResolvedNodeHttpHandlerConfig {
-    const { requestTimeout, connectionTimeout, socketTimeout, httpAgent, httpsAgent, socketKeepAlive } = options || {};
+    const { requestTimeout, connectionTimeout, socketTimeout, httpAgent, httpsAgent} = options || {};
     const keepAlive = true;
     const maxSockets = 50;
 
@@ -93,7 +91,6 @@ export class NodeHttpHandler implements HttpHandler {
       requestTimeout: requestTimeout ?? connectionTimeout ?? socketTimeout ?? DEFAULT_REQUEST_TIMEOUT,
       httpAgent: httpAgent || new hAgent({ keepAlive, maxSockets }),
       httpsAgent: httpsAgent || new hsAgent({ keepAlive, maxSockets }),
-      socketKeepAlive
     };
   }
 
@@ -167,7 +164,15 @@ export class NodeHttpHandler implements HttpHandler {
         };
       }
 
-      setSocketKeepAlive(req, this.config.socketKeepAlive);
+      if (typeof nodeHttpsOptions.agent !== "boolean") {
+        // @ts-ignore
+        const keepAliveOptions: SocketKeepAliveOptions = nodeHttpsOptions.agent;
+        setSocketKeepAlive(req, {
+          keepAlive: keepAliveOptions.keepAlive,
+          keepAliveMsecs: keepAliveOptions.keepAliveMsecs
+        });
+      }
+
       writeRequestBody(req, request);
     });
   }

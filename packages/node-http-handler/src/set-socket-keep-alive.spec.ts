@@ -41,7 +41,7 @@ describe("setSocketKeepAlive", () => {
         const initialDelay = 5 * 1000;
         setSocketKeepAlive(request, {
             keepAlive: true,
-            initialDelayInMSecs: initialDelay,
+            keepAliveMsecs: initialDelay,
         });
         request.emit("socket", socket);
 
