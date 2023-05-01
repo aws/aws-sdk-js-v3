@@ -62,7 +62,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
  *       the <code>KeySpec</code> parameter.</p>
  *          <p>To generate an SM4 data key (China Regions only), specify a <code>KeySpec</code> value of
- *       <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>128</code>. The symmetric
+ *         <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>16</code>. The symmetric
  *       encryption key used in China Regions to encrypt your data key is an SM4 encryption key.</p>
  *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
  *         <code>CiphertextBlob</code> field.</p>

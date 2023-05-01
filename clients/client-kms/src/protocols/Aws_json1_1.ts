@@ -208,6 +208,7 @@ import {
   MalformedPolicyDocumentException,
   NotFoundException,
   PutKeyPolicyRequest,
+  RecipientInfo,
   ReEncryptRequest,
   ReEncryptResponse,
   ReplicateKeyRequest,
@@ -487,7 +488,7 @@ export const se_GenerateDataKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GenerateDataKey");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GenerateDataKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -500,7 +501,7 @@ export const se_GenerateDataKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GenerateDataKeyPair");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GenerateDataKeyPairRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -552,7 +553,7 @@ export const se_GenerateRandomCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GenerateRandom");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GenerateRandomRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4777,6 +4778,7 @@ const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any 
     EncryptionContext: _json,
     GrantTokens: _json,
     KeyId: [],
+    Recipient: (_) => se_RecipientInfo(_, context),
   });
 };
 
@@ -4815,11 +4817,34 @@ const se_EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any 
   });
 };
 
-// se_GenerateDataKeyPairRequest omitted.
+/**
+ * serializeAws_json1_1GenerateDataKeyPairRequest
+ */
+const se_GenerateDataKeyPairRequest = (input: GenerateDataKeyPairRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EncryptionContext: _json,
+    GrantTokens: _json,
+    KeyId: [],
+    KeyPairSpec: [],
+    Recipient: (_) => se_RecipientInfo(_, context),
+  });
+};
 
 // se_GenerateDataKeyPairWithoutPlaintextRequest omitted.
 
-// se_GenerateDataKeyRequest omitted.
+/**
+ * serializeAws_json1_1GenerateDataKeyRequest
+ */
+const se_GenerateDataKeyRequest = (input: GenerateDataKeyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EncryptionContext: _json,
+    GrantTokens: _json,
+    KeyId: [],
+    KeySpec: [],
+    NumberOfBytes: [],
+    Recipient: (_) => se_RecipientInfo(_, context),
+  });
+};
 
 // se_GenerateDataKeyWithoutPlaintextRequest omitted.
 
@@ -4835,7 +4860,16 @@ const se_GenerateMacRequest = (input: GenerateMacRequest, context: __SerdeContex
   });
 };
 
-// se_GenerateRandomRequest omitted.
+/**
+ * serializeAws_json1_1GenerateRandomRequest
+ */
+const se_GenerateRandomRequest = (input: GenerateRandomRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CustomKeyStoreId: [],
+    NumberOfBytes: [],
+    Recipient: (_) => se_RecipientInfo(_, context),
+  });
+};
 
 // se_GetKeyPolicyRequest omitted.
 
@@ -4877,6 +4911,16 @@ const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: _
 // se_ListRetirableGrantsRequest omitted.
 
 // se_PutKeyPolicyRequest omitted.
+
+/**
+ * serializeAws_json1_1RecipientInfo
+ */
+const se_RecipientInfo = (input: RecipientInfo, context: __SerdeContext): any => {
+  return take(input, {
+    AttestationDocument: context.base64Encoder,
+    KeyEncryptionAlgorithm: [],
+  });
+};
 
 /**
  * serializeAws_json1_1ReEncryptRequest
@@ -5058,6 +5102,7 @@ const de_CustomKeyStoresListEntry = (output: any, context: __SerdeContext): Cust
  */
 const de_DecryptResponse = (output: any, context: __SerdeContext): DecryptResponse => {
   return take(output, {
+    CiphertextForRecipient: context.base64Decoder,
     EncryptionAlgorithm: __expectString,
     KeyId: __expectString,
     Plaintext: context.base64Decoder,
@@ -5114,6 +5159,7 @@ const de_EncryptResponse = (output: any, context: __SerdeContext): EncryptRespon
  */
 const de_GenerateDataKeyPairResponse = (output: any, context: __SerdeContext): GenerateDataKeyPairResponse => {
   return take(output, {
+    CiphertextForRecipient: context.base64Decoder,
     KeyId: __expectString,
     KeyPairSpec: __expectString,
     PrivateKeyCiphertextBlob: context.base64Decoder,
@@ -5143,6 +5189,7 @@ const de_GenerateDataKeyPairWithoutPlaintextResponse = (
 const de_GenerateDataKeyResponse = (output: any, context: __SerdeContext): GenerateDataKeyResponse => {
   return take(output, {
     CiphertextBlob: context.base64Decoder,
+    CiphertextForRecipient: context.base64Decoder,
     KeyId: __expectString,
     Plaintext: context.base64Decoder,
   }) as any;
@@ -5177,6 +5224,7 @@ const de_GenerateMacResponse = (output: any, context: __SerdeContext): GenerateM
  */
 const de_GenerateRandomResponse = (output: any, context: __SerdeContext): GenerateRandomResponse => {
   return take(output, {
+    CiphertextForRecipient: context.base64Decoder,
     Plaintext: context.base64Decoder,
   }) as any;
 };

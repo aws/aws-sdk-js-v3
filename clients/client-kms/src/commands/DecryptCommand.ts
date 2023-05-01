@@ -86,7 +86,13 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       an IAM policy for <code>Decrypt</code> permissions, limit the user to particular KMS keys or
  *       particular trusted accounts. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices">Best practices for IAM
  *         policies</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <code>Decrypt</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
+ *       isolated compute environment in Amazon EC2. To call <code>Decrypt</code> for a Nitro enclave, use
+ *       the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter to provide the
+ *       attestation document for the enclave. Instead of the plaintext data, the response includes the
+ *       plaintext data encrypted with the public key from the attestation document
+ *       (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -136,6 +142,10 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *   ],
  *   KeyId: "STRING_VALUE",
  *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ *   Recipient: { // RecipientInfo
+ *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *     AttestationDocument: "BLOB_VALUE",
+ *   },
  * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);

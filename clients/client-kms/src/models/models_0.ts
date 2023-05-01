@@ -515,6 +515,9 @@ export interface CreateAliasRequest {
   /**
    * <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
    *       name, such as <code>alias/ExampleAlias</code>. </p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only
    *       alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name
    *       cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for
@@ -645,6 +648,9 @@ export interface CreateCustomKeyStoreRequest {
   /**
    * <p>Specifies a friendly name for the custom key store. The name must be unique in your
    *       Amazon Web Services account and Region. This parameter is required for all custom key stores.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    */
   CustomKeyStoreName: string | undefined;
 
@@ -1199,19 +1205,15 @@ export interface CreateGrantRequest {
   Operations: (GrantOperation | string)[] | undefined;
 
   /**
-   * <p>Specifies a grant constraint. </p>
+   * <p>Specifies a grant constraint.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>KMS supports the <code>EncryptionContextEquals</code> and
-   *         <code>EncryptionContextSubset</code> grant constraints. Each constraint value can include up
-   *       to 8 encryption context pairs. The encryption context value in each constraint cannot exceed
-   *       384 characters. For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
-   *         constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context,
-   *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         context</a> in the <i>
-   *                <i>Key Management Service Developer Guide</i>
-   *             </i>. </p>
-   *          <p>The encryption context grant constraints allow the permissions in the grant only when the
-   *       encryption context in the request matches (<code>EncryptionContextEquals</code>) or includes
-   *         (<code>EncryptionContextSubset</code>) the encryption context specified in this structure. </p>
+   *         <code>EncryptionContextSubset</code> grant constraints, which allow the permissions in the
+   *       grant only when the encryption context in the request matches
+   *         (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>)
+   *       the encryption context specified in the constraint. </p>
    *          <p>The encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that include
    *       an <code>EncryptionContext</code> parameter, such as cryptographic operations on symmetric
    *       encryption KMS keys. Grants with grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint doesn't apply to these
@@ -1219,8 +1221,16 @@ export interface CreateGrantRequest {
    *       operation, the constraint requires that any grants created with the <code>CreateGrant</code>
    *       permission have an equally strict or stricter encryption context constraint.</p>
    *          <p>You cannot use an encryption context grant constraint for cryptographic operations with
-   *       asymmetric KMS keys or HMAC KMS keys. These keys don't support an encryption context. </p>
-   *          <p></p>
+   *       asymmetric KMS keys or HMAC KMS keys. Operations with these keys don't support an encryption
+   *       context.</p>
+   *          <p>Each constraint value can include up to 8 encryption context pairs. The encryption context
+   *       value in each constraint cannot exceed 384 characters. For information about grant
+   *       constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
+   *         constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context,
+   *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *         context</a> in the <i>
+   *                <i>Key Management Service Developer Guide</i>
+   *             </i>. </p>
    */
   Constraints?: GrantConstraints;
 
@@ -1234,6 +1244,9 @@ export interface CreateGrantRequest {
   /**
    * <p>A friendly name for the grant. Use this value to prevent the unintended creation of
    *       duplicate grants when retrying this request.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
    *       with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can
    *       result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
@@ -1389,6 +1402,9 @@ export type OriginType = (typeof OriginType)[keyof typeof OriginType];
  * @public
  * <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are
  *       both required, but tag values can be empty (null) strings.</p>
+ *          <important>
+ *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+ *          </important>
  *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>Amazon Web Services Billing and Cost Management
  *         User Guide</i>.</p>
  */
@@ -1438,9 +1454,11 @@ export interface CreateKeyRequest {
   Policy?: string;
 
   /**
-   * <p>A description of the KMS key.</p>
-   *          <p>Use a description that helps you decide whether the KMS key is appropriate for a task. The
+   * <p>A description of the KMS key. Use a description that helps you decide whether the KMS key is appropriate for a task. The
    *       default value is an empty string (no description).</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</p>
    */
   Description?: string;
@@ -1652,6 +1670,9 @@ export interface CreateKeyRequest {
   /**
    * <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is
    *       created. To tag an existing KMS key, use the <a>TagResource</a> operation.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <note>
    *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </note>
@@ -2593,6 +2614,40 @@ export type DataKeySpec = (typeof DataKeySpec)[keyof typeof DataKeySpec];
 
 /**
  * @public
+ * @enum
+ */
+export const KeyEncryptionMechanism = {
+  RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyEncryptionMechanism = (typeof KeyEncryptionMechanism)[keyof typeof KeyEncryptionMechanism];
+
+/**
+ * @public
+ * <p>Contains information about the party that receives the response from the API
+ *       operation.</p>
+ *          <p>This data type is designed to support Amazon Web Services Nitro Enclaves, which lets you create an isolated
+ *       compute environment in Amazon EC2. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ */
+export interface RecipientInfo {
+  /**
+   * <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave to encrypt plaintext
+   *       values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
+   */
+  KeyEncryptionAlgorithm?: KeyEncryptionMechanism | string;
+
+  /**
+   * <p>The attestation document for an Amazon Web Services Nitro Enclave. This document includes the enclave's public
+   *       key.</p>
+   */
+  AttestationDocument?: Uint8Array;
+}
+
+/**
+ * @public
  */
 export interface DecryptRequest {
   /**
@@ -2660,6 +2715,21 @@ export interface DecryptRequest {
    *       algorithm that is valid for symmetric encryption KMS keys.</p>
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+
+  /**
+   * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
+   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
+   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *          <p>When you use this parameter, instead of returning the plaintext data, KMS encrypts the
+   *       plaintext data with the public key in the attestation document, and returns the resulting
+   *       ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
+   *       can be decrypted only with the private key in the enclave. The <code>Plaintext</code> field in
+   *       the response is null or empty.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  Recipient?: RecipientInfo;
 }
 
 /**
@@ -2673,6 +2743,8 @@ export interface DecryptResponse {
 
   /**
    * <p>Decrypted plaintext data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
+   *       <code>Plaintext</code> field is null or empty.</p>
    */
   Plaintext?: Uint8Array;
 
@@ -2680,6 +2752,14 @@ export interface DecryptResponse {
    * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+
+  /**
+   * <p>The plaintext data encrypted with the public key in the attestation document. </p>
+   *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  CiphertextForRecipient?: Uint8Array;
 }
 
 /**
@@ -3123,6 +3203,9 @@ export interface EncryptRequest {
   /**
    * <p>Specifies the encryption context that will be used to encrypt the data.
    *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context. </p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
    * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
    * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
@@ -3224,6 +3307,9 @@ export interface GenerateDataKeyRequest {
 
   /**
    * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
    * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
    * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
@@ -3255,6 +3341,23 @@ export interface GenerateDataKeyRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
+   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
+   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *          <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts
+   *       the plaintext data key under the public key in the attestation document, and returns the
+   *       resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This
+   *       ciphertext can be decrypted only with the private key in the enclave. The
+   *       <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted
+   *       under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code>
+   *       field in the response is null or empty.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  Recipient?: RecipientInfo;
 }
 
 /**
@@ -3269,6 +3372,8 @@ export interface GenerateDataKeyResponse {
   /**
    * <p>The plaintext data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of
    *       KMS. Then, remove it from memory as soon as possible.</p>
+   *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
+   *       <code>Plaintext</code> field is null or empty.</p>
    */
   Plaintext?: Uint8Array;
 
@@ -3276,6 +3381,15 @@ export interface GenerateDataKeyResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
    */
   KeyId?: string;
+
+  /**
+   * <p>The plaintext data key encrypted with the public key from the Nitro enclave. This ciphertext can
+   *       be decrypted only by using a private key in the Nitro enclave. </p>
+   *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  CiphertextForRecipient?: Uint8Array;
 }
 
 /**
@@ -3285,6 +3399,9 @@ export interface GenerateDataKeyPairRequest {
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
    *       data key pair.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
    * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
    * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
@@ -3333,6 +3450,23 @@ export interface GenerateDataKeyPairRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
+   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
+   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *          <p>When you use this parameter, instead of returning a plaintext copy of the private data key, KMS encrypts
+   *       the plaintext private data key under the public key in the attestation document, and returns the
+   *       resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This
+   *       ciphertext can be decrypted only with the private key in the enclave. The
+   *       <code>CiphertextBlob</code> field in the response contains a copy of the private data key encrypted
+   *       under the KMS key specified by the <code>KeyId</code> parameter. The <code>PrivateKeyPlaintext</code>
+   *       field in the response is null or empty.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  Recipient?: RecipientInfo;
 }
 
 /**
@@ -3346,6 +3480,8 @@ export interface GenerateDataKeyPairResponse {
 
   /**
    * <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
+   *       <code>PrivateKeyPlaintext</code> field is null or empty.</p>
    */
   PrivateKeyPlaintext?: Uint8Array;
 
@@ -3363,6 +3499,15 @@ export interface GenerateDataKeyPairResponse {
    * <p>The type of data key pair that was generated.</p>
    */
   KeyPairSpec?: DataKeyPairSpec | string;
+
+  /**
+   * <p>The plaintext private data key encrypted with the public key from the Nitro enclave. This ciphertext can
+   *       be decrypted only by using a private key in the Nitro enclave. </p>
+   *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  CiphertextForRecipient?: Uint8Array;
 }
 
 /**
@@ -3372,6 +3517,9 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
    *       data key pair.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
    * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
    * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
@@ -3481,6 +3629,9 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
 
   /**
    * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
    * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
    * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
@@ -3598,9 +3749,24 @@ export interface GenerateRandomRequest {
    *       specified CloudHSM key store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
    *          <p>External key store IDs are not valid for this parameter. If you specify the ID of an
    *       external key store, <code>GenerateRandom</code> throws an
-   *         <code>UnsupportedOperationException</code>.</p>
+   *       <code>UnsupportedOperationException</code>.</p>
    */
   CustomKeyStoreId?: string;
+
+  /**
+   * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
+   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
+   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *          <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the
+   *       plaintext bytes under the public key in the attestation document, and returns the resulting
+   *       ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
+   *       can be decrypted only with the private key in the enclave. The <code>Plaintext</code> field in
+   *       the response is null or empty.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  Recipient?: RecipientInfo;
 }
 
 /**
@@ -3609,8 +3775,19 @@ export interface GenerateRandomRequest {
 export interface GenerateRandomResponse {
   /**
    * <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
+   *       <code>Plaintext</code> field is null or empty.</p>
    */
   Plaintext?: Uint8Array;
+
+  /**
+   * <p>The plaintext random bytes encrypted with the public key from the Nitro enclave. This ciphertext can
+   *       be decrypted only by using a private key in the Nitro enclave. </p>
+   *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  CiphertextForRecipient?: Uint8Array;
 }
 
 /**
@@ -4648,6 +4825,9 @@ export interface ReEncryptRequest {
 
   /**
    * <p>Specifies that encryption context to use when the reencrypting the data.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>A destination encryption context is valid only when the destination KMS key is a symmetric
    *       encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not include
    *       fields for metadata.</p>
@@ -4821,6 +5001,9 @@ export interface ReplicateKeyRequest {
   /**
    * <p>A description of the KMS key. The default value is an empty string (no
    *       description).</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>The description is not a shared property of multi-Region keys. You can specify the same
    *       description or a different description for each key in a set of related multi-Region keys.
    *       KMS does not synchronize this property.</p>
@@ -4831,6 +5014,9 @@ export interface ReplicateKeyRequest {
    * <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it
    *       is created. To tag an existing KMS key, use the <a>TagResource</a>
    *       operation.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <note>
    *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </note>
@@ -5153,9 +5339,11 @@ export interface TagResourceRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>One or more tags. </p>
-   *          <p>Each tag consists of a tag key and a tag value. The tag value can be an empty (null)
+   * <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null)
    *       string. </p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an
    *       existing tag key with a different tag value, KMS replaces the current tag value with the
    *       specified one.</p>
@@ -5199,6 +5387,9 @@ export interface UpdateAliasRequest {
    * <p>Identifies the alias that is changing its KMS key. This value must begin with
    *         <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You
    *       cannot use <code>UpdateAlias</code> to change the alias name.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    */
   AliasName: string | undefined;
 
@@ -5239,6 +5430,9 @@ export interface UpdateCustomKeyStoreRequest {
   /**
    * <p>Changes the friendly name of the custom key store to the value that you specify. The
    *       custom key store name must be unique in the Amazon Web Services account.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    *          <p>To change this value, an CloudHSM key store must be disconnected. An external key store can
    *       be connected or disconnected.</p>
    */
@@ -5366,6 +5560,9 @@ export interface UpdateKeyDescriptionRequest {
 
   /**
    * <p>New description for the KMS key.</p>
+   *          <important>
+   *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+   *          </important>
    */
   Description: string | undefined;
 }

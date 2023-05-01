@@ -42,7 +42,13 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *          <p>By default, the random byte string is generated in KMS. To generate the byte string in
  *       the CloudHSM cluster associated with an CloudHSM key store, use the <code>CustomKeyStoreId</code>
  *       parameter.</p>
- *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <code>GenerateRandom</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
+ *       isolated compute environment in Amazon EC2. To call <code>GenerateRandom</code> for a Nitro
+ *       enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter
+ *       to provide the attestation document for the enclave. Instead of plaintext bytes, the response
+ *       includes the plaintext bytes encrypted under the public key from the attestation document
+ *       (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>For more information about entropy and random number generation, see
  *       <a href="https://docs.aws.amazon.com/kms/latest/cryptographic-details/">Key Management Service Cryptographic Details</a>.</p>
  *          <p>
@@ -60,6 +66,10 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * const input = { // GenerateRandomRequest
  *   NumberOfBytes: Number("int"),
  *   CustomKeyStoreId: "STRING_VALUE",
+ *   Recipient: { // RecipientInfo
+ *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *     AttestationDocument: "BLOB_VALUE",
+ *   },
  * };
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);
