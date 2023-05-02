@@ -50,7 +50,7 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  *             <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  *          <p>For an example of creating a block list for query suggestions using the
- *             Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list">Query
+ *             Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist">Query
  *                 suggestions block list</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

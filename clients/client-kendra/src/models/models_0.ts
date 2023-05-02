@@ -682,6 +682,155 @@ export interface DocumentAttribute {
 
 /**
  * @public
+ * @enum
+ */
+export const AttributeSuggestionsMode = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeSuggestionsMode = (typeof AttributeSuggestionsMode)[keyof typeof AttributeSuggestionsMode];
+
+/**
+ * @public
+ * <p>Provides the configuration information for a document field/attribute that you want to base query
+ *             suggestions on.</p>
+ */
+export interface SuggestableConfig {
+  /**
+   * <p>The name of the document field/attribute.</p>
+   */
+  AttributeName?: string;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> means the document field/attribute is suggestible, so the contents within the
+   *             field can be used for query suggestions.</p>
+   */
+  Suggestable?: boolean;
+}
+
+/**
+ * @public
+ * <p>Gets information on the configuration of document fields/attributes that you want to base
+ *             query suggestions on. To change your configuration, use <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_AttributeSuggestionsUpdateConfig.html">AttributeSuggestionsUpdateConfig</a> and then call <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>.</p>
+ */
+export interface AttributeSuggestionsDescribeConfig {
+  /**
+   * <p>The list of fields/attributes that you want to set as suggestible for query suggestions.</p>
+   */
+  SuggestableConfigList?: SuggestableConfig[];
+
+  /**
+   * <p>The mode is set to either <code>ACTIVE</code> or <code>INACTIVE</code>. If the <code>Mode</code>
+   *             for query history is set to <code>ENABLED</code> when calling <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
+   *             and <code>AttributeSuggestionsMode</code> to use fields/attributes is set to <code>ACTIVE</code>,
+   *             and you haven't set your <code>SuggestionTypes</code> preference to <code>DOCUMENT_ATTRIBUTES</code>,
+   *             then Amazon Kendra uses the query history.</p>
+   */
+  AttributeSuggestionsMode?: AttributeSuggestionsMode | string;
+}
+
+/**
+ * @public
+ * <p>Data source information for user context filtering.</p>
+ */
+export interface DataSourceGroup {
+  /**
+   * <p>The identifier of the group you want to add to your list of groups. This is for
+   *          filtering search results based on the groups' access to documents.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source group you want to add to your list of data source
+   *          groups. This is for filtering search results based on the groups' access to documents in
+   *          that data source.</p>
+   */
+  DataSourceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides information about the user context for an Amazon Kendra index.</p>
+ *          <p>User context filtering is a kind of personalized search with the benefit of controlling
+ *          access to documents. For example, not all teams that search the company portal for
+ *          information should access top-secret company documents, nor are these documents relevant to
+ *          all users. Only specific users or groups of teams given access to top-secret documents
+ *          should see these documents in their search results.</p>
+ *          <p>You provide one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>User token</p>
+ *             </li>
+ *             <li>
+ *                <p>User ID, the groups the user belongs to, and any data sources the groups can
+ *                access.</p>
+ *             </li>
+ *          </ul>
+ *          <p>If you provide both, an exception is thrown.</p>
+ */
+export interface UserContext {
+  /**
+   * <p>The user context token for filtering search results for a user. It must be a JWT or a
+   *          JSON token.</p>
+   */
+  Token?: string;
+
+  /**
+   * <p>The identifier of the user you want to filter search results based on their access to
+   *          documents.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The list of groups you want to filter search results based on the groups' access to
+   *          documents.</p>
+   */
+  Groups?: string[];
+
+  /**
+   * <p>The list of data source groups you want to filter search results based on groups' access
+   *          to documents in that data source.</p>
+   */
+  DataSourceGroups?: DataSourceGroup[];
+}
+
+/**
+ * @public
+ * <p>Updates the configuration information for the document fields/attributes that you want
+ *             to base query suggestions on.</p>
+ *          <p>To deactivate using documents fields for query suggestions, set the mode to
+ *             <code>INACTIVE</code>. You must also set <code>SuggestionTypes</code> as either
+ *             <code>QUERY</code> or <code>DOCUMENT_ATTRIBUTES</code> and then call <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>. If you set to <code>QUERY</code>, then
+ *             Amazon Kendra uses the query history to base suggestions on. If you set to
+ *             <code>DOCUMENT_ATTRIBUTES</code>, then Amazon Kendra uses the contents of document
+ *             fields to base suggestions on.</p>
+ */
+export interface AttributeSuggestionsUpdateConfig {
+  /**
+   * <p>The list of fields/attributes that you want to set as suggestible for query
+   *             suggestions.</p>
+   */
+  SuggestableConfigList?: SuggestableConfig[];
+
+  /**
+   * <p>You can set the mode to <code>ACTIVE</code> or <code>INACTIVE</code>. You must also set
+   *             <code>SuggestionTypes</code> as either <code>QUERY</code> or <code>DOCUMENT_ATTRIBUTES</code>
+   *             and then call <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>. If <code>Mode</code> to use query history is set to
+   *             <code>ENABLED</code> when calling <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a> and <code>AttributeSuggestionsMode</code> to use
+   *             fields/attributes is set to <code>ACTIVE</code>, and you haven't set your
+   *             <code>SuggestionTypes</code> preference to <code>DOCUMENT_ATTRIBUTES</code>, then
+   *             Amazon Kendra uses the query history.</p>
+   */
+  AttributeSuggestionsMode?: AttributeSuggestionsMode | string;
+}
+
+/**
+ * @public
  * <p>Provides the configuration information to connect to websites that require basic user
  *             authentication.</p>
  */
@@ -6758,6 +6907,8 @@ export interface DescribeQuerySuggestionsConfigResponse {
 
   /**
    * <p>The Unix timestamp when query suggestions for an index was last updated.</p>
+   *          <p>Amazon Kendra automatically updates suggestions every 24 hours, after you
+   *             change a setting or after you apply a <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist">block list</a>.</p>
    */
   LastSuggestionsBuildTime?: Date;
 
@@ -6775,8 +6926,17 @@ export interface DescribeQuerySuggestionsConfigResponse {
    *          <p>This count can change when you update your query suggestions settings,
    *             if you filter out certain queries from suggestions using a block list,
    *             and as the query log accumulates more queries for Amazon Kendra to learn from.</p>
+   *          <p>If the count is much lower than you expected, it could be because Amazon Kendra
+   *             needs more queries in the query history to learn from or your current query suggestions
+   *             settings are too strict.</p>
    */
   TotalSuggestionsCount?: number;
+
+  /**
+   * <p>Configuration information for the document fields/attributes that you want to base query
+   *             suggestions on.</p>
+   */
+  AttributeSuggestionsConfig?: AttributeSuggestionsDescribeConfig;
 }
 
 /**
@@ -6962,29 +7122,40 @@ export interface DisassociatePersonasFromEntitiesResponse {
 
 /**
  * @public
+ * @enum
  */
-export interface GetQuerySuggestionsRequest {
+export const SuggestionType = {
+  DOCUMENT_ATTRIBUTES: "DOCUMENT_ATTRIBUTES",
+  QUERY: "QUERY",
+} as const;
+
+/**
+ * @public
+ */
+export type SuggestionType = (typeof SuggestionType)[keyof typeof SuggestionType];
+
+/**
+ * @public
+ * <p>The document ID and its fields/attributes that are used for a query suggestion, if
+ *             document fields set to use for query suggestions.</p>
+ */
+export interface SourceDocument {
   /**
-   * <p>The identifier of the index you want to get query suggestions from.</p>
+   * <p>The identifier of the document used for a query suggestion.</p>
    */
-  IndexId: string | undefined;
+  DocumentId?: string;
 
   /**
-   * <p>The text of a user's query to generate query suggestions.</p>
-   *          <p>A query is suggested if the query prefix matches
-   *             what a user starts to type as their query.</p>
-   *          <p>Amazon Kendra does not show any suggestions if a user
-   *             types fewer than two characters or more than 60 characters.
-   *             A query must also have at least one search result and contain
-   *             at least one word of more than four characters.</p>
+   * <p>The document fields/attributes used for a query suggestion.</p>
    */
-  QueryText: string | undefined;
+  SuggestionAttributes?: string[];
 
   /**
-   * <p>The maximum number of query suggestions you want to show
-   *             to your users.</p>
+   * <p>The additional fields/attributes to include in the response. You can use additional
+   *             fields to provide extra information in the response. Additional fields are not used
+   *             to based suggestions on.</p>
    */
-  MaxSuggestionsCount?: number;
+  AdditionalAttributes?: DocumentAttribute[];
 }
 
 /**
@@ -7048,6 +7219,12 @@ export interface Suggestion {
    *          <p>The value is the text string of a suggestion.</p>
    */
   Value?: SuggestionValue;
+
+  /**
+   * <p>The list of document IDs and their fields/attributes that are used for a
+   *             single query suggestion, if document fields set to use for query suggestions.</p>
+   */
+  SourceDocuments?: SourceDocument[];
 }
 
 /**
@@ -8523,71 +8700,6 @@ export interface SpellCorrectionConfiguration {
 
 /**
  * @public
- * <p>Data source information for user context filtering.</p>
- */
-export interface DataSourceGroup {
-  /**
-   * <p>The identifier of the group you want to add to your list of groups. This is for
-   *          filtering search results based on the groups' access to documents.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>The identifier of the data source group you want to add to your list of data source
-   *          groups. This is for filtering search results based on the groups' access to documents in
-   *          that data source.</p>
-   */
-  DataSourceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Provides information about the user context for an Amazon Kendra index.</p>
- *          <p>User context filtering is a kind of personalized search with the benefit of controlling
- *          access to documents. For example, not all teams that search the company portal for
- *          information should access top-secret company documents, nor are these documents relevant to
- *          all users. Only specific users or groups of teams given access to top-secret documents
- *          should see these documents in their search results.</p>
- *          <p>You provide one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>User token</p>
- *             </li>
- *             <li>
- *                <p>User ID, the groups the user belongs to, and any data sources the groups can
- *                access.</p>
- *             </li>
- *          </ul>
- *          <p>If you provide both, an exception is thrown.</p>
- */
-export interface UserContext {
-  /**
-   * <p>The user context token for filtering search results for a user. It must be a JWT or a
-   *          JSON token.</p>
-   */
-  Token?: string;
-
-  /**
-   * <p>The identifier of the user you want to filter search results based on their access to
-   *          documents.</p>
-   */
-  UserId?: string;
-
-  /**
-   * <p>The list of groups you want to filter search results based on the groups' access to
-   *          documents.</p>
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The list of data source groups you want to filter search results based on groups' access
-   *          to documents in that data source.</p>
-   */
-  DataSourceGroups?: DataSourceGroup[];
-}
-
-/**
- * @public
  * <p>A single featured result item. A featured result is displayed at the top of
  *             the search results page, placed above all other results for certain queries. If
  *             there's an exact match of a query, then certain documents are featured in the
@@ -8750,165 +8862,6 @@ export interface TableExcerpt {
    * <p>A count of the number of rows in the original table within the document.</p>
    */
   TotalNumberOfRows?: number;
-}
-
-/**
- * @public
- * <p>A single query result.</p>
- *          <p>A query result contains information about a document returned by the query. This
- *          includes the original location of the document, a list of attributes assigned to the
- *          document, and relevant text from the document that satisfies the query.</p>
- */
-export interface QueryResultItem {
-  /**
-   * <p>The identifier for the query result.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The type of document within the response. For example, a response could include a
-   *          question-answer that's relevant to the query.</p>
-   */
-  Type?: QueryResultType | string;
-
-  /**
-   * <p>If the <code>Type</code> of document within the response is <code>ANSWER</code>, then it
-   *          is either a <code>TABLE</code> answer or <code>TEXT</code> answer. If it's a table answer,
-   *          a table excerpt is returned in <code>TableExcerpt</code>. If it's a text answer, a text
-   *          excerpt is returned in <code>DocumentExcerpt</code>.</p>
-   */
-  Format?: QueryResultFormat | string;
-
-  /**
-   * <p>One or more additional attributes associated with the query result.</p>
-   */
-  AdditionalAttributes?: AdditionalResultAttribute[];
-
-  /**
-   * <p>The identifier for the document.</p>
-   */
-  DocumentId?: string;
-
-  /**
-   * <p>The title of the document. Contains the text of the title and information for
-   *          highlighting the relevant terms in the title.</p>
-   */
-  DocumentTitle?: TextWithHighlights;
-
-  /**
-   * <p>An extract of the text in the document. Contains information about highlighting the
-   *          relevant terms in the excerpt.</p>
-   */
-  DocumentExcerpt?: TextWithHighlights;
-
-  /**
-   * <p>The URI of the original location of the document.</p>
-   */
-  DocumentURI?: string;
-
-  /**
-   * <p>An array of document attributes assigned to a document in the search results. For
-   *          example, the document author (<code>_author</code>) or the source URI
-   *             (<code>_source_uri</code>) of the document.</p>
-   */
-  DocumentAttributes?: DocumentAttribute[];
-
-  /**
-   * <p>Indicates the confidence that Amazon Kendra has that a result matches the query
-   *          that you provided. Each result is placed into a bin that indicates the confidence,
-   *             <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code> and <code>LOW</code>. You
-   *          can use the score to determine if a response meets the confidence needed for your
-   *          application.</p>
-   *          <p>The field is only set to <code>LOW</code> when the <code>Type</code> field is set to
-   *             <code>DOCUMENT</code> and Amazon Kendra is not confident that the result matches
-   *          the query.</p>
-   */
-  ScoreAttributes?: ScoreAttributes;
-
-  /**
-   * <p>A token that identifies a particular result from a particular query. Use this token to
-   *          provide click-through feedback for the result. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html">Submitting feedback
-   *          </a>.</p>
-   */
-  FeedbackToken?: string;
-
-  /**
-   * <p>An excerpt from a table within a document.</p>
-   */
-  TableExcerpt?: TableExcerpt;
-}
-
-/**
- * @public
- * <p>A corrected misspelled word in a query.</p>
- */
-export interface Correction {
-  /**
-   * <p>The zero-based location in the response string or text where
-   *             the corrected word starts.</p>
-   */
-  BeginOffset?: number;
-
-  /**
-   * <p>The zero-based location in the response string or text where
-   *             the corrected word ends.</p>
-   */
-  EndOffset?: number;
-
-  /**
-   * <p>The string or text of a misspelled word in a query.</p>
-   */
-  Term?: string;
-
-  /**
-   * <p>The string or text of a corrected misspelled word in a query.</p>
-   */
-  CorrectedTerm?: string;
-}
-
-/**
- * @public
- * <p>A query with suggested spell corrections. </p>
- */
-export interface SpellCorrectedQuery {
-  /**
-   * <p>The query with the suggested spell corrections.</p>
-   */
-  SuggestedQueryText?: string;
-
-  /**
-   * <p>The corrected misspelled word or words in a query.</p>
-   */
-  Corrections?: Correction[];
-}
-
-/**
- * @public
- * @enum
- */
-export const WarningCode = {
-  QUERY_LANGUAGE_INVALID_SYNTAX: "QUERY_LANGUAGE_INVALID_SYNTAX",
-} as const;
-
-/**
- * @public
- */
-export type WarningCode = (typeof WarningCode)[keyof typeof WarningCode];
-
-/**
- * @public
- * <p>The warning code and message that explains a problem with a query.</p>
- */
-export interface Warning {
-  /**
-   * <p>The message that explains the problem with the query.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The code used to show the type of warning for the query.</p>
-   */
-  Code?: WarningCode | string;
 }
 
 /**

@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { GetQuerySuggestionsRequest, GetQuerySuggestionsResponse } from "../models/models_0";
+import { GetQuerySuggestionsResponse } from "../models/models_0";
+import { GetQuerySuggestionsRequest } from "../models/models_1";
 import { de_GetQuerySuggestionsCommand, se_GetQuerySuggestionsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -46,6 +47,111 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  *   IndexId: "STRING_VALUE", // required
  *   QueryText: "STRING_VALUE", // required
  *   MaxSuggestionsCount: Number("int"),
+ *   SuggestionTypes: [ // SuggestionTypes
+ *     "QUERY" || "DOCUMENT_ATTRIBUTES",
+ *   ],
+ *   AttributeSuggestionsConfig: { // AttributeSuggestionsGetConfig
+ *     SuggestionAttributes: [ // DocumentAttributeKeyList
+ *       "STRING_VALUE",
+ *     ],
+ *     AdditionalResponseAttributes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AttributeFilter: { // AttributeFilter
+ *       AndAllFilters: [ // AttributeFilterList
+ *         {
+ *           AndAllFilters: [
+ *             "<AttributeFilter>",
+ *           ],
+ *           OrAllFilters: [
+ *             "<AttributeFilter>",
+ *           ],
+ *           NotFilter: "<AttributeFilter>",
+ *           EqualsTo: { // DocumentAttribute
+ *             Key: "STRING_VALUE", // required
+ *             Value: { // DocumentAttributeValue
+ *               StringValue: "STRING_VALUE",
+ *               StringListValue: [ // DocumentAttributeStringListValue
+ *                 "STRING_VALUE",
+ *               ],
+ *               LongValue: Number("long"),
+ *               DateValue: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *           ContainsAll: {
+ *             Key: "STRING_VALUE", // required
+ *             Value: {
+ *               StringValue: "STRING_VALUE",
+ *               StringListValue: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               LongValue: Number("long"),
+ *               DateValue: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *           ContainsAny: {
+ *             Key: "STRING_VALUE", // required
+ *             Value: {
+ *               StringValue: "STRING_VALUE",
+ *               StringListValue: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               LongValue: Number("long"),
+ *               DateValue: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *           GreaterThan: {
+ *             Key: "STRING_VALUE", // required
+ *             Value: {
+ *               StringValue: "STRING_VALUE",
+ *               StringListValue: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               LongValue: Number("long"),
+ *               DateValue: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *           GreaterThanOrEquals: {
+ *             Key: "STRING_VALUE", // required
+ *             Value: {
+ *               StringValue: "STRING_VALUE",
+ *               StringListValue: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               LongValue: Number("long"),
+ *               DateValue: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *           LessThan: "<DocumentAttribute>",
+ *           LessThanOrEquals: "<DocumentAttribute>",
+ *         },
+ *       ],
+ *       OrAllFilters: [
+ *         "<AttributeFilter>",
+ *       ],
+ *       NotFilter: "<AttributeFilter>",
+ *       EqualsTo: "<DocumentAttribute>",
+ *       ContainsAll: "<DocumentAttribute>",
+ *       ContainsAny: "<DocumentAttribute>",
+ *       GreaterThan: "<DocumentAttribute>",
+ *       GreaterThanOrEquals: "<DocumentAttribute>",
+ *       LessThan: "<DocumentAttribute>",
+ *       LessThanOrEquals: "<DocumentAttribute>",
+ *     },
+ *     UserContext: { // UserContext
+ *       Token: "STRING_VALUE",
+ *       UserId: "STRING_VALUE",
+ *       Groups: [ // Groups
+ *         "STRING_VALUE",
+ *       ],
+ *       DataSourceGroups: [ // DataSourceGroups
+ *         { // DataSourceGroup
+ *           GroupId: "STRING_VALUE", // required
+ *           DataSourceId: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new GetQuerySuggestionsCommand(input);
  * const response = await client.send(command);

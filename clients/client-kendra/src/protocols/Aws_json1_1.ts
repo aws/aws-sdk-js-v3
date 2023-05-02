@@ -200,6 +200,7 @@ import {
   AlfrescoEntity,
   AssociateEntitiesToExperienceRequest,
   AssociatePersonasToEntitiesRequest,
+  AttributeSuggestionsUpdateConfig,
   AuthenticationConfiguration,
   BasicAuthenticationConfiguration,
   BatchDeleteDocumentRequest,
@@ -285,7 +286,7 @@ import {
   FeaturedResultsConflictException,
   FeaturedResultsItem,
   FsxConfiguration,
-  GetQuerySuggestionsRequest,
+  GetQuerySuggestionsResponse,
   GetSnapshotsRequest,
   GetSnapshotsResponse,
   GitHubConfiguration,
@@ -333,7 +334,6 @@ import {
   Principal,
   ProxyConfiguration,
   PutPrincipalMappingRequest,
-  QueryResultItem,
   QuerySuggestionsBlockListSummary,
   QuipConfiguration,
   Relevance,
@@ -364,8 +364,12 @@ import {
   SlackConfiguration,
   SlackEntity,
   SortingConfiguration,
+  SourceDocument,
   SpellCorrectionConfiguration,
   SqlConfiguration,
+  SuggestableConfig,
+  Suggestion,
+  SuggestionType,
   Tag,
   TemplateConfiguration,
   ThesaurusSummary,
@@ -382,12 +386,15 @@ import {
 } from "../models/models_0";
 import {
   AttributeFilter,
+  AttributeSuggestionsGetConfig,
   ClickFeedback,
   DocumentAttributeValueCountPair,
   Facet,
   FacetResult,
+  GetQuerySuggestionsRequest,
   QueryRequest,
   QueryResult,
+  QueryResultItem,
   RelevanceFeedback,
   ResourceInUseException,
   StartDataSourceSyncJobRequest,
@@ -869,7 +876,7 @@ export const se_GetQuerySuggestionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQuerySuggestions");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GetQuerySuggestionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3364,7 +3371,7 @@ export const de_GetQuerySuggestionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_GetQuerySuggestionsResponse(data, context);
   const response: GetQuerySuggestionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5340,6 +5347,20 @@ const se_AttributeFilterList = (input: AttributeFilter[], context: __SerdeContex
     });
 };
 
+/**
+ * serializeAws_json1_1AttributeSuggestionsGetConfig
+ */
+const se_AttributeSuggestionsGetConfig = (input: AttributeSuggestionsGetConfig, context: __SerdeContext): any => {
+  return take(input, {
+    AdditionalResponseAttributes: _json,
+    AttributeFilter: (_) => se_AttributeFilter(_, context),
+    SuggestionAttributes: _json,
+    UserContext: _json,
+  });
+};
+
+// se_AttributeSuggestionsUpdateConfig omitted.
+
 // se_AuthenticationConfiguration omitted.
 
 // se_BasicAuthenticationConfiguration omitted.
@@ -5829,7 +5850,18 @@ const se_FacetList = (input: Facet[], context: __SerdeContext): any => {
 
 // se_FsxConfiguration omitted.
 
-// se_GetQuerySuggestionsRequest omitted.
+/**
+ * serializeAws_json1_1GetQuerySuggestionsRequest
+ */
+const se_GetQuerySuggestionsRequest = (input: GetQuerySuggestionsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeSuggestionsConfig: (_) => se_AttributeSuggestionsGetConfig(_, context),
+    IndexId: [],
+    MaxSuggestionsCount: [],
+    QueryText: [],
+    SuggestionTypes: _json,
+  });
+};
 
 // se_GetSnapshotsRequest omitted.
 
@@ -6081,6 +6113,12 @@ const se_SubmitFeedbackRequest = (input: SubmitFeedbackRequest, context: __Serde
 
 // se_SubnetIdList omitted.
 
+// se_SuggestableConfig omitted.
+
+// se_SuggestableConfigList omitted.
+
+// se_SuggestionTypes omitted.
+
 // se_Tag omitted.
 
 // se_TagKeyList omitted.
@@ -6205,6 +6243,8 @@ const se_WebCrawlerConfiguration = (input: WebCrawlerConfiguration, context: __S
 // de_AssociateEntitiesToExperienceResponse omitted.
 
 // de_AssociatePersonasToEntitiesResponse omitted.
+
+// de_AttributeSuggestionsDescribeConfig omitted.
 
 // de_AuthenticationConfiguration omitted.
 
@@ -6552,6 +6592,7 @@ const de_DescribeQuerySuggestionsConfigResponse = (
   context: __SerdeContext
 ): DescribeQuerySuggestionsConfigResponse => {
   return take(output, {
+    AttributeSuggestionsConfig: _json,
     IncludeQueriesWithoutUserInformation: __expectBoolean,
     LastClearTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastSuggestionsBuildTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -6609,6 +6650,8 @@ const de_DocumentAttributeCondition = (output: any, context: __SerdeContext): Do
     Operator: __expectString,
   }) as any;
 };
+
+// de_DocumentAttributeKeyList omitted.
 
 /**
  * deserializeAws_json1_1DocumentAttributeList
@@ -6837,7 +6880,15 @@ const de_FeaturedResultsItemList = (output: any, context: __SerdeContext): Featu
 
 // de_FsxConfiguration omitted.
 
-// de_GetQuerySuggestionsResponse omitted.
+/**
+ * deserializeAws_json1_1GetQuerySuggestionsResponse
+ */
+const de_GetQuerySuggestionsResponse = (output: any, context: __SerdeContext): GetQuerySuggestionsResponse => {
+  return take(output, {
+    QuerySuggestionsId: __expectString,
+    Suggestions: (_: any) => de_SuggestionList(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1GetSnapshotsResponse
@@ -7276,6 +7327,29 @@ const de_QuerySuggestionsBlockListSummaryItems = (
 
 // de_SnapshotsDataRecords omitted.
 
+/**
+ * deserializeAws_json1_1SourceDocument
+ */
+const de_SourceDocument = (output: any, context: __SerdeContext): SourceDocument => {
+  return take(output, {
+    AdditionalAttributes: (_: any) => de_DocumentAttributeList(_, context),
+    DocumentId: __expectString,
+    SuggestionAttributes: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SourceDocuments
+ */
+const de_SourceDocuments = (output: any, context: __SerdeContext): SourceDocument[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SourceDocument(entry, context);
+    });
+  return retVal;
+};
+
 // de_SpellCorrectedQuery omitted.
 
 // de_SpellCorrectedQueryList omitted.
@@ -7290,13 +7364,36 @@ const de_QuerySuggestionsBlockListSummaryItems = (
 
 // de_SubnetIdList omitted.
 
-// de_Suggestion omitted.
+// de_SuggestableConfig omitted.
+
+// de_SuggestableConfigList omitted.
+
+/**
+ * deserializeAws_json1_1Suggestion
+ */
+const de_Suggestion = (output: any, context: __SerdeContext): Suggestion => {
+  return take(output, {
+    Id: __expectString,
+    SourceDocuments: (_: any) => de_SourceDocuments(_, context),
+    Value: _json,
+  }) as any;
+};
 
 // de_SuggestionHighlight omitted.
 
 // de_SuggestionHighlightList omitted.
 
-// de_SuggestionList omitted.
+/**
+ * deserializeAws_json1_1SuggestionList
+ */
+const de_SuggestionList = (output: any, context: __SerdeContext): Suggestion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Suggestion(entry, context);
+    });
+  return retVal;
+};
 
 // de_SuggestionTextWithHighlights omitted.
 
