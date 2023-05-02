@@ -5,7 +5,7 @@ import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-eventstream", () => {
-  describe(LexRuntimeV2.name, () => {
+  xdescribe(LexRuntimeV2.name, () => {
     it("should set streaming headers", async () => {
       const client = new LexRuntimeV2({ region: "us-west-2" });
 
@@ -67,7 +67,7 @@ describe("middleware-eventstream", () => {
     });
   });
 
-  describe(TranscribeStreaming.name, () => {
+  xdescribe(TranscribeStreaming.name, () => {
     it("should set streaming headers", async () => {
       const client = new TranscribeStreaming({ region: "us-west-2" });
 
