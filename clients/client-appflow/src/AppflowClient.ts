@@ -50,6 +50,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  CancelFlowExecutionsCommandInput,
+  CancelFlowExecutionsCommandOutput,
+} from "./commands/CancelFlowExecutionsCommand";
+import {
   CreateConnectorProfileCommandInput,
   CreateConnectorProfileCommandOutput,
 } from "./commands/CreateConnectorProfileCommand";
@@ -114,6 +118,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  * @public
  */
 export type ServiceInputTypes =
+  | CancelFlowExecutionsCommandInput
   | CreateConnectorProfileCommandInput
   | CreateFlowCommandInput
   | DeleteConnectorProfileCommandInput
@@ -142,6 +147,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelFlowExecutionsCommandOutput
   | CreateConnectorProfileCommandOutput
   | CreateFlowCommandOutput
   | DeleteConnectorProfileCommandOutput
