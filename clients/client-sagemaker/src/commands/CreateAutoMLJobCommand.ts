@@ -56,6 +56,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *       TargetAttributeName: "STRING_VALUE", // required
  *       ContentType: "STRING_VALUE",
  *       ChannelType: "training" || "validation",
+ *       SampleWeightAttributeName: "STRING_VALUE",
  *     },
  *   ],
  *   OutputDataConfig: { // AutoMLOutputDataConfig
